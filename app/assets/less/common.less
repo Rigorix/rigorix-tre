@@ -1,0 +1,78 @@
+// Core variables and mixins
+@import "../vendor/bootstrap/less/bootstrap.less";
+
+.row-fluid {
+  .clearfix();
+}
+
+.rigorix-main-view {
+
+  padding: 15px 0;
+  .clearfix();
+
+}
+
+.user-box {
+  .clearfix();
+
+  #login_box {
+    .row-fluid {
+      margin-bottom: 7px;
+      .clearfix();
+    }
+  }
+}
+
+.game-loader {
+  padding: 40px;
+  text-align: center;
+
+  span {
+    background: url(/app/assets/images/pacman-loader.gif) no-repeat left center;
+    padding: 6px 0 6px 30px;
+  }
+}
+
+.loading-row {
+  display: none;
+}
+.isLoading {
+  .loading-row {
+    display: block;
+  }
+}
+
+
+
+/// Sfide
+.beautify-date {
+  width: 27px;
+  padding: 1px 2px;
+  background: #fff;
+  box-shadow: 0 2px 2px rgba(100, 100, 100, .7);
+  margin: 0 auto;
+
+  .day {
+    text-align: center;
+    display: block;
+    color: red;
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  .month {
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+    display: block;
+  }
+
+  .year {
+    text-align: center;
+    display: block;
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+}
+

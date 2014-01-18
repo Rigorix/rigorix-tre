@@ -1,0 +1,6 @@
+
+13:33:32  ACTIVITY> do_login_by_id
+13:33:35  ACTIVITY> do_login_by_id
+13:33:59 [U 5780] ACTIVITY> do_logout
+13:33:59  User class> is logged = false, obj destroyed, session destroyed, going with social unlogin
+13:33:59  User class> logoutAllProviders. END!

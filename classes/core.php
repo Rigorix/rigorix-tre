@@ -1,0 +1,425 @@
+<?php
+error_reporting(E_ALL);
+ini_set( 'display_errors','1');
+
+if ( isset($__DEBUG_SCRIPT) && $__DEBUG_SCRIPT !== true )
+	$__DEBUG_SCRIPT = false;
+
+// GET environment conf
+$env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
+
+// REQUIRED CLASSES AND CONFIGURATIONS
+require_once( 'classes/utility.class.php' );
+$utility = new utility();
+
+require_once( 'dm/dm_generic_mysql.php' );
+require_once( 'dm/dm_utente.php' );
+require_once( 'dm/dm_sfide.php' );
+require_once( 'dm/dm_messaggi.php' );
+require_once( 'dm/dm_rewards.php' );
+require_once( 'classes/config.php' );
+require_once( 'classes/mailer/class.phpmailer.php' );
+require_once( 'hybridauth/Hybrid/Auth.php' );
+
+_syslog("Finito caricamento classi e configurazioni");
+
+
+// MAIN CONTEXTS
+require_once( 'classes/user.context.php' );				_syslog("Caricato user context");
+require_once( 'classes/activities.context.php' );		_syslog("Caricato activity context");
+
+$db		 		    = new dm_generic_mysql( $db_conn, $db_name, $sql_debug );
+$dm_utente 		= new dm_utente( $db_conn, $db_name, $sql_debug );
+$dm_sfide 		= new dm_sfide( $db_conn, $db_name, $sql_debug );
+$dm_messaggi	= new dm_messaggi( $db_conn, $db_name, $sql_debug );
+$dm_rewards		= new dm_rewards( $db_conn, $db_name, $sql_debug );
+
+
+require_once( 'api/Helper.php' );
+$ApiHelper = new ApiHelper($dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards);
+
+_syslog("Istanziamento DataManager DM: OK");
+
+$activity = new activities();
+$core = new core();
+$user = new user();
+$mail = new PHPMailer(true);
+
+_syslog("Istanziamento CLASSES: OK");
+
+$core->start();
+
+_syslog("Core->start(): OK");
+
+class core {
+
+	function core()
+	{
+	}
+
+	function start()
+	{
+		// Prendo le variabili dalla sessione. Sono state precedentemente impostate dal CONFIG
+		$this->check_social_login ();
+		$this->get_session_properties ();
+		$this->developer_tools ();
+		$this->get_core_vars ();
+		$this->check_activities ();
+		$this->user_init ();
+		$this->game_start ();
+	}
+
+	function not_internal_url ()
+	{
+		return ( $_SERVER["PHP_SELF"] != "/compleate_registration.php" );
+	}
+
+	function check_social_login()
+	{
+		//$CURRENT_URL = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+		global $env;
+
+		try{
+      $hybridauth = new Hybrid_Auth( $_SERVER['DOCUMENT_ROOT'] . hybridauth_config );
+		}
+		catch( Exception $e ){
+			echo "Ooops, we've got an error: " . $e->getMessage();
+		}
+		$provider = "";
+
+		_log ("SOCIALLOGIN", "Controllo se trovo GET_connected_width: " . $_GET["connected_with"]);
+		if( isset( $_GET["connected_with"] ) && $hybridauth->isConnectedWith( $_GET["connected_with"] ) ){
+			$provider = $_GET["connected_with"];
+			$adapter = $hybridauth->getAdapter( $provider );
+			_log ("SOCIALLOGIN", "Trovato il GET connected_with, hybridauth a buon fine, ho l'adapter, procedo...");
+
+			$user_data = $adapter->getUserProfile();
+			_log ("SOCIALLOGIN", "Colstruito la user_data");
+
+			// var_dump ( $user_data);
+
+			// Ok, autenticato nei social, ora vediamo rigorix
+		    $query = "SELECT * FROM utente WHERE social_provider = '{$provider}' and social_uid = '{$user_data->identifier}'";
+			// echo $query;
+		    $rows = mysql_query($query);
+		    $result = mysql_fetch_array($rows);
+		    if (!empty($result)) {
+				_log ("SOCIALLOGIN", "utente gia presente, faccio redirect a index.php?activity=login_by_id&id=". $result["id_utente"]);
+		        # User is already present
+		        // echo "user present";
+		        header('Location: /index.php?activity=login_by_id&id=' . $result["id_utente"]);
+		    } else {
+				_log ("SOCIALLOGIN", "L'utente hoh è presente, lo inserisco nel DB");
+		        #user not present. Insert a new Record
+				// echo "<br />not present, do insert<br />";
+		        //print_r($user_data);
+
+				$insert_query = "INSERT INTO `utente` (social_uid, picture, username, social_url, social_provider, nome, cognome, email) VALUES ({$user_data->identifier}, '{$user_data->photoURL}', '{$user_data->displayName}', '{$user_data->profileURL}', '{$provider}', '{$user_data->firstName}', '{$user_data->lastName}', '{$user_data->email}')";
+				// echo $insert_query . "<br />";
+				$query = mysql_query ( $insert_query ) or die(mysql_error());
+				_log ("SOCIALLOGIN", "Utente inserito");
+
+				$q = "SELECT * FROM `utente` WHERE social_uid = '{$user_data->identifier}'";
+				// echo "Select id: " . $user_data->identifier . " <br />";
+				$qr = mysql_query( $q );
+		        $result = mysql_fetch_array($qr);
+				_log ("SOCIALLOGIN", "Rifaccio la select: " . $q);
+		    }
+
+			if (!empty($result)) {
+				_log ("SOCIALLOGIN", "Ok, ho trovato l'utente");
+		        # User info ok? Let's print it (Here we will be adding the login and registering routines)
+		       /*
+		        $username = $result['username'];
+		        $userclass = new UserClass();
+		        $userdata = $userclass->checkUser($uid, 'fb', $username);
+*/
+				if( $result["username"] != "" ) {
+					_log ("SOCIALLOGIN", "Tutto è OK, faccio un redirect con il login by");
+					header('Location: /index.php?activity=login_by_id&id=' . $result["id_utente"]);
+				} else
+					die("C'&egrave; stato un problema durante il login. Prova pi&ugrave; tardi!");
+				_log ("SOCIALLOGIN", "Non ho trovato i dati dell'utente quindi non mi redirigo all'auto login");
+		    } else {
+					_log ("SOCIALLOGIN", "Non ho trovato i dati dell'utente, strano!");
+		        # For testing purposes, if there was an error, let's kill the script
+		        die("C'&egrave; stato un problema durante il login. Prova pi&ugrave; tardi!");
+		    }
+
+		} // if user connected to the selected provider
+
+	}
+
+	function get_core_vars()
+	{
+		// Prendo tutte le variabili che serviranno in generale in giro per il sito
+		// es: NUMERO_UTENTI_REGISTRATI, NUMERO_UTENTI_ONLINE
+
+		global $user;
+		$this->storage['NUMERO_UTENTI_REGISTRATI'] = $user->get_num_utenti_registrati ();
+		$this->storage['NUMERO_UTENTI_ONLINE'] = $user->get_num_utenti_online ();
+		$this->storage['NUMERO_USERNAME_ONLINE'] = $user->get_username_online ();
+		$page_array = explode (".", substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1));
+		$this->page_key = $page_array[0];
+	}
+
+	function db_connection()
+	{
+		$this->set_session_properties( "db=>DB_CONN", mysql_pconnect($this->db['DB_HOST'], $this->db['DB_USER'], $this->db['DB_PWD']));
+		mysql_select_db($this->db['DB_NAME']);
+	}
+
+	function check_activities ()
+	{
+		global $activity, $user;
+
+		if ( isset ($_REQUEST['activity']) && $_REQUEST['activity'] != '') {
+			$activity->start ( $_REQUEST['activity'] );
+			$user->update_data_activ ();
+		}
+
+		$activity->run_crones ();
+	}
+
+	function user_init()
+	{
+		// Inizializzazione utente
+		global $user, $request_login;
+
+		if ( !$user->is_logged && $this->is_restriction_page() && ( !isset ($request_login) || $request_login == true ) && strpos($_SERVER['PHP_SELF'], "registrazione") === false ) {
+			header("Location: index.php");
+			exit();
+		}
+		if ( $user->is_logged ) {
+			// Check completo dell'utente loggato per assicurarmi che sia tutto ok.
+			if ( $user->logged_user_checkup () ):
+				if ( !$user->is_active() && !strpos( $_SERVER['PHP_SELF'], "compleate_registration.php")):
+					header ("Location: compleate_registration.php");
+				endif;
+			else:
+				$user->do_logout ();
+			endif;
+		}
+	}
+
+	function game_start()
+	{
+		// Parte all'avvio del gioco, dopo che tutto è stato caricato
+	}
+
+	function is_restriction_page ()
+	{
+		return strpos( $_SERVER['PHP_SELF'], "area_personale.php");
+	}
+
+	function loag_page_content ( $key )
+	{
+		global $db;
+
+		return $db->getSingleArrayQueryCustom ( "select * from static_pages where context = '$key'");
+	}
+
+	function get_session_properties()
+	{
+		foreach ( $_SESSION['rigorix'] as $setting => $setting_val ) {
+			$this->$setting = $setting_val;
+		}
+	}
+
+	function set_session_properties( $key, $value )
+	{
+		$_SESSION['rigorix']{$key} = $value;
+	}
+
+	function render_banner ( $position )
+	{
+		echo '<script type="text/javascript">google_ad_client = "ca-pub-8716025678520095";';
+		switch ( $position ) {
+			case "Top":
+				echo '// Rigorix_728x90
+				google_ad_slot = "7188606148";
+				google_ad_width = 728;
+				google_ad_height = 90;
+				</script>';
+			break;
+
+			case "Square":
+				echo '// Rigorix_250x250
+				google_ad_slot = "5475978463";
+				google_ad_width = 250;
+				google_ad_height = 250;
+				</script>';
+			break;
+
+			case "Middle":
+				echo '// Rigorix_120x600
+				google_ad_slot = "4856957565";
+				google_ad_width = 120;
+				google_ad_height = 600;
+				</script>';
+			break;
+		}
+		echo '<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';
+	}
+
+	function render_box( $box_content, $title = false )
+	{
+		echo '<div class="ui-box ui-box-content ui-corner-all">';
+			echo ($title != false ? '<div class="ui-box-title">' . $title . '</div>' : "");
+			echo '<div class="ui-box-content-html">';
+			include ( "boxes/" . $box_content );
+			echo '</div>';
+		echo '</div>';
+	}
+
+	function render_flat_box( $box_content )
+	{
+		include ( "boxes/" . $box_content );
+	}
+
+	function render_db_static_page( $page_context )
+	{
+		global $db;
+		$page = $db->getSingleObjectQueryCustom("SELECT * FROM static_pages WHERE context = '$page_context'");
+		echo '<div class="ui-box ui-box-content ui-corner-all">';
+			echo '<div class="ui-box-title">' . $page->title . '</div>';
+			echo '<div class="ui-box-content-html">';
+			echo $page->content;
+			echo '</div>';
+		echo '</div>';
+	}
+
+	function render_box_unpadded( $box_content, $title = false )
+	{
+		echo '<div class="ui-box ui-box-content ui-corner-all">';
+			echo ($title != false ? '<div class="ui-box-title">' . $title . '</div>' : "");
+			include ( "boxes/" . $box_content );
+		echo '</div>';
+	}
+
+	function render_box_highlight( $box_content, $title = false )
+	{
+		echo '<div class="ui-box-highlight ui-box-highlight-content ui-corner-all">';
+			echo ($title != false ? '<div class="ui-box-highlight-title">' . $title . '</div>' : "");
+			echo '<div class="ui-box-highlight-content-html">';
+			include ( "./boxes/" . $box_content);
+			echo '</div>';
+		echo '</div>';
+	}
+
+	function render_user_alerts ( )
+	{
+		global $activity;
+		if ( count ( $activity->alerts_container ) > 0 ):
+            echo "<ul>";
+			foreach ( $activity->alerts_container as $error_code )
+				echo "<li>" . $activity->alerts[$error_code] . "</li>";
+            echo "</ul>";
+		endif;
+	}
+
+	function setup ( $key )
+	{
+		return $this->$key;
+	}
+
+	function print_session_var ( $context, $key )
+	{
+		echo $this->{$context}[$key];
+	}
+
+	function send_mail ( $to, $subject, $text )
+	{
+		global $mail;
+		try {
+			$mail->IsSMTP();            // send via SMTP
+			$mail->SMTPDebug= 1;
+			$mail->Host     = "ml.rigorix.com"; 	// SMTP servers
+			// $mail->Host     = "mail.rigorix.com";	// SMTP servers
+			$mail->SMTPAuth = true;     // turn on SMTP authentication
+			$mail->Username = "newsletter@ml.rigorix.com";  // SMTP username
+			$mail->Password = "!newsletter00"; // SMTP password
+
+			$mail->From     = 'noreply@rigorix.com';
+			$mail->FromName = 'Rigorix';
+
+			$mail->AddAddress("contact@rigorix.com", "RigoriX");               // optional name
+			$mail->AddReplyTo('contact@rigorix.com');
+			$mail->WordWrap = 60;           // set word wrap
+			$mail->IsHTML(true);                               // send as HTML
+			$mail->Subject  =  $subject;
+
+			$mail->MsgHTML( $text );
+
+			$mail->AddAddress( $to);
+			return $mail->Send();
+
+		} catch (phpmailerException $e) {
+			echo $e->errorMessage();
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+
+	}
+
+	function send_message ( $id_utente, $subject, $text )
+	{
+		global $dm_messaggi, $activity;
+
+		$msg = array (
+			"indb_id_sender" => 0,
+			"indb_id_receiver" => $id_utente,
+			"indb_oggetto" => $subject,
+			"indb_testo" => $text,
+			"indb_dta_mess" => "_V_NOW_",
+		);
+		$msg = $dm_messaggi->makeInDbObject ($msg);
+		if ($dm_messaggi->insertObject( 'messaggi', $msg )) {
+			$activity->throw_success ( 102 );
+			return true;
+		} else {
+			$activity->throw_error( 102 );
+			return false;
+		}
+	}
+
+
+	function developer_tools ()
+	{
+		// Metodo attivato in modalità sviluppatore
+	}
+}
+
+function deb ( $message, $key = '' )
+{
+	global $core;
+
+	if ( $core->settings["INLINE_DEBUG"] == true )
+		echo "$key> $message<br />";
+	else
+		$_SESSION['rigorix']['log'] .= "$key> $message<br />";
+}
+
+function _log ( $context, $log )
+{
+	global $core, $user;
+
+	if ( $core->settings["LOG_FILE"] == "" )
+		$core->settings["LOG_FILE"] = "log_generic.txt";
+
+	if ( !is_file($core->settings["LOG_FILE"]) )
+		touch($core->settings["LOG_FILE"]);
+
+	$fc = fopen($core->settings["LOG_FILE"], 'a') or die ("can't open errorlog file (".$core->settings["LOG_FILE"].")");
+	fwrite($fc, '
+'.date("H:i:s").' '.($user->is_logged ? "[U ".$user->obj->id_utente."]" : "").' '.$context.'> ' . $log);
+	fclose($fc);
+}
+
+function _syslog ( $log )
+{
+	global $__DEBUG_SCRIPT;
+	if ( $__DEBUG_SCRIPT === true )
+		print_r( "<br>->" . $log);
+}
+?>

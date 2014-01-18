@@ -1,0 +1,39 @@
+<div ng-controller="AreaPersonale.Sfide">
+
+    <div ng-include="'/app/templates/areapersonale.pagetabs.html'"></div>
+
+    <div class="row-fluid">
+        <div class="col-sm-12 mtl">
+
+            <div ng-show="sectionPage == 'sfide_da_giocare'">
+                <p>Qui trovi la lista di tutte le sfide che devi lanciare o a cui devi rispondere.</p>
+
+                <div class="panel panel-default mtl">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Sfide da giocare</div>
+
+                    <!-- Table -->
+                    <div ng-include="'app/templates/lista-sfide.html'" on-lista-sfide-load="sfideDaGiocare"></div>
+                </div>
+
+            </div>
+
+            <div ng-show="sectionPage == 'in_attesa_di_risposta'">
+                in_attesa_di_risposta
+            </div>
+
+            <div ng-show="sectionPage == 'archivio'">
+                <p>Qui trovi la lista di tutte le sfide che hai già giocato.</p>
+
+                <div class="panel panel-default mtl">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Sfide da giocare</div>
+
+                    <!-- Table -->
+                    <div ng-include="'app/templates/lista-sfide.html'" on-lista-sfide-load="sfideArchivio"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

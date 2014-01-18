@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<admin>
+		<title>Local Madcap Collective 2.0</title>
+		<subtitle>Developed by Paolo Moretti, 2003 - 2009</subtitle>
+		<logo>paper_serv_1.jpg</logo>
+		<version>5.2</version>
+		<adminpath>/ff5.2/</adminpath>
+		<adminloadingpath>/maledetto.it/i/loaded/</adminloadingpath>
+		<adminmail>littlebrown@gmail.com</adminmail>
+		<adminpwd>dbdb8700cfd8ad1e3c345ae6759cf927</adminpwd>
+		<adminlanguage/>
+		<adminmenu>
+			<menuheader name="Sezioni Database" type="*DATABASE*" defcon="0"/>
+			<menuheader name="Configurazione" type="*MENU*" dir="conf" defcon="2">
+				<content name="Admin Configurator" page="adm_configurator.php" target="content"/>
+				<content name="Database Configurator" page="configurator.php" target="content"/>
+				<content name="Console" page="JAVASCRIPT">window.open('Console.php', 'newconsole', 'width=500,height=550')</content>
+			</menuheader>
+			<menuheader name="Contatti" type="*MAIL*" defcon="0">littlebrown@gmail.com</menuheader>
+		</adminmenu>
+		<multifieldseparator>***</multifieldseparator>
+		<stringtruncate>150</stringtruncate>
+	</admin>
+	<backup>Updating Datas per page for table album_order</backup>
+	<database>
+		<localhost>
+			<host>localhost</host>
+			<name>maledetto7484</name>
+			<user>root</user>
+			<pwd/>
+		</localhost>
+		<wwwmaledettoit>
+			<host>sql.maledetto.it</host>
+			<name>maledetto7484</name>
+			<user>maledetto7484</user>
+			<pwd>mal62425</pwd>
+		</wwwmaledettoit>
+	</database>
+	<users><account name="rognoso" type="1" pwd="pwdpwd"><tables><table name="Appartamenti"/><table name="Lavori"/><table name="album_order"/><table name="Appartamenti"/><table name="Lavori"/><table name="album_order"/><table name="cat_newsletter"/><table name="artists"/></tables></account><account name="cane" type="1" pwd="pwdpwd"><tables><table name="album_order"/><table name="artists"/><table name="cds"/></tables></account></users>
+	<tables>
+		
+		
+		<table name="album_order" title="Album" visible="false" dataperpage="15" orderdir="" orderfield="">
+			<plugins>
+				
+				
+			<plugin name="aaaa" ref="Riepiloghi.php"/></plugins>
+			<fields>
+				<field name="id_artist" title="Artista" visible="true" adminfield="" type="db" multiple="true">
+					<cross table="artists" ref="id_artist" title="band_name">					</cross>
+				<description/><default/></field>
+				<field name="status" title="status" visible="true" adminfield="" type="db" multiple="false">
+					<virtualcross>
+						<data label="No" value="0">						</data>
+						<data label="Italia" value="1">						</data>
+						<data label="Estero" value="2">						</data>
+					</virtualcross>
+				<description/><default>--</default></field>
+				<field name="ID" visible="false" title="ID" adminfield="" type="db" multiple="true"><description/><default/></field>
+				<field name="cover" title="Album cover" type="filesystem" visible="true" adminfield="" multiple="true">
+					<description/><default/></field>
+				<field name="artista" title="artista" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="titolo" title="titolo" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="costo" title="costo" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="code" title="code" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="lancio_it" title="lancio_it" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="lancio_en" title="lancio_en" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="descr_it" title="descr_it" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="descr_en" title="descr_en" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="data" title="data" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default>NOW</default></field>
+				<field name="click" title="click" visible="false" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="format" title="format" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+				<field name="tipo" title="tipo" visible="true" adminfield="" type="db" multiple="true">
+					<description/><default/></field>
+			</fields>
+		<description/><description/><description/><description/></table>
+		<table name="artists" title="artists" visible="false">
+			<fields>				<field name="id_artist"><cross table="artists" ref="id_artist" title="band_name"/></field></fields>
+		<fields/></table>
+		<table name="cds" title="cds" visible="false"/>
+		<table name="counter" title="counter" visible="false"/>
+		<table name="comments" title="comments"/>
+		<table name="digital_accounts" title="Account Digitale" visible="true" dataperpage="10" orderdir="DESC" orderfield="end_date">
+			<description/>
+			<fields>
+				<field name="id" title="id" visible="false" adminfield="" multiple="false" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="digital_id" title="Id digitale" visible="true" adminfield="" multiple="false" type="db">
+					<description/>
+					<default>--</default>
+					<cross table="digital_storage" ref="id" title="title"/>
+				</field>
+				<field name="user" title="Utente" visible="true" adminfield="" multiple="false" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="md5key" title="md5key" visible="true" adminfield="" multiple="false" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="end_date" title="Data di cancellazione" visible="true" adminfield="" multiple="false" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="download_date" title="Data di scaricamento" visible="true" adminfield="" multiple="false" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="flag" title="Flag" visible="true" adminfield="" multiple="false" type="db">
+					<description/>
+					<default>0</default>
+					<virtualcross>
+						<data label="Scaricato" value="1"/>
+						<data label="Da scaricare" value="0"/>
+					</virtualcross>
+				</field>
+			</fields>
+			<plugins>
+				<plugin name="Create account" ref="DigitalManager.php"/>
+			</plugins>
+		</table>
+		<table name="links" title="links"/>
+		<table name="music" title="music" visible="true" dataperpage="" orderdir="" orderfield=""><fields><field name="id_artist" title="Artista" visible="true" adminfield="" multiple="true" type="db"><cross table="artists" ref="id_artist" title="band_name"/><description/><default/></field><field name="id_song" title="id_song" visible="true" adminfield="" multiple="false" type="db"><description/><default/></field><field name="song_title" title="song_title" visible="true" adminfield="" multiple="false" type="db"><description/><default/></field><field name="ID" title="ID" visible="true" adminfield="" multiple="false" type="db"><description/><default/></field><field name="file" title="file" visible="true" adminfield="" multiple="false" type="db"><description/><default/></field><field name="extPath" title="extPath" visible="true" adminfield="" multiple="false" type="db"><description/><default/></field><field name="play" title="play" visible="true" adminfield="" multiple="false" type="db"><description/><default/></field><field name="clicks" title="clicks" visible="true" adminfield="" multiple="false" type="db"><description/><default/></field></fields><description/></table>
+		<table name="newsletter" title="newsletter"/>
+		<table name="press" title="press"/>
+		<table name="releases" title="releases"/>
+		<table name="tour" title="tour"/>
+		<table name="demo" title="demo"/>
+		<table name="news" title="news" dataperpage="10"/>
+		<table name="wall_poster" title="Posters" visible="true" dataperpage="5" orderdir="DESC" orderfield="end_date">
+			<fields>
+				<field name="id" title="id" visible="false" adminfield="" multiple="false" type="db">
+					</field>
+			<field name="poster_type" title="Tipologia" visible="true" adminfield="" multiple="true" type="db"><virtualcross><data label="Home page" value="1"/></virtualcross><description/><default/><description/><default/></field><field name="status" title="Stato" visible="true" adminfield="" multiple="false" type="db"><virtualcross><data label="Non attivo" value="0"/><data label="Attivo" value="1"/></virtualcross><description/><default/><description/><default/></field><field name="poster_img" title="Immagine poster" visible="true" adminfield="" multiple="false" type="filesystem"><description/><default/><description/><default/></field><field name="html" title="Codice html" visible="true" adminfield="" multiple="false" type="db"><description/><default/><description/><default/></field><field name="link" title="Link" visible="true" adminfield="" multiple="false" type="db"><description/><default/><description/><default/></field><field name="start_date" title="Data inizio" visible="true" adminfield="" multiple="false" type="db"><description/><default/><description/><default/></field><field name="end_date" title="Data fine" visible="true" adminfield="" multiple="false" type="db"><description/><default/><description/><default/></field></fields>
+		<description/><description/></table>
+		<table name="digital_storage" title="digital_storage"/>
+	</tables>
+</config>

@@ -1,0 +1,16 @@
+
+16:24:02  ACTIVITY> do_login_by_id
+16:24:08 [U 5780] ACTIVITY> do_logout
+16:24:08  User class> is logged = false, obj destroyed, session destroyed, going with social unlogin
+16:25:07  ACTIVITY> do_logout
+16:25:07  User class> is logged = false, obj destroyed, session destroyed, going with social unlogin
+16:25:13  ACTIVITY> do_login_by_id
+16:25:21 [U 5780] ACTIVITY> do_login_by_id
+16:26:06 [U 5780] ACTIVITY> do_login_by_id
+16:27:51 [U 5780] ACTIVITY> do_login_by_id
+16:28:53 [U 5780] ACTIVITY> do_login_by_id
+16:29:44 [U 5780] ACTIVITY> do_login_by_id
+16:30:45 [U 5780] ACTIVITY> do_login_by_id
+16:34:50 [U 5780] ACTIVITY> do_login_by_id
+16:35:01 [U 5780] ACTIVITY> do_logout
+16:35:01  User class> is logged = false, obj destroyed, session destroyed, going with social unlogin

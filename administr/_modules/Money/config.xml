@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<admin>
+		<title>Finance manager</title>
+		<subtitle>Developed by Paolo Moretti</subtitle>
+		<logo></logo>
+		<version>4.5</version>
+		<adminpath>/ff5/</adminpath>
+		<admininc>/ff5/inc/</admininc>
+		<adminloadingpath>/ff5/i/loaded/</adminloadingpath>
+		<adminmail>littlebrown@gmail.com</adminmail>
+		<adminpwd>dbdb8700cfd8ad1e3c345ae6759cf927</adminpwd>
+		<adminlanguage></adminlanguage>
+		<adminmenu>
+			<menuheader name="Sezioni Database" type="*DATABASE*" defcon="0"/>
+			<menuheader name="Configurazione" type="*MENU*" dir="conf" defcon="2">
+				<content name="Admin Configurator" page="adm_configurator.php" target="content"/>
+				<content name="Database Configurator" page="configurator.php" target="content"/>
+				<content name="Console" page="JAVASCRIPT">window.open('Console.php', 'newconsole', 'width=500,height=550')</content>
+			</menuheader>
+			<menuheader name="Contatti" type="*MAIL*" defcon="0">littlebrown@gmail.com</menuheader>
+		</adminmenu>
+		<multifieldseparator>***</multifieldseparator>
+		<stringtruncate>150</stringtruncate>
+	</admin>
+	<backup>Updating Datas per page for table album_order</backup>
+	<database>
+		<localhost>
+			<host>localhost</host>
+			<name>maledetto7484</name>
+			<user>root</user>
+			<pwd></pwd>
+		</localhost>
+		<wwwmaledettoit>
+			<host>sql.maledetto.it</host>
+			<name>maledetto7484</name>
+			<user>maledetto7484</user>
+			<pwd>mal62425</pwd>
+		</wwwmaledettoit>
+	</database>
+	<users></users>
+	<tables>
+		<table name="mc_movimenti" title="Movimenti" visible="true" dataperpage="20" orderfield="data" orderdir="DESC" projectforkfield="project_id" >
+			<fields>
+				<field name="id" visible="false" title="id" adminfield="false" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<default>					</default>
+				</field>
+				<field name="descrizione" visible="true" title="Descrizione" adminfield="true" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<default>					</default>
+				</field>
+				<field name="tipoMovimento" visible="true" title="Tipo movimento" adminfield="true" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<cross table="mc_tipomovimenti" ref="id" title="tipo" >					</cross>
+					<default>8</default>
+				</field>
+				<field name="fattura" visible="true" title="Fattura" adminfield="true" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<virtualcross>
+						<data label="No" value="0" >						</data>
+						<data label="Italia" value="1" >						</data>
+						<data label="Estero" value="2" >						</data>
+					</virtualcross>
+					<default>					</default>
+				</field>
+				<field name="stato" visible="true" title="Stato movimento" adminfield="true" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<cross table="mc_stato" ref="id" title="stato" >					</cross>
+					<default>--</default>
+				</field>
+				<field name="personaIniziale" visible="true" title="Pagante/Ricevente" adminfield="true" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<cross table="mc_persone" ref="id" title="nome" >					</cross>
+					<default>--</default>
+				</field>
+				<field name="personaFinale" visible="true" title="Creditore/Debitore" adminfield="true" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<cross table="mc_personefinali" ref="id" title="nome" >					</cross>
+					<default>--</default>
+				</field>
+				<field name="costo" visible="true" title="Costo" adminfield="true" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<default>					</default>
+				</field>
+				<field name="valuta" visible="true" title="Valuta" adminfield="true" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<cross table="mc_valuta" ref="id" title="valuta" >					</cross>
+					<default>--</default>
+				</field>
+				<field name="data" visible="true" title="Data" adminfield="true" multiple="false" type="db" orderby="true" ordertype="DESC" >
+					<description>					</description>
+					<default>date(\'Y-m-d\')</default>
+				</field>
+				<field name="fatturata" visible="true" title="Fatturata" adminfield="true" multiple="false" type="db" orderby="" ordertype="" >
+					<description>					</description>
+					<virtualcross>
+						<data label="No" value="0" >						</data>
+						<data label="Si" value="1" >						</data>
+					</virtualcross>
+					<default>					</default>
+				</field>
+			</fields>
+			<plugins>
+				<plugin name="Fatturazione" ref="Fattura.php" >				</plugin>
+				<plugin name="Riepilogo" ref="Riepiloghi.php" >				</plugin>
+			</plugins>
+		</table>
+		<table name="mc_persone" title="Persone" visible="true" dataperpage="10" orderfield="statoPersona" orderdir="ASC" >
+			<fields>
+				<field name="id" visible="false" title="id" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+				<field name="nome" visible="true" title="Nome" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+				<field name="statoPersona" visible="false" title="statoPersona" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+			</fields>
+		</table>
+		<table name="mc_personeFinali" title="Entit" visible="true" dataperpage="20" orderfield="altraPersona" orderdir="ASC" >
+			<fields>
+				<field name="id" visible="false" title="id" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+				<field name="nome" visible="true" title="Nome" adminfield="true" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+				<field name="rapporto" visible="true" title="Rapporto" adminfield="true" multiple="false" type="Database" >
+					<description>					</description>
+					<cross table="mc_rapporti" ref="id" title="nome" >					</cross>
+				</field>
+				<field name="altraPersona" visible="true" title="Intestatari movimento" adminfield="true" multiple="true" type="Database" >
+					<description>					</description>
+					<cross table="mc_personefinali" ref="id" title="nome" >					</cross>
+				</field>
+			</fields>
+		</table>
+		<table name="mc_stato" title="Stato movimenti" visible="true" orderfield="stato" >
+			<fields>
+				<field name="id" visible="false" title="" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+				<field name="stato" visible="true" title="Stato movimento" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+			</fields>
+		</table>
+		<table name="mc_tipomovimenti" title="Tipo movimenti" visible="true" orderfield="tipo" >
+			<fields>
+				<field name="id" visible="false" title="" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+				<field name="tipo" visible="true" title="Tipo" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+			</fields>
+		</table>
+		<table name="mc_valuta" title="Valuta" visible="true" orderfield="valuta" >
+			<fields>
+				<field name="id" visible="false" title="" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+				<field name="valuta" visible="true" title="Tipo valuta" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+			</fields>
+		</table>
+		<table name="mc_fatture" title="Fatture" visible="true" orderfield="id" >
+			<fields>
+				<field name="id" visible="false" title="" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+			</fields>
+		</table>
+		<table name="mc_rapporti" title="Rapporti transazioni" visible="true" orderfield="tipoRapporto" >
+			<fields>
+				<field name="id" visible="false" title="id" adminfield="false" multiple="false" type="db" >
+					<description></description>
+					<default></default>
+				</field>
+				<field name="percentuale" visible="true" title="Percentuale (da 0 a 1)" adminfield="true" multiple="false" type="db" >
+					<description></description>
+					<default></default>
+				</field>
+				<field name="personePercentuale" visible="true" title="Destinatari percentuale" adminfield="true" multiple="true" type="db" >
+					<description></description>
+					<cross table="mc_persone" ref="id" title="nome" >					</cross>
+					<default>1***3***2</default>
+				</field>
+				<field name="fisso" visible="true" title="Fisso" adminfield="true" multiple="false" type="db" >
+					<description></description>
+					<default></default>
+				</field>
+				<field name="personeFisso" visible="true" title="Destinatari fisso" adminfield="true" multiple="true" type="db" >
+					<description></description>
+					<cross table="mc_persone" ref="id" title="nome" >					</cross>
+					<default></default>
+				</field>
+				<field name="stato" visible="true" title="Stato" adminfield="true" multiple="false" type="db" >
+					<description></description>
+					<virtualcross>
+						<data label="Non attivo" value="0" >						</data>
+						<data label="Attivo" value="1" >						</data>
+					</virtualcross>
+					<default></default>
+				</field>
+				<field name="tiporapporto" visible="true" title="Tipo rapporto" adminfield="false" multiple="false" type="db" >
+					<description></description>
+					<virtualcross>
+						<data label="Diretto al destinatario" value="1" >						</data>
+						<data label="Filtrato dal rapporto" value="2" >						</data>
+					</virtualcross>
+					<default></default>
+				</field>
+				<field name="nome" title="nome" visible="true" adminfield="false" multiple="false" type="db" >
+					<description></description>
+					<default></default>
+				</field>
+			</fields>
+		</table>
+		<table name="mc_tipomovimenti" title="Tipo movimenti" visible="true" orderfield="id" >
+			<fields>
+				<field name="id" visible="false" title="" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+			</fields>
+		</table>
+		<table name="mc_personefinali" title="Entita' (A carico di)" visible="true" orderfield="rapporto" >
+			<fields>
+				<field name="id" visible="false" title="id" adminfield="false" multiple="false" type="Database" >
+					<description>					</description>
+				</field>
+				<field name="altraPersona" visible="true" title="A carico di" adminfield="true" multiple="true" type="Database" >
+					<description>					</description>
+					<cross table="mc_persone" ref="id" title="nome" >					</cross>
+				</field>
+				<field name="rapporto" visible="true" title="Rapporto" adminfield="true" multiple="true" type="Database" >
+					<description>					</description>
+					<cross table="mc_rapporti" ref="id" title="nome" >					</cross>
+				</field>
+			</fields>
+		</table>
+	</tables>
+</config>

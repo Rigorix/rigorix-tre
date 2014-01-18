@@ -1,0 +1,16 @@
+
+02:07:31  ACTIVITY> do_login_by_id
+03:20:32 [U 5780] ACTIVITY> do_update_mascotte
+03:20:32 [U 5780] ACTIVITY> Success 115 [Mascotte aggiornata correttamente]
+03:55:51 [U 5780] ACTIVITY> do_update_mascotte
+03:55:51 [U 5780] ACTIVITY> Success 115 [Mascotte aggiornata correttamente]
+03:56:09 [U 5780] ACTIVITY> do_update_mascotte
+03:56:09 [U 5780] ACTIVITY> Success 115 [Mascotte aggiornata correttamente]
+03:56:52 [U 5780] ACTIVITY> do_update_mascotte
+03:56:52 [U 5780] ACTIVITY> Success 115 [Mascotte aggiornata correttamente]
+03:59:36 [U 5780] ACTIVITY> do_update_mascotte
+03:59:36 [U 5780] ACTIVITY> Success 115 [Mascotte aggiornata correttamente]
+04:01:13 [U 5780] ACTIVITY> do_update_mascotte
+04:01:13 [U 5780] ACTIVITY> Success 115 [Mascotte aggiornata correttamente]
+04:06:01 [U 5780] ACTIVITY> do_update_mascotte
+04:06:01 [U 5780] ACTIVITY> Success 115 [Mascotte aggiornata correttamente]

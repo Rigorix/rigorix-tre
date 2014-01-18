@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modules>
+	<module name="Madcap Collective" path="MDCP"/>
+	<module name="Madcap Collective Finance" path="Money"/>
+	<module name="Bilancio casa" path="PS"/>
+	<module name="Littlebrown" path="LB"/>
+</modules>

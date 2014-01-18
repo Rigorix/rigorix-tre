@@ -1,0 +1,13 @@
+img { visibility: hidden !important; }
+body { background: #eee; }
+
+.ui-box-title { background: #ccc; }
+
+#boxUtente img { border: 1px dashed #000 !important; visibility: visible !important; height: 40px; width: 10px; text-indent: 100000px; padding-left: 150px; overflow: hidden;  }
+.bannerHeader,
+iframe { display: none; }
+
+.user-social-badge img,
+.scheda-utente img { visibility: visible !important; }
+
+#rx_dialog iframe { display: block; }

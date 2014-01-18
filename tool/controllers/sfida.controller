@@ -1,0 +1,66 @@
+{
+    "fields": {
+        "id_sfida": {
+            "forbidden": "true"
+        },
+        "id_sfidante": {
+            "display_name": "Sfidante",
+            "type": "crossfield",
+            "config": {
+                "reference_table": "utente",
+                "reference_field": "id_utente",
+                "label_field": "username"
+            }
+        },
+        "id_sfidato": {
+            "display_name": "Sfidato",
+            "type": "crossfield",
+            "config": {
+                "reference_table": "utente",
+                "reference_field": "id_utente",
+                "label_field": "username"
+            }
+        },
+        "id_vincitore": {
+            "display_name": "Vincitore",
+            "type": "crossfield",
+            "config": {
+                "reference_table": "utente",
+                "reference_field": "id_utente",
+                "label_field": "username"
+            }
+        },
+        "tipo_sfida": {
+            "visibility": "hidden"
+        },
+        "notifica": {
+            "align": "center"
+        },
+        "stato": {
+            "align": "center",
+            "type": "multivalue",
+            "multivalues": {
+                "0": {
+                    "label": "--"
+                },
+                "1": {
+                    "label": "<span class='badge badge-warning'>on</span>"
+                },
+                "2": {
+                    "label": "<span class='badge badge-success'>OK</span>"
+                }
+            }
+        },
+        "risultato": {
+            "align": "center",
+            "contentReplaceFind": ",",
+            "contentReplaceWith": " a "
+        },
+        "punti_sfidante": {
+            "align": "center"
+        },
+        "punti_sfidato": {
+            "align": "center"
+        }
+    }
+}

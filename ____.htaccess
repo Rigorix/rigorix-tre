@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "tre"
+AuthUserFile "/home/rigorix/.htpasswds/tre/passwd"
+require valid-user

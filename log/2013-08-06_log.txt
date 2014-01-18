@@ -1,0 +1,30 @@
+
+03:02:34  ACTIVITY> do_login_by_id
+03:02:37 [U 5774] ACTIVITY> do_logout
+03:02:37  User class> is logged = false, obj destroyed, session destroyed, going with social unlogin
+03:02:38  User class> logoutAllProviders. END!
+03:02:48  ACTIVITY> do_login_by_id
+03:03:40 [U 5790] ACTIVITY> do_complete_registration
+03:03:40 [U 5790] ACTIVITY> Error 416 [Email obbligatoria]
+03:07:59 [U 5790] ACTIVITY> do_complete_registration
+03:07:59 [U 5790] ACTIVITY> Error 416 [Email obbligatoria]
+03:08:08 [U 5790] ACTIVITY> do_complete_registration
+03:08:08 [U 5790] ACTIVITY> Error 415 [Email non corretta o non confermata]
+03:08:08 [U 5790] ACTIVITY> Error 417 [Username gi&agrave; presente nel nostro database]
+03:13:00 [U 5790] ACTIVITY> do_complete_registration
+03:13:00 [U 5790] ACTIVITY> Error 415 [Email non corretta o non confermata]
+03:13:08 [U 5790] ACTIVITY> do_complete_registration
+03:13:08 [U 5790] ACTIVITY> Error 413 [yopmail.com non &egrave; un dominio consentito]
+03:14:15 [U 5790] ACTIVITY> do_complete_registration
+03:14:15 [U 5790] ACTIVITY> Error 415 [Email non corretta o non confermata]
+03:14:50 [U 5790] ACTIVITY> do_complete_registration
+03:14:50 [U 5790] ACTIVITY> do_login_by_id
+03:18:11 [U 5790] ACTIVITY> do_update_user_data
+03:18:11 [U 5790] ACTIVITY> Success 110 [Dati utente aggiornati correttamente]
+03:44:25 [U 5790] ACTIVITY> do_lancia_sfida
+03:44:25 [U 5790] Prerequisiti sfida OK (id sfida: 0)> 
+03:44:25 [U 5790] ID sfida: 117> 
+03:44:25 [U 5790] do_lancia_sfida> tiri e parate sono !== false
+03:44:25 [U 5790] do_lancia_sfida> La sfida è da creare
+03:44:25 [U 5790] do_lancia_sfida> Stato sfida: 1
+03:44:25 [U 5790] ACTIVITY> Success 300 [Sfida inserita correttamente]

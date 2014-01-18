@@ -1,0 +1,58 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/app/controllers/ListaSfide.js" />
+        <item url="file://$PROJECT_DIR$/app/services/auth.js" />
+        <item url="file://$PROJECT_DIR$/app/services/user.js" />
+        <item url="file://$PROJECT_DIR$/app/controllers/Header.js" />
+        <item url="file://$PROJECT_DIR$/app/controllers/Home.js" />
+        <item url="file://$PROJECT_DIR$/app/app.js" />
+        <item url="file://$PROJECT_DIR$/app/controllers/AreaPersonale.js" />
+        <item url="file://$PROJECT_DIR$/app/config.js" />
+        <item url="file://$PROJECT_DIR$/app/controllers/Main.js" />
+        <item url="file://$PROJECT_DIR$/app/filters/filters.js" />
+        <item url="file://$PROJECT_DIR$/app/controllers/Sidebar.js" />
+        <item url="file://$PROJECT_DIR$/app/services/sfide.js" />
+        <item url="file://$PROJECT_DIR$/app/server.js" />
+        <item url="file://$PROJECT_DIR$/app/directives/directives.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/modules/header/app.js.js" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/modules/header/app.js.js" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/modules/header/show/controller" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/modules/header/show/view.js" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/modules/header/show/controller.js" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/app.js" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/modules/header/show/view.js.js" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/modules/header/show/controller" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/modules/header/show/view.js" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/modules/header/show/controller.js" />
+      <root url="file://$PROJECT_DIR$/app/backbone.marionette/app.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/app.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/modules/header/header.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/modules/header/view.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/modules/header/header.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/modules/header/view.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/app.js" />
+      <root url="file://$PROJECT_DIR$/app/controllers/UserBox.js" />
+      <root url="file://$PROJECT_DIR$/app/controllers/UserBox.js" />
+      <root url="file://$PROJECT_DIR$/app/controllers/ListaSfide.js" />
+      <root url="file://$PROJECT_DIR$/app/services/auth.js" />
+      <root url="file://$PROJECT_DIR$/app/controllers/Header.js" />
+      <root url="file://$PROJECT_DIR$/app/services/user.js" />
+      <root url="file://$PROJECT_DIR$/app/controllers/Home.js" />
+      <root url="file://$PROJECT_DIR$/app/controllers/AreaPersonale.js" />
+      <root url="file://$PROJECT_DIR$/app/app.js" />
+      <root url="file://$PROJECT_DIR$/app/config.js" />
+      <root url="file://$PROJECT_DIR$/app/controllers/Main.js" />
+      <root url="file://$PROJECT_DIR$/app/filters/filters.js" />
+      <root url="file://$PROJECT_DIR$/app/controllers/Sidebar.js" />
+      <root url="file://$PROJECT_DIR$/app/services/sfide.js" />
+      <root url="file://$PROJECT_DIR$/app/server.js" />
+      <root url="file://$PROJECT_DIR$/app/directives/directives.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

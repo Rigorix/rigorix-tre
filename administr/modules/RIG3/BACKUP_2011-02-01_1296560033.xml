@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<admin>
+		<title>Rigorix III</title>
+		<subtitle>E andiamo di rigore</subtitle>
+		<logo/>
+		<version>3</version>
+		<adminpath>/administr/</adminpath>
+		<admininc/>
+		<adminloadingpath>/uploads/</adminloadingpath>
+		<adminimagepath>/uploads/</adminimagepath>
+		<adminmail>littlebrown@gmail.com</adminmail>
+		<adminpwd>dbdb8700cfd8ad1e3c345ae6759cf927</adminpwd>
+		<adminlanguage/>
+		<adminmenu>
+			<menuheader name="Contenuti" type="*DATABASE*" defcon="0"/>
+			<menuheader name="Configurazione" type="*MENU*" dir="conf" defcon="2">
+				<content name="Admin Configurator" page="adm_configurator.php" target="content"/>
+				<content name="Database Configurator" page="configurator.php" target="content"/>
+				<content name="Console" page="JAVASCRIPT">window.open('Console.php', 'newconsole', 'width=500,height=550')</content>
+			</menuheader>
+			<menuheader name="Contatti" type="*MAIL*" defcon="0">littlebrown@gmail.com</menuheader>
+		</adminmenu>
+		<multifieldseparator>***</multifieldseparator>
+		<stringtruncate>150</stringtruncate>
+	</admin>
+	<backup restored_from="../modules/PS/BACKUP_2009-09-02_1251843370.xml">Adding / Removing tables to Config.xml</backup>
+	<ui>
+		<imgpreviewsize>40</imgpreviewsize>
+		<viewports>
+			<header up="70" down="*">			</header>
+			<menu sx="221" dx="*" width="249">			</menu>
+		</viewports>
+	</ui>
+	<database>
+		<rigorix3>
+			<host>localhost</host>
+			<name>rigorix_rigorix</name>
+			<user>root</user>
+			<pwd/>
+		</rigorix3>
+		<trerigorixcom>
+			<host>localhost</host>
+			<name>rigorix_tre</name>
+			<user>rigorix_rigorix</user>
+			<pwd>rigorix_tre_!!</pwd>
+		</trerigorixcom>
+	</database>
+	<users/>
+	<tables/>
+</config>

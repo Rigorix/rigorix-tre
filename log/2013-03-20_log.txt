@@ -1,0 +1,8 @@
+
+12:38:35  ACTIVITY> do_login_by_id
+12:38:37 [U 5780] ACTIVITY> do_logout
+12:38:37  User class> is logged = false, obj destroyed, session destroyed, going with social unlogin
+12:38:37  User class> logoutAllProviders. END!
+12:41:01  ACTIVITY> do_login_by_id
+14:15:33 [U 5780] ACTIVITY> do_write_message
+14:15:33 [U 5780] ACTIVITY> Success 102 [Messaggio spedito correttamente]

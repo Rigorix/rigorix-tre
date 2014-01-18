@@ -1,0 +1,167 @@
+
+02:18:00  ACTIVITY> do_login_by_id
+02:31:20  ACTIVITY> do_login_by_id
+02:31:40 [U 5774] ACTIVITY> do_lancia_sfida
+02:31:40 [U 5774] Prerequisiti sfida OK (id sfida: 0)> 
+02:31:40 [U 5774] ID sfida: 76> 
+02:31:40 [U 5774] do_lancia_sfida> tiri e parate sono !== false
+02:31:40 [U 5774] do_lancia_sfida> La sfida è da creare
+02:31:40 [U 5774] do_lancia_sfida> Stato sfida: 1
+02:31:40 [U 5774] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:34:51 [U 5780] ACTIVITY> do_lancia_sfida
+02:34:51 [U 5780] Prerequisiti sfida OK (id sfida: 0)> 
+02:34:51 [U 5780] ID sfida: 77> 
+02:34:51 [U 5780] do_lancia_sfida> tiri e parate sono !== false
+02:34:51 [U 5780] do_lancia_sfida> La sfida è da creare
+02:34:51 [U 5780] do_lancia_sfida> Stato sfida: 1
+02:34:51 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:38:57 [U 5774] ACTIVITY> do_lancia_sfida
+02:38:57 [U 5774] Prerequisiti sfida OK (id sfida: 77)> 
+02:38:57 [U 5774] ID sfida: 77> 
+02:38:57 [U 5774] do_lancia_sfida> tiri e parate sono !== false
+02:38:57 [U 5774] do_lancia_sfida> La sfida è una risposta
+02:38:57 [U 5774] do_lancia_sfida> Stato sfida: 2
+02:38:57 [U 5774] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:38:57 [U 5774] CRONE__chiudi_sfida> ************************************************** [ID  77]
+02:38:57 [U 5774] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+02:38:57 [U 5774] SFIDA::> id sfidante: 5780 (Paolo_Morettiaa), id_sfidato: 5774 (Paolo_Moretti)
+02:38:57 [U 5774] SFIDA::> id vincitore: 5774
+02:38:57 [U 5774] CRONE__chiudi_sfida> Risultato: '3,4', Vincitore: 5774
+02:38:57 [U 5774] ----> SELECT * FROM sfida where ( (id_sfidante = 5780 and id_sfidato = 5774) or (id_sfidante = 5774 and id_sfidato = 5780) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+02:38:57 [U 5774] reward_users> Sfidante: Paolo_Morettiaa
+02:38:57 [U 5774] reward_users> Sfidato: Paolo_Moretti
+02:38:57 [U 5774] reward_users> Sfidante: applico Prima partita del giorno
+02:38:57 [U 5774] REWARD> *** APPLICO Prima partita del giorno per 5780***
+02:38:57 [U 5774] REWARD> [DONE]
+02:38:57 [U 5774] REWARD> Sfide giornaliere tra stessi user: 1
+02:38:57 [U 5774] REWARD> Sfide giornaliere tra stessi user: 1
+02:41:41 [U 5774] ACTIVITY> do_lancia_sfida
+02:41:41 [U 5774] Prerequisiti sfida OK (id sfida: 0)> 
+02:41:41 [U 5774] ID sfida: 78> 
+02:41:41 [U 5774] do_lancia_sfida> tiri e parate sono !== false
+02:41:41 [U 5774] do_lancia_sfida> La sfida è da creare
+02:41:41 [U 5774] do_lancia_sfida> Stato sfida: 1
+02:41:41 [U 5774] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:42:05 [U 5780] ACTIVITY> do_lancia_sfida
+02:42:05 [U 5780] Prerequisiti sfida OK (id sfida: 78)> 
+02:42:05 [U 5780] ID sfida: 78> 
+02:42:05 [U 5780] do_lancia_sfida> tiri e parate sono !== false
+02:42:05 [U 5780] do_lancia_sfida> La sfida è una risposta
+02:42:05 [U 5780] do_lancia_sfida> Stato sfida: 2
+02:42:05 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:42:05 [U 5780] CRONE__chiudi_sfida> ************************************************** [ID  78]
+02:42:05 [U 5780] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+02:42:05 [U 5780] SFIDA::> id sfidante: 5774 (Paolo_Moretti), id_sfidato: 5780 (Paolo_Morettiaa)
+02:42:05 [U 5780] SFIDA::> id vincitore: 0
+02:42:05 [U 5780] CRONE__chiudi_sfida> Risultato: '4,4', Vincitore: 0
+02:42:05 [U 5780] ----> SELECT * FROM sfida where ( (id_sfidante = 5774 and id_sfidato = 5780) or (id_sfidante = 5780 and id_sfidato = 5774) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+02:42:05 [U 5780] reward_users> Sfidante: Paolo_Moretti
+02:42:05 [U 5780] reward_users> Sfidato: Paolo_Morettiaa
+02:42:05 [U 5780] reward_users> Sfidante: applico Senza paura
+02:42:05 [U 5780] REWARD> *** APPLICO Senza paura per 5774***
+02:42:05 [U 5780] REWARD> [DONE]
+02:42:05 [U 5780] REWARD> Sfide giornaliere tra stessi user: 2
+02:42:05 [U 5780] REWARD> Sfide giornaliere tra stessi user: 2
+02:42:18 [U 5774] NEW BADGE DIALOG> CALL dialog
+02:42:20 [U 5780] ACTIVITY> do_lancia_sfida
+02:42:20 [U 5780] Prerequisiti sfida OK (id sfida: 0)> 
+02:42:20 [U 5780] ID sfida: 79> 
+02:42:20 [U 5780] do_lancia_sfida> tiri e parate sono !== false
+02:42:20 [U 5780] do_lancia_sfida> La sfida è da creare
+02:42:20 [U 5780] do_lancia_sfida> Stato sfida: 1
+02:42:20 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:42:43 [U 5774] ACTIVITY> do_lancia_sfida
+02:42:43 [U 5774] Prerequisiti sfida OK (id sfida: 79)> 
+02:42:43 [U 5774] ID sfida: 79> 
+02:42:43 [U 5774] do_lancia_sfida> tiri e parate sono !== false
+02:42:43 [U 5774] do_lancia_sfida> La sfida è una risposta
+02:42:43 [U 5774] do_lancia_sfida> Stato sfida: 2
+02:42:43 [U 5774] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:42:43 [U 5774] CRONE__chiudi_sfida> ************************************************** [ID  79]
+02:42:43 [U 5774] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+02:42:43 [U 5774] SFIDA::> id sfidante: 5780 (Paolo_Morettiaa), id_sfidato: 5774 (Paolo_Moretti)
+02:42:43 [U 5774] SFIDA::> id vincitore: 5774
+02:42:43 [U 5774] CRONE__chiudi_sfida> Risultato: '3,4', Vincitore: 5774
+02:42:43 [U 5774] ----> SELECT * FROM sfida where ( (id_sfidante = 5780 and id_sfidato = 5774) or (id_sfidante = 5774 and id_sfidato = 5780) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+02:42:43 [U 5774] reward_users> Sfidante: Paolo_Morettiaa
+02:42:43 [U 5774] reward_users> Sfidato: Paolo_Moretti
+02:42:43 [U 5774] REWARD> Sfide giornaliere tra stessi user: 3
+02:42:43 [U 5774] REWARD> Sfide giornaliere tra stessi user: 3
+02:44:13 [U 5780] ACTIVITY> do_lancia_sfida
+02:44:13 [U 5780] Prerequisiti sfida OK (id sfida: 0)> 
+02:44:13 [U 5780] ID sfida: 80> 
+02:44:13 [U 5780] do_lancia_sfida> tiri e parate sono !== false
+02:44:13 [U 5780] do_lancia_sfida> La sfida è da creare
+02:44:13 [U 5780] do_lancia_sfida> Stato sfida: 1
+02:44:13 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:44:39 [U 5774] ACTIVITY> do_lancia_sfida
+02:44:39 [U 5774] Prerequisiti sfida OK (id sfida: 80)> 
+02:44:39 [U 5774] ID sfida: 80> 
+02:44:39 [U 5774] do_lancia_sfida> tiri e parate sono !== false
+02:44:39 [U 5774] do_lancia_sfida> La sfida è una risposta
+02:44:39 [U 5774] do_lancia_sfida> Stato sfida: 2
+02:44:39 [U 5774] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:44:39 [U 5774] CRONE__chiudi_sfida> ************************************************** [ID  80]
+02:44:39 [U 5774] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+02:44:39 [U 5774] SFIDA::> id sfidante: 5780 (Paolo_Morettiaa), id_sfidato: 5774 (Paolo_Moretti)
+02:44:39 [U 5774] SFIDA::> id vincitore: 5780
+02:44:39 [U 5774] CRONE__chiudi_sfida> Risultato: '5,3', Vincitore: 5780
+02:44:39 [U 5774] ----> SELECT * FROM sfida where ( (id_sfidante = 5780 and id_sfidato = 5774) or (id_sfidante = 5774 and id_sfidato = 5780) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+02:44:39 [U 5774] reward_users> Sfidante: Paolo_Morettiaa
+02:44:39 [U 5774] reward_users> Sfidato: Paolo_Moretti
+02:44:39 [U 5774] REWARD> Sfide giornaliere tra stessi user: 4
+02:44:39 [U 5774] REWARD> Sfide giornaliere tra stessi user: 4
+02:47:20 [U 5774] ACTIVITY> do_lancia_sfida
+02:47:20 [U 5774] Prerequisiti sfida OK (id sfida: 0)> 
+02:47:20 [U 5774] ID sfida: 81> 
+02:47:20 [U 5774] do_lancia_sfida> tiri e parate sono !== false
+02:47:20 [U 5774] do_lancia_sfida> La sfida è da creare
+02:47:20 [U 5774] do_lancia_sfida> Stato sfida: 1
+02:47:20 [U 5774] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:47:29 [U 5780] ACTIVITY> do_lancia_sfida
+02:47:29 [U 5780] Prerequisiti sfida OK (id sfida: 81)> 
+02:47:29 [U 5780] ID sfida: 81> 
+02:47:29 [U 5780] do_lancia_sfida> tiri e parate sono !== false
+02:47:29 [U 5780] do_lancia_sfida> La sfida è una risposta
+02:47:29 [U 5780] do_lancia_sfida> Stato sfida: 2
+02:47:29 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+02:47:29 [U 5780] CRONE__chiudi_sfida> ************************************************** [ID  81]
+02:47:29 [U 5780] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+02:47:29 [U 5780] SFIDA::> id sfidante: 5774 (Paolo_Moretti), id_sfidato: 5780 (Paolo_Morettiaa)
+02:47:29 [U 5780] SFIDA::> id vincitore: 5774
+02:47:29 [U 5780] CRONE__chiudi_sfida> Risultato: '3,2', Vincitore: 5774
+02:47:29 [U 5780] ----> SELECT * FROM sfida where ( (id_sfidante = 5774 and id_sfidato = 5780) or (id_sfidante = 5780 and id_sfidato = 5774) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+02:47:29 [U 5780] reward_users> Sfidante: Paolo_Moretti
+02:47:29 [U 5780] reward_users> Sfidato: Paolo_Morettiaa
+02:47:29 [U 5780] reward_users> Sfidante: applico Senza paura
+02:47:29 [U 5780] REWARD> *** APPLICO Senza paura per 5774***
+02:47:29 [U 5780] REWARD> [DONE]
+02:47:29 [U 5780] REWARD> Sfide giornaliere tra stessi user: 5
+02:47:29 [U 5780] REWARD> Sfide giornaliere tra stessi user: 5
+02:47:33 [U 5774] NEW BADGE DIALOG> CALL dialog
+03:04:22 [U 5780] ACTIVITY> do_update_mascotte
+03:04:22 [U 5780] ACTIVITY> Success 115 [Mascotte aggiornata correttamente]
+03:25:23 [U 5780] ACTIVITY> do_lancia_sfida
+03:25:23 [U 5780] Prerequisiti sfida OK (id sfida: 0)> 
+03:25:23 [U 5780] ID sfida: 82> 
+03:25:23 [U 5780] do_lancia_sfida> tiri e parate sono !== false
+03:25:23 [U 5780] do_lancia_sfida> La sfida è da creare
+03:25:23 [U 5780] do_lancia_sfida> Stato sfida: 1
+03:25:23 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:25:35 [U 5774] ACTIVITY> do_lancia_sfida
+03:25:35 [U 5774] Prerequisiti sfida OK (id sfida: 82)> 
+03:25:35 [U 5774] ID sfida: 82> 
+03:25:35 [U 5774] do_lancia_sfida> tiri e parate sono !== false
+03:25:35 [U 5774] do_lancia_sfida> La sfida è una risposta
+03:25:35 [U 5774] do_lancia_sfida> Stato sfida: 2
+03:25:35 [U 5774] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:25:35 [U 5774] CRONE__chiudi_sfida> ************************************************** [ID  82]
+03:25:35 [U 5774] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+03:25:35 [U 5774] SFIDA::> id sfidante: 5780 (Paolo_Morettiaa), id_sfidato: 5774 (Paolo_Moretti)
+03:25:35 [U 5774] SFIDA::> id vincitore: 5774
+03:25:35 [U 5774] CRONE__chiudi_sfida> Risultato: '3,4', Vincitore: 5774
+03:25:35 [U 5774] ----> SELECT * FROM sfida where ( (id_sfidante = 5780 and id_sfidato = 5774) or (id_sfidante = 5774 and id_sfidato = 5780) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+03:25:35 [U 5774] reward_users> Sfidante: Paolo_Morettiaa
+03:25:35 [U 5774] reward_users> Sfidato: Paolo_Moretti
+03:25:35 [U 5774] REWARD> Sfide giornaliere tra stessi user: 6
+03:25:35 [U 5774] REWARD> Sfide giornaliere tra stessi user: 6

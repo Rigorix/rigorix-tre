@@ -1,0 +1,398 @@
+/* CSS Document */
+BODY, HTML { height:100%; font-family:Arial, Helvetica, sans-serif; margin: 0; padding: 0}
+BODY#contents { overflow:hidden; padding: 0; margin: 0}
+DIV, SPAN, H1, H2, H3, H4, H5, H6, P { margin:0; padding:0; font-family:Arial, Helvetica, sans-serif;}
+DIV, SPAN, TD, P { font-size:12px}
+A { text-decoration:none}
+IMG { border:0}
+/*b { width:1px; height:1px; background:#FFF; position:absolute; top:0; left:0}
+i { width:1px; height:1px; background:#FFF; position:absolute; top:0; right:0}*/
+form { display: inline}
+input { border-radius: 2px; }
+.autowidth { width: 100%; }
+.clear { height:0px; line-height:0px; font-size:0px; border:0; margin:0; padding:0; clear:both}
+.cursorPointer {cursor: pointer !important}
+.nowrap { white-space: nowrap;}
+.hiddenOverflow { overflow: hidden;}
+.Size30 { font-size: 30px; line-height: 20px}
+.Size20 { font-size: 20px; line-height: 15px}
+ul.normal, ul.normal li { padding: 2px; margin: 0; line-height: 15px; list-style-position: inside;}
+a.normal { color: blue}
+a.black { color: #000}
+.red { color: red !important}
+.roundButton { max-width: 43px; border: 1px solid #919a9e; -moz-border-radius: 4px; padding: 2px 6px 2px 9px; background: url(../i/bg_roundButtons.gif) repeat-x bottom left; display: block; text-transform: uppercase; color: #555 !important; font-size: 11.4px; font-weight: bold; }
+.roundButton:hover { border: 1px solid #076bad; color: #00548c !important}
+.bigButton { font-size: 18px}
+.tips { background: yellow}
+ul.numeric { list-style-type: decimal; margin: 0; padding: 0}
+ul.numeric li { margin: 0 0 6px 22px} 
+
+.round-corners { border-radius: 4px; }
+.round-button { border-radius: 4px; border-width: 1px; background: #eaeef0 url(../i/bg_roundButtons.gif) repeat-x bottom left; display: inline-block; padding: 3px 10px; font-size: 11px; text-transform: uppercase; text-shadow: 1px 1px #fff; cursor: pointer; }
+.round-input { border-width: 1px; border-radius: 4px; padding: 2px 3px; }
+
+#loader { background:#FFF; width:3000px; height:3000px; position:absolute; top:0; left:0; z-index:9999999}
+
+/* Bottoni */
+.txtBtn { font-family: Arial; font-size: 11.2px; font-weight: bold;}
+.txtBtn.green { background: green; color: #FFF !important; padding: 0 4px; line-height: 8px; height: 8px; overflow: hidden}
+
+/*
+INPUT { border:1px solid transparent; font-size:11.4px}
+INPUT:HOVER {  background:#1AABDA; color:#FFF; cursor:pointer}
+*/
+
+/* HEADER */
+BODY#header { background:#333; margin:0; padding:0}
+#headerContent { position:relative; padding:4px 8px}
+#headerContent h1 {font-size:20px; color:#bbb; font-weight:normal; padding-left: 10px; display: block; float: none; }
+#headerContent h2 {font-size:14px; color:#bbb; font-weight:normal; padding-left: 10px; display: block; float: none;}
+#headerContent DIV#logout { position:absolute; top: 17px; right: 30px}
+#headerLogo { float:left; margin-right:20px}
+.contentPad { padding:5px 10px}
+/* FINE HEADER */
+
+
+/* MENU */
+BODY#menu { padding:0; margin:0; background:#f3f3f3; overflow:hidden }
+.menuHeader { background:#FFF; width: 100%; padding:0; margin:0}
+.menuHeader H3, .menuHeader P { padding:5px 20px 5px 10px}
+.menuHeader P {padding: 0 20px 5px 10px; zoom: 1}
+#menuContent {position:relative; padding:0; margin:0; z-index: 10}
+#menuContent .menuRefreshButton { position:absolute; top:5px; right:8px}
+#menuContent HR { height:1px !important; font-size:1px !important; line-height:1px !important; color:#333; border:0}
+#menuContent SPAN.opener { font-weight:bold; padding:2px; padding:2px 6px}
+#menuContent SPAN.opener A, #menuContent A { color:#333; font-size:12.4px; white-space:nowrap}
+#menuContent .subMenu { margin:0px 0 0 16px; display:none}
+
+#menuRightBar {width: 6px;height:7000px; background:#ccc; color:#000; position:absolute; right:0; top:0; }
+#menuRightBar a {position: absolute; width: 5px; white-space: normal; padding: 0 0 0 1px; font-size: 8px; color: #666; line-height: 6px; top: 0; right: 0; display: block; visibility: hidden;}
+#menuRightBar a:hover { color: #666; background: #aaa}
+/* FINE MENU */
+
+
+/* EDIT */
+.field_data INPUT { width:100px}
+.field_data .calendarButton {display: inline; position: relative}
+.field_data .calendarButton .calendar {position: absolute; top: -40px; left: -40px; display: none; z-index:999999; border: 2px solid #ddd;}
+.field_data .calendarButton .calendar A { cursor: pointer !important}
+.multipleSelect { height: 200px}
+#tabContent .multipleSelect { height: 100px; width: 130px}
+#contentHeader h1 { padding-left: 5px}
+
+/* CONTENT */
+#popupCalendar { position:absolute; top: -50px; left: -50px; display:none}
+.btnCheckAll { font-size:10.4px}
+.fastEditing { background: red !important}
+.rowSelector { visibility: hidden;}
+#messagePanel { display:none}
+TABLE.contentsTable { background:#FFF; border-collapse: collapse; }
+TABLE.contentsTable thead { height: 25px; }
+TABLE.contentsTable tbody { overflow: auto; }
+TABLE.contentsTable TR.header { background:#ccc}
+TABLE.contentsTable TR TH { background:#666 url(../i/bg_tableTh.gif) repeat-x bottom left; color:#FFF; text-align:left; padding: 2px 0 3px 0;  }
+TABLE.contentsTable TR TH.ordering { background:#444; color:#FFF}
+TABLE.contentsTable TR TH A { color:#FFF; text-align:left; font-size: 14px; font-family: "Arial Narrow"; }
+TABLE.contentsTable TR TD, TABLE.contentsTable TR TD DIV { text-align:left; color: #333; font-size:11.7px}
+TABLE.contentsTable TR TD div.datasBox { text-overflow: ellipsis; max-height: 50px; overflow: hidden; }
+TABLE.contentsTable TR TD.crossField { background:#90EE90}
+TABLE.contentsTable TR TD.vcrossField { background:#86D0DD}
+TABLE.contentsTable TR TD.projectFork { background:#EDD977}
+TABLE.contentsTable TR.row1 { background:#ebf6ff;}
+TABLE.contentsTable TR.row2 { background:#f8fcff}
+TABLE.contentsTable TR.row1.selected { background:#ffffbe}
+TABLE.contentsTable TR.row2.selected { background:#f6f6ad}
+TABLE.contentsTable TR.row1.selected TD.crossField { background:#e0ee90}
+TABLE.contentsTable TR.row1.selected TD.vcrossField { background:#70bac7}
+TABLE.contentsTable TR.row1.selected TD.projectFork { background:#EFD035}
+TABLE.contentsTable TR.row2.selected TD.crossField { background:#d0de82}
+TABLE.contentsTable TR.row2.selected TD.vcrossField { background:#5ba8b5}
+TABLE.contentsTable TR.row2.selected TD.projectFork { background:#D1B52A}
+TD.rowSep { padding: 0; margin: 0; font-size: 1px; height: 1px; line-height: 1px; background: #ccc}
+/*.content-table-inner { padding-top: 20px; }*/
+
+/* MENU CONTESTUALE */
+#rowContextMenu { position: absolute; background:#eee; border:1px solid #999; border-bottom:1px solid #666; padding:0 0 0 0; z-index:199; width: 180px;  -moz-border-radius-bottomleft:5px;-moz-border-radius-bottomright:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;}
+#rowContextMenu ul {margin: 0; padding: 0; list-style-type: none}
+#rowContextMenu ul li hr {border-top: 1px solid #999; margin: 2px 0; padding: 0}
+#rowContextMenu ul li strong {display:block; padding: 4px 10px }
+#rowContextMenu ul li a { display:block; color:#333; padding: 4px 10px; cursor: pointer; }
+#rowContextMenu ul li a:hover { background:rgb(54,168,255); color:#fff; }
+.highlightedElement { background: yellow}
+.highlight { background: yellow; padding: 0 1px; border-radius: 4px; border: 1px solid #8D900E; opacity: .8; box-shadow: 0px 0 4px #444; }
+
+
+TABLE.editContentsTable TR TH { background:#666; color:#FFF; font-size:13.5px; font-weight:normal; text-align:left}
+TABLE.editContentsTable TR TH A { color:#FFF; text-align:left}
+
+TABLE.NormalDataTable { width: 100%; border: 2px solid #eee}
+TABLE.NormalDataTable tr th { text-align: left; font-size: 14px; font-weight: normal; background: #666; color: #eee; padding: 3px; margin: 0}
+
+.cont-img-wrapper { display: block; margin: 0 auto; text-align: center; }
+.cont-img-wrapper img { border-radius: 4px; }
+
+H1 { padding:2px 10px; font-size:22.5px; font-weight:normal; float: left;}
+H1 SPAN.description { font-size:11px; font-weight:normal}
+H1 SPAN.pluginName { font-size:18.6px; font-weight:normal; color:#36a8ff}
+.toolbarPlugin { color: red !important}
+
+.dataWrapper.calendar {background: #FFF; text-align:center;  margin:3px auto; border:1px solid #ddd; line-height:10px; border-radius: 4px; }
+.dataWrapper.calendar .day {color: red;  font-size:22px; margin: 2px 0 0 0; font-family: "Arial Narrow"; font-weight:bold; text-align:center; display: block; }
+.dataWrapper.calendar .month {text-transform:uppercase; font-sizease; color: #999; font-size:10px; }
+.dataWrapper.calendar .year {text-transform:uppercase; color: #222; font-sizease; font-size:10px; }
+
+#contentWrapper { overflow: auto; position: relative; margin: 0 3px; border: 2px solid #333; border-top: 3px solid #333;}
+#tabContainer { padding:0 15px 0 7px; display:block; float: right; margin: 0}
+.tabStyle {margin-left: 1px; background: #888; display:block; float: left; height:16px; padding:2px 10px; color: #FFF; position:relative; margin-top: 11px; }
+.tabStyle.pageLogger {float:right; background: #FFD800; margin: 0 0 0 4px; color: #333; overflow:auto; font-size:10px; padding-right: 0px}
+.tabStyle.pageLogger.Error { background:red; font-weight: bold !important}
+.tabStyle.Error { background:red; font-weight: bold !important}
+.tabStyle.pageLogger A { margin-right:8px; color:#333; font-weight:bold; font-size:12px}
+.tabStyle.special1 { background:#36a8ff}
+.tabStyle.special1 A , .tabStyle.special1 IMG { vertical-align:middle}
+.tabStyle.special2 { background:#91ed00}
+.tabStyle.special2 A, .tabStyle.special2 IMG { vertical-align:middle; color: #fff}
+#tabMultipleDelete, #tabDuplicate { display:none}
+.tabStyle A { color:#FFF; cursor: pointer;}
+.tabStyle SELECT, .tabStyle SELECT OPTIONS { font-size: 10px; padding:0px; line-height:10px; height:16px}
+.tabStyle.eraseTab { background:red}
+.tabStyle.eraseTab A { color:#333}
+.tabStyle.on { background:#000;}
+.tabStyle.special2.on {background: #2E4F1A}
+.btnOrder { white-space:nowrap; color:#000; font-size:14.5px; font-weight:normal}
+
+.tabStyle { border-radius: 2px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; }
+
+#contentWrapperTabber {	position: absolute; bottom: 0; left: 0; width: 100%; background: #ddd}
+.contentTab { float: left; padding: 4px 16px; font-size: 16px; border-left: 1px solid #ccc; cursor: pointer;}
+.contentTab.selected { background: #fff; font-weight: bold}
+
+/**---- Console boxes ---**/
+#tabContent { background:#333; height: 1px; overflow: hidden;}
+#filterBox { background:#FFF; margin:4px; padding:10px}
+#filterBox H3 { margin:0 }
+#searchBox { background:#FFF; margin:4px; padding:10px}
+#searchBox H3 { margin:0 }
+#configBox { background:#FFF; margin:4px; padding:10px}
+#configBox H3 { margin:0 }
+
+/* Toolbar */
+#toolBar {background:#eee url(../i/bg_toolbar.gif) repeat-x bottom left; padding:0 6px; position:relative; border-bottom:1px solid #666}
+#toolBar .FirstLevel {}
+#toolBar .FirstLevel, #toolBar .FirstLevel LI { list-style-type:none; padding:0; margin:0}
+#toolBar .FirstLevel LI { float:left; position:relative}
+#toolBar .FirstLevel LI A { display:block; padding:4px 8px; color:#333; background:none}
+#toolBar .FirstLevel LI A U { color: red !important}
+#toolBar .FirstLevel LI A:HOVER, #toolBar .FirstLevel LI.on A { background:#666; color:#fff}
+#toolBar UL.SecondLevel { position:absolute; top:23px; left:0px; display:none; background:#eee; border:1px solid #999; border-bottom:1px solid #666; padding:0 0 0 0; z-index:99}
+#toolBar UL.SecondLevel li hr {border-top: 1px solid #999; width: 181px; margin: 2px 0; padding: 0}
+#toolBar .SecondLevel A, #toolBar .SecondLevel SPAN.toolBarContent { display:block !important; width:165px; background:#eee !important; color:#333 !important; }
+#toolBar .SecondLevel A:HOVER { background:rgb(54,168,255) !important; color:#FFF !important}
+#toolBar .SecondLevel A.toolType_2 { background: #f2f06d !important}
+#toolBar .SecondLevel A.toolType_2:hover { background: #c7c529 !important}
+#toolBar .SecondLevel A.toolType_3 { background: #ca6565 !important}
+#toolBar .SecondLevel A.toolType_3:hover { background: #8f3131 !important}
+
+/* Finder */
+#FinderContainer {float: right; padding: 2px 6px 3px 6px; right: 10px; margin-right: 4px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;  }
+#FinderContainer.finding {background: #73c0dd;}
+#FinderInput {font-size: 10px; height: 18px; line-height: 16px; padding:0 5px 0 5px; vertical-align: middle; margin-left: 5px}
+#FinderPanel {position: absolute; top: 23px; right: 0; z-index: 1501; background: #73c0dd; padding: 10px; -moz-border-radius-bottomleft:8px;-moz-border-radius-bottomright:8px;-moz-border-radius-topleft:8px;} /* Ex #cdcdcd */
+#PanelResults { padding: 10px; background: #fff; margin: 10px 0 0 0; overflow: auto; -moz-border-radius-bottomleft:5px;-moz-border-radius-bottomright:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;}
+
+table.zen {}
+table.zen tr th {font-size: 14px; font-weight: normal; text-align: left; background: #e4e4e4; border-right: 1px solid #d4d4d4}
+table.zen tr td { border-right: 1px solid #d4d4d4; border-bottom: 1px solid #d4d4d4}
+table.zen tr td a { vertical-align: middle; color: blue}
+table.zen.borderRight tr td { border-bottom: 0}
+table.zen.padding td {padding: 3px 4px}
+table.zen.lightTh th {font-weight: normal !important; font-size: 14px; padding: 4px 4px; background: #eeeeee !important}
+
+/* Fastedit */
+DIV.fastEditContainer { padding:0; overflow:hidden}
+DIV.fastEditContainer IFRAME { border:0;}
+
+/* FINE CONTENT */
+
+/* Popup */
+#popupContent {}
+#popupButtonRow {position: absolute; bottom:3px; left:0; width:100%; background:#eee; text-align:right; padding:5px 0}
+#popupButtonRow .buttonLeft { margin-right: auto}
+#popupButtonRow INPUT { margin-right:6px; font-size: 12.1px;-moz-border-radius-bottomleft:5px;-moz-border-radius-bottomright:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;}
+.resultOK {background: green; float:left; margin-left:5px; padding: 3px 8px; color: #FFF; font-weight:bold}
+.popupCloseButton {position:absolute; top: 8px; right:8px}
+.popupCloseButton a { color: blue; font-weight: bold;}
+
+.LayerPopup {}
+.LayerPopupWindow { text-align: left; position: relative;}
+.LayerPopupWindow h4 { font-size: 16px; margin-bottom: 5px; }
+
+/* CONSOLE */
+#Console {position: absolute; background: #000; top: -300px; left: 150px; width: 500px; height: 380px; font-size:11px; color:#fff; z-index:9999}
+#Console.popup {position: relative; top: 0; left: 0; width: 100%; height: 100%;}
+#Console DIV.ConsoleContainer { height:350px; overflow:auto}
+#Console.popup DIV.ConsoleContainer { height: 100%}
+#Console #consoleShower {background:#000; border:0; color:#FFF; font-size:11px; font-family:"Courier New", Courier, monospace; padding:10px 10px 0 10px}
+#Console #consoleInput {margin: 0 10px; width: 90%; background:#000; border:0; color:#FFF; font-size:11px; font-family:"Courier New", Courier, monospace}
+#Console .ConsoleTable {color: #fff}
+#Console .ConsoleTable tr td {font-size: 11px !important; padding-right: 30px}
+#Console .ConsoleTable tr th {font-weight: bold; text-align: left; padding-right: 30px}
+#Console .PopupOpener {cursor: pointer; display: block; padding: 4px; font-size: 11px; color: #fff; font-weight: bold; text-align:right}
+
+
+/* CONFIGURATOR */
+#Configurator, #ConfiguratorWindow { background: #fff}
+#ConfiguratorWindow { border: 0; width: 100%}
+#conf_messager { background:#f3f3f3; padding:5px;}
+#conf_messager_debug { display:none}
+#newUserTable { display:none}
+#editUserTable { display:none}
+.BoxInternalButton {position: absolute; top: 0; left: 200px; background: green; padding: 10px}
+.BoxInternalButton input { font-size: 16.7px; color: #fff}
+.adm_configurator input { width: 90% !important}
+.adm_configurator td { background: #fff; border-bottom: 1px solid #f4f4f4}
+.restoredFromThis td { background: #c1fa9f}
+.connectionTable {border: 2px solid #ededed; background: #f3f3f3 !important}
+.subtitle_blue {font-weight: normal; color: blue }
+.next_blue {font-size: 55px; color: blue}
+
+/* CONFIGURATOR => Tabs */
+.internalTabButton { cursor: pointer; padding: 0 4px; font-size: 10px; text-transform: uppercase; vertical-align: top; line-height: 10px}
+
+/* Menu */
+.MenuHome {padding: 5px 0 0 9px; float: left}
+#MenuTree { margin:0; padding:0 10px 10px 10px}
+#MenuTree IMG { vertical-align:middle !important}
+#MenuTree ul, #MenuTree li { list-style-type:none; padding:0; margin:0; white-space:nowrap;}
+#MenuTree ul { padding:0}
+.menuTree_branch { background:red url(../i/tree-branch.gif) repeat-y 0 0}
+.menuTree_treeHead A { border:0; font-weight:bold; font-size:10.4px;}
+ul.menuUl { display: inline !important}
+
+.LightboxBase_style, .LightboxContainer_style {
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	z-index: 100;
+	background: #333
+}
+#LightboxContainer {
+	z-index: 101; 
+	background: #333; 
+}
+
+.LightboxController_style {
+	text-align: left; 
+	background: #000; 
+	padding: 4px 6px; 
+	font-weight: bold;
+	color: #fff;
+	position: relative;
+}
+.LightboxController_style a {
+	position: absolute; 
+	top: 0; 
+	right: 6px;
+	color: #fff; 
+	font-weight: bold; 
+	margin: 4px 0; 
+	cursor: pointer !important
+}
+.LightboxController_style p {
+	color: #fff; 
+	font-weight: normal; 
+	padding: 0 40px 0 0
+}
+#LightboxContent_style {
+	overflow: auto !important; 
+	background: #fff !important; 
+	text-align: left;
+}
+
+/* CALENDAR */
+.CalDay {
+	background: #C4D3EA; 
+	font: 10px Arial, Helvetica, sans-serif;
+	color: #333; 
+	text-align: center; 
+	text-decoration: none;
+	border: 1px solid #6487AE; 
+	cursor: pointer;
+}
+
+/* textarea */
+.HtmlEditor {background: #f6e897; color: #333; padding: 4px; width: 500px; font-family: Arial; -moz-border-radius: 7px; position: relative;}
+.HtmlEditor .Toolbar { background: #e7d46c; color: #000; padding: 3px; position: relative;}
+.HtmlEditor .Toolbar a.btn { height: 20px; background: #fff7cb; text-align: center; font-weight: normal; border: 1px solid #f6e792; border-left: 1px solid #fff; border-top: 1px solid #fff; float: left; display: block; font-size: 11.4px; color: #717171; text-decoration: none}
+.HtmlEditor .Toolbar a.btn span { display: block; padding: 3px 8px}
+.HtmlEditor .Toolbar a.btn span.high { display: block; padding: 0 8px}
+.HtmlEditor .Toolbar div.separator { float: left; height: 22px; width: 1px; margin: 0 2px; background: #f6e897}
+.HtmlEditor .Toolbar a.btn:hover { cursor: pointer; background: #fffbe4;}
+.HtmlEditor .Toolbar a.btn img { border: 0; vertical-align: middle; }
+.HtmlEditor .Editor { background: #fff; padding: 2px; width: 496px}
+.HtmlEditor .Resizer { position: absolute; bottom: 4px; right: 4px; width: 20px; height: 20px; background: url(../js/i/resizer.gif) no-repeat bottom right; cursor: nw-resize;}
+.HtmlEditor .Menu { position: absolute; top: 4px; right: 4px; }
+.HtmlEditor .Menu a { font-size: 11px; line-height: 14px; display: block; border-bottom: 1px solid #ddd; padding: 3px 5px; cursor: pointer; background: #f1f1f1;}
+.HtmlEditor .Menu a:hover, .HtmlEditor .Menu a.open { background: #e1e1e1}
+.HtmlEditor .Menu ul { display: block; background: #f3f3f3; margin: 0; padding: 0}
+.HtmlEditor .Menu ul li { margin: 0; list-style-type: none; font-size: 11px; border-left: 1px solid #ddd; border-right: 1px solid #ddd;}
+.HtmlEditor .Menu ul li strong { font-size: 11px; padding: 4px 6px; display: block}
+.HtmlEditor .Menu ul li a { padding: 4px 6px; color: green}
+.HtmlEditor .Menu ul li a:hover { color: red; background: none}
+.HtmlEditor .Menu ul li a.remove { color: red}
+.HtmlEditor .Menu ul li a.remove:hover { color: green;}
+.HtmlEditor .Console { position: absolute; top: 28px; right: 0; background: green; font-size: 10px; padding: 3px; color: #fff}
+.HtmlEditor .htmlDialog { position: absolute; top: -100px; left: 50%; margin-left: -120px; width: 240px; background: #f3f3f3; border: 3px solid #d3d3d3; padding: 10px;  -moz-border-radius: 5px}
+.HtmlEditor .htmlDialog input {display: inline; vertical-align: middle; margin: 6px; border: 1px solid #999}
+.HtmlEditor .htmlDialog input a { vertical-align: middle;}
+.HtmlEditor .htmlDialog p { font-size: 11px}
+
+/* Tooltip */
+#tt_panel { position: absolute; background: #bdd5fc; border: 2px solid #6287a6; padding: 10px; max-width: 250px; -moz-border-radius:4px;}
+
+/* Report */
+.report { cursor: pointer; padding: 3px 8px; position: absolute; top: -40px; left: 50%; background: #FFD800; color: #333; -moz-border-radius:4px;}
+.report.Error { background: red; color: #fff; font-weight: bold}
+
+/* LOGIN */
+h1.login { float: none;}
+.LoginPanel{ width: 250px; height: 100px; background: #e3e3e3; padding: 0 10px 10px 10px; text-align: center; -moz-border-radius: 5px}
+.PwdOk { color: green; font-size: 17px}
+
+.datasBox.Compressed { height: 18px; overflow: hidden;}
+
+
+/* textContent BOX */
+.textContent {margin: 12px;}
+.textContent h1 { display: block;  float: none; padding: 0; margin: 0; padding: 0 !important}
+.textContent h4 {  font-weight: normal; font-size: 14px; display: block; float: none;}
+.textContent table { text-align: left; background: #ebf6ff}
+.textContent table tr th { font-size: 18px; font-weight: normal; color: green}
+
+
+/* CUSTOM Fields */
+.FF_combobox {visibility: hidden; height: 1px; overflow: hidden;}
+.FF_combobox_ui { padding: 1px 0 2px 0; background: #f0f0f0; border: 1px solid #999; -moz-border-radius: 3px; overflow: hidden; height: 17px; cursor: pointer; float: left}
+.FF_combobox_ui.placeHolder { position: relative; margin: 0 0 2px 0; background: none; border: 0; -moz-border-radius: 0; overflow: visible; cursor: inherit;}
+.FF_combobox_ui label { padding: 1px 4px 4px 4px; padding-right: 16px; white-space: nowrap; display: block; color: #444; cursor: pointer; background: url(../i/f_open.gif) no-repeat right 7px; overflow: hidden;}
+.FF_combobox_ui.open { height: auto; border-color: #39f; background: #cee0f3 }
+.FF_combobox_ui ul { margin: 0; padding: 0}
+.FF_combobox_ui ul li { list-style-type: none; padding: 0; margin: 0; padding: 2px 4px 2px 15px; border-top: 1px solid #81a8cf; background: #fff}
+.FF_combobox_ui ul li:hover { background: #e0e0e0}
+.FF_combobox_ui ul li.selected { background:#e0e0e0 url(../i/spunta.gif) no-repeat 5px 6px; }
+
+.FF_textfield_ui { padding: 1px 3px; background: #f0f0f0; border: 1px solid #999; -moz-border-radius: 3px; }
+.FF_textfield_ui.open { height: auto !important; border-color: #39f; }
+.FF_textfield_ui.error { background: url(../i/input_error.gif) repeat-x bottom left; border:1px solid red}
+.FF_textfield_ui input { border: 0; background: none}
+.FF_textfield_ui .errorEvidence { white-space: nowrap; color: #fff; padding: 2px 12px 5px 12px; font-size: 11px; position: absolute; top: 2px; background: url(../i/errorEvidenceBg.gif) no-repeat}
+.FF_textfield_ui ul { margin: 0; padding: 0}
+.FF_textfield_ui ul li { list-style-type: none; padding: 0; margin: 0; padding: 2px 4px 2px 15px; border-top: 1px solid #81a8cf; background: #fff}
+.FF_textfield_ui ul li:hover { background: #e0e0e0}
+.FF_textfield_ui ul li.selected { background:#e0e0e0 url(../i/spunta.gif) no-repeat 5px 6px; }
+
+#ShortcutLabel { opacity: .9; box-shadow: 1px 2px 25px #000; position: absolute; background: yellow; color: #333; font-weight: normal; z-index: 9000; visibility: hidden; }
+#ShortcutLabel h2 { font-family: "Arial Narrow"; background-color: #f2ef00; text-align: center; font-weight: normal; font-size: 16px; padding: 4px 10px; margin-bottom: 5px; }
+#ShortcutLabel div { padding: 0 10px; }
+
+#rowContextMenu { box-shadow: 1px 4px 10px #333; }

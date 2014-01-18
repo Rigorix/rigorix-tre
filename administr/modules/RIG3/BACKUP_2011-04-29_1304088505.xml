@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <admin>
+        <title>
+            Rigorix III
+        </title>
+        <subtitle>
+            E andiamo di rigore
+        </subtitle>
+        <logo>
+            logo.gif
+        </logo>
+        <version>
+            3
+        </version>
+        <adminpath>
+            /administr/
+        </adminpath>
+        <admininc/>
+        <adminloadingpath>
+            /uploads/
+        </adminloadingpath>
+        <adminimagepath>
+            /uploads/
+        </adminimagepath>
+        <adminmail>
+            littlebrown@gmail.com
+        </adminmail>
+        <adminpwd>dbdb8700cfd8ad1e3c345ae6759cf927</adminpwd>
+        <adminlanguage>
+            --
+        </adminlanguage>
+        <adminmenu>
+            <menuheader name="Contenuti" type="*DATABASE*" defcon="0"/>
+            <menuheader name="Configurazione" type="*MENU*" dir="conf" defcon="2">
+                <content name="Admin Configurator" page="adm_configurator.php" target="content"/>
+                <content name="Database Configurator" page="configurator.php" target="content"/>
+                <content name="Console" page="JAVASCRIPT">
+                    window.open('Console.php', 'newconsole', 'width=500,height=550')
+                </content>
+            </menuheader>
+            <menuheader name="Contatti" type="*MAIL*" defcon="0">
+                littlebrown@gmail.com
+            </menuheader>
+        </adminmenu>
+        <multifieldseparator>
+            ***
+        </multifieldseparator>
+        <stringtruncate>
+            150
+        </stringtruncate>
+    </admin>
+    <backup>CONF: Before new cross field settings for table "messaggi", field "id_receiver"</backup>
+    <ui>
+        <imgpreviewsize>
+            40
+        </imgpreviewsize>
+        <viewports>
+            <header up="70" down="*">
+            </header>
+            <menu sx="221" dx="*" width="249">
+            </menu>
+        </viewports>
+    </ui>
+    <database>
+        <rigorix3>
+            <host>
+                localhost
+            </host>
+            <name>
+                rigorix_rigorix
+            </name>
+            <user>
+                root
+            </user>
+            <pwd/>
+        </rigorix3>
+        <trerigorixcom>
+            <host>
+                localhost
+            </host>
+            <name>
+                rigorix_tre
+            </name>
+            <user>
+                rigorix_rigorix
+            </user>
+            <pwd>
+                rigorix_tre_!!
+            </pwd>
+        </trerigorixcom>
+    </database>
+    <users>
+        <account name="massimo" type="1" pwd="m4ss1m0">
+            <tables/>
+        </account>
+    </users>
+    <tables>
+        <table name="messaggi" title="Messaggi utente" visible="true" dataperpage="50" orderdir="DESC" orderfield="id_mess">
+            <description/>
+            <fields>
+                <field name="id_mess" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="id_sender" title="Mandato da" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                <cross table="utente" ref="id_utente" title="username"/></field>
+                <field name="id_receiver" title="Ricevuto da" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="oggetto" title="Oggetto" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="testo" title="Testo" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="letto" title="Letto" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="dta_mess" title="Data" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="report" title="Abuse" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+            </fields><description/><description/>
+        </table><table name="premio" title="premio"/><table name="sfida" title="sfida"/>
+        <table name="static_pages" title="Pagine statiche" visible="true" dataperpage="" orderdir="" orderfield="">
+            <description>
+            </description>
+            <fields>
+                <field name="id" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description>
+                    </description>
+                    <default>
+                    </default>
+                </field>
+                <field name="title" title="Titolo" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description>
+                    </description>
+                    <default>
+                    </default>
+                </field>
+                <field name="context" title="Page key (no spazi)" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description>
+                    </description>
+                    <default>
+                    </default>
+                </field>
+                <field name="content" title="Contenuto" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description>
+                    </description>
+                    <default>
+                    </default>
+                </field>
+                <field name="attachment" title="Allegati" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description>
+                    </description>
+                    <default>
+                    </default>
+                </field>
+                <field name="last_update" title="Ultimo update" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description>
+                    </description>
+                    <default>
+                    </default>
+                </field>
+            </fields>
+        </table>
+        <table name="tornei" title="tornei" visible="true" dataperpage="25" orderdir="" orderfield="">
+            <fields>
+                <field name="id_admin" title="Amministratore" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <cross table="utente" ref="id_utente" title="username"/><description/><default/>
+                </field>
+                <field name="id_torneo" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="nome" title="Nome torneo" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="descrizione" title="Descrizione" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="logo" title="Logo torneo" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="edizione" title="Edizione" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="ranking" title="Ranking" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="premio" title="Premio" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="pubblico" title="Privacy" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="playoff" title="Playoff" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="playoff_num" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="girone_italiana" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="tipo_partenza" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="partecipanti_minimo" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="partecipanti_massimo" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="data_creazione" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="data_inizio" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="data_chiusura_campionato" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="data_chiusura" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="only_regione" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="only_provincia" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="only_eta_minima" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="only_eta_massima" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="only_sesso" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="only_utenti_ranking" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="only_utenti_special_ranking" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="only_utenti_gold" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="stato" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="fase" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="fase_playoff" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="id_vincitore" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+            </fields><description/>
+        </table>
+        <table name="unsubscribe" title="unsubscribe" visible="true" dataperpage="25" orderdir="" orderfield=""/>
+        <table name="utente" title="Utenti" visible="true" dataperpage="30" orderdir="ASC" orderfield="username">
+			<description/>
+			<fields>
+				<field name="id_utente" title="ID" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="username" title="Username" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="passwd" title="Password" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="picture" title="Immagine" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="cap" title="CAP" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="mobile" title="Cell" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="nome" title="Nome" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="cognome" title="Cognome" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="data_nascita" title="Data nascita" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="sesso" title="Sex" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="citta" title="Citta" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="prov" title="Prov" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="nazione" title="Naz" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="email" title="Mail" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="punteggio" title="Punti" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="punteggio_totale" title="Punti tot" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="ranking" title="Rank" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="special_ranking" title="S Rank" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="gold" title="Gold" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="dollarix" title="Dollarix" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="id_invitante" title="Invitante" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="dta_reg" title="Data reg" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="stato" title="Stato" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				<virtualcross><data label="In attesa" value="0"/><data label="Attivo" value="1"/></virtualcross></field>
+				<field name="colore_maglietta" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="tipo_maglietta" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="numero_maglietta" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="colore_pantaloncini" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="colore_calzini" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="dta_activ" title="Attiv" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="hobby" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="frase" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="giocatore" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="squadra" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="tipo_alert" title="Alert" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="ip" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="ip_last_change" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+				<field name="last_login" title="Last login" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+					<description/>
+					<default/>
+				</field>
+			</fields>
+		</table>
+        <table name="bug_report" title="bug_report" visible="true" dataperpage="30" orderdir="time_stamp" orderfield="desc">
+            <fields>
+                <field name="id_utente" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <cross table="utente" ref="id_utente" title="username"/><description/>
+                    <default>
+                        --
+                    </default>
+                </field>
+                <field name="id_bug" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="reporting_from" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="time_stamp" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="context" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="description" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="stato" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                    <virtualcross>
+                        <data label="Aperto" value="0"/><data label="Chiuso" value="1"/>
+                    </virtualcross>
+                </field>
+            </fields><description/><description/><description/>
+        </table>
+        <table name="tornei_inviti" title="Tornei - inviti" visible="true" dataperpage="25" orderdir="" orderfield=""/>
+        <table name="tornei_sfide" title="Tornei - sfide" visible="true" dataperpage="50" orderdir="DESC" orderfield="data_inserimento">
+            <description/>
+            <fields>
+                <field name="id_sfida" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="id_torneo" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/><cross table="tornei" ref="id_torneo" title="nome"/>
+                </field>
+                <field name="data_inserimento" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="due_date" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="tipo_competizione" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                    <virtualcross>
+                        <data label="Campionato" value="0"/><data label="Playoff" value="1"/>
+                    </virtualcross>
+                </field>
+                <field name="fase_playoff" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="id_sfidante" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/><cross table="utente" ref="id_utente" title="username"/>
+                </field>
+                <field name="id_sfidato" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/><cross table="utente" ref="id_utente" title="username"/>
+                </field>
+                <field name="id_vincitore" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/><cross table="utente" ref="id_utente" title="username"/>
+                </field>
+                <field name="a_tavolino" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                    <virtualcross>
+                        <data label="No" value="0"/><data label="Si" value="1"/>
+                    </virtualcross>
+                </field>
+                <field name="data_lancio" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="data_risposta" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="data_chiusura" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="risultato" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="stato" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                    <virtualcross>
+                        <data label="Inserita" value="0"/><data label="Lanciata" value="1"/><data label="Risposta e chiusa" value="2"/><data label="Annullata" value="3"/><data label="Persa a tavolino dallo sfidante" value="4"/><data label="Persa a tavolino dallo sfidato" value="5"/>
+                    </virtualcross>
+                </field>
+            </fields><description/>
+        </table>
+        <table name="tornei_iscrizioni" title="Tornei - iscrizioni" visible="true" dataperpage="" orderdir="" orderfield="">
+            <fields>
+                <field name="id_utente" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <cross table="utente" ref="id_utente" title="username"/><description/>
+                    <default>
+                        --
+                    </default>
+                </field>
+                <field name="id_torneo" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <cross table="tornei" ref="id_torneo" title="nome"/><description/>
+                    <default>
+                        --
+                    </default>
+                </field>
+                <field name="id_iscrizione" title="" visible="false" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="data_iscrizione" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+                <field name="stato" title="" visible="true" adminfield="" multiple="false" autocomplete="false" restriction="" type="db">
+                    <description/><default/>
+                </field>
+            </fields><fields/><description/><description/>
+        </table>
+    </tables>
+</config>

@@ -1,0 +1,73 @@
+<div class="panel panel-primary user-box">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Box Utente</h3>
+    </div>
+
+    <div class="list-group">
+
+        <div id="boxUtente" ng-show="userLogged">
+            <div class="list-group-item">
+                <div class="media">
+                    <a class="pull-left user-picture" href="#" name="add-profile-picture">
+                        <img src="{{currentUser.picture}}" width="30" height="30" class="media-object img-circle" id="profile_picture" />
+                    </a>
+                    <div class="media-body">
+                        <p>
+                            Ciao <strong data-toggle="popover" data-content="And here\'s some amazing content. It\'s very engaging. right?">{{currentUser.username}}</strong>
+                            <span class="badge" id="punteggioUtente">{{currentUser.punteggio_totale}}</span>
+                            <a ng-show="currentUser.messages.length > 0" href="#area-personale" class="messages-icon" title="Hai dei messaggi da leggere"><strong class="count-unread-messages">{{currentUser.messages.length}}</strong> <img src="i/ico_messaggi.gif" align="absmiddle" /></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="list-group-item" ng-show="currentUser.sfide_da_giocare.length > 0">
+                <p class="content"><img src="i/pallone_small.gif" alt="Pallone" /> &nbsp; Hai <strong id="totSfide" class="tornei_num_sfide">{{currentUser.sfide_da_giocare.length}} </strong> sfide &nbsp;<a href="area_personale.php?show_tab=rx-tab-sfide,rx-tab-sfide-attive" class="btn btn-success btn-sm">Gioca</a></p>
+            </div>
+            <div class="list-group-item center-block">
+                <a href="#area-personale" class="btn btn-sm btn-info">Area personale</a>
+                <a href="#logout" class="btn btn-sm btn-danger">Esci</a>
+            </div>
+
+        </div>
+
+
+
+        <div id="boxUtente" ng-show="!userLogged">
+
+            <!--<?php if ( $activity->has_error_range ( 100, 101 ) ) { ?>-->
+            <!--<div class="ui-box ui-box-content ui-corner-all ui-state-error ui-margin">-->
+                <!--<div class="ui-box-content-html">-->
+                    <!--<?php echo $activity->print_error_range (100, 101); ?>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<?php } ?>-->
+
+            <!-- SOCIAL LOGIN NEW -->
+            <div class="ui-box-content-html" id="login_box">
+                <p align="center">Accedi a Rigorix tramite questi social network:<br /><br /></p>
+                <div class="row-fluid">
+                    <div class="col-sm-6 text-center">
+                        <a href="#" ng-click="doAuth('facebook')"><img src="/i/login_facebook.png" /></a>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <a href="#" class="btn-twitter" ng-click="doAuth('twitter')"><img src="/i/login_twitter.png" /></a>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="col-sm-6 text-center">
+                        <a href="#" class="btn-google" ng-click="doAuth('google')"><img src="/i/login_google.png" /></a>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <a href="#" class="btn-foursquare" ng-click="doAuth('fourquare')"><img src="/i/login_foursquare.png" /></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+	<admin>
+		<title></title>
+		<subtitle></subtitle>
+		<logo></logo>
+		<version></version>
+		<adminpath></adminpath>
+		<adminloadingpath></adminloadingpath>
+		<adminmail></adminmail>
+		<adminpwd>dbdb8700cfd8ad1e3c345ae6759cf927</adminpwd>
+		<adminmenu></adminmenu>
+		<multifieldseparator>***</multifieldseparator>
+		<stringtruncate>150</stringtruncate>
+	</admin>
+	<backup></backup>
+	<database></database>
+	<users></users>
+	<tables></tables>
+</config>
