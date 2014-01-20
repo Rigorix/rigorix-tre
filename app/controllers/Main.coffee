@@ -8,7 +8,6 @@ Rigorix.controller "Main", ($scope, AuthService) ->
     if next.$$route.originalPath == "/logout"
       $scope.$emit "LOGOUT"
 
-
   $scope.$on "LOGOUT", ->
     User = false
     $scope.currentUser = null

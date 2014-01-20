@@ -27,7 +27,18 @@ $dm_rewards   = new dm_rewards( $db_conn, $db_name, $sql_debug );
 Flight::route('GET /badges', function($count) { global $dm_rewards;
 
   $badges = $dm_rewards->getBadgeRewards ();
-  echo json_encode( $badges );
+//  $encodedArray = array_map(utf8_encode, $badges);
+//  utf8_encode($badges);
+  echo html_entity_decode ( json_encode( $badges, JSON_FORCE_OBJECT ));
+  die();
+
+
+  echo "[";
+  foreach ($badges as $badge) {
+    echo json_encode( $badge );
+    echo ",";
+  }
+  echo "]";
 
 });
 
@@ -90,40 +101,9 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
 });
 
 /// AUTH
-Flight::route('GET /auth/login/@provider', function($provider) { global $dm_utente;
+Flight::route('GET /auth/login', function($provider) {
 
-	$config = 'hybridauth/config.php';
-	$hybridauth = new Hybrid_Auth( $config );
-	$return_to = $_GET['return_to'];
-
-	if( isset( $provider ) && $hybridauth->isConnectedWith( $provider ) ) {
-  		$adapter = $hybridauth->getAdapter( $provider );
-  		$user_data = $adapter->getUserProfile();
-
-	  	// Ok, autenticato nei social, ora vediamo rigorix
-	  	$user = $dm_utente->getUserBySocialProvider ($provider, $user_data->identifier);
-
-	    if ( $user !== false ) {
-	    	
-	    	// User already exists in Rigorix, let's log it in
-	    	$return_to = $return_to . ( strpos( $return_to, '?' ) ? '&' : '?' ) . "id_utente=" . $user->id_utente ;
-		
-	    	header('Location: ' . $return_to);
-	    	die();
-
-	    } else {
-
-			// user not present in Rigorix. Let's create it
-			$insert_query = "INSERT INTO `utente` (social_uid, picture, username, social_url, social_provider, nome, cognome, email) VALUES ({$user_data->identifier}, '{$user_data->photoURL}', '{$user_data->displayName}', '{$user_data->profileURL}', '{$provider}', '{$user_data->firstName}', '{$user_data->lastName}', '{$user_data->email}')";
-			// echo $insert_query . "<br />";
-			$query = mysql_query ( $insert_query ) or die(mysql_error());
-
-			$user = $dm_utente->getUserBySocialProvider ($provider, $user_data->identifier);
-	    }
-	    die();
-	} else { 
-		$adapter = $hybridauth->authenticate( $provider );
-	}
+  die();
 
 });
 

@@ -167,18 +167,17 @@ class activities {
 
 	function do_login_by_id ( )
 	{
-		global $core, $user;
+		global $core, $user, $env;
 		$id = $_REQUEST["id"];
 
-		if ($_SESSION['rigorix_auth_origin'] != $env->DOMAIN)
-      header ("Location: " . $_SESSION['rigorix_auth_origin'] . "?activity=login_by_id&id=" . $id);
-    else
-      echo "$$$$$$$$";
+//    echo $_SESSION['rigorix_auth_origin'] ."--". $env->DOMAIN;
+//    die();
+//		if ($_SESSION['rigorix_auth_origin'] != $env->DOMAIN)
+//      header ("Location: " . $_SESSION['rigorix_auth_origin'] . "?activity=login_by_id&id=" . $id);
 
 		$status = $user->do_login_by_id ( $id );
 		if ( $status !== false ) {
 			$core->set_session_properties ( 'user', $status );
-    		deb ("do_login");
 			if ( $status->attivo == 0 && $core->not_internal_url() )
 				header ("Location: compleate_registration.php");
 			else

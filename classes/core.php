@@ -76,7 +76,6 @@ class core {
 
 	function check_social_login()
 	{
-		//$CURRENT_URL = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 		global $env;
 
 		try{
@@ -87,28 +86,22 @@ class core {
 		}
 		$provider = "";
 
-		_log ("SOCIALLOGIN", "Controllo se trovo GET_connected_width: " . $_GET["connected_with"]);
-		if( isset( $_GET["connected_with"] ) && $hybridauth->isConnectedWith( $_GET["connected_with"] ) ){
+		if( isset( $_GET["connected_with"] ) && $hybridauth->isConnectedWith( $_GET["connected_with"] ) ) {
 			$provider = $_GET["connected_with"];
 			$adapter = $hybridauth->getAdapter( $provider );
-			_log ("SOCIALLOGIN", "Trovato il GET connected_with, hybridauth a buon fine, ho l'adapter, procedo...");
-
 			$user_data = $adapter->getUserProfile();
-			_log ("SOCIALLOGIN", "Colstruito la user_data");
-
-			// var_dump ( $user_data);
 
 			// Ok, autenticato nei social, ora vediamo rigorix
-		    $query = "SELECT * FROM utente WHERE social_provider = '{$provider}' and social_uid = '{$user_data->identifier}'";
-			// echo $query;
-		    $rows = mysql_query($query);
-		    $result = mysql_fetch_array($rows);
-		    if (!empty($result)) {
-				_log ("SOCIALLOGIN", "utente gia presente, faccio redirect a index.php?activity=login_by_id&id=". $result["id_utente"]);
-		        # User is already present
-		        // echo "user present";
-		        header('Location: /index.php?activity=login_by_id&id=' . $result["id_utente"]);
-		    } else {
+      $query = "SELECT * FROM utente WHERE social_provider = '{$provider}' and social_uid = '{$user_data->identifier}'";
+    // echo $query;
+      $rows = mysql_query($query);
+      $result = mysql_fetch_array($rows);
+
+      if (!empty($result)) {
+        header('Location: ' . $_SESSION["rigorix_auth_origin"] . '?activity=login_by_id&id=' . $result["id_utente"]);
+//        header('Location: /index.php?activity=login_by_id&id=' . $result["id_utente"]);
+
+      } else {
 				_log ("SOCIALLOGIN", "L'utente hoh è presente, lo inserisco nel DB");
 		        #user not present. Insert a new Record
 				// echo "<br />not present, do insert<br />";
@@ -127,16 +120,9 @@ class core {
 		    }
 
 			if (!empty($result)) {
-				_log ("SOCIALLOGIN", "Ok, ho trovato l'utente");
-		        # User info ok? Let's print it (Here we will be adding the login and registering routines)
-		       /*
-		        $username = $result['username'];
-		        $userclass = new UserClass();
-		        $userdata = $userclass->checkUser($uid, 'fb', $username);
-*/
 				if( $result["username"] != "" ) {
 					_log ("SOCIALLOGIN", "Tutto è OK, faccio un redirect con il login by");
-					header('Location: /index.php?activity=login_by_id&id=' . $result["id_utente"]);
+					header('Location: '.$_SESSION["rigorix_auth_origin"].'?activity=login_by_id&id=' . $result["id_utente"]);
 				} else
 					die("C'&egrave; stato un problema durante il login. Prova pi&ugrave; tardi!");
 				_log ("SOCIALLOGIN", "Non ho trovato i dati dell'utente quindi non mi redirigo all'auto login");
@@ -233,33 +219,39 @@ class core {
 
 	function render_banner ( $position )
 	{
-		echo '<script type="text/javascript">google_ad_client = "ca-pub-8716025678520095";';
-		switch ( $position ) {
-			case "Top":
-				echo '// Rigorix_728x90
-				google_ad_slot = "7188606148";
-				google_ad_width = 728;
-				google_ad_height = 90;
-				</script>';
-			break;
+    global $env;
 
-			case "Square":
-				echo '// Rigorix_250x250
-				google_ad_slot = "5475978463";
-				google_ad_width = 250;
-				google_ad_height = 250;
-				</script>';
-			break;
+    if ( $env->ADV === true ):
 
-			case "Middle":
-				echo '// Rigorix_120x600
-				google_ad_slot = "4856957565";
-				google_ad_width = 120;
-				google_ad_height = 600;
-				</script>';
-			break;
-		}
-		echo '<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';
+      echo '<script type="text/javascript">google_ad_client = "ca-pub-8716025678520095";';
+      switch ( $position ) {
+        case "Top":
+          echo '// Rigorix_728x90
+          google_ad_slot = "7188606148";
+          google_ad_width = 728;
+          google_ad_height = 90;
+          </script>';
+        break;
+
+        case "Square":
+          echo '// Rigorix_250x250
+          google_ad_slot = "5475978463";
+          google_ad_width = 250;
+          google_ad_height = 250;
+          </script>';
+        break;
+
+        case "Middle":
+          echo '// Rigorix_120x600
+          google_ad_slot = "4856957565";
+          google_ad_width = 120;
+          google_ad_height = 600;
+          </script>';
+        break;
+      }
+      echo '<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';
+
+    endif;
 	}
 
 	function render_box( $box_content, $title = false )

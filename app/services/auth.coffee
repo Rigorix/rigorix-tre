@@ -1,5 +1,3 @@
-console.log "RigorixEnv", RigorixEnv
-
 RigorixServices.factory "AuthService", ($resource)->
 
   $resource RigorixEnv.API_DOMAIN + "auth/:id_utente/:action/:value",

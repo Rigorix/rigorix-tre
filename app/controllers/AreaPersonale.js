@@ -3,6 +3,9 @@ Rigorix.controller("AreaPersonale", function($scope, $routeParams, $location) {
   $scope.sections = ['utente', 'sfide', 'impostazioni', 'messaggi'];
   $scope.section = $routeParams.section;
   $scope.sectionPage = $routeParams.sectionPage;
+  $scope.onClickAreaPersonaleSection = function(sec) {
+    return $scope.$emit("areapersonale:change:section", sec);
+  };
   if ($scope.section == null) {
     $location.path("/area-personale/utente");
   }
@@ -10,7 +13,7 @@ Rigorix.controller("AreaPersonale", function($scope, $routeParams, $location) {
     if ($routeParams.sectionPage != null) {
       return $routeParams.sectionPage === page;
     } else {
-      return $first;
+      return false;
     }
   };
 });

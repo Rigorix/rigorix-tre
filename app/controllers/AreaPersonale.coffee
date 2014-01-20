@@ -4,6 +4,11 @@ Rigorix.controller "AreaPersonale", ($scope, $routeParams, $location) ->
   $scope.section = $routeParams.section
   $scope.sectionPage = $routeParams.sectionPage
 
+  $scope.onClickAreaPersonaleSection = (sec)->
+    $scope.$emit "areapersonale:change:section", sec
+
+
+
   if !$scope.section?
     $location.path "/area-personale/utente"
 
@@ -11,7 +16,10 @@ Rigorix.controller "AreaPersonale", ($scope, $routeParams, $location) ->
     if $routeParams.sectionPage?
       $routeParams.sectionPage is page
     else
-      $first
+#      console.log "first", $first
+      false
+#    else
+#      $first
 
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -32,6 +40,7 @@ Rigorix.controller "AreaPersonale.Utente", ($scope, AppService) ->
         if reward.key_id == badge.key_id
           ret = true
     ret
+
 
 
 #-----------------------------------------------------------------------------------------------------------------------

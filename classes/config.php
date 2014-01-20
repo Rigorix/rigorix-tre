@@ -13,8 +13,6 @@ date_default_timezone_set('Europe/Rome');
 
 define ( "hybridauth_config", "/hybridauth/config.php");
 
-define ( "ENV", $env );
-
 define ( "BADGE_PICTURE_PATH", '/i/rewards/' );
 define ( "BADGE_PICTURE_REPOSITORY", $_SERVER['DOCUMENT_ROOT'] . '/i/rewards/' );
 

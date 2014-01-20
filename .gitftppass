@@ -1,0 +1,9 @@
+{
+ "staging": {
+      "host": "ftp.rigorix.com",
+      "port": 21,
+      "user": "rigorix",
+      "password": "L85pxggfsKu5",
+      "remotePath": "/tre/"
+  }
+}

@@ -4,12 +4,8 @@
 <?php require_once("boxes/html_head.php"); ?>
 
 <body ng-controller="Main">
-<div class="content">
-<div id="fb-root"></div>
-<script>
-activity.fb.init ();
-</script>
 
+<div class="container">
 
 <div id="service_window">
 	<iframe name="service_window" src="classes/service.php"></iframe>

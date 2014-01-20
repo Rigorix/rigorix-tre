@@ -6,7 +6,7 @@ Rigorix.controller("Sidebar", function($scope, UserService) {
   });
   return $scope.doAuth = function(social) {
     var auth_url;
-    auth_url = RigorixEnv.REMOTE + "/social_login.php?provider=" + social + "&origin=" + RigorixEnv.DOMAIN + "&return_to=" + RigorixEnv.REMOTE + "/?_ts=" + (new Date()).getTime();
+    auth_url = RigorixEnv.REMOTE + "/social_login.php?provider=" + social + "&origin=" + RigorixEnv.DOMAIN + "&return_to=" + RigorixEnv.REMOTE;
     return window.open(auth_url, "hybridauth_social_sing_on", "location=0,status=0,scrollbars=0,width=800,height=500");
   };
 });

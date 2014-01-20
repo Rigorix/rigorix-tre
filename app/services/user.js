@@ -35,12 +35,20 @@ RigorixServices.factory("UserService", function($resource) {
         filter: User.id_utente,
         value: 'username'
       }
+    },
+    getBadges: {
+      method: "GET",
+      isArray: true,
+      params: {
+        filter: User.id_utente,
+        value: 'badges'
+      }
     }
   });
 });
 
 RigorixServices.factory("AppService", function($resource) {
-  return $resource(RigorixStorage.API_DOMAIN + ":param1/:param2/:param3", {
+  return $resource(RigorixEnv.API_DOMAIN + ":param1/:param2/:param3", {
     param1: "@param1",
     param2: "@param2",
     param3: "@param3",

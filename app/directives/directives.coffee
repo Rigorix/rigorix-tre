@@ -1,13 +1,12 @@
-Rigorix.directive "refreshStateOnLoad", ()->
-  (scope, element, attrs) ->
-    false
-#
-#    if scope.$first
-#      backgroundSrc = scope.$parent.pictures[parseInt(Math.random()*scope.$parent.pictures.length)].src
-#    if scope.$last
-#      # If is last image, build the catalogue
-#      scope.$parent.buildCatalogue()
 
+# Refresh for area personale tabs, is triggered once route change and check the default tab and open it
+Rigorix.directive "refreshStateOnLoad", ['$timeout', '$location', (timer, location)->
+    link: (scope, element, attrs, ctrl) ->
+      doRefresh = ()->
+        window.location.href = $(element).find("li:first a").attr "href" if $(element).find("li.active").size() is 0
+
+      timer doRefresh, 0
+  ]
 
 Rigorix.directive "onListaSfideLoad", ()->
   (scope, element, attrs)->

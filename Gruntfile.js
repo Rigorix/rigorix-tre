@@ -68,6 +68,15 @@ module.exports = function(grunt) {
       }
     },
 
+    git_ftp: {
+      development: {
+        options: {
+          'hostFile':'.gitftppass',
+          'host':'staging'
+        }
+      }
+    },
+
 
 
     watch: {
@@ -86,8 +95,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-git-ftp');
 
   // Default task(s).
-  grunt.registerTask('dev', ['concat:dist', 'less:development', 'ftp-deploy:build']);
+  grunt.registerTask('dev', ['concat:dist', 'less:development']);
+  grunt.registerTask('deploy:staging', ['git_ftp:development']);
+  grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
 
 };

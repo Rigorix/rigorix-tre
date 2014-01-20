@@ -25,23 +25,8 @@
     var RigorixEnv = <?php echo json_encode($env); ?>;
 	</script>
 
-	<!-- script src="/app/assets/vendor/jquery-1.10.2.min.js" type="text/javascript"></script>
-
-	<script src="/app/assets/vendor/angular.min.js" type="text/javascript"></script>
-	<script src="/app/assets/vendor/angular-route.min.js" type="text/javascript"></script>
-  <script src="/app/assets/vendor/angular-resource.min.js" type="text/javascript"></script>
-  <script src="/app/config.js" type="text/javascript"></script>
-  <script src="/app/app.js" type="text/javascript"></script>
-  <script src="/app/services/services.js" type="text/javascript"></script>
-  <script src="/app/services/auth.js" type="text/javascript"></script>
-  <script src="/app/controllers/Main.js" type="text/javascript"></script>
-  <script src="/app/controllers/Sidebar.js" type="text/javascript"></script>
-  <script src="/app/controllers/Header.js" type="text/javascript"></script>
-  <script src="/app/controllers/Home.js" type="text/javascript"></script -->
-
   <script src="/app/assets/dist/dist.js" type="text/javascript"></script>
 
-  <script src="/js/jquery-ui-1.8.1.custom.min.js" type="text/javascript"></script>
 	<script src="/js/jquery-ui-1.8.1.custom.min.js" type="text/javascript"></script>
 	<script src="/js/j_core.js" type="text/javascript"></script>
 	<script src="/js/j_activity.js" type="text/javascript"></script>
@@ -63,6 +48,7 @@
 	<? } ?>
 	</script>
 	<!-- OAS SETUP begin -->
+
 	<SCRIPT type="text/javascript">
 	<!--
 	//configuration
