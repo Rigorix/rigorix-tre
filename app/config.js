@@ -2,7 +2,8 @@
 var RigorixConfig, RigorixStorage;
 
 RigorixConfig = {
-  updateTime: 60000
+  updateTime: 60000,
+  deletedUsernameQuery: "__DELETED__"
 };
 
 RigorixStorage = {

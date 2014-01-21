@@ -50,8 +50,8 @@ Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'sfide_da_giocare', 'in_attesa_di_risposta', 'archivio' ]
+
   $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare
-  $scope.sfideArchivio = []
 
   if $scope.sectionPage == 'archivio'
     $scope.sfideArchivio = SfideService.getArchivioSfide
@@ -59,6 +59,16 @@ Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService) ->
       limit_count: 15
     ,
       $scope.isLoading = false
+
+  if $scope.sectionPage == 'in_attesa_di_risposta'
+    $scope.sfideInAttesaDiRisposta = SfideService.getSfidePending $scope.isLoading = false
+
+
+  $scope.isLoading = false if $scope.sectionPage is "sfide_da_giocare"
+
+#  if $scope.sectionPage == 'sfide_da_giocare'
+#    $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare
+
 
 
 #-----------------------------------------------------------------------------------------------------------------------

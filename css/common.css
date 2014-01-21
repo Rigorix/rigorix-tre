@@ -331,6 +331,7 @@ big.message.error { border-color: red; }
 	.table-vertical-hr-td { background: #fff; width: 10px; }
 	.flat-table { border-collapse: collapse; }
 	.flat-table td { padding: 2px 4px; }
+  .deleted-user .ui-username { text-decoration: line-through; color: #ccc; cursor: default; }
 
 	.sfida-list-table th { padding: 0 2px !important; }
 

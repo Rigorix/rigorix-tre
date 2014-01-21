@@ -12,3 +12,11 @@ RigorixServices.factory "SfideService", ($resource)->
       params:
         filter: 'archivio'
         value: User.id_utente
+    ,
+
+    getSfidePending:
+      method: 'GET'
+      isArray: true
+      params:
+        filter: 'pending'
+        value: User.id_utente

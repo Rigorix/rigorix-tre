@@ -45,12 +45,17 @@ Rigorix.controller("AreaPersonale.Sfide", function($scope, SfideService) {
   $scope.isLoading = true;
   $scope.pages = ['sfide_da_giocare', 'in_attesa_di_risposta', 'archivio'];
   $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare;
-  $scope.sfideArchivio = [];
   if ($scope.sectionPage === 'archivio') {
-    return $scope.sfideArchivio = SfideService.getArchivioSfide({
+    $scope.sfideArchivio = SfideService.getArchivioSfide({
       limit_start: 0,
       limit_count: 15
     }, $scope.isLoading = false);
+  }
+  if ($scope.sectionPage === 'in_attesa_di_risposta') {
+    $scope.sfideInAttesaDiRisposta = SfideService.getSfidePending($scope.isLoading = false);
+  }
+  if ($scope.sectionPage === "sfide_da_giocare") {
+    return $scope.isLoading = false;
   }
 });
 

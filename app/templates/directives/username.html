@@ -1,3 +1,3 @@
 <div class="user-link" name="user-link" id_utente="{{userObject.id_utente}}" ng-click="doClickUsername()">
-    <span class="ui-username">{{userObject.username}}</span>
+    <span class="ui-username"  ng-class="{deleted: userObject.deleted}">{{userObject.username}}</span>
 </div>

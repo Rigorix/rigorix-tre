@@ -15,6 +15,23 @@ Rigorix.directive("refreshStateOnLoad", [
   }
 ]);
 
+Rigorix.directive("onSfidaLoad", [
+  '$timeout', function(timer) {
+    return {
+      link: function(scope, element, attrs) {
+        var checkDeletedUser;
+        checkDeletedUser = function() {
+          if ($(element).find(".deleted").size() !== 0) {
+            element.addClass("deleted-user");
+            return $(element).find(".deleted").html($(element).find(".deleted").html().replace(RigorixConfig.deletedUsernameQuery, ""));
+          }
+        };
+        return timer(checkDeletedUser, 200);
+      }
+    };
+  }
+]);
+
 Rigorix.directive("onListaSfideLoad", function() {
   return function(scope, element, attrs) {
     return scope.__sfide = scope[attrs.onListaSfideLoad];
@@ -26,7 +43,7 @@ Rigorix.directive("beautifyDate", function() {
     restrict: 'E',
     templateUrl: '/app/templates/directives/beautify-date.html',
     link: function(scope, element, attr) {
-      return scope.date = attr.date;
+      return scope.date = moment(attr.date).isValid() ? attr.date : false;
     }
   };
 });
@@ -37,12 +54,14 @@ Rigorix.directive("username", function(UserService) {
     templateUrl: '/app/templates/directives/username.html',
     link: function(scope, element, attr) {
       if (RigorixStorage.users[attr.idUtente] != null) {
-        return scope.userObject = RigorixStorage.users[attr.idUtente];
+        scope.userObject = RigorixStorage.users[attr.idUtente];
+        return scope.userObject.deleted = scope.userObject.username.indexOf(RigorixConfig.deletedUsernameQuery) !== -1;
       } else {
         return UserService.getUsernameById({
           filter: attr.idUtente
         }, function(json) {
           scope.userObject = json;
+          scope.userObject.deleted = json.username.indexOf(RigorixConfig.deletedUsernameQuery) !== -1;
           return RigorixStorage.users[attr.idUtente] = json;
         });
       }

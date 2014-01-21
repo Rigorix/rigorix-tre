@@ -54,6 +54,15 @@ Flight::route('GET /sfide/archivio/@id_utente', function($id_utente) { global $d
 
 });
 
+Flight::route('GET /sfide/pending/@id_utente', function($id_utente) { global $dm_sfide;
+
+  $sfide = $dm_sfide->getSfideAttiveUtente ( $id_utente );
+  echo json_encode( $sfide );
+
+});
+
+
+
 
 /// Users
 Flight::route('GET /users/all', function($count) { global $dm_utente;

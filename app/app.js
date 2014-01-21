@@ -21,15 +21,15 @@ Rigorix.config(function($routeProvider) {
     controller: "Home"
   });
   $routeProvider.when("/area-personale", {
-    templateUrl: "app/templates/areapersonale.page.html",
+    templateUrl: "app/templates/area-personale/page.html",
     controller: "AreaPersonale"
   });
   $routeProvider.when("/area-personale/:section", {
-    templateUrl: "app/templates/areapersonale.page.html",
+    templateUrl: "app/templates/area-personale/page.html",
     controller: "AreaPersonale"
   });
   $routeProvider.when("/area-personale/:section/:sectionPage", {
-    templateUrl: "app/templates/areapersonale.page.html",
+    templateUrl: "app/templates/area-personale/page.html",
     controller: "AreaPersonale"
   });
   $routeProvider.when("/regolamento", {

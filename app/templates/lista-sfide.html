@@ -1,5 +1,6 @@
 <table class="table" ng-controller="ListaSfide" ng-class="{ isLoading: isLoading }">
     <tr>
+        <th rowspan="2"></th>
         <th rowspan="2">Avversario</th>
         <th rowspan="2" class="text-center">Lanciata</th>
         <th rowspan="2" class="text-center">Risposta</th>
@@ -11,14 +12,15 @@
         <th class="text-center">Punti</th>
         <th class="text-center">Rewards</th>
     </tr>
-    <tr class="loading-row">
+    <tr class="loading-row" ng-show="isLoading">
         <td colspan="7">
             <div class="game-loader">
                 <span>Loading ...</span>
             </div>
         </td>
     </tr>
-    <tr ng-repeat="sfida in __sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.if_sfida}}">
+    <tr ng-repeat="sfida in __sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.if_sfida}}" on-sfida-load>
+        <td class="{{risultatoLabel}}"></td>
         <td>
             <username id_utente="{{id_avversario}}"></username>
         </td>
@@ -41,7 +43,7 @@
             <span class="badge">{{sfida.id_sfidante == $scope.currentUser.id_utente ? sfida.punti_sfidante : sfida.punti_sfidato}}</span>
         </td>
         <td class="text-center">
-            <button class="btn btn-sm" ng-class="{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vediSfida'}" ng-click="doClickSfida(statoButton)">{{statoButton | varToTitle}}</button>
+            <button class="btn btn-sm" ng-class="{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vedi_sfida'}" ng-click="doClickSfida(statoButton)">{{statoButton | varToTitle}}</button>
         </td>
     </tr>
 </table>

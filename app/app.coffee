@@ -5,7 +5,6 @@ SocialLoginUrl = "http://tre.rigorix.com/social_login.php"
 
 Rigorix.config ($routeProvider)->
 
-
 # --- Main routes ---------------------------------------------------
   $routeProvider.when "/",
     templateUrl: "app/templates/home.page.html",
@@ -22,15 +21,15 @@ Rigorix.config ($routeProvider)->
 
 # --- Area personale ------------------------------------------------
   $routeProvider.when "/area-personale",
-    templateUrl: "app/templates/areapersonale.page.html",
+    templateUrl: "app/templates/area-personale/page.html",
     controller: "AreaPersonale"
 
   $routeProvider.when "/area-personale/:section",
-    templateUrl: "app/templates/areapersonale.page.html",
+    templateUrl: "app/templates/area-personale/page.html",
     controller: "AreaPersonale"
 
   $routeProvider.when "/area-personale/:section/:sectionPage",
-    templateUrl: "app/templates/areapersonale.page.html",
+    templateUrl: "app/templates/area-personale/page.html",
     controller: "AreaPersonale"
 
 

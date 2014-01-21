@@ -19,6 +19,7 @@ module.exports = function(grunt) {
           'app/assets/vendor/angular-resource.min.js',
           'app/assets/vendor/angular-route.min.js',
           'app/assets/vendor/bootstrap/js/bootstrap.min.js',
+          'app/assets/vendor/moment.min.js',
 
           //own classes and files
           'app/config.js',
@@ -38,35 +39,25 @@ module.exports = function(grunt) {
     less: {
       development: {
         options: {
-          paths: ["app/assets/vendor/bootstrap/less"],
-          cleancss: true
+          paths: ["app/assets/vendor/bootstrap/less"]
         },
         files: {
           "app/assets/dist/dist.common.css": "app/assets/less/common.less"
         }
-      }/*,
-      production: {
-        options: {
-          paths: ["assets/css"],
-          cleancss: true
-        },
-        files: {
-          "path/to/result.css": "path/to/source.less"
-        }
-      }*/
-    },
-
-    'ftp-deploy': {
-      build: {
-        auth: {
-          host: 'ftp.rigorix.com',
-          port: 21,
-          authKey: 'tre_prod'
-        },
-        src: 'app/assets/dist',
-        dest: 'tre/app/assets/dist'
       }
     },
+
+//    'ftp-deploy': {
+//      build: {
+//        auth: {
+//          host: 'ftp.rigorix.com',
+//          port: 21,
+//          authKey: 'tre_prod'
+//        },
+//        src: 'app/assets/dist',
+//        dest: 'tre/app/assets/dist'
+//      }
+//    },
 
     git_ftp: {
       development: {
@@ -91,11 +82,11 @@ module.exports = function(grunt) {
 
   });
 
+//  grunt.loadNpmTasks('grunt-git-ftp');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-ftp-deploy');
+//  grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-git-ftp');
 
   // Default task(s).
   grunt.registerTask('dev', ['concat:dist', 'less:development']);
