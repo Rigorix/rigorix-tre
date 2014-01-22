@@ -8,6 +8,7 @@
     "grunt-ftp-deploy": "~0.1.1",
     "grunt-contrib-less": "~0.9.0",
     "ftp": "~0.3.6",
-    "grunt-git-ftp": "~0.1.4"
+    "grunt-git-ftp": "~0.1.4",
+    "grunt-contrib-coffee": "~0.8.2"
   }
 }

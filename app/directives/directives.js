@@ -42,8 +42,9 @@ Rigorix.directive("beautifyDate", function() {
   return {
     restrict: 'E',
     templateUrl: '/app/templates/directives/beautify-date.html',
+    scope: true,
     link: function(scope, element, attr) {
-      return scope.date = moment(attr.date).isValid() ? attr.date : false;
+      return scope.date = attr.date;
     }
   };
 });

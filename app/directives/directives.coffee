@@ -1,4 +1,3 @@
-
 # Refresh for area personale tabs, is triggered once route change and check the default tab and open it
 Rigorix.directive "refreshStateOnLoad", ['$timeout', '$location', (timer, location)->
     link: (scope, element, attrs, ctrl) ->
@@ -7,7 +6,6 @@ Rigorix.directive "refreshStateOnLoad", ['$timeout', '$location', (timer, locati
 
       timer doRefresh, 0
   ]
-
 
 Rigorix.directive "onSfidaLoad", ['$timeout', (timer)->
     link: (scope, element, attrs)->
@@ -23,13 +21,12 @@ Rigorix.directive "onListaSfideLoad", ()->
   (scope, element, attrs)->
     scope.__sfide = scope[attrs.onListaSfideLoad]
 
-
-
 Rigorix.directive "beautifyDate", ()->
   restrict: 'E'
   templateUrl: '/app/templates/directives/beautify-date.html'
+  scope: true
   link: (scope, element, attr) ->
-    scope.date = if moment(attr.date).isValid() then attr.date else false
+    scope.date = attr.date
 
 Rigorix.directive "username", (UserService)->
   restrict: 'E'

@@ -3,12 +3,13 @@ Rigorix.controller "ListaSfide", ($scope) ->
   true
 
 
-Rigorix.controller "ListaSfide.Sfida", ($scope) ->
+Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
 
   $scope.id_avversario = if $scope.sfida.id_sfidante == User.id_utente then $scope.sfida.id_sfidato else $scope.sfida.id_sfidante
   $scope.risultato = $scope.sfida.risultato.split ","
 
-  console.log "date", $scope.sfida.dta_sfida, $scope.sfida.dta_conclusa
+  $scope.sfida.dta_sfida = false if !moment($scope.sfida.dta_sfida).isValid()
+  $scope.sfida.dta_conclusa = false if !moment($scope.sfida.dta_conclusa).isValid()
 
   if $scope.currentUser.id_utente == $scope.sfida.id_vincitore
     $scope.punti = 3
@@ -28,3 +29,12 @@ Rigorix.controller "ListaSfide.Sfida", ($scope) ->
     when "3" then $scope.statoButton = 'vinta_a_tavolino'
     else
       $scope.statoButton = $scope.sfida.stato
+
+  $scope.doClickSfida = (action)->
+
+    $modal.open
+      templateUrl:  '/app/templates/modals/sfida.html',
+      controller:    'Modals.Sfida',
+      resolve:
+        sfida: ->
+          $scope.sfida

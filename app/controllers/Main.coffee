@@ -1,4 +1,4 @@
-Rigorix.controller "Main", ($scope, AuthService) ->
+Rigorix.controller "Main", ($scope, $modal, AuthService) ->
 
   $scope.siteTitle = "Website title"
   $scope.userLogged = false
@@ -8,10 +8,12 @@ Rigorix.controller "Main", ($scope, AuthService) ->
     if next.$$route.originalPath == "/logout"
       $scope.$emit "LOGOUT"
 
+
   $scope.$on "LOGOUT", ->
     User = false
     $scope.currentUser = null
     $scope.userLogged = false
+    alert "logout"
 
   if User isnt false
     $scope.userLogged = true
