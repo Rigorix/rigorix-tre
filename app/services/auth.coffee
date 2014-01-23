@@ -4,5 +4,5 @@ RigorixServices.factory "AuthService", ($resource)->
     id_utente: User.id_utente
     action: "@action"
     value: "@value"
-    isArray: true
+    isArray: false
 

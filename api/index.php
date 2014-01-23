@@ -5,6 +5,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
 header('Content-type: application/json');
 
+require_once( '../classes/fastjson.php' );
 require_once '../classes/config.php';
 require_once 'flight/Flight.php';
 require_once '../dm/dm_generic_mysql.php';
@@ -29,13 +30,13 @@ Flight::route('GET /badges', function($count) { global $dm_rewards;
   $badges = $dm_rewards->getBadgeRewards ();
 //  $encodedArray = array_map(utf8_encode, $badges);
 //  utf8_encode($badges);
-  echo html_entity_decode ( json_encode( $badges, JSON_FORCE_OBJECT ));
+  echo html_entity_decode ( FastJSON::convert( $badges, JSON_FORCE_OBJECT ));
   die();
 
 
   echo "[";
   foreach ($badges as $badge) {
-    echo json_encode( $badge );
+    echo FastJSON::convert( $badge );
     echo ",";
   }
   echo "]";
@@ -50,14 +51,14 @@ Flight::route('GET /sfide/archivio/@id_utente', function($id_utente) { global $d
   $limit_start = isset($_GET['limit_start']) ? $_GET['limit_start'] : 0;
   $limit_count = isset($_GET['limit_count']) ? $_GET['limit_count'] : 10;
   $sfide = $dm_sfide->getArrayObjectQueryCustom ( "select * from sfida where stato >= 2 and stato != 3 and (id_sfidante = ".$id_utente." or id_sfidato = ".$id_utente.") order by dta_conclusa DESC limit $limit_start, $limit_count ");
-  echo json_encode( $sfide );
+  echo FastJSON::convert( $sfide );
 
 });
 
 Flight::route('GET /sfide/pending/@id_utente', function($id_utente) { global $dm_sfide;
 
   $sfide = $dm_sfide->getSfideAttiveUtente ( $id_utente );
-  echo json_encode( $sfide );
+  echo FastJSON::convert( $sfide );
 
 });
 
@@ -69,7 +70,7 @@ Flight::route('GET /users/all', function($count) { global $dm_utente;
 
   $users = $dm_utente->getRankingUtenti ( 100 );
   $users = sanitizeUsersPicture($users);
-  echo json_encode( $users );
+  echo FastJSON::convert( $users );
 
 });
 
@@ -77,7 +78,7 @@ Flight::route('GET /users/top/@count', function($count) { global $dm_utente;
 
   $users = $dm_utente->getRankingUtenti ( $count );
   $users = sanitizeUsersPicture($users);
-  echo json_encode( $users );
+  echo FastJSON::convert( $users );
 
 });
 
@@ -85,7 +86,7 @@ Flight::route('GET /users/active', function() { global $dm_utente;
 
   $users = $dm_utente->getUsernameOnline ();
   $users = sanitizeUsersPicture($users);
-  echo json_encode( $users );
+  echo FastJSON::convert( $users );
 
 });
 
@@ -104,7 +105,7 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
     echo "{ 'username': '- sconosciuto -', 'id_utente': '$id_utente' }";
   else {
     $user->id_utente = $id_utente;
-    echo json_encode( $user );
+    echo FastJSON::convert( $user );
   }
 
 });
@@ -119,7 +120,7 @@ Flight::route('GET /auth/login', function($provider) {
 Flight::route('GET /auth/@id_utente', function($id_utente) { global $dm_utente;
 
 	$user = $dm_utente->getObjUtenteById($id_utente);
-	echo json_encode($user);
+	echo FastJSON::convert($user);
 });
 
 Flight::route('GET /auth/@id_utente/game/status', function($id_utente) { global $dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards;
@@ -130,7 +131,7 @@ Flight::route('GET /auth/@id_utente/game/status', function($id_utente) { global 
   $UserObject->rewards = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
   $UserObject->picture = sanitizeUserPicture($UserObject->picture);
 
-  echo json_encode($UserObject);
+  echo FastJSON::convert($UserObject);
 });
 
 

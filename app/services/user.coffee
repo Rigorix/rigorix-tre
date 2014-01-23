@@ -3,38 +3,33 @@ RigorixServices.factory "UserService", ($resource)->
   $resource RigorixEnv.API_DOMAIN + "users/:filter/:value",
     filter: "@filter"
     value: "@value"
-    isArray: true
+    isArray: false
   ,
     getActiveUsers:
       method: "GET"
-      isArray: true
       params:
         filter: "active"
 
     getTopUsers:
       method: "GET"
-      isArray: true
       params:
         filter: "top"
         value: "10"
 
     getCampioneSettimana:
       method: "GET"
-      isArray: false
       params:
         filter: "campione"
         value: "settimana"
 
     getUsernameById:
       method: 'GET'
-      isArray: false
       params:
         filter: User.id_utente
         value: 'username'
 
     getBadges:
       method: "GET"
-      isArray: true
       params:
         filter: User.id_utente
         value: 'badges'
@@ -47,10 +42,9 @@ RigorixServices.factory "AppService", ($resource)->
     param1: "@param1"
     param2: "@param2"
     param3: "@param3"
-    isArray: true
+    isArray: false
   ,
     getBadges:
       method: 'GET'
-      isArray: true
       params:
         param1: 'badges'

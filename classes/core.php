@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set( 'display_errors','1');
+//error_reporting(E_ALL);
+//ini_set( 'display_errors','1');
 
 if ( isset($__DEBUG_SCRIPT) && $__DEBUG_SCRIPT !== true )
 	$__DEBUG_SCRIPT = false;
@@ -9,9 +9,9 @@ if ( isset($__DEBUG_SCRIPT) && $__DEBUG_SCRIPT !== true )
 $env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
 
 // REQUIRED CLASSES AND CONFIGURATIONS
+require_once( 'classes/fastjson.php' );
 require_once( 'classes/utility.class.php' );
 $utility = new utility();
-
 require_once( 'dm/dm_generic_mysql.php' );
 require_once( 'dm/dm_utente.php' );
 require_once( 'dm/dm_sfide.php' );
@@ -78,15 +78,19 @@ class core {
 	{
 		global $env;
 
-		try{
-      $hybridauth = new Hybrid_Auth( $_SERVER['DOCUMENT_ROOT'] . hybridauth_config );
-		}
-		catch( Exception $e ){
-			echo "Ooops, we've got an error: " . $e->getMessage();
-		}
-		$provider = "";
 
-		if( isset( $_GET["connected_with"] ) && $hybridauth->isConnectedWith( $_GET["connected_with"] ) ) {
+    try{
+      $hybridauth = new Hybrid_Auth( $_SERVER['DOCUMENT_ROOT'] . hybridauth_config );
+    }
+		catch( Exception $e ){
+      echo "Ooops, we've got an error: " . $e->getMessage();
+    }
+    $provider = "";
+
+    if( isset( $_GET["connected_with"] ) && $hybridauth->isConnectedWith( $_GET["connected_with"] ) ) {
+
+
+
 			$provider = $_GET["connected_with"];
 			$adapter = $hybridauth->getAdapter( $provider );
 			$user_data = $adapter->getUserProfile();

@@ -13,7 +13,7 @@
 $env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
 return
 	array(
-		"base_url" => $env->HYBRIDAUTH_URL, //"http://tre.rigorix.com/hybridauth/",
+		"base_url" => $env->HYBRIDAUTH_URL,
 
 		"providers" => array (
 			// openid providers

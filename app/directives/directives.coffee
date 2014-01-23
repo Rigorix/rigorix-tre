@@ -24,9 +24,10 @@ Rigorix.directive "onListaSfideLoad", ()->
 Rigorix.directive "beautifyDate", ()->
   restrict: 'E'
   templateUrl: '/app/templates/directives/beautify-date.html'
-  scope: true
-  link: (scope, element, attr) ->
-    scope.date = attr.date
+  scope:
+    date_string: "@sfidaDate"
+#  link: (scope, element, attr) ->
+#    scope.date_string = attr.sfidaDate
 
 Rigorix.directive "username", (UserService)->
   restrict: 'E'

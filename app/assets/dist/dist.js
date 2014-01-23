@@ -573,9 +573,8 @@ Rigorix.directive("beautifyDate", function() {
   return {
     restrict: 'E',
     templateUrl: '/app/templates/directives/beautify-date.html',
-    scope: true,
-    link: function(scope, element, attr) {
-      return scope.date = attr.date;
+    scope: {
+      date_string: "@sfidaDate"
     }
   };
 });
@@ -608,15 +607,16 @@ Rigorix.filter("capitalize", function() {
 });
 
 Rigorix.filter("varToTitle", function() {
-  return function(input, scope) {
+  return function(input) {
     input = input.split("_").join(" ");
     return input.substring(0, 1).toUpperCase() + input.substring(1);
   };
 });
 
 Rigorix.filter("stringToDate", function() {
-  return function(input, scope) {
+  return function(input) {
     var date;
+    console.log("stringToDate", input);
     date = new Date(input);
     return date;
   };
@@ -629,7 +629,7 @@ RigorixServices.factory("AuthService", function($resource) {
     id_utente: User.id_utente,
     action: "@action",
     value: "@value",
-    isArray: true
+    isArray: false
   });
 });
 
@@ -637,11 +637,10 @@ RigorixServices.factory("SfideService", function($resource) {
   return $resource(RigorixEnv.API_DOMAIN + "sfide/:filter/:value", {
     filter: "@filter",
     value: "@value",
-    isArray: true
+    isArray: false
   }, {
     getArchivioSfide: {
       method: 'GET',
-      isArray: true,
       params: {
         filter: 'archivio',
         value: User.id_utente
@@ -649,7 +648,6 @@ RigorixServices.factory("SfideService", function($resource) {
     },
     getSfidePending: {
       method: 'GET',
-      isArray: true,
       params: {
         filter: 'pending',
         value: User.id_utente
@@ -662,18 +660,16 @@ RigorixServices.factory("UserService", function($resource) {
   return $resource(RigorixEnv.API_DOMAIN + "users/:filter/:value", {
     filter: "@filter",
     value: "@value",
-    isArray: true
+    isArray: false
   }, {
     getActiveUsers: {
       method: "GET",
-      isArray: true,
       params: {
         filter: "active"
       }
     },
     getTopUsers: {
       method: "GET",
-      isArray: true,
       params: {
         filter: "top",
         value: "10"
@@ -681,7 +677,6 @@ RigorixServices.factory("UserService", function($resource) {
     },
     getCampioneSettimana: {
       method: "GET",
-      isArray: false,
       params: {
         filter: "campione",
         value: "settimana"
@@ -689,7 +684,6 @@ RigorixServices.factory("UserService", function($resource) {
     },
     getUsernameById: {
       method: 'GET',
-      isArray: false,
       params: {
         filter: User.id_utente,
         value: 'username'
@@ -697,7 +691,6 @@ RigorixServices.factory("UserService", function($resource) {
     },
     getBadges: {
       method: "GET",
-      isArray: true,
       params: {
         filter: User.id_utente,
         value: 'badges'
@@ -711,11 +704,10 @@ RigorixServices.factory("AppService", function($resource) {
     param1: "@param1",
     param2: "@param2",
     param3: "@param3",
-    isArray: true
+    isArray: false
   }, {
     getBadges: {
       method: 'GET',
-      isArray: true,
       params: {
         param1: 'badges'
       }

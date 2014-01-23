@@ -3,12 +3,12 @@ RigorixServices.factory "SfideService", ($resource)->
   $resource RigorixEnv.API_DOMAIN + "sfide/:filter/:value",
     filter: "@filter"
     value: "@value"
-    isArray: true
+    isArray: false
 
   ,
     getArchivioSfide:
       method: 'GET'
-      isArray: true
+#      isArray: true
       params:
         filter: 'archivio'
         value: User.id_utente
@@ -16,7 +16,7 @@ RigorixServices.factory "SfideService", ($resource)->
 
     getSfidePending:
       method: 'GET'
-      isArray: true
+#      isArray: true
       params:
         filter: 'pending'
         value: User.id_utente

@@ -21,8 +21,8 @@
 		var DialogWindow = this;
 		<?php } ?>
 
-		var User = <? echo ( is_object($user->obj) ? $utility->print_json ( $user->obj ) : 'false' ); ?>;
-    var RigorixEnv = <?php echo json_encode($env); ?>;
+		var User = <?php echo ( is_object($user->obj) ? FastJSON::convert( $user->obj ) : 'false' ); ?>;
+    var RigorixEnv = <?php echo FastJSON::convert($env); ?>;
 	</script>
 
   <script src="/app/assets/dist/dist.js" type="text/javascript"></script>
