@@ -1,0 +1,111 @@
+/// Game Play Modal
+.modal-play-sfida {
+  .modal-dialog {
+    width: 800px;
+  }
+}
+
+#GamePlay {
+
+  .gameplay-tile {
+    background: url(/app/assets/images/lanciaSfide_campo.gif) no-repeat center 0px;
+    text-align: center;
+    position: relative;
+    height: 113px;
+    width: 248px;
+    margin-bottom: 10px;
+
+    h3 {
+      text-transform: uppercase;
+      color: @color-rigorix-blue;
+      font-size: 13.4px;
+    }
+
+    .label {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      margin-left: -20px;
+    }
+
+    .game-tile {
+      opacity: .7;
+//      .transition('opacity .8s linear');
+
+      &:hover {
+        opacity: 1;
+      }
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    .palloneSx_game {
+      position: absolute;
+      display: block;
+      top: 42px;
+      left: 50px;
+    }
+    .palloneCenter_game {
+      position: absolute;
+      display: block;
+      top: 20px;
+      left: 120px;
+    }
+    .palloneDx_game {
+      position: absolute;
+      display: block;
+      top: 42px;
+      right: 57px;
+    }
+    .portiereSx_game {
+      position: absolute;
+      display: block;
+      top: 30px;
+      left: 50px;
+
+      &.active {
+        background: url(/app/assets/images/lanciaSfide_portiereSx_on.png) no-repeat left top;
+        width: 50px;
+        height: 39px;
+
+        img {
+          display: none;
+        }
+      }
+    }
+    .portiereCenter_game {
+      position: absolute;
+      display: block;
+      top: 17px;
+      left: 112px;
+
+      &.active {
+        background: url(/app/assets/images/lanciaSfide_portiere_on.png) no-repeat left top;
+        width: 27px;
+        height: 47px;
+
+        img {
+          display: none;
+        }
+      }
+    }
+    .portiereDx_game {
+      position: absolute;
+      display: block;
+      top: 30px;
+      right: 57px;
+
+      &.active {
+        background: url(/app/assets/images/lanciaSfide_portiereDx_on.png) no-repeat left top;
+        width: 50px;
+        height: 39px;
+
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+
+}

@@ -26,8 +26,6 @@ Rigorix.directive "beautifyDate", ()->
   templateUrl: '/app/templates/directives/beautify-date.html'
   scope:
     date_string: "@sfidaDate"
-#  link: (scope, element, attr) ->
-#    scope.date_string = attr.sfidaDate
 
 Rigorix.directive "username", (UserService)->
   restrict: 'E'
@@ -44,3 +42,13 @@ Rigorix.directive "username", (UserService)->
           scope.userObject = json
           scope.userObject.deleted = json.username.indexOf(RigorixConfig.deletedUsernameQuery) isnt -1
           RigorixStorage.users[attr.idUtente] = json
+
+
+Rigorix.directive "gameTile", ->
+  restrict: 'E'
+  templateUrl: '/app/templates/game/tile.html'
+  require: 'Game'
+  scope:
+    row: "="
+    tileType: "="
+    matrix: "@"

@@ -8,7 +8,6 @@ RigorixServices.factory "SfideService", ($resource)->
   ,
     getArchivioSfide:
       method: 'GET'
-#      isArray: true
       params:
         filter: 'archivio'
         value: User.id_utente
@@ -16,7 +15,15 @@ RigorixServices.factory "SfideService", ($resource)->
 
     getSfidePending:
       method: 'GET'
-#      isArray: true
       params:
         filter: 'pending'
         value: User.id_utente
+
+    ,
+
+    sendSfida:
+      method: 'POST'
+      params:
+        filter: 'set'
+        sfida_matrix: "@sfida_matrix"
+        sfida: "@sfida"

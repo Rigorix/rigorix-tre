@@ -9,6 +9,9 @@ Rigorix.filter "varToTitle", ->
 
 Rigorix.filter "stringToDate", ->
   (input) ->
-    console.log "stringToDate", input
     date = new Date(input)
     date
+
+Rigorix.filter "formatStringDate", ->
+  (input) ->
+    moment(input).format "Do MMM YYYY"

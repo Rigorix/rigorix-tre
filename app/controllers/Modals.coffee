@@ -1,25 +1,39 @@
 Rigorix.controller "Modals", ($scope, $modal)->
 
-  ModalInstance = ($scope, $modalInstance, items)->
+#  ModalInstance = ($scope, $modalInstance, items)->
+#
+#    $scope.ok = () ->
+#      alert "ok"
+#      $modalInstance.close $scope.selected.item
+#
+#    $scope.cancel = ()->
+#      alert "cancel"
+#      $modalInstance.dismiss 'cancel'
 
-    $scope.ok = () ->
-      alert "ok"
-      $modalInstance.close $scope.selected.item
-
-    $scope.cancel = ()->
-      alert "cancel"
-      $modalInstance.dismiss 'cancel'
 
 
-Rigorix.controller "Modals.Sfida", ($scope, $modal, $modalInstance, sfida)->
+Rigorix.controller "Modals.Sfida", ($scope, $modal, $modalInstance, $rootScope, sfida)->
+
+  $rootScope.$broadcast "modal:open",
+    controller: 'Modals.Sfida'
+    modalClass: 'modal-play-sfida'
 
   $scope.sfida = sfida
+
+  $modalInstance.result.then (selectedItem) ->
+    true
+  , ()->
+    $rootScope.$broadcast "modal:close"
+
 
   $scope.ok = ->
     do $modalInstance.close #I can pass watever I choose from the front end if needed
 
   $scope.cancel = ->
     do $modalInstance.dismiss
+
+
+Rigorix.controller "Modals.Loading", ($scope, $modal, $modalInstance) ->
 
 
 

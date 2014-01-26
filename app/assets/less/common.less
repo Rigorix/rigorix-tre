@@ -1,9 +1,14 @@
 // Core variables and mixins
 @import "/app/assets/vendor/bootstrap/less/bootstrap.less";
 
+@import "/app/assets/less/config.less";
+@import "/app/assets/less/mixin.less";
+@import "/app/assets/less/gameplay.less";
+
+
+
 .row-fluid {
   .clearfix();
-
 }
 .rigorix-main-view {
 
@@ -12,16 +17,6 @@
 
 }
 
-.user-box {
-  .clearfix();
-
-  #login_box {
-    .row-fluid {
-      margin-bottom: 7px;
-      .clearfix();
-    }
-  }
-}
 
 .game-loader {
   padding: 40px;
@@ -42,38 +37,31 @@
   }
 }
 
+.rigorix-loading {
+  .transition(opacity, 1s);
+  display: none;
+  opacity: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .7);
+  z-index: @zindex-loading;
+  margin: 0;
+  padding: 0;
 
-
-/// Sfide
-.beautify-date {
-  width: 27px;
-  padding: 1px 2px;
-  background: #fff;
-  box-shadow: 0 2px 2px rgba(100, 100, 100, .7);
-  margin: 0 auto;
-
-  .day {
-    text-align: center;
+  &.show {
     display: block;
-    color: red;
-    font-size: 10px;
-    line-height: 10px;
+    opacity: 1;
   }
 
-  .month {
-    font-size: 10px;
-    line-height: 10px;
-    text-align: center;
-    display: block;
+  span {
+    position: absolute;
+    z-index: @zindex-loading + 1;
+    color: @color-white;
+    font-size: 25px;
+    top: 50%;
+    left: 50%;
   }
-
-  .year {
-    text-align: center;
-    display: block;
-    font-size: 10px;
-    line-height: 10px;
-  }
-
 }
 
 

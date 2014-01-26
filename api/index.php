@@ -1,45 +1,41 @@
 <?php
-error_reporting(0);
-ini_set( 'display_errors','0');
+//error_reporting(E_ALL);
+//ini_set( 'display_errors','1');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
 header('Content-type: application/json');
 
-require_once( '../classes/fastjson.php' );
-require_once '../classes/config.php';
+require_once '../classes/fastjson.php';
+
+require_once '../classes/core.php';
+
+//require_once '../classes/config.php';
 require_once 'flight/Flight.php';
-require_once '../dm/dm_generic_mysql.php';
-require_once '../dm/dm_utente.php';
-require_once '../dm/dm_messaggi.php';
-require_once '../dm/dm_sfide.php';
-require_once '../dm/dm_rewards.php';
-require_once '../hybridauth/Hybrid/Auth.php';
-
-// GET environment conf
-$db           = new dm_generic_mysql( $db_conn, $db_name, $sql_debug );
-$dm_utente    = new dm_utente( $db_conn, $db_name, $sql_debug );
-$dm_messaggi  = new dm_messaggi( $db_conn, $db_name, $sql_debug );
-$dm_sfide     = new dm_sfide( $db_conn, $db_name, $sql_debug );
-$dm_rewards   = new dm_rewards( $db_conn, $db_name, $sql_debug );
-
-
+//require_once '../dm/dm_generic_mysql.php';
+//require_once '../dm/dm_utente.php';
+//require_once '../dm/dm_messaggi.php';
+//require_once '../dm/dm_sfide.php';
+//require_once '../dm/dm_rewards.php';
+//require_once '../hybridauth/Hybrid/Auth.php';
+//
+//require_once '../classes/user.context.php';
+//require_once '../classes/activities.context.php';
+//
+///// GET environment conf
+//$db           = new dm_generic_mysql( $db_conn, $db_name, $sql_debug );
+//$dm_utente    = new dm_utente( $db_conn, $db_name, $sql_debug );
+//$dm_messaggi  = new dm_messaggi( $db_conn, $db_name, $sql_debug );
+//$dm_sfide     = new dm_sfide( $db_conn, $db_name, $sql_debug );
+//$dm_rewards   = new dm_rewards( $db_conn, $db_name, $sql_debug );
+//
+//$activity = new activities();
+//$user = new user();
+//
 
 /// Badges
 Flight::route('GET /badges', function($count) { global $dm_rewards;
 
-  $badges = $dm_rewards->getBadgeRewards ();
-//  $encodedArray = array_map(utf8_encode, $badges);
-//  utf8_encode($badges);
-  echo html_entity_decode ( FastJSON::convert( $badges, JSON_FORCE_OBJECT ));
-  die();
-
-
-  echo "[";
-  foreach ($badges as $badge) {
-    echo FastJSON::convert( $badge );
-    echo ",";
-  }
-  echo "]";
+  echo FastJSON::convert( $dm_rewards->getBadgeRewards () );
 
 });
 
@@ -59,6 +55,20 @@ Flight::route('GET /sfide/pending/@id_utente', function($id_utente) { global $dm
 
   $sfide = $dm_sfide->getSfideAttiveUtente ( $id_utente );
   echo FastJSON::convert( $sfide );
+
+});
+
+Flight::route('POST /sfide/set/@id_sfida', function($id_sfida) { global $activity;
+
+  $sfidaMatrix = json_decode($_GET['sfida_matrix']);
+  $sfidaObject = json_decode($_GET['sfida']);
+
+  $activityId = $activity->do_lancia_sfida( $sfidaMatrix, $sfidaObject );
+
+  if ( $activity->has_error_range($activityId[0], $activityId[1]) )
+    echo '{ "status": "error", "activity_id": "'.implode(",", $activityId).'", "error_code": "'.$activity->has_error_range($activityId[0], $activityId[1]).'" }';
+  else
+    echo '{ "status": "success", "activity_id": "'.implode(",", $activityId).'" }';
 
 });
 

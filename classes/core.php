@@ -2,41 +2,36 @@
 //error_reporting(E_ALL);
 //ini_set( 'display_errors','1');
 
-if ( isset($__DEBUG_SCRIPT) && $__DEBUG_SCRIPT !== true )
-	$__DEBUG_SCRIPT = false;
+$__DEBUG_SCRIPT = false;
 
 // GET environment conf
 $env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
 
 // REQUIRED CLASSES AND CONFIGURATIONS
-require_once( 'classes/fastjson.php' );
-require_once( 'classes/utility.class.php' );
+require_once( __DIR__ . '/fastjson.php' );
+require_once( __DIR__ . '/utility.class.php' );
 $utility = new utility();
-require_once( 'dm/dm_generic_mysql.php' );
-require_once( 'dm/dm_utente.php' );
-require_once( 'dm/dm_sfide.php' );
-require_once( 'dm/dm_messaggi.php' );
-require_once( 'dm/dm_rewards.php' );
-require_once( 'classes/config.php' );
-require_once( 'classes/mailer/class.phpmailer.php' );
-require_once( 'hybridauth/Hybrid/Auth.php' );
+require_once( __DIR__ . '/config.php' );
+require_once( __DIR__ . '/../dm/dm_generic_mysql.php' );
+require_once( __DIR__ . '/../dm/dm_utente.php' );
+require_once( __DIR__ . '/../dm/dm_sfide.php' );
+require_once( __DIR__ . '/../dm/dm_messaggi.php' );
+require_once( __DIR__ . '/../dm/dm_rewards.php' );
+require_once( __DIR__ . '/mailer/class.phpmailer.php' );
+require_once( __DIR__ . '/../hybridauth/Hybrid/Auth.php' );
 
 _syslog("Finito caricamento classi e configurazioni");
 
 
 // MAIN CONTEXTS
-require_once( 'classes/user.context.php' );				_syslog("Caricato user context");
-require_once( 'classes/activities.context.php' );		_syslog("Caricato activity context");
+require_once( __DIR__ . '/user.context.php' );				_syslog("Caricato user context");
+require_once( __DIR__ . '/activities.context.php' );		_syslog("Caricato activity context");
 
 $db		 		    = new dm_generic_mysql( $db_conn, $db_name, $sql_debug );
 $dm_utente 		= new dm_utente( $db_conn, $db_name, $sql_debug );
 $dm_sfide 		= new dm_sfide( $db_conn, $db_name, $sql_debug );
 $dm_messaggi	= new dm_messaggi( $db_conn, $db_name, $sql_debug );
 $dm_rewards		= new dm_rewards( $db_conn, $db_name, $sql_debug );
-
-
-require_once( 'api/Helper.php' );
-$ApiHelper = new ApiHelper($dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards);
 
 _syslog("Istanziamento DataManager DM: OK");
 

@@ -390,6 +390,123 @@ Rigorix.controller("AreaPersonale.Impostazioni", function($scope) {
   return $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
 });
 
+Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, SfideService) {
+  $scope.rows = [
+    {
+      index: 0
+    }, {
+      index: 1
+    }, {
+      index: 2
+    }, {
+      index: 3
+    }, {
+      index: 4
+    }
+  ];
+  $scope.matrix = {
+    '0': {
+      tiro: false,
+      parata: false
+    },
+    '1': {
+      tiro: false,
+      parata: false
+    },
+    '2': {
+      tiro: false,
+      parata: false
+    },
+    '3': {
+      tiro: false,
+      parata: false
+    },
+    '4': {
+      tiro: false,
+      parata: false
+    }
+  };
+  $scope.randomPlaySet = function() {
+    var _this = this;
+    return $timeout(function() {
+      var randParata, randTiro, row, _i, _len, _ref, _results;
+      _ref = _this.rows;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        row = _ref[_i];
+        randTiro = Math.ceil(Math.random(0, 1) * 3) - 1;
+        randParata = Math.ceil(Math.random(0, 1) * 3) - 1;
+        $("#gameSetBox_tiro_" + row.index + " .game-tile[value=" + randTiro + "]").click();
+        _results.push($("#gameSetBox_parata_" + row.index + " .game-tile[value=" + randParata + "]").click());
+      }
+      return _results;
+    }, 0);
+  };
+  $scope.resetPlaySet = function() {
+    var index, value, _ref, _results;
+    $('.game-tile').removeClass("active");
+    _ref = $scope.matrix;
+    _results = [];
+    for (index in _ref) {
+      value = _ref[index];
+      $scope.matrix[index].tiro = false;
+      _results.push($scope.matrix[index].parata = false);
+    }
+    return _results;
+  };
+  $scope.submitSfida = function() {
+    var index, value, _ref;
+    _ref = $scope.matrix;
+    for (index in _ref) {
+      value = _ref[index];
+      if (value.tiro === false || value.parata === false) {
+        return alert("errore, compila tutto");
+      }
+    }
+    return this.sendSfida();
+  };
+  return $scope.sendSfida = function() {
+    var index, matrix, row, value, _ref;
+    $rootScope.$broadcast("show:loading");
+    matrix = {};
+    _ref = $scope.matrix;
+    for (index in _ref) {
+      value = _ref[index];
+      row = Number(index) + 1;
+      matrix['tiro' + row] = value.tiro;
+      matrix['parata' + row] = value.parata;
+    }
+    return SfideService.sendSfida({
+      value: $scope.sfida.id_sfida,
+      sfida_matrix: JSON.stringify(matrix),
+      sfida: $scope.sfida
+    }, function(json) {
+      $rootScope.$broadcast("hide:loading");
+      if (json.status === "success") {
+        return alert("Sfida inserita correttamente");
+      } else {
+        return alert("Errore " + json.error_code);
+      }
+    });
+  };
+});
+
+Rigorix.controller("GamePlay.Tile", function($scope, $element) {
+  $scope.tileValue = false;
+  $scope.GamePlay = $scope.$parent.$parent;
+  $scope.subject = $scope.tileType === "parata" ? "portiere" : "pallone";
+  $scope.dir = {
+    sx: $scope.tileType === "parata" ? "Sx" : "",
+    dx: $scope.tileType === "parata" ? "Dx" : ""
+  };
+  return $scope.setTileValue = function(value) {
+    $scope.tileValue = value;
+    $element.find('.game-tile').removeClass("active");
+    $element.find('.game-tile[value=' + value + ']').addClass('active');
+    return $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] = value;
+  };
+});
+
 Rigorix.controller("Header", function($scope) {
   return console.log("Header controller");
 });
@@ -419,6 +536,8 @@ Rigorix.controller("ListaSfide.Sfida", function($scope, $modal) {
   if (!moment($scope.sfida.dta_conclusa).isValid()) {
     $scope.sfida.dta_conclusa = false;
   }
+  $scope.sfida.id_avversario = $scope.id_avversario;
+  $scope.sfida.id_utente = $scope.currentUser.id_utente;
   if ($scope.currentUser.id_utente === $scope.sfida.id_vincitore) {
     $scope.punti = 3;
     $scope.risultatoLabel = "won";
@@ -467,12 +586,27 @@ Rigorix.controller("Main", function($scope, $modal, AuthService) {
       return $scope.$emit("LOGOUT");
     }
   });
+  $scope.$on("modal:open", function(event, obj) {
+    return $scope.modalClass = obj.modalClass;
+  });
+  $scope.$on("modal:close", function() {
+    return $scope.modalClass = '';
+  });
+  $scope.$on("show:loading", function() {
+    return $(".rigorix-loading").addClass("show");
+  });
+  $scope.$on("hide:loading", function() {
+    return $(".rigorix-loading").removeClass("show");
+  });
   $scope.$on("LOGOUT", function() {
     var User;
     User = false;
     $scope.currentUser = null;
     $scope.userLogged = false;
     return alert("logout");
+  });
+  $scope.$on("*", function(ev, $rootScope) {
+    return $rootScope.$broadcast("event:received", ev);
   });
   if (User !== false) {
     $scope.userLogged = true;
@@ -494,22 +628,19 @@ Rigorix.controller("Main", function($scope, $modal, AuthService) {
   }
 });
 
-Rigorix.controller("Modals", function($scope, $modal) {
-  var ModalInstance;
-  return ModalInstance = function($scope, $modalInstance, items) {
-    $scope.ok = function() {
-      alert("ok");
-      return $modalInstance.close($scope.selected.item);
-    };
-    return $scope.cancel = function() {
-      alert("cancel");
-      return $modalInstance.dismiss('cancel');
-    };
-  };
-});
+Rigorix.controller("Modals", function($scope, $modal) {});
 
-Rigorix.controller("Modals.Sfida", function($scope, $modal, $modalInstance, sfida) {
+Rigorix.controller("Modals.Sfida", function($scope, $modal, $modalInstance, $rootScope, sfida) {
+  $rootScope.$broadcast("modal:open", {
+    controller: 'Modals.Sfida',
+    modalClass: 'modal-play-sfida'
+  });
   $scope.sfida = sfida;
+  $modalInstance.result.then(function(selectedItem) {
+    return true;
+  }, function() {
+    return $rootScope.$broadcast("modal:close");
+  });
   $scope.ok = function() {
     return $modalInstance.close();
   };
@@ -518,16 +649,19 @@ Rigorix.controller("Modals.Sfida", function($scope, $modal, $modalInstance, sfid
   };
 });
 
+Rigorix.controller("Modals.Loading", function($scope, $modal, $modalInstance) {});
+
 Rigorix.controller("Sidebar", function($scope, UserService) {
   $scope.topUsers = [];
   UserService.getTopUsers(function(users) {
     return $scope.topUsers = users;
   });
-  return $scope.doAuth = function(social) {
+  $scope.doAuth = function(social) {
     var auth_url;
     auth_url = RigorixEnv.REMOTE + "/social_login.php?provider=" + social + "&origin=" + RigorixEnv.DOMAIN + "&return_to=" + RigorixEnv.REMOTE;
     return window.open(auth_url, "hybridauth_social_sing_on", "location=0,status=0,scrollbars=0,width=800,height=500");
   };
+  return $scope.$emit("test", "event");
 });
 
 Rigorix.directive("refreshStateOnLoad", [
@@ -600,6 +734,19 @@ Rigorix.directive("username", function(UserService) {
   };
 });
 
+Rigorix.directive("gameTile", function() {
+  return {
+    restrict: 'E',
+    templateUrl: '/app/templates/game/tile.html',
+    require: 'Game',
+    scope: {
+      row: "=",
+      tileType: "=",
+      matrix: "@"
+    }
+  };
+});
+
 Rigorix.filter("capitalize", function() {
   return function(input, scope) {
     return input.substring(0, 1).toUpperCase() + input.substring(1);
@@ -616,9 +763,14 @@ Rigorix.filter("varToTitle", function() {
 Rigorix.filter("stringToDate", function() {
   return function(input) {
     var date;
-    console.log("stringToDate", input);
     date = new Date(input);
     return date;
+  };
+});
+
+Rigorix.filter("formatStringDate", function() {
+  return function(input) {
+    return moment(input).format("Do MMM YYYY");
   };
 });
 
@@ -651,6 +803,14 @@ RigorixServices.factory("SfideService", function($resource) {
       params: {
         filter: 'pending',
         value: User.id_utente
+      }
+    },
+    sendSfida: {
+      method: 'POST',
+      params: {
+        filter: 'set',
+        sfida_matrix: "@sfida_matrix",
+        sfida: "@sfida"
       }
     }
   });

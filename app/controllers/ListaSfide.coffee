@@ -1,5 +1,4 @@
 Rigorix.controller "ListaSfide", ($scope) ->
-
   true
 
 
@@ -10,6 +9,8 @@ Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
 
   $scope.sfida.dta_sfida = false if !moment($scope.sfida.dta_sfida).isValid()
   $scope.sfida.dta_conclusa = false if !moment($scope.sfida.dta_conclusa).isValid()
+  $scope.sfida.id_avversario = $scope.id_avversario
+  $scope.sfida.id_utente = $scope.currentUser.id_utente
 
   if $scope.currentUser.id_utente == $scope.sfida.id_vincitore
     $scope.punti = 3

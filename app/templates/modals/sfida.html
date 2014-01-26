@@ -1,34 +1,37 @@
-<div class="gioca-sfida-box">
-    <div class="row-fluid">
-
-        <div class="span3">
-            <div id="scheda_utente">
-                Scheda utente
-            </div>
+<div id="GamePlay" class="container-fluid" ng-controller="GamePlay">
+    <div class="row row-fluid">
+        <div class="col col-sm-3 pam">
+            Scheda utente <username id-utente="{{sfida.id_sfidante}}"></username>
         </div>
+        <div class="col col-sm-9 pam">
 
-        <div class="span9" style="height: 487px; overflow: auto;">
-            <div class="prl">
-                <h5 class="text-info mvm">
-                    <!--                    Imposta tiri e parate-->
-                    <button class="btn" name="set-shuffle-sequence" title="Imposta casualmente la sequenza">Mi sento fortunato!</button>
-                    <button class="btn btn-danger" name="reset-sequence" title="Svuota la sequenza">Reset</button>
+            <div class="row">
+                <div class="col col-sm-9">
+                    <button name="set-shuffle-sequence" ng-click="randomPlaySet()" class="btn">Mi sento fortunato!</button>
+                    <button name="reset-sequence" ng-click="resetPlaySet()" class="btn btn-danger">Reimposta</button>
+                </div>
+                <div class="col col-sm-3">
+                    <button name="submit-set-colpi-form" ng-click="submitSfida()" class="btn btn-warning pull-right">Rispondi</button>
+                </div>
+            </div>
 
-                    <button class="btn btn-warning pull-right" name="submit-set-colpi-form" sfida_action="<?php echo ($sfida->stato == 1 ? "r" : "l"); ?>"><?php echo ($sfida->stato == 1 ? "Rispondi alla sfida" : "Lancia sfida")?></button>
-                </h5>
-
-                <form name="set-game-form" onsubmit="return false;">
-                    <input type="hidden" name="id_sfida" value="<?php echo $_REQUEST['id_sfida']; ?>" />
-                    <input type="hidden" name="id_avversario" value="<?php echo $id_avversario; ?>" />
-
-                    <div class="well mbn">
-
-                        <div id="gameSetPanel" class="mtm" style="height: 370px; overflow: auto"></div>
+            <form name="set-game-form">
+                <input type="hidden" name="id_sfida" value="{{sfida.id_sfida}}" />
+                <input type="hidden" name="id_avversario" value="{{sfida.id_avversario}}" />
+                <div class="well mam">
+                    <div id="GamePlayPanel">
+                        <div class="row" ng-repeat="row in rows">
+                            <div class="col col-sm-6">
+                                <game-tile row="row" tile-type="'tiro'" matrix="{{$scope.matrix}}"></game-tile>
+                            </div>
+                            <div class="col col-sm-6">
+                                <game-tile row="row" tile-type="'parata'" matrix="{{$scope.matrix}}"></game-tile>
+                            </div>
+                        </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
+
         </div>
-
     </div>
-
 </div>

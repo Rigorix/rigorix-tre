@@ -3,7 +3,11 @@
 
 <?php require_once("boxes/html_head.php"); ?>
 
-<body ng-controller="Main">
+<body ng-controller="Main" ng-class="modalClass">
+
+<div class="rigorix-loading">
+  <span>Loading...</span>
+</div>
 
 <div class="container">
 

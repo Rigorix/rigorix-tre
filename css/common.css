@@ -157,23 +157,23 @@ big.message.error { border-color: red; }
 
 	.su-username { font-size: 16px; font-weight: normal; color: #111; text-transform: uppercase;}
 
-    .gameSetBox {
-        background: url(../i/lanciaSfide_campo.gif) no-repeat center 0px;
-        text-align: center;
-        position: relative;
-        height: 113px;
-        width: 248px;
-        margin-bottom: 10px
-    }
-	.gameSetBox H3 { text-transform: uppercase; color: #0077a6; font-size: 13.4px}
-	.gameSetBox.right { margin-left: 5px; }
-	.palloneSx_game { position: absolute; display: block; top: 42px; left: 50px}
-	.palloneCenter_game { position: absolute; display: block; top: 20px; left: 120px}
-	.palloneDx_game { position: absolute; display: block; top: 42px; right: 57px}
-	.portiereSx_game {position: absolute; display: block; top: 30px; left: 50px}
-	.portiereCenter_game {position: absolute; display: block; top: 17px; left: 112px}
-	.portiereDx_game {position: absolute; display: block; top: 30px; right: 57px}
-    .gameSetBox .label { position: absolute; bottom: 4px; left: 50%; margin-left: -20px; }
+    /*.gameSetBox {*/
+        /*background: url(../i/lanciaSfide_campo.gif) no-repeat center 0px;*/
+        /*text-align: center;*/
+        /*position: relative;*/
+        /*height: 113px;*/
+        /*width: 248px;*/
+        /*margin-bottom: 10px*/
+    /*}*/
+	/*.gameSetBox H3 { text-transform: uppercase; color: #0077a6; font-size: 13.4px}*/
+	/*.gameSetBox.right { margin-left: 5px; }*/
+	/*.palloneSx_game { position: absolute; display: block; top: 42px; left: 50px}*/
+	/*.palloneCenter_game { position: absolute; display: block; top: 20px; left: 120px}*/
+	/*.palloneDx_game { position: absolute; display: block; top: 42px; right: 57px}*/
+	/*.portiereSx_game {position: absolute; display: block; top: 30px; left: 50px}*/
+	/*.portiereCenter_game {position: absolute; display: block; top: 17px; left: 112px}*/
+	/*.portiereDx_game {position: absolute; display: block; top: 30px; right: 57px}*/
+    /*.gameSetBox .label { position: absolute; bottom: 4px; left: 50%; margin-left: -20px; }*/
 
 	.result-screen { width: 44px; height: 24px; background: url(/i/tabellone.gif) no-repeat top left; position: relative; }
 	.result-screen .team-screen { position: absolute; top: 2px; width: 15px; height: 19px; background: url(/i/numeri_tabellone.gif) no-repeat top left;  }

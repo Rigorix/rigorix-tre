@@ -451,85 +451,79 @@ class activities {
 	 *  SFIDE
 	 */
 
-	function do_lancia_sfida ()
-	{
-		global $user, $dm_sfide;
-		if (
-//			(isset ($_REQUEST['id_sfida']) && $_REQUEST['id_sfida'] != '' ) &&
-			( isset ($_REQUEST['id_avversario']) && $_REQUEST['tiro1'] != '' && $_REQUEST['tiro2'] != '' && $_REQUEST['tiro3'] != '' && $_REQUEST['tiro4'] != '' && $_REQUEST['tiro5'] != '' && $_REQUEST['parata1'] != '' && $_REQUEST['parata2'] != '' && $_REQUEST['parata3'] != '' && $_REQUEST['parata4'] != '' && $_REQUEST['parata5'] != ''  )
-		) {
-			// Ci sono tutti i parametri
-			_log ("Prerequisiti sfida OK (id sfida: ".$_REQUEST['id_sfida'].")");
-			$risposta = true;
-			if ( !isset ($_REQUEST['id_sfida']) || $_REQUEST['id_sfida'] == "" || $_REQUEST['id_sfida'] == "0") {
-				/* Devo creare la sfida per poter inserire i colpi */
-				$obj = array (
-					"indb_tipo_sfida"				=> 0,
-					"indb_id_sfidante"				=> $user->obj->id_utente,
-					"indb_id_sfidato"				=> $_REQUEST['id_avversario'],
-					"indb_dta_sfida"				=> "NOW()",
-					"indb_stato"					=> 0
-				);
-				$id_sfida = $dm_sfide->insertObject ( "sfida", $dm_sfide->makeInDbObject ($obj));
-				$risposta = false;
-			} else
-				$id_sfida = $_REQUEST['id_sfida'];
+  function do_lancia_sfida ( $params = null, $sfida = null ) {
+    global $dm_sfide;
 
-			_log ("ID sfida: " . $id_sfida);
+    if ( isset($params) && isset($sfida) ) {
 
-			$obj = new stdClass();
-			$obj->id_sfida = $id_sfida;
-			$obj->id_utente = $user->obj->id_utente;
-			$obj->o1 = $_REQUEST['tiro1'] + 1;
-			$obj->o2 = $_REQUEST['tiro2'] + 1;
-			$obj->o3 = $_REQUEST['tiro3'] + 1;
-			$obj->o4 = $_REQUEST['tiro4'] + 1;
-			$obj->o5 = $_REQUEST['tiro5'] + 1;
-			$res_id_tiri = $dm_sfide->insertObject ( "tiri", $obj );
+      $risposta = true;
+      if ( !isset ($sfida) ):
+        $obj = array (
+          "indb_tipo_sfida"     => 0,
+          "indb_id_sfidante"		=> $sfida->id_utente,
+          "indb_id_sfidato"			=> $sfida->id_avversario,
+          "indb_dta_sfida"			=> "NOW()",
+          "indb_stato"					=> 0
+        );
+        $id_sfida = $dm_sfide->insertObject ( "sfida", $dm_sfide->makeInDbObject ($obj));
+        $risposta = false;
+      else:
+        $id_sfida = $sfida->id_sfida;
+      endif;
 
-			$obj->o1 = $_REQUEST['parata1'] + 1;
-			$obj->o2 = $_REQUEST['parata2'] + 1;
-			$obj->o3 = $_REQUEST['parata3'] + 1;
-			$obj->o4 = $_REQUEST['parata4'] + 1;
-			$obj->o5 = $_REQUEST['parata5'] + 1;
+      $obj = new stdClass();
+      $obj->id_sfida = $id_sfida;
+      $obj->id_utente = $sfida->id_utente;
+      $obj->o1 = $params->tiro1 + 1;
+      $obj->o2 = $params->tiro2 + 1;
+      $obj->o3 = $params->tiro3 + 1;
+      $obj->o4 = $params->tiro4 + 1;
+      $obj->o5 = $params->tiro5 + 1;
+      $res_id_tiri = $dm_sfide->insertObject ( "tiri", $obj );
 
-			$res_id_parate = $dm_sfide->insertObject ( "parate", $obj );
+      $obj->o1 = $params->parata1 + 1;
+      $obj->o2 = $params->parata2 + 1;
+      $obj->o3 = $params->parata3 + 1;
+      $obj->o4 = $params->parata4 + 1;
+      $obj->o5 = $params->parata5 + 1;
+      $res_id_parate = $dm_sfide->insertObject ( "parate", $obj );
 
-			if ( $res_id_tiri !== false && $res_id_parate !== false ) {
-				_log ("do_lancia_sfida", "tiri e parate sono !== false");
-				$sfida = new stdClass();
-				$sfida->id_sfida = $id_sfida;
-				$sfida->tipo_sfida = 0;
+      if ( $res_id_tiri !== false && $res_id_parate !== false ):
+        $sfida = new stdClass();
+        $sfida->id_sfida = $id_sfida;
+        $sfida->tipo_sfida = 0;
 
-				if ( $risposta == false ) {
-					_log ("do_lancia_sfida", "La sfida è da creare");
-					$sfida->stato = 1;
-					$sfida->id_sfidante = $user->obj->id_utente;
-					$sfida->id_sfidato = $_REQUEST['id_avversario'];
-					$sfida->dta_sfida = "NOW()";
-				} else {
-					_log ("do_lancia_sfida", "La sfida è una risposta");
-					$sfida->stato = 2;
-					$sfida->dta_conclusa = "NOW()";
-				}
-				_log ("do_lancia_sfida", "Stato sfida: " . $sfida->stato);
+        if ( $risposta == false ):
+          $sfida->stato = 1;
+          $sfida->id_sfidante = $sfida->id_utente;
+          $sfida->id_sfidato = $sfida->id_avversario;
+          $sfida->dta_sfida = "NOW()";
+        else:
+          $sfida->stato = 2;
+          $sfida->dta_conclusa = "NOW()";
+        endif;
 
-				if ($dm_sfide->updateObject ( "sfida", $sfida, array ( "id_sfida" => $id_sfida ) ) ) {
-					$this->throw_success ( 300 );
-					if ( $sfida->stato == 2 )
-						$this->crone__chiudi_sfida ( $sfida );
-				} else
-					$this->throw_error ( 301 );
-			} else
-				$this->throw_error ( 302 );
-		} else
-			$this->throw_error ( 300 );
-	}
+        if ($dm_sfide->updateObject ( "sfida", $sfida, array ( "id_sfida" => $id_sfida ) ) ):
 
-	function do_rispondi_sfida ()
-	{
-		$this->throw_error ( 300 );
-	}
+          $this->throw_success ( 300 );
+          if ( $sfida->stato == 2 ):
+            $this->crone__chiudi_sfida ( $sfida );
+          else:
+            $this->throw_error ( 301 );
+          endif;
+        endif;
+
+      else:
+        $this->throw_error ( 302 );
+      endif;
+
+    } else {
+      $this->throw_error ( 300 );
+    }
+
+    return [300, 302];
+  }
+
 
 
 
@@ -629,15 +623,11 @@ class activities {
 
 	function has_error_range ( $start, $end )
 	{
-		$ret = array();
 		for ( $i=$start; $i<=$end; $i++) {
 			if ( in_array( $i, $this->error_container ))
-				array_push($ret, $i);
+        return $i;
 		}
-		if (count ($ret) > 0)
-			return true;
-		else
-			return false;
+    return false;
 	}
 
 	function get_error_range ( $start, $end )
