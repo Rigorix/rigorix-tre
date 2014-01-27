@@ -1,5 +1,5 @@
 RigorixConfig =
-  updateTime: 60000
+  updateTime: 10000
   deletedUsernameQuery: "__DELETED__"
 
 RigorixStorage =

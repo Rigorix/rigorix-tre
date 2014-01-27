@@ -48,7 +48,7 @@ Rigorix.config(function($routeProvider) {
 var RigorixConfig, RigorixStorage;
 
 RigorixConfig = {
-  updateTime: 60000,
+  updateTime: 10000,
   deletedUsernameQuery: "__DELETED__"
 };
 
@@ -66,7 +66,7 @@ Rigorix.controller("AreaPersonale", function($scope, $routeParams, $location) {
   if ($scope.section == null) {
     $location.path("/area-personale/utente");
   }
-  return $scope.isCurrentPage = function(page, $first) {
+  return $scope.isCurrentPage = function(page) {
     if ($routeParams.sectionPage != null) {
       return $routeParams.sectionPage === page;
     } else {
@@ -98,22 +98,31 @@ Rigorix.controller("AreaPersonale.Utente", function($scope, AppService) {
   };
 });
 
-Rigorix.controller("AreaPersonale.Sfide", function($scope, SfideService) {
+Rigorix.controller("AreaPersonale.Sfide", function($scope, SfideService, $route) {
   $scope.isLoading = true;
   $scope.pages = ['sfide_da_giocare', 'in_attesa_di_risposta', 'archivio'];
-  $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare;
-  if ($scope.sectionPage === 'archivio') {
-    $scope.sfideArchivio = SfideService.getArchivioSfide({
-      limit_start: 0,
-      limit_count: 15
-    }, $scope.isLoading = false);
-  }
-  if ($scope.sectionPage === 'in_attesa_di_risposta') {
-    $scope.sfideInAttesaDiRisposta = SfideService.getSfidePending($scope.isLoading = false);
-  }
-  if ($scope.sectionPage === "sfide_da_giocare") {
-    return $scope.isLoading = false;
-  }
+  $scope.$on("currentuser:update", function(event, userObject) {
+    return $scope.sfideDaGiocare = userObject.sfide_da_giocare;
+  });
+  $scope.loadSfide = function() {
+    if ($scope.sectionPage === "sfide_da_giocare") {
+      $scope.isLoading = false;
+    }
+    $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare;
+    if ($scope.sectionPage === 'archivio') {
+      $scope.sfideArchivio = SfideService.getArchivioSfide({
+        limit_start: 0,
+        limit_count: 15
+      }, $scope.isLoading = false);
+    }
+    if ($scope.sectionPage === 'in_attesa_di_risposta') {
+      return $scope.sfideInAttesaDiRisposta = SfideService.getSfidePending($scope.isLoading = false);
+    }
+  };
+  $scope.loadSfide();
+  return $scope.reload = function() {
+    return $route.reload();
+  };
 });
 
 Rigorix.controller("AreaPersonale.Impostazioni", function($scope) {
@@ -121,7 +130,7 @@ Rigorix.controller("AreaPersonale.Impostazioni", function($scope) {
   return $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
 });
 
-Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, SfideService) {
+Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, $modal, Modals, SfideService) {
   $scope.rows = [
     {
       index: 0
@@ -157,6 +166,8 @@ Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, SfideServi
       parata: false
     }
   };
+  $scope.submitButtonLabel = $scope.sfida.id_sfida !== false ? "Rispondi" : "Lancia";
+  $scope.id_utente_avversario = $scope.sfida.id_sfida !== false ? $scope.sfida.id_sfidante : $scope.sfida.id_avversario;
   $scope.randomPlaySet = function() {
     var _this = this;
     return $timeout(function() {
@@ -214,6 +225,10 @@ Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, SfideServi
     }, function(json) {
       $rootScope.$broadcast("hide:loading");
       if (json.status === "success") {
+        Modals.success({
+          title: "titolo",
+          text: "testo"
+        });
         return alert("Sfida inserita correttamente");
       } else {
         return alert("Errore " + json.error_code);
@@ -279,23 +294,30 @@ Rigorix.controller("ListaSfide.Sfida", function($scope, $modal) {
     $scope.punti = 0;
     $scope.risultatoLabel = "lose";
   }
+  $scope.hasActiveButton = true;
   switch ($scope.sfida.stato) {
     case "0":
       $scope.statoButton = 'lancia_sfida';
+      $scope.statoButtonIcon = 'send';
       break;
     case "1":
       $scope.statoButton = $scope.sfida.id_sfidante === User.id_utente ? 'lanciata' : 'rispondi';
+      $scope.statoButtonIcon = $scope.statoButton === 'lanciata' ? 'send' : 'share-alt';
+      $scope.hasActiveButton = $scope.statoButton === 'rispondi';
       break;
     case "2":
       $scope.statoButton = 'vedi_sfida';
+      $scope.statoButtonIcon = 'eye-open';
       break;
     case "3":
       $scope.statoButton = 'vinta_a_tavolino';
       break;
     default:
       $scope.statoButton = $scope.sfida.stato;
+      $scope.statoButtonIcon = '';
+      $scope.hasActiveButton = false;
   }
-  return $scope.doClickSfida = function(action) {
+  return $scope.doClickSfida = function() {
     return $modal.open({
       templateUrl: '/app/templates/modals/sfida.html',
       controller: 'Modals.Sfida',
@@ -308,7 +330,7 @@ Rigorix.controller("ListaSfide.Sfida", function($scope, $modal) {
   };
 });
 
-Rigorix.controller("Main", function($scope, $modal, AuthService) {
+Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService) {
   var _this = this;
   $scope.siteTitle = "Website title";
   $scope.userLogged = false;
@@ -353,20 +375,54 @@ Rigorix.controller("Main", function($scope, $modal, AuthService) {
         action: "game",
         value: "status"
       }, function(json) {
-        return $scope.currentUser = json;
+        $scope.currentUser = json;
+        return $rootScope.$broadcast("currentuser:update", json);
       });
     }, RigorixConfig.updateTime);
   }
 });
 
-Rigorix.controller("Modals", function($scope, $modal) {});
+Rigorix.factory("Modals", function($scope, $modal) {
+  return {
+    success: function(content) {
+      return $modal.open({
+        templateUrl: '/app/templates/modals/success.html',
+        controller: 'Modals.Success',
+        resolve: {
+          content: function() {
+            return content;
+          }
+        }
+      });
+    }
+  };
+});
+
+Rigorix.controller("Modals.Success", function($scope, $modal, $modalInstance, $rootScope, content) {
+  $rootScope.$broadcast("modal:open", {
+    controller: 'Modals.Success',
+    modalClass: 'modal-success'
+  });
+  $modalInstance.result.then(function() {
+    return true;
+  }, function() {
+    return $rootScope.$broadcast("modal:close");
+  });
+  return $scope.close = function() {
+    return $modalInstance.dismiss();
+  };
+});
 
 Rigorix.controller("Modals.Sfida", function($scope, $modal, $modalInstance, $rootScope, sfida) {
   $rootScope.$broadcast("modal:open", {
     controller: 'Modals.Sfida',
     modalClass: 'modal-play-sfida'
   });
-  $scope.sfida = sfida;
+  $scope.sfida = sfida != null ? sfida : {
+    id_sfidante: $scope.currentUser.id_utente,
+    id_avversario: user.id_utente,
+    id_sfida: false
+  };
   $modalInstance.result.then(function(selectedItem) {
     return true;
   }, function() {
@@ -380,8 +436,6 @@ Rigorix.controller("Modals.Sfida", function($scope, $modal, $modalInstance, $roo
   };
 });
 
-Rigorix.controller("Modals.Loading", function($scope, $modal, $modalInstance) {});
-
 Rigorix.controller("Sidebar", function($scope, UserService) {
   $scope.topUsers = [];
   UserService.getTopUsers(function(users) {
@@ -393,6 +447,25 @@ Rigorix.controller("Sidebar", function($scope, UserService) {
     return window.open(auth_url, "hybridauth_social_sing_on", "location=0,status=0,scrollbars=0,width=800,height=500");
   };
   return $scope.$emit("test", "event");
+});
+
+Rigorix.controller("Username", function($scope, $rootScope, $modal) {
+  return $scope.doLanciaSfida = function() {
+    $rootScope.$broadcast("sfida:lancia", $scope.user);
+    return $modal.open({
+      templateUrl: '/app/templates/modals/sfida.html',
+      controller: 'Modals.Sfida',
+      resolve: {
+        sfida: function() {
+          return {
+            id_sfidante: $scope.currentUser.id_utente,
+            id_avversario: $scope.user.id_utente,
+            id_sfida: false
+          };
+        }
+      }
+    });
+  };
 });
 
 Rigorix.directive("refreshStateOnLoad", [
@@ -430,7 +503,10 @@ Rigorix.directive("onSfidaLoad", [
 
 Rigorix.directive("onListaSfideLoad", function() {
   return function(scope, element, attrs) {
-    return scope.__sfide = scope[attrs.onListaSfideLoad];
+    scope.__sfide = scope[attrs.onListaSfideLoad];
+    return scope.$on("currentuser:update", function() {
+      return scope.__sfide = scope[attrs.onListaSfideLoad];
+    });
   };
 });
 
@@ -461,6 +537,14 @@ Rigorix.directive("username", function(UserService) {
           return RigorixStorage.users[attr.idUtente] = json;
         });
       }
+    }
+  };
+});
+
+Rigorix.directive("icon", function() {
+  return {
+    link: function(scope, element, attr) {
+      return $(element).prepend($('<span class="glyphicon glyphicon-' + attr.icon + ' mrs"></span>'));
     }
   };
 });

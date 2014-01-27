@@ -1,14 +1,38 @@
-Rigorix.controller "Modals", ($scope, $modal)->
 
-#  ModalInstance = ($scope, $modalInstance, items)->
-#
-#    $scope.ok = () ->
-#      alert "ok"
-#      $modalInstance.close $scope.selected.item
-#
-#    $scope.cancel = ()->
-#      alert "cancel"
-#      $modalInstance.dismiss 'cancel'
+
+Rigorix.factory "Modals", ($scope, $modal)->
+
+  success: (content)->
+    $modal.open
+      templateUrl:  '/app/templates/modals/success.html',
+      controller:    'Modals.Success',
+      resolve:
+        content: ->
+          content
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+
+Rigorix.controller "Modals.Success", ($scope, $modal, $modalInstance, $rootScope, content)->
+
+  $rootScope.$broadcast "modal:open",
+    controller: 'Modals.Success'
+    modalClass: 'modal-success'
+
+  $modalInstance.result.then ->
+    true
+  , ()->
+    $rootScope.$broadcast "modal:close"
+
+  $scope.close = ->
+    do $modalInstance.dismiss
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -18,13 +42,15 @@ Rigorix.controller "Modals.Sfida", ($scope, $modal, $modalInstance, $rootScope, 
     controller: 'Modals.Sfida'
     modalClass: 'modal-play-sfida'
 
-  $scope.sfida = sfida
+  $scope.sfida = if sfida? then sfida else
+    id_sfidante: $scope.currentUser.id_utente
+    id_avversario: user.id_utente
+    id_sfida: false
 
   $modalInstance.result.then (selectedItem) ->
     true
   , ()->
     $rootScope.$broadcast "modal:close"
-
 
   $scope.ok = ->
     do $modalInstance.close #I can pass watever I choose from the front end if needed
@@ -32,23 +58,3 @@ Rigorix.controller "Modals.Sfida", ($scope, $modal, $modalInstance, $rootScope, 
   $scope.cancel = ->
     do $modalInstance.dismiss
 
-
-Rigorix.controller "Modals.Loading", ($scope, $modal, $modalInstance) ->
-
-
-
-#Rigorix.controller "Modals.Sfida.Instance", ($scope, $modal)->
-#
-#  ModalInstanceCtrl = ($scope, $modalInstance, items) ->
-#
-#    $scope.items = items;
-#    $scope.selected =
-#      item: $scope.items[0]
-#
-#
-#    $scope.ok = () ->
-#      $modalInstance.close $scope.selected.item
-#
-#
-#    $scope.cancel = ()->
-#      $modalInstance.dismiss 'cancel'

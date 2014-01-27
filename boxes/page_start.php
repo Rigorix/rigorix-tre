@@ -11,9 +11,9 @@
 
 <div class="container">
 
-<div id="service_window">
-	<iframe name="service_window" src="classes/service.php"></iframe>
-</div>
+<!--<div id="service_window">-->
+<!--	<iframe name="service_window" src="classes/service.php"></iframe>-->
+<!--</div>-->
 <?php if ($core->settings['DEVELOPER']) require_once ("boxes/developer_prepage_tools.php"); ?>
 <?php //if ($core->test && $user->is_logged) require_once ("boxes/test_box.php"); ?>
 <div class="rx-loading-panel">

@@ -12,7 +12,7 @@
                     <div class="panel-heading">Sfide da giocare</div>
 
                     <!-- Table -->
-                    <div ng-include="'app/templates/lista-sfide.html'" on-lista-sfide-load="sfideDaGiocare"></div>
+                    <div ng-include="'app/templates/lista-sfide.html'" ng-model="sfideDaGiocare" on-lista-sfide-load="sfideDaGiocare"></div>
                 </div>
 
             </div>
@@ -22,7 +22,10 @@
 
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
-                    <div class="panel-heading">Archivio sfide</div>
+                    <div class="panel-heading">
+                        Archivio sfide
+                        <button class="btn btn-sm pull-right btn-default" ng-click="reload()" icon="refresh">Ricarica</button>
+                    </div>
 
                     <!-- Table -->
                     <div ng-include="'app/templates/lista-sfide.html'" on-lista-sfide-load="sfideInAttesaDiRisposta"></div>

@@ -1,4 +1,4 @@
-Rigorix.controller "Main", ($scope, $modal, AuthService) ->
+Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService) ->
 
   $scope.siteTitle = "Website title"
   $scope.userLogged = false
@@ -38,5 +38,7 @@ Rigorix.controller "Main", ($scope, $modal, AuthService) ->
     setInterval ()=>
       AuthService.get { action: "game", value: "status"}, (json)=>
         $scope.currentUser = json
+        $rootScope.$broadcast "currentuser:update", json
 
     , RigorixConfig.updateTime
+

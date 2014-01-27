@@ -2,6 +2,11 @@ Rigorix.controller "ListaSfide", ($scope) ->
   true
 
 
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+
 Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
 
   $scope.id_avversario = if $scope.sfida.id_sfidante == User.id_utente then $scope.sfida.id_sfidato else $scope.sfida.id_sfidante
@@ -22,16 +27,26 @@ Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
     $scope.punti = 0
     $scope.risultatoLabel = "lose"
 
+  $scope.hasActiveButton = true
+
   switch $scope.sfida.stato
-    when "0" then $scope.statoButton = 'lancia_sfida'
+    when "0"
+      $scope.statoButton = 'lancia_sfida'
+      $scope.statoButtonIcon = 'send'
     when "1"
       $scope.statoButton = if $scope.sfida.id_sfidante is User.id_utente then 'lanciata' else 'rispondi'
-    when "2" then $scope.statoButton = 'vedi_sfida'
+      $scope.statoButtonIcon = if $scope.statoButton is 'lanciata' then 'send' else 'share-alt'
+      $scope.hasActiveButton = $scope.statoButton is 'rispondi'
+    when "2"
+      $scope.statoButton = 'vedi_sfida'
+      $scope.statoButtonIcon = 'eye-open'
     when "3" then $scope.statoButton = 'vinta_a_tavolino'
     else
       $scope.statoButton = $scope.sfida.stato
+      $scope.statoButtonIcon = ''
+      $scope.hasActiveButton = false
 
-  $scope.doClickSfida = (action)->
+  $scope.doClickSfida = ->
 
     $modal.open
       templateUrl:  '/app/templates/modals/sfida.html',

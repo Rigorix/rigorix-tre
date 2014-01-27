@@ -1,4 +1,4 @@
-Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, SfideService)->
+Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, $modal, Modals, SfideService)->
 
   $scope.rows = [
     { index: 0 },
@@ -23,6 +23,9 @@ Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, SfideService)->
     '4':
       tiro: false
       parata: false
+
+  $scope.submitButtonLabel = if $scope.sfida.id_sfida isnt false then "Rispondi" else "Lancia"
+  $scope.id_utente_avversario = if $scope.sfida.id_sfida isnt false then $scope.sfida.id_sfidante else $scope.sfida.id_avversario
 
   $scope.randomPlaySet = ->
 
@@ -67,6 +70,10 @@ Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, SfideService)->
         $rootScope.$broadcast "hide:loading"
 
         if json.status == "success"
+          Modals.success
+            title: "titolo"
+            text: "testo"
+
           alert "Sfida inserita correttamente"
         else
           alert "Errore " + json.error_code

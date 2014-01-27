@@ -457,10 +457,10 @@ class activities {
     if ( isset($params) && isset($sfida) ) {
 
       $risposta = true;
-      if ( !isset ($sfida) ):
+      if ( !isset ($sfida->id_sfida) || $sfida->id_sfida === false ):
         $obj = array (
           "indb_tipo_sfida"     => 0,
-          "indb_id_sfidante"		=> $sfida->id_utente,
+          "indb_id_sfidante"		=> $sfida->id_sfidante,
           "indb_id_sfidato"			=> $sfida->id_avversario,
           "indb_dta_sfida"			=> "NOW()",
           "indb_stato"					=> 0
@@ -473,7 +473,7 @@ class activities {
 
       $obj = new stdClass();
       $obj->id_sfida = $id_sfida;
-      $obj->id_utente = $sfida->id_utente;
+      $obj->id_utente = $sfida->id_utente ? $sfida->id_utente : $sfida->id_sfidante;
       $obj->o1 = $params->tiro1 + 1;
       $obj->o2 = $params->tiro2 + 1;
       $obj->o3 = $params->tiro3 + 1;
@@ -489,28 +489,26 @@ class activities {
       $res_id_parate = $dm_sfide->insertObject ( "parate", $obj );
 
       if ( $res_id_tiri !== false && $res_id_parate !== false ):
-        $sfida = new stdClass();
-        $sfida->id_sfida = $id_sfida;
-        $sfida->tipo_sfida = 0;
+        $sfidaObj = new stdClass();
+        $sfidaObj->id_sfida = $id_sfida;
+        $sfidaObj->tipo_sfida = 0;
 
         if ( $risposta == false ):
-          $sfida->stato = 1;
-          $sfida->id_sfidante = $sfida->id_utente;
-          $sfida->id_sfidato = $sfida->id_avversario;
-          $sfida->dta_sfida = "NOW()";
+          $sfidaObj->stato = 1;
+          $sfidaObj->id_sfidante = $sfida->id_sfidante;
+          $sfidaObj->id_sfidato = $sfida->id_avversario;
+          $sfidaObj->dta_sfida = "NOW()";
         else:
-          $sfida->stato = 2;
-          $sfida->dta_conclusa = "NOW()";
+          $sfidaObj->stato = 2;
+          $sfidaObj->dta_conclusa = "NOW()";
         endif;
 
-        if ($dm_sfide->updateObject ( "sfida", $sfida, array ( "id_sfida" => $id_sfida ) ) ):
+        if ($dm_sfide->updateObject ( "sfida", $sfidaObj, array ( "id_sfida" => $id_sfida ) ) ):
+
+          if ( $sfidaObj->stato == 2 )
+            $this->crone__chiudi_sfida ( $sfida );
 
           $this->throw_success ( 300 );
-          if ( $sfida->stato == 2 ):
-            $this->crone__chiudi_sfida ( $sfida );
-          else:
-            $this->throw_error ( 301 );
-          endif;
         endif;
 
       else:

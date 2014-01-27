@@ -1,4 +1,4 @@
-<table class="table" ng-controller="ListaSfide" ng-class="{ isLoading: isLoading }">
+<table class="table mbn" ng-controller="ListaSfide" ng-class="{ isLoading: isLoading }">
     <tr>
         <th rowspan="2"></th>
         <th rowspan="2">Avversario</th>
@@ -43,7 +43,9 @@
             <span class="badge">{{sfida.id_sfidante == $scope.currentUser.id_utente ? sfida.punti_sfidante : sfida.punti_sfidato}}</span>
         </td>
         <td class="text-center">
-            <button class="btn btn-sm" ng-class="{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vedi_sfida'}" ng-click="doClickSfida(statoButton)">{{statoButton | varToTitle}}</button>
+            <button ng-show="hasActiveButton" class="btn btn-sm" icon="{{statoButtonIcon}}" ng-class="{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vedi_sfida'}" ng-click="doClickSfida(statoButton)">{{statoButton | varToTitle}}</button>
+            <button ng-show="!hasActiveButton" class="btn btn-sm btn-disabled" disabled="disabled" icon="{{statoButtonIcon}}">{{statoButton | varToTitle}}</button>
+            <!--<span ng-show="statoButton != 'rispondi'" class="label label-default">{{statoButton | varToTitle}}</span>-->
         </td>
     </tr>
 </table>

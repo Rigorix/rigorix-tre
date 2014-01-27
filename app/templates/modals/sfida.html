@@ -1,23 +1,23 @@
 <div id="GamePlay" class="container-fluid" ng-controller="GamePlay">
     <div class="row row-fluid">
         <div class="col col-sm-3 pam">
-            Scheda utente <username id-utente="{{sfida.id_sfidante}}"></username>
+            Scheda utente <username id-utente="{{id_utente_avversario}}"></username>
         </div>
         <div class="col col-sm-9 pam">
 
             <div class="row">
                 <div class="col col-sm-9">
-                    <button name="set-shuffle-sequence" ng-click="randomPlaySet()" class="btn">Mi sento fortunato!</button>
-                    <button name="reset-sequence" ng-click="resetPlaySet()" class="btn btn-danger">Reimposta</button>
+                    <button name="set-shuffle-sequence" ng-click="randomPlaySet()" class="btn" icon="random"> Mi sento fortunato!</button>
+                    <button name="reset-sequence" ng-click="resetPlaySet()" class="btn btn-danger" icon="wrench">Reimposta</button>
                 </div>
                 <div class="col col-sm-3">
-                    <button name="submit-set-colpi-form" ng-click="submitSfida()" class="btn btn-warning pull-right">Rispondi</button>
+                    <button name="submit-set-colpi-form" ng-click="submitSfida()" class="btn btn-warning pull-right" icon="send">{{submitButtonLabel}}</button>
                 </div>
             </div>
 
             <form name="set-game-form">
-                <input type="hidden" name="id_sfida" value="{{sfida.id_sfida}}" />
-                <input type="hidden" name="id_avversario" value="{{sfida.id_avversario}}" />
+                <!--<input type="hidden" name="id_sfida" value="{{sfida.id_sfida}}" />-->
+                <!--<input type="hidden" name="id_avversario" value="{{sfida.id_avversario}}" />-->
                 <div class="well mam">
                     <div id="GamePlayPanel">
                         <div class="row" ng-repeat="row in rows">

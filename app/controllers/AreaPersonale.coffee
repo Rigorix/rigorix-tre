@@ -7,19 +7,14 @@ Rigorix.controller "AreaPersonale", ($scope, $routeParams, $location) ->
   $scope.onClickAreaPersonaleSection = (sec)->
     $scope.$emit "areapersonale:change:section", sec
 
-
-
   if !$scope.section?
     $location.path "/area-personale/utente"
 
-  $scope.isCurrentPage = (page, $first)->
+  $scope.isCurrentPage = (page)->
     if $routeParams.sectionPage?
       $routeParams.sectionPage is page
     else
-#      console.log "first", $first
       false
-#    else
-#      $first
 
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -46,30 +41,33 @@ Rigorix.controller "AreaPersonale.Utente", ($scope, AppService) ->
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService) ->
+Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService, $route) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'sfide_da_giocare', 'in_attesa_di_risposta', 'archivio' ]
 
-  $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare
+  $scope.$on "currentuser:update", (event, userObject)->
+    $scope.sfideDaGiocare = userObject.sfide_da_giocare
 
-  if $scope.sectionPage == 'archivio'
-    $scope.sfideArchivio = SfideService.getArchivioSfide
-      limit_start: 0
-      limit_count: 15
-    ,
-      $scope.isLoading = false
+  $scope.loadSfide = ()->
+    $scope.isLoading = false if $scope.sectionPage is "sfide_da_giocare"
+    $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare
 
-  if $scope.sectionPage == 'in_attesa_di_risposta'
-    $scope.sfideInAttesaDiRisposta = SfideService.getSfidePending $scope.isLoading = false
+    if $scope.sectionPage == 'archivio'
+      $scope.sfideArchivio = SfideService.getArchivioSfide
+        limit_start: 0
+        limit_count: 15
+      ,
+        $scope.isLoading = false
 
-
-  $scope.isLoading = false if $scope.sectionPage is "sfide_da_giocare"
-
-#  if $scope.sectionPage == 'sfide_da_giocare'
-#    $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare
+    if $scope.sectionPage == 'in_attesa_di_risposta'
+      $scope.sfideInAttesaDiRisposta = SfideService.getSfidePending $scope.isLoading = false
 
 
+  do $scope.loadSfide
+
+  $scope.reload = ->
+    do $route.reload
 
 #-----------------------------------------------------------------------------------------------------------------------
 

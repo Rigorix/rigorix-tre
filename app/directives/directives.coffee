@@ -20,6 +20,8 @@ Rigorix.directive "onSfidaLoad", ['$timeout', (timer)->
 Rigorix.directive "onListaSfideLoad", ()->
   (scope, element, attrs)->
     scope.__sfide = scope[attrs.onListaSfideLoad]
+    scope.$on "currentuser:update", ->
+      scope.__sfide = scope[attrs.onListaSfideLoad]
 
 Rigorix.directive "beautifyDate", ()->
   restrict: 'E'
@@ -43,6 +45,9 @@ Rigorix.directive "username", (UserService)->
           scope.userObject.deleted = json.username.indexOf(RigorixConfig.deletedUsernameQuery) isnt -1
           RigorixStorage.users[attr.idUtente] = json
 
+Rigorix.directive "icon", ->
+  link: (scope, element, attr)->
+    $(element).prepend $('<span class="glyphicon glyphicon-'+attr.icon+' mrs"></span>')
 
 Rigorix.directive "gameTile", ->
   restrict: 'E'

@@ -1,13 +1,15 @@
-<div ng-show="User.id_utente == user.id_utente">
-    <em>
-        <img src="{{user.picture}}" class="username-picture" align="middle">
-        <span class="ui-username">{{user.username}}</span>
-    </em>
-    <span class="punteggio-utente-container label">{{user.punteggio_totale}}</span>
-</div>
+<div ng-controller="Username">
+    <div ng-show="User.id_utente == user.id_utente">
+        <em>
+            <img src="{{user.picture}}" class="username-picture" align="middle">
+            <span class="ui-username">{{user.username}}</span>
+        </em>
+        <span class="punteggio-utente-container label">{{user.punteggio_totale}}</span>
+    </div>
 
-<div class="user-link" name="user-link" id_utente="{{user.id_utente}}" ng-show="User.id_utente != user.id_utente">
-    <img src="{{user.picture}}" class="username-picture" align="middle">
-    <span class="ui-username">{{user.username}}</span>
-    <span class="punteggio-utente-container label">{{user.punteggio_totale}}</span>
+    <div class="user-link" name="user-link" id_utente="{{user.id_utente}}" ng-show="User.id_utente != user.id_utente">
+        <img src="{{user.picture}}" class="username-picture" align="middle">
+        <span class="ui-username" ng-click="doLanciaSfida()">{{user.username}}</span>
+        <span class="punteggio-utente-container label">{{user.punteggio_totale}}</span>
+    </div>
 </div>
