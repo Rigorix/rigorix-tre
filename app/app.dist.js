@@ -294,6 +294,9 @@ Rigorix.controller("ListaSfide.Sfida", function($scope, $modal) {
     $scope.punti = 0;
     $scope.risultatoLabel = "lose";
   }
+  if ($scope.sfida.stato < 2) {
+    $scope.risultatoLabel = 'ongoing';
+  }
   $scope.hasActiveButton = true;
   switch ($scope.sfida.stato) {
     case "0":
@@ -526,14 +529,12 @@ Rigorix.directive("username", function(UserService) {
     templateUrl: '/app/templates/directives/username.html',
     link: function(scope, element, attr) {
       if (RigorixStorage.users[attr.idUtente] != null) {
-        scope.userObject = RigorixStorage.users[attr.idUtente];
-        return scope.userObject.deleted = scope.userObject.username.indexOf(RigorixConfig.deletedUsernameQuery) !== -1;
+        return scope.userObject = RigorixStorage.users[attr.idUtente];
       } else {
         return UserService.getUsernameById({
           filter: attr.idUtente
         }, function(json) {
           scope.userObject = json;
-          scope.userObject.deleted = json.username.indexOf(RigorixConfig.deletedUsernameQuery) !== -1;
           return RigorixStorage.users[attr.idUtente] = json;
         });
       }

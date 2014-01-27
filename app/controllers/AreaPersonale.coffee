@@ -63,7 +63,6 @@ Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService, $route) ->
     if $scope.sectionPage == 'in_attesa_di_risposta'
       $scope.sfideInAttesaDiRisposta = SfideService.getSfidePending $scope.isLoading = false
 
-
   do $scope.loadSfide
 
   $scope.reload = ->

@@ -6,31 +6,8 @@ header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
 header('Content-type: application/json');
 
 require_once '../classes/fastjson.php';
-
 require_once '../classes/core.php';
-
-//require_once '../classes/config.php';
 require_once 'flight/Flight.php';
-//require_once '../dm/dm_generic_mysql.php';
-//require_once '../dm/dm_utente.php';
-//require_once '../dm/dm_messaggi.php';
-//require_once '../dm/dm_sfide.php';
-//require_once '../dm/dm_rewards.php';
-//require_once '../hybridauth/Hybrid/Auth.php';
-//
-//require_once '../classes/user.context.php';
-//require_once '../classes/activities.context.php';
-//
-///// GET environment conf
-//$db           = new dm_generic_mysql( $db_conn, $db_name, $sql_debug );
-//$dm_utente    = new dm_utente( $db_conn, $db_name, $sql_debug );
-//$dm_messaggi  = new dm_messaggi( $db_conn, $db_name, $sql_debug );
-//$dm_sfide     = new dm_sfide( $db_conn, $db_name, $sql_debug );
-//$dm_rewards   = new dm_rewards( $db_conn, $db_name, $sql_debug );
-//
-//$activity = new activities();
-//$user = new user();
-//
 
 /// Badges
 Flight::route('GET /badges', function($count) { global $dm_rewards;
@@ -115,6 +92,11 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
     echo "{ 'username': '- sconosciuto -', 'id_utente': '$id_utente' }";
   else {
     $user->id_utente = $id_utente;
+    if ($attribute == "username" && strpos($user->$attribute, "__DELETED__") !== false) {
+      $user->$attribute = str_replace("__DELETED__", "", $user->$attribute);
+      $user->deleted = true;
+    } else
+      $user->deleted = false;
     echo FastJSON::convert( $user );
   }
 

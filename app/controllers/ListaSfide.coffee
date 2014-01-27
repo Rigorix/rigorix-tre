@@ -27,6 +27,8 @@ Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
     $scope.punti = 0
     $scope.risultatoLabel = "lose"
 
+  $scope.risultatoLabel = 'ongoing' if $scope.sfida.stato < 2
+
   $scope.hasActiveButton = true
 
   switch $scope.sfida.stato

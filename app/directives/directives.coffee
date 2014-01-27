@@ -7,6 +7,10 @@ Rigorix.directive "refreshStateOnLoad", ['$timeout', '$location', (timer, locati
       timer doRefresh, 0
   ]
 
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
 Rigorix.directive "onSfidaLoad", ['$timeout', (timer)->
     link: (scope, element, attrs)->
       checkDeletedUser = ()->
@@ -17,11 +21,19 @@ Rigorix.directive "onSfidaLoad", ['$timeout', (timer)->
       timer checkDeletedUser, 200
   ]
 
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
 Rigorix.directive "onListaSfideLoad", ()->
   (scope, element, attrs)->
     scope.__sfide = scope[attrs.onListaSfideLoad]
     scope.$on "currentuser:update", ->
       scope.__sfide = scope[attrs.onListaSfideLoad]
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
 
 Rigorix.directive "beautifyDate", ()->
   restrict: 'E'
@@ -29,25 +41,35 @@ Rigorix.directive "beautifyDate", ()->
   scope:
     date_string: "@sfidaDate"
 
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
 Rigorix.directive "username", (UserService)->
   restrict: 'E'
   templateUrl: '/app/templates/directives/username.html'
   link: (scope, element, attr) ->
     if RigorixStorage.users[attr.idUtente]?
       scope.userObject = RigorixStorage.users[attr.idUtente]
-      scope.userObject.deleted = scope.userObject.username.indexOf(RigorixConfig.deletedUsernameQuery) isnt -1
     else
       UserService.getUsernameById
         filter: attr.idUtente
       ,
         (json)->
           scope.userObject = json
-          scope.userObject.deleted = json.username.indexOf(RigorixConfig.deletedUsernameQuery) isnt -1
           RigorixStorage.users[attr.idUtente] = json
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
 
 Rigorix.directive "icon", ->
   link: (scope, element, attr)->
     $(element).prepend $('<span class="glyphicon glyphicon-'+attr.icon+' mrs"></span>')
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
 
 Rigorix.directive "gameTile", ->
   restrict: 'E'
