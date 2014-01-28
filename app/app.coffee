@@ -6,15 +6,15 @@ Rigorix.config ($routeProvider)->
 
 # --- Main routes ---------------------------------------------------
   $routeProvider.when "/",
-    templateUrl: "app/templates/home.page.html",
+    templateUrl: "app/templates/pages/home.page.html",
     controller: "Home"
 
   $routeProvider.when "/home",
-    templateUrl: "app/templates/home.page.html",
+    templateUrl: "app/templates/pages/home.page.html",
     controller: "Home"
 
   $routeProvider.when "/logout",
-    templateUrl: "app/templates/home.page.html",
+    templateUrl: "app/templates/pages/home.page.html",
     controller: "Home"
 
 
@@ -34,13 +34,13 @@ Rigorix.config ($routeProvider)->
 
 # --- Static pages ---------------------------------------------------
   $routeProvider.when "/regolamento",
-    templateUrl: "app/templates/regolamento.page.html"
+    templateUrl: "app/templates/pages/regolamento.page.html"
 
   $routeProvider.when "/riconoscimenti",
-    templateUrl: "app/templates/riconoscimenti.page.html"
+    templateUrl: "app/templates/pages/riconoscimenti.page.html"
 
   $routeProvider.when "/partners",
-    templateUrl: "app/templates/partners.page.html"
+    templateUrl: "app/templates/pages/partners.page.html"
 
   $routeProvider.otherwise
-    templateUrl: "app/templates/lost.html"
+    templateUrl: "app/templates/pages/lost.html"

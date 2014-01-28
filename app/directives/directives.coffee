@@ -79,3 +79,18 @@ Rigorix.directive "gameTile", ->
     row: "="
     tileType: "="
     matrix: "@"
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+Rigorix.directive "setLoader", ['RigorixUI', '$timeout', '$rootScope', (RigorixUI, $timeout, $rootScope)->
+  link: (scope, element, attr)->
+
+    RigorixUI.updateLoader attr.setLoader
+
+    if attr.setLoader is '100'
+      $timeout ()=>
+        $rootScope.$broadcast "hide:loading"
+      , 300
+]

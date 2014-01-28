@@ -1,4 +1,4 @@
-Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService) ->
+Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, RigorixUI) ->
 
   $scope.siteTitle = "Website title"
   $scope.userLogged = false
@@ -41,4 +41,3 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService) ->
         $rootScope.$broadcast "currentuser:update", json
 
     , RigorixConfig.updateTime
-

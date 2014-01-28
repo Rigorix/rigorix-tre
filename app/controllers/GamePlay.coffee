@@ -1,4 +1,4 @@
-Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, $modal, Modals, SfideService)->
+Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, $modal, SfideService)->
 
   $scope.rows = [
     { index: 0 },

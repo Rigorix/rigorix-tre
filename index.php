@@ -33,6 +33,7 @@ require_once ('boxes/page_start.php');
 	</div>
 	<div class="clr"></div>
 
+  <div set-loader="60"></div>
 <?php
 require_once ('boxes/page_end.php');
 ?>

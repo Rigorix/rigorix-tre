@@ -16,13 +16,14 @@
                         <p>
                             Ciao <strong data-toggle="popover" data-content="And here\'s some amazing content. It\'s very engaging. right?">{{currentUser.username}}</strong>
                             <span class="badge" id="punteggioUtente">{{currentUser.punteggio_totale}}</span>
-                            <a ng-show="currentUser.messages.length > 0" href="#area-personale" class="messages-icon" title="Hai dei messaggi da leggere"><strong class="count-unread-messages">{{currentUser.messages.length}}</strong> <img src="i/ico_messaggi.gif" align="absmiddle" /></a>
+
+                            <div ng-show="currentUser.messages.length > 0" >
+                                <a href="#area-personale/messaggi" class="messages-icon" title="Hai dei messaggi da leggere"><strong class="count-unread-messages">{{currentUser.messages.length}}</strong> <img src="i/ico_messaggi.gif" align="absmiddle" /></a>
+                            </div>
                         </p>
                     </div>
                 </div>
             </div>
-
-
 
             <div class="list-group-item" ng-show="currentUser.sfide_da_giocare.length > 0">
                 <p class="content"><img src="i/pallone_small.gif" alt="Pallone" /> &nbsp; Hai <strong>{{currentUser.sfide_da_giocare.length}} </strong> sfide &nbsp;<a href="#/area-personale/sfide/sfide_da_giocare" class="btn btn-success btn-sm">Gioca</a></p>

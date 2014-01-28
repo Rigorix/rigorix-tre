@@ -277,15 +277,15 @@ SocialLoginUrl = "http://tre.rigorix.com/social_login.php";
 
 Rigorix.config(function($routeProvider) {
   $routeProvider.when("/", {
-    templateUrl: "app/templates/home.page.html",
+    templateUrl: "app/templates/pages/home.page.html",
     controller: "Home"
   });
   $routeProvider.when("/home", {
-    templateUrl: "app/templates/home.page.html",
+    templateUrl: "app/templates/pages/home.page.html",
     controller: "Home"
   });
   $routeProvider.when("/logout", {
-    templateUrl: "app/templates/home.page.html",
+    templateUrl: "app/templates/pages/home.page.html",
     controller: "Home"
   });
   $routeProvider.when("/area-personale", {
@@ -301,16 +301,16 @@ Rigorix.config(function($routeProvider) {
     controller: "AreaPersonale"
   });
   $routeProvider.when("/regolamento", {
-    templateUrl: "app/templates/regolamento.page.html"
+    templateUrl: "app/templates/pages/regolamento.page.html"
   });
   $routeProvider.when("/riconoscimenti", {
-    templateUrl: "app/templates/riconoscimenti.page.html"
+    templateUrl: "app/templates/pages/riconoscimenti.page.html"
   });
   $routeProvider.when("/partners", {
-    templateUrl: "app/templates/partners.page.html"
+    templateUrl: "app/templates/pages/partners.page.html"
   });
   return $routeProvider.otherwise({
-    templateUrl: "app/templates/lost.html"
+    templateUrl: "app/templates/pages/lost.html"
   });
 });
 
@@ -399,7 +399,7 @@ Rigorix.controller("AreaPersonale.Impostazioni", function($scope) {
   return $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
 });
 
-Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, $modal, Modals, SfideService) {
+Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, $modal, SfideService) {
   $scope.rows = [
     {
       index: 0
@@ -602,7 +602,7 @@ Rigorix.controller("ListaSfide.Sfida", function($scope, $modal) {
   };
 });
 
-Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService) {
+Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, RigorixUI) {
   var _this = this;
   $scope.siteTitle = "Website title";
   $scope.userLogged = false;
@@ -832,6 +832,22 @@ Rigorix.directive("gameTile", function() {
   };
 });
 
+Rigorix.directive("setLoader", [
+  'RigorixUI', '$timeout', '$rootScope', function(RigorixUI, $timeout, $rootScope) {
+    return {
+      link: function(scope, element, attr) {
+        var _this = this;
+        RigorixUI.updateLoader(attr.setLoader);
+        if (attr.setLoader === '100') {
+          return $timeout(function() {
+            return $rootScope.$broadcast("hide:loading");
+          }, 300);
+        }
+      }
+    };
+  }
+]);
+
 Rigorix.filter("capitalize", function() {
   return function(input, scope) {
     return input.substring(0, 1).toUpperCase() + input.substring(1);
@@ -860,6 +876,18 @@ Rigorix.filter("formatStringDate", function() {
 });
 
 
+
+Rigorix.service("RigorixUI", [
+  "$modal", function($modal) {
+    var _this = this;
+    this.loader = angular.element('.rigorix-loading');
+    return {
+      updateLoader: function(percentage) {
+        return _this.loader.find(".progress-bar").css("width", percentage + "%");
+      }
+    };
+  }
+]);
 
 RigorixServices.factory("AuthService", function($resource) {
   return $resource(RigorixEnv.API_DOMAIN + "auth/:id_utente/:action/:value", {
