@@ -51,6 +51,24 @@ Flight::route('POST /sfide/set/@id_sfida', function($id_sfida) { global $activit
 
 
 
+/// Messaggi
+Flight::route('GET /messages/@id_utente', function($id_utente, $count) { global $dm_messaggi;
+
+  $start = (isset($_GET['start_count'])) ? $_GET['start_count'] : 0;
+  $count = (isset($_GET['count'])) ? $_GET['count'] : 15;
+  $messaggi = $dm_messaggi->getFilteredUserUnbannedMessaggi ( $id_utente, $start, $count );
+  echo FastJSON::convert( $messaggi );
+
+});
+
+Flight::route('GET /messages/count/@id_utente', function($id_utente) { global $dm_messaggi;
+
+  $count = $dm_messaggi->getCountUnbannedMessages ( $id_utente );
+  echo $count;
+
+});
+
+
 
 /// Users
 Flight::route('GET /users/all', function($count) { global $dm_utente;
@@ -103,9 +121,8 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
 });
 
 /// AUTH
-Flight::route('GET /auth/login', function($provider) {
-
-  die();
+Flight::route('GET /auth/logout', function($provider) {
+  session_destroy('rigorix');
 
 });
 
@@ -116,12 +133,13 @@ Flight::route('GET /auth/@id_utente', function($id_utente) { global $dm_utente;
 });
 
 Flight::route('GET /auth/@id_utente/game/status', function($id_utente) { global $dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards;
-  $UserObject = $dm_utente->getObjUtenteById($id_utente);
-  $UserObject->messages = $dm_messaggi->getArrObjMessaggiUnread ($id_utente);
-  $UserObject->badges = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
+  $UserObject                   = $dm_utente->getObjUtenteById($id_utente);
+  $UserObject->messages         = $dm_messaggi->getArrObjMessaggiUnread ($id_utente);
+  $UserObject->totMessages      = $dm_messaggi->getCountUnbannedMessages ( $id_utente );
+  $UserObject->badges           = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
   $UserObject->sfide_da_giocare = $dm_sfide->getSfideDaGiocareByUtente ( $id_utente );
-  $UserObject->rewards = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
-  $UserObject->picture = sanitizeUserPicture($UserObject->picture);
+  $UserObject->rewards          = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
+  $UserObject->picture          = sanitizeUserPicture($UserObject->picture);
 
   echo FastJSON::convert($UserObject);
 });

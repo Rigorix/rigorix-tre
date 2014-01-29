@@ -27,15 +27,15 @@
 
   <script src="/app/assets/dist/dist.js" type="text/javascript"></script>
 
-	<script src="/js/jquery-ui-1.8.1.custom.min.js" type="text/javascript"></script>
-	<script src="/js/j_core.js" type="text/javascript"></script>
-	<script src="/js/j_activity.js" type="text/javascript"></script>
-	<script src="/js/activity.settings.js" type="text/javascript"></script>
-	<script src="/js/activity.messages.js" type="text/javascript"></script>
-	<script src="/js/activity.sfide.js" type="text/javascript"></script>
-	<script src="/js/activity.ui.js" type="text/javascript"></script>
-	<script src="/js/activity.fb.js" type="text/javascript"></script>
-	<script src="/js/colorPicker/colorPicker.js" type="text/javascript"></script>
+<!--	<script src="/js/jquery-ui-1.8.1.custom.min.js" type="text/javascript"></script>-->
+<!--	<script src="/js/j_core.js" type="text/javascript"></script>-->
+<!--	<script src="/js/j_activity.js" type="text/javascript"></script>-->
+<!--	<script src="/js/activity.settings.js" type="text/javascript"></script>-->
+<!--	<script src="/js/activity.messages.js" type="text/javascript"></script>-->
+<!--	<script src="/js/activity.sfide.js" type="text/javascript"></script>-->
+<!--	<script src="/js/activity.ui.js" type="text/javascript"></script>-->
+<!--	<script src="/js/activity.fb.js" type="text/javascript"></script>-->
+<!--	<script src="/js/colorPicker/colorPicker.js" type="text/javascript"></script>-->
 	<script>
 	<? if( isset ($msg) && strlen($msg) > 0) { ?>
 		action_queue.push(function() {

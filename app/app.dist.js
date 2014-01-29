@@ -49,7 +49,8 @@ var RigorixConfig, RigorixStorage;
 
 RigorixConfig = {
   updateTime: 10000,
-  deletedUsernameQuery: "__DELETED__"
+  deletedUsernameQuery: "__DELETED__",
+  messagesPerPage: 15
 };
 
 RigorixStorage = {
@@ -354,16 +355,18 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Rig
   $scope.$on("hide:loading", function() {
     return $(".rigorix-loading").removeClass("show");
   });
-  $scope.$on("LOGOUT", function() {
+  $scope.$on("user:logout", function() {
     var User;
     User = false;
     $scope.currentUser = null;
-    $scope.userLogged = false;
-    return alert("logout");
+    return $scope.userLogged = false;
   });
   $scope.$on("*", function(ev, $rootScope) {
     return $rootScope.$broadcast("event:received", ev);
   });
+  $scope.onUserLogout = function() {
+    return $rootScope.$broadcast('user:logout');
+  };
   if (User !== false) {
     $scope.userLogged = true;
     $scope.currentUser = User;
@@ -383,6 +386,50 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Rig
       });
     }, RigorixConfig.updateTime);
   }
+});
+
+Rigorix.controller('Messages', function($scope, AppService, $modal) {
+  var _this = this;
+  $scope.messages = AppService.getMessages({
+    count: RigorixConfig.messagesPerPage
+  });
+  $scope.openMessage = function(message) {
+    return $modal.open({
+      templateUrl: '/app/templates/modals/message.html',
+      controller: 'Message.Modal',
+      resolve: {
+        message: function() {
+          return message;
+        }
+      }
+    });
+  };
+  $scope.page = 1;
+  $scope.currentPage = 1;
+  $scope.totMessages = Number($scope.currentUser.totMessages);
+  $scope.$watch('currentPage', function(newVal, oldVal) {
+    return console.log("watch currentPages newval", newVal);
+  });
+  return $scope.pageChanged = function(page) {
+    return console.log("onSelectPage", page);
+  };
+});
+
+Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $rootScope, message) {
+  $rootScope.$broadcast("modal:open", {
+    controller: 'Message.Modal',
+    modalClass: 'modal-read-message'
+  });
+  $scope.message = message;
+  $modalInstance.result.then(function() {
+    return true;
+  }, function() {
+    return $rootScope.$broadcast("modal:close");
+  });
+  $scope.cancel = function() {
+    return $modalInstance.dismiss();
+  };
+  return console.log("Load message", message);
 });
 
 Rigorix.factory("Modals", function($scope, $modal) {
@@ -518,7 +565,8 @@ Rigorix.directive("beautifyDate", function() {
     restrict: 'E',
     templateUrl: '/app/templates/directives/beautify-date.html',
     scope: {
-      date_string: "@sfidaDate"
+      date_string: "@date",
+      inline: "="
     }
   };
 });
@@ -606,7 +654,59 @@ Rigorix.filter("formatStringDate", function() {
   };
 });
 
+Rigorix.filter("localizeMonth", function() {
+  var months;
+  months = {
+    Jan: 'Gen',
+    Feb: 'Feb',
+    Mar: 'Mar',
+    Apr: 'Apr',
+    May: 'Mag',
+    Jun: 'Giu',
+    Jul: 'Lug',
+    Aug: 'Ago',
+    Sep: 'Set',
+    Oct: 'Ott',
+    Nov: 'Nov',
+    Dec: 'Dic'
+  };
+  return function(input) {
+    return months[input];
+  };
+});
 
+
+
+RigorixServices.factory("AppService", function($resource) {
+  return $resource(RigorixEnv.API_DOMAIN + ":param1/:param2/:param3", {
+    param1: "@param1",
+    param2: "@param2",
+    param3: "@param3",
+    isArray: false
+  }, {
+    getBadges: {
+      method: 'GET',
+      params: {
+        param1: 'badges'
+      }
+    },
+    getMessages: {
+      method: 'GET',
+      params: {
+        param1: 'messages',
+        param2: User.id_utente
+      }
+    },
+    getCountMessages: {
+      method: 'GET',
+      params: {
+        param1: 'messages',
+        param2: 'count',
+        param3: User.id_utente
+      }
+    }
+  });
+});
 
 Rigorix.service("RigorixUI", [
   "$modal", function($modal) {
@@ -698,22 +798,6 @@ RigorixServices.factory("UserService", function($resource) {
       params: {
         filter: User.id_utente,
         value: 'badges'
-      }
-    }
-  });
-});
-
-RigorixServices.factory("AppService", function($resource) {
-  return $resource(RigorixEnv.API_DOMAIN + ":param1/:param2/:param3", {
-    param1: "@param1",
-    param2: "@param2",
-    param3: "@param3",
-    isArray: false
-  }, {
-    getBadges: {
-      method: 'GET',
-      params: {
-        param1: 'badges'
       }
     }
   });

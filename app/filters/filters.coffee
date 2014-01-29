@@ -15,3 +15,20 @@ Rigorix.filter "stringToDate", ->
 Rigorix.filter "formatStringDate", ->
   (input) ->
     moment(input).format "Do MMM YYYY"
+
+Rigorix.filter "localizeMonth", ->
+  months =
+    Jan: 'Gen'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Mag'
+    Jun: 'Giu'
+    Jul: 'Lug'
+    Aug: 'Ago'
+    Sep: 'Set'
+    Oct: 'Ott'
+    Nov: 'Nov'
+    Dec: 'Dic'
+  (input) ->
+    months[input]

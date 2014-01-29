@@ -19,14 +19,25 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, RigorixUI) 
   $scope.$on "hide:loading", ->
     $(".rigorix-loading").removeClass "show"
 
-  $scope.$on "LOGOUT", ->
+  $scope.$on "user:logout", ->
     User = false
     $scope.currentUser = null
     $scope.userLogged = false
-    alert "logout"
 
   $scope.$on "*", (ev, $rootScope)->
     $rootScope.$broadcast "event:received", ev
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+  $scope.onUserLogout = ->
+    $rootScope.$broadcast 'user:logout'
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
 
   if User isnt false
     $scope.userLogged = true

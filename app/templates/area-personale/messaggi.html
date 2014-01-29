@@ -1,0 +1,35 @@
+<div class="panel panel-default mtl">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <span icon="envelope">Inbox</span>
+        <button class="btn btn-sm pull-right btn-default" ng-click="reload()" icon="refresh">Ricarica</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped mbn" ng-controller="Messages">
+            <tr>
+                <th></th>
+                <th>Data</th>
+                <th>Mittente</th>
+                <th>Oggetto</th>
+            </tr>
+            <tr ng-repeat="message in messages" ng-class="{success: message.letto == 0}">
+                <td width="1"></td>
+                <td width="15%">
+                    <beautify-date date="{{message.dta_mess}}" inline="true"></beautify-date>
+                </td>
+                <td>
+                    <username id_utente="{{message.id_sender}}"></username>
+                </td>
+                <td>
+                    <a ng-click="openMessage(message)">{{message.oggetto}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center">
+                    <pagination total-items="50" items-per-page="10"></pagination>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

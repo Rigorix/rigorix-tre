@@ -6228,7 +6228,6 @@ td.visible-print {
   padding: 1px 2px;
   background: #fff;
   box-shadow: 0 2px 2px rgba(100, 100, 100, 0.7);
-  margin: 0 auto;
 }
 .beautify-date .day {
   text-align: center;
@@ -6339,6 +6338,9 @@ td.visible-print {
 }
 #GamePlay .gameplay-tile .portiereDx_game.active img {
   display: none;
+}
+.modal-read-message .modal-dialog {
+  width: 500px;
 }
 .row-fluid:before,
 .row-fluid:after {

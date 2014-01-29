@@ -1,5 +1,5 @@
-<div class="beautify-date">
+<div ng-class="{'beautify-date': inline != true}">
     <strong class="day">{{date_string | stringToDate | date:'dd'}}</strong>
-    <small class="month">{{date_string | stringToDate | date:'MMM'}}</small>
+    <small class="month">{{date_string | stringToDate | date:'MMM' | localizeMonth }}</small>
     <small class="year">{{date_string | stringToDate | date:'yyyy'}}</small>
 </div>

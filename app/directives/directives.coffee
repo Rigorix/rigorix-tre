@@ -39,7 +39,8 @@ Rigorix.directive "beautifyDate", ()->
   restrict: 'E'
   templateUrl: '/app/templates/directives/beautify-date.html'
   scope:
-    date_string: "@sfidaDate"
+    date_string: "@date"
+    inline: "="
 
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -94,3 +95,8 @@ Rigorix.directive "setLoader", ['RigorixUI', '$timeout', '$rootScope', (RigorixU
         $rootScope.$broadcast "hide:loading"
       , 300
 ]
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+

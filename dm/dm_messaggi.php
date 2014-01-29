@@ -19,7 +19,12 @@ class dm_messaggi extends dm_generic_mysql {
 		global $user; 
 		return $this->getArrayObjectQueryCustom( "select * from messaggi where (select count(*) as tot from bannati where id_utente = messaggi.id_receiver and id_bannato = messaggi.id_sender) = 0 and id_receiver = ".$user->obj->id_utente." order by dta_mess desc limit $start, " . ($end - $start) );
 	}
-		
+
+  function getFilteredUserUnbannedMessaggi ( $id_utente, $start, $end ) {
+    global $user;
+    return $this->getArrayObjectQueryCustom( "select * from messaggi where (select count(*) as tot from bannati where id_utente = messaggi.id_receiver and id_bannato = messaggi.id_sender) = 0 and id_receiver = ".$id_utente." order by dta_mess desc limit $start, " . ($end - $start) );
+  }
+
 	function getUsernameSenderByIdMess ($id_mess) 
 	{
 		return $this->getSingleObjectQueryCustom("select (select username from utente where id_utente = messaggi.id_sender) as username from messaggi where id_mess = $id_mess")->username;

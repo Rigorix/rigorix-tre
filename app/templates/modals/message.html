@@ -1,0 +1,22 @@
+<div class="mal">
+    <div class="row mbl">
+        <div class="col col-sm-12">
+            <h3>{{message.oggetto}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-12">
+            <blockquote>
+                <p>{{message.testo}}</p>
+                <small><username id_utente="{{message.id_sender}}"></username></small>
+            </blockquote>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-12">
+            <button class="btn btn-danger" icon="trash">Cancella</button>
+            <button class="btn btn-warning pull-right mlm" icon="pencil">Rispondi</button>
+            <button class="btn btn-default pull-right" ng-click="cancel()" icon="remove">Chiudi</button>
+        </div>
+    </div>
+</div>

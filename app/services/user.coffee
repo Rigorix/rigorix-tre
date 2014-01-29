@@ -33,18 +33,3 @@ RigorixServices.factory "UserService", ($resource)->
       params:
         filter: User.id_utente
         value: 'badges'
-
-
-
-RigorixServices.factory "AppService", ($resource)->
-
-  $resource RigorixEnv.API_DOMAIN + ":param1/:param2/:param3",
-    param1: "@param1"
-    param2: "@param2"
-    param3: "@param3"
-    isArray: false
-  ,
-    getBadges:
-      method: 'GET'
-      params:
-        param1: 'badges'

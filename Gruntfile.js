@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           'app/assets/vendor/angular.min.js',
           'app/assets/vendor/angular-resource.min.js',
           'app/assets/vendor/angular-route.min.js',
-          'app/assets/vendor/ui-bootstrap-tpls-0.10.0.min.js',
+          'app/assets/vendor/ui-bootstrap-tpls-0.10.1.js',
           'app/assets/vendor/bootstrap/js/bootstrap.min.js',
           'app/assets/vendor/moment.min.js',
 

@@ -203,7 +203,7 @@ big.message.error { border-color: red; }
 	.context-menu-dropdown ul li a { padding: 4px; display: block; }
 	.context-menu-dropdown ul li a:hover { color: #000; background: #f6f57f; }
 
-	.ui-username { padding: 5px; display: inline-block; cursor: pointer !important; }
+	.ui-username { padding: 0 5px; display: inline-block; cursor: pointer !important; }
 	.username-picture { width: 20px; height: 20px; }
 
 	.its-me { background: #2e95bd !important; color: #fff; }
