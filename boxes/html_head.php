@@ -5,13 +5,13 @@
 	<meta name="description" content="Gioca gratis e vinci bellissimi premi ai rigori. Rigorix e' uno dei piu' divertenti giochi online gratuiti in flash in cui si vincono veri premi. Gioca online!">
 	<meta name="keywords" content="giochi on line gratuiti a premi">
 	<style type="text/css">
-		@import "/app/assets/dist/dist.common.css";
-		@import "/css/common.css";
-		@import "/css/ui/jquery-ui-1.8.1.custom.css";
-		@import "/css/colorPicker.css";
-		<?php if ( isset ($context) && $context == 'dialog' ) { ?>
-		.dialog-default-container { padding: 0 !important; }
-		<?php } ?>
+		@import "/app/assets/dist/dist.common.min.css";
+		/*@import "/css/common.css";*/
+		/*@import "/css/ui/jquery-ui-1.8.1.custom.css";*/
+		/*@import "/css/colorPicker.css";*/
+<!--		--><?php //if ( isset ($context) && $context == 'dialog' ) { ?>
+		/*.dialog-default-container { padding: 0 !important; }*/
+<!--		--><?php //} ?>
 		/*@import "/css/developing.css";*/
 	</style>
 	<script>

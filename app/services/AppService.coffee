@@ -23,3 +23,12 @@ RigorixServices.factory "AppService", ($resource)->
         param1: 'messages'
         param2: 'count'
         param3: User.id_utente
+
+
+    postReply:
+      method: "POST"
+      params:
+        param1: 'message'
+        param2: 'reply'
+
+

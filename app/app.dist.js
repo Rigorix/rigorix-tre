@@ -1,6 +1,6 @@
 var Rigorix, RigorixServices, SocialLoginUrl;
 
-Rigorix = angular.module("Rigorix", ["ngRoute", "RigorixServices", "ui.bootstrap"]);
+Rigorix = angular.module("Rigorix", ["ngRoute", "RigorixServices", "ui.bootstrap", 'textAngular']);
 
 RigorixServices = angular.module("RigorixServices", ["ngResource"]);
 
@@ -45,6 +45,12 @@ Rigorix.config(function($routeProvider) {
   });
 });
 
+Rigorix.config(function() {
+  if (RigorixEnv.INCOGNITO === true) {
+    return angular.element("body").append($('<link rel="stylesheet" type="text/css" media="all" href="/css/developing.css.wait" />'));
+  }
+});
+
 var RigorixConfig, RigorixStorage;
 
 RigorixConfig = {
@@ -56,6 +62,8 @@ RigorixConfig = {
 RigorixStorage = {
   users: {}
 };
+
+RigorixEnv;
 
 Rigorix.controller("AreaPersonale", function($scope, $routeParams, $location) {
   $scope.sections = ['utente', 'sfide', 'impostazioni', 'messaggi'];
@@ -334,7 +342,7 @@ Rigorix.controller("ListaSfide.Sfida", function($scope, $modal) {
   };
 });
 
-Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, RigorixUI) {
+Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, UserService) {
   var _this = this;
   $scope.siteTitle = "Website title";
   $scope.userLogged = false;
@@ -359,12 +367,13 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Rig
     var User;
     User = false;
     $scope.currentUser = null;
-    return $scope.userLogged = false;
+    $scope.userLogged = false;
+    return UserService.doLogout();
   });
   $scope.$on("*", function(ev, $rootScope) {
     return $rootScope.$broadcast("event:received", ev);
   });
-  $scope.onUserLogout = function() {
+  $scope.doUserLogout = function() {
     return $rootScope.$broadcast('user:logout');
   };
   if (User !== false) {
@@ -388,12 +397,25 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Rig
   }
 });
 
-Rigorix.controller('Messages', function($scope, AppService, $modal) {
+Rigorix.controller('Messages', function($scope, $rootScope, AppService, $modal) {
   var _this = this;
+  $rootScope.textAngularOpts = {
+    toolbar: [['bold', 'italics', 'ul', 'ol', 'redo', 'undo']],
+    classes: {
+      focussed: "focussed",
+      toolbar: "btn-toolbar",
+      toolbarGroup: "btn-group",
+      toolbarButton: "btn btn-default",
+      toolbarButtonActive: "active",
+      textEditor: 'form-control',
+      htmlEditor: 'form-control'
+    }
+  };
   $scope.messages = AppService.getMessages({
     count: RigorixConfig.messagesPerPage
   });
   $scope.openMessage = function(message) {
+    message.letto = 1;
     return $modal.open({
       templateUrl: '/app/templates/modals/message.html',
       controller: 'Message.Modal',
@@ -415,21 +437,47 @@ Rigorix.controller('Messages', function($scope, AppService, $modal) {
   };
 });
 
-Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $rootScope, message) {
+Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $rootScope, message, UserService, AppService) {
   $rootScope.$broadcast("modal:open", {
     controller: 'Message.Modal',
     modalClass: 'modal-read-message'
   });
+  $scope.editMode = false;
+  $scope.isTextCollapsed = false;
+  $scope.answer = "<br><br>" + User.username;
   $scope.message = message;
+  UserService.putMessageRead({
+    value: message.id_mess
+  });
   $modalInstance.result.then(function() {
     return true;
   }, function() {
     return $rootScope.$broadcast("modal:close");
   });
-  $scope.cancel = function() {
+  $scope.reply = function() {
+    $scope.editMode = true;
+    $scope.isTextCollapsed = true;
+    angular.element(".message-text").click();
+    return angular.element(".ta-editor").focus();
+  };
+  $scope.sendReply = function(answerText) {
+    return AppService.postReply({
+      text: answerText,
+      message: $scope.message
+    });
+  };
+  $scope.discard = function() {
+    $scope.isTextCollapsed = true;
+    return $scope.editMode = false;
+  };
+  $scope["delete"] = function() {
+    return UserService.deleteMessage({
+      value: message.id_mess
+    });
+  };
+  return $scope.cancel = function() {
     return $modalInstance.dismiss();
   };
-  return console.log("Load message", message);
 });
 
 Rigorix.factory("Modals", function($scope, $modal) {
@@ -627,6 +675,25 @@ Rigorix.directive("setLoader", [
   }
 ]);
 
+Rigorix.directive("wysiwyg", function() {
+  return {
+    require: '?ngModel',
+    restrict: 'E',
+    link: function(scope, el, attr, ngModel) {
+      return scope.redactor = el.redactor({
+        focus: false,
+        callback: function(o) {
+          o.setCode(scope.content);
+          return el.keydown(function() {
+            console.log(o.getCode());
+            return scope.$apply(ngModel.$setViewValue(o.getCode()));
+          });
+        }
+      });
+    }
+  };
+});
+
 Rigorix.filter("capitalize", function() {
   return function(input, scope) {
     return input.substring(0, 1).toUpperCase() + input.substring(1);
@@ -703,6 +770,13 @@ RigorixServices.factory("AppService", function($resource) {
         param1: 'messages',
         param2: 'count',
         param3: User.id_utente
+      }
+    },
+    postReply: {
+      method: "POST",
+      params: {
+        param1: 'message',
+        param2: 'reply'
       }
     }
   });
@@ -798,6 +872,26 @@ RigorixServices.factory("UserService", function($resource) {
       params: {
         filter: User.id_utente,
         value: 'badges'
+      }
+    },
+    deleteMessage: {
+      method: "DELETE",
+      params: {
+        filter: 'message',
+        value: '@value'
+      }
+    },
+    putMessageRead: {
+      method: "PUT",
+      params: {
+        filter: 'message',
+        value: '@value'
+      }
+    },
+    doLogout: {
+      method: "POST",
+      params: {
+        filter: "logout"
       }
     }
   });

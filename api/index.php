@@ -68,6 +68,16 @@ Flight::route('GET /messages/count/@id_utente', function($id_utente) { global $d
 
 });
 
+Flight::route('POST /message/reply', function() { global $activity;
+
+  $postdata = file_get_contents("php://input");
+  $data = json_decode($postdata);
+
+  $activity->do_reply_message($data);
+  echo '{ "status": "success" }';
+
+});
+
 
 
 /// Users
@@ -102,6 +112,21 @@ Flight::route('GET /users/campione/settimana', function() { global $dm_utente;
 
 });
 
+Flight::route('DELETE /users/message/@id_message', function($id_message) { global $dm_messaggi;
+
+  $dm_messaggi->removeMessaggio ($id_message);
+  echo "{ 'status': 'ok' }";
+
+});
+
+
+Flight::route('PUT /users/message/@id_message', function($id_message) { global $dm_messaggi;
+
+  $dm_messaggi->markAsReadById ($id_message);
+  echo "{ 'status': 'ok' }";
+
+});
+
 
 Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
 
@@ -121,9 +146,10 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
 });
 
 /// AUTH
-Flight::route('GET /auth/logout', function($provider) {
-  session_destroy('rigorix');
+Flight::route('POST /users/logout', function() {
+  unset($_SESSION['rigorix']);
 
+  echo "{ 'status': 'ok' }";
 });
 
 Flight::route('GET /auth/@id_utente', function($id_utente) { global $dm_utente;

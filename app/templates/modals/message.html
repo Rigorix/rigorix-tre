@@ -6,17 +6,28 @@
     </div>
     <div class="row">
         <div class="col col-sm-12">
-            <blockquote>
-                <p>{{message.testo}}</p>
+            Answer: {{answer}} {{htmlcontent}}
+            <div text-angular="text-angular" ng-show="editMode" name="htmlcontent" ng-model="answer"></div>
+
+
+            <!--<wysiwyg ng-model="message.testo"></wysiwyg>-->
+            <!--<textarea ng-show="editMode" ng-model="message.testo" class="mvl">{{message.testo}}</textarea>-->
+            <blockquote ng-click="isTextCollapsed = !isTextCollapsed">
+                <p class="message-text" collapse="isTextCollapsed">{{message.testo}}</p>
+                <p collapse="!isTextCollapsed">...</p>
                 <small><username id_utente="{{message.id_sender}}"></username></small>
             </blockquote>
         </div>
     </div>
     <div class="row">
         <div class="col col-sm-12">
-            <button class="btn btn-danger" icon="trash">Cancella</button>
-            <button class="btn btn-warning pull-right mlm" icon="pencil">Rispondi</button>
-            <button class="btn btn-default pull-right" ng-click="cancel()" icon="remove">Chiudi</button>
+            <button class="btn btn-danger" ng-click="delete()" icon="trash">Cancella</button>
+
+            <button class="btn btn-warning pull-right mlm" ng-show="!editMode" ng-click="reply()" icon="pencil">Rispondi</button>
+            <button class="btn btn-warning pull-right mlm" ng-show="editMode" ng-click="sendReply(answer)" data-loading-text="Invio in corso..." icon="send">Invia</button>
+
+            <button class="btn btn-default pull-right" ng-show="!editMode" ng-click="cancel()" icon="remove">Chiudi</button>
+            <button class="btn btn-default pull-right" ng-show="editMode" ng-click="discard()" icon="floppy-remove">Annulla</button>
         </div>
     </div>
 </div>

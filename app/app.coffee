@@ -1,4 +1,4 @@
-Rigorix = angular.module "Rigorix", ["ngRoute", "RigorixServices", "ui.bootstrap"]
+Rigorix = angular.module "Rigorix", ["ngRoute", "RigorixServices", "ui.bootstrap", 'textAngular']
 RigorixServices = angular.module "RigorixServices", ["ngResource"]
 SocialLoginUrl = "http://tre.rigorix.com/social_login.php"
 
@@ -44,3 +44,9 @@ Rigorix.config ($routeProvider)->
 
   $routeProvider.otherwise
     templateUrl: "app/templates/pages/lost.html"
+
+
+Rigorix.config ()->
+
+  if RigorixEnv.INCOGNITO is true
+    angular.element("body").append $('<link rel="stylesheet" type="text/css" media="all" href="/css/developing.css.wait" />')

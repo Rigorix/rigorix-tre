@@ -1,4 +1,4 @@
-Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, RigorixUI) ->
+Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService) ->
 
   $scope.siteTitle = "Website title"
   $scope.userLogged = false
@@ -24,6 +24,9 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, RigorixUI) 
     $scope.currentUser = null
     $scope.userLogged = false
 
+    do UserService.doLogout
+
+
   $scope.$on "*", (ev, $rootScope)->
     $rootScope.$broadcast "event:received", ev
 
@@ -31,7 +34,7 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, RigorixUI) 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-  $scope.onUserLogout = ->
+  $scope.doUserLogout = ->
     $rootScope.$broadcast 'user:logout'
 
 

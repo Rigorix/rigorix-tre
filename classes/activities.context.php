@@ -316,6 +316,26 @@ class activities {
 			$this->throw_error( 106 );
 	}
 
+  function do_reply_message ($object)
+  {
+    global $dm_messaggi;
+
+    if (isset($object->message->id_sender))
+    {
+      $obj = [];
+      $obj['indb_id_sender'] = $object->message->id_receiver;
+      $obj['indb_id_receiver'] = $object->message->id_sender;
+      $obj['indb_oggetto'] = "RE:" . $object->message->oggetto;
+      $obj['indb_testo'] = $object->text;
+      $obj['indb_dta_mess'] ='_V_NOW_';
+      $obj_indb = $dm_messaggi->makeInDbObject($obj);
+
+      $dm_messaggi->insertObject('messaggi', $obj_indb);
+      $this->throw_success ( 102 );
+    } else
+      $this->throw_error( 106 );
+  }
+
 	function do_delete_message ()
 	{
 		global $dm_messaggi;

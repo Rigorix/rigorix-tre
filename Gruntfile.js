@@ -18,15 +18,30 @@ module.exports = function(grunt) {
           'app/assets/vendor/angular.min.js',
           'app/assets/vendor/angular-resource.min.js',
           'app/assets/vendor/angular-route.min.js',
-          'app/assets/vendor/ui-bootstrap-tpls-0.10.1.js',
+          'app/assets/vendor/angular-sanitize.min.js',
           'app/assets/vendor/bootstrap/js/bootstrap.min.js',
-          'app/assets/vendor/moment.min.js',
+
+          'app/assets/vendor/extensions/**/*.js',
+//          'app/assets/vendor/ui-bootstrap-tpls-0.10.1.js',
+//          'app/assets/vendor/moment.min.js',
 
           // App jss
           'app/app.dist.js'
         ],
         // the location of the resulting JS file
         dest: 'app/assets/dist/dist.js'
+      },
+      cssdist: {
+        // the files to concatenate
+        src: [
+          //include libs
+          'app/assets/css/*.css',
+          'app/assets/dist/dist.common.css',
+          'css/*.css'/*,
+          'css/ui/jquery-ui-1.8.1.custom.css'*/
+        ],
+        // the location of the resulting JS file
+        dest: 'app/assets/dist/dist.common.min.css'
       }
     },
 
@@ -50,6 +65,17 @@ module.exports = function(grunt) {
 //        },
 //        src: 'app/assets/dist',
 //        dest: 'tre/app/assets/dist'
+//      }
+//    },
+
+//    uglify: {
+//      dev: {
+//        options: {
+//          beautify: true
+//        },
+//        files: {
+//          'app/assets/css/common.min.css': ['app/assets/css/*.css', 'app/assets/css/dist.common.css']
+//        }
 //      }
 //    },
 
@@ -95,9 +121,10 @@ module.exports = function(grunt) {
 //  grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+//  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
-  grunt.registerTask('dev', ['coffee:compileBare', 'concat:dist', 'less:development']);
+  grunt.registerTask('dev', ['coffee:compileBare', 'concat:dist', 'concat:cssdist', 'less:development']);
   grunt.registerTask('deploy:staging', ['git_ftp:development']);
   grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
 

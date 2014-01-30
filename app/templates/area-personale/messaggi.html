@@ -6,14 +6,14 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table table-bordered table-striped mbn" ng-controller="Messages">
+        <table class="table table-bordered table-messages mbn" ng-controller="Messages">
             <tr>
                 <th></th>
                 <th>Data</th>
                 <th>Mittente</th>
                 <th>Oggetto</th>
             </tr>
-            <tr ng-repeat="message in messages" ng-class="{success: message.letto == 0}">
+            <tr ng-repeat="message in messages" ng-class="{success:message.letto == 0}">
                 <td width="1"></td>
                 <td width="15%">
                     <beautify-date date="{{message.dta_mess}}" inline="true"></beautify-date>

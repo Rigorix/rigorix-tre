@@ -6342,6 +6342,12 @@ td.visible-print {
 .modal-read-message .modal-dialog {
   width: 500px;
 }
+.table-messages .success td {
+  font-weight: 600;
+}
+.ta-editor {
+  height: auto;
+}
 .row-fluid:before,
 .row-fluid:after {
   content: " ";

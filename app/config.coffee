@@ -5,3 +5,6 @@ RigorixConfig =
 
 RigorixStorage =
   users: {}
+
+RigorixEnv
+

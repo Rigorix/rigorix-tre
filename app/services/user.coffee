@@ -33,3 +33,31 @@ RigorixServices.factory "UserService", ($resource)->
       params:
         filter: User.id_utente
         value: 'badges'
+
+
+
+    deleteMessage:
+      method: "DELETE"
+      params:
+        filter: 'message'
+        value: '@value'
+
+
+
+
+
+    putMessageRead:
+      method: "PUT"
+      params:
+        filter: 'message'
+        value: '@value'
+
+
+
+
+
+
+    doLogout:
+      method: "POST"
+      params:
+        filter: "logout"
