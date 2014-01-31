@@ -11,6 +11,8 @@
     "grunt-git-ftp": "~0.1.4",
     "grunt-contrib-coffee": "~0.8.2",
     "grunt-contrib-uglify": "~0.3.2",
-    "bower": "~1.2.8"
+    "bower": "~1.2.8",
+    "grunt-bower-task": "~0.3.4",
+    "grunt-bower-install": "~0.8.0"
   }
 }

@@ -100,6 +100,23 @@ module.exports = function(grunt) {
       }
     },
 
+    'bower-install': {
+
+      target: {
+
+        // Point to the files that should be updated when
+        // you run `grunt bower-install`
+        src: ['./app/indexs.html'],
+
+        // Optional:
+        // ---------
+        cwd: '',
+        ignorePath: '',
+        exclude: [],
+        fileTypes: {}
+      }
+    },
+
 
 
     watch: {
@@ -115,16 +132,18 @@ module.exports = function(grunt) {
 
   });
 
-//  grunt.loadNpmTasks('grunt-git-ftp');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
-//  grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-bower-install');
+
+//  grunt.loadNpmTasks('grunt-git-ftp');
+//  grunt.loadNpmTasks('grunt-ftp-deploy');
 //  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
-  grunt.registerTask('dev', ['coffee:compileBare', 'concat:dist', 'concat:cssdist', 'less:development']);
+  grunt.registerTask('dev', ['coffee:compileBare', 'concat:dist', 'concat:cssdist', 'less:development', 'bower-install']);
   grunt.registerTask('deploy:staging', ['git_ftp:development']);
   grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
 
