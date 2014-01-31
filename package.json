@@ -10,6 +10,7 @@
     "ftp": "~0.3.6",
     "grunt-git-ftp": "~0.1.4",
     "grunt-contrib-coffee": "~0.8.2",
-    "grunt-contrib-uglify": "~0.3.2"
+    "grunt-contrib-uglify": "~0.3.2",
+    "bower": "~1.2.8"
   }
 }

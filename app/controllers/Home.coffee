@@ -1,8 +1,8 @@
-Rigorix.controller "Home", ($scope, UserService) ->
+Rigorix.controller "Home", ($scope, AppService) ->
 
   $scope.updateResources = ->
-    $scope.campione = UserService.getCampioneSettimana()
-    $scope.activeUsers = UserService.getActiveUsers()
+    $scope.campione = AppService.getCampioneSettimana()
+    $scope.activeUsers = AppService.getActiveUsers()
 
   do $scope.updateResources
 

@@ -8,6 +8,58 @@ header('Content-type: application/json');
 require_once '../classes/fastjson.php';
 require_once '../classes/core.php';
 require_once 'flight/Flight.php';
+require_once 'Helper.php';
+
+
+
+/// NEW VERSION
+
+/// UserServiceNEw
+Flight::route('/user/@id_utente(/*)', function($id_utente) {
+  if (!hasAuth($id_utente)):
+    echo "{ 'error': 'not-authorized' }";
+    die();
+  else:
+    return true;
+  endif;
+});
+
+Flight::route('GET /user/@id_utente', function($id_utente) { global $dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards;
+  $UserObject                   = $dm_utente->getObjUtenteById($id_utente);
+  $UserObject->messages         = $dm_messaggi->getArrObjMessaggiUnread ($id_utente);
+  $UserObject->totMessages      = $dm_messaggi->getCountUnbannedMessages ( $id_utente );
+  $UserObject->badges           = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
+  $UserObject->sfide_da_giocare = $dm_sfide->getSfideDaGiocareByUtente ( $id_utente );
+  $UserObject->rewards          = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
+  $UserObject->picture          = sanitizeUserPicture($UserObject->picture);
+
+  echo FastJSON::convert($UserObject);
+});
+
+Flight::route('GET /user/@id_utente/messages', function($id_utente) { global $dm_messaggi;
+
+  $start = (isset($_GET['start_count'])) ? $_GET['start_count'] : 0;
+  $count = (isset($_GET['count'])) ? $_GET['count'] : 15;
+  $messaggi = $dm_messaggi->getFilteredUserUnbannedMessaggi ( $id_utente, $start, $count );
+  echo FastJSON::convert( $messaggi );
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /// Badges
 Flight::route('GET /badges', function($count) { global $dm_rewards;
@@ -112,20 +164,6 @@ Flight::route('GET /users/campione/settimana', function() { global $dm_utente;
 
 });
 
-Flight::route('DELETE /users/message/@id_message', function($id_message) { global $dm_messaggi;
-
-  $dm_messaggi->removeMessaggio ($id_message);
-  echo "{ 'status': 'ok' }";
-
-});
-
-
-Flight::route('PUT /users/message/@id_message', function($id_message) { global $dm_messaggi;
-
-  $dm_messaggi->markAsReadById ($id_message);
-  echo "{ 'status': 'ok' }";
-
-});
 
 
 Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
@@ -146,7 +184,7 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
 });
 
 /// AUTH
-Flight::route('POST /users/logout', function() {
+Flight::route('POST /user/logout', function() {
   unset($_SESSION['rigorix']);
 
   echo "{ 'status': 'ok' }";
@@ -171,6 +209,38 @@ Flight::route('GET /auth/@id_utente/game/status', function($id_utente) { global 
 });
 
 
+
+/// Users //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
+    $user = $dm_utente->getSingleObjectQueryCustom("SELECT $attribute FROM utente WHERE id_utente = " . $id_utente );
+    if ($user === false)
+      echo "{ '$attribute': 'unknown', 'id_utente': '$id_utente' }";
+    else {
+      $user->id_utente = $id_utente;
+      if ($attribute == "username" && strpos($user->$attribute, "__DELETED__") !== false) {
+        $user->$attribute = str_replace("__DELETED__", "", $user->$attribute);
+        $user->deleted = true;
+      } else
+        $user->deleted = false;
+      echo FastJSON::convert( $user );
+    }
+  });
+
+
+
+
+/// Messages ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  Flight::route('PUT /messages/@id_message/read', function($id_message) { global $dm_messaggi;
+    $dm_messaggi->markAsReadById ($id_message);
+    echo "{ 'status': 'ok' }";
+  });
+
+  Flight::route('DELETE /messages/@id_message', function($id_message) { global $dm_messaggi;
+    $dm_messaggi->removeMessaggio ($id_message);
+    echo "{ 'status': 'ok' }";
+  });
 
 
 

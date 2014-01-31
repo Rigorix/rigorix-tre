@@ -6,12 +6,8 @@
     </div>
     <div class="row">
         <div class="col col-sm-12">
-            Answer: {{answer}} {{htmlcontent}}
             <div text-angular="text-angular" ng-show="editMode" name="htmlcontent" ng-model="answer"></div>
 
-
-            <!--<wysiwyg ng-model="message.testo"></wysiwyg>-->
-            <!--<textarea ng-show="editMode" ng-model="message.testo" class="mvl">{{message.testo}}</textarea>-->
             <blockquote ng-click="isTextCollapsed = !isTextCollapsed">
                 <p class="message-text" collapse="isTextCollapsed">{{message.testo}}</p>
                 <p collapse="!isTextCollapsed">...</p>

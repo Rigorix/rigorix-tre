@@ -1,4 +1,4 @@
-Rigorix.controller 'Messages', ($scope, $rootScope, AppService, $modal)->
+Rigorix.controller 'Messages', ($scope, $rootScope, UserServiceNew, $modal)->
 
   $rootScope.textAngularOpts = {
     toolbar: [
@@ -15,7 +15,9 @@ Rigorix.controller 'Messages', ($scope, $rootScope, AppService, $modal)->
     }
   }
 
-  $scope.messages = AppService.getMessages
+  $scope.messages = UserServiceNew.get
+    id_utente: User.id_utente
+    parameter: 'messages'
     count: RigorixConfig.messagesPerPage
 
   $scope.openMessage = (message)->
@@ -46,7 +48,7 @@ Rigorix.controller 'Messages', ($scope, $rootScope, AppService, $modal)->
 
 
 
-Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope, message, UserService, AppService)->
+Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope, message, UserServiceNew, AppService)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Message.Modal'
@@ -58,8 +60,8 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
 
   $scope.message = message
 
-  UserService.putMessageRead
-    value: message.id_mess
+  AppService.putMessageRead
+    id_message: message.id_mess
 
   $modalInstance.result.then () ->
     true
@@ -77,13 +79,12 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
       text: answerText
       message: $scope.message
 
-
   $scope.discard = ->
     $scope.isTextCollapsed = true
     $scope.editMode = false
 
   $scope.delete = ->
-    UserService.deleteMessage
+    AppService.deleteMessage
       value: message.id_mess
 
   $scope.cancel = ->

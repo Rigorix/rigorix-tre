@@ -54,7 +54,7 @@ Rigorix.config(function() {
 var RigorixConfig, RigorixStorage;
 
 RigorixConfig = {
-  updateTime: 10000,
+  updateTime: 60000,
   deletedUsernameQuery: "__DELETED__",
   messagesPerPage: 15
 };
@@ -62,8 +62,6 @@ RigorixConfig = {
 RigorixStorage = {
   users: {}
 };
-
-RigorixEnv;
 
 Rigorix.controller("AreaPersonale", function($scope, $routeParams, $location) {
   $scope.sections = ['utente', 'sfide', 'impostazioni', 'messaggi'];
@@ -266,11 +264,11 @@ Rigorix.controller("Header", function($scope) {
   return console.log("Header controller");
 });
 
-Rigorix.controller("Home", function($scope, UserService) {
+Rigorix.controller("Home", function($scope, AppService) {
   var _this = this;
   $scope.updateResources = function() {
-    $scope.campione = UserService.getCampioneSettimana();
-    return $scope.activeUsers = UserService.getActiveUsers();
+    $scope.campione = AppService.getCampioneSettimana();
+    return $scope.activeUsers = AppService.getActiveUsers();
   };
   $scope.updateResources();
   return setInterval(function() {
@@ -342,7 +340,7 @@ Rigorix.controller("ListaSfide.Sfida", function($scope, $modal) {
   };
 });
 
-Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, UserService) {
+Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, UserServiceNew) {
   var _this = this;
   $scope.siteTitle = "Website title";
   $scope.userLogged = false;
@@ -368,10 +366,7 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Use
     User = false;
     $scope.currentUser = null;
     $scope.userLogged = false;
-    return UserService.doLogout();
-  });
-  $scope.$on("*", function(ev, $rootScope) {
-    return $rootScope.$broadcast("event:received", ev);
+    return AppService.doLogout();
   });
   $scope.doUserLogout = function() {
     return $rootScope.$broadcast('user:logout');
@@ -379,17 +374,11 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Use
   if (User !== false) {
     $scope.userLogged = true;
     $scope.currentUser = User;
-    AuthService.get({
-      action: "game",
-      value: "status"
-    }, function(json) {
+    UserServiceNew.get(function(json) {
       return $scope.currentUser = json;
     });
     return setInterval(function() {
-      return AuthService.get({
-        action: "game",
-        value: "status"
-      }, function(json) {
+      return UserServiceNew.get(function(json) {
         $scope.currentUser = json;
         return $rootScope.$broadcast("currentuser:update", json);
       });
@@ -397,7 +386,7 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Use
   }
 });
 
-Rigorix.controller('Messages', function($scope, $rootScope, AppService, $modal) {
+Rigorix.controller('Messages', function($scope, $rootScope, UserServiceNew, $modal) {
   var _this = this;
   $rootScope.textAngularOpts = {
     toolbar: [['bold', 'italics', 'ul', 'ol', 'redo', 'undo']],
@@ -411,7 +400,9 @@ Rigorix.controller('Messages', function($scope, $rootScope, AppService, $modal) 
       htmlEditor: 'form-control'
     }
   };
-  $scope.messages = AppService.getMessages({
+  $scope.messages = UserServiceNew.get({
+    id_utente: User.id_utente,
+    parameter: 'messages',
     count: RigorixConfig.messagesPerPage
   });
   $scope.openMessage = function(message) {
@@ -437,7 +428,7 @@ Rigorix.controller('Messages', function($scope, $rootScope, AppService, $modal) 
   };
 });
 
-Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $rootScope, message, UserService, AppService) {
+Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $rootScope, message, UserServiceNew, AppService) {
   $rootScope.$broadcast("modal:open", {
     controller: 'Message.Modal',
     modalClass: 'modal-read-message'
@@ -446,8 +437,8 @@ Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $ro
   $scope.isTextCollapsed = false;
   $scope.answer = "<br><br>" + User.username;
   $scope.message = message;
-  UserService.putMessageRead({
-    value: message.id_mess
+  AppService.putMessageRead({
+    id_message: message.id_mess
   });
   $modalInstance.result.then(function() {
     return true;
@@ -471,7 +462,7 @@ Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $ro
     return $scope.editMode = false;
   };
   $scope["delete"] = function() {
-    return UserService.deleteMessage({
+    return AppService.deleteMessage({
       value: message.id_mess
     });
   };
@@ -619,7 +610,7 @@ Rigorix.directive("beautifyDate", function() {
   };
 });
 
-Rigorix.directive("username", function(UserService) {
+Rigorix.directive("username", function(UserServiceNew) {
   return {
     restrict: 'E',
     templateUrl: '/app/templates/directives/username.html',
@@ -627,8 +618,8 @@ Rigorix.directive("username", function(UserService) {
       if (RigorixStorage.users[attr.idUtente] != null) {
         return scope.userObject = RigorixStorage.users[attr.idUtente];
       } else {
-        return UserService.getUsernameById({
-          filter: attr.idUtente
+        return UserServiceNew.get({
+          parameter: "username"
         }, function(json) {
           scope.userObject = json;
           return RigorixStorage.users[attr.idUtente] = json;
@@ -746,11 +737,43 @@ Rigorix.filter("localizeMonth", function() {
 
 RigorixServices.factory("AppService", function($resource) {
   return $resource(RigorixEnv.API_DOMAIN + ":param1/:param2/:param3", {
-    param1: "@param1",
-    param2: "@param2",
-    param3: "@param3",
-    isArray: false
+    method: "GET",
+    isArray: false,
+    params: {
+      param1: "@param1",
+      param2: "@param2",
+      param3: "@param3"
+    }
   }, {
+    getActiveUsers: {
+      method: "GET",
+      params: {
+        param1: 'users',
+        param2: "active"
+      }
+    },
+    getTopUsers: {
+      params: {
+        param1: 'users',
+        param2: "top",
+        param3: "10"
+      }
+    },
+    getCampioneSettimana: {
+      method: "GET",
+      params: {
+        param1: 'users',
+        param2: "campione",
+        param3: "settimana"
+      }
+    },
+    doLogout: {
+      method: "POST",
+      params: {
+        param1: 'user',
+        param2: "logout"
+      }
+    },
     getBadges: {
       method: 'GET',
       params: {
@@ -778,6 +801,21 @@ RigorixServices.factory("AppService", function($resource) {
         param1: 'message',
         param2: 'reply'
       }
+    },
+    putMessageRead: {
+      method: "PUT",
+      params: {
+        param1: 'messages',
+        param2: '@id_message',
+        param3: 'read'
+      }
+    },
+    deleteMessage: {
+      method: "DELETE",
+      params: {
+        param1: 'messages',
+        param2: '@id_message'
+      }
     }
   });
 });
@@ -793,6 +831,15 @@ Rigorix.service("RigorixUI", [
     };
   }
 ]);
+
+RigorixServices.factory("UserServiceNew", function($resource) {
+  return $resource(RigorixEnv.API_DOMAIN + "user/:id_utente/:parameter/:filter", {
+    id_utente: User.id_utente,
+    parameter: "@parameter",
+    filter: "@filter",
+    isArray: false
+  });
+});
 
 RigorixServices.factory("AuthService", function($resource) {
   return $resource(RigorixEnv.API_DOMAIN + "auth/:id_utente/:action/:value", {
@@ -840,24 +887,11 @@ RigorixServices.factory("UserService", function($resource) {
     value: "@value",
     isArray: false
   }, {
-    getActiveUsers: {
-      method: "GET",
-      params: {
-        filter: "active"
-      }
-    },
     getTopUsers: {
       method: "GET",
       params: {
         filter: "top",
         value: "10"
-      }
-    },
-    getCampioneSettimana: {
-      method: "GET",
-      params: {
-        filter: "campione",
-        value: "settimana"
       }
     },
     getUsernameById: {
@@ -872,26 +906,6 @@ RigorixServices.factory("UserService", function($resource) {
       params: {
         filter: User.id_utente,
         value: 'badges'
-      }
-    },
-    deleteMessage: {
-      method: "DELETE",
-      params: {
-        filter: 'message',
-        value: '@value'
-      }
-    },
-    putMessageRead: {
-      method: "PUT",
-      params: {
-        filter: 'message',
-        value: '@value'
-      }
-    },
-    doLogout: {
-      method: "POST",
-      params: {
-        filter: "logout"
       }
     }
   });

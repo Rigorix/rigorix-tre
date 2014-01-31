@@ -1,4 +1,4 @@
-Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService) ->
+Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserServiceNew) ->
 
   $scope.siteTitle = "Website title"
   $scope.userLogged = false
@@ -24,11 +24,7 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
     $scope.currentUser = null
     $scope.userLogged = false
 
-    do UserService.doLogout
-
-
-  $scope.$on "*", (ev, $rootScope)->
-    $rootScope.$broadcast "event:received", ev
+    do AppService.doLogout
 
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -46,11 +42,12 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
     $scope.userLogged = true
     $scope.currentUser = User
 
-    AuthService.get { action: "game", value: "status"}, (json)=>
+
+    UserServiceNew.get (json)->
       $scope.currentUser = json
 
     setInterval ()=>
-      AuthService.get { action: "game", value: "status"}, (json)=>
+      UserServiceNew.get (json)->
         $scope.currentUser = json
         $rootScope.$broadcast "currentuser:update", json
 

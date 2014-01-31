@@ -15,10 +15,10 @@ module.exports = function(grunt) {
         src: [
           //include libs
           'app/assets/vendor/jquery-1.10.2.min.js',
-          'app/assets/vendor/angular.min.js',
-          'app/assets/vendor/angular-resource.min.js',
-          'app/assets/vendor/angular-route.min.js',
-          'app/assets/vendor/angular-sanitize.min.js',
+          'app/assets/vendor/angular.js',
+          'app/assets/vendor/angular-resource.js',
+          'app/assets/vendor/angular-route.js',
+          'app/assets/vendor/angular-sanitize.js',
           'app/assets/vendor/bootstrap/js/bootstrap.min.js',
 
           'app/assets/vendor/extensions/**/*.js',
