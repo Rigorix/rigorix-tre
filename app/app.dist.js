@@ -63,6 +63,11 @@ RigorixStorage = {
   users: {}
 };
 
+$.notify.defaults({
+  globalPosition: 'top center',
+  autoHideDelay: 8000
+});
+
 Rigorix.controller("AreaPersonale", function($scope, $routeParams, $location) {
   $scope.sections = ['utente', 'sfide', 'impostazioni', 'messaggi'];
   $scope.section = $routeParams.section;
@@ -387,7 +392,6 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Use
 });
 
 Rigorix.controller('Messages', function($scope, $rootScope, UserServiceNew, $modal) {
-  var _this = this;
   $rootScope.textAngularOpts = {
     toolbar: [['bold', 'italics', 'ul', 'ol', 'redo', 'undo']],
     classes: {
@@ -405,6 +409,14 @@ Rigorix.controller('Messages', function($scope, $rootScope, UserServiceNew, $mod
     parameter: 'messages',
     count: RigorixConfig.messagesPerPage
   });
+  $scope.$on("message:deleted", function(event, message) {
+    console.log("DELETE!!");
+    return $scope.messages = UserServiceNew.get({
+      id_utente: User.id_utente,
+      parameter: 'messages',
+      count: RigorixConfig.messagesPerPage
+    });
+  });
   $scope.openMessage = function(message) {
     message.letto = 1;
     return $modal.open({
@@ -419,13 +431,7 @@ Rigorix.controller('Messages', function($scope, $rootScope, UserServiceNew, $mod
   };
   $scope.page = 1;
   $scope.currentPage = 1;
-  $scope.totMessages = Number($scope.currentUser.totMessages);
-  $scope.$watch('currentPage', function(newVal, oldVal) {
-    return console.log("watch currentPages newval", newVal);
-  });
-  return $scope.pageChanged = function(page) {
-    return console.log("onSelectPage", page);
-  };
+  return $scope.totMessages = Number($scope.currentUser.totMessages);
 });
 
 Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $rootScope, message, UserServiceNew, AppService) {
@@ -455,6 +461,14 @@ Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $ro
     return AppService.postReply({
       text: answerText,
       message: $scope.message
+    }, function(response) {
+      if (response.status === 'success') {
+        $.notify("Risposta mandata con successo", "success");
+        $rootScope.$broadcast("modal:close");
+        return $modalInstance.dismiss();
+      } else {
+        return $.notify("Errore nel spedire la risposta.<br>Riprova pi$ugrave; tardi.", "error");
+      }
     });
   };
   $scope.discard = function() {
@@ -463,7 +477,15 @@ Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $ro
   };
   $scope["delete"] = function() {
     return AppService.deleteMessage({
-      value: message.id_mess
+      param2: message.id_mess
+    }, function(json) {
+      if (json.status === 'ok') {
+        $modalInstance.dismiss();
+        $.notify("Messaggio cancellato correttamente", "success");
+        return $rootScope.$broadcast("message:deleted", message);
+      } else {
+        return $.notify("Errore nel cancellare il messaggio", "error");
+      }
     });
   };
   return $scope.cancel = function() {
@@ -610,7 +632,7 @@ Rigorix.directive("beautifyDate", function() {
   };
 });
 
-Rigorix.directive("username", function(UserServiceNew) {
+Rigorix.directive("username", function(AppService) {
   return {
     restrict: 'E',
     templateUrl: '/app/templates/directives/username.html',
@@ -618,8 +640,9 @@ Rigorix.directive("username", function(UserServiceNew) {
       if (RigorixStorage.users[attr.idUtente] != null) {
         return scope.userObject = RigorixStorage.users[attr.idUtente];
       } else {
-        return UserServiceNew.get({
-          parameter: "username"
+        return AppService.getUserParameter({
+          param2: attr.idUtente,
+          param3: "username"
         }, function(json) {
           scope.userObject = json;
           return RigorixStorage.users[attr.idUtente] = json;
@@ -802,6 +825,12 @@ RigorixServices.factory("AppService", function($resource) {
         param2: 'reply'
       }
     },
+    getUserParameter: {
+      method: "GET",
+      params: {
+        param1: 'users'
+      }
+    },
     putMessageRead: {
       method: "PUT",
       params: {
@@ -813,8 +842,7 @@ RigorixServices.factory("AppService", function($resource) {
     deleteMessage: {
       method: "DELETE",
       params: {
-        param1: 'messages',
-        param2: '@id_message'
+        param1: 'message'
       }
     }
   });

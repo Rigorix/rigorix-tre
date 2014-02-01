@@ -46,15 +46,16 @@ Rigorix.directive "beautifyDate", ()->
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.directive "username", (UserServiceNew)->
+Rigorix.directive "username", (AppService)->
   restrict: 'E'
   templateUrl: '/app/templates/directives/username.html'
   link: (scope, element, attr) ->
     if RigorixStorage.users[attr.idUtente]?
       scope.userObject = RigorixStorage.users[attr.idUtente]
     else
-      UserServiceNew.get
-        parameter: "username"
+      AppService.getUserParameter
+        param2: attr.idUtente
+        param3: "username"
       ,
         (json)->
           scope.userObject = json

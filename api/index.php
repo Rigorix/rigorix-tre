@@ -237,9 +237,9 @@ Flight::route('GET /auth/@id_utente/game/status', function($id_utente) { global 
     echo "{ 'status': 'ok' }";
   });
 
-  Flight::route('DELETE /messages/@id_message', function($id_message) { global $dm_messaggi;
+  Flight::route('DELETE /message/@id_message', function($id_message) { global $dm_messaggi;
     $dm_messaggi->removeMessaggio ($id_message);
-    echo "{ 'status': 'ok' }";
+    echo '{ "status": "ok" }';
   });
 
 

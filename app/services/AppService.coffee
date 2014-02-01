@@ -69,6 +69,14 @@ RigorixServices.factory "AppService", ($resource)->
 
 
 
+#
+#    General
+#
+
+    getUserParameter:
+      method: "GET"
+      params:
+        param1: 'users'
 
 #
 #    Messages
@@ -83,7 +91,6 @@ RigorixServices.factory "AppService", ($resource)->
     deleteMessage:
       method: "DELETE"
       params:
-        param1: 'messages'
-        param2: '@id_message'
+        param1: 'message'
 
 

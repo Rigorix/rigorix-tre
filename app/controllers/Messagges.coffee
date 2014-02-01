@@ -20,6 +20,13 @@ Rigorix.controller 'Messages', ($scope, $rootScope, UserServiceNew, $modal)->
     parameter: 'messages'
     count: RigorixConfig.messagesPerPage
 
+  $scope.$on "message:deleted", (event, message)->
+    console.log "DELETE!!"
+    $scope.messages = UserServiceNew.get
+      id_utente: User.id_utente
+      parameter: 'messages'
+      count: RigorixConfig.messagesPerPage
+
   $scope.openMessage = (message)->
 
     message.letto = 1;
@@ -35,12 +42,6 @@ Rigorix.controller 'Messages', ($scope, $rootScope, UserServiceNew, $modal)->
   $scope.page = 1
   $scope.currentPage = 1
   $scope.totMessages = Number $scope.currentUser.totMessages
-
-  $scope.$watch 'currentPage', (newVal, oldVal)->
-    console.log "watch currentPages newval", newVal
-
-  $scope.pageChanged = (page)=>
-    console.log "onSelectPage", page
 
 
 
@@ -78,6 +79,15 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
     AppService.postReply
       text: answerText
       message: $scope.message
+    ,
+      (response)->
+        if response.status == 'success'
+          $.notify "Risposta mandata con successo", "success"
+          $rootScope.$broadcast "modal:close"
+          do $modalInstance.dismiss
+        else
+          $.notify "Errore nel spedire la risposta.<br>Riprova pi$ugrave; tardi.", "error"
+
 
   $scope.discard = ->
     $scope.isTextCollapsed = true
@@ -85,7 +95,15 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
 
   $scope.delete = ->
     AppService.deleteMessage
-      value: message.id_mess
+      param2: message.id_mess
+    ,
+      (json)->
+        if json.status == 'ok'
+          do $modalInstance.dismiss
+          $.notify "Messaggio cancellato correttamente", "success"
+          $rootScope.$broadcast "message:deleted", message
+        else
+          $.notify "Errore nel cancellare il messaggio", "error"
 
   $scope.cancel = ->
     do $modalInstance.dismiss
