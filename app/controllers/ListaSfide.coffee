@@ -48,11 +48,20 @@ Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
       $scope.statoButtonIcon = ''
       $scope.hasActiveButton = false
 
-  $scope.doClickSfida = ->
+  $scope.doClickSfida = (stato)->
 
-    $modal.open
-      templateUrl:  '/app/templates/modals/sfida.html',
-      controller:    'Modals.Sfida',
-      resolve:
-        sfida: ->
-          $scope.sfida
+    if stato is 'vedi_sfida'
+      $modal.open
+        templateUrl:  '/app/templates/modals/vedi-sfida.html',
+        controller:    'Modals.ViewSfida',
+        resolve:
+          sfida: ->
+            $scope.sfida
+
+    else
+      $modal.open
+        templateUrl:  '/app/templates/modals/sfida.html',
+        controller:    'Modals.Sfida',
+        resolve:
+          sfida: ->
+            $scope.sfida

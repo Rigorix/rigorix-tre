@@ -332,16 +332,28 @@ Rigorix.controller("ListaSfide.Sfida", function($scope, $modal) {
       $scope.statoButtonIcon = '';
       $scope.hasActiveButton = false;
   }
-  return $scope.doClickSfida = function() {
-    return $modal.open({
-      templateUrl: '/app/templates/modals/sfida.html',
-      controller: 'Modals.Sfida',
-      resolve: {
-        sfida: function() {
-          return $scope.sfida;
+  return $scope.doClickSfida = function(stato) {
+    if (stato === 'vedi_sfida') {
+      return $modal.open({
+        templateUrl: '/app/templates/modals/vedi-sfida.html',
+        controller: 'Modals.ViewSfida',
+        resolve: {
+          sfida: function() {
+            return $scope.sfida;
+          }
         }
-      }
-    });
+      });
+    } else {
+      return $modal.open({
+        templateUrl: '/app/templates/modals/sfida.html',
+        controller: 'Modals.Sfida',
+        resolve: {
+          sfida: function() {
+            return $scope.sfida;
+          }
+        }
+      });
+    }
   };
 });
 
@@ -547,6 +559,27 @@ Rigorix.controller("Modals.Sfida", function($scope, $modal, $modalInstance, $roo
   };
 });
 
+Rigorix.controller("Modals.ViewSfida", function($scope, $modal, $modalInstance, $rootScope, sfida) {
+  $rootScope.$broadcast("modal:open", {
+    controller: 'Modals.VediSfida',
+    modalClass: 'modal-view-sfida'
+  });
+  $scope.sfida = sfida != null ? sfida : {
+    id_sfidante: $scope.currentUser.id_utente,
+    id_avversario: user.id_utente,
+    id_sfida: false
+  };
+  $modalInstance.result.then(function(selectedItem) {
+    return true;
+  }, function() {
+    return $rootScope.$broadcast("modal:close");
+  });
+  return $scope.close = function() {
+    $modalInstance.dismiss();
+    return $rootScope.$broadcast("modal:close");
+  };
+});
+
 Rigorix.controller("Sidebar", function($scope, UserService) {
   $scope.topUsers = [];
   UserService.getTopUsers(function(users) {
@@ -561,6 +594,9 @@ Rigorix.controller("Sidebar", function($scope, UserService) {
 });
 
 Rigorix.controller("Username", function($scope, $rootScope, $modal) {
+  $scope.doClickUsername = function() {
+    return $scope.doLanciaSfida();
+  };
   return $scope.doLanciaSfida = function() {
     $rootScope.$broadcast("sfida:lancia", $scope.user);
     return $modal.open({

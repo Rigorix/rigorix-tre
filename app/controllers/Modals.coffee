@@ -58,3 +58,28 @@ Rigorix.controller "Modals.Sfida", ($scope, $modal, $modalInstance, $rootScope, 
   $scope.cancel = ->
     do $modalInstance.dismiss
 
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+
+Rigorix.controller "Modals.ViewSfida", ($scope, $modal, $modalInstance, $rootScope, sfida)->
+
+  $rootScope.$broadcast "modal:open",
+    controller: 'Modals.VediSfida'
+    modalClass: 'modal-view-sfida'
+
+  $scope.sfida = if sfida? then sfida else
+    id_sfidante: $scope.currentUser.id_utente
+    id_avversario: user.id_utente
+    id_sfida: false
+
+  $modalInstance.result.then (selectedItem) ->
+    true
+  , ()->
+    $rootScope.$broadcast "modal:close"
+
+  $scope.close = ->
+    do $modalInstance.dismiss
+    $rootScope.$broadcast "modal:close"

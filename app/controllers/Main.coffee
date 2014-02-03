@@ -27,12 +27,15 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
     do AppService.doLogout
 
 
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 
   $scope.doUserLogout = ->
     $rootScope.$broadcast 'user:logout'
 
+#  $scope.doClickUsername = ->
+#    alert "click username"
 
 #-----------------------------------------------------------------------------------------------------------------------
 

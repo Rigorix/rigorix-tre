@@ -1,5 +1,8 @@
 Rigorix.controller "Username", ($scope, $rootScope, $modal)->
 
+  $scope.doClickUsername = ->
+    do $scope.doLanciaSfida
+
   $scope.doLanciaSfida = ->
     $rootScope.$broadcast "sfida:lancia", $scope.user
 

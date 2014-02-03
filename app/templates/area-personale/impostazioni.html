@@ -6,7 +6,77 @@
         <div class="col-sm-12 mtl">
 
             <div ng-show="sectionPage == 'dati_utente'">
-                Dati utente
+
+                <div class="row-fluid">
+                    <div class="col col-sm-4">
+                        <img id="profile_picture_big" src="{{}}" width="100%" vspace="3" />
+                        <div align="center">
+                            <a href="#" class="user-picture link" title="Cambia l\'immagine del tuo profilo" name="add-profile-picture">Cambia foto</a>
+                        </div>
+                    </div>
+                    <div class="col col-sm-8">
+                        <div class="form-horizontal">
+                            <fieldset disabled>
+                                <label class="span3">Username</label>
+                                <div class="span8">
+                                    <input type="text" data- value="<?php echo $user->obj->username; ?>">
+                                </div>
+                            </fieldset>
+                            <div class="row-spacer"></div>
+                            <fieldset class="">
+                                <label class="span3">Social</label>
+                                <div class="span8">
+                                    <label>
+                                        <a class="link" target="_blank" href="<?=$user->obj->social_url?>"><?=$user->obj->social_provider?></a>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <div class="row-spacer"></div>
+                            <fieldset>
+                                <label class="span3">Nome *</label>
+                                <div class="span8">
+                                    <input validate_as="mandatory" type="text" name="indb_nome" value="<?=$user->obj->nome?>" />
+                                </div>
+                            </fieldset>
+                            <div class="row-spacer"></div>
+                            <fieldset>
+                                <label class="span3">Cognome *</label>
+                                <div class="span8">
+                                    <input validate_as="mandatory" type="text" name="indb_cognome" value="<?=$user->obj->cognome?>" />
+                                </div>
+                            </fieldset>
+                            <div class="row-spacer"></div>
+                            <fieldset>
+                                <label class="span3">Email *</label>
+                                <div class="span8">
+                                    <input validate_as="email" type="text" size="40" name="indb_email" value="<?=$user->obj->email?>" />
+                                </div>
+                            </fieldset>
+                            <div class="row-spacer"></div>
+                            <fieldset>
+                                <label class="span3">Sesso *</label>
+                                <div class="span8">
+                                    <select name="indb_sesso">
+                                        <option value="M" <? echo ($user->obj->sesso == "M") ? 'selected="selected"' : ''; ?>>Maschio</option>
+                                        <option value="F" <? echo ($user->obj->sesso == "F") ? 'selected="selected"' : ""; ?>>Femmina</option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                            <div class="row-spacer"></div>
+                            <fieldset>
+                                <label class="span3">Data di nascita *</label>
+                                <div class="span8">
+                                    <input validate_as="date" style="width: 110px;" type="text" name="indb_data_nascita" value="<?=$utility->parseDbDateToString ($user->obj->data_nascita)?>" /><a name="data-nascita-picker" class="ui-icon ui-icon-calendar floating">a</a>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="span12 text-center">
+                        <button name="aggiornamento-dati-utente" class="btn"><i class="icon-ok"></i> AGGIORNA DATI</button>
+                    </div>
+                </div>
+
             </div>
 
 

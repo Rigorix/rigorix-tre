@@ -6251,6 +6251,9 @@ td.visible-print {
 .modal-play-sfida .modal-dialog {
   width: 800px;
 }
+.modal-view-sfida .modal-dialog {
+  width: 634px;
+}
 #GamePlay .gameplay-tile {
   background: url(/app/assets/images/lanciaSfide_campo.gif) no-repeat center 0px;
   text-align: center;
