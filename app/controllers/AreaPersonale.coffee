@@ -46,7 +46,7 @@ Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService, $route) ->
   $scope.isLoading = true
   $scope.pages = [ 'sfide_da_giocare', 'in_attesa_di_risposta', 'archivio' ]
 
-  $scope.$on "currentuser:update", (event, userObject)->
+  $scope.$on "user:update", (event, userObject)->
     $scope.sfideDaGiocare = userObject.sfide_da_giocare
 
   $scope.loadSfide = ()->
@@ -71,7 +71,21 @@ Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService, $route) ->
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Impostazioni", ($scope) ->
+Rigorix.controller "AreaPersonale.Impostazioni", ($scope, $rootScope, UserServiceNew) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'dati_utente', 'rigorix_mascotte', 'cancellazione_utente' ]
+
+  $scope.doChangePhoto = ->
+    alert "cambia foto"
+
+  $scope.doUpdateUserDate = ->
+    $rootScope.$broadcast "show:loading"
+
+    $scope.currentUser.$save (json)->
+      $rootScope.$broadcast "hide:loading"
+      $rootScope.$broadcast "user:update", json
+
+
+
+

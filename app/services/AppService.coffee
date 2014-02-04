@@ -16,6 +16,7 @@ RigorixServices.factory "AppService", ($resource)->
         param2: "active"
 
     getTopUsers:
+      method: "GET"
       params:
         param1: 'users'
         param2: "top"

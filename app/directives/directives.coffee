@@ -28,7 +28,7 @@ Rigorix.directive "onSfidaLoad", ['$timeout', (timer)->
 Rigorix.directive "onListaSfideLoad", ()->
   (scope, element, attrs)->
     scope.__sfide = scope[attrs.onListaSfideLoad]
-    scope.$on "currentuser:update", ->
+    scope.$on "user:update", ->
       scope.__sfide = scope[attrs.onListaSfideLoad]
 
 

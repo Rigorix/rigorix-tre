@@ -8,72 +8,71 @@
             <div ng-show="sectionPage == 'dati_utente'">
 
                 <div class="row-fluid">
-                    <div class="col col-sm-4">
-                        <img id="profile_picture_big" src="{{}}" width="100%" vspace="3" />
+                    <div class="col col-sm-4 well">
+                        <img src="{{currentUser.picture}}" width="100%" />
                         <div align="center">
-                            <a href="#" class="user-picture link" title="Cambia l\'immagine del tuo profilo" name="add-profile-picture">Cambia foto</a>
+                            <button ng-click="doChangePhoto()" class="btn btn-sm btn-warning mtm">Cambia foto</button>
                         </div>
                     </div>
                     <div class="col col-sm-8">
-                        <div class="form-horizontal">
-                            <fieldset disabled>
-                                <label class="span3">Username</label>
-                                <div class="span8">
-                                    <input type="text" data- value="<?php echo $user->obj->username; ?>">
+                        <div class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Username</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" disabled="disabled" value="{{currentUser.db_object.username}}">
                                 </div>
-                            </fieldset>
-                            <div class="row-spacer"></div>
-                            <fieldset class="">
-                                <label class="span3">Social</label>
-                                <div class="span8">
-                                    <label>
-                                        <a class="link" target="_blank" href="<?=$user->obj->social_url?>"><?=$user->obj->social_provider?></a>
-                                    </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Social</label>
+                                <div class="col-sm-8 pvs">
+                                    <a target="_blank" href="{{currentUser.db_object.social_url}}"><img src="/i/login_{{currentUser.db_object.social_provider}}.png" /></a>
                                 </div>
-                            </fieldset>
-                            <div class="row-spacer"></div>
-                            <fieldset>
-                                <label class="span3">Nome *</label>
-                                <div class="span8">
-                                    <input validate_as="mandatory" type="text" name="indb_nome" value="<?=$user->obj->nome?>" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Nome</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="indb_nome" ng-model="currentUser.db_object.nome" value="{{currentUser.db_object.nome}}">
                                 </div>
-                            </fieldset>
-                            <div class="row-spacer"></div>
-                            <fieldset>
-                                <label class="span3">Cognome *</label>
-                                <div class="span8">
-                                    <input validate_as="mandatory" type="text" name="indb_cognome" value="<?=$user->obj->cognome?>" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Cognome</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="indb_cognome" ng-model="currentUser.db_object.cognome" value="{{currentUser.db_object.cognome}}">
                                 </div>
-                            </fieldset>
-                            <div class="row-spacer"></div>
-                            <fieldset>
-                                <label class="span3">Email *</label>
-                                <div class="span8">
-                                    <input validate_as="email" type="text" size="40" name="indb_email" value="<?=$user->obj->email?>" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Email</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="indb_email" ng-model="currentUser.db_object.email" value="{{currentUser.db_object.email}}">
                                 </div>
-                            </fieldset>
-                            <div class="row-spacer"></div>
-                            <fieldset>
-                                <label class="span3">Sesso *</label>
-                                <div class="span8">
-                                    <select name="indb_sesso">
-                                        <option value="M" <? echo ($user->obj->sesso == "M") ? 'selected="selected"' : ''; ?>>Maschio</option>
-                                        <option value="F" <? echo ($user->obj->sesso == "F") ? 'selected="selected"' : ""; ?>>Femmina</option>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Sesso</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" ng-model="currentUser.db_object.sesso" name="indb_sesso">
+                                        <option value="M" selected="{{currentUser.db_object.sesso == 'M'}}">Maschio</option>
+                                        <option value="F" selected="{{currentUser.db_object.sesso == 'F'}}">Femmina</option>
                                     </select>
                                 </div>
-                            </fieldset>
-                            <div class="row-spacer"></div>
-                            <fieldset>
-                                <label class="span3">Data di nascita *</label>
-                                <div class="span8">
-                                    <input validate_as="date" style="width: 110px;" type="text" name="indb_data_nascita" value="<?=$utility->parseDbDateToString ($user->obj->data_nascita)?>" /><a name="data-nascita-picker" class="ui-icon ui-icon-calendar floating">a</a>
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>
+                            </div>
 
-                    <div class="span12 text-center">
-                        <button name="aggiornamento-dati-utente" class="btn"><i class="icon-ok"></i> AGGIORNA DATI</button>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Data di nascita</label>
+                                <div class="col-sm-8">
+                                    <datepicker ng-model="currentUser.db_object.data_nascita" name="indb_data_nascita" show-weeks="false"></datepicker>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-offset-4">
+                                <button class="btn btn-success" icon="save" ng-click="doUpdateUserDate()">Aggiorna dati utente</button>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 

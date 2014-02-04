@@ -27056,7 +27056,7 @@ Rigorix.controller("AreaPersonale.Utente", function($scope, AppService) {
 Rigorix.controller("AreaPersonale.Sfide", function($scope, SfideService, $route) {
   $scope.isLoading = true;
   $scope.pages = ['sfide_da_giocare', 'in_attesa_di_risposta', 'archivio'];
-  $scope.$on("currentuser:update", function(event, userObject) {
+  $scope.$on("user:update", function(event, userObject) {
     return $scope.sfideDaGiocare = userObject.sfide_da_giocare;
   });
   $scope.loadSfide = function() {
@@ -27080,9 +27080,19 @@ Rigorix.controller("AreaPersonale.Sfide", function($scope, SfideService, $route)
   };
 });
 
-Rigorix.controller("AreaPersonale.Impostazioni", function($scope) {
+Rigorix.controller("AreaPersonale.Impostazioni", function($scope, $rootScope, UserServiceNew) {
   $scope.isLoading = true;
-  return $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
+  $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
+  $scope.doChangePhoto = function() {
+    return alert("cambia foto");
+  };
+  return $scope.doUpdateUserDate = function() {
+    $rootScope.$broadcast("show:loading");
+    return $scope.currentUser.$save(function(json) {
+      $rootScope.$broadcast("hide:loading");
+      return $rootScope.$broadcast("user:update", json);
+    });
+  };
 });
 
 Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, $modal, SfideService) {
@@ -27333,14 +27343,16 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Use
   };
   if (User !== false) {
     $scope.userLogged = true;
-    $scope.currentUser = User;
+    $scope.currentUser = UserServiceNew.get({
+      id_utente: User.id_utente
+    });
     UserServiceNew.get(function(json) {
       return $scope.currentUser = json;
     });
     return setInterval(function() {
       return UserServiceNew.get(function(json) {
         $scope.currentUser = json;
-        return $rootScope.$broadcast("currentuser:update", json);
+        return $rootScope.$broadcast("user:update", json);
       });
     }, RigorixConfig.updateTime);
   }
@@ -27523,17 +27535,16 @@ Rigorix.controller("Modals.ViewSfida", function($scope, $modal, $modalInstance, 
   };
 });
 
-Rigorix.controller("Sidebar", function($scope, UserService) {
+Rigorix.controller("Sidebar", function($scope, AppService) {
   $scope.topUsers = [];
-  UserService.getTopUsers(function(users) {
+  AppService.getTopUsers(function(users) {
     return $scope.topUsers = users;
   });
-  $scope.doAuth = function(social) {
+  return $scope.doAuth = function(social) {
     var auth_url;
     auth_url = RigorixEnv.REMOTE + "/social_login.php?provider=" + social + "&origin=" + RigorixEnv.DOMAIN + "&return_to=" + RigorixEnv.REMOTE;
     return window.open(auth_url, "hybridauth_social_sing_on", "location=0,status=0,scrollbars=0,width=800,height=500");
   };
-  return $scope.$emit("test", "event");
 });
 
 Rigorix.controller("Username", function($scope, $rootScope, $modal) {
@@ -27594,7 +27605,7 @@ Rigorix.directive("onSfidaLoad", [
 Rigorix.directive("onListaSfideLoad", function() {
   return function(scope, element, attrs) {
     scope.__sfide = scope[attrs.onListaSfideLoad];
-    return scope.$on("currentuser:update", function() {
+    return scope.$on("user:update", function() {
       return scope.__sfide = scope[attrs.onListaSfideLoad];
     });
   };
@@ -27755,6 +27766,7 @@ RigorixServices.factory("AppService", function($resource) {
       }
     },
     getTopUsers: {
+      method: "GET",
       params: {
         param1: 'users',
         param2: "top",

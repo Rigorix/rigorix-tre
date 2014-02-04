@@ -24,17 +24,142 @@ Flight::route('/user/@id_utente(/*)', function($id_utente) {
   endif;
 });
 
-Flight::route('GET /user/@id_utente', function($id_utente) { global $dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards;
-  $UserObject                   = $dm_utente->getObjUtenteById($id_utente);
-  $UserObject->messages         = $dm_messaggi->getArrObjMessaggiUnread ($id_utente);
-  $UserObject->totMessages      = $dm_messaggi->getCountUnbannedMessages ( $id_utente );
-  $UserObject->badges           = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
-  $UserObject->sfide_da_giocare = $dm_sfide->getSfideDaGiocareByUtente ( $id_utente );
-  $UserObject->rewards          = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
-  $UserObject->picture          = sanitizeUserPicture($UserObject->picture);
 
-  echo FastJSON::convert($UserObject);
+
+
+
+
+/// User ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Flight::route('GET /user/@id_utente', function($id_utente) {
+  echo FastJSON::convert( getUserObjectExtended($id_utente) );
 });
+
+Flight::route('POST /user/@id_utente', function($id_utente) { global $dm_utente;
+  $postdata = file_get_contents("php://input");
+  $data = json_decode($postdata);
+  $dbObject = $dm_utente->makeInDbObject($data->db_object, true);
+
+  $dm_utente->updateObject('utente', $dbObject, array( "id_utente" => $id_utente));
+
+  echo FastJSON::convert(getUserObjectExtended($id_utente));
+});
+
+
+
+
+/// Users //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Flight::route('GET /users/top/@count', function($count) { global $dm_utente;
+  $users = $dm_utente->getRankingUtenti ( $count );
+  $users = sanitizeUsersPicture($users);
+  echo FastJSON::convert( $users );
+});
+
+Flight::route('GET /users/campione/settimana', function() { global $dm_utente;
+  $best = $dm_utente->getIdUtenteWeekBest ();
+  echo $best;
+});
+
+Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
+  $user = $dm_utente->getSingleObjectQueryCustom("SELECT $attribute FROM utente WHERE id_utente = " . $id_utente );
+  if ($user === false)
+    echo "{ '$attribute': 'unknown', 'id_utente': '$id_utente' }";
+  else {
+    $user->id_utente = $id_utente;
+    if ($attribute == "username" && strpos($user->$attribute, "__DELETED__") !== false) {
+      $user->$attribute = str_replace("__DELETED__", "", $user->$attribute);
+      $user->deleted = true;
+    } else
+      $user->deleted = false;
+    echo FastJSON::convert( $user );
+  }
+});
+
+
+
+
+/// Messages ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Flight::route('PUT /messages/@id_message/read', function($id_message) { global $dm_messaggi;
+  $dm_messaggi->markAsReadById ($id_message);
+  echo "{ 'status': 'ok' }";
+});
+
+Flight::route('DELETE /message/@id_message', function($id_message) { global $dm_messaggi;
+  $dm_messaggi->removeMessaggio ($id_message);
+  echo '{ "status": "ok" }';
+});
+
+
+
+
+/// GAME ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Flight::route('GET /sfida/@id_sfida/xml', function($id_sfida) { global $dm_sfide, $dm_utente;
+
+  header('Content-type: text/xml');
+
+  $objUtente = $_SESSION['rigorix']['user'];
+  $objFullSfida = $dm_sfide->getFullObjSfidaById( $id_sfida );
+  $objUtenteSfidante = $dm_utente->getObjUtenteById ( $objFullSfida->id_sfidante );
+  $objUtenteSfidato = $dm_utente->getObjUtenteById( $objFullSfida->id_sfidato );
+
+  echo '<?xml version="1.0" encoding="UTF-8"?>
+    <game>
+        <settings delayAfterShoot_time="2000" totalShots="10" shooter="player1" firstShooter="player1" keeper="player2" firstKeeper="player2" transitionTime=".6" currentShoot="1" />
+        <players>
+            <player name="'.$objUtenteSfidante->username.'" number="'.$objUtenteSfidante->numero_maglietta.'" whatcher="'.(($objUtenteSfidante->id_utente==$objUtente->id_utente) ? "true" : "false").'">
+                <skin calzini="'.str_replace("#", "0x",$objUtenteSfidante->colore_calzini).'" maglia="'.str_replace("#", "0x",$objUtenteSfidante->colore_maglietta).'" pantaloni="'.str_replace("#", "0x",$objUtenteSfidante->colore_pantaloncini).'" tipoMaglia="'.$objUtenteSfidante->tipo_maglietta.'"/>
+                <shoots>
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o1).'" />
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o2).'" />
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o3).'" />
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o4).'" />
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o5).'" />
+                </shoots>
+                <keeps>
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o1).'" />
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o2).'" />
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o3).'" />
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o4).'" />
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o5).'" />
+                </keeps>
+            </player>
+            <player name="'.$objUtenteSfidato->username.'" number="'.$objUtenteSfidato->numero_maglietta.'" whatcher="'.(($objUtenteSfidato->id_utente==$objUtente->id_utente) ? "true" : "false").'">
+                <skin calzini="'.str_replace("#", "0x",$objUtenteSfidato->colore_calzini).'" maglia="'.str_replace("#", "0x",$objUtenteSfidato->colore_maglietta).'" pantaloni="'.str_replace("#", "0x",$objUtenteSfidato->colore_pantaloncini).'" tipoMaglia="'.$objUtenteSfidato->tipo_maglietta.'"/>
+                <shoots>
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o1).'" />
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o2).'" />
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o3).'" />
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o4).'" />
+                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o5).'" />
+                </shoots>
+                <keeps>
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o1).'" />
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o2).'" />
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o3).'" />
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o4).'" />
+                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o5).'" />
+                </keeps>
+            </player>
+        </players>
+    </game>';
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Flight::route('GET /user/@id_utente/messages', function($id_utente) { global $dm_messaggi;
 
@@ -141,13 +266,7 @@ Flight::route('GET /users/all', function($count) { global $dm_utente;
 
 });
 
-Flight::route('GET /users/top/@count', function($count) { global $dm_utente;
 
-  $users = $dm_utente->getRankingUtenti ( $count );
-  $users = sanitizeUsersPicture($users);
-  echo FastJSON::convert( $users );
-
-});
 
 Flight::route('GET /users/active', function() { global $dm_utente;
 
@@ -157,12 +276,6 @@ Flight::route('GET /users/active', function() { global $dm_utente;
 
 });
 
-Flight::route('GET /users/campione/settimana', function() { global $dm_utente;
-
-  $best = $dm_utente->getIdUtenteWeekBest ();
-  echo $best;
-
-});
 
 
 
@@ -210,93 +323,10 @@ Flight::route('GET /auth/@id_utente/game/status', function($id_utente) { global 
 
 
 
-/// Users //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
-    $user = $dm_utente->getSingleObjectQueryCustom("SELECT $attribute FROM utente WHERE id_utente = " . $id_utente );
-    if ($user === false)
-      echo "{ '$attribute': 'unknown', 'id_utente': '$id_utente' }";
-    else {
-      $user->id_utente = $id_utente;
-      if ($attribute == "username" && strpos($user->$attribute, "__DELETED__") !== false) {
-        $user->$attribute = str_replace("__DELETED__", "", $user->$attribute);
-        $user->deleted = true;
-      } else
-        $user->deleted = false;
-      echo FastJSON::convert( $user );
-    }
-  });
 
 
 
 
-/// Messages ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  Flight::route('PUT /messages/@id_message/read', function($id_message) { global $dm_messaggi;
-    $dm_messaggi->markAsReadById ($id_message);
-    echo "{ 'status': 'ok' }";
-  });
-
-  Flight::route('DELETE /message/@id_message', function($id_message) { global $dm_messaggi;
-    $dm_messaggi->removeMessaggio ($id_message);
-    echo '{ "status": "ok" }';
-  });
-
-
-
-
-/// GAME ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  Flight::route('GET /sfida/@id_sfida/xml', function($id_sfida) { global $dm_sfide, $dm_utente;
-
-    header('Content-type: text/xml');
-
-    $objUtente = $_SESSION['rigorix']['user'];
-    $objFullSfida = $dm_sfide->getFullObjSfidaById( $id_sfida );
-    $objUtenteSfidante = $dm_utente->getObjUtenteById ( $objFullSfida->id_sfidante );
-    $objUtenteSfidato = $dm_utente->getObjUtenteById( $objFullSfida->id_sfidato );
-
-    echo '<?xml version="1.0" encoding="UTF-8"?>
-    <game>
-        <settings delayAfterShoot_time="2000" totalShots="10" shooter="player1" firstShooter="player1" keeper="player2" firstKeeper="player2" transitionTime=".6" currentShoot="1" />
-        <players>
-            <player name="'.$objUtenteSfidante->username.'" number="'.$objUtenteSfidante->numero_maglietta.'" whatcher="'.(($objUtenteSfidante->id_utente==$objUtente->id_utente) ? "true" : "false").'">
-                <skin calzini="'.str_replace("#", "0x",$objUtenteSfidante->colore_calzini).'" maglia="'.str_replace("#", "0x",$objUtenteSfidante->colore_maglietta).'" pantaloni="'.str_replace("#", "0x",$objUtenteSfidante->colore_pantaloncini).'" tipoMaglia="'.$objUtenteSfidante->tipo_maglietta.'"/>
-                <shoots>
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o1).'" />
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o2).'" />
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o3).'" />
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o4).'" />
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDANTE->tiri->o5).'" />
-                </shoots>
-                <keeps>
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o1).'" />
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o2).'" />
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o3).'" />
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o4).'" />
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDANTE->parate->o5).'" />
-                </keeps>
-            </player>
-            <player name="'.$objUtenteSfidato->username.'" number="'.$objUtenteSfidato->numero_maglietta.'" whatcher="'.(($objUtenteSfidato->id_utente==$objUtente->id_utente) ? "true" : "false").'">
-                <skin calzini="'.str_replace("#", "0x",$objUtenteSfidato->colore_calzini).'" maglia="'.str_replace("#", "0x",$objUtenteSfidato->colore_maglietta).'" pantaloni="'.str_replace("#", "0x",$objUtenteSfidato->colore_pantaloncini).'" tipoMaglia="'.$objUtenteSfidato->tipo_maglietta.'"/>
-                <shoots>
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o1).'" />
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o2).'" />
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o3).'" />
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o4).'" />
-                    <shoot target="'.retCorrTiroParata($objFullSfida->SFIDATO->tiri->o5).'" />
-                </shoots>
-                <keeps>
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o1).'" />
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o2).'" />
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o3).'" />
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o4).'" />
-                    <keep target="'.retCorrTiroParata($objFullSfida->SFIDATO->parate->o5).'" />
-                </keeps>
-            </player>
-        </players>
-    </game>';
-  });
 
 
 Flight::start();

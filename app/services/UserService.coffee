@@ -6,7 +6,6 @@ RigorixServices.factory "UserServiceNew", ($resource)->
     filter: "@filter"
     isArray: false
 
-
 #
 #  ,
 #    getActiveUsers:

@@ -43,7 +43,12 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
 
   if User isnt false
     $scope.userLogged = true
-    $scope.currentUser = User
+#    $scope.currentUser = User
+    $scope.currentUser = UserServiceNew.get
+      id_utente: User.id_utente
+#    ,
+#      (userObject)->
+#        $scope.currentUser = userObject
 
 
     UserServiceNew.get (json)->
@@ -52,6 +57,6 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
     setInterval ()=>
       UserServiceNew.get (json)->
         $scope.currentUser = json
-        $rootScope.$broadcast "currentuser:update", json
+        $rootScope.$broadcast "user:update", json
 
     , RigorixConfig.updateTime

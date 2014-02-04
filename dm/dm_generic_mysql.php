@@ -62,11 +62,11 @@ class dm_generic_mysql {
    * @param array $post
    * @return object
    */
-	function makeInDbObject($post) {
+	function makeInDbObject($post, $force = null) {
 		$TempClass = new stdClass ();
 		foreach ($post as $key=>$value) {
 			// Usare i CASE:
-			if(strpos($key,'indb_')===0) {
+			if(strpos($key,'indb_')===0 || $force === true) {
 				if (strpos($key,'indb_td_')===0) {
 					// il values � una tringa data 18/01/2004
 					// in mysql 'YYYY-MM-DD'
