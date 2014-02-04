@@ -76,8 +76,10 @@ Rigorix.controller "AreaPersonale.Impostazioni", ($scope, $rootScope, UserServic
   $scope.isLoading = true
   $scope.pages = [ 'dati_utente', 'rigorix_mascotte', 'cancellazione_utente' ]
 
+  $scope.currentUser.db_object.email_utente = $scope.currentUser.db_object.email if $scope.currentUser.db_object.email_utente is ""
+
   $scope.doChangePhoto = ->
-    alert "cambia foto"
+    $.notify "Funzionalita' non ancora attiva"
 
   $scope.doUpdateUserDate = ->
     $rootScope.$broadcast "show:loading"
@@ -85,6 +87,8 @@ Rigorix.controller "AreaPersonale.Impostazioni", ($scope, $rootScope, UserServic
     $scope.currentUser.$save (json)->
       $rootScope.$broadcast "hide:loading"
       $rootScope.$broadcast "user:update", json
+
+      $.notify "Dati utente aggiornati correttamente", "success"
 
 
 

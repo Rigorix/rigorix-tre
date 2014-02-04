@@ -100,6 +100,16 @@ module.exports = function(grunt) {
       }
     },
 
+    bowerInstall: {
+      install: { }
+    },
+
+    bower: {
+      dev: {
+        dest: 'app/assets/dist/dependencies'
+      }
+    },
+
 
 
     watch: {
@@ -121,10 +131,14 @@ module.exports = function(grunt) {
 //  grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-bower-task');
+  grunt.renameTask("bower", "bowerInstall");
+
+  grunt.loadNpmTasks('grunt-bower');
 //  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
-  grunt.registerTask('dev', ['coffee:compileBare', 'concat:dist', 'concat:cssdist', 'less:development']);
+  grunt.registerTask('dev', ['coffee:compileBare', 'concat:dist', 'less:development', 'concat:cssdist']); //, 'bowerInstall', 'bower'
   grunt.registerTask('deploy:staging', ['git_ftp:development']);
   grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
 

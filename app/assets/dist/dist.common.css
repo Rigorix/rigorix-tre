@@ -6351,6 +6351,9 @@ td.visible-print {
 .ta-editor {
   height: auto;
 }
+.enlarge-inside-table table {
+  width: 100%;
+}
 .row-fluid:before,
 .row-fluid:after {
   content: " ";

@@ -140,14 +140,18 @@ Rigorix.controller("AreaPersonale.Sfide", function($scope, SfideService, $route)
 Rigorix.controller("AreaPersonale.Impostazioni", function($scope, $rootScope, UserServiceNew) {
   $scope.isLoading = true;
   $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
+  if ($scope.currentUser.db_object.email_utente === "") {
+    $scope.currentUser.db_object.email_utente = $scope.currentUser.db_object.email;
+  }
   $scope.doChangePhoto = function() {
-    return alert("cambia foto");
+    return $.notify("Funzionalita' non ancora attiva");
   };
   return $scope.doUpdateUserDate = function() {
     $rootScope.$broadcast("show:loading");
     return $scope.currentUser.$save(function(json) {
       $rootScope.$broadcast("hide:loading");
-      return $rootScope.$broadcast("user:update", json);
+      $rootScope.$broadcast("user:update", json);
+      return $.notify("Dati utente aggiornati correttamente", "success");
     });
   };
 });
@@ -748,6 +752,14 @@ Rigorix.directive("wysiwyg", function() {
           });
         }
       });
+    }
+  };
+});
+
+Rigorix.directive("backgroundColor", function() {
+  return {
+    link: function(scope, el, attr) {
+      return el.css("background-color", attr.backgroundColor);
     }
   };
 });
