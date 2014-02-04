@@ -70,13 +70,11 @@ Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, $modal, SfideServi
         $rootScope.$broadcast "hide:loading"
 
         if json.status == "success"
-          Modals.success
-            title: "titolo"
-            text: "testo"
-
-          alert "Sfida inserita correttamente"
+          $.notify "Sfida mandata con successo", "success"
         else
-          alert "Errore " + json.error_code
+          $.notify "Errore nel mandare la sfida", "error"
+
+        do $scope.cancel
 
 
 #  ------------------------------------------------------------------------

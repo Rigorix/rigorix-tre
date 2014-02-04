@@ -28,7 +28,7 @@ class dm_sfide extends dm_generic_mysql
 
     function getSfideAttiveUtente($id_utente)
     {
-        return $this->getArrayObjectQueryCustom("select * from sfida where (id_sfidante = $id_utente or id_sfidato = $id_utente) and stato < 2");
+        return $this->getArrayObjectQueryCustom("select * from sfida where (id_sfidante = $id_utente or id_sfidato = $id_utente) and stato < 2 order by dta_sfida desc");
     }
 
     function getSfideUtenteToday($id_utente)

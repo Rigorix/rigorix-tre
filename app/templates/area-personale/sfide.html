@@ -10,7 +10,7 @@
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
                     <div class="panel-heading">
-                        Sfide da giocare
+                        Sfide da giocare <span class="label label-info mlm">{{sfideDaGiocare | length}}</span>
                         <button class="btn btn-sm pull-right btn-default" ng-click="reload()" icon="refresh">Ricarica</button>
                     </div>
 
@@ -26,7 +26,7 @@
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
                     <div class="panel-heading">
-                        Lista sfide in attesa di risposta
+                        Lista sfide in attesa di risposta <span class="label label-info mlm">{{sfideInAttesaDiRisposta | length}}</span>
                         <button class="btn btn-sm pull-right btn-default" ng-click="reload()" icon="refresh">Ricarica</button>
                     </div>
 
@@ -39,7 +39,7 @@
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
                     <div class="panel-heading">
-                        Archivio sfide giocate
+                        Archivio sfide giocate <span class="label label-info mlm" ng-model="sfideArchivio">{{sfideArchivio | length}}</span>
                         <button class="btn btn-sm pull-right btn-default" ng-click="reload()" icon="refresh">Ricarica</button>
                     </div>
 

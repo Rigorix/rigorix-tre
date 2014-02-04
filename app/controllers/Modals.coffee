@@ -16,7 +16,7 @@ Rigorix.factory "Modals", ($scope, $modal)->
 
 
 
-Rigorix.controller "Modals.Success", ($scope, $modal, $modalInstance, $rootScope, content)->
+Rigorix.controller "Modals.Success", ($scope, $modal, $modalInstance, $rootScope)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Modals.Success'

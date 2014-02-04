@@ -247,14 +247,11 @@ Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, $modal, Sf
     }, function(json) {
       $rootScope.$broadcast("hide:loading");
       if (json.status === "success") {
-        Modals.success({
-          title: "titolo",
-          text: "testo"
-        });
-        return alert("Sfida inserita correttamente");
+        $.notify("Sfida mandata con successo", "success");
       } else {
-        return alert("Errore " + json.error_code);
+        $.notify("Errore nel mandare la sfida", "error");
       }
+      return $scope.cancel();
     });
   };
 });
@@ -533,7 +530,7 @@ Rigorix.factory("Modals", function($scope, $modal) {
   };
 });
 
-Rigorix.controller("Modals.Success", function($scope, $modal, $modalInstance, $rootScope, content) {
+Rigorix.controller("Modals.Success", function($scope, $modal, $modalInstance, $rootScope) {
   $rootScope.$broadcast("modal:open", {
     controller: 'Modals.Success',
     modalClass: 'modal-success'
@@ -800,6 +797,18 @@ Rigorix.filter("localizeMonth", function() {
   };
   return function(input) {
     return months[input];
+  };
+});
+
+Rigorix.filter("length", function() {
+  return function(input) {
+    if (input != null) {
+      if (input.length != null) {
+        return input.length;
+      } else {
+        return Object.keys(input).length;
+      }
+    }
   };
 });
 
