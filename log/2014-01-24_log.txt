@@ -1,0 +1,62 @@
+
+16:03:56  ACTIVITY> do_login_by_id
+17:06:24 [U 5780] ACTIVITY> do_login_by_id
+17:06:58 [U 5780] ACTIVITY> do_login_by_id
+17:07:55 [U 5780] ACTIVITY> do_login_by_id
+17:10:48 [U 5780] ACTIVITY> do_login_by_id
+17:12:25 [U 5780] ACTIVITY> do_login_by_id
+17:12:54 [U 5780] ACTIVITY> do_login_by_id
+17:40:24 [U 5780] ACTIVITY> do_login_by_id
+17:40:58 [U 5780] ACTIVITY> do_login_by_id
+17:41:31 [U 5780] ACTIVITY> do_login_by_id
+17:42:05 [U 5780] ACTIVITY> do_login_by_id
+17:43:36 [U 5780] ACTIVITY> do_login_by_id
+17:43:47 [U 5780] ACTIVITY> do_login_by_id
+17:44:39 [U 5780] ACTIVITY> do_login_by_id
+17:45:43 [U 5780] ACTIVITY> do_login_by_id
+17:46:28 [U 5780] ACTIVITY> do_login_by_id
+17:47:24 [U 5780] ACTIVITY> do_login_by_id
+17:49:38 [U 5780] ACTIVITY> do_login_by_id
+17:50:19 [U 5780] ACTIVITY> do_login_by_id
+17:50:53 [U 5780] ACTIVITY> do_login_by_id
+17:52:15 [U 5780] ACTIVITY> do_login_by_id
+17:53:11 [U 5780] ACTIVITY> do_login_by_id
+17:53:45 [U 5780] ACTIVITY> do_login_by_id
+17:54:36 [U 5780] ACTIVITY> do_login_by_id
+17:55:08 [U 5780] ACTIVITY> do_login_by_id
+17:56:01 [U 5780] ACTIVITY> do_login_by_id
+17:57:55 [U 5780] ACTIVITY> do_login_by_id
+17:58:25 [U 5780] ACTIVITY> do_login_by_id
+17:58:49 [U 5780] ACTIVITY> do_login_by_id
+17:59:24 [U 5780] ACTIVITY> do_login_by_id
+17:59:46 [U 5780] ACTIVITY> do_login_by_id
+17:59:58 [U 5780] ACTIVITY> do_login_by_id
+17:59:59 [U 5780] ACTIVITY> do_login_by_id
+18:00:12 [U 5780] ACTIVITY> do_login_by_id
+18:06:00 [U 5780] ACTIVITY> do_login_by_id
+18:06:50 [U 5780] ACTIVITY> do_login_by_id
+18:07:28 [U 5780] ACTIVITY> do_login_by_id
+18:10:09 [U 5780] ACTIVITY> do_login_by_id
+18:11:27 [U 5780] ACTIVITY> do_login_by_id
+18:12:00 [U 5780] ACTIVITY> do_login_by_id
+18:19:28 [U 5780] ACTIVITY> do_login_by_id
+18:20:10 [U 5780] ACTIVITY> do_login_by_id
+14:03:57 [U 5780] ACTIVITY> do_login_by_id
+14:27:20 [U 5780] ACTIVITY> do_login_by_id
+14:27:44 [U 5780] ACTIVITY> do_login_by_id
+14:28:32 [U 5780] ACTIVITY> do_login_by_id
+14:28:42 [U 5780] ACTIVITY> do_login_by_id
+14:31:34 [U 5780] ACTIVITY> do_login_by_id
+14:31:42 [U 5780] ACTIVITY> do_login_by_id
+14:50:57 [U 5780] ACTIVITY> do_login_by_id
+15:02:41 [U 5780] ACTIVITY> do_login_by_id
+03:15:28 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]
+03:16:46 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]
+03:18:18 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]
+03:19:56 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]
+03:23:21 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]
+03:23:31 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]
+03:23:53 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]
+03:24:51 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]
+03:25:52 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]
+03:27:28 [U 5780] ACTIVITY> Error 300 [Errore generico nella gestione della sfida]

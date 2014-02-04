@@ -48,7 +48,7 @@ module.exports = function(grunt) {
     less: {
       development: {
         options: {
-          paths: ["app/assets/vendor/bootstrap/less"]
+          paths: ["app/assets/bower_components/bootstrap/less"]
         },
         files: {
           "app/assets/dist/dist.common.css": "app/assets/less/common.less"
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
         },
         files: {
 //          'path/to/result.js': 'path/to/source.coffee', // 1:1 compile
-          'app/app.dist.js': ['app/**/*.coffee', 'app/*.coffee'] // compile and concat into single file
+          'app/app.dist.js': ['app/**/*.coffee'] // compile and concat into single file
         }
       }
     },
@@ -110,13 +110,17 @@ module.exports = function(grunt) {
       }
     },
 
-
-
     watch: {
       scripts: {
-//        files: ['app/controllers/*.js', 'app/filters/*.js', 'app/services/*.js', 'app/directives/*.js', 'app/*.js', 'app/assets/vendor/**/*.js', 'app/assets/**/*.less', 'api/index.php', 'api/dm/*.php'],
         files: ['app/**/*.coffee', 'app/assets/**/*.less'],
         tasks: ['dev'],
+        options: {
+          interrupt: true
+        }
+      },
+      dependencies: {
+        files: ['app/assets/bower_components/**/*'],
+        tasks: ['dev:dependencies'],
         options: {
           interrupt: true
         }
@@ -125,21 +129,24 @@ module.exports = function(grunt) {
 
   });
 
+//  grunt.loadNpmTasks('grunt-contrib-uglify');
+//  grunt.loadNpmTasks('grunt-ftp-deploy');
 //  grunt.loadNpmTasks('grunt-git-ftp');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
-//  grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.renameTask("bower", "bowerInstall");
-
   grunt.loadNpmTasks('grunt-bower');
-//  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  // Default task(s).
-  grunt.registerTask('dev', ['coffee:compileBare', 'concat:dist', 'less:development', 'concat:cssdist']); //, 'bowerInstall', 'bower'
+  // Development tasks
+  grunt.registerTask('dev:start', ['watch:scripts', 'watch:dependencies']);
+  grunt.registerTask('dev', ['coffee:compileBare', 'less:development', 'concat:cssdist']); // 'concat:dist',
+  grunt.registerTask('dev:dependencies', ['bowerInstall', 'bower']);
+
   grunt.registerTask('deploy:staging', ['git_ftp:development']);
-  grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
+
+//  grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
 
 };

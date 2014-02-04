@@ -1,0 +1,299 @@
+
+10:43:01  ACTIVITY> do_login_by_id
+10:52:41 [U 5774] ACTIVITY> do_login_by_id
+12:46:49 [U 5774] ACTIVITY> do_login_by_id
+12:46:55 [U 5774] ACTIVITY> do_login_by_id
+12:47:01 [U 5774] ACTIVITY> do_login_by_id
+12:47:27 [U 5774] ACTIVITY> do_login_by_id
+12:47:37 [U 5774] ACTIVITY> do_login_by_id
+12:48:02 [U 5774] ACTIVITY> do_login_by_id
+12:48:38 [U 5774] ACTIVITY> do_login_by_id
+12:50:07 [U 5774] ACTIVITY> do_login_by_id
+12:50:47 [U 5774] ACTIVITY> do_login_by_id
+12:51:23 [U 5774] ACTIVITY> do_login_by_id
+12:51:48 [U 5774] ACTIVITY> do_login_by_id
+12:52:33 [U 5774] ACTIVITY> do_login_by_id
+12:52:42 [U 5774] ACTIVITY> do_login_by_id
+12:54:19 [U 5774] ACTIVITY> do_login_by_id
+12:54:36 [U 5774] ACTIVITY> do_login_by_id
+12:55:47 [U 5774] ACTIVITY> do_login_by_id
+12:56:05 [U 5774] ACTIVITY> do_login_by_id
+12:56:24 [U 5774] ACTIVITY> do_login_by_id
+12:56:38 [U 5774] ACTIVITY> do_login_by_id
+12:56:54 [U 5774] ACTIVITY> do_login_by_id
+14:38:23 [U 5774] ACTIVITY> do_login_by_id
+14:38:44 [U 5774] ACTIVITY> do_login_by_id
+14:39:02 [U 5774] ACTIVITY> do_login_by_id
+14:39:06 [U 5774] ACTIVITY> do_login_by_id
+14:40:17 [U 5774] ACTIVITY> do_login_by_id
+14:40:37 [U 5774] ACTIVITY> do_login_by_id
+14:42:29 [U 5774] ACTIVITY> do_login_by_id
+14:44:01 [U 5774] ACTIVITY> do_login_by_id
+14:44:53 [U 5774] ACTIVITY> do_login_by_id
+14:45:21 [U 5774] ACTIVITY> do_login_by_id
+14:46:43 [U 5774] ACTIVITY> do_login_by_id
+14:47:06 [U 5774] ACTIVITY> do_login_by_id
+14:47:18 [U 5774] ACTIVITY> do_login_by_id
+14:50:41 [U 5774] ACTIVITY> do_login_by_id
+14:50:51 [U 5774] ACTIVITY> do_login_by_id
+14:52:31 [U 5774] ACTIVITY> do_login_by_id
+14:52:44 [U 5774] ACTIVITY> do_login_by_id
+14:52:49 [U 5774] ACTIVITY> do_login_by_id
+14:57:25 [U 5774] ACTIVITY> do_login_by_id
+14:58:20 [U 5774] ACTIVITY> do_login_by_id
+14:58:34 [U 5774] ACTIVITY> do_login_by_id
+14:59:28 [U 5774] ACTIVITY> do_login_by_id
+15:02:08 [U 5774] ACTIVITY> do_login_by_id
+15:04:07 [U 5774] ACTIVITY> do_login_by_id
+15:04:52 [U 5774] ACTIVITY> do_login_by_id
+15:06:32 [U 5774] ACTIVITY> do_login_by_id
+15:06:45 [U 5774] ACTIVITY> do_login_by_id
+15:06:58 [U 5774] ACTIVITY> do_login_by_id
+15:07:07 [U 5774] ACTIVITY> do_login_by_id
+15:07:31 [U 5774] ACTIVITY> do_login_by_id
+15:07:39 [U 5774] ACTIVITY> do_login_by_id
+15:08:32 [U 5774] ACTIVITY> do_login_by_id
+15:09:39 [U 5774] ACTIVITY> do_login_by_id
+15:09:49 [U 5774] ACTIVITY> do_login_by_id
+15:10:06 [U 5774] ACTIVITY> do_login_by_id
+15:11:04 [U 5774] ACTIVITY> do_login_by_id
+15:11:25 [U 5774] ACTIVITY> do_login_by_id
+15:12:38 [U 5774] ACTIVITY> do_login_by_id
+15:13:00 [U 5774] ACTIVITY> do_login_by_id
+15:15:24 [U 5774] ACTIVITY> do_login_by_id
+15:17:50 [U 5774] ACTIVITY> do_login_by_id
+15:18:34 [U 5774] ACTIVITY> do_login_by_id
+15:19:41 [U 5774] ACTIVITY> do_login_by_id
+15:19:47 [U 5774] ACTIVITY> do_login_by_id
+15:19:58 [U 5774] ACTIVITY> do_login_by_id
+15:20:00 [U 5774] ACTIVITY> do_login_by_id
+15:20:23 [U 5774] ACTIVITY> do_login_by_id
+15:21:14 [U 5774] ACTIVITY> do_login_by_id
+15:21:33 [U 5774] ACTIVITY> do_login_by_id
+15:22:33 [U 5774] ACTIVITY> do_login_by_id
+15:23:56 [U 5774] ACTIVITY> do_login_by_id
+15:26:21 [U 5774] ACTIVITY> do_login_by_id
+15:27:09 [U 5774] ACTIVITY> do_login_by_id
+15:57:38 [U 5774] ACTIVITY> do_login_by_id
+02:22:21 [U 5774] ACTIVITY> do_login_by_id
+02:23:25 [U 5774] ACTIVITY> do_login_by_id
+02:25:25 [U 5774] ACTIVITY> do_login_by_id
+02:27:57 [U 5774] ACTIVITY> do_login_by_id
+02:29:14 [U 5774] ACTIVITY> do_login_by_id
+02:29:27 [U 5774] ACTIVITY> do_login_by_id
+02:29:34 [U 5774] ACTIVITY> do_login_by_id
+02:30:50 [U 5774] ACTIVITY> do_login_by_id
+02:31:34 [U 5774] ACTIVITY> do_login_by_id
+02:33:44 [U 5774] ACTIVITY> do_login_by_id
+02:38:46  User class> is logged = false, obj destroyed, session destroyed, going with social unlogin
+02:39:19  ACTIVITY> do_login_by_id
+02:39:19  ACTIVITY> Error 100 [Utente o password errato]
+02:39:26  ACTIVITY> do_login_by_id
+02:39:26  ACTIVITY> Error 100 [Utente o password errato]
+02:39:33  ACTIVITY> do_login_by_id
+02:42:21 [U 5780] ACTIVITY> do_login_by_id
+02:43:45 [U 5780] ACTIVITY> do_login_by_id
+02:44:44 [U 5780] ACTIVITY> do_login_by_id
+02:45:11 [U 5780] ACTIVITY> do_login_by_id
+02:47:54 [U 5780] ACTIVITY> do_login_by_id
+02:48:45 [U 5780] ACTIVITY> do_login_by_id
+02:49:10 [U 5780] ACTIVITY> do_login_by_id
+02:55:46 [U 5780] ACTIVITY> do_login_by_id
+02:57:05 [U 5780] ACTIVITY> do_login_by_id
+02:57:26 [U 5780] ACTIVITY> do_login_by_id
+02:59:34 [U 5780] ACTIVITY> do_login_by_id
+03:01:16 [U 5780] ACTIVITY> do_login_by_id
+03:02:10 [U 5780] ACTIVITY> do_login_by_id
+03:03:51 [U 5780] ACTIVITY> do_login_by_id
+03:06:45 [U 5780] ACTIVITY> do_login_by_id
+03:07:26 [U 5780] ACTIVITY> do_login_by_id
+03:09:05 [U 5780] ACTIVITY> do_login_by_id
+03:10:46 [U 5780] ACTIVITY> do_login_by_id
+03:11:01 [U 5780] ACTIVITY> do_login_by_id
+03:11:26 [U 5780] ACTIVITY> do_login_by_id
+03:11:52 [U 5780] ACTIVITY> do_login_by_id
+03:14:21 [U 5780] ACTIVITY> do_login_by_id
+03:14:47 [U 5780] ACTIVITY> do_login_by_id
+03:15:24 [U 5780] ACTIVITY> do_login_by_id
+03:15:35 [U 5780] ACTIVITY> do_login_by_id
+03:16:58 [U 5780] ACTIVITY> do_login_by_id
+03:18:18 [U 5780] ACTIVITY> do_login_by_id
+03:18:37 [U 5780] ACTIVITY> do_login_by_id
+03:19:37 [U 5780] ACTIVITY> do_login_by_id
+03:20:02 [U 5780] ACTIVITY> do_login_by_id
+03:20:04 [U 5780] ACTIVITY> do_login_by_id
+03:20:51 [U 5780] CRONE__chiudi_sfida> ************************************************** [ID  161]
+03:20:51 [U 5780] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+03:20:51 [U 5780] SFIDA::> id sfidante: 5780 (Paolo_Morettiaa), id_sfidato: 5776 (anbi)
+03:20:51 [U 5780] SFIDA::> id vincitore: 0
+03:20:51 [U 5780] CRONE__chiudi_sfida> Risultato: '5,5', Vincitore: 0
+03:20:51 [U 5780] ----> SELECT * FROM sfida where ( (id_sfidante = 5780 and id_sfidato = 5776) or (id_sfidante = 5776 and id_sfidato = 5780) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+03:20:51 [U 5780] reward_users> Sfidante: Paolo_Morettiaa
+03:20:51 [U 5780] reward_users> Sfidato: anbi
+03:20:51 [U 5780] reward_users> Sfidato: applico Prima partita del giorno
+03:20:51 [U 5780] REWARD> *** APPLICO Prima partita del giorno per 5776***
+03:20:51 [U 5780] REWARD> [DONE]
+03:20:51 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:20:51 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:20:51 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:21:35 [U 5780] ACTIVITY> do_login_by_id
+03:21:43 [U 5780] CRONE__chiudi_sfida> ************************************************** [ID  149]
+03:21:43 [U 5780] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+03:21:43 [U 5780] SFIDA::> id sfidante: 5795 (Cherie), id_sfidato: 5780 (Paolo_Morettiaa)
+03:21:43 [U 5780] SFIDA::> id vincitore: 5780
+03:21:43 [U 5780] CRONE__chiudi_sfida> Risultato: '3,4', Vincitore: 5780
+03:21:43 [U 5780] ----> SELECT * FROM sfida where ( (id_sfidante = 5795 and id_sfidato = 5780) or (id_sfidante = 5780 and id_sfidato = 5795) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+03:21:43 [U 5780] reward_users> Sfidante: Cherie
+03:21:43 [U 5780] reward_users> Sfidato: Paolo_Morettiaa
+03:21:43 [U 5780] reward_users> Sfidato: applico Prima partita del giorno
+03:21:43 [U 5780] REWARD> *** APPLICO Prima partita del giorno per 5780***
+03:21:43 [U 5780] REWARD> [DONE]
+03:21:43 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:21:43 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:21:43 [U 5780] reward_users> Sfidante: applico Gladiatore
+03:21:43 [U 5780] REWARD> *** APPLICO Gladiatore per 5795***
+03:21:43 [U 5780] REWARD> [DONE]
+03:21:43 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:22:31 [U 5780] ACTIVITY> do_login_by_id
+03:22:40 [U 5780] CRONE__chiudi_sfida> ************************************************** [ID  162]
+03:22:40 [U 5780] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+03:22:40 [U 5780] SFIDA::> id sfidante: 5780 (Paolo_Morettiaa), id_sfidato: 5776 (anbi)
+03:22:40 [U 5780] SFIDA::> id vincitore: 0
+03:22:40 [U 5780] CRONE__chiudi_sfida> Risultato: '5,5', Vincitore: 0
+03:22:40 [U 5780] ----> SELECT * FROM sfida where ( (id_sfidante = 5780 and id_sfidato = 5776) or (id_sfidante = 5776 and id_sfidato = 5780) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+03:22:40 [U 5780] reward_users> Sfidante: Paolo_Morettiaa
+03:22:40 [U 5780] reward_users> Sfidato: anbi
+03:22:40 [U 5780] reward_users> Sfidante: applico Prima partita del giorno
+03:22:40 [U 5780] REWARD> *** APPLICO Prima partita del giorno per 5780***
+03:22:40 [U 5780] REWARD> [DONE]
+03:22:40 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:22:40 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:22:40 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:23:59 [U 5780] ACTIVITY> do_login_by_id
+03:25:05 [U 5780] ACTIVITY> do_login_by_id
+03:25:08 [U 5780] ACTIVITY> do_login_by_id
+03:25:11 [U 5780] ACTIVITY> do_login_by_id
+03:25:24 [U 5780] ACTIVITY> do_login_by_id
+03:25:37 [U 5780] CRONE__chiudi_sfida> ************************************************** [ID  163]
+03:25:37 [U 5780] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+03:25:37 [U 5780] SFIDA::> id sfidante: 5780 (Paolo_Morettiaa), id_sfidato: 5776 (anbi)
+03:25:37 [U 5780] SFIDA::> id vincitore: 0
+03:25:37 [U 5780] CRONE__chiudi_sfida> Risultato: '5,5', Vincitore: 0
+03:25:37 [U 5780] ----> SELECT * FROM sfida where ( (id_sfidante = 5780 and id_sfidato = 5776) or (id_sfidante = 5776 and id_sfidato = 5780) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+03:25:37 [U 5780] reward_users> Sfidante: Paolo_Morettiaa
+03:25:37 [U 5780] reward_users> Sfidato: anbi
+03:25:37 [U 5780] reward_users> Sfidante: applico Prima partita del giorno
+03:25:37 [U 5780] REWARD> *** APPLICO Prima partita del giorno per 5780***
+03:25:37 [U 5780] REWARD> [DONE]
+03:25:37 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:25:37 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:25:37 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:26:40 [U 5780] ACTIVITY> Success 102 [Messaggio spedito correttamente]
+03:28:17 [U 5780] ACTIVITY> do_login_by_id
+03:28:30 [U 5780] CRONE__chiudi_sfida> ************************************************** [ID  164]
+03:28:30 [U 5780] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+03:28:30 [U 5780] SFIDA::> id sfidante: 5780 (Paolo_Morettiaa), id_sfidato: 5776 (anbi)
+03:28:30 [U 5780] SFIDA::> id vincitore: 0
+03:28:30 [U 5780] CRONE__chiudi_sfida> Risultato: '5,5', Vincitore: 0
+03:28:30 [U 5780] ----> SELECT * FROM sfida where ( (id_sfidante = 5780 and id_sfidato = 5776) or (id_sfidante = 5776 and id_sfidato = 5780) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+03:28:30 [U 5780] reward_users> Sfidante: Paolo_Morettiaa
+03:28:30 [U 5780] reward_users> Sfidato: anbi
+03:28:30 [U 5780] reward_users> Sfidante: applico Prima partita del giorno
+03:28:30 [U 5780] REWARD> *** APPLICO Prima partita del giorno per 5780***
+03:28:30 [U 5780] REWARD> [DONE]
+03:28:30 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:28:30 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:28:30 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:29:31 [U 5780] CRONE__chiudi_sfida> ************************************************** [ID  165]
+03:29:31 [U 5780] CRONE__chiudi_sfida> Stato 2 => Sfida risposta, aggiorno stati e calcolo risultato
+03:29:31 [U 5780] SFIDA::> id sfidante: 5780 (Paolo_Morettiaa), id_sfidato: 5776 (anbi)
+03:29:31 [U 5780] SFIDA::> id vincitore: 0
+03:29:31 [U 5780] CRONE__chiudi_sfida> Risultato: '5,5', Vincitore: 0
+03:29:31 [U 5780] ----> SELECT * FROM sfida where ( (id_sfidante = 5780 and id_sfidato = 5776) or (id_sfidante = 5776 and id_sfidato = 5780) ) and stato = 2 and DATE(dta_sfida) = CURDATE() and DATE(dta_conclusa) = CURDATE()
+03:29:31 [U 5780] reward_users> Sfidante: Paolo_Morettiaa
+03:29:31 [U 5780] reward_users> Sfidato: anbi
+03:29:31 [U 5780] reward_users> Sfidante: applico Prima partita del giorno
+03:29:31 [U 5780] REWARD> *** APPLICO Prima partita del giorno per 5780***
+03:29:31 [U 5780] REWARD> [DONE]
+03:29:31 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:29:31 [U 5780] REWARD> Sfide giornaliere tra stessi user: 0
+03:29:31 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:30:29 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:30:35 [U 5780] ACTIVITY> do_login_by_id
+03:30:48 [U 5780] ACTIVITY> do_login_by_id
+03:30:57 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:32:29 [U 5780] ACTIVITY> do_login_by_id
+03:34:02 [U 5780] ACTIVITY> do_login_by_id
+03:35:31 [U 5780] ACTIVITY> do_login_by_id
+03:35:38 [U 5780] ACTIVITY> Success 300 [Sfida inserita correttamente]
+03:40:30 [U 5780] ACTIVITY> do_login_by_id
+03:40:56 [U 5780] ACTIVITY> do_login_by_id
+03:41:53 [U 5780] ACTIVITY> do_login_by_id
+03:42:13 [U 5780] ACTIVITY> do_login_by_id
+03:42:32 [U 5780] ACTIVITY> do_login_by_id
+03:42:46 [U 5780] ACTIVITY> do_login_by_id
+03:43:48 [U 5780] ACTIVITY> do_login_by_id
+03:44:14 [U 5780] ACTIVITY> do_login_by_id
+13:39:14 [U 5780] ACTIVITY> do_login_by_id
+13:40:02 [U 5780] ACTIVITY> do_login_by_id
+13:40:20 [U 5780] ACTIVITY> do_login_by_id
+13:41:25 [U 5780] ACTIVITY> do_login_by_id
+13:41:31 [U 5780] ACTIVITY> do_login_by_id
+13:42:07 [U 5780] ACTIVITY> do_login_by_id
+13:42:16 [U 5780] ACTIVITY> do_login_by_id
+13:42:26 [U 5780] ACTIVITY> do_login_by_id
+13:44:00 [U 5780] ACTIVITY> do_login_by_id
+13:44:24 [U 5780] ACTIVITY> do_login_by_id
+13:46:01 [U 5780] ACTIVITY> do_login_by_id
+13:50:09 [U 5780] ACTIVITY> do_login_by_id
+13:50:42 [U 5780] ACTIVITY> do_login_by_id
+13:50:46 [U 5780] ACTIVITY> do_login_by_id
+13:50:49 [U 5780] ACTIVITY> do_login_by_id
+13:51:15 [U 5780] ACTIVITY> do_login_by_id
+13:52:23 [U 5780] ACTIVITY> do_login_by_id
+13:52:38 [U 5780] ACTIVITY> do_login_by_id
+16:57:12 [U 5780] ACTIVITY> do_login_by_id
+17:05:38 [U 5780] ACTIVITY> do_login_by_id
+17:05:47 [U 5780] ACTIVITY> do_login_by_id
+17:05:52 [U 5780] ACTIVITY> do_login_by_id
+17:09:21 [U 5780] ACTIVITY> do_login_by_id
+17:09:32 [U 5780] ACTIVITY> do_login_by_id
+17:10:20 [U 5780] ACTIVITY> do_login_by_id
+17:10:41 [U 5780] ACTIVITY> do_login_by_id
+17:11:07 [U 5780] ACTIVITY> do_login_by_id
+17:11:09 [U 5780] ACTIVITY> do_login_by_id
+17:11:34 [U 5780] ACTIVITY> do_login_by_id
+17:11:36 [U 5780] ACTIVITY> do_login_by_id
+17:11:52 [U 5780] ACTIVITY> do_login_by_id
+17:12:24 [U 5780] ACTIVITY> do_login_by_id
+17:13:01 [U 5780] ACTIVITY> do_login_by_id
+17:13:11 [U 5780] ACTIVITY> do_login_by_id
+17:13:38 [U 5780] ACTIVITY> do_login_by_id
+17:14:03 [U 5780] ACTIVITY> do_login_by_id
+17:14:30 [U 5780] ACTIVITY> do_login_by_id
+17:15:13 [U 5780] ACTIVITY> do_login_by_id
+17:15:40 [U 5780] ACTIVITY> do_login_by_id
+17:16:14 [U 5780] ACTIVITY> do_login_by_id
+17:17:08 [U 5780] ACTIVITY> do_login_by_id
+17:17:20 [U 5780] ACTIVITY> do_login_by_id
+17:17:55 [U 5780] ACTIVITY> do_login_by_id
+17:18:23 [U 5780] ACTIVITY> do_login_by_id
+17:20:34 [U 5780] ACTIVITY> do_login_by_id
+17:21:24 [U 5780] ACTIVITY> do_login_by_id
+17:27:55 [U 5780] ACTIVITY> do_login_by_id
+17:28:05 [U 5780] ACTIVITY> do_login_by_id
+17:28:21 [U 5780] ACTIVITY> do_login_by_id
+17:29:53 [U 5780] ACTIVITY> do_login_by_id
+17:30:05 [U 5780] ACTIVITY> do_login_by_id
+17:30:29 [U 5780] ACTIVITY> do_login_by_id
+17:30:40 [U 5780] ACTIVITY> do_login_by_id
+17:32:51 [U 5780] ACTIVITY> do_login_by_id
+17:33:29 [U 5780] ACTIVITY> do_login_by_id
+17:33:36 [U 5780] ACTIVITY> do_login_by_id
+17:34:10 [U 5780] ACTIVITY> do_login_by_id
+17:34:22 [U 5780] ACTIVITY> do_login_by_id
+17:35:41 [U 5780] ACTIVITY> do_login_by_id
+17:35:45 [U 5780] ACTIVITY> do_login_by_id
+17:36:35 [U 5780] ACTIVITY> do_login_by_id
+17:37:19 [U 5780] ACTIVITY> do_login_by_id
+17:48:04 [U 5780] ACTIVITY> do_login_by_id
