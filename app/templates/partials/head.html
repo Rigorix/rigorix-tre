@@ -1,7 +1,22 @@
-<div id="header">
-    <a href="#home"><img src="i/logo.gif" alt="Rigorix - header" border="0" /></a>
-
-    <div class="bannerHeader">
-        <div ng-include="'/app/templates/partials/banner-top.html'"></div>
+<div class="row row-fluid" id="header" ng-controller="Header">
+    <div class="col col-xs-6">
+        <h1 ng-click="doClickLogo()">RIGORIX</h1>
     </div>
+
+    <div class="col col-xs-6">
+        <div class="user-container pull-right">
+            <span>{{currentUser.username}}</span>
+            <img src="{{currentUser.picture}}" ng-click="doClickUserIcon()" width="40" height="40" class="media-object img-circle" />
+
+            <div class="user-popout" ng-show="showUserPopout">
+                Popout
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="bannerHeader">-->
+        <!--<div ng-include="'/app/templates/partials/banner-top.html'"></div>-->
+    <!--</div>-->
+
+
 </div>

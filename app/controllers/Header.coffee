@@ -1,3 +1,12 @@
-Rigorix.controller "Header", ($scope) ->
+Rigorix.controller "Header", ($scope, $location) ->
 
-  console.log "Header controller"
+  $scope.showUserPopout = false;
+
+  $scope.$on "rootevent:click", (ev, args)->
+    $scope.showUserPopout = false if $(args.event.target).parents(".user-container").size() is 0
+
+  $scope.doClickLogo = ->
+    $location.path "/"
+
+  $scope.doClickUserIcon = ->
+    $scope.showUserPopout = !$scope.showUserPopout

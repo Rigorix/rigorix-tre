@@ -3,7 +3,7 @@
 
 <?php require_once("boxes/html_head.php"); ?>
 
-<body ng-controller="Main" ng-class="modalClass">
+<body ng-controller="Main" ng-class="modalClass" ng-click="doClick($event)">
 
   <div ng-include="'/app/templates/partials/loader.html'"></div>
 

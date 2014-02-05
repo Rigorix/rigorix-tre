@@ -1,6 +1,7 @@
 {
   "name": "Rigorix",
   "version": "0.1.0",
+  "homepage": "http://www.rigorix.com",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-concat": "~0.3.0",
@@ -14,6 +15,8 @@
     "bower": "~1.2.8",
     "grunt-bower-task": "~0.3.4",
     "grunt-bower-install": "~0.8.0",
-    "grunt-bower": "~0.7.0"
+    "grunt-bower": "~0.7.0",
+    "grunt-concurrent": "~0.4.3",
+    "grunt-contrib-clean": "~0.5.0"
   }
 }

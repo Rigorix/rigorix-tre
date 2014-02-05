@@ -276,8 +276,19 @@ Rigorix.controller("GamePlay.Tile", function($scope, $element) {
   };
 });
 
-Rigorix.controller("Header", function($scope) {
-  return console.log("Header controller");
+Rigorix.controller("Header", function($scope, $location) {
+  $scope.showUserPopout = false;
+  $scope.$on("rootevent:click", function(ev, args) {
+    if ($(args.event.target).parents(".user-container").size() === 0) {
+      return $scope.showUserPopout = false;
+    }
+  });
+  $scope.doClickLogo = function() {
+    return $location.path("/");
+  };
+  return $scope.doClickUserIcon = function() {
+    return $scope.showUserPopout = !$scope.showUserPopout;
+  };
 });
 
 Rigorix.controller("Home", function($scope, AppService) {
@@ -372,11 +383,11 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, AuthService, Use
   var _this = this;
   $scope.siteTitle = "Website title";
   $scope.userLogged = false;
-  $scope.$on("$routeChangeStart", function(event, next, current) {
-    if (next.$$route.originalPath === "/logout") {
-      return $scope.$emit("LOGOUT");
-    }
-  });
+  $scope.doClick = function(event) {
+    return $rootScope.$broadcast("rootevent:click", {
+      event: event
+    });
+  };
   $scope.$on("modal:open", function(event, obj) {
     return $scope.modalClass = obj.modalClass;
   });

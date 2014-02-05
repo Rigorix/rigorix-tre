@@ -5,11 +5,11 @@ BODY { position: relative; _width: 100%; _height: 100%; margin: 0; padding-top: 
 iframe { border: 0; }
 IMG { border: 0;}
 a { text-decoration:none; color: #39c; cursor: pointer !important; }
-a:hover { /*text-decoration: underline; */}
+a:hover { text-decoration: underline; }
 H1, H2, H3, H4, H5, H6, P { margin:0; padding:0}
 form { display: inline; }
 
-/* Helpers */
+ Helpers
 .clr { clear: both; height: 1px; font-size: 1px; line-height: 1px; }
 .hidden { display: none; }
 .borderless { border: 0 !important; }
@@ -28,11 +28,11 @@ big.error { color: red; }
 big.message { border: 1px solid #666; border-radius: 10px; }
 big.message.error { border-color: red; }
 
-/*
- * Layout components
- */
 
-/* #Form */
+ * Layout components
+
+
+ #Form
 	select { padding: 3px 4px; }
 	textarea { width: 100%; }
 
@@ -40,7 +40,7 @@ big.message.error { border-color: red; }
 	.generic .inrow-element { width: 300px; display: inline-block }
 	.generic .button { padding: 8px 15px; font-size: 14px; border-radius: 4px; margin: 30px auto; }
 
-/* #Titles & Texts */
+ #Titles & Texts
 	h3.title { font-size: 15px; color: #b2d700; }
 	h3.title strong { color: #000; font-size: 15px; }
 	h4.title { font-size: 14px; color: #2e95bd; margin-bottom: 7px; }
@@ -52,10 +52,10 @@ big.message.error { border-color: red; }
 	ul.normal-list li { margin-left: 15px; }
 	.small-descr-text { font-size: 11px !important; color: #333 !important; }
 
-/* #page */
+ #page
 	#page { width:956px; margin:5px auto; position: relative; text-align: left;}
 
-/* #Page header */
+ #Page header
 	#header { position: relative; background: url(../i/head_bg.gif) repeat-x left top; height: 118px; border: 4px solid #fff; border-bottom: 0; }
 	#header img { display: block; }
 	#header div.bannerHeader {left:220px; top: 8px}
@@ -63,14 +63,14 @@ big.message.error { border-color: red; }
 	.beta-version { position: absolute; top: 69px; left: 120px; text-shadow: 2px 2px 1px #000; }
 	.beta-version p { font-weight: bold; color: #fff; font-size: 14px; }
 	.horizontal-menu { position: absolute; top: 105px; left: 16px; }
-	.user-public-stats { /*position: absolute; top: 2px; left: 27px; z-index: 1000; */ color: #fff; font-size: 11px; margin-left: 15px; }
+	.user-public-stats { position: absolute; top: 2px; left: 27px; z-index: 1000;  color: #fff; font-size: 11px; margin-left: 15px; }
 
-/* #Page body */
+ #Page body
 	#body { background: #fff; border-left: 4px solid #fff; border-right: 4px solid #fff; }
 	.rx-page-title { font-size: 16px; color: #39c; }
 	.rx-page-success { font-size: 16px; color: #093; }
 
-/* #Area personale */
+ #Area personale
 .area_personale_tab { padding: 0; margin-top: -1px; }
 	.area_personale_tab .ui-tabs-nav { background: #e1e1e1; padding: 0; margin: 0; }
 	.area_personale_tab .ui-tabs-nav li { padding: 6px 0; float: left; border: 0;  }
@@ -93,11 +93,11 @@ big.message.error { border-color: red; }
 	.area_personale_tab .ui-tabs-panel {  }
 	.area_personale_tab .ui-tabs-hide { display: none; }
 
-	/*.area_personale_tab .ui-box-content-html.main-pane { padding-top: 20px; }*/
+	.area_personale_tab .ui-box-content-html.main-pane { padding-top: 20px; }
 
 	.profile-picture-thumb-container { width: 40px; height: 40px; display: inline-block; overflow: hidden;}
 
-/* #Boxes */
+ #Boxes
 	#boxUtente { background: none; padding: 11px 0 0 0; width: 100%; margin: 0; }
 	#boxUtente P { padding: 0 11px 0 9px; color: #2e95bd}
 	#boxUtente P.content IMG { display: inline; vertical-align: middle;}
@@ -107,10 +107,10 @@ big.message.error { border-color: red; }
 	#boxUtente INPUT.in_text { border:1px solid #3399cc; width:104px;}
 	#boxUtente TD { color:#3399cc}
 	#boxUtente img.user-picture { border: 1px solid #39c; }
-	#boxUtente .messages-icon { /*position: absolute; top: 35px; right: 5px; */}
+	#boxUtente .messages-icon { position: absolute; top: 35px; right: 5px; }
 	#boxUtente .sfide-counter { display: inline-block; padding: 2px 4px; margin-right: 3px; background: #C6E62D; border: 1px solid #C6E02D; color: #fff; }
 	#boxUtente .user-row { position: relative; width: 100%; }
-	#boxUtente .user-row .punteggio-utente { /*position: absolute; right: 5px; top: 0; */ display: inline-block; background: #000; color: #fff; padding: 2px 3px; border-radius: 9px; }
+	#boxUtente .user-row .punteggio-utente { position: absolute; right: 5px; top: 0;  display: inline-block; background: #000; color: #fff; padding: 2px 3px; border-radius: 9px; }
 	.row-spacer { width: 5px; padding: 0; margin: 0; display: inline-block; }
 
     #boxUtente .label { padding: 2px 4px; }
@@ -143,7 +143,7 @@ big.message.error { border-color: red; }
 	.torneo-show-tabs .ui-tabs-panel { width: 390px; }
 
 
-/* #User */
+ #User
 	.go-prev-message,
 	.go-next-message { color: #2E95BD !important; }
 
@@ -157,23 +157,23 @@ big.message.error { border-color: red; }
 
 	.su-username { font-size: 16px; font-weight: normal; color: #111; text-transform: uppercase;}
 
-    /*.gameSetBox {*/
-        /*background: url(../i/lanciaSfide_campo.gif) no-repeat center 0px;*/
-        /*text-align: center;*/
-        /*position: relative;*/
-        /*height: 113px;*/
-        /*width: 248px;*/
-        /*margin-bottom: 10px*/
-    /*}*/
-	/*.gameSetBox H3 { text-transform: uppercase; color: #0077a6; font-size: 13.4px}*/
-	/*.gameSetBox.right { margin-left: 5px; }*/
-	/*.palloneSx_game { position: absolute; display: block; top: 42px; left: 50px}*/
-	/*.palloneCenter_game { position: absolute; display: block; top: 20px; left: 120px}*/
-	/*.palloneDx_game { position: absolute; display: block; top: 42px; right: 57px}*/
-	/*.portiereSx_game {position: absolute; display: block; top: 30px; left: 50px}*/
-	/*.portiereCenter_game {position: absolute; display: block; top: 17px; left: 112px}*/
-	/*.portiereDx_game {position: absolute; display: block; top: 30px; right: 57px}*/
-    /*.gameSetBox .label { position: absolute; bottom: 4px; left: 50%; margin-left: -20px; }*/
+    .gameSetBox {
+        background: url(../i/lanciaSfide_campo.gif) no-repeat center 0px;
+        text-align: center;
+        position: relative;
+        height: 113px;
+        width: 248px;
+        margin-bottom: 10px
+    }
+	.gameSetBox H3 { text-transform: uppercase; color: #0077a6; font-size: 13.4px}
+	.gameSetBox.right { margin-left: 5px; }
+	.palloneSx_game { position: absolute; display: block; top: 42px; left: 50px}
+	.palloneCenter_game { position: absolute; display: block; top: 20px; left: 120px}
+	.palloneDx_game { position: absolute; display: block; top: 42px; right: 57px}
+	.portiereSx_game {position: absolute; display: block; top: 30px; left: 50px}
+	.portiereCenter_game {position: absolute; display: block; top: 17px; left: 112px}
+	.portiereDx_game {position: absolute; display: block; top: 30px; right: 57px}
+    .gameSetBox .label { position: absolute; bottom: 4px; left: 50%; margin-left: -20px; }
 
 	.result-screen { width: 44px; height: 24px; background: url(/i/tabellone.gif) no-repeat top left; position: relative; }
 	.result-screen .team-screen { position: absolute; top: 2px; width: 15px; height: 19px; background: url(/i/numeri_tabellone.gif) no-repeat top left;  }
@@ -246,7 +246,7 @@ big.message.error { border-color: red; }
         .best-user-box #setup_numero { top: 150px; left: 125px; }
         .best-user-box #setup_numero_shadow { top: 151px; left: 126px; }
 
-/* #Playoff-show */
+ #Playoff-show
 	.playoff-table { width: 100%; border-collapse: collapse; border: 2px solid #d4ec63; }
 	.playoff-table thead th { background: #d4ec63; padding: 4px; }
 	.playoff-table thead th h3 { font-size: 13px; margin-bottom: 2px; }
@@ -261,14 +261,14 @@ big.message.error { border-color: red; }
 	.playoff-table .playoff-sfida-looser.ui-box-content { background: #d12222; }
 	.playoff-table .playoff-sfida-looser div a { color: #fff !important; text-decoration: line-through; }
 	.playoff-table .playoff-past-column { background-color: #e9e9e9; }
-	/*.playoff-table td.playoff-fase-attiva { background: #f2ffb4 url(../i/icon_vs.png) no-repeat center bottom; }*/
+	.playoff-table td.playoff-fase-attiva { background: #f2ffb4 url(../i/icon_vs.png) no-repeat center bottom; }
 	.playoff-table th.playoff-fase-attiva { background-color: #c7d67f; }
 	.playoff-table th.playoff-fase-passata { background-color: #c0bdbd; }
 
-/* #Loading */
+ #Loading
 	.rx-loading * { visibility: hidden; }
 
-/* #Columns */
+ #Columns
 	.rx-layout-col-container { padding: 5px; text-align: left; }
 	.rx-layout-col-large { float: left; width: 604px; position: relative; }
 	.rx-layout-halfcol { float: left; width: 49.9%; position: relative; }
@@ -277,7 +277,7 @@ big.message.error { border-color: red; }
 
 	.overflow307 .list-element { height: 302px !important; overflow: auto; }
 
-/* #Lists */
+ #Lists
     .list-element { list-style-type: none; padding: 0; margin: 0 0 3px 0; }
     .list-element li { padding: 5px 8px; background-color: #fff; border-bottom: 1px solid #eef0f3; float: none; clear: both; overflow: visible; }
 	.list-element li:before,
@@ -297,12 +297,12 @@ big.message.error { border-color: red; }
 		.reward-list-item h5 { font-size: 13px; font-weight: normal; margin-bottom: 5px; color: #333; }
 		.reward-list-item h3 { font-size: 12px; font-weight: normal; color: #333; }
 
-	/*.user-list { padding: 3px 0}*/
+	.user-list { padding: 3px 0}
 	.user-list img { float: left; }
 	.user-list .ui-username { float: left; padding: 2px 3px 3px 7px; }
 	.user-list .punteggio-utente-container { float: right !important; }
 
-/* #Tables */
+ #Tables
 	.form-table { border-collapse: collapse; width: 100%; }
 	.form-table tr td { padding: 3px 6px; }
 	.form-table tr td label { padding: 4px 0; }
@@ -317,7 +317,7 @@ big.message.error { border-color: red; }
 	.alt.draw { background-color: #ede454 !important; }
 	label.l60 { width: 60px; }
 	.entry-table { width: 100%; }
-	.entry-table td { padding: 3px 3px !important; } /* white-space: nowrap;*/
+	.entry-table td { padding: 3px 3px !important; }  white-space: nowrap;
 	.entry-table th { padding: 5px 3px !important; }
 	.entry-table img { display: inline; margin-right: 1.5px; }
 	.entry-table .small-table-header th { font-size: 11px; font-weight: normal; background: #555; color: #eee; white-space: nowrap; }
@@ -339,7 +339,7 @@ big.message.error { border-color: red; }
 	.list th { font-size: 12px; padding: 5px 10px !important; }
 
 
-/* Dialog gioca sfida */
+ Dialog gioca sfida
 	.scheda-utente { padding: 6px 4px 6px 6px; background: #f3f3f3; margin: 8px 8px 0 0; width: 100%; }
 	.scheda-utente h3 { font-size: 15px; font-weight: normal; }
 	.scheda-utente h4 { font-size: 14px; font-weight: normal; margin: 20px 0 8px 0; }
@@ -361,7 +361,7 @@ big.message.error { border-color: red; }
 	.hover td { background: none; }
 
 
-/* #Toaster */
+ #Toaster
 .toast-message-container { position: fixed; top: 0; left: 50%; width: 450px; margin-left: -225px; background: #fff; border: 3px solid #39c; border-top: 0; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; box-shadow: 0 0 10px #333; z-index: 5000; }
 	.toast-message-container .toast-message-text { display: block; border-bottom: 1px solid #f3f3f3; float: none; clear: both; width: 100%; overflow: visible; }
 	.toast-message-container small { font-size: 10px; color: #666; display: block; text-align: right; padding: 3px 8px;  float: none; clear: both; }
@@ -373,8 +373,8 @@ big.message.error { border-color: red; }
 	.notifica-sfida li .punteggio-utente-container { display: none; }
 
 
-/* #Footer */
-	#footer { /*background:url(../i/n_footer.gif) no-repeat bottom left; */ background: #f5f8fc; border: 4px solid #fff; border-top: 0; padding: 0px 27px 5px 27px}
+ #Footer
+	#footer { background:url(../i/n_footer.gif) no-repeat bottom left;  background: #f5f8fc; border: 4px solid #fff; border-top: 0; padding: 0px 27px 5px 27px}
 	.footerCopyright P { color: #2e64bd; }
 	.footerDisclaimer P { color: #000; font-size: 10px; }
 
@@ -383,7 +383,7 @@ big.message.error { border-color: red; }
 	#siteMainInfo p strong { color: #39C !important; }
 	#siteMainInfo p .footer_links , .footer_links strong { color: #fff !important}
 
-/* #Icons */
+ #Icons
 .icon { background-image: url(../i/icons.png); background-repeat: no-repeat; width: 22px; height: 20px; float: left; margin-right: 6px;  }
 .has-icon { background: url(../i/icons.png) no-repeat; }
 	.icon.icon-sfide { background-position: 0 0; }
@@ -391,29 +391,29 @@ big.message.error { border-color: red; }
 	.icon.icon-messaggi { background-position: -57px -2px; }
 	.icon.icon-utente { background-position: -82px 0; }
 
-/* #Dialogs */
+ #Dialogs
 	.dialog-default-container { background: transparent; text-align: left; }
 	.dialog-default-container p { font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
 	.dialog-no-padding #rx_dialog { padding: 0; }
 
 	#scheda_utente { height: 487px; overflow: auto; }
 
-/* #Developer */
+ #Developer
 	.developer_prepage_tools { position: absolute; top: 0; left: 0; background: #f3f3f3; padding: 10px; }
 	.developer_prepage_tools button { font-size: 13px; }
 	#foot-debug { background: #000; color: #fff; }
 	#foot-debug .debug-buttons { padding: 5px; text-align: left; font-size: 12px; }
 	#foot-debug .debug-log { height: 285px; overflow: auto; padding: 0 10px; font-size: 11px; font-family: Courier; text-align: left; }
 
-/* #Buttons */
+ #Buttons
 	.button-small,
 	.ui-dialog-buttonpane .ui-button { font-size: 12px !important; }
 	.button-small span.ui-button-text,
 	.ui-dialog-buttonpane .ui-button span.ui-button-text { padding: 3px 6px; }
 	.rx-box-loader { cursor: pointer; }
 
-/* COMMON */
-	/*.user-sfida-link { color: blue !important; }*/
+ COMMON
+	.user-sfida-link { color: blue !important; }
 	.legenda { list-style-type: none; padding-left: 0; margin-left: 4px; }
 	.legenda dt { float: left; width: 9%; margin: 0; padding: 0; }
 	.legenda dd { float: left; width: 90%; margin: 0; padding: 0; }
@@ -425,8 +425,8 @@ big.message.error { border-color: red; }
 .ui-dialog-titlebar-close { display: none; }
 
 
-/*
+
  * TEST
- */
+
 
 .test-box { background-color: #fc0; -moz-border-radius-bottomleft: 4px; padding: 4px 6px; position: absolute; top: 0; left: 0; }

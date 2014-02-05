@@ -3,9 +3,15 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
   $scope.siteTitle = "Website title"
   $scope.userLogged = false
 
-  $scope.$on "$routeChangeStart", (event, next, current)->
-    if next.$$route.originalPath == "/logout"
-      $scope.$emit "LOGOUT"
+  $scope.doClick = (event)->
+    $rootScope.$broadcast "rootevent:click",
+      event: event
+
+#  $scope.$on "$routeChangeStart", (event, next, current)->
+#    alert "logout"
+##    TODO: remove
+#    if next.$$route.originalPath == "/logout"
+#      $scope.$emit "LOGOUT"
 
   $scope.$on "modal:open", (event, obj)->
     $scope.modalClass = obj.modalClass
