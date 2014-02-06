@@ -155,7 +155,13 @@ module.exports = (grunt) ->
 
     githooks:
         all:
-          'post-commit': 'git_ftp:development',
+          options:
+            hashbang: '#!/bin/sh'
+            template: './node_modules/grunt-githooks/templates/shell.hb'
+            startMarker: '## LET THE FUN BEGIN'
+            endMarker: '## PARTY IS OVER'
+
+          'post-commit': 'git_ftp:development'
 
     bowerInstall:
       install: {}
@@ -167,7 +173,7 @@ module.exports = (grunt) ->
 
   #  grunt.loadNpmTasks('grunt-contrib-uglify');
   #  grunt.loadNpmTasks('grunt-ftp-deploy');
-  #  grunt.loadNpmTasks('grunt-git-ftp');
+  grunt.loadNpmTasks "grunt-git-ftp"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-githooks"
   grunt.loadNpmTasks "grunt-concurrent"
