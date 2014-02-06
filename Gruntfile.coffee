@@ -185,6 +185,7 @@ module.exports = (grunt) ->
   grunt.renameTask "bower", "bowerInstall"
   grunt.loadNpmTasks "grunt-bower"
 
+  
   # DEVELOPMENT tasks --------------------------------------------------------------------------------------------------
   grunt.registerTask "dev", [ "concurrent:dev" ]
   grunt.registerTask "dev:script", [
