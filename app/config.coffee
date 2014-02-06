@@ -5,7 +5,3 @@ RigorixConfig =
 
 RigorixStorage =
   users: {}
-
-#$.notify.defaults
-#  globalPosition: 'top center'
-#  autoHideDelay: 8000

@@ -145,12 +145,13 @@ Rigorix.directive "wysiwyg", ->
 
 
 #-----------------------------------------------------------------------------------------------------------------------
-
-
-Rigorix.directive "backgroundColor", ->
-  link: (scope, el, attr) ->
-    el.css "background-color", attr.backgroundColor
-
-
-#-----------------------------------------------------------------------------------------------------------------------
-
+#
+#
+#Rigorix.directive "backgroundColor", ->
+#  link: (scope, el, attr) ->
+#    console.log "scope", scope
+#    el.css "background-color", attr.backgroundColor
+#
+#
+##-----------------------------------------------------------------------------------------------------------------------
+#

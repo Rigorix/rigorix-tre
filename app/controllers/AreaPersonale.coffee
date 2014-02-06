@@ -68,6 +68,7 @@ Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService, $route) ->
   $scope.reload = ->
     do $route.reload
 
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 
@@ -81,7 +82,7 @@ Rigorix.controller "AreaPersonale.Impostazioni", ($scope, $rootScope, UserServic
   $scope.doChangePhoto = ->
     $.notify "Funzionalita' non ancora attiva"
 
-  $scope.doUpdateUserDate = ->
+  $scope.doUpdateUserData = ->
     $rootScope.$broadcast "show:loading"
 
     $scope.currentUser.$save (json)->

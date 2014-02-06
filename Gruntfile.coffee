@@ -67,6 +67,7 @@ module.exports = (grunt) ->
         src: [
           "app/assets/css/*.css"
           "app/assets/temp/app.main.css"
+#          "app/assets/bower_components/angular-bootstrap-colorpicker/css/colorpicker.css"
           "css/*.css"
         ]
         dest: "app/assets/dist/app.css"

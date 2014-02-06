@@ -1,85 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/commands/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/packages/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/controllers/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/database/migrations/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/database/seeds/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/public/packages/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/public/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/database/production.sqlite" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/.gitattributes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/storage/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/storage/cache/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/storage/logs/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/storage/meta/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/storage/sessions/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/storage/views/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/public/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/controllers/BaseController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/database/seeds/DatabaseSeeder.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/tests/ExampleTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/controllers/HomeController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/tests/TestCase.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/models/User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/app.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/start/artisan.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/artisan" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/auth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/bootstrap/autoload.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/cache.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/testing/cache.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/compile.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/composer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/database.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/filters.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/start/global.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/views/hello.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/public/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/start/local.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/mail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/modals/message.new.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/lang/en/pagination.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/bootstrap/paths.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/phpunit.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/queue.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/views/emails/auth/reminder.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/lang/en/reminders.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/remote.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/public/robots.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/routes.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/server.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/session.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/testing/session.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/bootstrap/start.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/directives/username-with-thumb.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/lang/en/validation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/laravel/app/config/workbench.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/AppService.coffee" afterPath="$PROJECT_DIR$/app/services/AppService.coffee" />
+    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="funzionalita nuovo messaggio">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app.dist.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" afterPath="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.coffee" afterPath="$PROJECT_DIR$/Gruntfile.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/Helper.php" afterPath="$PROJECT_DIR$/api/Helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Main.coffee" afterPath="$PROJECT_DIR$/app/controllers/Main.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Messagges.coffee" afterPath="$PROJECT_DIR$/app/controllers/Messagges.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" afterPath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.coffee" afterPath="$PROJECT_DIR$/app/app.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/areapersonale.less" afterPath="$PROJECT_DIR$/app/assets/less/areapersonale.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/less/colorpicker.less" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/less/colorpicker.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/common.less" afterPath="$PROJECT_DIR$/app/assets/less/common.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config.coffee" afterPath="$PROJECT_DIR$/app/config.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/directives.coffee" afterPath="$PROJECT_DIR$/app/directives/directives.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dm/dm_messaggi.php" afterPath="$PROJECT_DIR$/dm/dm_messaggi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dm/dm_utente.php" afterPath="$PROJECT_DIR$/dm/dm_utente.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/index.php" afterPath="$PROJECT_DIR$/api/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/modals/message.html" afterPath="$PROJECT_DIR$/app/templates/modals/message.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/area-personale/messaggi.html" afterPath="$PROJECT_DIR$/app/templates/area-personale/messaggi.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/redactor.css" afterPath="$PROJECT_DIR$/app/assets/css/redactor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/user-box.html" afterPath="$PROJECT_DIR$/app/templates/user-box.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/area-personale/impostazioni.html" afterPath="$PROJECT_DIR$/app/templates/area-personale/impostazioni.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b22ffa96-ce66-4cc9-8c44-4b66f52233fe" name="ignore" comment="ignore" />
@@ -110,66 +44,368 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
+      <file leaf-file-name="impostazioni.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/area-personale/impostazioni.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="32" selection-start="1435" selection-end="1451" vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="960">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="message.new.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/modals/message.new.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="75" selection-start="564" selection-end="564" vertical-scroll-proportion="-6.75" vertical-offset="63" max-vertical-offset="600">
+            <state line="189" column="0" selection-start="12569" selection-end="12569" vertical-scroll-proportion="-12.916667" vertical-offset="1430" max-vertical-offset="2100">
               <folding>
-                <marker date="1391699188000" expanded="true" signature="69:238" placeholder="..." />
+                <element signature="tag#div#0;tag#div#0;tag#div#1;tag#div#1;tag#div#1;tag#div#0;tag#div#1;tag#div#0" expanded="false" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="tag#div#1;tag#div#0;tag#div#1;tag#div#1;tag#div#1;tag#div#0;tag#div#1;tag#div#0" expanded="false" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/index.php">
+      <file leaf-file-name="AreaPersonale.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AreaPersonale.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="39" selection-start="255" selection-end="255" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="5505">
+            <state line="68" column="20" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0" vertical-offset="808" max-vertical-offset="1530">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messaggi.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/area-personale/messaggi.html">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/dist/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="60" selection-start="52" selection-end="60" vertical-scroll-proportion="3.125" vertical-offset="75" max-vertical-offset="615">
+            <state line="40684" column="0" selection-start="1332653" selection-end="1332653" vertical-scroll-proportion="0.0" vertical-offset="609965" max-vertical-offset="625950">
+              <folding>
+                <marker date="1391705889000" expanded="true" signature="1332835:1333330" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1332845:1332876" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1332972:1333035" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1333134:1333288" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1333197:1333241" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1333462:1334025" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1333472:1333503" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1333575:1334005" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1333676:1333935" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1333742:1333879" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1333816:1333833" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1334123:1334941" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1334189:1334735" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1334235:1334323" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1334431:1334583" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1334481:1334520" placeholder="{&quot;limit_start&quot;: 0...}" />
+                <marker date="1391705889000" expanded="true" signature="1334679:1334713" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1334810:1334937" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1335061:1335634" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1335175:1335247" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1335348:1335583" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1335441:1335542" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1335820:1338540" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1335818:1336004" placeholder="[...]" />
+                <marker date="1391705889000" expanded="true" signature="1335814:1335824" placeholder="{&quot;index&quot;: 0...}" />
+                <marker date="1391705889000" expanded="true" signature="1335826:1335919" placeholder="{&quot;index&quot;: 1...}" />
+                <marker date="1391705889000" expanded="true" signature="1335921:1335943" placeholder="{&quot;index&quot;: 2...}" />
+                <marker date="1391705889000" expanded="true" signature="1335945:1335967" placeholder="{&quot;index&quot;: 3...}" />
+                <marker date="1391705889000" expanded="true" signature="1335969:1335991" placeholder="{&quot;index&quot;: 4...}" />
+                <marker date="1391705889000" expanded="true" signature="1336028:1336304" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1336034:1336060" placeholder="{&quot;tiro&quot;: false...}" />
+                <marker date="1391705889000" expanded="true" signature="1336069:1336115" placeholder="{&quot;tiro&quot;: false...}" />
+                <marker date="1391705889000" expanded="true" signature="1336139:1336172" placeholder="{&quot;tiro&quot;: false...}" />
+                <marker date="1391705889000" expanded="true" signature="1336196:1336229" placeholder="{&quot;tiro&quot;: false...}" />
+                <marker date="1391705889000" expanded="true" signature="1336253:1336286" placeholder="{&quot;tiro&quot;: false...}" />
+                <marker date="1391705889000" expanded="true" signature="1336374:1336979" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1336395:1336922" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1336670:1336843" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1337103:1337418" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1337250:1337375" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1337476:1337719" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1337571:1337668" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1337631:1337644" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1337815:1338527" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1337895:1338044" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1338099:1338214" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1338231:1338470" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1338288:1338338" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1338344:1338388" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1338668:1339035" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1338667:1338749" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1338837:1338988" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1339176:1339590" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1339321:1339342" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1339406:1339500" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1339682:1339979" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1339852:1339920" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1340061:1340083" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1340163:1342412" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1340290:1340420" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1340574:1340608" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1340651:1340786" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1340792:1340891" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1340940:1340960" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1341780:1342381" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1341778:1342106" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1341818:1342089" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/vedi-sfida.html'...}" />
+                <marker date="1391705889000" expanded="true" signature="1341887:1342051" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1341947:1341991" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1342112:1342353" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1342156:1342336" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/sfida.html'...}" />
+                <marker date="1391705889000" expanded="true" signature="1342203:1342302" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1342224:1342247" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1342526:1343662" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1342493:1342615" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1342511:1342579" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1342689:1342735" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1342854:1342870" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1342948:1342952" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1343030:1343194" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1343240:1343257" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1343324:1343419" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1343364:1343416" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1343479:1343634" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1343812:1344979" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1343807:1343814" placeholder="{&quot;parameter&quot;: 'messages'...}" />
+                <marker date="1391705889000" expanded="true" signature="1343936:1343972" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1344121:1344269" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1344168:1344232" placeholder="{&quot;parameter&quot;: 'messages'...}" />
+                <marker date="1391705889000" expanded="true" signature="1344354:1344437" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1344372:1344434" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/message.new.html'...}" />
+                <marker date="1391705889000" expanded="true" signature="1344515:1344907" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1344528:1344611" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1344634:1344892" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/message.html'...}" />
+                <marker date="1391705889000" expanded="true" signature="1344725:1344859" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1344792:1344804" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1345117:1346901" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1345048:1345113" placeholder="{&quot;controller&quot;: 'Message.Modal'...}" />
+                <marker date="1391705889000" expanded="true" signature="1345377:1345385" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1345456:1345493" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1345506:1345555" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1345586:1345693" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1345762:1346198" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1345780:1345884" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1345905:1346154" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1345925:1346023" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1346029:1346094" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1346266:1346360" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1346397:1346742" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1346406:1346442" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1346459:1346677" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1346505:1346587" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1346593:1346645" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1346841:1346895" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1347025:1348217" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1346973:1347207" placeholder="{&quot;oggetto&quot;: ''...}" />
+                <marker date="1391705889000" expanded="true" signature="1347260:1347279" placeholder="{&quot;controller&quot;: 'Message.Modal.New'...}" />
+                <marker date="1391705889000" expanded="true" signature="1347334:1347665" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1347395:1347643" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1347438:1347603" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1347769:1347834" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1347883:1348085" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1347940:1348022" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348144:1348179" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348280:1348615" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348276:1348589" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348335:1348559" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348334:1348542" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/success.html'...}" />
+                <marker date="1391705889000" expanded="true" signature="1348384:1348506" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348408:1348449" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348726:1348944" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348702:1348797" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348810:1348863" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1348901:1348928" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1349093:1349614" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1349073:1349084" placeholder="{&quot;controller&quot;: 'Modals.Sfida'...}" />
+                <marker date="1391705889000" expanded="true" signature="1349123:1349289" placeholder="{&quot;id_sfida&quot;: false...}" />
+                <marker date="1391705889000" expanded="true" signature="1349344:1349385" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1349398:1349440" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1349467:1349516" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1349567:1349589" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1349752:1350245" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1349729:1349740" placeholder="{&quot;controller&quot;: 'Modals.VediSfida'...}" />
+                <marker date="1391705889000" expanded="true" signature="1349779:1349953" placeholder="{&quot;id_sfida&quot;: false...}" />
+                <marker date="1391705889000" expanded="true" signature="1350008:1350049" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1350062:1350104" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1350141:1350198" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1350346:1350746" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1350411:1350543" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1350938:1351542" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1350968:1350977" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1351021:1351516" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1351072:1351468" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/sfida.html'...}" />
+                <marker date="1391705889000" expanded="true" signature="1351144:1351415" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1351200:1351398" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1351247:1351372" placeholder="{&quot;id_sfida&quot;: false...}" />
+                <marker date="1391705889000" expanded="true" signature="1351604:1351966" placeholder="[...]" />
+                <marker date="1391705889000" expanded="true" signature="1351625:1351956" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1351591:1351872" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1351635:1351815" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1351621:1351761" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1351689:1351711" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1352045:1352486" placeholder="[...]" />
+                <marker date="1391705889000" expanded="true" signature="1352050:1352476" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1352038:1352341" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1352075:1352297" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1352074:1352201" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1352127:1352173" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1352590:1352660" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1352590:1352619" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1352804:1352980" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1352828:1352917" placeholder="{&quot;restrict&quot;: 'E'...}" />
+                <marker date="1391705889000" expanded="true" signature="1352847:1352900" placeholder="{&quot;date_string&quot;: &quot;@date&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1353071:1353554" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1353047:1353521" placeholder="{&quot;restrict&quot;: 'E'...}" />
+                <marker date="1391705889000" expanded="true" signature="1353094:1353495" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1353109:1353125" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1353131:1353468" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1353180:1353306" placeholder="{&quot;param3&quot;: &quot;username&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1353323:1353437" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1353686:1354732" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1353643:1354671" placeholder="{&quot;restrict&quot;: 'E'...}" />
+                <marker date="1391705889000" expanded="true" signature="1353690:1354636" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1353718:1353990" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1353750:1353935" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1353996:1354582" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1354113:1354554" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1354209:1354313" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1354330:1354522" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1354792:1354819" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1354772:1354782" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1354913:1355149" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1354984:1355138" placeholder="{&quot;restrict&quot;: 'E'...}" />
+                <marker date="1391705889000" expanded="true" signature="1355002:1355119" placeholder="{&quot;row&quot;: &quot;=&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1355216:1355607" placeholder="[...]" />
+                <marker date="1391705889000" expanded="true" signature="1355286:1355551" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1355220:1355514" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1355257:1355476" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1355290:1355430" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1355374:1355406" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1355675:1356086" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1355652:1356019" placeholder="{&quot;require&quot;: '?ngModel'...}" />
+                <marker date="1391705889000" expanded="true" signature="1355703:1355983" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1355701:1355944" placeholder="{&quot;focus&quot;: false...}" />
+                <marker date="1391705889000" expanded="true" signature="1355742:1355910" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1355795:1355880" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1356217:1356291" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1356236:1356292" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1356401:1356523" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1356424:1356481" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1356609:1356618" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1356709:1357000" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1356752:1356938" placeholder="{&quot;Jan&quot;: 'Gen'...}" />
+                <marker date="1391705889000" expanded="true" signature="1356976:1356986" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1357055:1357236" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1357071:1357209" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1357095:1357177" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1357095:1357154" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1357350:1359162" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1357370:1357490" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1357327:1357472" placeholder="{&quot;param1&quot;: &quot;@param1&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1357492:1359140" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1357521:1357615" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1357565:1357595" placeholder="{&quot;param1&quot;: 'users'...}" />
+                <marker date="1391705889000" expanded="true" signature="1357648:1357757" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1357686:1357738" placeholder="{&quot;param1&quot;: 'users'...}" />
+                <marker date="1391705889000" expanded="true" signature="1357794:1357906" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1357830:1357887" placeholder="{&quot;param1&quot;: 'users'...}" />
+                <marker date="1391705889000" expanded="true" signature="1357940:1358043" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1357984:1358020" placeholder="{&quot;param1&quot;: 'users'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358076:1358147" placeholder="{&quot;method&quot;: 'GET'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358114:1358142" placeholder="{&quot;param1&quot;: 'users'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358175:1358258" placeholder="{&quot;method&quot;: &quot;POST&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1358212:1358244" placeholder="{&quot;param1&quot;: 'user'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358290:1358360" placeholder="{&quot;method&quot;: 'GET'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358329:1358355" placeholder="{&quot;param1&quot;: 'badges'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358389:1358473" placeholder="{&quot;method&quot;: 'GET'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358423:1358456" placeholder="{&quot;param1&quot;: 'messages'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358511:1358629" placeholder="{&quot;method&quot;: 'GET'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358547:1358610" placeholder="{&quot;param1&quot;: 'messages'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358655:1358761" placeholder="{&quot;method&quot;: &quot;POST&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1358707:1358746" placeholder="{&quot;param1&quot;: 'message'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358800:1358865" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1358835:1358860" placeholder="{&quot;param1&quot;: 'users'...}" />
+                <marker date="1391705889000" expanded="true" signature="1358904:1359008" placeholder="{&quot;method&quot;: &quot;PUT&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1358935:1358989" placeholder="{&quot;param1&quot;: 'messages'...}" />
+                <marker date="1391705889000" expanded="true" signature="1359038:1359121" placeholder="{&quot;method&quot;: &quot;DELETE&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1359092:1359116" placeholder="{&quot;param1&quot;: 'message'...}" />
+                <marker date="1391705889000" expanded="true" signature="1359232:1359381" placeholder="[...]" />
+                <marker date="1391705889000" expanded="true" signature="1359240:1359370" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1359238:1359317" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1359269:1359297" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1359567:1359677" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1359594:1359596" placeholder="{&quot;parameter&quot;: &quot;@parameter&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1359795:1359930" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1359836:1359853" placeholder="{&quot;action&quot;: &quot;@action&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1360043:1360580" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1360039:1360559" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1360118:1360264" placeholder="{&quot;method&quot;: 'GET'...}" />
+                <marker date="1391705889000" expanded="true" signature="1360202:1360242" placeholder="{&quot;filter&quot;: 'archivio'...}" />
+                <marker date="1391705889000" expanded="true" signature="1360301:1360397" placeholder="{&quot;method&quot;: 'GET'...}" />
+                <marker date="1391705889000" expanded="true" signature="1360338:1360376" placeholder="{&quot;filter&quot;: 'pending'...}" />
+                <marker date="1391705889000" expanded="true" signature="1360428:1360545" placeholder="{&quot;method&quot;: 'POST'...}" />
+                <marker date="1391705889000" expanded="true" signature="1360470:1360525" placeholder="{&quot;filter&quot;: 'set'...}" />
+                <marker date="1391705889000" expanded="true" signature="1360701:1361169" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1360672:1361155" placeholder="{...}" />
+                <marker date="1391705889000" expanded="true" signature="1360745:1360891" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1360834:1360874" placeholder="{&quot;filter&quot;: &quot;top&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1360928:1361009" placeholder="{&quot;method&quot;: 'GET'...}" />
+                <marker date="1391705889000" expanded="true" signature="1360960:1360988" placeholder="{&quot;value&quot;: 'username'...}" />
+                <marker date="1391705889000" expanded="true" signature="1361040:1361136" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+                <marker date="1391705889000" expanded="true" signature="1361087:1361121" placeholder="{&quot;value&quot;: 'badges'...}" />
+                <marker date="1391705889000" expanded="true" signature="1361232:1361251" placeholder="/** http://notifyjs.com/ ...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/templates/modals/message.html">
+      <file leaf-file-name="notify.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/js/notify.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="14" selection-start="732" selection-end="732" vertical-scroll-proportion="0.53571427" vertical-offset="0" max-vertical-offset="540">
+            <state line="4" column="2332" selection-start="2438" selection-end="2438" vertical-scroll-proportion="-2.3076923" vertical-offset="0" max-vertical-offset="150">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dm_messaggi.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dm/dm_messaggi.php">
+      <file leaf-file-name="Gruntfile.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gruntfile.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="53" selection-start="256" selection-end="256" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="2340">
+            <state line="21" column="27" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="2715">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dm_generic_mysql.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dm/dm_generic_mysql.php">
+      <file leaf-file-name=".env" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="13" selection-start="3403" selection-end="3403" vertical-scroll-proportion="-38.7" vertical-offset="15" max-vertical-offset="8895">
+            <state line="15" column="1" selection-start="341" selection-end="341" vertical-scroll-proportion="0.44642857" vertical-offset="0" max-vertical-offset="504">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="17" selection-start="539" selection-end="539" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1545">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colorpicker.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/less/colorpicker.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="1" selection-start="1149" selection-end="1149" vertical-scroll-proportion="-2.897436" vertical-offset="674" max-vertical-offset="2865">
               <folding />
             </state>
           </provider>
@@ -178,26 +414,10 @@
       <file leaf-file-name="Messagges.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Messagges.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="25" selection-start="1114" selection-end="1114" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="2610">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sidebar.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Sidebar.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="25" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user-box.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/user-box.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="31" selection-start="652" selection-end="652" vertical-scroll-proportion="-8.125" vertical-offset="45" max-vertical-offset="1065">
-              <folding />
+            <state line="12" column="0" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2385">
+              <folding>
+                <marker date="1391703054000" expanded="true" signature="81:1106" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -217,25 +437,28 @@
       <MyDateState />
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.txt" root0="SKIP_INSPECTION" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/templates/directives/username-with-thumb.html" />
-        <option value="$PROJECT_DIR$/app/directives/directives.coffee" />
-        <option value="$PROJECT_DIR$/dm/dm_utente.php" />
-        <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/Gruntfile.coffee" />
-        <option value="$PROJECT_DIR$/app/app.coffee" />
-        <option value="$PROJECT_DIR$/app/assets/less/areapersonale.less" />
-        <option value="$PROJECT_DIR$/app/assets/css/redactor.css" />
-        <option value="$PROJECT_DIR$/app/templates/modals/message.new.html" />
-        <option value="$PROJECT_DIR$/dm/dm_messaggi.php" />
         <option value="$PROJECT_DIR$/api/index.php" />
         <option value="$PROJECT_DIR$/app/templates/user-box.html" />
         <option value="$PROJECT_DIR$/app/controllers/Main.coffee" />
         <option value="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
-        <option value="$PROJECT_DIR$/app/controllers/Messagges.coffee" />
         <option value="$PROJECT_DIR$/app/templates/modals/message.html" />
+        <option value="$PROJECT_DIR$/app/assets/less/areapersonale.less" />
+        <option value="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/less/colorpicker.less" />
+        <option value="$PROJECT_DIR$/app/controllers/Messagges.coffee" />
+        <option value="$PROJECT_DIR$/app/app.coffee" />
+        <option value="$PROJECT_DIR$/app/directives/directives.coffee" />
+        <option value="$PROJECT_DIR$/app/templates/area-personale/impostazioni.html" />
+        <option value="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" />
+        <option value="$PROJECT_DIR$/Gruntfile.coffee" />
+        <option value="$PROJECT_DIR$/app/config.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/js/notify.min.js" />
+        <option value="$PROJECT_DIR$/app/assets/less/common.less" />
       </list>
     </option>
   </component>
@@ -555,7 +778,51 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -584,6 +851,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="___tool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="___tool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3438,7 +3723,11 @@
       <created>1391652509030</created>
       <updated>1391652509030</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="funzionalita nuovo messaggio">
+      <created>1391702167225</created>
+      <updated>1391702167225</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers>
       <GitHub shared="false" url="github.com">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -3461,9 +3750,9 @@
     <layout>
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10686016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21164773" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23218997" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23218997" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25593668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46306068" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22740315" sideWeight="0.89313984" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -3473,8 +3762,9 @@
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23350923" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.76781005" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18723099" sideWeight="0.7440633" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23816356" sideWeight="0.76781005" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18039773" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3483,28 +3773,29 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10686016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21164773" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17546174" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10686016" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21164773" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23218997" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3126649" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46306068" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22740315" sideWeight="0.89313984" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2889182" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.7226173" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23350923" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.76781005" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18723099" sideWeight="0.7110818" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23816356" sideWeight="0.76781005" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18039773" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18039773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
@@ -3544,7 +3835,8 @@
     <MESSAGE value="tuning" />
     <MESSAGE value="Adding git hooks" />
     <MESSAGE value="Test hooks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test hooks" />
+    <MESSAGE value="funzionalita nuovo messaggio" />
+    <option name="LAST_COMMIT_MESSAGE" value="funzionalita nuovo messaggio" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3552,120 +3844,404 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Gruntfile.coffee">
+    <entry file="file://$PROJECT_DIR$/___tool/classes/core.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="25" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2700">
-          <folding>
-            <marker date="1391698607000" expanded="true" signature="-1:-1" placeholder="files: [&#10;          &quot;app/**/*.coffee&quot;&#10;#          &quot;app/assets/dist/dependencies/*.js&quot;&#10;#          &quot;app/assets/**/*.less&quot;&#10;        ]..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="2" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+        <state line="3" column="36" selection-start="103" selection-end="103" vertical-scroll-proportion="0.09018036" vertical-offset="0" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/areapersonale.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="1" selection-start="1" selection-end="1" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+        <state line="39" column="16" selection-start="418" selection-end="418" vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="690">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/laravel/bootstrap/autoload.php">
+    <entry file="file://$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="543" selection-end="543" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1215">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="554">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/css/redactor.css">
+    <entry file="file://$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/.bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="18" selection-start="1997" selection-end="1997" vertical-scroll-proportion="-7.423077" vertical-offset="1412" max-vertical-offset="12540">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="554">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/directives/username.html">
+    <entry file="file://$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/less/colorpicker.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="61" selection-start="183" selection-end="193" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dm/dm_messaggi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="53" selection-start="256" selection-end="256" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="2340">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dm/dm_generic_mysql.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="13" selection-start="3403" selection-end="3403" vertical-scroll-proportion="-38.7" vertical-offset="15" max-vertical-offset="8895">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="39" selection-start="255" selection-end="255" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="5505">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/message.new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="75" selection-start="564" selection-end="564" vertical-scroll-proportion="-6.75" vertical-offset="63" max-vertical-offset="600">
-          <folding>
-            <marker date="1391699188000" expanded="true" signature="69:238" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/user-box.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="31" selection-start="652" selection-end="652" vertical-scroll-proportion="-8.125" vertical-offset="45" max-vertical-offset="1065">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="32" selection-start="1435" selection-end="1451" vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="960">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Sidebar.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="25" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+        <state line="60" column="1" selection-start="1149" selection-end="1149" vertical-scroll-proportion="-2.897436" vertical-offset="674" max-vertical-offset="2865">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Messagges.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="25" selection-start="1114" selection-end="1114" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="2610">
+        <state line="12" column="0" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2385">
+          <folding>
+            <marker date="1391703054000" expanded="true" signature="81:1106" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/directives/directives.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="0" selection-start="4730" selection-end="5018" vertical-scroll-proportion="0.0" vertical-offset="1723" max-vertical-offset="2445">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/messaggi.html">
+    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/impostazioni.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="60" selection-start="52" selection-end="60" vertical-scroll-proportion="3.125" vertical-offset="75" max-vertical-offset="615">
+        <state line="189" column="0" selection-start="12569" selection-end="12569" vertical-scroll-proportion="-12.916667" vertical-offset="1430" max-vertical-offset="2100">
+          <folding>
+            <element signature="tag#div#0;tag#div#0;tag#div#1;tag#div#1;tag#div#1;tag#div#0;tag#div#1;tag#div#0" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="tag#div#1;tag#div#0;tag#div#1;tag#div#1;tag#div#1;tag#div#0;tag#div#1;tag#div#0" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AreaPersonale.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="20" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0" vertical-offset="808" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/message.html">
+    <entry file="file://$PROJECT_DIR$/Gruntfile.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="14" selection-start="732" selection-end="732" vertical-scroll-proportion="0.53571427" vertical-offset="0" max-vertical-offset="540">
+        <state line="21" column="27" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="2715">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="66" selection-start="191" selection-end="191" vertical-scroll-proportion="0.028248588" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/dist/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40684" column="0" selection-start="1332653" selection-end="1332653" vertical-scroll-proportion="0.0" vertical-offset="609965" max-vertical-offset="625950">
+          <folding>
+            <marker date="1391705889000" expanded="true" signature="1332835:1333330" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1332845:1332876" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1332972:1333035" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1333134:1333288" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1333197:1333241" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1333462:1334025" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1333472:1333503" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1333575:1334005" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1333676:1333935" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1333742:1333879" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1333816:1333833" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1334123:1334941" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1334189:1334735" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1334235:1334323" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1334431:1334583" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1334481:1334520" placeholder="{&quot;limit_start&quot;: 0...}" />
+            <marker date="1391705889000" expanded="true" signature="1334679:1334713" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1334810:1334937" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1335061:1335634" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1335175:1335247" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1335348:1335583" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1335441:1335542" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1335820:1338540" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1335818:1336004" placeholder="[...]" />
+            <marker date="1391705889000" expanded="true" signature="1335814:1335824" placeholder="{&quot;index&quot;: 0...}" />
+            <marker date="1391705889000" expanded="true" signature="1335826:1335919" placeholder="{&quot;index&quot;: 1...}" />
+            <marker date="1391705889000" expanded="true" signature="1335921:1335943" placeholder="{&quot;index&quot;: 2...}" />
+            <marker date="1391705889000" expanded="true" signature="1335945:1335967" placeholder="{&quot;index&quot;: 3...}" />
+            <marker date="1391705889000" expanded="true" signature="1335969:1335991" placeholder="{&quot;index&quot;: 4...}" />
+            <marker date="1391705889000" expanded="true" signature="1336028:1336304" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1336034:1336060" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1391705889000" expanded="true" signature="1336069:1336115" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1391705889000" expanded="true" signature="1336139:1336172" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1391705889000" expanded="true" signature="1336196:1336229" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1391705889000" expanded="true" signature="1336253:1336286" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1391705889000" expanded="true" signature="1336374:1336979" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1336395:1336922" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1336670:1336843" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1337103:1337418" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1337250:1337375" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1337476:1337719" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1337571:1337668" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1337631:1337644" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1337815:1338527" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1337895:1338044" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1338099:1338214" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1338231:1338470" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1338288:1338338" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1338344:1338388" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1338668:1339035" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1338667:1338749" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1338837:1338988" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1339176:1339590" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1339321:1339342" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1339406:1339500" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1339682:1339979" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1339852:1339920" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1340061:1340083" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1340163:1342412" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1340290:1340420" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1340574:1340608" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1340651:1340786" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1340792:1340891" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1340940:1340960" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1341780:1342381" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1341778:1342106" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1341818:1342089" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/vedi-sfida.html'...}" />
+            <marker date="1391705889000" expanded="true" signature="1341887:1342051" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1341947:1341991" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1342112:1342353" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1342156:1342336" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/sfida.html'...}" />
+            <marker date="1391705889000" expanded="true" signature="1342203:1342302" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1342224:1342247" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1342526:1343662" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1342493:1342615" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1342511:1342579" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1342689:1342735" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1342854:1342870" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1342948:1342952" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1343030:1343194" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1343240:1343257" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1343324:1343419" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1343364:1343416" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1343479:1343634" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1343812:1344979" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1343807:1343814" placeholder="{&quot;parameter&quot;: 'messages'...}" />
+            <marker date="1391705889000" expanded="true" signature="1343936:1343972" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1344121:1344269" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1344168:1344232" placeholder="{&quot;parameter&quot;: 'messages'...}" />
+            <marker date="1391705889000" expanded="true" signature="1344354:1344437" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1344372:1344434" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/message.new.html'...}" />
+            <marker date="1391705889000" expanded="true" signature="1344515:1344907" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1344528:1344611" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1344634:1344892" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/message.html'...}" />
+            <marker date="1391705889000" expanded="true" signature="1344725:1344859" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1344792:1344804" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1345117:1346901" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1345048:1345113" placeholder="{&quot;controller&quot;: 'Message.Modal'...}" />
+            <marker date="1391705889000" expanded="true" signature="1345377:1345385" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1345456:1345493" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1345506:1345555" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1345586:1345693" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1345762:1346198" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1345780:1345884" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1345905:1346154" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1345925:1346023" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1346029:1346094" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1346266:1346360" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1346397:1346742" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1346406:1346442" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1346459:1346677" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1346505:1346587" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1346593:1346645" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1346841:1346895" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1347025:1348217" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1346973:1347207" placeholder="{&quot;oggetto&quot;: ''...}" />
+            <marker date="1391705889000" expanded="true" signature="1347260:1347279" placeholder="{&quot;controller&quot;: 'Message.Modal.New'...}" />
+            <marker date="1391705889000" expanded="true" signature="1347334:1347665" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1347395:1347643" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1347438:1347603" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1347769:1347834" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1347883:1348085" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1347940:1348022" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348144:1348179" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348280:1348615" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348276:1348589" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348335:1348559" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348334:1348542" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/success.html'...}" />
+            <marker date="1391705889000" expanded="true" signature="1348384:1348506" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348408:1348449" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348726:1348944" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348702:1348797" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348810:1348863" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1348901:1348928" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1349093:1349614" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1349073:1349084" placeholder="{&quot;controller&quot;: 'Modals.Sfida'...}" />
+            <marker date="1391705889000" expanded="true" signature="1349123:1349289" placeholder="{&quot;id_sfida&quot;: false...}" />
+            <marker date="1391705889000" expanded="true" signature="1349344:1349385" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1349398:1349440" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1349467:1349516" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1349567:1349589" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1349752:1350245" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1349729:1349740" placeholder="{&quot;controller&quot;: 'Modals.VediSfida'...}" />
+            <marker date="1391705889000" expanded="true" signature="1349779:1349953" placeholder="{&quot;id_sfida&quot;: false...}" />
+            <marker date="1391705889000" expanded="true" signature="1350008:1350049" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1350062:1350104" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1350141:1350198" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1350346:1350746" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1350411:1350543" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1350938:1351542" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1350968:1350977" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1351021:1351516" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1351072:1351468" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/sfida.html'...}" />
+            <marker date="1391705889000" expanded="true" signature="1351144:1351415" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1351200:1351398" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1351247:1351372" placeholder="{&quot;id_sfida&quot;: false...}" />
+            <marker date="1391705889000" expanded="true" signature="1351604:1351966" placeholder="[...]" />
+            <marker date="1391705889000" expanded="true" signature="1351625:1351956" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1351591:1351872" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1351635:1351815" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1351621:1351761" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1351689:1351711" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1352045:1352486" placeholder="[...]" />
+            <marker date="1391705889000" expanded="true" signature="1352050:1352476" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1352038:1352341" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1352075:1352297" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1352074:1352201" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1352127:1352173" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1352590:1352660" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1352590:1352619" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1352804:1352980" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1352828:1352917" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1391705889000" expanded="true" signature="1352847:1352900" placeholder="{&quot;date_string&quot;: &quot;@date&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1353071:1353554" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1353047:1353521" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1391705889000" expanded="true" signature="1353094:1353495" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1353109:1353125" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1353131:1353468" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1353180:1353306" placeholder="{&quot;param3&quot;: &quot;username&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1353323:1353437" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1353686:1354732" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1353643:1354671" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1391705889000" expanded="true" signature="1353690:1354636" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1353718:1353990" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1353750:1353935" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1353996:1354582" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1354113:1354554" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1354209:1354313" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1354330:1354522" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1354792:1354819" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1354772:1354782" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1354913:1355149" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1354984:1355138" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1391705889000" expanded="true" signature="1355002:1355119" placeholder="{&quot;row&quot;: &quot;=&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1355216:1355607" placeholder="[...]" />
+            <marker date="1391705889000" expanded="true" signature="1355286:1355551" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1355220:1355514" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1355257:1355476" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1355290:1355430" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1355374:1355406" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1355675:1356086" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1355652:1356019" placeholder="{&quot;require&quot;: '?ngModel'...}" />
+            <marker date="1391705889000" expanded="true" signature="1355703:1355983" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1355701:1355944" placeholder="{&quot;focus&quot;: false...}" />
+            <marker date="1391705889000" expanded="true" signature="1355742:1355910" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1355795:1355880" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1356217:1356291" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1356236:1356292" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1356401:1356523" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1356424:1356481" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1356609:1356618" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1356709:1357000" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1356752:1356938" placeholder="{&quot;Jan&quot;: 'Gen'...}" />
+            <marker date="1391705889000" expanded="true" signature="1356976:1356986" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1357055:1357236" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1357071:1357209" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1357095:1357177" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1357095:1357154" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1357350:1359162" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1357370:1357490" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1357327:1357472" placeholder="{&quot;param1&quot;: &quot;@param1&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1357492:1359140" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1357521:1357615" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1357565:1357595" placeholder="{&quot;param1&quot;: 'users'...}" />
+            <marker date="1391705889000" expanded="true" signature="1357648:1357757" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1357686:1357738" placeholder="{&quot;param1&quot;: 'users'...}" />
+            <marker date="1391705889000" expanded="true" signature="1357794:1357906" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1357830:1357887" placeholder="{&quot;param1&quot;: 'users'...}" />
+            <marker date="1391705889000" expanded="true" signature="1357940:1358043" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1357984:1358020" placeholder="{&quot;param1&quot;: 'users'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358076:1358147" placeholder="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358114:1358142" placeholder="{&quot;param1&quot;: 'users'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358175:1358258" placeholder="{&quot;method&quot;: &quot;POST&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1358212:1358244" placeholder="{&quot;param1&quot;: 'user'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358290:1358360" placeholder="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358329:1358355" placeholder="{&quot;param1&quot;: 'badges'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358389:1358473" placeholder="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358423:1358456" placeholder="{&quot;param1&quot;: 'messages'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358511:1358629" placeholder="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358547:1358610" placeholder="{&quot;param1&quot;: 'messages'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358655:1358761" placeholder="{&quot;method&quot;: &quot;POST&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1358707:1358746" placeholder="{&quot;param1&quot;: 'message'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358800:1358865" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1358835:1358860" placeholder="{&quot;param1&quot;: 'users'...}" />
+            <marker date="1391705889000" expanded="true" signature="1358904:1359008" placeholder="{&quot;method&quot;: &quot;PUT&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1358935:1358989" placeholder="{&quot;param1&quot;: 'messages'...}" />
+            <marker date="1391705889000" expanded="true" signature="1359038:1359121" placeholder="{&quot;method&quot;: &quot;DELETE&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1359092:1359116" placeholder="{&quot;param1&quot;: 'message'...}" />
+            <marker date="1391705889000" expanded="true" signature="1359232:1359381" placeholder="[...]" />
+            <marker date="1391705889000" expanded="true" signature="1359240:1359370" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1359238:1359317" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1359269:1359297" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1359567:1359677" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1359594:1359596" placeholder="{&quot;parameter&quot;: &quot;@parameter&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1359795:1359930" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1359836:1359853" placeholder="{&quot;action&quot;: &quot;@action&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1360043:1360580" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1360039:1360559" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1360118:1360264" placeholder="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1391705889000" expanded="true" signature="1360202:1360242" placeholder="{&quot;filter&quot;: 'archivio'...}" />
+            <marker date="1391705889000" expanded="true" signature="1360301:1360397" placeholder="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1391705889000" expanded="true" signature="1360338:1360376" placeholder="{&quot;filter&quot;: 'pending'...}" />
+            <marker date="1391705889000" expanded="true" signature="1360428:1360545" placeholder="{&quot;method&quot;: 'POST'...}" />
+            <marker date="1391705889000" expanded="true" signature="1360470:1360525" placeholder="{&quot;filter&quot;: 'set'...}" />
+            <marker date="1391705889000" expanded="true" signature="1360701:1361169" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1360672:1361155" placeholder="{...}" />
+            <marker date="1391705889000" expanded="true" signature="1360745:1360891" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1360834:1360874" placeholder="{&quot;filter&quot;: &quot;top&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1360928:1361009" placeholder="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1391705889000" expanded="true" signature="1360960:1360988" placeholder="{&quot;value&quot;: 'username'...}" />
+            <marker date="1391705889000" expanded="true" signature="1361040:1361136" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1391705889000" expanded="true" signature="1361087:1361121" placeholder="{&quot;value&quot;: 'badges'...}" />
+            <marker date="1391705889000" expanded="true" signature="1361232:1361251" placeholder="/** http://notifyjs.com/ ...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/js/notify.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="2332" selection-start="2438" selection-end="2438" vertical-scroll-proportion="-2.3076923" vertical-offset="0" max-vertical-offset="150">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="17" selection-start="539" selection-end="539" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="1" selection-start="341" selection-end="341" vertical-scroll-proportion="0.44642857" vertical-offset="0" max-vertical-offset="504">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>

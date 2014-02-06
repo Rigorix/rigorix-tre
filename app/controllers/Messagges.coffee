@@ -1,20 +1,5 @@
 Rigorix.controller 'Messages', ($scope, $rootScope, UserServiceNew, $modal)->
 
-  $rootScope.textAngularOpts = {
-    toolbar: [
-      ['bold', 'italics', 'ul', 'ol', 'redo', 'undo']
-    ],
-    classes: {
-      focussed: "focussed",
-      toolbar: "btn-toolbar",
-      toolbarGroup: "btn-group",
-      toolbarButton: "btn btn-default",
-      toolbarButtonActive: "active",
-      textEditor: 'form-control',
-      htmlEditor: 'form-control'
-    }
-  }
-
   $scope.messages = UserServiceNew.get
     id_utente: User.id_utente
     parameter: 'messages'
