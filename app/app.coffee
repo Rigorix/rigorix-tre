@@ -1,7 +1,8 @@
-Rigorix = angular.module "Rigorix", ["ngRoute", "RigorixServices", "ui.bootstrap", 'textAngular']
+Rigorix = angular.module "Rigorix", ["ngRoute", "RigorixServices", "ui.bootstrap", 'textAngular', 'angular-redactor']
 RigorixHasBeenStarted = true
 RigorixServices = angular.module "RigorixServices", ["ngResource"]
 SocialLoginUrl = "http://tre.rigorix.com/social_login.php"
+
 
 Rigorix.config ($routeProvider)->
 

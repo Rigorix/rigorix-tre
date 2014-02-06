@@ -40,29 +40,19 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
   $scope.doUserLogout = ->
     $rootScope.$broadcast 'user:logout'
 
-#  $scope.doClickUsername = ->
-#    alert "click username"
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-
+  $scope.updateUserObject = ->
+    UserServiceNew.get (json)->
+      $scope.currentUser = json
+      $rootScope.$broadcast "user:update", json
 
   if User isnt false
     $scope.userLogged = true
-#    $scope.currentUser = User
-    $scope.currentUser = UserServiceNew.get
-      id_utente: User.id_utente
-#    ,
-#      (userObject)->
-#        $scope.currentUser = userObject
-
-
-    UserServiceNew.get (json)->
-      $scope.currentUser = json
+    do $scope.updateUserObject
 
     setInterval ()=>
-      UserServiceNew.get (json)->
-        $scope.currentUser = json
-        $rootScope.$broadcast "user:update", json
+      do $scope.updateUserObject
 
     , RigorixConfig.updateTime

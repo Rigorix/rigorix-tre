@@ -103,7 +103,9 @@ body .redactor_box_fullscreen {
 .redactor_editor table,
 .redactor_editor dl,
 .redactor_editor blockquote,
-.redactor_editor pre {
+.redactor_editor pre,
+.redactor_editor b,
+.redactor_editor i{
 	font-size: 15px;
 	line-height: 1.5rem;
 }

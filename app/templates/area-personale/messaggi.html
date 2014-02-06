@@ -1,11 +1,12 @@
-<div class="panel panel-default mtl">
+<div class="panel panel-default mtl" ng-controller="Messages">
     <!-- Default panel contents -->
     <div class="panel-heading">
         <span icon="envelope">Inbox</span>
+        <button ng-click="writeNewMessage()" class="btn btn-sm btn-info pull-right" icon="envelope">Nuovo</button>
     </div>
 
     <div class="table-responsive">
-        <table class="table table-bordered table-messages mbn" ng-controller="Messages">
+        <table class="table table-bordered table-messages mbn">
             <tr>
                 <th></th>
                 <th>Data</th>

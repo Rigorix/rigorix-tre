@@ -20,16 +20,28 @@ Rigorix.controller 'Messages', ($scope, $rootScope, UserServiceNew, $modal)->
     parameter: 'messages'
     count: RigorixConfig.messagesPerPage
 
+  $scope.$on "user:update", ->
+    do $scope.updateMessages
+
   $scope.$on "message:deleted", (event, message)->
-    console.log "DELETE!!"
+    do $scope.updateMessages
+
+  $scope.updateMessages = ->
     $scope.messages = UserServiceNew.get
       id_utente: User.id_utente
       parameter: 'messages'
       count: RigorixConfig.messagesPerPage
 
+  $scope.writeNewMessage = ->
+    $modal.open
+      templateUrl:  '/app/templates/modals/message.new.html',
+      controller:    'Message.Modal.New',
+
   $scope.openMessage = (message)->
 
-    message.letto = 1;
+    if message.letto is 0
+      message.letto = 1;
+      $rootScope.$broadcast "message:read", message
 
     $modal.open
       templateUrl:  '/app/templates/modals/message.html',
@@ -80,13 +92,13 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
       text: answerText
       message: $scope.message
     ,
-      (response)->
-        if response.status == 'success'
-          $.notify "Risposta mandata con successo", "success"
-          $rootScope.$broadcast "modal:close"
-          do $modalInstance.dismiss
-        else
-          $.notify "Errore nel spedire la risposta.<br>Riprova pi$ugrave; tardi.", "error"
+    (response)->
+      if response.status == 'success'
+        $.notify "Risposta mandata con successo", "success"
+        $rootScope.$broadcast "modal:close"
+        do $modalInstance.dismiss
+      else
+        $.notify "Errore nel spedire la risposta.<br>Riprova pi$ugrave; tardi.", "error"
 
 
   $scope.discard = ->
@@ -97,13 +109,61 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
     AppService.deleteMessage
       param2: message.id_mess
     ,
-      (json)->
-        if json.status == 'ok'
-          do $modalInstance.dismiss
-          $.notify "Messaggio cancellato correttamente", "success"
-          $rootScope.$broadcast "message:deleted", message
-        else
-          $.notify "Errore nel cancellare il messaggio", "error"
+    (json)->
+      if json.status == 'ok'
+        do $modalInstance.dismiss
+        $.notify "Messaggio cancellato correttamente", "success"
+        $rootScope.$broadcast "message:deleted", message
+      else
+        $.notify "Errore nel cancellare il messaggio", "error"
+
+  $scope.cancel = ->
+    do $modalInstance.dismiss
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+
+Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootScope, $http, AppService)->
+
+  $scope.newMessage =
+    oggetto: ''
+    id_sender: User.id_utente
+    id_receiver: 0
+    receiver: ''
+    testo: ''
+    letto: 0
+    dta_mess: '_V_NOW_'
+    report: 0
+
+  $rootScope.$broadcast "modal:open",
+    controller: 'Message.Modal.New'
+    modalClass: 'modal-write-message'
+
+  $scope.getUsers = (usernameQuery)->
+    $http.get(RigorixEnv.API_DOMAIN + "users/username/" + usernameQuery).then (json)->
+      users = []
+      for i,user of json.data
+        users.push user
+
+      return users
+
+  $scope.onSelectUser = (obj)->
+    console.log "obj, ", obj
+
+  $modalInstance.result.then () ->
+    true
+  , ()->
+    $rootScope.$broadcast "modal:close"
+
+  $scope.sendNewMessage = (newMessage)->
+    $http.post(RigorixEnv.API_DOMAIN + "messages/new/",
+      message: newMessage
+    ).then (json)->
+      alert "inserito correttamente"
+      console.log "json", json
 
   $scope.cancel = ->
     do $modalInstance.dismiss

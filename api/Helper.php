@@ -18,8 +18,6 @@ function getUserObjectExtended($id_utente) { global $dm_utente, $dm_messaggi, $d
 }
 
 function sanitizeUsersPicture( $users ) {
-  global $rigorix_url, $pictures_url;
-
   $sanitized = array();
   if ( count($users) > 0 ):
     foreach ($users as $user) {

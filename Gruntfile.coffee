@@ -9,7 +9,7 @@ module.exports = (grunt) ->
         tasks: [
           "watch:scripts"
           "watch:less"
-          "githooks"
+#          "githooks"
         ]
 
     clean:
@@ -24,8 +24,6 @@ module.exports = (grunt) ->
 #          "app/assets/**/*.less"
         ]
         tasks: ["dev:script"]
-        options:
-          interrupt: true
       less:
         files: [
           "app/assets/**/*.less"
@@ -33,11 +31,6 @@ module.exports = (grunt) ->
         tasks: ["dev:less"]
       options:
         interrupt: true
-#      dependencies:
-#        files: ["app/assets/bower_components/**/*"]
-#        tasks: ["dev:dependencies"]
-#        options:
-#          interrupt: true
 
     coffee:
       compileBare:
@@ -60,60 +53,22 @@ module.exports = (grunt) ->
 #        footer: "/// END ///-----------------------------------" #added after everything
       script:
         src: [
-          #include libs
-#          "app/assets/vendor/jquery-1.10.2.min.js"
-#          "app/assets/vendor/angular.js"
-#          "app/assets/vendor/angular-resource.js"
-#          "app/assets/vendor/angular-route.js"
-#          "app/assets/vendor/angular-sanitize.js"
-#          "app/assets/vendor/bootstrap/js/bootstrap.min.js"
-#          "app/assets/vendor/extensions/**/*.js"
-
           "app/assets/dist/dependencies/jquery.js"
           "app/assets/dist/dependencies/angular.js"
           "app/assets/dist/dependencies/*.js"
-          # App jss
           "app/assets/temp/angular.app.main.js"
           "app/assets/temp/angular.app.config.js"
           "app/assets/temp/angular.app.js"
-
-#          "app/assets/dist/dependencies/jquery.js"
-#          "app/assets/vendor/angular.js"
-#          "app/assets/vendor/angular-resource.js"
-#          "app/assets/vendor/angular-route.js"
-#          "app/assets/vendor/angular-sanitize.js"
-#          "app/assets/dist/dependencies/bootstrap.js"
-#          "app/assets/dist/dependencies/angular-bootstrap-colorpicker.js"
-#          "app/assets/dist/dependencies/pines-notify.js"
-#          "app/assets/dist/dependencies/angular-pines-notify.js"
-#          "app/assets/dist/dependencies/moment.js"
-#          "app/assets/dist/dependencies/font-awesome.js"
-#          "app/assets/vendor/extensions/textAngular.min.js"
-#          "app/assets/vendor/extensions/notify.js"
-#          "app/assets/vendor/extensions/ui-bootstrap-tpls-0.10.1.js"
-
-          #          'app/assets/vendor/ui-bootstrap-tpls-0.10.1.js',
-          #          'app/assets/vendor/moment.min.js',
-
-
+          "app/assets/js/*.js"
         ]
-
-      # the location of the resulting JS file
         dest: "app/assets/dist/app.js"
 
       css:
-
-      # the files to concatenate
         src: [
-
-          #include libs
           "app/assets/css/*.css"
           "app/assets/temp/app.main.css"
           "css/*.css"
-#          'css/ui/jquery-ui-1.8.1.custom.css'
         ]
-
-      # the location of the resulting JS file
         dest: "app/assets/dist/app.css"
 
     less:
@@ -173,7 +128,7 @@ module.exports = (grunt) ->
 
   #  grunt.loadNpmTasks('grunt-contrib-uglify');
   #  grunt.loadNpmTasks('grunt-ftp-deploy');
-  grunt.loadNpmTasks "grunt-git-ftp"
+#  grunt.loadNpmTasks "grunt-git-ftp"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-githooks"
   grunt.loadNpmTasks "grunt-concurrent"
@@ -185,7 +140,7 @@ module.exports = (grunt) ->
   grunt.renameTask "bower", "bowerInstall"
   grunt.loadNpmTasks "grunt-bower"
 
-  
+
   # DEVELOPMENT tasks --------------------------------------------------------------------------------------------------
   grunt.registerTask "dev", [ "concurrent:dev" ]
   grunt.registerTask "dev:script", [
@@ -217,5 +172,4 @@ module.exports = (grunt) ->
 
 
   grunt.registerTask "deploy:staging", ["git_ftp:development"]
-
   grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);

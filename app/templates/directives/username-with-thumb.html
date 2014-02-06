@@ -1,0 +1,7 @@
+<div ng-controller="Username">
+    <div class="user-link" name="user-link" id_utente="{{userObject.id_utente}}">
+        <img src="{{userObject.picture}}" class="username-picture" align="middle">
+        <span class="ui-username" ng-click="doLanciaSfida()">{{userObject.username}}</span>
+        <span class="punteggio-utente-container label">{{userObject.punteggio_totale}}</span>
+    </div>
+</div>

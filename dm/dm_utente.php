@@ -72,6 +72,11 @@ class dm_utente extends dm_generic_mysql {
           return json_encode( array( "id" => $bestUser, "punteggio" => $bestUserPunteggio ));
       }
 
+  function getUsersByUsernameQuery ($query)
+  {
+    return $this->getArrayObjectQueryCustom("select id_utente,username,picture from utente where attivo = 1 and username LIKE '%$query%' order by username asc");
+  }
+
 	function get_data_activ ( $id_utente )
 	{
 		return $this->getSingleObjectQueryCustom("SELECT dta_activ FROM utente WHERE id_utente = $id_utente");

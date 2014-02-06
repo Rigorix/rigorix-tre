@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         logConcurrentOutput: true
       },
       dev: {
-        tasks: ["watch:scripts", "watch:less", "githooks"]
+        tasks: ["watch:scripts", "watch:less"]
       }
     },
     clean: {
@@ -17,10 +17,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ["app/**/*.coffee"],
-        tasks: ["dev:script"],
-        options: {
-          interrupt: true
-        }
+        tasks: ["dev:script"]
       },
       less: {
         files: ["app/assets/**/*.less"],
@@ -47,7 +44,7 @@ module.exports = function(grunt) {
         separator: "\n\n"
       },
       script: {
-        src: ["app/assets/dist/dependencies/jquery.js", "app/assets/dist/dependencies/angular.js", "app/assets/dist/dependencies/*.js", "app/assets/temp/angular.app.main.js", "app/assets/temp/angular.app.config.js", "app/assets/temp/angular.app.js"],
+        src: ["app/assets/dist/dependencies/jquery.js", "app/assets/dist/dependencies/angular.js", "app/assets/dist/dependencies/*.js", "app/assets/temp/angular.app.main.js", "app/assets/temp/angular.app.config.js", "app/assets/temp/angular.app.js", "app/assets/js/*.js"],
         dest: "app/assets/dist/app.js"
       },
       css: {
@@ -93,7 +90,6 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.loadNpmTasks("grunt-git-ftp");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-githooks");
   grunt.loadNpmTasks("grunt-concurrent");

@@ -61,6 +61,22 @@ Flight::route('GET /users/campione/settimana', function() { global $dm_utente;
   echo $best;
 });
 
+Flight::route('GET /users/username/@username', function($username) { global $dm_utente;
+  $users = $dm_utente->getUsersByUsernameQuery ( $username, false );
+  $users = sanitizeUsersPicture($users);
+  echo FastJSON::convert( $users );
+});
+
+Flight::route('GET /users/@id_utente', function($id_utente) { global $dm_utente;
+  $user = $dm_utente->getSingleObjectQueryCustom("SELECT * FROM utente WHERE id_utente = " . $id_utente );
+  if ($user === false)
+    echo "{ 'user': 'unknown', 'id_utente': '$id_utente' }";
+  else {
+    $user->picture = sanitizeUserPicture($user->picture);
+    echo FastJSON::convert( $user );
+  }
+});
+
 Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
   $user = $dm_utente->getSingleObjectQueryCustom("SELECT $attribute FROM utente WHERE id_utente = " . $id_utente );
   if ($user === false)
@@ -80,6 +96,19 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
 
 
 /// Messages ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Flight::route('POST /messages/new', function() { global $dm_messaggi;
+  $postdata = file_get_contents("php://input");
+  $data = json_decode($postdata);
+  $message = $data->message;
+  $message->id_receiver = $message->receiver->id_utente;
+  unset($message->receiver);
+
+  $message = $dm_messaggi->makeInDbObject($message, true);
+
+  $dm_messaggi->pushMessage ($message);
+  echo "{ 'status': 'ok' }";
+});
 
 Flight::route('PUT /messages/@id_message/read', function($id_message) { global $dm_messaggi;
   $dm_messaggi->markAsReadById ($id_message);

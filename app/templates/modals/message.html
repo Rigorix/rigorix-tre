@@ -6,10 +6,12 @@
     </div>
     <div class="row">
         <div class="col col-sm-12">
-            <div text-angular="text-angular" ng-show="editMode" name="htmlcontent" ng-model="answer"></div>
+            <div ng-show="editMode">
+                <textarea ng-model="answer" redactor="{buttons: ['formatting', '|', 'bold', 'italic']}"></textarea>
+            </div>
 
             <blockquote ng-click="isTextCollapsed = !isTextCollapsed">
-                <p class="message-text" collapse="isTextCollapsed">{{message.testo}}</p>
+                <p class="message-text" collapse="isTextCollapsed" ng-bind-html="message.testo"></p>
                 <p collapse="!isTextCollapsed">...</p>
                 <small><username id_utente="{{message.id_sender}}"></username></small>
             </blockquote>

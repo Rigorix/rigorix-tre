@@ -29,6 +29,16 @@ RigorixServices.factory "AppService", ($resource)->
         param2: "campione"
         param3: "settimana"
 
+    getUserByUsername:
+      method: "GET"
+      params:
+        param1: 'users'
+        param2: 'username'
+
+    getUserById:
+      method: 'GET'
+      params:
+        param1: 'users'
 
 
 

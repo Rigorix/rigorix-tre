@@ -12,6 +12,7 @@
     "angular-bootstrap-colorpicker": "~3.0.4",
     "textAngular": "~1.1.2",
     "bootstrap": "~3.1.0",
-    "angular-route": "~1.2.11"
+    "angular-route": "~1.2.11",
+    "angular-redactor": "~1.0.0"
   }
 }

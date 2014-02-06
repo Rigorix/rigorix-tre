@@ -1,0 +1,34 @@
+<script type="text/ng-template" id="username-newmessage.html">
+    <a>
+        <username-with-thumb id_utente="{{match.model.id_utente}}" username="{{match.model.username}}" picture="{{match.model.picture}}"></username-with-thumb>
+    </a>
+</script>
+<div class="mal">
+    <div class="row mbl">
+        <div class="col col-sm-12">
+            <h3>Nuovo messaggio</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-12">
+            <div class="form-group">
+                <input name="user-receiver" autofocus ng-model="newMessage.receiver" typeahead-template-url="username-newmessage.html" typeahead-on-select="onSelectUser($viewValue)" typeahead="user as user.username for user in getUsers($viewValue) | filter:{username: $viewValue} | limitTo:12" placeholder="Destinatario" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input ng-model="newMessage.oggetto" placeholder="Oggetto" class="form-control mvl" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-12">
+            <textarea ng-model="newMessage.testo" placeholder="Testo" redactor="{buttons: ['formatting', '|', 'bold', 'italic']}"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-12 ptl">
+            <button class="btn btn-default pull-left" ng-click="cancel()" icon="floppy-remove">Annulla</button>
+            <button class="btn btn-warning pull-right" ng-click="sendNewMessage(newMessage)" data-loading-text="Invio in corso..." icon="send">Invia</button>
+        </div>
+    </div>
+</div>

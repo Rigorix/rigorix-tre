@@ -4,6 +4,11 @@ class dm_messaggi extends dm_generic_mysql {
 	function dm_messaggi($db_conn, $db_name, $debug=0) {
 		$this->dm_generic_mysql($db_conn, $db_name, $debug);
 	}
+
+  function pushMessage($message)
+  {
+    return $this->insertObject("messaggi", $message);
+  }
 	
 	function getArrObjMessaggiToUserId($id_utente)	{
 		$this->cleanStr($id_utente);
