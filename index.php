@@ -1,39 +1,39 @@
 <?php
 require_once('classes/core.php');
-require_once ('boxes/page_start.php');
 ?>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="Rigorix">
+<?php require_once("boxes/html_head.php"); ?>
 
-	<div class="rx-layout-col-large" ng-controller="Home">
+<body ng-controller="Main" ng-class="modalClass" ng-click="doClick($event)">
 
-		<!-- Colonna sinistra * corpo pagina -->
-		<div ng-view class="rigorix-main-view"></div>
-		<div class="clr"></div>
+  <div ng-include="'/app/templates/partials/loader.html'"></div>
 
-	</div>
+  <div class="container">
 
-	<div class="rx-layout-col-right" >
-		<!-- Colonna destra * corpo pagina -->
-		<div class="rx-layout-col-container ptl" ng-controller="Sidebar">
-			<ng-include src="'app/templates/user-box.html'"></ng-include>
-			<ng-include src="'app/templates/best-users.html'"></ng-include>
-		</div>
-		<!-- Fine colonna destra * corpo pagina -->
+    <div id="page" set-loader="20"></div>
 
-	</div>
-	<div class="rx-layout-col-extreme-right">
+    <div ng-include="'/app/templates/partials/head.html'"></div>
 
-			<!-- Colonna destra banner * corpo pagina -->
-			<div class="rx-layout-col-container">
+    <div id="body" class="row" ng-controller="Home">
 
-				<?php $core->render_banner ("Middle"); ?>
+      <div class="col col-sm-9">
+        <div ng-view class="rigorix-main-view"></div>
+      </div>
 
-			</div>
-			<!-- Fine colonna destra banner * corpo pagina -->
+      <div class="col col-sm-3" ng-controller="Sidebar">
+        <ng-include src="'app/templates/user-box.html'"></ng-include>
+        <ng-include src="'app/templates/best-users.html'"></ng-include>
+      </div>
 
-	</div>
-	<div class="clr"></div>
+    </div>
 
-  <div set-loader="60"></div>
-<?php
-require_once ('boxes/page_end.php');
-?>
+    <div set-loader="60"></div>
+
+    <div ng-include="'/app/templates/partials/footer.html'"></div>
+
+  </div>
+
+  <div set-loader="100"></div>
+</body>
+</html>

@@ -7,10 +7,7 @@ module.exports = function(grunt) {
         logConcurrentOutput: true
       },
       dev: {
-        tasks: ["watch:scripts", "watch:dependencies"]
-      },
-      prod: {
-        tasks: ["watch:B", "watch:C"]
+        tasks: ["watch:scripts", "watch:less"]
       }
     },
     clean: {
@@ -86,6 +83,7 @@ module.exports = function(grunt) {
     }
   });
   grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-contrib-coffee");
@@ -93,10 +91,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-bower-task");
   grunt.renameTask("bower", "bowerInstall");
   grunt.loadNpmTasks("grunt-bower");
-  grunt.registerTask("dev", ["watch:scripts", "watch:less"]);
+  grunt.registerTask("dev", ["concurrent:dev"]);
   grunt.registerTask("dev:script", ["coffee:compileBare", "concat:script", "clean:temp"]);
   grunt.registerTask("dev:less", ["less:development", "concat:css", "clean:temp"]);
   grunt.registerTask("dev:dependencies", ["bowerInstall", "bower"]);
   grunt.registerTask("dev:build", ["clean:dependencies", "bowerInstall", "bower", "coffee:compileBare", "concat:script", "less:development", "concat:css", "clean:temp"]);
   grunt.registerTask("deploy:staging", ["git_ftp:development"]);
+  return grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
 };

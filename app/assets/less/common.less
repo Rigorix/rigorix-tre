@@ -2,6 +2,7 @@
 @import "/app/assets/bower_components/bootstrap/less/bootstrap.less";
 
 @import "/app/assets/less/config.less";
+@import "/app/assets/less/helpers.less";
 @import "/app/assets/less/fonts.less";
 @import "/app/assets/less/directives.less";
 @import "/app/assets/less/mixin.less";
@@ -17,17 +18,21 @@
   }
 }
 
+#body {
+  background: @color-white;
+}
+#footer {
+  background: @color-white;
+
+  h5 {
+    font-family: 'groboldmedium';
+  }
+}
+
 
 .row-fluid {
   .clearfix();
 }
-.rigorix-main-view {
-
-  padding: 15px 0;
-  .clearfix();
-
-}
-
 
 .game-loader {
   padding: 40px;

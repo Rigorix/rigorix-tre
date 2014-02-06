@@ -1,18 +1,14 @@
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON("package.json")
+
     concurrent:
       options:
         logConcurrentOutput: true
       dev:
         tasks: [
           "watch:scripts"
-          "watch:dependencies"
-        ]
-      prod:
-        tasks: [
-          "watch:B"
-          "watch:C"
+          "watch:less"
         ]
 
     clean:
@@ -170,6 +166,7 @@ module.exports = (grunt) ->
   #  grunt.loadNpmTasks('grunt-ftp-deploy');
   #  grunt.loadNpmTasks('grunt-git-ftp');
   grunt.loadNpmTasks "grunt-contrib-concat"
+  grunt.loadNpmTasks "grunt-concurrent"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-less"
   grunt.loadNpmTasks "grunt-contrib-coffee"
@@ -178,11 +175,8 @@ module.exports = (grunt) ->
   grunt.renameTask "bower", "bowerInstall"
   grunt.loadNpmTasks "grunt-bower"
 
-  # Development tasks
-  grunt.registerTask "dev", [
-    "watch:scripts"
-    "watch:less"
-  ]
+  # DEVELOPMENT tasks --------------------------------------------------------------------------------------------------
+  grunt.registerTask "dev", [ "concurrent:dev" ]
   grunt.registerTask "dev:script", [
     "coffee:compileBare"
     "concat:script"
@@ -207,7 +201,10 @@ module.exports = (grunt) ->
     "concat:css"
     "clean:temp"
   ]
-  grunt.registerTask "deploy:staging", ["git_ftp:development"]
-  return
 
-#  grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
+  # PRODUCTION tasks ---------------------------------------------------------------------------------------------------
+
+
+  grunt.registerTask "deploy:staging", ["git_ftp:development"]
+
+  grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
