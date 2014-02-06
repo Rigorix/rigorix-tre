@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         logConcurrentOutput: true
       },
       dev: {
-        tasks: ["watch:scripts", "watch:less"]
+        tasks: ["watch:scripts", "watch:less", "githooks"]
       }
     },
     clean: {
@@ -71,6 +71,11 @@ module.exports = function(grunt) {
           hostFile: ".gitftppass",
           host: "staging"
         }
+      }
+    },
+    githooks: {
+      all: {
+        'post-commit': 'git_ftp:development'
       }
     },
     bowerInstall: {

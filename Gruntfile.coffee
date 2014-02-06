@@ -9,6 +9,7 @@ module.exports = (grunt) ->
         tasks: [
           "watch:scripts"
           "watch:less"
+          "githooks"
         ]
 
     clean:
@@ -152,7 +153,9 @@ module.exports = (grunt) ->
           hostFile: ".gitftppass"
           host: "staging"
 
-
+    githooks:
+        all:
+          'post-commit': 'git_ftp:development',
 
     bowerInstall:
       install: {}
@@ -165,7 +168,6 @@ module.exports = (grunt) ->
   #  grunt.loadNpmTasks('grunt-contrib-uglify');
   #  grunt.loadNpmTasks('grunt-ftp-deploy');
   #  grunt.loadNpmTasks('grunt-git-ftp');
-
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-githooks"
   grunt.loadNpmTasks "grunt-concurrent"
