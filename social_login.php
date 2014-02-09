@@ -33,6 +33,7 @@ $origin = @ $_GET["origin"];
 
 if( !$return_to ):
   echo "ERROR: return_to must be specified!";
+
   die();
 endif;
 
@@ -53,8 +54,7 @@ endif;
 if( ! empty( $provider ) ):
   if( isset( $_REQUEST["redirect_to_idp"] ) ):
     $adapter = $hybridauth->authenticate( $provider, $params );
-    echo "here";
-    die();
+//    die();
     // here we display a "loading view" while tryin to redirect the user to the provider
   endif;
 endif;

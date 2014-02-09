@@ -50,7 +50,7 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
 
   if User isnt false
     $scope.userLogged = true
-    do $scope.updateUserObject
+    $scope.currentUser = User
 
     setInterval ()=>
       do $scope.updateUserObject

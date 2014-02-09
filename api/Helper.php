@@ -5,16 +5,27 @@ function hasAuth ($id_utente) {
 }
 
 function getUserObjectExtended($id_utente) { global $dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards;
-  $UserObject                   = $dm_utente->getObjUtenteById($id_utente);
-  $UserObject->db_object        = $dm_utente->getObjUtenteById($id_utente);
-  $UserObject->messages         = $dm_messaggi->getArrObjMessaggiUnread ($id_utente);
-  $UserObject->totMessages      = $dm_messaggi->getCountUnbannedMessages ( $id_utente );
-  $UserObject->badges           = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
-  $UserObject->sfide_da_giocare = $dm_sfide->getSfideDaGiocareByUtente ( $id_utente );
-  $UserObject->rewards          = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
-  $UserObject->picture          = sanitizeUserPicture($UserObject->picture);
+//  $UserObject                   = $dm_utente->getObjUtenteById($id_utente);
+//  $UserObject->db_object        = $dm_utente->getObjUtenteById($id_utente);
+//  $UserObject->messages         = $dm_messaggi->getArrObjMessaggiUnread ($id_utente);
+//  $UserObject->totMessages      = $dm_messaggi->getCountUnbannedMessages ( $id_utente );
+//  $UserObject->badges           = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
+//  $UserObject->sfide_da_giocare = $dm_sfide->getSfideDaGiocareByUtente ( $id_utente );
+//  $UserObject->rewards          = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
+//  $UserObject->picture          = sanitizeUserPicture($UserObject->picture);
+//
+//  return $UserObject;
 
-  return $UserObject;
+  $obj = new stdClass();
+  $obj->db_object           = Users::find($id_utente)->toArray();
+  $obj->messages            = Messages::receiver($id_utente)->unread()->get()->toArray();
+  $obj->totMessages         = Messages::receiver($id_utente)->count();
+  $obj->badges              = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
+  $obj->sfide_da_giocare    = Sfide::receivedBy($id_utente)->unplayed()->get()->toArray();
+  $obj->rewards             = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
+  $obj->picture             = sanitizeUserPicture(Users::find($id_utente)->picture);
+
+  return (object) array_merge((array) $obj, (array) Users::find($id_utente)->toArray());
 }
 
 function sanitizeUsersPicture( $users ) {

@@ -11,6 +11,7 @@ RigorixServices.factory "AppService", ($resource)->
 
     getActiveUsers:
       method: "GET"
+      isArray: true
       params:
         param1: 'users'
         param2: "active"

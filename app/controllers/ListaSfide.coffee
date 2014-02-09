@@ -36,7 +36,7 @@ Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
       $scope.statoButton = 'lancia_sfida'
       $scope.statoButtonIcon = 'send'
     when "1"
-      $scope.statoButton = if $scope.sfida.id_sfidante is User.id_utente then 'lanciata' else 'rispondi'
+      $scope.statoButton = if $scope.sfida.id_sfidato is User.id_utente then 'rispondi' else 'lanciata'
       $scope.statoButtonIcon = if $scope.statoButton is 'lanciata' then 'send' else 'share-alt'
       $scope.hasActiveButton = $scope.statoButton is 'rispondi'
     when "2"

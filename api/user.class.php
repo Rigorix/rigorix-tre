@@ -14,6 +14,11 @@ class Users extends Illuminate\Database\Eloquent\Model {
     return $this->hasMany('Messages', 'id_sender', 'id_utente');
   }
 
+  public function scopeActive ()
+  {
+    return $this->whereRaw ("attivo = 1 and dta_activ>=SUBDATE(NOW(), INTERVAL 3000 SECOND)");
+  }
+
   public function rewards ()
   {
     $sfide = Sfide::user($this->id_utente)->get()->each(function($sfida) {

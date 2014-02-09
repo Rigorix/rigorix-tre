@@ -1,41 +1,44 @@
 <?php
 //error_reporting(E_ALL);
 //ini_set( 'display_errors','1');
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
 header('Content-type: application/json');
 
+require_once 'database.php';
 require_once '../classes/fastjson.php';
 require_once '../classes/core.php';
 require_once 'flight/Flight.php';
 require_once 'Helper.php';
 
+require_once 'user.class.php';
+require_once 'messages.class.php';
+require_once 'rewards.class.php';
+require_once 'sfide.class.php';
 
-
-/// NEW VERSION
 
 /// UserServiceNEw
-Flight::route('/user/@id_utente(/*)', function($id_utente) {
-  if (!hasAuth($id_utente)):
-    echo "{ 'error': 'not-authorized' }";
-    die();
-  else:
-    return true;
-  endif;
-});
-
-
-
-
-
+//Flight::route('/user/@id_utente(/*)', function($id_utente) {
+//  if (!hasAuth($id_utente)):
+//    echo "{ 'error': 'not-authorized' }";
+//    die();
+//  else:
+//    return true;
+//  endif;
+//});
 
 /// User ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Flight::route('GET /user/@id_utente', function($id_utente) {
+Flight::route('GET /users/active', function() {
+  echo Users::active()->get();
+});
+
+Flight::route('GET /users/@id_utente', function($id_utente) {
   echo FastJSON::convert( getUserObjectExtended($id_utente) );
 });
 
-Flight::route('POST /user/@id_utente', function($id_utente) { global $dm_utente;
+Flight::route('POST /users/@id_utente', function($id_utente) { global $dm_utente;
   $postdata = file_get_contents("php://input");
   $data = json_decode($postdata);
   $dbObject = $dm_utente->makeInDbObject($data->db_object, true);
@@ -43,6 +46,22 @@ Flight::route('POST /user/@id_utente', function($id_utente) { global $dm_utente;
   $dm_utente->updateObject('utente', $dbObject, array( "id_utente" => $id_utente));
 
   echo FastJSON::convert(getUserObjectExtended($id_utente));
+});
+
+Flight::route('GET /user/@id_utente/messages', function($id_utente) {
+  echo  Users::find($id_utente)->messages->toJson();
+});
+
+Flight::route('GET /user/@id_utente/messages/sent', function($id_utente) {
+  echo  Users::find($id_utente)->sentMessages->toJson();
+});
+
+Flight::route('GET /users/@id_utente/rewards', function($id_utente) {
+  echo Users::find($id_utente)->rewards()->toJson();
+});
+
+Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
+  echo Sfide::receivedBy($id_utente)->unplayed()->get();
 });
 
 
