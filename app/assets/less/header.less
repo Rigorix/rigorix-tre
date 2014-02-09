@@ -1,6 +1,14 @@
 #header {
   background: @color-white;
   padding: @base-margin;
+  height: @header-height - 10;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -@site-width/2;
+  z-index: @zindex-header;
+  width: 100%;
+  box-shadow: 0 5px 5px @color-white;
 
   h1 {
     margin: 0;

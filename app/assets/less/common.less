@@ -18,8 +18,18 @@
 @import "/app/assets/less/page.home.less";
 
 body {
+  width: 100%;
+  height: 100%;
+
   > .container {
-    width: 900px;
+    width: @site-width;
+    position: relative;
+    height: 100%;
+
+    #page {
+      margin: @header-height auto 0 auto;
+      position: relative;
+    }
   }
 }
 

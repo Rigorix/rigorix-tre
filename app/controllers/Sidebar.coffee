@@ -1,6 +1,7 @@
 Rigorix.controller "Sidebar", ($scope, AppService)->
 
   $scope.topUsers = []
+  $scope.userTooltipMessage = if $scope.currentUser? and $scope.currentUser not false then "Clicca per sfidare" else "Entra per sfidare "
 
   AppService.getTopUsers (users)->
     $scope.topUsers = users

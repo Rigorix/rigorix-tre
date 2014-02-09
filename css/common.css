@@ -56,7 +56,7 @@ ul.normal-list li { margin-left: 15px; }
 #page { width:956px; margin:5px auto; position: relative; text-align: left;}
 
 /* #Page header */
-#header { position: relative; background: url(../i/head_bg.gif) repeat-x left top; height: 118px; border: 4px solid #fff; border-bottom: 0; }
+/*#header { *//*position: relative; background: url(../i/head_bg.gif) repeat-x left top; height: 118px;*//* border: 4px solid #fff; border-bottom: 0; }*/
 #header img { display: block; }
 #header div.bannerHeader {left:220px; top: 8px}
 #header .bannerHeader { position: absolute; top: 17px; left: 311px; }

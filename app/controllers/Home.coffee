@@ -1,16 +1,14 @@
 Rigorix.controller "Home", ($scope, AppService, UserServiceNew) ->
 
   $scope.updateResources = ->
-    $scope.campione = AppService.getCampioneSettimana()
     $scope.activeUsers = AppService.getActiveUsers()
+    $scope.campione = false
 
-    if $scope.campione? and $scope.campione.id != 0
-      $scope.campione = UserServiceNew.get
-        parameters:
-          id_utente: $scope.campione.id
-      ,
-        (json)->
-          $scope.campioneObj = json.db_object
+    AppService.getCampioneSettimana (campione)->
+      if campione.userObject? and campione.userObject.id_utente isnt 0
+        $scope.campione = campione
+      else
+        $scope.campione = false
 
   do $scope.updateResources
 

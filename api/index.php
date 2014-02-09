@@ -34,6 +34,44 @@ Flight::route('GET /users/active', function() {
   echo Users::active()->get();
 });
 
+Flight::route('GET /users/champion/@period', function($period) {
+  if ($period == "week")
+    $sfide = Sfide::lastWeek()->done();
+  if ($period == "month")
+    $sfide = Sfide::lastMonth()->done();
+  if ($period == "day")
+    $sfide = Sfide::today()->done();
+
+  if ( $sfide != null):
+    $usersPoints = array();
+    foreach ( $sfide->get() as $sfida) {
+      if ( !array_key_exists($sfida->id_sfidante, $usersPoints))
+        $usersPoints[$sfida->id_sfidante] = 0;
+      $usersPoints[$sfida->id_sfidante] += $sfida->punti_sfidante;
+
+      if ( !array_key_exists($sfida->id_sfidato, $usersPoints))
+        $usersPoints[$sfida->id_sfidato] = 0;
+      $usersPoints[$sfida->id_sfidato] += $sfida->punti_sfidato;
+    }
+
+    $bestUser = 0;
+    $bestUserPunteggio = 0;
+    foreach ( $usersPoints as $id_utente => $punteggio ) {
+      if ( $punteggio > $bestUserPunteggio ) {
+        $bestUser = $id_utente;
+        $bestUserPunteggio = $punteggio;
+      }
+    }
+    $best = new stdClass();
+    $best->userObject = Users::find($bestUser)->toArray();
+    $best->punteggio = $bestUserPunteggio;
+    echo FastJSON::convert($best);
+
+  else:
+    echo '{ "id_utente": 0 }';
+  endif;
+});
+
 Flight::route('GET /users/@id_utente', function($id_utente) {
   echo FastJSON::convert( getUserObjectExtended($id_utente) );
 });
@@ -75,10 +113,7 @@ Flight::route('GET /users/top/@count', function($count) { global $dm_utente;
   echo FastJSON::convert( $users );
 });
 
-Flight::route('GET /users/campione/settimana', function() { global $dm_utente;
-  $best = $dm_utente->getIdUtenteWeekBest ();
-  echo $best;
-});
+
 
 Flight::route('GET /users/username/@username', function($username) { global $dm_utente;
   $users = $dm_utente->getUsersByUsernameQuery ( $username, false );
