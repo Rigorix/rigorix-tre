@@ -194,7 +194,16 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
             <div ng-show="sectionPage == 'cancellazione_utente'">
-                Cancellazione utente
+
+                <div class="alert alert-danger">
+                    <h3 class="text-error">ATTENZIONE:</h3>
+                    <p class="text-error">Una volta richiesta e confermata la cancellazione, non sarà possibile tornare indietro e verranno persi tutti i propri dati.</p>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-danger" ng-click="doDeleteUser()" icon="trash"> Cancella utente</button>
+                </div>
+
             </div>
 
 

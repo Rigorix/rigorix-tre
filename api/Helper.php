@@ -4,6 +4,11 @@ function hasAuth ($id_utente) {
   return ( $_SESSION['rigorix']['user'] !== false && $id_utente == $_SESSION['rigorix']['user']->id_utente);
 }
 
+function getParams() {
+  $postdata = file_get_contents("php://input");
+  return json_decode($postdata);
+}
+
 function getUserObjectExtended($id_utente) { global $dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards;
 //  $UserObject                   = $dm_utente->getObjUtenteById($id_utente);
 //  $UserObject->db_object        = $dm_utente->getObjUtenteById($id_utente);

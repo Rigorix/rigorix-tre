@@ -72,6 +72,30 @@ Flight::route('GET /users/champion/@period', function($period) {
   endif;
 });
 
+Flight::route('GET /users/top/@count', function($count) { global $dm_utente;
+//  echo Users::top()->take($count)->get();
+
+  $users = $dm_utente->getRankingUtenti ( $count );
+  $users = sanitizeUsersPicture($users);
+  echo FastJSON::convert( $users );
+});
+
+Flight::route('POST /users/delete', function() {
+  $data = getParams();
+  $user = $data->user;
+
+  if ( UsersUnsubscribe::user($user->id_utente)->count() == 0 ):
+    $unsubscribe = new UsersUnsubscribe;
+    $unsubscribe->id_utente = $user->id_utente;
+    $unsubscribe->stato = 0;
+    $unsubscribe->conf_code = md5( $id_utente . $user->username . "unsubscribe_utente_key" );
+    $unsubscribe->save();
+    echo '{ "status": "success", "id_utente" : '.$user->id_utente.'}';
+  else:
+    echo '{ "status": "error", "id_utente" : '.$user->id_utente.'}';
+  endif;
+});
+
 Flight::route('GET /users/@id_utente', function($id_utente) {
   echo FastJSON::convert( getUserObjectExtended($id_utente) );
 });
@@ -107,11 +131,7 @@ Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
 
 /// Users //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Flight::route('GET /users/top/@count', function($count) { global $dm_utente;
-  $users = $dm_utente->getRankingUtenti ( $count );
-  $users = sanitizeUsersPicture($users);
-  echo FastJSON::convert( $users );
-});
+
 
 
 

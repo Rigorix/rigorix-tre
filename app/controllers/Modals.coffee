@@ -83,3 +83,38 @@ Rigorix.controller "Modals.ViewSfida", ($scope, $modal, $modalInstance, $rootSco
   $scope.close = ->
     do $modalInstance.dismiss
     $rootScope.$broadcast "modal:close"
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+
+Rigorix.controller "Modals.DeleteUser", ($scope, $modal, $modalInstance, $rootScope, user, Api)->
+
+  $rootScope.$broadcast "modal:open",
+    controller: 'Modals.DeleteUser'
+    modalClass: 'modal-delete-user'
+
+  $modalInstance.result.then (selectedItem) ->
+    true
+  , ()->
+    $rootScope.$broadcast "modal:close"
+
+  $scope.doDeleteUser = ->
+    Api.call 'post', 'users/delete',
+      user: user
+      success: (json)->
+        if json.status == "success"
+          do $modalInstance.dismiss
+          $rootScope.$broadcast "modal:close"
+          $rootScope.$broadcast "user:logout"
+          $.notify "Ti e' stata inviata una mail per la cancellazione"
+
+
+      error: ->
+        console.log "error", arguments
+
+  $scope.cancel = ->
+    do $modalInstance.dismiss
+    $rootScope.$broadcast "modal:close"

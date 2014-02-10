@@ -73,7 +73,7 @@ Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService, $route) ->
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Impostazioni", ($scope, $rootScope, UserServiceNew) ->
+Rigorix.controller "AreaPersonale.Impostazioni", ($scope, $rootScope, UserServiceNew, $modal) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'dati_utente', 'rigorix_mascotte', 'cancellazione_utente' ]
@@ -86,11 +86,22 @@ Rigorix.controller "AreaPersonale.Impostazioni", ($scope, $rootScope, UserServic
   $scope.doUpdateUserData = ->
     $rootScope.$broadcast "show:loading"
 
-    $scope.currentUser.$save (json)->
+    $scope.currentUser.$save
+      id_utente: $scope.currentUser.id_utente
+    ,
+    (json)->
       $rootScope.$broadcast "hide:loading"
       $rootScope.$broadcast "user:update", json
 
       $.notify "Dati utente aggiornati correttamente", "success"
+
+  $scope.doDeleteUser = ->
+    $modal.open
+      templateUrl:  '/app/templates/modals/user.delete.html',
+      controller:    'Modals.DeleteUser',
+      resolve:
+        user: ->
+          $scope.currentUser
 
 
 

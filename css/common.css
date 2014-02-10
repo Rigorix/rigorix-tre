@@ -356,7 +356,7 @@ tr.sub-th-row th, th.sub-th { font-weight: normal; text-align: left; }
 
 
 /* #Footer */
-#footer { /*background:url(../i/n_footer.gif) no-repeat bottom left; */ background: #f5f8fc; border: 4px solid #fff; border-top: 0; padding: 0px 27px 5px 27px}
+#footer { /*background:url(../i/n_footer.gif) no-repeat bottom left; */ background: #f5f8fc; border: 4px solid #fff; border-top: 0; }
 .footerCopyright P { color: #2e64bd; }
 .footerDisclaimer P { color: #000; font-size: 10px; }
 

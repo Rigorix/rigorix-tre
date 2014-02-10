@@ -9,6 +9,11 @@ class Users extends Illuminate\Database\Eloquent\Model {
     return $this->hasMany('Messages', 'id_receiver', 'id_utente');
   }
 
+  public function scopeTop()
+  {
+//    return $this->where("attivo", "=", 1)->
+  }
+
   public function sentMessages ()
   {
     return $this->hasMany('Messages', 'id_sender', 'id_utente');
@@ -30,6 +35,19 @@ class Users extends Illuminate\Database\Eloquent\Model {
 //    return $this->hasManyThrough('RewardsSfide', 'Sfide', 'id_sfidante', 'id_sfida');
 //    var_dump($this);
 //    return [];
+  }
+
+}
+
+
+class UsersUnsubscribe extends Illuminate\Database\Eloquent\Model {
+  protected $table        = 'unsubscribe';
+  protected $primaryKey   = 'id_unsubscribe';
+//  protected $guarded      = array('id', 'id_unsubscribe');
+
+  public function scopeUser ($id_utente)
+  {
+    return $this->where ("id_utente", "=", $id_utente);
   }
 
 }

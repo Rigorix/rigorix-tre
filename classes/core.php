@@ -73,7 +73,6 @@ class core {
 	{
 		global $env;
 
-
     try{
       $hybridauth = new Hybrid_Auth( $_SERVER['DOCUMENT_ROOT'] . hybridauth_config );
     }
@@ -83,9 +82,7 @@ class core {
     $provider = "";
 
     if( isset( $_GET["connected_with"] ) && $hybridauth->isConnectedWith( $_GET["connected_with"] ) ) {
-
-
-
+      echo "qui";
 			$provider = $_GET["connected_with"];
 			$adapter = $hybridauth->getAdapter( $provider );
 			$user_data = $adapter->getUserProfile();

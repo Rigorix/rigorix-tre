@@ -127,20 +127,20 @@ Rigorix.directive "setLoader", ['RigorixUI', '$timeout', '$rootScope', (RigorixU
 ]
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-
-
-Rigorix.directive "wysiwyg", ->
-  require: '?ngModel'
-  restrict: 'E'
-  link: (scope, el, attr, ngModel) ->
-    scope.redactor = el.redactor
-      focus: false
-      callback: (o)->
-        o.setCode scope.content
-        el.keydown ()->
-          console.log(o.getCode())
-          scope.$apply(ngModel.$setViewValue o.getCode())
+##-----------------------------------------------------------------------------------------------------------------------
+#
+#
+#Rigorix.directive "wysiwyg", ->
+#  require: '?ngModel'
+#  restrict: 'E'
+#  link: (scope, el, attr, ngModel) ->
+#    scope.redactor = el.redactor
+#      focus: false
+#      callback: (o)->
+#        o.setCode scope.content
+#        el.keydown ()->
+#          console.log(o.getCode())
+#          scope.$apply(ngModel.$setViewValue o.getCode())
 
 
 

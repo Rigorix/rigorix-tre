@@ -583,33 +583,40 @@ class user extends dm_generic_mysql {
 			return false;
 	}
 
-	function do_unsubscription ()
+	function do_unsubscription ($id_utente)
 	{
 		global $dm_utente, $activity, $core;
-		_log ("UNSUBSCRIBE", "Inserisco la riga di disiscrizione");
-		if ( $this->obj->unsubscribing == 1 )
-			$activity->throw_error ( 121 );
-		else if ( $this->obj->dead == 1 ) {
-			$this->do_logout ();
-		} else {
-			// Imposto la disiscrizione
-			_log ("UNSUBSCRIBE", "id utente: " . $this->obj->id_utente);
-			$unsub = array();
-			$unsub["indb_id_utente"] = $this->obj->id_utente;
-			$unsub["indb_stato"] = 0;
-			$unsub["indb_data_richiesta"] = "_V_NOW_";
-			$unsub["indb_conf_code"] = md5 ( $this->obj->id_utente.$this->obj->username."unsubscribe_utente_key" );
-			$obj_indb = $dm_utente->makeInDbObject($unsub);
-		    if ($dm_utente->insertObject('unsubscribe', $obj_indb)) {
-		    	$mail_text = "Ciao " . $this->obj->username . ", <br />ci e' arrivata una richiesta di cancellazione.<br /><br />Per confermarla, vai a questo indirizzo: <a href='http://www.rigorix.com/automatic_actions.php?activity=unsubscribe_confirm&code=" . $unsub["indb_conf_code"] . "'>http://www.rigorix.com/automatic_actions.php?activity=unsubscribe_confirm&code=" . $unsub["indb_conf_code"] . "</a><br /><br />Se invece non hai intenzione di disiscriverti, ignora questa mail.<br /><br /><strong>Rigorix Staff</strong>";
-		    	$core->send_mail ( $this->obj->email, "Richiesta conferma cancellazione utente", $mail_text );
-				_log ("UNSUBSCRIBE", $mail_text);
-				_log ("UNSUBSCRIBE", "Mail mandata, aspetto ora la conferma del click");
-		    	$this->do_logout ();
-				$activity->throw_success ( 120 );
-				return true;
-		    }
-		}
+
+    if ( UsersUnsubscribe::find($id_utente)->count() == 0 ):
+
+      $unsubscribe = new UsersUnsubscribe;
+      $unsubscribe->id_utente = $id_utente;
+      $unsubscribe->stato = 0;
+      $unsubscribe->dta_richiesta = date('Y-m-a H:m:s');
+      $unsubscribe->conf_code = md5( $id_utente . Users::find($id_utente)->username . "unsubscribe_utente_key" );
+
+      $unsubscribe->save();
+
+      $activity->throw_success ( 120 );
+
+      return true;
+//
+//
+//      $unsub["indb_stato"] = 0;
+//      $unsub["indb_data_richiesta"] = "_V_NOW_";
+//      $unsub["indb_conf_code"] = md5 ( $this->obj->id_utente.$this->obj->username."unsubscribe_utente_key" );
+//      $obj_indb = $dm_utente->makeInDbObject($unsub);
+//        if ($dm_utente->insertObject('unsubscribe', $obj_indb)) {
+//          $mail_text = "Ciao " . $this->obj->username . ", <br />ci e' arrivata una richiesta di cancellazione.<br /><br />Per confermarla, vai a questo indirizzo: <a href='http://www.rigorix.com/automatic_actions.php?activity=unsubscribe_confirm&code=" . $unsub["indb_conf_code"] . "'>http://www.rigorix.com/automatic_actions.php?activity=unsubscribe_confirm&code=" . $unsub["indb_conf_code"] . "</a><br /><br />Se invece non hai intenzione di disiscriverti, ignora questa mail.<br /><br /><strong>Rigorix Staff</strong>";
+//          $core->send_mail ( $this->obj->email, "Richiesta conferma cancellazione utente", $mail_text );
+//        _log ("UNSUBSCRIBE", $mail_text);
+//        _log ("UNSUBSCRIBE", "Mail mandata, aspetto ora la conferma del click");
+//          $this->do_logout ();
+//        $activity->throw_success ( 120 );
+//        return true;
+//        }
+
+    endif;
 	}
 
 	function do_unsubscription_confirm ()

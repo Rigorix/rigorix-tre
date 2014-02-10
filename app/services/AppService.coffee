@@ -9,6 +9,12 @@ RigorixServices.factory "AppService", ($resource)->
       param3: "@param3"
   ,
 
+    deleteUser:
+      method: 'POST'
+      params:
+        param1: 'users'
+        param3: 'delete'
+
     getActiveUsers:
       method: "GET"
       isArray: true

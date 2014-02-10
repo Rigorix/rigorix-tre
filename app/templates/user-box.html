@@ -6,6 +6,10 @@
 
     <div class="list-group">
 
+        <div ng-show="fakeUser" class="alert alert-danger">
+            <p icon="danger">Utente loggato FAKE!</p>
+        </div>
+
         <div id="boxUtente" ng-show="userLogged">
             <div class="list-group-item">
                 <div class="media">
