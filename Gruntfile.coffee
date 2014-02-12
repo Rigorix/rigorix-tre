@@ -37,8 +37,8 @@ module.exports = (grunt) ->
         options:
           bare: true
         files:
-          "app/assets/temp/angular.app.main.js": ["app/app.coffee"]
           "app/assets/temp/angular.app.config.js": ["app/config.coffee"]
+          "app/assets/temp/angular.app.main.js": ["app/app.coffee"]
           "app/assets/temp/angular.app.js": [
             "app/controllers/*.coffee"
             "app/directives/*.coffee"

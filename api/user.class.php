@@ -3,6 +3,7 @@
 class Users extends Illuminate\Database\Eloquent\Model {
   protected $table        = 'utente';
   protected $primaryKey   = 'id_utente';
+  protected $guarded      = array('id', 'id_utente');
 
   public function messages ()
   {
@@ -24,6 +25,11 @@ class Users extends Illuminate\Database\Eloquent\Model {
     return $this->whereRaw ("attivo = 1 and dta_activ>=SUBDATE(NOW(), INTERVAL 3000 SECOND)");
   }
 
+  public function scopeFindBySocialId ($query, $uid)
+  {
+    return $query->where ("social_uid", "=", $uid);
+  }
+
   public function rewards ()
   {
     $sfide = Sfide::user($this->id_utente)->get()->each(function($sfida) {
@@ -43,7 +49,6 @@ class Users extends Illuminate\Database\Eloquent\Model {
 class UsersUnsubscribe extends Illuminate\Database\Eloquent\Model {
   protected $table        = 'unsubscribe';
   protected $primaryKey   = 'id_unsubscribe';
-//  protected $guarded      = array('id', 'id_unsubscribe');
 
   public function scopeUser ($id_utente)
   {

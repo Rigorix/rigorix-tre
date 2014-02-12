@@ -146,16 +146,13 @@ class activities {
 	{
 		global $core, $user;
 		if ( isset($_POST['username']) && isset($_POST['password']) && strlen($_POST['username']) > 0 && strlen($_POST['password']) > 0 ) {
-			$core->set_session_properties ( 'user', false );
 			$status = $user->do_login ($_POST['username'], $_POST['password']);
 			if ( $status !== false ) {
-				$core->set_session_properties ( 'user', $status );
         		deb ("do_login");
 				//if (strpos($_SERVER['PHP_SELF'], "area_personale") === false )
 				  //header ("Location: area_personale.php");
 				return $status;
 			} else {
-				$core->set_session_properties ( 'user', false );
 				$this->throw_error ( 100 );
 				return false;
 			}
@@ -177,13 +174,11 @@ class activities {
 
 		$status = $user->do_login_by_id ( $id );
 		if ( $status !== false ) {
-			$core->set_session_properties ( 'user', $status );
 			if ( $status->attivo == 0 && $core->not_internal_url() )
 				header ("Location: compleate_registration.php");
 			else
 				return $status;
 		} else {
-			$core->set_session_properties ( 'user', false );
 			$this->throw_error ( 100 );
 			return false;
 		}
@@ -235,9 +230,6 @@ class activities {
 
 	function do_reset_session ()
 	{
-		unset ($_SESSION['rigorix']);
-    deb ("do_reset_session");
-		//header ("Location: index.php");
 	}
 
 	function do_upload_profile_picture ()
@@ -257,7 +249,6 @@ class activities {
 			$fileName = $utility->checkFileName($fileName, $dir);
 			$fileNameTemp = $_FILES['picture-uploader']['tmp_name'];
 			if(move_uploaded_file($fileNameTemp, $dir.$fileName)) {
-				$_SESSION['rigorix']['uploaded_filename'] = $fileName;
 				$user->update_profile_picture ($fileName);
 				$this->throw_success( 440 );
 				return $fileName;

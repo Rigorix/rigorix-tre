@@ -8,7 +8,6 @@ $env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
 ini_set("memory_limit", "128M") ;
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", true);
-session_start();
 date_default_timezone_set('Europe/Rome');
 
 define ( "hybridauth_config", "/hybridauth/config.php");

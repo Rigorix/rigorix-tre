@@ -1,10 +1,20 @@
 <?php
-require_once('classes/core.php');
+require_once "classes/new.core.php";
+var_dump($_SESSION['rigorix_logged_user']);
 ?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="Rigorix">
-<?php require_once("boxes/html_head.php"); ?>
-
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Rigorix - Gioco online a premi</title>
+  <meta name="description" content="Gioca gratis e vinci bellissimi premi ai rigori. Rigorix e' uno dei piu' divertenti giochi online gratuiti in flash in cui si vincono veri premi. Gioca online!">
+  <meta name="keywords" content="giochi on line gratuiti a premi">
+  <link rel="stylesheet" href="/app/assets/dist/app.css" type="text/css" />
+  <script>
+    var User = <?php echo $core->logged; ?>;
+    var RigorixEnv = <?php echo FastJSON::convert($env); ?>;
+  </script>
+</head>
 <body ng-controller="Main" ng-class="modalClass" ng-click="doClick($event)">
 
   <div ng-include="'/app/templates/partials/loader.html'"></div>
@@ -36,4 +46,5 @@ require_once('classes/core.php');
 
   <div set-loader="100"></div>
 </body>
+<script src="/app/assets/dist/app.js" type="text/javascript"></script>
 </html>

@@ -1,6 +1,8 @@
 <?php
 //error_reporting(E_ALL);
 //ini_set( 'display_errors','1');
+error_reporting(0);
+ini_set( 'display_errors','0');
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
@@ -8,7 +10,7 @@ header('Content-type: application/json');
 
 require_once 'database.php';
 require_once '../classes/fastjson.php';
-require_once '../classes/core.php';
+//require_once '../classes/core.php';
 require_once 'flight/Flight.php';
 require_once 'Helper.php';
 
@@ -16,6 +18,26 @@ require_once 'user.class.php';
 require_once 'messages.class.php';
 require_once 'rewards.class.php';
 require_once 'sfide.class.php';
+require_once 'error.class.php';
+
+// TO BE REMOVED
+  require_once __DIR__ . '/../dm/dm_generic_mysql.php';
+  require_once __DIR__ . '/../dm/dm_utente.php';
+  require_once __DIR__ . '/../dm/dm_sfide.php';
+  require_once __DIR__ . '/../dm/dm_messaggi.php';
+  require_once __DIR__ . '/../dm/dm_rewards.php';
+  $db_conn = mysql_pconnect ("localhost", "root", "");
+  mysql_select_db ( "rigorix_tre" );
+  $db		 		    = new dm_generic_mysql  ( $db_conn, "rigorix_tre", false );
+  $dm_utente 		= new dm_utente         ( $db_conn, "rigorix_tre", false );
+  $dm_sfide 		= new dm_sfide          ( $db_conn, "rigorix_tre", false );
+  $dm_messaggi	= new dm_messaggi       ( $db_conn, "rigorix_tre", false );
+  $dm_rewards		= new dm_rewards        ( $db_conn, "rigorix_tre", false );
+
+  require_once( __DIR__ . '/../classes/user.context.php' );
+  require_once( __DIR__ . '/../classes/activities.context.php' );
+  $activity = new activities();
+
 
 
 /// UserServiceNEw
@@ -29,9 +51,20 @@ require_once 'sfide.class.php';
 //});
 
 /// User ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// GETS -----
 
 Flight::route('GET /users/active', function() {
   echo Users::active()->get();
+});
+
+Flight::route('GET /users/bysocial/@uid', function($uid) {
+  $result = Users::findBySocialId($uid)->get();
+  if ( $result->count() == 0)
+    Flight::notFound();
+  else
+    echo Users::findBySocialId($uid)->get()->first();
+
 });
 
 Flight::route('GET /users/champion/@period', function($period) {
@@ -80,34 +113,8 @@ Flight::route('GET /users/top/@count', function($count) { global $dm_utente;
   echo FastJSON::convert( $users );
 });
 
-Flight::route('POST /users/delete', function() {
-  $data = getParams();
-  $user = $data->user;
-
-  if ( UsersUnsubscribe::user($user->id_utente)->count() == 0 ):
-    $unsubscribe = new UsersUnsubscribe;
-    $unsubscribe->id_utente = $user->id_utente;
-    $unsubscribe->stato = 0;
-    $unsubscribe->conf_code = md5( $id_utente . $user->username . "unsubscribe_utente_key" );
-    $unsubscribe->save();
-    echo '{ "status": "success", "id_utente" : '.$user->id_utente.'}';
-  else:
-    echo '{ "status": "error", "id_utente" : '.$user->id_utente.'}';
-  endif;
-});
-
 Flight::route('GET /users/@id_utente', function($id_utente) {
-  echo FastJSON::convert( getUserObjectExtended($id_utente) );
-});
-
-Flight::route('POST /users/@id_utente', function($id_utente) { global $dm_utente;
-  $postdata = file_get_contents("php://input");
-  $data = json_decode($postdata);
-  $dbObject = $dm_utente->makeInDbObject($data->db_object, true);
-
-  $dm_utente->updateObject('utente', $dbObject, array( "id_utente" => $id_utente));
-
-  echo FastJSON::convert(getUserObjectExtended($id_utente));
+  Flight::json ( getUserObjectExtended($id_utente) );
 });
 
 Flight::route('GET /user/@id_utente/messages', function($id_utente) {
@@ -126,6 +133,57 @@ Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
   echo Sfide::receivedBy($id_utente)->unplayed()->get();
 });
 
+// POSTS -----
+
+Flight::route('POST /users/create', function() {
+  try {
+    $newUser                  = new Users;
+    $newUser->attivo          = 0;
+    $newUser->social_provider = $_POST['provider'];
+    $newUser->social_uid      = $_POST['id'];
+    $newUser->social_url      = $_POST['link'];
+    $newUser->username        = str_replace(" ", "_", $_POST['name']);
+    $newUser->picture         = $_POST['image'];
+    $newUser->nome            = $_POST['nome'];
+    $newUser->cognome         = $_POST['cognome'];
+    $newUser->sesso           = substr($_POST['gender'], 0, 1);
+    $newUser->email           = $_POST['email'];
+
+    $newUser->save();
+
+    Flight::json(array("id_utente" => $newUser->id_utente));
+  } catch (Exception $e) {
+    Flight::error($e);
+  }
+});
+
+Flight::route('POST /users/delete', function() {
+  $data = getParams();
+  $user = $data->user;
+
+  if ( UsersUnsubscribe::user($user->id_utente)->count() == 0 ):
+    $unsubscribe = new UsersUnsubscribe;
+    $unsubscribe->id_utente = $user->id_utente;
+    $unsubscribe->stato = 0;
+    $unsubscribe->conf_code = md5( $id_utente . $user->username . "unsubscribe_utente_key" );
+    $unsubscribe->save();
+    echo '{ "status": "success", "id_utente" : '.$user->id_utente.'}';
+  else:
+    echo '{ "status": "error", "id_utente" : '.$user->id_utente.'}';
+  endif;
+});
+
+Flight::route('POST /users/@id_utente', function($id_utente) { global $dm_utente;
+  $postdata = file_get_contents("php://input");
+  $data = json_decode($postdata);
+  $dbObject = $dm_utente->makeInDbObject($data->db_object, true);
+
+  $dm_utente->updateObject('utente', $dbObject, array( "id_utente" => $id_utente));
+
+  echo FastJSON::convert(getUserObjectExtended($id_utente));
+});
+
+
 
 
 
@@ -135,36 +193,36 @@ Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
 
 
 
-Flight::route('GET /users/username/@username', function($username) { global $dm_utente;
-  $users = $dm_utente->getUsersByUsernameQuery ( $username, false );
-  $users = sanitizeUsersPicture($users);
-  echo FastJSON::convert( $users );
-});
-
-Flight::route('GET /users/@id_utente', function($id_utente) { global $dm_utente;
-  $user = $dm_utente->getSingleObjectQueryCustom("SELECT * FROM utente WHERE id_utente = " . $id_utente );
-  if ($user === false)
-    echo "{ 'user': 'unknown', 'id_utente': '$id_utente' }";
-  else {
-    $user->picture = sanitizeUserPicture($user->picture);
-    echo FastJSON::convert( $user );
-  }
-});
-
-Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
-  $user = $dm_utente->getSingleObjectQueryCustom("SELECT $attribute FROM utente WHERE id_utente = " . $id_utente );
-  if ($user === false)
-    echo "{ '$attribute': 'unknown', 'id_utente': '$id_utente' }";
-  else {
-    $user->id_utente = $id_utente;
-    if ($attribute == "username" && strpos($user->$attribute, "__DELETED__") !== false) {
-      $user->$attribute = str_replace("__DELETED__", "", $user->$attribute);
-      $user->deleted = true;
-    } else
-      $user->deleted = false;
-    echo FastJSON::convert( $user );
-  }
-});
+//Flight::route('GET /users/username/@username', function($username) { global $dm_utente;
+//  $users = $dm_utente->getUsersByUsernameQuery ( $username, false );
+//  $users = sanitizeUsersPicture($users);
+//  echo FastJSON::convert( $users );
+//});
+//
+//Flight::route('GET /users/@id_utente', function($id_utente) { global $dm_utente;
+//  $user = $dm_utente->getSingleObjectQueryCustom("SELECT * FROM utente WHERE id_utente = " . $id_utente );
+//  if ($user === false)
+//    echo "{ 'user': 'unknown', 'id_utente': '$id_utente' }";
+//  else {
+//    $user->picture = sanitizeUserPicture($user->picture);
+//    echo FastJSON::convert( $user );
+//  }
+//});
+//
+//Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
+//  $user = $dm_utente->getSingleObjectQueryCustom("SELECT $attribute FROM utente WHERE id_utente = " . $id_utente );
+//  if ($user === false)
+//    echo "{ '$attribute': 'unknown', 'id_utente': '$id_utente' }";
+//  else {
+//    $user->id_utente = $id_utente;
+//    if ($attribute == "username" && strpos($user->$attribute, "__DELETED__") !== false) {
+//      $user->$attribute = str_replace("__DELETED__", "", $user->$attribute);
+//      $user->deleted = true;
+//    } else
+//      $user->deleted = false;
+//    echo FastJSON::convert( $user );
+//  }
+//});
 
 
 

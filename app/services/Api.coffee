@@ -9,3 +9,9 @@ RigorixServices.factory "Api", ($resource, $http)->
 
     .error ->
         params.error(arguments[0]) if params.error?
+
+
+  auth: (params)->
+    $http.get(RigorixEnv.OAUTH_URL + params.provider)
+      .success (response)->
+        params.success(response) if params.success?

@@ -1,4 +1,5 @@
 <?php
+session_start();
 //error_reporting(E_ALL);
 //ini_set( 'display_errors','1');
 
@@ -9,6 +10,7 @@ $env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
 
 // REQUIRED CLASSES AND CONFIGURATIONS
 require_once( __DIR__ . '/fastjson.php' );
+require_once( __DIR__ . '/restclient.php' );
 require_once( __DIR__ . '/utility.class.php' );
 $utility = new utility();
 require_once( __DIR__ . '/config.php' );
@@ -39,6 +41,9 @@ $activity = new activities();
 $core = new core();
 $user = new user();
 $mail = new PHPMailer(true);
+$api = new RestClient(array(
+  'base_url' => substr($env->API_DOMAIN, 0, -1)
+));
 
 _syslog("Istanziamento CLASSES: OK");
 
@@ -71,64 +76,19 @@ class core {
 
 	function check_social_login()
 	{
-		global $env;
+		global $env, $api;
 
-    try{
-      $hybridauth = new Hybrid_Auth( $_SERVER['DOCUMENT_ROOT'] . hybridauth_config );
-    }
-		catch( Exception $e ){
-      echo "Ooops, we've got an error: " . $e->getMessage();
-    }
-    $provider = "";
+    if ( isset($_GET['id']) && isset($_GET['token']) && $_GET['token'] != ""):
 
-    if( isset( $_GET["connected_with"] ) && $hybridauth->isConnectedWith( $_GET["connected_with"] ) ) {
-      echo "qui";
-			$provider = $_GET["connected_with"];
-			$adapter = $hybridauth->getAdapter( $provider );
-			$user_data = $adapter->getUserProfile();
+      $result = $api->get("users/bysocial/" . $_GET['id']);
+      if ($result->info->http_code == 200 ) {
+        $user = $result->decode_response();
+        $_SESSION['rigorix_logged_user'] = $user->id_utente;
+        $_SESSION['rigorix_logged_user_token'] = $_GET['token'];
+        header('Location: /');
+      }
 
-			// Ok, autenticato nei social, ora vediamo rigorix
-      $query = "SELECT * FROM utente WHERE social_provider = '{$provider}' and social_uid = '{$user_data->identifier}'";
-    // echo $query;
-      $rows = mysql_query($query);
-      $result = mysql_fetch_array($rows);
-
-      if (!empty($result)) {
-        header('Location: ' . $_SESSION["rigorix_auth_origin"] . '?activity=login_by_id&id=' . $result["id_utente"]);
-//        header('Location: /index.php?activity=login_by_id&id=' . $result["id_utente"]);
-
-      } else {
-				_log ("SOCIALLOGIN", "L'utente hoh è presente, lo inserisco nel DB");
-		        #user not present. Insert a new Record
-				// echo "<br />not present, do insert<br />";
-		        //print_r($user_data);
-
-				$insert_query = "INSERT INTO `utente` (social_uid, picture, username, social_url, social_provider, nome, cognome, email) VALUES ({$user_data->identifier}, '{$user_data->photoURL}', '{$user_data->displayName}', '{$user_data->profileURL}', '{$provider}', '{$user_data->firstName}', '{$user_data->lastName}', '{$user_data->email}')";
-				// echo $insert_query . "<br />";
-				$query = mysql_query ( $insert_query ) or die(mysql_error());
-				_log ("SOCIALLOGIN", "Utente inserito");
-
-				$q = "SELECT * FROM `utente` WHERE social_uid = '{$user_data->identifier}'";
-				// echo "Select id: " . $user_data->identifier . " <br />";
-				$qr = mysql_query( $q );
-		        $result = mysql_fetch_array($qr);
-				_log ("SOCIALLOGIN", "Rifaccio la select: " . $q);
-		    }
-
-			if (!empty($result)) {
-				if( $result["username"] != "" ) {
-					_log ("SOCIALLOGIN", "Tutto è OK, faccio un redirect con il login by");
-					header('Location: '.$_SESSION["rigorix_auth_origin"].'?activity=login_by_id&id=' . $result["id_utente"]);
-				} else
-					die("C'&egrave; stato un problema durante il login. Prova pi&ugrave; tardi!");
-				_log ("SOCIALLOGIN", "Non ho trovato i dati dell'utente quindi non mi redirigo all'auto login");
-		    } else {
-					_log ("SOCIALLOGIN", "Non ho trovato i dati dell'utente, strano!");
-		        # For testing purposes, if there was an error, let's kill the script
-		        die("C'&egrave; stato un problema durante il login. Prova pi&ugrave; tardi!");
-		    }
-
-		} // if user connected to the selected provider
+    endif;
 
 	}
 
@@ -203,6 +163,12 @@ class core {
 
 	function get_session_properties()
 	{
+//    var_dump($_SESSION['rigorix_logged_user']);
+    if (isset($_SESSION['rigorix_logged_user']) && $_SESSION['rigorix_logged_user'] != null)
+      $loggedUserObject = Users::find($_SESSION['rigorix_logged_user']);
+    else
+      $loggedUserObject = false;
+
 		foreach ( $_SESSION['rigorix'] as $setting => $setting_val ) {
 			$this->$setting = $setting_val;
 		}
@@ -210,7 +176,7 @@ class core {
 
 	function set_session_properties( $key, $value )
 	{
-		$_SESSION['rigorix']{$key} = $value;
+
 	}
 
 	function render_banner ( $position )
