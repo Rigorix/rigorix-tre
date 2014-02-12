@@ -18,6 +18,10 @@ Rigorix.config ($routeProvider)->
     templateUrl: "app/templates/pages/home.page.html",
     controller: "Home"
 
+  $routeProvider.when "/first-login",
+    templateUrl: "app/templates/pages/first-login.page.html",
+    controller: "FirstLogin"
+
 
 # --- Area personale ------------------------------------------------
   $routeProvider.when "/area-personale",

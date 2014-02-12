@@ -1,4 +1,4 @@
-Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserServiceNew, $window) ->
+Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserServiceNew, $window, $location) ->
 
   $scope.siteTitle = "Website title"
   $scope.userLogged = false
@@ -58,11 +58,14 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
         $rootScope.$broadcast "user:update", json
 
   if $scope.User isnt false
-    $scope.userLogged = true
-    $scope.currentUser = User
-    do $scope.updateUserObject
-
-    setInterval ()=>
+    if $scope.User.attivo is 0
+      $location.path "first-login"
+    else
+      $scope.userLogged = true
+      $scope.currentUser = User
       do $scope.updateUserObject
 
-    , RigorixConfig.updateTime
+      setInterval ()=>
+        do $scope.updateUserObject
+
+      , RigorixConfig.updateTime

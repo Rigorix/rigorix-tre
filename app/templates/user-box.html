@@ -10,7 +10,7 @@
             <p icon="danger">Utente loggato FAKE!</p>
         </div>
 
-        <div id="boxUtente" ng-show="userLogged">
+        <div id="boxUtente" ng-show="currentUser">
             <div class="list-group-item">
                 <div class="media">
                     <a class="pull-left user-picture" href="#" name="add-profile-picture">
@@ -41,7 +41,7 @@
 
 
 
-        <div id="boxUtente" ng-show="!userLogged">
+        <div id="boxUtente" ng-show="!currentUser">
 
             <!-- SOCIAL LOGIN NEW -->
             <div class="ui-box-content-html" id="login_box">

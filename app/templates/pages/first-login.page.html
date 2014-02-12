@@ -1,0 +1,79 @@
+<div class="row">
+
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1>Benvenuto!</h1>
+            <p>
+                Ciao {{newUser.username}}, questa è la prima volta che ti colleghi a Rigorix. <br/>
+                Ti sei autenticato usando il tuo account di <img src="/i/login_{{newUser.social_provider}}.png" alt=""/>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col col-sm-10 col-sm-offset-1">
+        <h4 class="mbl">Ti chiediamo di completare/confermare la form sottostante per attivare il tuo account.</h4>
+
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Username</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" disabled="disabled" value="{{newUser.username}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Social</label>
+                <div class="col-sm-9 pvs">
+                    <a target="_blank" href="{{newUSer.social_url}}"><img src="/i/login_{{newUser.social_provider}}.png" /></a>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Nome</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" ng-model="newUser.db_object.nome" value="{{currentUser.db_object.nome}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Cognome</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" ng-model="newUser.db_object.cognome" value="{{currentUser.db_object.cognome}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" ng-model="newUser.db_object.email_utente" value="{{currentUser.db_object.email}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Sesso</label>
+                <div class="col-sm-9">
+                    <select class="form-control" ng-model="newUser.db_object.sesso" name="indb_sesso">
+                        <option value="M" selected="{{currentUser.db_object.sesso == 'M'}}">Maschio</option>
+                        <option value="F" selected="{{currentUser.db_object.sesso == 'F'}}">Femmina</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Data di nascita</label>
+                <div class="col-sm-9 enlarge-inside-table">
+                    <datepicker ng-model="newUser.db_object.data_nascita" show-weeks="false"></datepicker>
+                </div>
+            </div>
+
+            <div class="col-sm-offset-4">
+                <button class="btn btn-success" icon="save" ng-click="doUpdateUserData()">Aggiorna dati utente</button>
+            </div>
+        </form>
+    </div>
+</div>
+
