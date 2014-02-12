@@ -8,6 +8,7 @@
 @import "/app/assets/less/fonts.less";
 @import "/app/assets/less/directives.less";
 @import "/app/assets/less/mixin.less";
+@import "/app/assets/less/form.less";
 
 /// Partials
 @import "/app/assets/less/header.less";
@@ -17,6 +18,7 @@
 @import "/app/assets/less/gameplay.less";
 @import "/app/assets/less/areapersonale.less";
 @import "/app/assets/less/page.home.less";
+@import "/app/assets/less/page.first-login.less";
 
 body {
   width: 100%;
@@ -37,6 +39,10 @@ body {
 .enlarge-inside-table {
   table {
     width: 100%;
+
+    button {
+      border: 0;
+    }
   }
 }
 
@@ -111,3 +117,14 @@ body {
 }
 
 
+.logger {
+
+  * {
+    font-family: 11px "courier new" #333;
+  }
+  h4 {
+    border-top: 2px solid #333;
+    padding: 10px 0;
+    margin-top: 10px;
+  }
+}

@@ -1,4 +1,4 @@
-Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserServiceNew, $window, $location) ->
+Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserServiceNew, $window, $location, Api) ->
 
   $scope.siteTitle = "Website title"
   $scope.userLogged = false
@@ -9,11 +9,9 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
     $rootScope.$broadcast "rootevent:click",
       event: event
 
-#  $scope.$on "$routeChangeStart", (event, next, current)->
-#    alert "logout"
-##    TODO: remove
-#    if next.$$route.originalPath == "/logout"
-#      $scope.$emit "LOGOUT"
+  $scope.$on "$routeChangeStart", (event, next, current)->
+    if User? and User.attivo is 0
+      $location.path "/first-login"
 
   $scope.$on "modal:open", (event, obj)->
     $scope.modalClass = obj.modalClass
@@ -30,8 +28,14 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
     $(".rigorix-loading").removeClass "show"
 
   $scope.$on "user:logout", ->
-    $window.location.href = "/?logout"
+#    Api.logout $scope.currentUser.id_utente
+#    User = false
+#    $scope.User = false
+#    $scope.currentUser = false
+    $window.location.href = "/?logout=" + $scope.currentUser.id_utente
 
+  $scope.$on "user:activated", ->
+    do $scope.updateUserObject
 
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -53,8 +57,9 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
       id_utente: $scope.User.id_utente
     ,
       (json)=>
-        json.picture = RigorixConfig.userPicturePath + json.picture if json.picture.indexOf "http" is -1
         $scope.currentUser = json
+#        $scope.currentUser.picture = RigorixConfig.userPicturePath + json.picture if json.picture.indexOf "http" is -1
+        $scope.userLogged = json.attivo is 1
         $rootScope.$broadcast "user:update", json
 
   if $scope.User isnt false

@@ -1,14 +1,18 @@
-Rigorix.controller "Home", ($scope, AppService, UserServiceNew) ->
+Rigorix.controller "Home", ($scope, AppService, UserServiceNew, Api) ->
+
+  $scope.campione = false
 
   $scope.updateResources = ->
     $scope.activeUsers = AppService.getActiveUsers()
     $scope.campione = false
 
-    AppService.getCampioneSettimana (campione)->
-      if campione.userObject? and campione.userObject.id_utente isnt 0
-        $scope.campione = campione
-      else
-        $scope.campione = false
+    Api.call "get", "/users/champion/week",
+      success: (champion)->
+        $scope.campione = champion
+
+      error: (message, status)->
+        if status is 404
+          $scope.campione = false
 
   do $scope.updateResources
 

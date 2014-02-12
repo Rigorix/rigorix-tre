@@ -17,7 +17,7 @@ require_once __DIR__ . '/fastjson.php';
 require_once __DIR__ . '/restclient.php';
 
 $api = new RestClient(array(
-  'base_url' => 'http://tre.rigorix.local/api' //substr($env->API_DOMAIN, 0, -1)
+  'base_url' => substr($env->API_DOMAIN, 0, -1)
 ));
 
 
@@ -42,17 +42,16 @@ class Core {
   { global $api;
 
     if ( isset ($_REQUEST['logout']) ) {
-      session_destroy();
+      if ( $_REQUEST['logout'] == $_SESSION['rigorix_logged_user'])
+        session_destroy();
       header("Location: /");
-      die();
     }
 
     if ( isset($_SESSION['rigorix_logged_user']) && $_SESSION['rigorix_logged_user'] != 0 ) {
 
       $result = $api->get("users/" . $_SESSION['rigorix_logged_user']);
-      $this->logged = $result->response;
-
-//      var_dump(file_get_contents("/api/users/" . $_SESSION['rigorix_logged_user']));
+      if ($result->info->http_code == 200 )
+        $this->logged = $result->response;
 
     } else if ( isset($_GET['id']) && isset($_GET['token']) && $_GET['token'] != "") {
 

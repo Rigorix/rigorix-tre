@@ -75,7 +75,7 @@ Flight::route('GET /users/champion/@period', function($period) {
   if ($period == "day")
     $sfide = Sfide::today()->done();
 
-  if ( $sfide != null):
+  if ( $sfide != null && $sfide->count() > 0):
     $usersPoints = array();
     foreach ( $sfide->get() as $sfida) {
       if ( !array_key_exists($sfida->id_sfidante, $usersPoints))
@@ -101,7 +101,7 @@ Flight::route('GET /users/champion/@period', function($period) {
     echo FastJSON::convert($best);
 
   else:
-    echo '{ "id_utente": 0 }';
+    Flight::notFound();
   endif;
 });
 
@@ -114,7 +114,7 @@ Flight::route('GET /users/top/@count', function($count) { global $dm_utente;
 });
 
 Flight::route('GET /users/@id_utente', function($id_utente) {
-  Flight::json ( getUserObjectExtended($id_utente) );
+  echo FastJSON::convert( getUserObjectExtended($id_utente) );
 });
 
 Flight::route('GET /user/@id_utente/messages', function($id_utente) {
@@ -146,7 +146,7 @@ Flight::route('POST /users/create', function() {
     $newUser->picture         = $_POST['image'];
     $newUser->nome            = $_POST['nome'];
     $newUser->cognome         = $_POST['cognome'];
-    $newUser->sesso           = substr($_POST['gender'], 0, 1);
+    $newUser->sesso           = strtoupper(substr($_POST['gender'], 0, 1));
     $newUser->email           = $_POST['email'];
 
     $newUser->save();
@@ -173,6 +173,11 @@ Flight::route('POST /users/delete', function() {
   endif;
 });
 
+
+Flight::route('POST /users/@id_utente/logout', function($id_utente) {
+  Flight::redirect($_SERVER["HTTP_REFERER"] . "?logout={$id_utente}");
+});
+
 Flight::route('POST /users/@id_utente', function($id_utente) { global $dm_utente;
   $postdata = file_get_contents("php://input");
   $data = json_decode($postdata);
@@ -183,6 +188,7 @@ Flight::route('POST /users/@id_utente', function($id_utente) { global $dm_utente
   echo FastJSON::convert(getUserObjectExtended($id_utente));
 });
 
+// DELETE -----
 
 
 

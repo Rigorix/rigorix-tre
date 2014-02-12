@@ -7,9 +7,6 @@ RigorixConfig =
 RigorixStorage =
   users: {}
 
-#User = window.User
-console.log "", User, window.User
-
 authComplete = ()->
 #  window.RigorixAuth.close()
   window.location.refresh()

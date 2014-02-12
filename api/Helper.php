@@ -10,17 +10,6 @@ function getParams() {
 }
 
 function getUserObjectExtended($id_utente) { global $dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards;
-//  $UserObject                   = $dm_utente->getObjUtenteById($id_utente);
-//  $UserObject->db_object        = $dm_utente->getObjUtenteById($id_utente);
-//  $UserObject->messages         = $dm_messaggi->getArrObjMessaggiUnread ($id_utente);
-//  $UserObject->totMessages      = $dm_messaggi->getCountUnbannedMessages ( $id_utente );
-//  $UserObject->badges           = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
-//  $UserObject->sfide_da_giocare = $dm_sfide->getSfideDaGiocareByUtente ( $id_utente );
-//  $UserObject->rewards          = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
-//  $UserObject->picture          = sanitizeUserPicture($UserObject->picture);
-//
-//  return $UserObject;
-
   $obj = new stdClass();
   $obj->db_object           = Users::find($id_utente)->toArray();
   $obj->messages            = Messages::receiver($id_utente)->unread()->get()->toArray();
@@ -52,7 +41,7 @@ function sanitizeUserPicture ($picture) {
   else if ( strpos($picture, "http") === 0 )
     $picture_uri = $picture;
   else
-    $picture_uri =  '/i/profile_picture/' . $picture;
+    $picture_uri =  '/i/profile_picture/' . $picture; 
 
   return $picture_uri;
 }

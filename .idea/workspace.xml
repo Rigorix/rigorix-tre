@@ -2,11 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/FirstLogin.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/pages/first-login.page.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/less/form.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/logger.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/less/page.first-login.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/Api.coffee" afterPath="$PROJECT_DIR$/app/services/Api.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/FirstLogin.coffee" afterPath="$PROJECT_DIR$/app/controllers/FirstLogin.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/Helper.php" afterPath="$PROJECT_DIR$/api/Helper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Home.coffee" afterPath="$PROJECT_DIR$/app/controllers/Home.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Main.coffee" afterPath="$PROJECT_DIR$/app/controllers/Main.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.coffee" afterPath="$PROJECT_DIR$/app/app.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" afterPath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/common.less" afterPath="$PROJECT_DIR$/app/assets/less/common.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config.coffee" afterPath="$PROJECT_DIR$/app/config.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/config.less" afterPath="$PROJECT_DIR$/app/assets/less/config.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/pages/first-login.page.html" afterPath="$PROJECT_DIR$/app/templates/pages/first-login.page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/header.less" afterPath="$PROJECT_DIR$/app/assets/less/header.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/index.php" afterPath="$PROJECT_DIR$/api/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/mixins.less" afterPath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/mixins.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/new.core.php" afterPath="$PROJECT_DIR$/classes/new.core.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/user-box.html" afterPath="$PROJECT_DIR$/app/templates/user-box.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -42,70 +55,52 @@
       <file leaf-file-name="Main.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="33" selection-start="12395" selection-end="12395" vertical-scroll-proportion="0.0" vertical-offset="500" max-vertical-offset="1140">
+            <state line="27" column="44" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-box.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/user-box.html">
+      <file leaf-file-name="config.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="38" selection-start="2220" selection-end="2220" vertical-scroll-proportion="-15.625" vertical-offset="270" max-vertical-offset="1125">
+            <state line="9" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app.coffee">
+      <file leaf-file-name="head.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/partials/head.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="27" selection-start="813" selection-end="813" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="930">
+            <state line="8" column="43" selection-start="333" selection-end="340" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="330">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FirstLogin.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/FirstLogin.coffee">
+      <file leaf-file-name="Api.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="16" selection-start="105" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+            <state line="19" column="36" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="first-login.page.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/templates/pages/first-login.page.html">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="583" selection-end="583" vertical-scroll-proportion="0.22782609" vertical-offset="139" max-vertical-offset="1275">
+            <state line="162" column="0" selection-start="5157" selection-end="5157" vertical-scroll-proportion="-4.1666665" vertical-offset="2330" max-vertical-offset="7575">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="impostazioni.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/area-personale/impostazioni.html">
+      <file leaf-file-name="Collection.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/flight/util/Collection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="34" selection-start="779" selection-end="4223" vertical-scroll-proportion="-17.5" vertical-offset="660" max-vertical-offset="3330">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.core.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/new.core.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="41" selection-start="518" selection-end="518" vertical-scroll-proportion="-11.25" vertical-offset="15" max-vertical-offset="1230">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="restclient.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/restclient.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="32" selection-start="773" selection-end="773" vertical-scroll-proportion="30.0" vertical-offset="1875" max-vertical-offset="3750">
+            <state line="14" column="65" selection-start="371" selection-end="371" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="3060">
               <folding />
             </state>
           </provider>
@@ -114,7 +109,16 @@
       <file leaf-file-name="UserService.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/UserService.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="39" selection-start="25" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.core.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/new.core.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="3" selection-start="651" selection-end="651" vertical-scroll-proportion="0.12747875" vertical-offset="405" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -123,17 +127,8 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="2" selection-start="45" selection-end="45" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="810">
-              <folding>
-                <marker date="1392170673000" expanded="true" signature="121:1620" placeholder="..." />
-                <marker date="1392170673000" expanded="true" signature="128:731" placeholder="..." />
-                <marker date="1392170673000" expanded="true" signature="605:723" placeholder="..." />
-                <marker date="1392170673000" expanded="true" signature="808:1541" placeholder="..." />
-                <marker date="1392170673000" expanded="true" signature="901:1501" placeholder="..." />
-                <marker date="1392170673000" expanded="true" signature="1064:1390" placeholder="..." />
-                <marker date="1392170673000" expanded="true" signature="1098:1165" placeholder="..." />
-                <marker date="1392170673000" expanded="true" signature="1223:1378" placeholder="..." />
-              </folding>
+            <state line="47" column="70" selection-start="1606" selection-end="1606" vertical-scroll-proportion="-22.291666" vertical-offset="170" max-vertical-offset="840">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,22 +151,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/classes/error.class.php" />
-        <option value="$PROJECT_DIR$/Opauth/opauth.conf.php" />
-        <option value="$PROJECT_DIR$/Opauth/index.php" />
-        <option value="$PROJECT_DIR$/api/error.class.php" />
-        <option value="$PROJECT_DIR$/app/templates/best-users.html" />
-        <option value="$PROJECT_DIR$/api/user.class.php" />
-        <option value="$PROJECT_DIR$/api/test_insert.php" />
-        <option value="$PROJECT_DIR$/api/index.php" />
-        <option value="$PROJECT_DIR$/Opauth/callback.php" />
-        <option value="$PROJECT_DIR$/classes/new.core.php" />
-        <option value="$PROJECT_DIR$/app/controllers/Main.coffee" />
-        <option value="$PROJECT_DIR$/app/app.coffee" />
-        <option value="$PROJECT_DIR$/app/templates/user-box.html" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/app/controllers/FirstLogin.coffee" />
-        <option value="$PROJECT_DIR$/app/templates/pages/first-login.page.html" />
+        <option value="$PROJECT_DIR$/testrest.php" />
+        <option value="$PROJECT_DIR$/app/controllers/Home.coffee" />
+        <option value="$PROJECT_DIR$/app/templates/user-box.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
+        <option value="$PROJECT_DIR$/Opauth/callback.php" />
+        <option value="$PROJECT_DIR$/app/assets/less/common.less" />
+        <option value="$PROJECT_DIR$/classes/logger.php" />
+        <option value="$PROJECT_DIR$/api/Helper.php" />
+        <option value="$PROJECT_DIR$/app/config.coffee" />
+        <option value="$PROJECT_DIR$/app/services/Api.coffee" />
+        <option value="$PROJECT_DIR$/api/index.php" />
+        <option value="$PROJECT_DIR$/app/controllers/Main.coffee" />
+        <option value="$PROJECT_DIR$/classes/new.core.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -180,9 +175,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="213" />
+    <option name="y" value="1102" />
     <option name="width" value="1440" />
-    <option name="height" value="824" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -302,6 +298,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Opauth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -317,46 +327,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="area-personale" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -393,6 +363,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -459,6 +443,180 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/users/5794" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="isArray" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sfida_matrix" />
+                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sfida_matrix" />
+                <option name="value" value="falsesfida_matrix" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sfida" />
+                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sfida_matrix" />
+                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="isArray" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="isArray" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/users/5775" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="isArray" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sfida_matrix" />
+                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sfida_matrix" />
+                <option name="value" value="falsesfida_matrix" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sfida" />
+                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sfida_matrix" />
+                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="isArray" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="isArray" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://tre.rigorix.local" />
@@ -4770,174 +4928,6 @@
           <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="DELETE" />
-          <option name="urlBase" value="http://tre.rigorix.local" />
-          <option name="urlPath" value="/api/users/message/26" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="DELETE" />
-          <option name="urlBase" value="http://tre.rigorix.local" />
-          <option name="urlPath" value="/api/users/message/25" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
       </list>
     </option>
   </component>
@@ -5130,7 +5120,11 @@
       <created>1392167488952</created>
       <updated>1392167488952</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="First steps first login">
+      <created>1392171653230</created>
+      <updated>1392171653230</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers>
       <GitHub shared="false" url="github.com">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -5148,13 +5142,13 @@
     </servers>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="824" extended-state="6" />
+    <frame x="213" y="1102" width="1440" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14643799" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6628734" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17069702" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2688478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1701847" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36015832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22740315" sideWeight="0.89313984" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -5162,10 +5156,10 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25852272" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5989446" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.82849604" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20588236" sideWeight="0.73153406" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19655667" sideWeight="0.4010554" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -5180,9 +5174,9 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14643799" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6628734" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17069702" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1701847" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2688478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36015832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22740315" sideWeight="0.89313984" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -5190,11 +5184,11 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25852272" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39182058" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.82849604" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20588236" sideWeight="0.74147725" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19655667" sideWeight="0.6081794" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -5217,7 +5211,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- reply to an open sfida now works" />
     <MESSAGE value="Update Readme" />
     <MESSAGE value="Improvements on Area personale" />
     <MESSAGE value="Tweeking lista sfide, almost perfect now" />
@@ -5242,7 +5235,8 @@
     <MESSAGE value="Fix champion" />
     <MESSAGE value="--" />
     <MESSAGE value="First login process and first create user complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="First login process and first create user complete" />
+    <MESSAGE value="First steps first login" />
+    <option name="LAST_COMMIT_MESSAGE" value="First steps first login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -5250,123 +5244,117 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/error.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/best-users.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="385" selection-end="385" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/user.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="6" selection-start="1086" selection-end="1086" vertical-scroll-proportion="-17.375" vertical-offset="303" max-vertical-offset="945">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Opauth/callback.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="2780" selection-end="2780" vertical-scroll-proportion="-4.375" vertical-offset="1245" max-vertical-offset="2055">
+        <state line="2" column="36" selection-start="29" selection-end="61" vertical-scroll-proportion="19.375" vertical-offset="495" max-vertical-offset="2100">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/pages/home.page.html">
+    <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
+        <state line="119" column="9" selection-start="1995" selection-end="1995" vertical-scroll-proportion="-13.708333" vertical-offset="1456" max-vertical-offset="2025">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/index.php">
+    <entry file="file://$PROJECT_DIR$/classes/logger.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="37" selection-start="4942" selection-end="4942" vertical-scroll-proportion="-14.166667" vertical-offset="1955" max-vertical-offset="7485">
+        <state line="13" column="39" selection-start="352" selection-end="352" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="375">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/new.core.php">
+    <entry file="file://$PROJECT_DIR$/api/flight/Flight.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="41" selection-start="518" selection-end="518" vertical-scroll-proportion="-11.25" vertical-offset="15" max-vertical-offset="1230">
+        <state line="19" column="21" selection-start="379" selection-end="379" vertical-scroll-proportion="0.37823835" vertical-offset="64" max-vertical-offset="705">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/restclient.php">
+    <entry file="file://$PROJECT_DIR$/api/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="32" selection-start="773" selection-end="773" vertical-scroll-proportion="30.0" vertical-offset="1875" max-vertical-offset="3750">
+        <state line="39" column="6" selection-start="1573" selection-end="1573" vertical-scroll-proportion="-23.75" vertical-offset="15" max-vertical-offset="1050">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.coffee">
+    <entry file="file://$PROJECT_DIR$/app/config.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="27" selection-start="813" selection-end="813" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="930">
+        <state line="9" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/UserService.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="39" selection-start="25" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="707">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/flight/Engine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="441" column="26" selection-start="11269" selection-end="11269" vertical-scroll-proportion="-0.11566618" vertical-offset="6604" max-vertical-offset="7590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/flight/util/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="65" selection-start="371" selection-end="371" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="3060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="36" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="0" selection-start="5157" selection-end="5157" vertical-scroll-proportion="-4.1666665" vertical-offset="2330" max-vertical-offset="7575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/partials/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="43" selection-start="333" selection-end="340" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="330">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="33" selection-start="12395" selection-end="12395" vertical-scroll-proportion="0.0" vertical-offset="500" max-vertical-offset="1140">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/user-box.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="38" selection-start="2220" selection-end="2220" vertical-scroll-proportion="-15.625" vertical-offset="270" max-vertical-offset="1125">
+        <state line="27" column="44" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="45" selection-end="45" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="810">
-          <folding>
-            <marker date="1392170673000" expanded="true" signature="121:1620" placeholder="..." />
-            <marker date="1392170673000" expanded="true" signature="128:731" placeholder="..." />
-            <marker date="1392170673000" expanded="true" signature="605:723" placeholder="..." />
-            <marker date="1392170673000" expanded="true" signature="808:1541" placeholder="..." />
-            <marker date="1392170673000" expanded="true" signature="901:1501" placeholder="..." />
-            <marker date="1392170673000" expanded="true" signature="1064:1390" placeholder="..." />
-            <marker date="1392170673000" expanded="true" signature="1098:1165" placeholder="..." />
-            <marker date="1392170673000" expanded="true" signature="1223:1378" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/FirstLogin.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="16" selection-start="105" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+        <state line="47" column="70" selection-start="1606" selection-end="1606" vertical-scroll-proportion="-22.291666" vertical-offset="170" max-vertical-offset="840">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/impostazioni.html">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="34" selection-start="779" selection-end="4223" vertical-scroll-proportion="-17.5" vertical-offset="660" max-vertical-offset="3330">
+        <state line="19" column="20" selection-start="426" selection-end="430" vertical-scroll-proportion="0.41911766" vertical-offset="0" max-vertical-offset="680">
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/pages/first-login.page.html">
+    <entry file="file://$PROJECT_DIR$/classes/new.core.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="583" selection-end="583" vertical-scroll-proportion="0.22782609" vertical-offset="139" max-vertical-offset="1275">
+        <state line="33" column="3" selection-start="651" selection-end="651" vertical-scroll-proportion="0.12747875" vertical-offset="405" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>

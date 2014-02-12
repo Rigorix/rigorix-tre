@@ -1,4 +1,4 @@
-Rigorix.controller "Sidebar", ($scope, AppService, Api, $window)->
+Rigorix.controller "Sidebar", ($scope, AppService, $rootScope)->
 
   $scope.topUsers = []
   $scope.userTooltipMessage = if $scope.currentUser? and $scope.currentUser isnt false then "Clicca per sfidare" else "Entra per sfidare "
@@ -7,6 +7,7 @@ Rigorix.controller "Sidebar", ($scope, AppService, Api, $window)->
     $scope.topUsers = users
 
   $scope.doAuth = (social) ->
+    $rootScope.$broadcast "user:logout"
     window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to="+RigorixEnv.DOMAIN
 
   $scope.$on "message:read", (ev, message)->
