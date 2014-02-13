@@ -20,18 +20,11 @@ Rigorix.controller "AreaPersonale", ($scope, $routeParams, $location, Api) ->
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Utente", ($scope, Api) ->
+Rigorix.controller "AreaPersonale.Utente", ($scope, Api, $rootScope, AppService) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'palmares' ]
-#  $scope.rewards = []
-
-
-  Api.call "get", "badges", (response)->
-    $scope.rewards = response
-    $(".game-loader").remove()
-    $scope.isLoading = false
-
+  $scope.rewards = do AppService.getBadges
 
   $scope.userHasBadge = (reward) ->
     ret = false

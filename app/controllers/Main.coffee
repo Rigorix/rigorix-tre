@@ -28,10 +28,6 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
     $(".rigorix-loading").removeClass "show"
 
   $scope.$on "user:logout", ->
-#    Api.logout $scope.currentUser.id_utente
-#    User = false
-#    $scope.User = false
-#    $scope.currentUser = false
     $window.location.href = "/?logout=" + $scope.currentUser.id_utente
 
   $scope.$on "user:activated", ->

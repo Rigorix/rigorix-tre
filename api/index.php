@@ -325,10 +325,7 @@ Flight::route('GET /user/@id_utente/messages', function($id_utente) { global $dm
 /// Badges
 Flight::route('GET /badges', function($count) { global $dm_rewards;
 
-//  echo Flight::json ($dm_rewards->getBadgeRewards ());
-//  echo FastJSON::convert( $dm_rewards->getBadgeRewards () );
-  var_dump($dm_rewards->getBadgeRewards ());
-
+  echo Rewards::badges()->active()->get()->toJson();
 });
 
 

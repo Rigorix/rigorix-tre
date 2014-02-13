@@ -4,6 +4,15 @@ class Rewards extends  Illuminate\Database\Eloquent\Model {
   protected $table        = 'rewards';
   protected $primaryKey   = 'id_reward';
 
+  public function scopeBadges ($query)
+  {
+    return $query->where("tipo", "=", "badge");
+  }
+
+  public function scopeActive ($query)
+  {
+    return $query->where("active", "=", 1);
+  }
 
 }
 
