@@ -1,3 +1,0 @@
-
-01:37:30  ACTIVITY> do_login
-01:37:30  ACTIVITY> Error 101 [Utente o password non inseriti]

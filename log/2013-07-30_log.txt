@@ -1,4 +1,0 @@
-
-01:54:11  ACTIVITY> do_login_by_id
-02:28:43 [U 5780] ACTIVITY> do_update_user_data
-02:28:43 [U 5780] ACTIVITY> Success 110 [Dati utente aggiornati correttamente]

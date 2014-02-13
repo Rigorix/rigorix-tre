@@ -1,5 +1,0 @@
-
-16:35:49  ACTIVITY> do_login_by_id
-16:40:09 [U 5780] ACTIVITY> do_login_by_id
-05:14:28 [U 5780] ACTIVITY> do_login_by_id
-05:14:42 [U 5774] ACTIVITY> do_login_by_id

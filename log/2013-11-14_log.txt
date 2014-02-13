@@ -1,7 +1,0 @@
-
-04:19:58  ACTIVITY> do_login
-04:19:58  ACTIVITY> Error 101 [Utente o password non inseriti]
-04:20:14  ACTIVITY> do_login
-04:20:14  ACTIVITY> Error 101 [Utente o password non inseriti]
-04:21:00  ACTIVITY> do_login
-04:21:00  ACTIVITY> Error 101 [Utente o password non inseriti]

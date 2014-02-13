@@ -66,6 +66,7 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
     if $scope.User.attivo is 0
       $location.path "first-login"
     else
+      $location.path "/" if $location.$$path is "/first-login"
       $scope.userLogged = true
       $scope.currentUser = User
       do $scope.updateUserObject

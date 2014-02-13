@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" icon="asterisk">Username</label>
                     <div class="col-sm-9">
-                        <input type="text" ng-pattern="/^[A-Za-z0-9_-]*$/" required ng-minlength="3" ng-maxlength="14" name="username" class="form-control" ng-model="newUser.username" value="{{newUser.username}}">
+                        <input type="text" ng-pattern="/^[A-Za-z0-9_-]*$/" required ng-minlength="3" ng-maxlength="14" name="username" class="form-control" ng-model="newUser.db_object.username" value="{{newUser.db_object.username}}">
                         <span class="error-message" ng-show="newUserForm.username.$invalid && newUserForm.username.$dirty">Lo username è obbligatorio, con una lunghezza di minimo 3 e massimo 14 caratteri, composto solo da lettere, numeri _ e -.</span>
                     </div>
                 </div>
@@ -38,21 +38,21 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Nome</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" ng-model="newUser.nome" value="{{newUser.nome}}">
+                        <input type="text" class="form-control" ng-model="newUser.db_object.nome" value="{{newUser.db_object.nome}}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Cognome</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" ng-model="newUser.cognome" value="{{newUser.cognome}}">
+                        <input type="text" class="form-control" ng-model="newUser.db_object.cognome" value="{{newUser.db_object.cognome}}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" icon="asterisk">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" required class="form-control" ng-model="newUser.email_utente" value="{{newUser.email_utente}}">
+                        <input type="email" required class="form-control" ng-model="newUser.db_object.email_utente" value="{{newUser.db_object.email_utente}}">
                         <span class="error-message" ng-show="newUserForm.email.$invalid">La email è obbligatorie e dev'essere in un formato valido</span>
                     </div>
                 </div>
@@ -60,9 +60,9 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Sesso</label>
                     <div class="col-sm-9">
-                        <select class="form-control" ng-model="newUser.sesso" name="indb_sesso">
-                            <option value="M" selected="{{newUser.sesso == 'M'}}">Maschio</option>
-                            <option value="F" selected="{{newUser.sesso == 'F'}}">Femmina</option>
+                        <select class="form-control" ng-model="newUser.db_object.sesso" name="indb_sesso">
+                            <option value="M" selected="{{newUser.db_object.sesso == 'M'}}">Maschio</option>
+                            <option value="F" selected="{{newUser.db_object.sesso == 'F'}}">Femmina</option>
                         </select>
                     </div>
                 </div>
@@ -70,13 +70,13 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" icon="asterisk">Data di nascita</label>
                     <div class="col-sm-9 enlarge-inside-table">
-                        <input type="text" name="data_nascita" required ng-required="true" is-opened="datepickerOpened" datepicker-popup="dd-MM-yyyy" id="nome" ng-model="newUser.data_nascita" class="form-control" />
+                        <input type="text" name="data_nascita" required ng-required="true" value="newUser.db_object.data_nascita" id="nome" ng-model="newUser.db_object.data_nascita" class="form-control" />
                         <span class="error-message" ng-show="newUserForm.data_nascita.$invalid">La data di nascita è obbligatoria, clicca il campo e selezionala dal calendario</span>
                     </div>
                 </div>
 
                 <div class="col-sm-offset-4">
-                    <button popover="Correggi gli errori della form per poter completare la registrazione" popover-trigger="mouseenter" popover-enabled="false" class="btn btn-lg btn-success" icon="log-in" ng-click="doActivateUser()">ENTRA IN RIGORIX!</button>
+                    <button class="btn btn-lg btn-success" icon="log-in" ng-click="doActivateUser()">ENTRA IN RIGORIX!</button>
                 </div>
             </form>
         </div>

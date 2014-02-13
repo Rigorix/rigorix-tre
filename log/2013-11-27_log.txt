@@ -1,3 +1,0 @@
-
-10:22:32  ACTIVITY> do_login_by_id
-10:22:37  ACTIVITY> do_login_by_id

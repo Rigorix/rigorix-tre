@@ -45,7 +45,7 @@ require_once "classes/new.core.php";
 
   <div set-loader="100"></div>
 
-  <?php if($env->SHOW_LOGS === true) { require 'classes/logger.php'; } ?>
+  <?php if($env->SHOW_LOGS === true) { _on_page_log(); } ?>
 </body>
 <script src="/app/assets/dist/app.js" type="text/javascript"></script>
 </html>

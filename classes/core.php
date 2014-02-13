@@ -358,15 +358,15 @@ function _log ( $context, $log )
 {
 	global $core, $user;
 
-	if ( $core->settings["LOG_FILE"] == "" )
-		$core->settings["LOG_FILE"] = "log_generic.txt";
+	if ( !isset($env->LOG_FILE) )
+    $env->LOG_FILE = "log_generic.txt";
 
-	if ( !is_file($core->settings["LOG_FILE"]) )
-		touch($core->settings["LOG_FILE"]);
+	if ( !is_file($env->LOG_FILE) )
+		touch($env->LOG_FILE);
 
-	$fc = fopen($core->settings["LOG_FILE"], 'a') or die ("can't open errorlog file (".$core->settings["LOG_FILE"].")");
+	$fc = fopen($env->LOG_FILE, 'a') or die ("can't open errorlog file (".$env->LOG_FILE.")");
 	fwrite($fc, '
-'.date("H:i:s").' '.($user->is_logged ? "[U ".$user->obj->id_utente."]" : "").' '.$context.'> ' . $log);
+'.date("d-m-Y H:i:s").' '.($user->is_logged ? "[U ".$_SESSION['rigorix_logged_user']."]" : "").' '.$context.'> ' . $log);
 	fclose($fc);
 }
 

@@ -1,4 +1,4 @@
-Rigorix.controller "FirstLogin", ($scope, UserServiceNew, $location)->
+Rigorix.controller "FirstLogin", ($scope, UserServiceNew, $location, $rootScope)->
 
   if !User? or User is false
     $location.path "/"
@@ -18,17 +18,20 @@ Rigorix.controller "FirstLogin", ($scope, UserServiceNew, $location)->
   ,
     (json) ->
       $scope.newUser = json
-      $scope.newUser.email_utente = json.email if json.email_utente is ""
+      $scope.newUser.db_object.email_utente = json.email if json.email_utente is ""
 
   $scope.doActivateUser = ->
 
     if $scope.newUserForm.$valid
       $rootScope.$broadcast "show:loading"
 
-      $scope.newUser.attivo = 1
+      $scope.newUser.db_object.attivo = 1
       $scope.newUser.$save
         id_utente: $scope.newUser.id_utente
       ,
       (json)->
+        console.log "json", json
         $rootScope.$broadcast "hide:loading"
         $rootScope.$broadcast "user:activated", json
+    else
+      alert $scope.newUserForm.$valid

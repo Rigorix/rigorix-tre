@@ -6,7 +6,7 @@ Rigorix.controller "Home", ($scope, AppService, UserServiceNew, Api) ->
     $scope.activeUsers = AppService.getActiveUsers()
     $scope.campione = false
 
-    Api.call "get", "/users/champion/week",
+    Api.call "get", "users/champion/week",
       success: (champion)->
         $scope.campione = champion
 

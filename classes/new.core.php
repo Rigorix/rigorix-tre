@@ -7,6 +7,9 @@ session_start();
 ini_set("memory_limit", "128M") ;
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", true);
+ini_set("log_errors", 1);
+ini_set("error_log", "/Applications/XAMPP/logs/php_error_log");
+
 date_default_timezone_set('Europe/Rome');
 
 // GET environment conf
@@ -15,6 +18,7 @@ $env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
 // Libs and classes
 require_once __DIR__ . '/fastjson.php';
 require_once __DIR__ . '/restclient.php';
+require_once __DIR__ . '/logger.php';
 
 $api = new RestClient(array(
   'base_url' => substr($env->API_DOMAIN, 0, -1)
@@ -35,6 +39,7 @@ class Core {
 
   function start ()
   {
+    _log("CORE CLASS", "starts");
     $this->check_user ();
   }
 
@@ -62,14 +67,14 @@ class Core {
         $_SESSION['rigorix_logged_user_token'] = $_GET['token'];
         header('Location: /');
       } else if ($result->info->http_code == 404 ) {  // User not found, new subscription
-
         $api->post("users/create/", $result->decode_response());
       }
 
     } else
       $this->logged = "false";
 
+    _log ("CORE_CLASS", "check_user ended");
+
   }
 
 }
-

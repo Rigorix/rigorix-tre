@@ -1,20 +1,42 @@
-<div class="logger">
 <?php
+function _log ( $context, $log )
+{
+  global $core, $env;
 
-echo "<h4>Session</h4>";
-var_dump($_SESSION);
+  if ( !isset($env->LOG_DIR) )
+    $env->LOG_DIR = "log/";
 
-echo "<h4>Request</h4>";
-var_dump($_REQUEST);
+  $logfile = $_SERVER['DOCUMENT_ROOT'] . $env->LOG_DIR . date("Y_M_d") . "_log.txt";
 
-echo "<h4>Logged user</h4>";
-if ( isset($_SESSION['rigorix_logged_user'])) {
-  $loggedUser = $api->get("users/{$_SESSION['rigorix_logged_user']}");
-  if ($loggedUser->info->http_code == 200)
-    var_dump($loggedUser->response, 200);
-  else
-    var_dump($loggedUser->info);
+  if ( !is_file($logfile) )
+    touch($logfile);
+
+  $fc = fopen($logfile, 'a') or die ("can't open errorlog file (".$logfile.")");
+  fwrite($fc, '
+'.date("d-m-Y H:i:s").' '.($core->logged && isset($_SESSION['rigorix_logged_user']) ? "[U ".$_SESSION['rigorix_logged_user']."]" : "").' '.$context.'> ' . $log);
+  fclose($fc);
 }
 
-?>
-</div>
+function _on_page_log() { global $api; ?>
+
+  <div class="logger">
+  <?php
+
+  echo "<h4>Session</h4>";
+  var_dump($_SESSION);
+
+  echo "<h4>Request</h4>";
+  var_dump($_REQUEST);
+
+  echo "<h4>Logged user</h4>";
+  if ( isset($_SESSION['rigorix_logged_user'])) {
+    $loggedUser = $api->get("users/{$_SESSION['rigorix_logged_user']}");
+    if ($loggedUser->info->http_code == 200)
+      var_dump($loggedUser->response, 200);
+    else
+      var_dump($loggedUser->info);
+  }
+
+  ?>
+  </div>
+<? } ?>

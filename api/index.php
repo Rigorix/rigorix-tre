@@ -10,6 +10,7 @@ header('Content-type: application/json');
 
 require_once 'database.php';
 require_once '../classes/fastjson.php';
+require_once '../classes/logger.php';
 //require_once '../classes/core.php';
 require_once 'flight/Flight.php';
 require_once 'Helper.php';
@@ -113,7 +114,8 @@ Flight::route('GET /users/top/@count', function($count) { global $dm_utente;
   echo FastJSON::convert( $users );
 });
 
-Flight::route('GET /users/@id_utente', function($id_utente) {
+Flight::route('GET /users/@id_utente', function($id_utente) { ;
+  _log("API", "/users/$id_utente");
   echo FastJSON::convert( getUserObjectExtended($id_utente) );
 });
 
@@ -136,25 +138,31 @@ Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
 // POSTS -----
 
 Flight::route('POST /users/create', function() {
-  try {
-    $newUser                  = new Users;
-    $newUser->attivo          = 0;
-    $newUser->social_provider = $_POST['provider'];
-    $newUser->social_uid      = $_POST['id'];
-    $newUser->social_url      = $_POST['link'];
-    $newUser->username        = str_replace(" ", "_", $_POST['name']);
-    $newUser->picture         = $_POST['image'];
-    $newUser->nome            = $_POST['nome'];
-    $newUser->cognome         = $_POST['cognome'];
-    $newUser->sesso           = strtoupper(substr($_POST['gender'], 0, 1));
-    $newUser->email           = $_POST['email'];
+  _log ("API POST /users/create", FastJSON::convert($_POST));
+  _log ("API POST /users/create", "Found " . Users::findBySocialId($_POST['id'])->get()->count() . " with id " . $_POST['id']);
+  if (Users::findBySocialId($_POST['id'])->get()->count() == 0):
+    try {
+      $newUser                  = new Users;
+      $newUser->attivo          = 0;
+      $newUser->social_provider = $_POST['provider'];
+      $newUser->social_uid      = $_POST['id'];
+      $newUser->social_url      = $_POST['link'];
+      $newUser->username        = str_replace(" ", "_", $_POST['name']);
+      $newUser->picture         = $_POST['picture'];
+      $newUser->nome            = $_POST['given_name'];
+      $newUser->cognome         = $_POST['family_name'];
+      $newUser->sesso           = strtoupper(substr($_POST['gender'], 0, 1));
+      $newUser->email           = $_POST['email'];
 
-    $newUser->save();
+      $newUser->save();
 
-    Flight::json(array("id_utente" => $newUser->id_utente));
-  } catch (Exception $e) {
-    Flight::error($e);
-  }
+      Flight::json(array("id_utente" => $newUser->id_utente));
+    } catch (Exception $e) {
+      Flight::error($e);
+    }
+  else:
+    Flight::halt(409, "Trying to create a user that is already there");
+  endif;
 });
 
 Flight::route('POST /users/delete', function() {
@@ -178,57 +186,18 @@ Flight::route('POST /users/@id_utente/logout', function($id_utente) {
   Flight::redirect($_SERVER["HTTP_REFERER"] . "?logout={$id_utente}");
 });
 
-Flight::route('POST /users/@id_utente', function($id_utente) { global $dm_utente;
+Flight::route('POST /users/@id_utente', function($id_utente) {
   $postdata = file_get_contents("php://input");
   $data = json_decode($postdata);
-  $dbObject = $dm_utente->makeInDbObject($data->db_object, true);
 
-  $dm_utente->updateObject('utente', $dbObject, array( "id_utente" => $id_utente));
+  _log ("API POST /users/$id_utente", $data);
 
-  echo FastJSON::convert(getUserObjectExtended($id_utente));
+  $result = Users::find($data->db_object->id_utente)->update((array)$data->db_object);
+  $result->attivo = 1;
+  $result->save();
+
+  echo FastJSON::convert( getUserObjectExtended($data->db_object->id_utente) );
 });
-
-// DELETE -----
-
-
-
-
-/// Users //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-//Flight::route('GET /users/username/@username', function($username) { global $dm_utente;
-//  $users = $dm_utente->getUsersByUsernameQuery ( $username, false );
-//  $users = sanitizeUsersPicture($users);
-//  echo FastJSON::convert( $users );
-//});
-//
-//Flight::route('GET /users/@id_utente', function($id_utente) { global $dm_utente;
-//  $user = $dm_utente->getSingleObjectQueryCustom("SELECT * FROM utente WHERE id_utente = " . $id_utente );
-//  if ($user === false)
-//    echo "{ 'user': 'unknown', 'id_utente': '$id_utente' }";
-//  else {
-//    $user->picture = sanitizeUserPicture($user->picture);
-//    echo FastJSON::convert( $user );
-//  }
-//});
-//
-//Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
-//  $user = $dm_utente->getSingleObjectQueryCustom("SELECT $attribute FROM utente WHERE id_utente = " . $id_utente );
-//  if ($user === false)
-//    echo "{ '$attribute': 'unknown', 'id_utente': '$id_utente' }";
-//  else {
-//    $user->id_utente = $id_utente;
-//    if ($attribute == "username" && strpos($user->$attribute, "__DELETED__") !== false) {
-//      $user->$attribute = str_replace("__DELETED__", "", $user->$attribute);
-//      $user->deleted = true;
-//    } else
-//      $user->deleted = false;
-//    echo FastJSON::convert( $user );
-//  }
-//});
 
 
 
@@ -356,7 +325,9 @@ Flight::route('GET /user/@id_utente/messages', function($id_utente) { global $dm
 /// Badges
 Flight::route('GET /badges', function($count) { global $dm_rewards;
 
-  echo FastJSON::convert( $dm_rewards->getBadgeRewards () );
+//  echo Flight::json ($dm_rewards->getBadgeRewards ());
+//  echo FastJSON::convert( $dm_rewards->getBadgeRewards () );
+  var_dump($dm_rewards->getBadgeRewards ());
 
 });
 
@@ -464,12 +435,6 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
 });
 
 /// AUTH
-Flight::route('POST /user/logout', function() {
-  unset($_SESSION['rigorix']);
-
-  echo "{ 'status': 'ok' }";
-});
-
 Flight::route('GET /auth/@id_utente', function($id_utente) { global $dm_utente;
 
 	$user = $dm_utente->getObjUtenteById($id_utente);
@@ -494,7 +459,11 @@ Flight::route('GET /auth/@id_utente/game/status', function($id_utente) { global 
 
 
 
-
+Flight::map('error', function(Exception $ex){
+  // Handle error
+  echo $ex->getTraceAsString();
+});
+Flight::set('flight.log_errors', true);
 
 Flight::start();
 ?>
