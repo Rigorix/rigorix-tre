@@ -11,7 +11,7 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
 
   $scope.$on "$routeChangeStart", (event, next, current)->
     if User? and User.attivo is 0
-      $location.path "/first-login"
+      if User.dead is false then $location.path "/first-login" else $location.path "/access-denied"
 
   $scope.$on "modal:open", (event, obj)->
     $scope.modalClass = obj.modalClass

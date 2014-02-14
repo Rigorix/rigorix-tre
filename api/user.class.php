@@ -50,9 +50,9 @@ class UsersUnsubscribe extends Illuminate\Database\Eloquent\Model {
   protected $table        = 'unsubscribe';
   protected $primaryKey   = 'id_unsubscribe';
 
-  public function scopeUser ($id_utente)
+  public function scopeUser ($query, $id_utente)
   {
-    return $this->where ("id_utente", "=", $id_utente);
+    return $query->where ("id_utente", "=", $id_utente);
   }
 
 }

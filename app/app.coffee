@@ -22,6 +22,10 @@ Rigorix.config ($routeProvider)->
     templateUrl: "app/templates/pages/first-login.page.html",
     controller: "FirstLogin"
 
+  $routeProvider.when "/access-denied",
+    templateUrl: "app/templates/pages/access-denied.page.html",
+    controller: "AccessDenied"
+
 
 # --- Area personale ------------------------------------------------
   $routeProvider.when "/area-personale",

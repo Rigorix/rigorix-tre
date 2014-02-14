@@ -4,6 +4,9 @@ Rigorix.controller "FirstLogin", ($scope, UserServiceNew, $location, $rootScope)
     $location.path "/"
     return
 
+  if User.dead is true
+    $location.path "access-denied"
+
   $scope.datepickerOpened = false
   $scope.today = ->
     $scope.dt = new Date()

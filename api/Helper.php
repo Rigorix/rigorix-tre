@@ -9,7 +9,7 @@ function getParams() {
   return json_decode($postdata);
 }
 
-function getUserObjectExtended($id_utente) { global $dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards;
+function getUserObjectExtended($id_utente) { global $dm_utente, $dm_rewards;
   $obj = new stdClass();
   $obj->db_object           = Users::find($id_utente)->toArray();
   $obj->messages            = Messages::receiver($id_utente)->unread()->get()->toArray();
@@ -18,6 +18,7 @@ function getUserObjectExtended($id_utente) { global $dm_utente, $dm_messaggi, $d
   $obj->sfide_da_giocare    = Sfide::receivedBy($id_utente)->unplayed()->get()->toArray();
   $obj->rewards             = $dm_rewards->getRewardsObjectByIdUtente ( $id_utente );
   $obj->picture             = sanitizeUserPicture(Users::find($id_utente)->picture);
+  $obj->dead                = UsersUnsubscribe::user($id_utente)->get()->count() > 0;
 
   return (object) array_merge((array) $obj, (array) Users::find($id_utente)->toArray());
 }

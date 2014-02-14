@@ -1,12 +1,8 @@
 RigorixConfig =
-  updateTime: 60000
+  updateTime: if User? and User.id_utente then 60000 else 60000
   deletedUsernameQuery: "__DELETED__"
   messagesPerPage: 15
   userPicturePath: "/i/profile_picture/"
 
 RigorixStorage =
   users: {}
-
-authComplete = ()->
-#  window.RigorixAuth.close()
-  window.location.refresh()

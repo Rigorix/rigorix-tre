@@ -175,9 +175,14 @@ Flight::route('POST /users/delete', function() {
     $unsubscribe->stato = 0;
     $unsubscribe->conf_code = md5( $id_utente . $user->username . "unsubscribe_utente_key" );
     $unsubscribe->save();
-    echo '{ "status": "success", "id_utente" : '.$user->id_utente.'}';
+
+    $userObj = Users::find($user->id_utente);
+    $userObj->attivo = 0;
+    $userObj->save();
+
+    Flight::json(array("status" => "success", "id_utente" => "{$user->id_utente}"));
   else:
-    echo '{ "status": "error", "id_utente" : '.$user->id_utente.'}';
+    Flight::halt(406, "Cannot accept to unsubscribe a user that already requested to subscribe");
   endif;
 });
 
@@ -190,13 +195,15 @@ Flight::route('POST /users/@id_utente', function($id_utente) {
   $postdata = file_get_contents("php://input");
   $data = json_decode($postdata);
 
-  _log ("API POST /users/$id_utente", $data);
+  _log ("API POST /users/$id_utente", FastJSON::convert($data));
 
-  $result = Users::find($data->db_object->id_utente)->update((array)$data->db_object);
-  $result->attivo = 1;
-  $result->save();
+  $userData = ( isset($data->db_object) ) ? $data->db_object : $data;
 
-  echo FastJSON::convert( getUserObjectExtended($data->db_object->id_utente) );
+  $result = Users::find($userData->id_utente)->update((array)$userData);
+
+  _log ("API POST /users/$id_utente", "done");
+
+  echo FastJSON::convert( getUserObjectExtended($userData->id_utente) );
 });
 
 

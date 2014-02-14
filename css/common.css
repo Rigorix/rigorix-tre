@@ -366,12 +366,12 @@ tr.sub-th-row th, th.sub-th { font-weight: normal; text-align: left; }
 #siteMainInfo p .footer_links , .footer_links strong { color: #fff !important}
 
 /* #Icons */
-.icon { background-image: url(../i/icons.png); background-repeat: no-repeat; width: 22px; height: 20px; float: left; margin-right: 6px;  }
-.has-icon { background: url(../i/icons.png) no-repeat; }
-.icon.icon-sfide { background-position: 0 0; }
-.icon.icon-impostazioni { background-position: -29px 0; }
-.icon.icon-messaggi { background-position: -57px -2px; }
-.icon.icon-utente { background-position: -82px 0; }
+/*.icon { background-image: url(../i/icons.png); background-repeat: no-repeat; width: 22px; height: 20px; float: left; margin-right: 6px;  }*/
+/*.has-icon { background: url(../i/icons.png) no-repeat; }*/
+/*.icon.icon-sfide { background-position: 0 0; }*/
+/*.icon.icon-impostazioni { background-position: -29px 0; }*/
+/*.icon.icon-messaggi { background-position: -57px -2px; }*/
+/*.icon.icon-utente { background-position: -82px 0; }*/
 
 /* #Dialogs */
 .dialog-default-container { background: transparent; text-align: left; }
