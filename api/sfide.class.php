@@ -30,6 +30,11 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
     return $query->where("stato", "=", "2");
   }
 
+  public function scopePending($query)
+  {
+    return $query->where("stato", "<", "2");
+  }
+
   public function scopeReceivedBy($query, $id_utente)
   {
     $this->id_utente = $id_utente;

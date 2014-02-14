@@ -6,20 +6,6 @@ RigorixServices.factory "SfideService", ($resource)->
     isArray: false
 
   ,
-    getArchivioSfide:
-      method: 'GET'
-      params:
-        filter: 'archivio'
-        value: User.id_utente
-    ,
-
-    getSfidePending:
-      method: 'GET'
-      params:
-        filter: 'pending'
-        value: User.id_utente
-
-    ,
 
     sendSfida:
       method: 'POST'

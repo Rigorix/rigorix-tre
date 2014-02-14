@@ -15,7 +15,7 @@
                     </div>
 
                     <!-- Table -->
-                    <div ng-include="'app/templates/lista-sfide.html'" ng-model="sfideDaGiocare" on-lista-sfide-load="sfideDaGiocare"></div>
+                    <lista-sfide sfide="sfideDaGiocare"></lista-sfide>
                 </div>
 
             </div>
@@ -31,7 +31,7 @@
                     </div>
 
                     <!-- Table -->
-                    <div ng-include="'app/templates/lista-sfide.html'" on-lista-sfide-load="sfideInAttesaDiRisposta"></div>
+                    <lista-sfide sfide="sfideInAttesaDiRisposta"></lista-sfide>
                 </div>
             </div>
 
@@ -44,7 +44,7 @@
                     </div>
 
                     <!-- Table -->
-                    <div ng-include="'app/templates/lista-sfide.html'" on-lista-sfide-load="sfideArchivio"></div>
+                    <lista-sfide sfide="sfideArchivio"></lista-sfide>
                 </div>
             </div>
 

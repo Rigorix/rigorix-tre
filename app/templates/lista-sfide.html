@@ -1,4 +1,4 @@
-<table class="table mbn" ng-controller="ListaSfide" ng-class="{ isLoading: isLoading }">
+<table class="table mbn">
     <tr>
         <th rowspan="2"></th>
         <th rowspan="2">Avversario</th>
@@ -12,14 +12,14 @@
         <th class="text-center">Punti</th>
         <th class="text-center">Rewards</th>
     </tr>
-    <tr class="loading-row" ng-show="isLoading">
-        <td colspan="7">
-            <div class="game-loader">
-                <span>Loading ...</span>
-            </div>
-        </td>
-    </tr>
-    <tr ng-repeat="sfida in __sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.if_sfida}}" on-sfida-load>
+    <!--<tr class="loading-row" ng-show="isLoading">-->
+        <!--<td colspan="7">-->
+            <!--<div class="game-loader">-->
+                <!--<span>Loading ...</span>-->
+            <!--</div>-->
+        <!--</td>-->
+    <!--</tr>-->
+    <tr ng-repeat="sfida in sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.if_sfida}}" on-sfida-load>
         <td class="{{risultatoLabel}}"></td>
         <td>
             <username id_utente="{{id_avversario}}"></username>

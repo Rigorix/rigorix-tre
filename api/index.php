@@ -338,19 +338,15 @@ Flight::route('GET /badges', function($count) { global $dm_rewards;
 
 
 /// Sfide
-Flight::route('GET /sfide/archivio/@id_utente', function($id_utente) { global $dm_sfide;
+Flight::route('GET /sfide/archivio/@id_utente', function($id_utente) {
 
-  $limit_start = isset($_GET['limit_start']) ? $_GET['limit_start'] : 0;
-  $limit_count = isset($_GET['limit_count']) ? $_GET['limit_count'] : 10;
-  $sfide = $dm_sfide->getArrayObjectQueryCustom ( "select * from sfida where stato >= 2 and stato != 3 and (id_sfidante = ".$id_utente." or id_sfidato = ".$id_utente.") order by dta_conclusa DESC limit $limit_start, $limit_count ");
-  echo FastJSON::convert( $sfide );
+  echo Sfide::user($id_utente)->done()->get()->toJson();
 
 });
 
-Flight::route('GET /sfide/pending/@id_utente', function($id_utente) { global $dm_sfide;
+Flight::route('GET /sfide/pending/@id_utente', function($id_utente) {
 
-  $sfide = $dm_sfide->getSfideAttiveUtente ( $id_utente );
-  echo FastJSON::convert( $sfide );
+  echo Sfide::user($id_utente)->pending()->get()->toJson();
 
 });
 
@@ -421,30 +417,14 @@ Flight::route('GET /users/active', function() { global $dm_utente;
 
 
 
-Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { global $dm_utente;
+Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) {
+  $userAttr = Users::find($id_utente);
+  $attrValue = ( $userAttr != null ) ? $userAttr->getAttribute($attribute) : "- sconosciuto -";
 
-  $user = $dm_utente->getSingleObjectQueryCustom("SELECT $attribute FROM utente WHERE id_utente = " . $id_utente );
-  if ($user === false)
-    echo "{ 'username': '- sconosciuto -', 'id_utente': '$id_utente' }";
-  else {
-    $user->id_utente = $id_utente;
-    if ($attribute == "username" && strpos($user->$attribute, "__DELETED__") !== false) {
-      $user->$attribute = str_replace("__DELETED__", "", $user->$attribute);
-      $user->deleted = true;
-    } else
-      $user->deleted = false;
-    echo FastJSON::convert( $user );
-  }
-
+  Flight::json( array("username" => $attrValue, "id_utente" => $id_utente) );
 });
 
 /// AUTH
-Flight::route('GET /auth/@id_utente', function($id_utente) { global $dm_utente;
-
-	$user = $dm_utente->getObjUtenteById($id_utente);
-	echo FastJSON::convert($user);
-});
-
 Flight::route('GET /auth/@id_utente/game/status', function($id_utente) { global $dm_utente, $dm_messaggi, $dm_sfide, $dm_rewards;
   $UserObject                   = $dm_utente->getObjUtenteById($id_utente);
   $UserObject->messages         = $dm_messaggi->getArrObjMessaggiUnread ($id_utente);

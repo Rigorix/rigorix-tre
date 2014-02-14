@@ -4,7 +4,7 @@ Rigorix.filter "capitalize", ->
 
 Rigorix.filter "varToTitle", ->
   (input) ->
-    input = input.split("_").join(" ")
+    input = input.split("_").join(" ") if input.split("_").length > 1
     input.substring(0,1).toUpperCase()+input.substring(1)
 
 Rigorix.filter "stringToDate", ->
