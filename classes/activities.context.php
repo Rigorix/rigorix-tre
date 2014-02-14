@@ -313,7 +313,7 @@ class activities {
 
     if (isset($object->message->id_sender))
     {
-      $obj = [];
+      $obj = array();
       $obj['indb_id_sender'] = $object->message->id_receiver;
       $obj['indb_id_receiver'] = $object->message->id_sender;
       $obj['indb_oggetto'] = "RE:" . $object->message->oggetto;
@@ -530,7 +530,7 @@ class activities {
       $this->throw_error ( 300 );
     }
 
-    return [300, 302];
+    return array(300, 302);
   }
 
 

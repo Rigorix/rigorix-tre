@@ -1,20 +1,20 @@
 <?php
 function _log ( $context, $log )
 {
-  global $core, $env;
-
-  if ( !isset($env->LOG_DIR) )
-    $env->LOG_DIR = "log/";
-
-  $logfile = $_SERVER['DOCUMENT_ROOT'] . $env->LOG_DIR . date("Y_M_d") . "_log.txt";
-
-  if ( !is_file($logfile) )
-    touch($logfile);
-
-  $fc = fopen($logfile, 'a') or die ("can't open errorlog file (".$logfile.")");
-  fwrite($fc, '
-'.date("d-m-Y H:i:s").' '.($core->logged && isset($_SESSION['rigorix_logged_user']) ? "[U ".$_SESSION['rigorix_logged_user']."]" : "").' '.$context.'> ' . $log);
-  fclose($fc);
+//  global $core, $env;
+//
+//  if ( !isset($env->LOG_DIR) )
+//    $env->LOG_DIR = "log/";
+//
+//  $logfile = $_SERVER['DOCUMENT_ROOT'] . $env->LOG_DIR . date("Y_M_d") . "_log.txt";
+//
+//  if ( !is_file($logfile) )
+//    touch($logfile);
+//
+//  $fc = fopen($logfile, 'a') or die ("can't open errorlog file (".$logfile.")");
+//  fwrite($fc, '
+//'.date("d-m-Y H:i:s").' '.($core->logged && isset($_SESSION['rigorix_logged_user']) ? "[U ".$_SESSION['rigorix_logged_user']."]" : "").' '.$context.'> ' . $log);
+//  fclose($fc);
 }
 
 function _on_page_log() { global $api; ?>

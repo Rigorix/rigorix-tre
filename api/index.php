@@ -1,12 +1,14 @@
 <?php
-//error_reporting(E_ALL);
-//ini_set( 'display_errors','1');
-error_reporting(0);
-ini_set( 'display_errors','0');
+error_reporting(E_ALL);
+ini_set( 'display_errors','1');
+//error_reporting(0);
+//ini_set( 'display_errors','0');
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
 header('Content-type: application/json');
+
+$env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
 
 require_once 'database.php';
 require_once '../classes/fastjson.php';
@@ -27,8 +29,8 @@ require_once 'error.class.php';
   require_once __DIR__ . '/../dm/dm_sfide.php';
   require_once __DIR__ . '/../dm/dm_messaggi.php';
   require_once __DIR__ . '/../dm/dm_rewards.php';
-  $db_conn = mysql_pconnect ("localhost", "root", "");
-  mysql_select_db ( "rigorix_tre" );
+  $db_conn = mysql_pconnect ($env->DB->host, $env->DB->username, $env->DB->password);
+  mysql_select_db ( $env->DB->name );
   $db		 		    = new dm_generic_mysql  ( $db_conn, "rigorix_tre", false );
   $dm_utente 		= new dm_utente         ( $db_conn, "rigorix_tre", false );
   $dm_sfide 		= new dm_sfide          ( $db_conn, "rigorix_tre", false );
@@ -442,6 +444,12 @@ Flight::route('GET /auth/@id_utente/game/status', function($id_utente) { global 
 
 
 
+
+
+
+Flight::route('GET /test', function() {
+  Flight::halt(200, "Api is working");
+});
 
 Flight::map('error', function(Exception $ex){
   // Handle error

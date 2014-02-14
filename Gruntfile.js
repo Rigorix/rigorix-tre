@@ -17,11 +17,11 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ["app/**/*.coffee"],
-        tasks: ["dev:script"]
+        tasks: ["dev:script", "git_ftp:development"]
       },
       less: {
         files: ["app/assets/**/*.less"],
-        tasks: ["dev:less"]
+        tasks: ["dev:less", "git_ftp:development"]
       },
       options: {
         interrupt: true
@@ -70,17 +70,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    githooks: {
-      all: {
-        options: {
-          hashbang: '#!/bin/sh',
-          template: './node_modules/grunt-githooks/templates/shell.hb',
-          startMarker: '## LET THE FUN BEGIN',
-          endMarker: '## PARTY IS OVER'
-        },
-        'post-commit': 'git_ftp:development'
-      }
-    },
     bowerInstall: {
       install: {}
     },
@@ -91,7 +80,6 @@ module.exports = function(grunt) {
     }
   });
   grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-githooks");
   grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-less");

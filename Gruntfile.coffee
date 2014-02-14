@@ -23,12 +23,12 @@ module.exports = (grunt) ->
 #          "app/assets/dist/dependencies/*.js"
 #          "app/assets/**/*.less"
         ]
-        tasks: ["dev:script"]
+        tasks: ["dev:script", "git_ftp:development"]
       less:
         files: [
           "app/assets/**/*.less"
         ]
-        tasks: ["dev:less"]
+        tasks: ["dev:less", "git_ftp:development"]
       options:
         interrupt: true
 
@@ -109,15 +109,15 @@ module.exports = (grunt) ->
           hostFile: ".gitftppass"
           host: "staging"
 
-    githooks:
-        all:
-          options:
-            hashbang: '#!/bin/sh'
-            template: './node_modules/grunt-githooks/templates/shell.hb'
-            startMarker: '## LET THE FUN BEGIN'
-            endMarker: '## PARTY IS OVER'
-
-          'post-commit': 'git_ftp:development'
+#    githooks:
+#        all:
+#          options:
+#            hashbang: '#!/bin/sh'
+#            template: './node_modules/grunt-githooks/templates/shell.hb'
+#            startMarker: '## LET THE FUN BEGIN'
+#            endMarker: '## PARTY IS OVER'
+#
+#          'post-commit': 'git_ftp:development'
 
     bowerInstall:
       install: {}
@@ -131,7 +131,7 @@ module.exports = (grunt) ->
   #  grunt.loadNpmTasks('grunt-ftp-deploy');
 #  grunt.loadNpmTasks "grunt-git-ftp"
   grunt.loadNpmTasks "grunt-contrib-concat"
-  grunt.loadNpmTasks "grunt-githooks"
+#  grunt.loadNpmTasks "grunt-githooks"
   grunt.loadNpmTasks "grunt-concurrent"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-less"
