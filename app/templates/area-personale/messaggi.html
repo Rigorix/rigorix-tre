@@ -7,11 +7,14 @@
 
     <div class="table-responsive">
         <table class="table table-bordered table-messages mbn">
-            <tr>
+            <tr ng-show="messages.length > 0">
                 <th></th>
                 <th>Data</th>
                 <th>Mittente</th>
                 <th>Oggetto</th>
+            </tr>
+            <tr ng-show="messages.length == 0">
+                <td>Non hai nessun messaggio nel tuo archivio</td>
             </tr>
             <tr ng-repeat="message in messages" ng-class="{success:message.letto == 0}">
                 <td width="1"></td>

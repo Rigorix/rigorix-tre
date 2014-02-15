@@ -1,9 +1,14 @@
-Rigorix.controller 'Messages', ($scope, $rootScope, UserServiceNew, $modal)->
+Rigorix.controller 'Messages', ($scope, $rootScope, Api, UserServiceNew, $modal)->
 
-  $scope.messages = UserServiceNew.get
-    id_utente: User.id_utente
-    parameter: 'messages'
+  Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages/unread",
     count: RigorixConfig.messagesPerPage
+    success: (json)->
+      $scope.messages = json.data
+
+#  $scope.messages = UserServiceNew.get
+#    id_utente: User.id_utente
+#    parameter: 'messages'
+#    count: RigorixConfig.messagesPerPage
 
   $scope.$on "user:update", ->
     do $scope.updateMessages
@@ -111,7 +116,7 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
 
 
 
-Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootScope, $http, AppService)->
+Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootScope, $http, Api)->
 
   $scope.newMessage =
     oggetto: ''
@@ -128,7 +133,7 @@ Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootSc
     modalClass: 'modal-write-message'
 
   $scope.getUsers = (usernameQuery)->
-    $http.get(RigorixEnv.API_DOMAIN + "users/username/" + usernameQuery).then (json)->
+    $http.get(RigorixEnv.API_DOMAIN + "users/search/username/" + usernameQuery).then (json)->
       users = []
       for i,user of json.data
         users.push user

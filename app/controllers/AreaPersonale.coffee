@@ -25,6 +25,7 @@ Rigorix.controller "AreaPersonale.Utente", ($scope, Api, $rootScope, AppService)
   $scope.isLoading = true
   $scope.pages = [ 'palmares' ]
   $scope.rewards = do AppService.getBadges
+  $scope.badgesCount = $scope.currentUser.rewards.badges.length
 
   $scope.userHasBadge = (reward) ->
     ret = false

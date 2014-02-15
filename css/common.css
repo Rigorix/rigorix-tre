@@ -192,7 +192,8 @@ ul.normal-list li { margin-left: 15px; }
 .punteggio-utente-container { margin: 4px 2px; background: #b2d700; display: inline-block; padding: 1px 2px; font-size: 10px; color: #fff; }
 
 .badge-list { width: 100%; float: none; overflow: visible; clear: both; }
-.badge-container { width: 100px; height: 100px; float: left !important; margin: 10px 15px; opacity: .5; }
+.badge-container { width: 100px; height: 100px; float: left !important; margin: 10px 15px;  }
+.badge-container img { opacity: .5}
 .badge-container.I-have-it,
 .badge-container.haveit{ opacity: 1;}
 

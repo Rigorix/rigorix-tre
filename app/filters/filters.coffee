@@ -37,3 +37,7 @@ Rigorix.filter "length", ->
   (input) ->
     if input?
       if input.length? then input.length else Object.keys(input).length
+
+Rigorix.filter "htmlToText", ->
+  (input)->
+    input = input.replace /<\/?[^>]+(>|$)/g, ""

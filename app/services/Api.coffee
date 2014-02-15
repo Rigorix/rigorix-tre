@@ -5,6 +5,8 @@ RigorixServices.factory "Api", ($resource, $http)->
     promise = $http[method](RigorixEnv.API_DOMAIN + url, params)
     promise.then params.success, params.error if params? and params.success?
 
+  get: $http.get
+
   auth: (params)->
     promise = $http.get(RigorixEnv.OAUTH_URL + params.provider)
     promise.then params.success

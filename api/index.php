@@ -1,8 +1,8 @@
 <?php
-error_reporting(E_ALL);
-ini_set( 'display_errors','1');
-//error_reporting(0);
-//ini_set( 'display_errors','0');
+//error_reporting(E_ALL);
+//ini_set( 'display_errors','1');
+error_reporting(0);
+ini_set( 'display_errors','0');
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
@@ -121,9 +121,14 @@ Flight::route('GET /users/@id_utente', function($id_utente) { ;
   echo FastJSON::convert( getUserObjectExtended($id_utente) );
 });
 
-Flight::route('GET /user/@id_utente/messages', function($id_utente) {
+Flight::route('GET /users/@id_utente/messages', function($id_utente) {
   echo  Users::find($id_utente)->messages->toJson();
 });
+
+Flight::route('GET /users/@id_utente/messages/unread', function($id_utente) {
+  echo Messages::receiver($id_utente)->unread()->get()->toJson();
+});
+
 
 Flight::route('GET /user/@id_utente/messages/sent', function($id_utente) {
   echo  Users::find($id_utente)->sentMessages->toJson();
@@ -135,6 +140,11 @@ Flight::route('GET /users/@id_utente/rewards', function($id_utente) {
 
 Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
   echo Sfide::receivedBy($id_utente)->unplayed()->get();
+});
+
+
+Flight::route('GET /users/search/@attribute/@search', function($attribute, $search) {
+  echo  Users::searchAttribute($attribute, $search)->get()->toJson();
 });
 
 // POSTS -----

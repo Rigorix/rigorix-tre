@@ -30,6 +30,11 @@ class Users extends Illuminate\Database\Eloquent\Model {
     return $query->where ("social_uid", "=", $uid);
   }
 
+  public function scopeSearchAttribute ($query, $attr, $q)
+  {
+    return $this->whereRaw("$attr like '%$q%'");
+  }
+
   public function rewards ()
   {
     $sfide = Sfide::user($this->id_utente)->get()->each(function($sfida) {
