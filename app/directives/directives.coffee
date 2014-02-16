@@ -46,17 +46,22 @@ Rigorix.directive "beautifyDate", ()->
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.directive "username", (Api)->
+Rigorix.directive "username", (Api, $http)->
   restrict: 'E'
   templateUrl: '/app/templates/directives/username.html'
   link: (scope, element, attr) ->
     if RigorixStorage.users[attr.idUtente]?
       scope.userObject = RigorixStorage.users[attr.idUtente]
     else
-      Api.call "get", "users/"+attr.idUtente+"/username",
-        success: (json) ->
-          scope.userObject = json
-          RigorixStorage.users[attr.idUtente] = json
+      scope.userObject = $http.get "users/"+attr.idUtente+"/username", (json)->
+        scope.userObject = json
+        RigorixStorage.users[attr.idUtente] = json
+
+#      Api.call "get", "users/"+attr.idUtente+"/username",
+#        success: (json) ->
+#          console.log "username", json
+#          scope.userObject = json
+#          RigorixStorage.users[attr.idUtente] = json
 
 
 #-----------------------------------------------------------------------------------------------------------------------

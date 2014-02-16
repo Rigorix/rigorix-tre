@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="Fix for tre.rigorix.com deployment">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/Api.coffee" afterPath="$PROJECT_DIR$/app/services/Api.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" afterPath="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Messagges.coffee" afterPath="$PROJECT_DIR$/app/controllers/Messagges.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" afterPath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
+    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.coffee" afterPath="$PROJECT_DIR$/Gruntfile.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.coffee" afterPath="$PROJECT_DIR$/app/app.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/common.css" afterPath="$PROJECT_DIR$/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/filters/filters.coffee" afterPath="$PROJECT_DIR$/app/filters/filters.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/directives.coffee" afterPath="$PROJECT_DIR$/app/directives/directives.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/index.php" afterPath="$PROJECT_DIR$/api/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/area-personale/messaggi.html" afterPath="$PROJECT_DIR$/app/templates/area-personale/messaggi.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/user-box.html" afterPath="$PROJECT_DIR$/app/templates/user-box.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/user.class.php" afterPath="$PROJECT_DIR$/api/user.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/area-personale/utente.html" afterPath="$PROJECT_DIR$/app/templates/area-personale/utente.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/lista-sfide.html" afterPath="$PROJECT_DIR$/app/templates/lista-sfide.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/sfide.class.php" afterPath="$PROJECT_DIR$/api/sfide.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/directives/username.html" afterPath="$PROJECT_DIR$/app/templates/directives/username.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b22ffa96-ce66-4cc9-8c44-4b66f52233fe" name="ignore" comment="ignore" />
@@ -43,57 +41,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Messagges.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Messagges.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="37" selection-start="3564" selection-end="3564" vertical-scroll-proportion="-10.961538" vertical-offset="1725" max-vertical-offset="2460">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="36" selection-start="5186" selection-end="5186" vertical-scroll-proportion="-4.82" vertical-offset="2114" max-vertical-offset="7140">
+            <state line="409" column="18" selection-start="14595" selection-end="14595" vertical-scroll-proportion="-16.708334" vertical-offset="5734" max-vertical-offset="7710">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message.new.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/modals/message.new.html">
+      <file leaf-file-name="GamePlay.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/GamePlay.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="17" selection-start="267" selection-end="267" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="600">
-              <folding>
-                <marker date="1391699188000" expanded="true" signature="69:238" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/user.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="33" selection-start="1032" selection-end="1032" vertical-scroll-proportion="-12.5" vertical-offset="330" max-vertical-offset="1020">
+            <state line="63" column="23" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1575">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Api.coffee" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
+      <file leaf-file-name="sfide.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/services/sfide.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="16" selection-start="298" selection-end="298" vertical-scroll-proportion="0.22435898" vertical-offset="0" max-vertical-offset="468">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/messages.class.php">
+      <file leaf-file-name="Procfile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="330">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lista-sfide.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/lista-sfide.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="29" selection-start="674" selection-end="674" vertical-scroll-proportion="-8.125" vertical-offset="75" max-vertical-offset="765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directives.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/directives/directives.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="41" selection-start="1698" selection-end="1698" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="3015">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="username.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/directives/username.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="29" selection-start="161" selection-end="161" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="120">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Username.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Username.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gruntfile.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gruntfile.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="26" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="2760">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.coffee" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/app.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="57" selection-start="1823" selection-end="1823" vertical-scroll-proportion="0.6037736" vertical-offset="445" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
@@ -117,22 +149,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/classes/new.core.php" />
-        <option value="$PROJECT_DIR$/classes/activities.context.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/classes/logger.php" />
-        <option value="$PROJECT_DIR$/app/templates/user-box.html" />
-        <option value="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
-        <option value="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" />
         <option value="$PROJECT_DIR$/app/templates/area-personale/utente.html" />
         <option value="$PROJECT_DIR$/app/filters/filters.coffee" />
-        <option value="$PROJECT_DIR$/css/common.css" />
-        <option value="$PROJECT_DIR$/app/assets/less/common.less" />
         <option value="$PROJECT_DIR$/app/templates/area-personale/messaggi.html" />
         <option value="$PROJECT_DIR$/app/controllers/Messagges.coffee" />
-        <option value="$PROJECT_DIR$/api/index.php" />
         <option value="$PROJECT_DIR$/api/user.class.php" />
         <option value="$PROJECT_DIR$/app/services/Api.coffee" />
+        <option value="$PROJECT_DIR$/css/common.css" />
+        <option value="$PROJECT_DIR$/app/assets/less/common.less" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/api/sfide.class.php" />
+        <option value="$PROJECT_DIR$/api/index.php" />
+        <option value="$PROJECT_DIR$/app/templates/lista-sfide.html" />
+        <option value="$PROJECT_DIR$/app/templates/directives/username.html" />
+        <option value="$PROJECT_DIR$/app/directives/directives.coffee" />
+        <option value="$PROJECT_DIR$/Gruntfile.coffee" />
+        <option value="$PROJECT_DIR$/app/app.coffee" />
       </list>
     </option>
   </component>
@@ -299,51 +331,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="area-personale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -5107,7 +5149,11 @@
       <created>1392394429852</created>
       <updated>1392394429852</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="updates">
+      <created>1392423210618</created>
+      <updated>1392423210618</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers>
       <GitHub shared="false" url="github.com">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -5130,19 +5176,19 @@
     <layout>
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14643799" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6628734" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2651715" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3773087" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1747159" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37642047" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22740315" sideWeight="0.89313984" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29545453" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29545453" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.82849604" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19081779" sideWeight="0.70454544" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19081779" sideWeight="0.82528406" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -5157,21 +5203,21 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14643799" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6628734" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2651715" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26420453" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3773087" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37642047" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22740315" sideWeight="0.89313984" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30211082" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29545453" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.82849604" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19081779" sideWeight="0.7348285" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19081779" sideWeight="0.73579544" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -5194,7 +5240,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Adding bower" />
     <MESSAGE value="Updated messages" />
     <MESSAGE value="Sistemato popup di visione sfida" />
     <MESSAGE value="Update dati utenti da area personale" />
@@ -5219,7 +5264,8 @@
     <MESSAGE value="Fine disiscrizione quasi completa" />
     <MESSAGE value="various&#10;" />
     <MESSAGE value="Fix for tre.rigorix.com deployment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix for tre.rigorix.com deployment" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -5227,119 +5273,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/app/assets/dist/dependencies/angular.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="286" selection-end="286" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/logger.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="17" selection-start="380" selection-end="380" vertical-scroll-proportion="0.4525862" vertical-offset="0" max-vertical-offset="705">
+        <state line="8548" column="51" selection-start="296795" selection-end="296795" vertical-scroll-proportion="2.9140272" vertical-offset="126288" max-vertical-offset="311655">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/user-box.html">
+    <entry file="file://$PROJECT_DIR$/app/assets/dist/dependencies/moment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="61" selection-start="2588" selection-end="2588" vertical-scroll-proportion="-8.125" vertical-offset="555" max-vertical-offset="1125">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="36030">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Sidebar.coffee">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+        <state line="49" column="33" selection-start="1637" selection-end="1637" vertical-scroll-proportion="-14.5" vertical-offset="387" max-vertical-offset="840">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/utente.html">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="67" selection-start="612" selection-end="622" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="300">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="490">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/filters/filters.coffee">
+    <entry file="file://$PROJECT_DIR$/classes/activities.context.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="14" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+        <state line="464" column="11" selection-start="16506" selection-end="18728" vertical-scroll-proportion="-5.375" vertical-offset="6561" max-vertical-offset="14025">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/common.css">
+    <entry file="file://$PROJECT_DIR$/api/sfide.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="91" selection-start="10845" selection-end="10845" vertical-scroll-proportion="0.0" vertical-offset="2767" max-vertical-offset="6315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="18" selection-start="459" selection-end="459" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="2040">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AreaPersonale.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="16" selection-start="867" selection-end="885" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1695">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/messages.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="730">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/messaggi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="64" selection-start="700" selection-end="700" vertical-scroll-proportion="0.3773585" vertical-offset="60" max-vertical-offset="660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/message.new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="17" selection-start="267" selection-end="267" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="600">
-          <folding>
-            <marker date="1391699188000" expanded="true" signature="69:238" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Messagges.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="37" selection-start="3564" selection-end="3564" vertical-scroll-proportion="-10.961538" vertical-offset="1725" max-vertical-offset="2460">
+        <state line="73" column="87" selection-start="1910" selection-end="1910" vertical-scroll-proportion="-18.166666" vertical-offset="659" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="36" selection-start="5186" selection-end="5186" vertical-scroll-proportion="-4.82" vertical-offset="2114" max-vertical-offset="7140">
+        <state line="409" column="18" selection-start="14595" selection-end="14595" vertical-scroll-proportion="-16.708334" vertical-offset="5734" max-vertical-offset="7710">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/user.class.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/GamePlay.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="33" selection-start="1032" selection-end="1032" vertical-scroll-proportion="-12.5" vertical-offset="330" max-vertical-offset="1020">
+        <state line="63" column="23" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1575">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
+    <entry file="file://$PROJECT_DIR$/app/services/sfide.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="16" selection-start="298" selection-end="298" vertical-scroll-proportion="0.22435898" vertical-offset="0" max-vertical-offset="468">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="676">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="676">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/lista-sfide.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="29" selection-start="674" selection-end="674" vertical-scroll-proportion="-8.125" vertical-offset="75" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/directives/username.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="29" selection-start="161" selection-end="161" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Username.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/directives/directives.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="41" selection-start="1698" selection-end="1698" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="3015">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="26" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="2760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="57" selection-start="1823" selection-end="1823" vertical-scroll-proportion="0.6037736" vertical-offset="445" max-vertical-offset="1020">
           <folding />
         </state>
       </provider>

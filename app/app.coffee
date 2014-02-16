@@ -59,3 +59,5 @@ Rigorix.config ()->
 
   if RigorixEnv.INCOGNITO is true
     angular.element("body").append $('<link rel="stylesheet" type="text/css" media="all" href="/css/developing.css.wait" />')
+
+alert "test"

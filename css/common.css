@@ -194,8 +194,8 @@ ul.normal-list li { margin-left: 15px; }
 .badge-list { width: 100%; float: none; overflow: visible; clear: both; }
 .badge-container { width: 100px; height: 100px; float: left !important; margin: 10px 15px;  }
 .badge-container img { opacity: .5}
-.badge-container.I-have-it,
-.badge-container.haveit{ opacity: 1;}
+.badge-container.I-have-it img,
+.badge-container.haveit img { opacity: 1;}
 
 .badge-icon { background: #ccc; border: 2px dashed #333; width: 50px; height: 50px; display: inline-block; margin: 5px 10px; overflow: hidden; }
 

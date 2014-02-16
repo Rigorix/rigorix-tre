@@ -367,12 +367,50 @@ Flight::route('POST /sfide/set/@id_sfida', function($id_sfida) { global $activit
   $sfidaMatrix = json_decode($_GET['sfida_matrix']);
   $sfidaObject = json_decode($_GET['sfida']);
 
-  $activityId = $activity->do_lancia_sfida( $sfidaMatrix, $sfidaObject );
+  $risposta = true;
 
-  if ( $activity->has_error_range($activityId[0], $activityId[1]) )
-    echo '{ "status": "error", "activity_id": "'.implode(",", $activityId).'", "error_code": "'.$activity->has_error_range($activityId[0], $activityId[1]).'" }';
-  else
-    echo '{ "status": "success", "activity_id": "'.implode(",", $activityId).'" }';
+  if ( !isset($sfidaObject->id_sfida) || $sfidaObject->id_sfida === false ):
+    $sfida = Sfide::create(array(
+      "id_sfidante" => intval($sfidaObject->id_sfidante),
+      "id_sfidato"  => intval($sfidaObject->id_avversario)
+    ));
+    $id_sfida = $sfida->getAttribute("id_sfida");
+    $risposta = false;
+  else:
+    $id_sfida = $sfidaObject->id_sfida;
+  endif;
+
+  $tiri = SfideTiri::create(array(
+    "id_sfida"  => $id_sfida,
+    "id_utente" => $sfidaObject->id_utente ? $sfidaObject->id_utente : $sfidaObject->id_sfidante,
+    "o1"        => $sfidaMatrix->tiro1 + 1,
+    "o2"        => $sfidaMatrix->tiro1 + 2,
+    "o3"        => $sfidaMatrix->tiro1 + 3,
+    "o4"        => $sfidaMatrix->tiro1 + 4,
+    "o5"        => $sfidaMatrix->tiro1 + 5
+  ));
+
+  $parate = SfideParate::create(array(
+    "id_sfida"  => $id_sfida,
+    "id_utente" => $sfidaObject->id_utente ? $sfidaObject->id_utente : $sfidaObject->id_sfidante,
+    "o1"        => $sfidaMatrix->parata1 + 1,
+    "o2"        => $sfidaMatrix->parata1 + 2,
+    "o3"        => $sfidaMatrix->parata1 + 3,
+    "o4"        => $sfidaMatrix->parata1 + 4,
+    "o5"        => $sfidaMatrix->parata1 + 5
+  ));
+
+  if ( $tiri->getAttribute("id_tiri") && $parate->getAttribute("id_parate") ):
+    $sfidaUpdate = Sfide::find($id_sfida);
+    $sfidaUpdate->stato = $risposta == false ? 1 : 2;
+    $sfidaUpdate->save();
+
+    Flight::halt(200, "Sfida inserita correttamente");
+  else:
+    Flight::error();
+  endif;
+
+
 
 });
 

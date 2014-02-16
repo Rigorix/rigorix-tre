@@ -3,6 +3,9 @@
 class Sfide extends  Illuminate\Database\Eloquent\Model {
   protected $table        = 'sfida';
   protected $primaryKey   = 'id_sfida';
+  protected $fillable     = array("id_sfidante", "id_sfidato");
+  protected $guarded      = array("id_sfida");
+  public $timestamps      = false;
 
   public function scopeUser($query, $id_utente)
   {
@@ -50,4 +53,26 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
   {
     return $this->hasMany('Messages', 'id_sender', 'id_utente');
   }
+}
+
+
+
+class SfideTiri extends  Illuminate\Database\Eloquent\Model {
+  protected $table        = 'tiri';
+  protected $primaryKey   = 'id_tiri';
+  protected $fillable     = array("id_sfida", "id_utente", "o1", "o2","o3", "o4","o5");
+  protected $guarded      = array("id_tiri");
+
+  public $timestamps      = false;
+}
+
+
+
+class SfideParate extends  Illuminate\Database\Eloquent\Model {
+  protected $table        = 'parate';
+  protected $primaryKey   = 'id_parate';
+  protected $fillable     = array("id_sfida", "id_utente", "o1", "o2","o3", "o4","o5");
+  protected $guarded      = array("id_parate");
+
+  public $timestamps      = false;
 }

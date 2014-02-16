@@ -17,11 +17,11 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ["app/**/*.coffee"],
-        tasks: ["dev:script", "git_ftp:development"]
+        tasks: ["dev:script"]
       },
       less: {
         files: ["app/assets/**/*.less"],
-        tasks: ["dev:less", "git_ftp:development"]
+        tasks: ["dev:less"]
       },
       options: {
         interrupt: true
@@ -41,7 +41,8 @@ module.exports = function(grunt) {
     },
     concat: {
       options: {
-        separator: "\n\n"
+        separator: "\n\n",
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */'
       },
       script: {
         src: ["app/assets/dist/dependencies/jquery.js", "app/assets/dist/dependencies/angular.js", "app/assets/dist/dependencies/*.js", "app/assets/temp/angular.app.main.js", "app/assets/temp/angular.app.config.js", "app/assets/temp/angular.app.js", "app/assets/js/*.js"],
@@ -62,6 +63,16 @@ module.exports = function(grunt) {
         }
       }
     },
+    uglify: {
+      dev: {
+        options: {
+          beautify: true
+        },
+        files: {
+          'app/assets/dist/app.min.js': ['app/assets/dist/app.js']
+        }
+      }
+    },
     git_ftp: {
       development: {
         options: {
@@ -79,6 +90,8 @@ module.exports = function(grunt) {
       }
     }
   });
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks("grunt-git-ftp");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks("grunt-contrib-watch");

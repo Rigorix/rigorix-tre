@@ -1,27 +1,22 @@
 <table class="table mbn">
-    <tr>
-        <th rowspan="2"></th>
-        <th rowspan="2">Avversario</th>
-        <th rowspan="2" class="text-center">Lanciata</th>
-        <th rowspan="2" class="text-center">Risposta</th>
-        <th rowspan="2">Risultato</th>
-        <th colspan="2" class="text-center">Punti</th>
-        <th rowspan="2" class="text-center">Stato</th>
+    <tr ng-show="sfide.length == 0">
+        <td>
+            <p icon="flag">Nessuna sfida</p>
+        </td>
     </tr>
-    <tr>
+    <tr ng-show="sfide.length > 0">
+        <th></th>
+        <th>Avversario</th>
+        <th class="text-center">Lanciata</th>
+        <th class="text-center">Risposta</th>
+        <th>Risultato</th>
         <th class="text-center">Punti</th>
         <th class="text-center">Rewards</th>
+        <th class="text-center">Stato</th>
     </tr>
-    <!--<tr class="loading-row" ng-show="isLoading">-->
-        <!--<td colspan="7">-->
-            <!--<div class="game-loader">-->
-                <!--<span>Loading ...</span>-->
-            <!--</div>-->
-        <!--</td>-->
-    <!--</tr>-->
     <tr ng-repeat="sfida in sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.if_sfida}}" on-sfida-load>
         <td class="{{risultatoLabel}}"></td>
-        <td>
+        <td>{{id_avversario}}
             <username id_utente="{{id_avversario}}"></username>
         </td>
         <td class="text-center">

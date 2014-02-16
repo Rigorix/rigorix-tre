@@ -23,18 +23,19 @@ module.exports = (grunt) ->
 #          "app/assets/dist/dependencies/*.js"
 #          "app/assets/**/*.less"
         ]
-        tasks: ["dev:script", "git_ftp:development"]
+        tasks: ["dev:script"]
       less:
         files: [
           "app/assets/**/*.less"
         ]
-        tasks: ["dev:less", "git_ftp:development"]
+        tasks: ["dev:less"]
       options:
         interrupt: true
 
     coffee:
       compileBare:
         options:
+#          sourceMap: true
           bare: true
         files:
           "app/assets/temp/angular.app.config.js": ["app/config.coffee"]
@@ -49,8 +50,8 @@ module.exports = (grunt) ->
     concat:
       options:
         separator: "\n\n" #add a new line after each file
-#        banner: "/// START ///-----------------------------------" #added before everything
-#        footer: "/// END ///-----------------------------------" #added after everything
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+        '<%= grunt.template.today("yyyy-mm-dd") %> */'
       script:
         src: [
           "app/assets/dist/dependencies/jquery.js"
@@ -93,16 +94,17 @@ module.exports = (grunt) ->
   #      }
   #    },
 
-  #    uglify: {
-  #      dev: {
-  #        options: {
-  #          beautify: true
-  #        },
-  #        files: {
-  #          'app/assets/css/common.min.css': ['app/assets/css/*.css', 'app/assets/css/dist.common.css']
-  #        }
-  #      }
-  #    },
+    uglify: {
+      dev: {
+        options: {
+          beautify: true
+        },
+        files: {
+          'app/assets/dist/app.min.js': ['app/assets/dist/app.js']
+        }
+      }
+    }
+
     git_ftp:
       development:
         options:
@@ -127,9 +129,9 @@ module.exports = (grunt) ->
         dest: "app/assets/dist/dependencies"
 
 
-  #  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   #  grunt.loadNpmTasks('grunt-ftp-deploy');
-#  grunt.loadNpmTasks "grunt-git-ftp"
+  grunt.loadNpmTasks "grunt-git-ftp"
   grunt.loadNpmTasks "grunt-contrib-concat"
 #  grunt.loadNpmTasks "grunt-githooks"
   grunt.loadNpmTasks "grunt-concurrent"
@@ -147,6 +149,7 @@ module.exports = (grunt) ->
   grunt.registerTask "dev:script", [
     "coffee:compileBare"
     "concat:script"
+#    "uglify:dev"
     "clean:temp"
   ]
   grunt.registerTask "dev:less", [
