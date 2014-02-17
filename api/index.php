@@ -243,7 +243,6 @@ Flight::route('POST /messages/new', function() { global $dm_messaggi;
   $message = $dm_messaggi->makeInDbObject($message, true);
 
   $dm_messaggi->pushMessage ($message);
-  echo "{ 'status': 'ok' }";
 });
 
 Flight::route('PUT /messages/@id_message/read', function($id_message) { global $dm_messaggi;
@@ -328,10 +327,7 @@ Flight::route('GET /sfida/@id_sfida/xml', function($id_sfida) { global $dm_sfide
 
 Flight::route('GET /user/@id_utente/messages', function($id_utente) { global $dm_messaggi;
 
-  $start = (isset($_GET['start_count'])) ? $_GET['start_count'] : 0;
-  $count = (isset($_GET['count'])) ? $_GET['count'] : 15;
-  $messaggi = $dm_messaggi->getFilteredUserUnbannedMessaggi ( $id_utente, $start, $count );
-  echo FastJSON::convert( $messaggi );
+  echo (Messages::receiver($id_utente)->get()->toJson());
 
 });
 

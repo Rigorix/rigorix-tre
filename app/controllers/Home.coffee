@@ -1,9 +1,12 @@
-Rigorix.controller "Home", ($scope, AppService, UserServiceNew, Api) ->
+Rigorix.controller "Home", ($scope, Api) ->
 
   $scope.campione = false
 
   $scope.updateResources = ->
-    $scope.activeUsers = AppService.getActiveUsers()
+    Api.call "get", "users/active",
+      success: (json)->
+        $scope.activeUsers = json.data
+
     $scope.campione = false
 
     Api.call "get", "users/champion/week",

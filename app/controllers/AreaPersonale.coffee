@@ -20,7 +20,7 @@ Rigorix.controller "AreaPersonale", ($scope, $routeParams, $location, $rootScope
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Utente", ($scope, Api, $rootScope, AppService) ->
+Rigorix.controller "AreaPersonale.Utente", ($scope, Api) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'palmares' ]

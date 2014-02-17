@@ -1,9 +1,10 @@
-Rigorix.controller "Sidebar", ($scope, AppService, $rootScope)->
+Rigorix.controller "Sidebar", ($scope, Api, $rootScope)->
 
   $scope.topUsers = []
 
-  AppService.getTopUsers (users)->
-    $scope.topUsers = users
+  Api.call "get", "users/top/10",
+    success: (json)->
+      $scope.topUsers = json.data
 
   $scope.doAuth = (event, social) ->
     do event.preventDefault

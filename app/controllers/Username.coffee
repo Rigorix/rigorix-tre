@@ -2,6 +2,7 @@ Rigorix.controller "Username", ($scope, $rootScope, $modal, Api)->
 
   $scope.currentUser = $scope.$parent.currentUser;
   $scope.userTooltipMessage = if $scope.currentUser? and $scope.currentUser isnt false then "Clicca per sfidare" else "Entra per sfidare "
+  $scope.tooltip_placement = "top" if !$scope.tooltip_placement?
 
   if $scope.id_utente
     if RigorixStorage.users[$scope.id_utente]?

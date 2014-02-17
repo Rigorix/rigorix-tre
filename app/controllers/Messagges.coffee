@@ -1,14 +1,9 @@
 Rigorix.controller 'Messages', ($scope, $rootScope, Api, UserServiceNew, $modal)->
 
-  Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages/unread",
-    count: RigorixConfig.messagesPerPage
-    success: (json)->
-      $scope.messages = json.data
-
-#  $scope.messages = UserServiceNew.get
-#    id_utente: User.id_utente
-#    parameter: 'messages'
+#  Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages/unread",
 #    count: RigorixConfig.messagesPerPage
+#    success: (json)->
+#      $scope.messages = json.data
 
   $scope.$on "user:update", ->
     do $scope.updateMessages
@@ -17,10 +12,10 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, UserServiceNew, $modal)
     do $scope.updateMessages
 
   $scope.updateMessages = ->
-    $scope.messages = UserServiceNew.get
-      id_utente: User.id_utente
-      parameter: 'messages'
+    Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages/unread",
       count: RigorixConfig.messagesPerPage
+      success: (json)->
+        $scope.messages = json.data
 
   $scope.writeNewMessage = ->
     $modal.open
@@ -40,10 +35,12 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, UserServiceNew, $modal)
         message: ->
           message
 
+  do $scope.updateMessages
+
 #  Pagination
-  $scope.page = 1
-  $scope.currentPage = 1
-  $scope.totMessages = Number $scope.currentUser.totMessages
+#  $scope.page = 1
+#  $scope.currentPage = 1
+#  $scope.totMessages = Number $scope.currentUser.totMessages
 
 
 
@@ -51,7 +48,7 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, UserServiceNew, $modal)
 
 
 
-Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope, message, UserServiceNew, AppService)->
+Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope, message, MessageResource)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Message.Modal'
@@ -61,10 +58,16 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
   $scope.isTextCollapsed = false
   $scope.answer = "<br><br>" + User.username
 
+  messageRes = MessageResource.get
+    id_message: message.id_mess
+
+  console.log "message", messageRes
+
   $scope.message = message
 
-  AppService.putMessageRead
-    id_message: message.id_mess
+#  TODO: add this to Api call
+#  AppService.putMessageRead
+#    id_message: message.id_mess
 
   $modalInstance.result.then () ->
     true
@@ -78,16 +81,14 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
     angular.element(".ta-editor").focus()
 
   $scope.sendReply = (answerText)->
-    AppService.postReply
+    Api.call "post", "message/new",
       text: answerText
       message: $scope.message
-    ,
-    (response)->
-      if response.status == 'success'
+      success: (json)->
         $.notify "Risposta mandata con successo", "success"
         $rootScope.$broadcast "modal:close"
         do $modalInstance.dismiss
-      else
+      error: ->
         $.notify "Errore nel spedire la risposta.<br>Riprova pi$ugrave; tardi.", "error"
 
 
@@ -96,15 +97,13 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
     $scope.editMode = false
 
   $scope.delete = ->
-    AppService.deleteMessage
-      param2: message.id_mess
-    ,
-    (json)->
-      if json.status == 'ok'
+    Api.call "delete", "message/" + message.id_mess,
+      success: (json)->
         do $modalInstance.dismiss
         $.notify "Messaggio cancellato correttamente", "success"
         $rootScope.$broadcast "message:deleted", message
-      else
+
+      error: ->
         $.notify "Errore nel cancellare il messaggio", "error"
 
   $scope.cancel = ->
@@ -116,7 +115,7 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
 
 
 
-Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootScope, $http, Api)->
+Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootScope, Api)->
 
   $scope.newMessage =
     oggetto: ''
@@ -133,12 +132,9 @@ Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootSc
     modalClass: 'modal-write-message'
 
   $scope.getUsers = (usernameQuery)->
-    $http.get(RigorixEnv.API_DOMAIN + "users/search/username/" + usernameQuery).then (json)->
-      users = []
-      for i,user of json.data
-        users.push user
-
-      return users
+    Api.call "get", "users/search/username/" + usernameQuery,
+      success: (json)->
+        return json.data
 
   $scope.onSelectUser = (obj)->
     console.log "obj, ", obj
@@ -149,11 +145,10 @@ Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootSc
     $rootScope.$broadcast "modal:close"
 
   $scope.sendNewMessage = (newMessage)->
-    $http.post(RigorixEnv.API_DOMAIN + "messages/new/",
-      message: newMessage
-    ).then (json)->
-      alert "inserito correttamente"
-      console.log "json", json
+    Api.call "post", "messages/new",
+      message: newMessage,
+      success: (json)->
+        $.notify "Messaggio mandato con successo", "success"
 
   $scope.cancel = ->
     do $modalInstance.dismiss

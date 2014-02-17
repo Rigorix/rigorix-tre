@@ -51,38 +51,10 @@ Rigorix.directive "username", ()->
   templateUrl: '/app/templates/directives/username.html'
   controller: 'Username'
   scope:
-    id_utente       : "=idUtente"
-    with_picture    : "@withPicture"
-    with_punteggio  : "@withPunteggio"
-
-
-#-----------------------------------------------------------------------------------------------------------------------
-
-
-Rigorix.directive "usernameWithThumb", (AppService)->
-  restrict: 'E'
-  templateUrl: '/app/templates/directives/username-with-thumb.html'
-  link: (scope, element, attr) ->
-
-    if attr.idUtente? and attr.username and attr.picture
-      console.log "Vai"
-      scope.userObject =
-        id_utente: attr.id_utente
-        username: attr.username
-        picture: attr.picture
-      RigorixStorage.users[attr.idUtente] = scope.userObject
-    else
-      if RigorixStorage.users[attr.idUtente]? and RigorixStorage.users[attr.idUtente].picture?
-        console.log "trovato, ma: ", RigorixStorage.users[attr.idUtente]
-        scope.userObject = RigorixStorage.users[attr.idUtente]
-      else
-        AppService.getUserById
-          param2: attr.idUtente
-        ,
-        (json)->
-          console.log "Aggiunto con immagine", json
-          scope.userObject = json
-          RigorixStorage.users[attr.idUtente] = json
+    id_utente         : "=idUtente"
+    with_picture      : "@withPicture"
+    with_punteggio    : "@withPunteggio"
+    tooltip_placement : "@tooltipPlacement"
 
 
 #-----------------------------------------------------------------------------------------------------------------------
