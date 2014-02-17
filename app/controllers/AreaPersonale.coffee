@@ -24,7 +24,10 @@ Rigorix.controller "AreaPersonale.Utente", ($scope, Api, $rootScope, AppService)
 
   $scope.isLoading = true
   $scope.pages = [ 'palmares' ]
-  $scope.rewards = do AppService.getBadges
+  Api.call "get", "badges",
+    success: (json)->
+      $scope.rewards = json.data
+
   $scope.badgesCount = $scope.currentUser.rewards.badges.length
 
   $scope.userHasBadge = (reward) ->
@@ -40,7 +43,7 @@ Rigorix.controller "AreaPersonale.Utente", ($scope, Api, $rootScope, AppService)
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Sfide", ($scope, SfideService, $route, Api) ->
+Rigorix.controller "AreaPersonale.Sfide", ($scope, $route, Api) ->
 
   $scope.pages = [ 'sfide_da_giocare', 'in_attesa_di_risposta', 'archivio' ]
   $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare

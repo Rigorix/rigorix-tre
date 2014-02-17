@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="updates">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/less/animations.less" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/templates/directives/username-with-thumb.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/templates/username.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/username-with-thumb.html" afterPath="$PROJECT_DIR$/app/templates/directives/username.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/AppService.coffee" afterPath="$PROJECT_DIR$/app/services/AppService.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.coffee" afterPath="$PROJECT_DIR$/Gruntfile.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Header.coffee" afterPath="$PROJECT_DIR$/app/controllers/Header.coffee" />
+    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Facebook/FacebookStrategy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Foursquare/FoursquareStrategy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Google/GoogleStrategy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/Vendor/tmhOAuth/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Opauth.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/OpauthStrategy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Google/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/Vendor/tmhOAuth/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/TwitterStrategy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/callback.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Google/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/info.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/opauth.conf.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/Vendor/tmhOAuth/tmhOAuth.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/Vendor/tmhOAuth/tmhUtilities.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/services/auth.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/services/sfide.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/services/user.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/service.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/Api.coffee" afterPath="$PROJECT_DIR$/app/services/Api.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" afterPath="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/GamePlay.coffee" afterPath="$PROJECT_DIR$/app/controllers/GamePlay.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Main.coffee" afterPath="$PROJECT_DIR$/app/controllers/Main.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" afterPath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Username.coffee" afterPath="$PROJECT_DIR$/app/controllers/Username.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.coffee" afterPath="$PROJECT_DIR$/app/app.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/best-users.html" afterPath="$PROJECT_DIR$/app/templates/best-users.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/common.less" afterPath="$PROJECT_DIR$/app/assets/less/common.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/directives.coffee" afterPath="$PROJECT_DIR$/app/directives/directives.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/area-personale/impostazioni.html" afterPath="$PROJECT_DIR$/app/templates/area-personale/impostazioni.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/index.php" afterPath="$PROJECT_DIR$/api/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/lista-sfide.html" afterPath="$PROJECT_DIR$/app/templates/lista-sfide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/partials/loader.html" afterPath="$PROJECT_DIR$/app/templates/partials/loader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/page.first-login.less" afterPath="$PROJECT_DIR$/app/assets/less/page.first-login.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/modals/sfida.html" afterPath="$PROJECT_DIR$/app/templates/modals/sfida.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/user-box.html" afterPath="$PROJECT_DIR$/app/templates/user-box.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/area-personale/utente.html" afterPath="$PROJECT_DIR$/app/templates/area-personale/utente.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b22ffa96-ce66-4cc9-8c44-4b66f52233fe" name="ignore" comment="ignore" />
@@ -55,99 +68,52 @@
       <file leaf-file-name="Main.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="39" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1245">
+            <state line="57" column="4" selection-start="12268" selection-end="12268" vertical-scroll-proportion="0.0" vertical-offset="706" max-vertical-offset="1245">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppService.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/services/AppService.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="3" selection-start="55" selection-end="240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1920">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+        <entry file="file://$PROJECT_DIR$/api/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="17.333334" vertical-offset="416" max-vertical-offset="840">
-              <folding>
-                <marker date="1392425675000" expanded="true" signature="121:1681" placeholder="..." />
-                <marker date="1392425675000" expanded="true" signature="128:731" placeholder="..." />
-                <marker date="1392425675000" expanded="true" signature="605:723" placeholder="..." />
-                <marker date="1392425675000" expanded="true" signature="808:1602" placeholder="..." />
-                <marker date="1392425675000" expanded="true" signature="901:1501" placeholder="..." />
-                <marker date="1392425675000" expanded="true" signature="1064:1390" placeholder="..." />
-                <marker date="1392425675000" expanded="true" signature="1098:1165" placeholder="..." />
-                <marker date="1392425675000" expanded="true" signature="1223:1378" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="directives.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/directives/directives.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="41" selection-start="4217" selection-end="4217" vertical-scroll-proportion="-10.192307" vertical-offset="1670" max-vertical-offset="2520">
-              <folding>
-                <marker date="1392594112000" expanded="true" signature="4139:4218" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/loader2/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="2429" selection-start="351" selection-end="3554" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="345">
+            <state line="413" column="45" selection-start="14750" selection-end="14750" vertical-scroll-proportion="-6.9" vertical-offset="5850" max-vertical-offset="7935">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="animations.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/animations.less">
+      <file leaf-file-name="Api.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="12" selection-start="1310" selection-end="1310" vertical-scroll-proportion="-45.0" vertical-offset="0" max-vertical-offset="1200">
+            <state line="8" column="25" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loader.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/partials/loader.html">
+      <file leaf-file-name="AreaPersonale.coffee" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AreaPersonale.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="10" selection-start="326" selection-end="326" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="195">
+            <state line="19" column="35" selection-start="591" selection-end="591" vertical-scroll-proportion="0.21581548" vertical-offset="154" max-vertical-offset="1740">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="head.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/partials/head.html">
+      <file leaf-file-name="utente.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/area-personale/utente.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="29" selection-start="326" selection-end="326" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="330">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Header.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Header.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GamePlay.coffee" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/GamePlay.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="2" selection-start="89" selection-end="89" vertical-scroll-proportion="0.077319585" vertical-offset="0" max-vertical-offset="1575">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sfida.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/modals/sfida.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="49" selection-start="189" selection-end="189" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="630">
+            <state line="3" column="15" selection-start="134" selection-end="134" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="285">
               <folding />
             </state>
           </provider>
@@ -171,33 +137,39 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/speedtest.php" />
+        <option value="$PROJECT_DIR$/classes/restclient.php" />
+        <option value="$PROJECT_DIR$/info.php" />
+        <option value="$PROJECT_DIR$/Opauth/opauth.conf.php" />
+        <option value="$PROJECT_DIR$/app/templates/user-box.html" />
+        <option value="$PROJECT_DIR$/api/Helper.php" />
         <option value="$PROJECT_DIR$/app/controllers/Username.coffee" />
-        <option value="$USER_HOME$/Desktop/loader.html" />
-        <option value="$USER_HOME$/Desktop/loader2/index.html" />
-        <option value="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/mixins.less" />
-        <option value="$PROJECT_DIR$/Gruntfile.coffee" />
-        <option value="$PROJECT_DIR$/app/assets/less/page.first-login.less" />
-        <option value="$PROJECT_DIR$/app/assets/less/common.less" />
-        <option value="$PROJECT_DIR$/app/templates/partials/loading.html" />
-        <option value="$PROJECT_DIR$/app/directives/directives.coffee" />
-        <option value="$PROJECT_DIR$/app/controllers/Main.coffee" />
-        <option value="$PROJECT_DIR$/app/assets/less/animations.less" />
-        <option value="$PROJECT_DIR$/app/templates/partials/loader.html" />
-        <option value="$PROJECT_DIR$/app/templates/partials/head.html" />
-        <option value="$PROJECT_DIR$/app/controllers/Header.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/Modals.coffee" />
+        <option value="$PROJECT_DIR$/app/templates/modals/sfida.html" />
+        <option value="$PROJECT_DIR$/api/index.php" />
         <option value="$PROJECT_DIR$/app/controllers/GamePlay.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/Main.coffee" />
+        <option value="$PROJECT_DIR$/app/templates/area-personale/utente.html" />
+        <option value="$PROJECT_DIR$/app/services/Api.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" />
       </list>
     </option>
   </component>
   <component name="NamedScopeManager">
     <scope name="Gruntfile.coffee" pattern="file:Gruntfile.coffee" />
   </component>
+  <component name="PhpServers">
+    <option name="servers">
+      <server host="tre.rigorix.dev" name="rigorix.dev" />
+    </option>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="213" />
+    <option name="y" value="1102" />
     <option name="width" value="1440" />
-    <option name="height" value="824" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -317,6 +289,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Opauth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -357,7 +357,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
+              <option name="myItemId" value="area-personale" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -375,7 +375,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="directives" />
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -397,6 +397,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -412,7 +426,7 @@
     <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../asilidosson" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/index.php" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="148" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="929" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="927" />
@@ -452,6 +466,13 @@
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </server>
+      <server id="ac68b029-8a62-4558-80da-028d67487623">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </server>
@@ -4941,9 +4962,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.Rigorix">
+  <component name="RunManager" selected="PHP Web Application.rigorix.dev">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -4959,17 +4983,15 @@
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="64eb6675-e388-4bfc-99d8-b4db879df236" server_name="Rigorix tre">
       <method />
     </configuration>
-    <configuration default="false" name="Rigorix" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/local/bin/node" path-to-js-file="app/server.js" working-dir="$PROJECT_DIR$">
-      <envs>
-        <env name="port" value="8000" />
-      </envs>
-      <browser start="false" url="" with-js-debugger="false" />
-      <RunnerSettings RunnerId="NodeJS.run" />
-      <ConfigurationWrapper RunnerId="NodeJS.run" />
+    <configuration default="false" name="rigorix.dev" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="CHROME" server_name="rigorix.dev">
+      <RunnerSettings RunnerId="PhpRunner" />
+      <RunnerSettings RunnerId="PhpWebAppDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpWebAppDebugRunner" />
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.Rigorix" />
+      <item index="0" class="java.lang.String" itemvalue="PHP Web Application.rigorix.dev" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -5166,7 +5188,11 @@
       <created>1392515378710</created>
       <updated>1392515378710</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Loader aggiornato, &#10;sistemato la directive Username">
+      <created>1392595651888</created>
+      <updated>1392595651888</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers>
       <GitHub shared="false" url="github.com">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -5184,16 +5210,16 @@
     </servers>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="824" extended-state="6" />
+    <frame x="213" y="1102" width="1440" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14643799" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6628734" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27272728" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37642047" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16226913" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.323219" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22740315" sideWeight="0.89313984" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23878628" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42329547" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -5201,7 +5227,7 @@
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34232953" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.82849604" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19081779" sideWeight="0.62357956" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19081779" sideWeight="0.8377309" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -5253,7 +5279,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Updated messages" />
     <MESSAGE value="Sistemato popup di visione sfida" />
     <MESSAGE value="Update dati utenti da area personale" />
     <MESSAGE value="Fix su lista sfide e risposta" />
@@ -5278,133 +5303,438 @@
     <MESSAGE value="various&#10;" />
     <MESSAGE value="Fix for tre.rigorix.com deployment" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="Loader aggiornato, &#10;sistemato la directive Username" />
+    <option name="LAST_COMMIT_MESSAGE" value="Loader aggiornato, &#10;sistemato la directive Username" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/bootstrap.less">
+    <entry file="file://$PROJECT_DIR$/app/controllers/Modals.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+        <state line="47" column="19" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1875">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.coffee">
+    <entry file="file://$PROJECT_DIR$/api/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="36" selection-start="3362" selection-end="3362" vertical-scroll-proportion="0.0" vertical-offset="1849" max-vertical-offset="2760">
+        <state line="29" column="34" selection-start="1416" selection-end="1416" vertical-scroll-proportion="0.8115672" vertical-offset="0" max-vertical-offset="1065">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/mixins.less">
+    <entry file="file://$PROJECT_DIR$/api/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="35" selection-start="1223" selection-end="1223" vertical-scroll-proportion="0.6367925" vertical-offset="570" max-vertical-offset="14055">
+        <state line="413" column="45" selection-start="14750" selection-end="14750" vertical-scroll-proportion="-6.9" vertical-offset="5850" max-vertical-offset="7935">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/userbox.less">
+    <entry file="file://$PROJECT_DIR$/app/services/RigorixUi.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="388">
+        <state line="0" column="26" selection-start="17" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/page.first-login.less">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="5" selection-start="51" selection-end="51" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="180">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/FirstLogin.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
+    <entry file="file://$PROJECT_DIR$/app/controllers/Home.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="565" selection-end="565" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="2055">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="462">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/loader2/index.html">
+    <entry file="file://$PROJECT_DIR$/app/controllers/Messagges.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="2429" selection-start="351" selection-end="3554" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="345">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2460">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="17.333334" vertical-offset="416" max-vertical-offset="840">
-          <folding>
-            <marker date="1392425675000" expanded="true" signature="121:1681" placeholder="..." />
-            <marker date="1392425675000" expanded="true" signature="128:731" placeholder="..." />
-            <marker date="1392425675000" expanded="true" signature="605:723" placeholder="..." />
-            <marker date="1392425675000" expanded="true" signature="808:1602" placeholder="..." />
-            <marker date="1392425675000" expanded="true" signature="901:1501" placeholder="..." />
-            <marker date="1392425675000" expanded="true" signature="1064:1390" placeholder="..." />
-            <marker date="1392425675000" expanded="true" signature="1098:1165" placeholder="..." />
-            <marker date="1392425675000" expanded="true" signature="1223:1378" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/directives.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="41" selection-start="4217" selection-end="4217" vertical-scroll-proportion="-10.192307" vertical-offset="1670" max-vertical-offset="2520">
-          <folding>
-            <marker date="1392594112000" expanded="true" signature="4139:4218" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="39" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1245">
+        <state line="57" column="4" selection-start="12268" selection-end="12268" vertical-scroll-proportion="0.0" vertical-offset="706" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/animations.less">
+    <entry file="file://$PROJECT_DIR$/app/assets/dist/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="12" selection-start="1310" selection-end="1310" vertical-scroll-proportion="-45.0" vertical-offset="0" max-vertical-offset="1200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/partials/loader.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="10" selection-start="326" selection-end="326" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/partials/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="29" selection-start="326" selection-end="326" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Header.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/sfida.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="49" selection-start="189" selection-end="189" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="630">
-          <folding />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="636075">
+          <folding>
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/user.delete.html'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;index&quot;: 0...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;index&quot;: 1...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;index&quot;: 2...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;index&quot;: 3...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;index&quot;: 4...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;tiro&quot;: false...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/vedi-sfida.html'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/sfida.html'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;totMessages&quot;: 3...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_utente&quot;: 5780...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;9&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_sfida&quot;: 149...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_sfida&quot;: 175...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;7&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;7&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;7&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;7&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;7&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;7&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;7&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;7&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;6&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;7&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;3&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_reward&quot;: &quot;9&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;parameter&quot;: 'messages'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/message.new.html'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/message.html'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;controller&quot;: 'Message.Modal'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;oggetto&quot;: ''...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;controller&quot;: 'Message.Modal.New'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/success.html'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;controller&quot;: 'Modals.Success'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_sfida&quot;: false...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;controller&quot;: 'Modals.VediSfida'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_sfida&quot;: false...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;controller&quot;: 'Modals.DeleteUser'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_utente&quot;: 0...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;templateUrl&quot;: '/app/templates/modals/sfida.html'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;id_sfida&quot;: false...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;date_string&quot;: &quot;@date&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;sfide&quot;: &quot;=&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;row&quot;: &quot;=&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;Jan&quot;: 'Gen'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;param1&quot;: &quot;@param1&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;param1&quot;: 'badges'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;param1&quot;: 'users'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;param1&quot;: 'users'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;param1&quot;: 'users'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;parameter&quot;: &quot;@parameter&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;action&quot;: &quot;@action&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;filter&quot;: &quot;@filter&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: 'POST'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;filter&quot;: &quot;top&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;value&quot;: 'username'...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
+            <marker date="1392635807000" expanded="true" signature="-1:-1" placeholder="{&quot;value&quot;: 'badges'...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/GamePlay.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="89" selection-end="89" vertical-scroll-proportion="0.077319585" vertical-offset="0" max-vertical-offset="1575">
+        <state line="0" column="68" selection-start="68" selection-end="68" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1755">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/user-box.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="90" selection-start="3305" selection-end="3305" vertical-scroll-proportion="-27.625" vertical-offset="252" max-vertical-offset="1125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/AppService.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="3" selection-start="55" selection-end="240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1920">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/utente.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="15" selection-start="134" selection-end="134" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="25" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AreaPersonale.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="35" selection-start="591" selection-end="591" vertical-scroll-proportion="0.21581548" vertical-offset="154" max-vertical-offset="1740">
           <folding />
         </state>
       </provider>

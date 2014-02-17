@@ -1,4 +1,4 @@
-Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, $modal, SfideService)->
+Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, $modal, Api)->
 
   $scope.rows = [
     { index: 0 },
@@ -61,20 +61,32 @@ Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, $modal, SfideServi
       matrix['tiro' + row] = value.tiro
       matrix['parata' + row] = value.parata
 
-    SfideService.sendSfida
-      value: $scope.sfida.id_sfida
+    Api.call "post", "sfide/set",
       sfida_matrix: JSON.stringify(matrix)
       sfida: $scope.sfida
-    ,
-      (json)->
+      success: (json)->
         $rootScope.$broadcast "hide:loading"
-
-        if json.status == "success"
-          $.notify "Sfida mandata con successo", "success"
-        else
-          $.notify "Errore nel mandare la sfida", "error"
-
+        $.notify "Sfida mandata con successo", "success"
         do $scope.cancel
+
+      error: ->
+        $.notify "Errore nel mandare la sfida", "error"
+
+
+#    SfideService.sendSfida
+#      value: $scope.sfida.id_sfida
+#      sfida_matrix: JSON.stringify(matrix)
+#      sfida: $scope.sfida
+#    ,
+#      (json)->
+#        $rootScope.$broadcast "hide:loading"
+#
+#        if json.status == "success"
+#          $.notify "Sfida mandata con successo", "success"
+#        else
+#          $.notify "Errore nel mandare la sfida", "error"
+#
+#        do $scope.cancel
 
 
 #  ------------------------------------------------------------------------

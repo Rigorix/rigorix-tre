@@ -1,4 +1,4 @@
-Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserServiceNew, $window, $location, Api) ->
+Rigorix.controller "Main", ($scope, $modal, $rootScope, UserServiceNew, $window, $location, Api) ->
 
   $scope.siteTitle = "Website title"
   $scope.userLogged = false

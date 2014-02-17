@@ -1,7 +1,7 @@
 <div id="GamePlay" class="container-fluid" ng-controller="GamePlay">
     <div class="row row-fluid">
         <div class="col col-sm-3 pam">
-            Scheda utente <username id-utente="{{id_utente_avversario}}"></username>
+            Scheda utente <username id-utente="id_utente_avversario"></username>
         </div>
         <div class="col col-sm-9 pam">
 
@@ -16,8 +16,6 @@
             </div>
 
             <form name="set-game-form">
-                <!--<input type="hidden" name="id_sfida" value="{{sfida.id_sfida}}" />-->
-                <!--<input type="hidden" name="id_avversario" value="{{sfida.id_avversario}}" />-->
                 <div class="well mam">
                     <div id="GamePlayPanel">
                         <div class="row" ng-repeat="row in rows">

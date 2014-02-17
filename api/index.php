@@ -145,7 +145,7 @@ Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
 Flight::route('GET /users/@id_utente/basic', function($id_utente) {
   $user = Users::find($id_utente);
   echo Flight::json(array(
-    "id_utente"   => $id_utente,
+    "id_utente"   => intval($id_utente),
     "username"    => $user->getAttribute("username"),
     "picture"     => sanitizeUserPicture($user->getAttribute("picture")),
     "punteggio"   => $user->getAttribute("punteggio_totale"),
@@ -372,12 +372,17 @@ Flight::route('GET /sfide/pending/@id_utente', function($id_utente) {
 
 });
 
-Flight::route('POST /sfide/set/@id_sfida', function($id_sfida) { global $activity;
+Flight::route('POST /sfide/set', function() {
 
-  $sfidaMatrix = json_decode($_GET['sfida_matrix']);
-  $sfidaObject = json_decode($_GET['sfida']);
+  $postdata = file_get_contents("php://input");
+  $data = json_decode($postdata);
+
+  $sfidaMatrix = json_decode($data->sfida_matrix);
+  $sfidaObject = $data->sfida;
 
   $risposta = true;
+
+  var_dump($sfidaObject, $sfidaMatrix);
 
   if ( !isset($sfidaObject->id_sfida) || $sfidaObject->id_sfida === false ):
     $sfida = Sfide::create(array(
@@ -394,20 +399,20 @@ Flight::route('POST /sfide/set/@id_sfida', function($id_sfida) { global $activit
     "id_sfida"  => $id_sfida,
     "id_utente" => $sfidaObject->id_utente ? $sfidaObject->id_utente : $sfidaObject->id_sfidante,
     "o1"        => $sfidaMatrix->tiro1 + 1,
-    "o2"        => $sfidaMatrix->tiro1 + 2,
-    "o3"        => $sfidaMatrix->tiro1 + 3,
-    "o4"        => $sfidaMatrix->tiro1 + 4,
-    "o5"        => $sfidaMatrix->tiro1 + 5
+    "o2"        => $sfidaMatrix->tiro1 + 1,
+    "o3"        => $sfidaMatrix->tiro1 + 1,
+    "o4"        => $sfidaMatrix->tiro1 + 1,
+    "o5"        => $sfidaMatrix->tiro1 + 1
   ));
 
   $parate = SfideParate::create(array(
     "id_sfida"  => $id_sfida,
     "id_utente" => $sfidaObject->id_utente ? $sfidaObject->id_utente : $sfidaObject->id_sfidante,
     "o1"        => $sfidaMatrix->parata1 + 1,
-    "o2"        => $sfidaMatrix->parata1 + 2,
-    "o3"        => $sfidaMatrix->parata1 + 3,
-    "o4"        => $sfidaMatrix->parata1 + 4,
-    "o5"        => $sfidaMatrix->parata1 + 5
+    "o2"        => $sfidaMatrix->parata1 + 1,
+    "o3"        => $sfidaMatrix->parata1 + 1,
+    "o4"        => $sfidaMatrix->parata1 + 1,
+    "o5"        => $sfidaMatrix->parata1 + 1
   ));
 
   if ( $tiri->getAttribute("id_tiri") && $parate->getAttribute("id_parate") ):
@@ -415,7 +420,7 @@ Flight::route('POST /sfide/set/@id_sfida', function($id_sfida) { global $activit
     $sfidaUpdate->stato = $risposta == false ? 1 : 2;
     $sfidaUpdate->save();
 
-    Flight::halt(200, "Sfida inserita correttamente");
+    Flight::halt(200, array("status" => "success", "id_sfida" => $id_sfida));
   else:
     Flight::error();
   endif;
