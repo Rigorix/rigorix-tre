@@ -16,8 +16,8 @@
     </tr>
     <tr ng-repeat="sfida in sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.if_sfida}}" on-sfida-load>
         <td class="{{risultatoLabel}}"></td>
-        <td>{{id_avversario}}
-            <username id_utente="{{id_avversario}}"></username>
+        <td>
+            <username id-utente="id_avversario" with-picture="true" with-punteggio="true"></username>
         </td>
         <td class="text-center">
             <beautify-date ng-show="sfida.dta_sfida != false" date="{{sfida.dta_sfida}}"></beautify-date>

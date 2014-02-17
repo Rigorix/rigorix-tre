@@ -99,10 +99,10 @@ RigorixServices.factory "AppService", ($resource)->
 ##    General
 ##
 #
-#    getUserParameter:
-#      method: "GET"
-#      params:
-#        param1: 'users'
+    getUserParameter:
+      method: "GET"
+      params:
+        param1: 'users'
 #
 ##
 ##    Messages

@@ -1,3 +1,16 @@
-<div class="user-link" name="user-link" id_utente="{{userObject.id_utente}}" ng-click="doClickUsername()" ng-controller="Username">
-    <span class="ui-username">{{userObject.username}}</span>
+<div ng-show="userObject.id_utente > 0">
+    <div ng-show="currentUser.id_utente == userObject.id_utente">
+        <em>
+            <img src="{{userObject.picture}}" class="username-picture" align="middle">
+            <span class="ui-username">{{userObject.username}}</span>
+        </em>
+        <span class="punteggio-utente-container label">{{userObject.punteggio}}</span>
+    </div>
+
+    <div tooltip-html-unsafe="{{userTooltipMessage}}" tooltip-placement="left" id_utente="{{userObject.id_utente}}" ng-show="currentUser.id_utente != userObject.id_utente">
+        <img ng-show="with_picture" src="{{userObject.picture}}" class="username-picture" align="middle">
+        <span class="ui-username" ng-click="doLanciaSfida()" ng-show="userObject.attivo > 0">{{userObject.username}}</span>
+        <span class="ui-username" icon="remove" popover-trigger="mouseenter" popover="L'utente si è cancellato" ng-show="userObject.attivo == 0"><em>{{userObject.username}}</em></span>
+        <span ng-show="with_punteggio" class="punteggio-utente-container label">{{userObject.punteggio}}</span>
+    </div>
 </div>

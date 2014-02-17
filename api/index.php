@@ -142,6 +142,16 @@ Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
   echo Sfide::receivedBy($id_utente)->unplayed()->get();
 });
 
+Flight::route('GET /users/@id_utente/basic', function($id_utente) {
+  $user = Users::find($id_utente);
+  echo Flight::json(array(
+    "id_utente"   => $id_utente,
+    "username"    => $user->getAttribute("username"),
+    "picture"     => sanitizeUserPicture($user->getAttribute("picture")),
+    "punteggio"   => $user->getAttribute("punteggio_totale"),
+    "attivo"      => $user->getAttribute("attivo")
+  ));
+});
 
 Flight::route('GET /users/search/@attribute/@search', function($attribute, $search) {
   echo  Users::searchAttribute($attribute, $search)->get()->toJson();

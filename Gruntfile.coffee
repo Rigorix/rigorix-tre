@@ -131,7 +131,7 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   #  grunt.loadNpmTasks('grunt-ftp-deploy');
-  grunt.loadNpmTasks "grunt-git-ftp"
+#  grunt.loadNpmTasks "grunt-git-ftp"
   grunt.loadNpmTasks "grunt-contrib-concat"
 #  grunt.loadNpmTasks "grunt-githooks"
   grunt.loadNpmTasks "grunt-concurrent"

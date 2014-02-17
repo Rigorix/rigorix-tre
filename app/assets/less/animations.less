@@ -1,0 +1,75 @@
+.ball {
+  width: 50px;
+  height:50px;
+  background: url(/app/assets/images/ball.png);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -25px;
+  animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0% {
+    opacity: 0;
+    top: 0;
+    animation-timing-function: ease-in;
+  }
+  16%, 48%, 78% {
+    opacity: 1;
+    top: 190px;
+    animation-timing-function: ease-out;
+  }
+  32% {
+    opacity: 1;
+    top: 50px;
+    animation-timing-function: ease-in;
+  }
+  62% {
+    opacity: 1;
+    top: 100px;
+    animation-timing-function: ease-in;
+  }
+  90% {
+    opacity: .5;
+    top: 150px;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 0;
+    top: 190px;
+    animation-timing-function: ease-out;
+  }
+}
+@-webkit-keyframes bounce {
+  0% {
+    top: 0;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+  }
+  16%, 48%, 78% {
+    opacity: 1;
+    top: 190px;
+    -webkit-animation-timing-function: ease-out;
+  }
+  32% {
+    opacity: 1;
+    top: 50px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  62% {
+    opacity: 1;
+    top: 100px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  90% {
+    opacity: .5;
+    top: 150px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 0;
+    top: 190px;
+    -webkit-animation-timing-function: ease-out;
+  }
+}

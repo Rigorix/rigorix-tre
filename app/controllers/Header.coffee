@@ -1,4 +1,4 @@
-Rigorix.controller "Header", ($scope, $location) ->
+Rigorix.controller "Header", ($scope, $rootScope, $location) ->
 
   $scope.showUserPopout = false;
 

@@ -4,6 +4,7 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
   $scope.userLogged = false
   $scope.currentUser = false
   $scope.User = window.User
+  $scope.appLoaded = false
 
   $scope.doClick = (event)->
     $rootScope.$broadcast "rootevent:click",
@@ -14,6 +15,9 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
       if User.dead is false then $location.path "/first-login" else $location.path "/access-denied"
 
     $location.path "/" if User is false
+
+  $scope.$on "app:loaded", ->
+    $scope.appLoaded = true
 
   $scope.$on "modal:open", (event, obj)->
     $scope.modalClass = obj.modalClass
@@ -56,7 +60,6 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, AuthService, UserService
     ,
       (json)=>
         $scope.currentUser = json
-#        $scope.currentUser.picture = RigorixConfig.userPicturePath + json.picture if json.picture.indexOf "http" is -1
         $scope.userLogged = json.attivo is 1
         $rootScope.$broadcast "user:update", json
 
