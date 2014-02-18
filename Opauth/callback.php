@@ -128,7 +128,7 @@ else{
 */
 //echo "<pre>";
 //$_SESSION['rigorix_oauth_user'] = $response;
-//print_r($response);
+print_r($response);
 //echo "</pre>";
 ?>
 

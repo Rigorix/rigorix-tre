@@ -7,6 +7,7 @@
  * 
  */
 
+require_once "../classes/logger.php";
 /**
  * Define paths
  */
@@ -24,9 +25,20 @@ if (!file_exists(CONF_FILE)){
 require CONF_FILE;
 $config['callback_url'] = $_SERVER['HTTP_REFERER'] . "Opauth/callback.php";
 
+_log("Opauth", "################################################################################");
+_log("Opauth", "START NEW login process, callback url: {$config['callback_url']}");
+
 /**
  * Instantiate Opauth with the loaded config
  */
 require OPAUTH_LIB_DIR.'Opauth.php';
+_log("Opauth", "Instanzio Opauth");
 $Opauth = new Opauth( $config );
+_log("Opauth", "DONE");
+
 ?>
+
+
+Sto caricando il motherfucker
+
+<? var_dump($config); ?>

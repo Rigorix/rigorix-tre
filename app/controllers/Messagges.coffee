@@ -8,7 +8,7 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, UserServiceNew, $modal)
   $scope.$on "user:update", ->
     do $scope.updateMessages
 
-  $scope.$on "message:deleted", (event, message)->
+  $scope.$on "message:deleted", ()->
     do $scope.updateMessages
 
   $scope.updateMessages = ->

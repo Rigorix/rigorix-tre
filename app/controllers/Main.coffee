@@ -38,6 +38,15 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, UserServiceNew, $window,
 
   $scope.$on "user:activated", ->
     do $scope.updateUserObject
+    $scope.User.attivo = 1
+    $location.path "/"
+    $modal.open
+      templateUrl:  '/app/templates/modals/user.activated.html',
+      controller:    'Modals.NewUser',
+      resolve:
+        user: ->
+          $scope.currentUser
+
 
 
 #-----------------------------------------------------------------------------------------------------------------------

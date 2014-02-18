@@ -70,7 +70,8 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" icon="asterisk">Data di nascita</label>
                     <div class="col-sm-9 enlarge-inside-table">
-                        <input type="text" name="data_nascita" required ng-required="true" value="newUser.db_object.data_nascita" id="nome" ng-model="newUser.db_object.data_nascita" class="form-control" />
+                        <datepicker ng-model="newUser.db_object.data_nascita" show-weeks="false" required ng-required="true"></datepicker>
+                        <!--<input type="text" name="data_nascita" required ng-required="true" value="newUser.db_object.data_nascita" id="nome" ng-model="newUser.db_object.data_nascita" class="form-control" />-->
                         <span class="error-message" ng-show="newUserForm.data_nascita.$invalid">La data di nascita è obbligatoria, clicca il campo e selezionala dal calendario</span>
                     </div>
                 </div>

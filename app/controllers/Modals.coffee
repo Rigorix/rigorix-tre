@@ -118,3 +118,23 @@ Rigorix.controller "Modals.DeleteUser", ($scope, $modal, $modalInstance, $rootSc
   $scope.cancel = ->
     do $modalInstance.dismiss
     $rootScope.$broadcast "modal:close"
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+Rigorix.controller "Modals.NewUser", ($scope, $modal, $modalInstance, $rootScope, user, Api)->
+
+  $rootScope.$broadcast "modal:open",
+    controller: 'Modals.DeleteUser'
+    modalClass: 'modal-delete-user'
+
+  $modalInstance.result.then (selectedItem) ->
+    true
+  , ()->
+    $rootScope.$broadcast "modal:close"
+
+  $scope.cancel = ->
+    do $modalInstance.dismiss
+    $rootScope.$broadcast "modal:close"

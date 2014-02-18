@@ -90,7 +90,7 @@ class Opauth{
 	
 	/**
 	 * Run Opauth:
-	 * Parses request URI and perform defined authentication actions based based on it.
+	 * Parses request URI and perform defined authentication actions based on it.
 	 */
 	public function run(){
 		$this->parseUri();

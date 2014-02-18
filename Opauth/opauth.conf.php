@@ -29,21 +29,6 @@ $config = array(
  */
 	'security_salt' => 't837oq4rwyfpr938cwry87iw34tyr8iw7ertycfgh',
 		
-/**
- * Strategy
- * Refer to individual strategy's documentation on configuration requirements.
- * 
- * eg.
- * 'Strategy' => array(
- * 
- *   'Facebook' => array(
- *      'app_id' => 'APP ID',
- *      'app_secret' => 'APP_SECRET'
- *    ),
- * 
- * )
- *
- */
 	'Strategy' => array(
 		// Define strategies and their respective configs here
 		
@@ -57,15 +42,20 @@ $config = array(
 			'client_secret' => 'tQqYjf28D3F6f3PuXs9rtTxQ'
 		),
 
-    'Twitter' => array(
+    'twitter' => array(
       'key' => 'v2L3r7wXvYTTNLNonWgg',
       'secret' => 'sEokdAWWYSaVlFrZfcdvL6AxthJf79TmoknTNsTHA'
     ),
 
     'Foursquare' => array(
-      'key' => 'V5UUIHGHLIAGQRDFJ5MRYFXH3ASMGW2INKPBOPR0IR0CKMD4',
-      'secret' => 'SQQWL0HVQKMUONMDT50KXT2ZAXV2KEWZISRBK3EJDJI51BZS'
+      'client_id' => 'V5UUIHGHLIAGQRDFJ5MRYFXH3ASMGW2INKPBOPR0IR0CKMD4',
+      'client_secret' => 'SQQWL0HVQKMUONMDT50KXT2ZAXV2KEWZISRBK3EJDJI51BZS'
     ),
+
+    'Instagram' => array(
+      'client_id' => 'efad644533f5410a81aa11c231268c21',
+      'client_secret' => 'bd84aab3371c4149b7ac58bb97e36b86'
+    )
 				
 	),
 );

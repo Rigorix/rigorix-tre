@@ -33,8 +33,7 @@ Rigorix.controller "FirstLogin", ($scope, UserServiceNew, $location, $rootScope)
         id_utente: $scope.newUser.id_utente
       ,
       (json)->
-        console.log "json", json
         $rootScope.$broadcast "hide:loading"
         $rootScope.$broadcast "user:activated", json
     else
-      alert $scope.newUserForm.$valid
+      $.notify "Ci sono uno o più campi che non sono stati compilati."
