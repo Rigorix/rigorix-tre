@@ -1,9 +1,4 @@
-Rigorix.controller 'Messages', ($scope, $rootScope, Api, UserServiceNew, $modal)->
-
-#  Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages/unread",
-#    count: RigorixConfig.messagesPerPage
-#    success: (json)->
-#      $scope.messages = json.data
+Rigorix.controller 'Messages', ($scope, $rootScope, Api, MessageResource, $modal)->
 
   $scope.$on "user:update", ->
     do $scope.updateMessages
@@ -11,8 +6,12 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, UserServiceNew, $modal)
   $scope.$on "message:deleted", ()->
     do $scope.updateMessages
 
+  $scope.$on "message:read", (event, message)->
+    Api.call "post", "messages/" + message.id_mess,
+      letto: 1
+
   $scope.updateMessages = ->
-    Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages/unread",
+    Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages",
       count: RigorixConfig.messagesPerPage
       success: (json)->
         $scope.messages = json.data
@@ -23,10 +22,9 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, UserServiceNew, $modal)
       controller:    'Message.Modal.New',
 
   $scope.openMessage = (message)->
+    console.log "message to be opened", message
 
-    if message.letto is 0
-      message.letto = 1;
-      $rootScope.$broadcast "message:read", message
+    $rootScope.$broadcast "message:read", message if message.letto is 0
 
     $modal.open
       templateUrl:  '/app/templates/modals/message.html',
@@ -64,10 +62,6 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
   console.log "message", messageRes
 
   $scope.message = message
-
-#  TODO: add this to Api call
-#  AppService.putMessageRead
-#    id_message: message.id_mess
 
   $modalInstance.result.then () ->
     true
@@ -117,14 +111,13 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
 
 Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootScope, Api)->
 
+  $scope.receiver = ''
   $scope.newMessage =
     oggetto: ''
     id_sender: User.id_utente
     id_receiver: 0
-    receiver: ''
     testo: ''
     letto: 0
-    dta_mess: '_V_NOW_'
     report: 0
 
   $rootScope.$broadcast "modal:open",
@@ -136,19 +129,24 @@ Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootSc
       success: (json)->
         return json.data
 
-  $scope.onSelectUser = (obj)->
-    console.log "obj, ", obj
+  $scope.onSelectUser = (userObj)->
+    $scope.newMessage.id_receiver = userObj.id_utente
 
   $modalInstance.result.then () ->
     true
   , ()->
     $rootScope.$broadcast "modal:close"
 
-  $scope.sendNewMessage = (newMessage)->
-    Api.call "post", "messages/new",
-      message: newMessage,
-      success: (json)->
+  $scope.sendNewMessage = ()->
+
+    Api.call "post", "messages",
+      message: $scope.newMessage,
+      success: ->
+        do $scope.cancel
         $.notify "Messaggio mandato con successo", "success"
+
+      error: ->
+        $.notify "Errore nel mandare il messaggio, riprova più tardi", "error"
 
   $scope.cancel = ->
     do $modalInstance.dismiss

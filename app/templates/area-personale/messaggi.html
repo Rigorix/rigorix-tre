@@ -19,9 +19,9 @@
             <tr ng-repeat="message in messages" ng-class="{success:message.letto == 0}">
                 <td width="1"></td>
                 <td width="15%">
-                    <beautify-date date="{{message.dta_mess}}" inline="true"></beautify-date>
+                    <beautify-date date="{{message.updated_at}}" inline="true"></beautify-date>
                 </td>
-                <td>
+                <td width="25%">
                     <username popover-placement="top" id-utente="message.id_sender"></username>
                 </td>
                 <td>

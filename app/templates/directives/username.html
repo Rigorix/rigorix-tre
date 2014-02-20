@@ -1,10 +1,10 @@
 <div ng-show="userObject.id_utente > 0">
     <div ng-show="currentUser.id_utente == userObject.id_utente">
         <em>
-            <img src="{{userObject.picture}}" class="username-picture" align="middle">
+            <img ng-show="with_picture" src="{{userObject.picture}}" class="username-picture" align="middle">
             <span class="ui-username">{{userObject.username}}</span>
         </em>
-        <span class="punteggio-utente-container label">{{userObject.punteggio}}</span>
+        <span ng-show="with_punteggio" class="punteggio-utente-container label">{{userObject.punteggio}}</span>
     </div>
 
     <div tooltip-html-unsafe="{{userTooltipMessage}}" tooltip-placement="tooltip_placement" id_utente="{{userObject.id_utente}}" ng-show="currentUser.id_utente != userObject.id_utente">
