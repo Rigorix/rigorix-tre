@@ -22,8 +22,6 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, MessageResource, $modal
       controller:    'Message.Modal.New',
 
   $scope.openMessage = (message)->
-    console.log "message to be opened", message
-
     $rootScope.$broadcast "message:read", message if message.letto is 0
 
     $modal.open
@@ -46,7 +44,7 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, MessageResource, $modal
 
 
 
-Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope, message, MessageResource)->
+Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Message.Modal'
@@ -75,15 +73,16 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
     angular.element(".ta-editor").focus()
 
   $scope.sendReply = (answerText)->
-    Api.call "post", "message/new",
-      text: answerText
+    $scope.message.testo = answerText
+    $scope.message.oggetto = 'RE: ' + $scope.message.oggetto
+    Api.call "post", "messages",
       message: $scope.message
       success: (json)->
         $.notify "Risposta mandata con successo", "success"
         $rootScope.$broadcast "modal:close"
         do $modalInstance.dismiss
       error: ->
-        $.notify "Errore nel spedire la risposta.<br>Riprova pi$ugrave; tardi.", "error"
+        $.notify "Errore nel spedire la risposta. Riprova più tardi.", "error"
 
 
   $scope.discard = ->

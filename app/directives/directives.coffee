@@ -55,6 +55,7 @@ Rigorix.directive "username", ()->
     with_picture      : "@withPicture"
     with_punteggio    : "@withPunteggio"
     tooltip_placement : "@tooltipPlacement"
+    disabled          : "@"
 
 
 #-----------------------------------------------------------------------------------------------------------------------

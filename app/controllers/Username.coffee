@@ -22,14 +22,15 @@ Rigorix.controller "Username", ($scope, $rootScope, $modal, Api)->
     do $scope.doLanciaSfida
 
   $scope.doLanciaSfida = ->
-    $rootScope.$broadcast "sfida:lancia", $scope.userObject
+    if $scope.disabled != 'disabled'
+      $rootScope.$broadcast "sfida:lancia", $scope.userObject
 
-    $modal.open
-      templateUrl:  '/app/templates/modals/sfida.html',
-      controller: 'Modals.Sfida'
-      resolve:
-        sfida: ->
-          id_sfidante: $scope.currentUser.id_utente
-          id_avversario: $scope.userObject.id_utente
-          id_sfida: false
+      $modal.open
+        templateUrl:  '/app/templates/modals/sfida.html',
+        controller: 'Modals.Sfida'
+        resolve:
+          sfida: ->
+            id_sfidante: $scope.currentUser.id_utente
+            id_avversario: $scope.userObject.id_utente
+            id_sfida: false
 

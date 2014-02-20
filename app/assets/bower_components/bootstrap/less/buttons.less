@@ -19,8 +19,12 @@
   .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
   .user-select(none);
 
-  &:focus {
-    .tab-focus();
+  &,
+  &:active,
+  &.active {
+    &:focus {
+      .tab-focus();
+    }
   }
 
   &:hover,
@@ -123,7 +127,7 @@
 }
 .btn-sm {
   // line-height: ensure proper height of button next to small input
-  .button-size(@padding-small-vertical*.9; @padding-small-horizontal*.9; @font-size-small; @line-height-small; @border-radius-small);
+  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
 }
 .btn-xs {
   .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @border-radius-small);
