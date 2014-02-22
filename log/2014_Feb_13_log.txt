@@ -1,0 +1,765 @@
+
+13-02-2014 11:37:17 [U ] CORE CLASS> starts
+13-02-2014 11:37:17  API> /users/5813
+13-02-2014 11:37:17  API> /users/5813
+13-02-2014 11:37:36 [U ] CORE CLASS> starts
+13-02-2014 11:37:36  API> /users/5813
+13-02-2014 11:37:36  API> /users/5813
+13-02-2014 11:38:02 [U ] CORE CLASS> starts
+13-02-2014 11:38:02  API> /users/5813
+13-02-2014 11:38:02  API> /users/5813
+13-02-2014 11:38:10  CORE CLASS> starts
+13-02-2014 11:38:10  API> /users/5813
+13-02-2014 11:38:10  API> /users/5813
+13-02-2014 11:38:42 [U false] CORE CLASS> starts
+13-02-2014 11:38:42  API> /users/5813
+13-02-2014 11:38:42  API> /users/5813
+13-02-2014 11:39:49 [U false] CORE CLASS> starts
+13-02-2014 11:39:49  API> /users/5813
+13-02-2014 11:39:49 [U {"db_object":{"id_utente":5813,"attivo":0,"social_provider":"Google","social_uid":2147483647,"social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"","nome":"","cognome":"","data_nascita":"0000-00-00","sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 01:02:12","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":"0000-00-00 00:00:00","hobby":"","frase":"","giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"","id_utente":5813,"attivo":0,"social_provider":"Google","social_uid":2147483647,"social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"","cognome":"","data_nascita":"0000-00-00","sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 01:02:12","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":"0000-00-00 00:00:00","hobby":"","frase":"","giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}] CORE_CLASS> check_user ended
+13-02-2014 11:39:49  API> /users/5813
+13-02-2014 11:41:23 [U ] CORE CLASS> starts
+13-02-2014 11:41:23  API> /users/5813
+13-02-2014 11:41:23 [U ] CORE_CLASS> check_user ended
+13-02-2014 11:41:23  API> /users/5813
+13-02-2014 11:41:23  API> /users/5813
+13-02-2014 11:41:36 [U ] CORE CLASS> starts
+13-02-2014 11:41:36  API> /users/5813
+13-02-2014 11:41:36 [U ] CORE_CLASS> check_user ended
+13-02-2014 11:41:36  API> /users/5813
+13-02-2014 11:41:37  API> /users/5813
+13-02-2014 11:42:22 [U ] CORE CLASS> starts
+13-02-2014 11:42:22  API> /users/5813
+13-02-2014 11:42:22 [U ] CORE_CLASS> check_user ended
+13-02-2014 11:42:22  API> /users/5813
+13-02-2014 11:42:23  API> /users/5813
+13-02-2014 11:43:36 [U 5813] CORE CLASS> starts
+13-02-2014 11:43:36  API> /users/5813
+13-02-2014 11:43:36 [U 5813] CORE_CLASS> check_user ended
+13-02-2014 11:43:36  API> /users/5813
+13-02-2014 11:43:36  API> /users/5813
+13-02-2014 12:00:07  API /users/5813/logout> 
+13-02-2014 12:00:07  API> /users/5813
+13-02-2014 12:00:24 [U 5813] CORE CLASS> starts
+13-02-2014 12:00:25  API> /users/5813
+13-02-2014 12:00:25 [U 5813] CORE_CLASS> check_user ended
+13-02-2014 12:00:25  API> /users/5813
+13-02-2014 12:00:25 [U ] CORE CLASS> starts
+13-02-2014 12:00:25 [U ] CORE_CLASS> check_user ended
+13-02-2014 12:00:45 [U 5814] CORE CLASS> starts
+13-02-2014 12:00:45  API> /users/5814
+13-02-2014 12:00:45 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 12:00:45  API> /users/5814
+13-02-2014 12:00:45  API> /users/5814
+13-02-2014 12:01:24  API /users/5814/logout> 
+13-02-2014 12:01:24  API> /users/5814
+13-02-2014 12:05:07 [U 5814] CORE CLASS> starts
+13-02-2014 12:05:07 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 12:40:04 [U 5814] CORE CLASS> starts
+13-02-2014 12:40:04 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 12:40:07 [U 5814] CORE CLASS> starts
+13-02-2014 12:40:07 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 12:40:25 [U 5814] CORE CLASS> starts
+13-02-2014 12:40:25  API> /users/5814
+13-02-2014 12:40:25 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 12:40:25  API> /users/5814
+13-02-2014 12:40:28 [U 5814] CORE CLASS> starts
+13-02-2014 12:40:28  API> /users/5814
+13-02-2014 12:40:28 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 12:40:28  API> /users/5814
+13-02-2014 12:40:28  API> /users/5814
+13-02-2014 12:41:40 [U 5814] CORE CLASS> starts
+13-02-2014 12:41:40  API> /users/5814
+13-02-2014 12:41:40 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 12:41:40  API> /users/5814
+13-02-2014 12:41:41  API> /users/5814
+13-02-2014 12:41:59  API> /users/5814
+13-02-2014 12:45:17 [U 5814] CORE CLASS> starts
+13-02-2014 12:45:17  API> /users/5814
+13-02-2014 12:45:17 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 12:45:17  API> /users/5814
+13-02-2014 12:45:18  API> /users/5814
+13-02-2014 12:52:25 [U 5814] CORE CLASS> starts
+13-02-2014 12:52:25  API> /users/5814
+13-02-2014 12:52:25 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 12:52:25  API> /users/5814
+13-02-2014 12:52:26  API> /users/5814
+13-02-2014 12:56:47  API> /users/5814
+13-02-2014 13:01:39 [U 5814] CORE CLASS> starts
+13-02-2014 13:01:39  API> /users/5814
+13-02-2014 13:01:39 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 13:01:39  API> /users/5814
+13-02-2014 13:02:43 [U 5814] CORE CLASS> starts
+13-02-2014 13:02:43  API> /users/5814
+13-02-2014 13:02:43 [U 5814] CORE_CLASS> check_user ended
+13-02-2014 13:02:43  API> /users/5814
+13-02-2014 13:02:57 [U 5815] CORE CLASS> starts
+13-02-2014 13:02:57  API> /users/5815
+13-02-2014 13:02:57 [U 5815] CORE_CLASS> check_user ended
+13-02-2014 13:02:57  API> /users/5815
+13-02-2014 13:02:58  API> /users/5815
+13-02-2014 13:03:58  API> /users/5815
+13-02-2014 15:59:20 [U 5815] CORE CLASS> starts
+13-02-2014 15:59:20  API> /users/5815
+13-02-2014 15:59:20 [U 5815] CORE_CLASS> check_user ended
+13-02-2014 15:59:20  API> /users/5815
+13-02-2014 15:59:20 [U ] CORE CLASS> starts
+13-02-2014 15:59:20 [U ] CORE_CLASS> check_user ended
+13-02-2014 15:59:45  CORE CLASS> starts
+13-02-2014 15:59:45  CORE_CLASS> check_user ended
+13-02-2014 16:00:06  CORE CLASS> starts
+13-02-2014 16:00:06  CORE_CLASS> check_user ended
+13-02-2014 16:00:17 [U 5816] CORE CLASS> starts
+13-02-2014 16:00:17  API> /users/5816
+13-02-2014 16:00:17 [U 5816] CORE_CLASS> check_user ended
+13-02-2014 16:00:17  API> /users/5816
+13-02-2014 16:00:18  API> /users/5816
+13-02-2014 16:04:06 [U 5816] CORE CLASS> starts
+13-02-2014 16:04:06  API> /users/5816
+13-02-2014 16:04:06 [U 5816] CORE_CLASS> check_user ended
+13-02-2014 16:04:06  API> /users/5816
+13-02-2014 16:04:08 [U 5816] CORE CLASS> starts
+13-02-2014 16:04:08  API> /users/5816
+13-02-2014 16:04:08 [U 5816] CORE_CLASS> check_user ended
+13-02-2014 16:04:08  API> /users/5816
+13-02-2014 16:04:20  API POST /users/create> Array
+13-02-2014 16:04:20 [U 5817] CORE CLASS> starts
+13-02-2014 16:04:20  API> /users/5817
+13-02-2014 16:04:20 [U 5817] CORE_CLASS> check_user ended
+13-02-2014 16:04:20  API> /users/5817
+13-02-2014 16:04:21  API> /users/5817
+13-02-2014 16:08:58  API> /users/5817
+13-02-2014 16:11:00  CORE CLASS> starts
+13-02-2014 16:11:00  CORE_CLASS> check_user ended
+13-02-2014 16:11:02  CORE CLASS> starts
+13-02-2014 16:11:02  CORE_CLASS> check_user ended
+13-02-2014 16:11:11  API> /users/create
+13-02-2014 16:11:30  API> /users/create
+13-02-2014 16:11:47  API> /users/create
+13-02-2014 16:11:52  CORE CLASS> starts
+13-02-2014 16:11:52  CORE_CLASS> check_user ended
+13-02-2014 16:11:55  API POST /users/create> Array
+13-02-2014 16:11:55 [U 5818] CORE CLASS> starts
+13-02-2014 16:11:55  API> /users/5818
+13-02-2014 16:11:55 [U 5818] CORE_CLASS> check_user ended
+13-02-2014 16:11:55  API> /users/5818
+13-02-2014 16:11:55  API> /users/5818
+13-02-2014 16:12:33  API> /users/5818
+13-02-2014 16:12:34  API POST /users/create> {"id":"115304495556673294617","email":"littlebrown@gmail.com","verified_email":"1","name":"Paolo Moretti","given_name":"Paolo","family_name":"Moretti","link":"https:\/\/plus.google.com\/115304495556673294617","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","gender":"male","locale":"en-GB","provider":"Google"}
+13-02-2014 16:12:34 [U 5819] CORE CLASS> starts
+13-02-2014 16:12:34  API> /users/5819
+13-02-2014 16:12:34 [U 5819] CORE_CLASS> check_user ended
+13-02-2014 16:12:34  API> /users/5819
+13-02-2014 16:12:35  API> /users/5819
+13-02-2014 16:14:11  API> /users/5819
+13-02-2014 16:14:13  API POST /users/create> {"id":"115304495556673294617","email":"littlebrown@gmail.com","verified_email":"1","name":"Paolo Moretti","given_name":"Paolo","family_name":"Moretti","link":"https:\/\/plus.google.com\/115304495556673294617","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","gender":"male","locale":"en-GB","provider":"Google"}
+13-02-2014 16:14:13  API POST /users/create> Found 
+13-02-2014 16:14:13 [U 5820] CORE CLASS> starts
+13-02-2014 16:14:13  API> /users/5820
+13-02-2014 16:14:13 [U 5820] CORE_CLASS> check_user ended
+13-02-2014 16:14:13  API> /users/5820
+13-02-2014 16:14:14  API> /users/5820
+13-02-2014 16:14:25  API> /users/5820
+13-02-2014 16:14:27  API POST /users/create> {"id":"115304495556673294617","email":"littlebrown@gmail.com","verified_email":"1","name":"Paolo Moretti","given_name":"Paolo","family_name":"Moretti","link":"https:\/\/plus.google.com\/115304495556673294617","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","gender":"male","locale":"en-GB","provider":"Google"}
+13-02-2014 16:14:27  API POST /users/create> Found 0
+13-02-2014 16:14:27 [U 5821] CORE CLASS> starts
+13-02-2014 16:14:27  API> /users/5821
+13-02-2014 16:14:27 [U 5821] CORE_CLASS> check_user ended
+13-02-2014 16:14:27  API> /users/5821
+13-02-2014 16:14:27  API> /users/5821
+13-02-2014 16:15:47  API> /users/5821
+13-02-2014 16:15:49  API POST /users/create> {"id":"115304495556673294617","email":"littlebrown@gmail.com","verified_email":"1","name":"Paolo Moretti","given_name":"Paolo","family_name":"Moretti","link":"https:\/\/plus.google.com\/115304495556673294617","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","gender":"male","locale":"en-GB","provider":"Google"}
+13-02-2014 16:15:49  API POST /users/create> Found 0 with id 115304495556673294617
+13-02-2014 16:15:49 [U 5822] CORE CLASS> starts
+13-02-2014 16:15:49  API> /users/5822
+13-02-2014 16:15:49 [U 5822] CORE_CLASS> check_user ended
+13-02-2014 16:15:49  API> /users/5822
+13-02-2014 16:15:50  API> /users/5822
+13-02-2014 16:16:52  API> /users/5822
+13-02-2014 16:16:53  API POST /users/create> {"id":"115304495556673294617","email":"littlebrown@gmail.com","verified_email":"1","name":"Paolo Moretti","given_name":"Paolo","family_name":"Moretti","link":"https:\/\/plus.google.com\/115304495556673294617","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","gender":"male","locale":"en-GB","provider":"Google"}
+13-02-2014 16:16:53  API POST /users/create> Found 0 with id 115304495556673294617
+13-02-2014 16:16:53 [U 5823] CORE CLASS> starts
+13-02-2014 16:16:53  API> /users/5823
+13-02-2014 16:16:53 [U 5823] CORE_CLASS> check_user ended
+13-02-2014 16:16:53  API> /users/5823
+13-02-2014 16:16:54  API> /users/5823
+13-02-2014 16:18:35  API> /users/5823
+13-02-2014 16:18:39  API POST /users/create> {"id":"115304495556673294617","email":"littlebrown@gmail.com","verified_email":"1","name":"Paolo Moretti","given_name":"Paolo","family_name":"Moretti","link":"https:\/\/plus.google.com\/115304495556673294617","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","gender":"male","locale":"en-GB","provider":"Google"}
+13-02-2014 16:18:39  API POST /users/create> Found 0 with id 115304495556673294617
+13-02-2014 16:18:39 [U 5824] CORE CLASS> starts
+13-02-2014 16:18:39  API> /users/5824
+13-02-2014 16:18:39 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:18:39  API> /users/5824
+13-02-2014 16:18:40  API> /users/5824
+13-02-2014 16:19:18  API> /users/5824
+13-02-2014 16:19:19 [U 5824] CORE CLASS> starts
+13-02-2014 16:19:19  API> /users/5824
+13-02-2014 16:19:19 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:19:19  API> /users/5824
+13-02-2014 16:19:20  API> /users/5824
+13-02-2014 16:22:46  API POST /users/5824> 
+13-02-2014 16:22:46  API POST /users/5824> User to update: null
+13-02-2014 16:22:46  API> /users/5824
+13-02-2014 16:23:50  API POST /users/5824> 
+13-02-2014 16:23:50  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"1980-07-21","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:23:51  API> /users/5824
+13-02-2014 16:25:04  API POST /users/5824> 
+13-02-2014 16:25:04  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"1980-07-21","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:25:04  API POST /users/5824> With this: {"incrementing":true,"timestamps":true,"exists":true}
+13-02-2014 16:25:04  API> /users/5824
+13-02-2014 16:25:31  API POST /users/5824> 
+13-02-2014 16:25:31  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"12342243","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:25:31  API POST /users/5824> With this: {}
+13-02-2014 16:25:31  API> /users/5824
+13-02-2014 16:26:58  API POST /users/5824> 
+13-02-2014 16:26:58  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"3432","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:26:58  API POST /users/5824> With this: {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:26:58  API> /users/5824
+13-02-2014 16:27:26  API POST /users/5824> 
+13-02-2014 16:27:26  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolos","cognome":"Morettis","data_nascita":"2314243","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:27:26  API POST /users/5824> With this: {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:27:26  API> /users/5824
+13-02-2014 16:29:43  API POST /users/5824> 
+13-02-2014 16:29:43  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"sadasdfgafgad","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:29:43  API POST /users/5824> With this: {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:30:27 [U 5824] CORE CLASS> starts
+13-02-2014 16:30:27  API> /users/5824
+13-02-2014 16:30:27 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:30:27  API> /users/5824
+13-02-2014 16:30:28  API> /users/5824
+13-02-2014 16:30:35  API POST /users/5824> 
+13-02-2014 16:30:35  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paoloss","cognome":"Morettiss","data_nascita":"423134","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:30:35  API POST /users/5824> With this: {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:30:35  API POST /users/5824> Merged objects
+13-02-2014 16:30:54 [U 5824] CORE CLASS> starts
+13-02-2014 16:30:54  API> /users/5824
+13-02-2014 16:30:54 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:30:54  API> /users/5824
+13-02-2014 16:30:55  API> /users/5824
+13-02-2014 16:31:06  API POST /users/5824> 
+13-02-2014 16:31:06  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"ssPaolo","cognome":"Morettiss","data_nascita":"1980-07-21","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:31:06  API POST /users/5824> With this: {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:31:06  API POST /users/5824> Merged objects null
+13-02-2014 16:31:19 [U 5824] CORE CLASS> starts
+13-02-2014 16:31:19  API> /users/5824
+13-02-2014 16:31:19 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:31:19  API> /users/5824
+13-02-2014 16:31:19  API> /users/5824
+13-02-2014 16:31:34  API POST /users/5824> 
+13-02-2014 16:31:34  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolosss","cognome":"Morettisss","data_nascita":"1980-07-21","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:31:34  API POST /users/5824> With this: {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:31:34  API POST /users/5824> Merged objects {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:32:01 [U 5824] CORE CLASS> starts
+13-02-2014 16:32:01  API> /users/5824
+13-02-2014 16:32:01 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:32:01  API> /users/5824
+13-02-2014 16:32:02  API> /users/5824
+13-02-2014 16:32:09  API POST /users/5824> 
+13-02-2014 16:32:09  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paoloss","cognome":"Morettisssss","data_nascita":"asdfasdfasfd","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:32:09  API POST /users/5824> With this: {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:32:09  API POST /users/5824> Merged objects {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:34:33 [U 5824] CORE CLASS> starts
+13-02-2014 16:34:33  API> /users/5824
+13-02-2014 16:34:33 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:34:33  API> /users/5824
+13-02-2014 16:34:34  API> /users/5824
+13-02-2014 16:34:35  API> /users/5824
+13-02-2014 16:34:38 [U 5824] CORE CLASS> starts
+13-02-2014 16:34:38  API> /users/5824
+13-02-2014 16:34:38 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:34:38  API> /users/5824
+13-02-2014 16:34:39  API> /users/5824
+13-02-2014 16:34:45  API POST /users/5824> 
+13-02-2014 16:34:45  API POST /users/5824> User to update: {"db_object":{"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"3421344r","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:34:45  API POST /users/5824> With this: {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:34:45  API POST /users/5824> Merged objects null
+13-02-2014 16:35:03 [U 5824] CORE CLASS> starts
+13-02-2014 16:35:03  API> /users/5824
+13-02-2014 16:35:03 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:35:03  API> /users/5824
+13-02-2014 16:35:04  API> /users/5824
+13-02-2014 16:35:12  API POST /users/5824> 
+13-02-2014 16:35:12  API POST /users/5824> User to update: {"id_utente":5824,"attivo":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"321432","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:35:12  API POST /users/5824> With this: {"id_utente":5824,"attivo":0,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":null,"sesso":"M","email":"littlebrown@gmail.com","email_utente":"","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 15:18:39","stato":0,"colore_maglietta":"#FF0000","tipo_maglietta":1,"numero_maglietta":1,"colore_pantaloncini":"#000000","colore_calzini":"#FF0000","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 16:35:12  API POST /users/5824> Merged objects null
+13-02-2014 16:36:23 [U 5824] CORE CLASS> starts
+13-02-2014 16:36:23  API> /users/5824
+13-02-2014 16:36:24 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:36:24  API> /users/5824
+13-02-2014 16:36:24  API> /users/5824
+13-02-2014 16:36:28  API POST /users/5824> 
+13-02-2014 16:36:35 [U 5824] CORE CLASS> starts
+13-02-2014 16:36:35  API> /users/5824
+13-02-2014 16:36:35 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:36:35  API> /users/5824
+13-02-2014 16:36:36  API> /users/5824
+13-02-2014 16:36:44  API POST /users/5824> 
+13-02-2014 16:38:37  API> /users/5824
+13-02-2014 16:39:37  API> /users/5824
+13-02-2014 16:39:59 [U 5824] CORE CLASS> starts
+13-02-2014 16:40:00  API> /users/5824
+13-02-2014 16:40:00 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:40:00  API> /users/5824
+13-02-2014 16:40:00  API> /users/5824
+13-02-2014 16:40:21  API POST /users/5824> 
+13-02-2014 16:43:38 [U 5824] CORE CLASS> starts
+13-02-2014 16:43:38  API> /users/5824
+13-02-2014 16:43:38 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:43:38  API> /users/5824
+13-02-2014 16:43:39  API> /users/5824
+13-02-2014 16:44:27 [U 5824] CORE CLASS> starts
+13-02-2014 16:44:27  API> /users/5824
+13-02-2014 16:44:27 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:44:27  API> /users/5824
+13-02-2014 16:44:27  API> /users/5824
+13-02-2014 16:44:36 [U 5824] CORE CLASS> starts
+13-02-2014 16:44:36  API> /users/5824
+13-02-2014 16:44:36 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:44:36  API> /users/5824
+13-02-2014 16:44:36  API> /users/5824
+13-02-2014 16:44:37 [U 5824] CORE CLASS> starts
+13-02-2014 16:44:37  API> /users/5824
+13-02-2014 16:44:37 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:44:37  API> /users/5824
+13-02-2014 16:44:37  API> /users/5824
+13-02-2014 16:44:38 [U 5824] CORE CLASS> starts
+13-02-2014 16:44:38  API> /users/5824
+13-02-2014 16:44:38 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:44:38  API> /users/5824
+13-02-2014 16:44:38  API> /users/5824
+13-02-2014 16:45:25 [U 5824] CORE CLASS> starts
+13-02-2014 16:45:25  API> /users/5824
+13-02-2014 16:45:25 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:45:25  API> /users/5824
+13-02-2014 16:45:26  API> /users/5824
+13-02-2014 16:45:30 [U 5824] CORE CLASS> starts
+13-02-2014 16:45:30  API> /users/5824
+13-02-2014 16:45:30 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:45:30  API> /users/5824
+13-02-2014 16:45:30  API> /users/5824
+13-02-2014 16:46:30  API> /users/5824
+13-02-2014 16:47:30  API> /users/5824
+13-02-2014 16:48:30  API> /users/5824
+13-02-2014 16:48:38 [U 5824] CORE CLASS> starts
+13-02-2014 16:48:38  API> /users/5824
+13-02-2014 16:48:38 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:48:38  API> /users/5824
+13-02-2014 16:48:39  API> /users/5824
+13-02-2014 16:49:31 [U 5824] CORE CLASS> starts
+13-02-2014 16:49:31  API> /users/5824
+13-02-2014 16:49:31 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:49:31  API> /users/5824
+13-02-2014 16:49:32  API> /users/5824
+13-02-2014 16:50:03 [U 5824] CORE CLASS> starts
+13-02-2014 16:50:03  API> /users/5824
+13-02-2014 16:50:04 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:50:04  API> /users/5824
+13-02-2014 16:50:04  API> /users/5824
+13-02-2014 16:50:06 [U 5824] CORE CLASS> starts
+13-02-2014 16:50:06  API> /users/5824
+13-02-2014 16:50:06 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:50:06  API> /users/5824
+13-02-2014 16:50:06  API> /users/5824
+13-02-2014 16:50:12 [U 5824] CORE CLASS> starts
+13-02-2014 16:50:12  API> /users/5824
+13-02-2014 16:50:12 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:50:12  API> /users/5824
+13-02-2014 16:50:12  API> /users/5824
+13-02-2014 16:50:13 [U 5824] CORE CLASS> starts
+13-02-2014 16:50:13  API> /users/5824
+13-02-2014 16:50:13 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:50:13  API> /users/5824
+13-02-2014 16:50:14  API> /users/5824
+13-02-2014 16:50:25 [U 5824] CORE CLASS> starts
+13-02-2014 16:50:25  API> /users/5824
+13-02-2014 16:50:25 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:50:25  API> /users/5824
+13-02-2014 16:50:26  API> /users/5824
+13-02-2014 16:51:01 [U 5824] CORE CLASS> starts
+13-02-2014 16:51:01  API> /users/5824
+13-02-2014 16:51:01 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:51:01  API> /users/5824
+13-02-2014 16:51:02  API> /users/5824
+13-02-2014 16:52:02  API> /users/5824
+13-02-2014 16:53:02  API> /users/5824
+13-02-2014 16:54:02  API> /users/5824
+13-02-2014 16:54:23 [U 5824] CORE CLASS> starts
+13-02-2014 16:54:23  API> /users/5824
+13-02-2014 16:54:23 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:54:23  API> /users/5824
+13-02-2014 16:54:23  API> /users/5824
+13-02-2014 16:55:23  API> /users/5824
+13-02-2014 16:56:23  API> /users/5824
+13-02-2014 16:57:25  API> /users/5824
+13-02-2014 16:57:51 [U 5824] CORE CLASS> starts
+13-02-2014 16:57:51  API> /users/5824
+13-02-2014 16:57:51 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:57:51  API> /users/5824
+13-02-2014 16:57:51  API> /users/5824
+13-02-2014 16:58:19 [U 5824] CORE CLASS> starts
+13-02-2014 16:58:19  API> /users/5824
+13-02-2014 16:58:19 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:58:19  API> /users/5824
+13-02-2014 16:58:19  API> /users/5824
+13-02-2014 16:58:21 [U 5824] CORE CLASS> starts
+13-02-2014 16:58:21  API> /users/5824
+13-02-2014 16:58:21 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:58:21  API> /users/5824
+13-02-2014 16:58:21  API> /users/5824
+13-02-2014 16:58:24 [U 5824] CORE CLASS> starts
+13-02-2014 16:58:24  API> /users/5824
+13-02-2014 16:58:24 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:58:24  API> /users/5824
+13-02-2014 16:58:24  API> /users/5824
+13-02-2014 16:58:42 [U 5824] CORE CLASS> starts
+13-02-2014 16:58:42  API> /users/5824
+13-02-2014 16:58:42 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:58:42  API> /users/5824
+13-02-2014 16:58:43  API> /users/5824
+13-02-2014 16:58:52 [U 5824] CORE CLASS> starts
+13-02-2014 16:58:52  API> /users/5824
+13-02-2014 16:58:52 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:58:52  API> /users/5824
+13-02-2014 16:58:52  API> /users/5824
+13-02-2014 16:59:30 [U 5824] CORE CLASS> starts
+13-02-2014 16:59:30  API> /users/5824
+13-02-2014 16:59:30 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:59:30  API> /users/5824
+13-02-2014 16:59:31  API> /users/5824
+13-02-2014 16:59:51 [U 5824] CORE CLASS> starts
+13-02-2014 16:59:51  API> /users/5824
+13-02-2014 16:59:51 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 16:59:51  API> /users/5824
+13-02-2014 16:59:51  API> /users/5824
+13-02-2014 17:00:33 [U 5824] CORE CLASS> starts
+13-02-2014 17:00:33  API> /users/5824
+13-02-2014 17:00:33 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:00:33  API> /users/5824
+13-02-2014 17:00:34  API> /users/5824
+13-02-2014 17:00:35 [U 5824] CORE CLASS> starts
+13-02-2014 17:00:35  API> /users/5824
+13-02-2014 17:00:35 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:00:35  API> /users/5824
+13-02-2014 17:00:35  API> /users/5824
+13-02-2014 17:00:47 [U 5824] CORE CLASS> starts
+13-02-2014 17:00:47  API> /users/5824
+13-02-2014 17:00:47 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:00:47  API> /users/5824
+13-02-2014 17:00:47  API> /users/5824
+13-02-2014 17:00:55 [U 5824] CORE CLASS> starts
+13-02-2014 17:00:55  API> /users/5824
+13-02-2014 17:00:55 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:00:55  API> /users/5824
+13-02-2014 17:00:56  API> /users/5824
+13-02-2014 17:01:27 [U 5824] CORE CLASS> starts
+13-02-2014 17:01:27  API> /users/5824
+13-02-2014 17:01:27 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:01:27  API> /users/5824
+13-02-2014 17:01:27  API> /users/5824
+13-02-2014 17:01:52 [U 5824] CORE CLASS> starts
+13-02-2014 17:01:52  API> /users/5824
+13-02-2014 17:01:52 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:01:52  API> /users/5824
+13-02-2014 17:01:52  API> /users/5824
+13-02-2014 17:01:53 [U 5824] CORE CLASS> starts
+13-02-2014 17:01:53  API> /users/5824
+13-02-2014 17:01:53 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:01:53  API> /users/5824
+13-02-2014 17:01:54  API> /users/5824
+13-02-2014 17:02:08 [U 5824] CORE CLASS> starts
+13-02-2014 17:02:08  API> /users/5824
+13-02-2014 17:02:08 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:02:08  API> /users/5824
+13-02-2014 17:02:08  API> /users/5824
+13-02-2014 17:02:38 [U 5824] CORE CLASS> starts
+13-02-2014 17:02:38  API> /users/5824
+13-02-2014 17:02:38 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:02:38  API> /users/5824
+13-02-2014 17:02:38  API> /users/5824
+13-02-2014 17:03:11 [U 5824] CORE CLASS> starts
+13-02-2014 17:03:11  API> /users/5824
+13-02-2014 17:03:11 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:03:11  API> /users/5824
+13-02-2014 17:03:12  API> /users/5824
+13-02-2014 17:03:59 [U 5824] CORE CLASS> starts
+13-02-2014 17:03:59  API> /users/5824
+13-02-2014 17:03:59 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:03:59  API> /users/5824
+13-02-2014 17:03:59  API> /users/5824
+13-02-2014 17:04:22 [U 5824] CORE CLASS> starts
+13-02-2014 17:04:22  API> /users/5824
+13-02-2014 17:04:22 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:04:22  API> /users/5824
+13-02-2014 17:04:22  API> /users/5824
+13-02-2014 17:04:32 [U 5824] CORE CLASS> starts
+13-02-2014 17:04:32  API> /users/5824
+13-02-2014 17:04:32 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:04:32  API> /users/5824
+13-02-2014 17:04:32  API> /users/5824
+13-02-2014 17:04:46 [U 5824] CORE CLASS> starts
+13-02-2014 17:04:46  API> /users/5824
+13-02-2014 17:04:46 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:04:47  API> /users/5824
+13-02-2014 17:04:47  API> /users/5824
+13-02-2014 17:04:56 [U 5824] CORE CLASS> starts
+13-02-2014 17:04:56  API> /users/5824
+13-02-2014 17:04:56 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:04:56  API> /users/5824
+13-02-2014 17:04:56  API> /users/5824
+13-02-2014 17:05:33 [U 5824] CORE CLASS> starts
+13-02-2014 17:05:33  API> /users/5824
+13-02-2014 17:05:33 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:05:33  API> /users/5824
+13-02-2014 17:05:34  API> /users/5824
+13-02-2014 17:05:56 [U 5824] CORE CLASS> starts
+13-02-2014 17:05:56  API> /users/5824
+13-02-2014 17:05:56 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:05:56  API> /users/5824
+13-02-2014 17:05:56  API> /users/5824
+13-02-2014 17:06:56  API> /users/5824
+13-02-2014 17:07:21 [U 5824] CORE CLASS> starts
+13-02-2014 17:07:21  API> /users/5824
+13-02-2014 17:07:21 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:07:21  API> /users/5824
+13-02-2014 17:07:21  API> /users/5824
+13-02-2014 17:07:34 [U 5824] CORE CLASS> starts
+13-02-2014 17:07:34  API> /users/5824
+13-02-2014 17:07:34 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:07:34  API> /users/5824
+13-02-2014 17:07:35  API> /users/5824
+13-02-2014 17:08:18 [U 5824] CORE CLASS> starts
+13-02-2014 17:08:18  API> /users/5824
+13-02-2014 17:08:18 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:08:18  API> /users/5824
+13-02-2014 17:08:18  API> /users/5824
+13-02-2014 17:09:03 [U 5824] CORE CLASS> starts
+13-02-2014 17:09:03  API> /users/5824
+13-02-2014 17:09:03 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:09:03  API> /users/5824
+13-02-2014 17:09:03  API> /users/5824
+13-02-2014 17:09:39 [U 5824] CORE CLASS> starts
+13-02-2014 17:09:39  API> /users/5824
+13-02-2014 17:09:39 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:09:39  API> /users/5824
+13-02-2014 17:09:39  API> /users/5824
+13-02-2014 17:09:39 [U 5824] CORE CLASS> starts
+13-02-2014 17:09:39  API> /users/5824
+13-02-2014 17:09:39 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:09:39  API> /users/5824
+13-02-2014 17:09:39 [U 5824] CORE CLASS> starts
+13-02-2014 17:09:39  API> /users/5824
+13-02-2014 17:09:39 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:09:39  API> /users/5824
+13-02-2014 17:09:40  API> /users/5824
+13-02-2014 17:10:02 [U 5824] CORE CLASS> starts
+13-02-2014 17:10:02  API> /users/5824
+13-02-2014 17:10:02 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:10:02  API> /users/5824
+13-02-2014 17:10:02  API> /users/5824
+13-02-2014 17:10:04 [U 5824] CORE CLASS> starts
+13-02-2014 17:10:04  API> /users/5824
+13-02-2014 17:10:04 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:10:05  API> /users/5824
+13-02-2014 17:10:05  API> /users/5824
+13-02-2014 17:11:05  API> /users/5824
+13-02-2014 17:11:28 [U 5824] CORE CLASS> starts
+13-02-2014 17:11:28  API> /users/5824
+13-02-2014 17:11:28 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:11:28  API> /users/5824
+13-02-2014 17:11:29  API> /users/5824
+13-02-2014 17:12:25 [U 5824] CORE CLASS> starts
+13-02-2014 17:12:25  API> /users/5824
+13-02-2014 17:12:25 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:12:25  API> /users/5824
+13-02-2014 17:12:25  API> /users/5824
+13-02-2014 17:12:53 [U 5824] CORE CLASS> starts
+13-02-2014 17:12:53  API> /users/5824
+13-02-2014 17:12:53 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:12:53  API> /users/5824
+13-02-2014 17:12:53  API> /users/5824
+13-02-2014 17:13:13 [U 5824] CORE CLASS> starts
+13-02-2014 17:13:14  API> /users/5824
+13-02-2014 17:13:14 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:13:14  API> /users/5824
+13-02-2014 17:13:14  API> /users/5824
+13-02-2014 17:13:18 [U 5824] CORE CLASS> starts
+13-02-2014 17:13:18  API> /users/5824
+13-02-2014 17:13:18 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:13:18  API> /users/5824
+13-02-2014 17:13:18  API> /users/5824
+13-02-2014 17:13:38 [U 5824] CORE CLASS> starts
+13-02-2014 17:13:38  API> /users/5824
+13-02-2014 17:13:38 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:13:38  API> /users/5824
+13-02-2014 17:13:38  API> /users/5824
+13-02-2014 17:13:53 [U 5824] CORE CLASS> starts
+13-02-2014 17:13:53  API> /users/5824
+13-02-2014 17:13:53 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:13:53  API> /users/5824
+13-02-2014 17:13:54  API> /users/5824
+13-02-2014 17:14:54  API> /users/5824
+13-02-2014 17:15:29 [U 5824] CORE CLASS> starts
+13-02-2014 17:15:29  API> /users/5824
+13-02-2014 17:15:29 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:15:29  API> /users/5824
+13-02-2014 17:15:29  API> /users/5824
+13-02-2014 17:15:32 [U 5824] CORE CLASS> starts
+13-02-2014 17:15:32  API> /users/5824
+13-02-2014 17:15:32 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 17:15:32  API> /users/5824
+13-02-2014 17:15:32  API> /users/5824
+13-02-2014 17:16:32  API> /users/5824
+13-02-2014 17:17:32  API> /users/5824
+13-02-2014 17:18:23  API POST /users/5824> 
+13-02-2014 17:18:32  API> /users/5824
+13-02-2014 17:19:32  API> /users/5824
+13-02-2014 17:20:33  API> /users/5824
+13-02-2014 17:21:33  API> /users/5824
+13-02-2014 17:22:33  API> /users/5824
+13-02-2014 17:23:33  API> /users/5824
+13-02-2014 17:24:33  API> /users/5824
+13-02-2014 17:25:33  API> /users/5824
+13-02-2014 17:26:33  API> /users/5824
+13-02-2014 17:27:33  API> /users/5824
+13-02-2014 17:28:33  API> /users/5824
+13-02-2014 17:29:33  API> /users/5824
+13-02-2014 17:30:33  API> /users/5824
+13-02-2014 17:31:33  API> /users/5824
+13-02-2014 17:32:33  API> /users/5824
+13-02-2014 17:33:33  API> /users/5824
+13-02-2014 17:34:33  API> /users/5824
+13-02-2014 17:35:33  API> /users/5824
+13-02-2014 17:36:33  API> /users/5824
+13-02-2014 17:37:33  API> /users/5824
+13-02-2014 17:38:33  API> /users/5824
+13-02-2014 17:39:33  API> /users/5824
+13-02-2014 17:40:33  API> /users/5824
+13-02-2014 17:41:33  API> /users/5824
+13-02-2014 17:42:33  API> /users/5824
+13-02-2014 17:43:33  API> /users/5824
+13-02-2014 17:44:33  API> /users/5824
+13-02-2014 17:45:33  API> /users/5824
+13-02-2014 17:46:33  API> /users/5824
+13-02-2014 17:47:33  API> /users/5824
+13-02-2014 17:48:33  API> /users/5824
+13-02-2014 17:49:33  API> /users/5824
+13-02-2014 17:50:33  API> /users/5824
+13-02-2014 17:51:33  API> /users/5824
+13-02-2014 17:52:33  API> /users/5824
+13-02-2014 17:53:33  API> /users/5824
+13-02-2014 17:54:33  API> /users/5824
+13-02-2014 17:55:33  API> /users/5824
+13-02-2014 17:56:33  API> /users/5824
+13-02-2014 17:57:33  API> /users/5824
+13-02-2014 17:58:33  API> /users/5824
+13-02-2014 17:59:33  API> /users/5824
+13-02-2014 18:00:33  API> /users/5824
+13-02-2014 18:01:33  API> /users/5824
+13-02-2014 18:02:33  API> /users/5824
+13-02-2014 18:03:33  API> /users/5824
+13-02-2014 18:04:33  API> /users/5824
+13-02-2014 18:05:33  API> /users/5824
+13-02-2014 18:06:33  API> /users/5824
+13-02-2014 18:07:33  API> /users/5824
+13-02-2014 18:08:33  API> /users/5824
+13-02-2014 18:09:33  API> /users/5824
+13-02-2014 18:10:33  API> /users/5824
+13-02-2014 18:11:33  API> /users/5824
+13-02-2014 18:12:33  API> /users/5824
+13-02-2014 18:13:33  API> /users/5824
+13-02-2014 18:14:33  API> /users/5824
+13-02-2014 18:15:33  API> /users/5824
+13-02-2014 18:16:33  API> /users/5824
+13-02-2014 18:17:33  API> /users/5824
+13-02-2014 18:18:33  API> /users/5824
+13-02-2014 18:19:33  API> /users/5824
+13-02-2014 18:20:33  API> /users/5824
+13-02-2014 18:21:33  API> /users/5824
+13-02-2014 18:22:33  API> /users/5824
+13-02-2014 18:23:33  API> /users/5824
+13-02-2014 18:24:33  API> /users/5824
+13-02-2014 18:25:33  API> /users/5824
+13-02-2014 18:26:33  API> /users/5824
+13-02-2014 18:27:33  API> /users/5824
+13-02-2014 18:28:33  API> /users/5824
+13-02-2014 18:29:33  API> /users/5824
+13-02-2014 18:30:25 [U 5824] CORE CLASS> starts
+13-02-2014 18:30:25  API> /users/5824
+13-02-2014 18:30:25 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 18:30:25  API> /users/5824
+13-02-2014 18:30:25  API> /users/5824
+13-02-2014 18:30:31  API POST /users/5824> 
+13-02-2014 18:30:43 [U 5824] CORE CLASS> starts
+13-02-2014 18:30:43  API> /users/5824
+13-02-2014 18:30:43 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 18:30:43  API> /users/5824
+13-02-2014 18:30:43  API> /users/5824
+13-02-2014 18:30:46  API POST /users/5824> 
+13-02-2014 18:30:47 [U 5824] CORE CLASS> starts
+13-02-2014 18:30:47  API> /users/5824
+13-02-2014 18:30:47 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 18:30:47  API> /users/5824
+13-02-2014 18:30:47  API> /users/5824
+13-02-2014 18:31:47  API> /users/5824
+13-02-2014 18:32:47  API> /users/5824
+13-02-2014 18:33:47  API> /users/5824
+13-02-2014 18:34:47  API> /users/5824
+13-02-2014 18:35:47  API> /users/5824
+13-02-2014 18:36:47  API> /users/5824
+13-02-2014 18:37:47  API> /users/5824
+13-02-2014 18:38:47  API> /users/5824
+13-02-2014 18:39:47  API> /users/5824
+13-02-2014 18:40:47  API> /users/5824
+13-02-2014 18:41:47  API> /users/5824
+13-02-2014 18:42:47  API> /users/5824
+13-02-2014 18:43:47  API> /users/5824
+13-02-2014 18:44:47  API> /users/5824
+13-02-2014 18:44:50  API POST /users/5824> 
+13-02-2014 18:45:18 [U 5824] CORE CLASS> starts
+13-02-2014 18:45:18  API> /users/5824
+13-02-2014 18:45:18 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 18:45:18  API> /users/5824
+13-02-2014 18:45:18  API> /users/5824
+13-02-2014 18:45:22  API POST /users/5824> {"db_object":{"id_utente":5824,"attivo":1,"first_login":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"1980-01-10","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 17:44:50","stato":0,"colore_maglietta":"#ffffff","tipo_maglietta":2,"numero_maglietta":10,"colore_pantaloncini":"#000000","colore_calzini":"#ffffff","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":1,"first_login":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":"1980-01-10","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 17:44:50","stato":0,"colore_maglietta":"#ffffff","tipo_maglietta":3,"numero_maglietta":10,"colore_pantaloncini":"#000000","colore_calzini":"#ffffff","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 18:46:18  API> /users/5824
+13-02-2014 18:47:15 [U 5824] CORE CLASS> starts
+13-02-2014 18:47:15  API> /users/5824
+13-02-2014 18:47:15 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 18:47:15  API> /users/5824
+13-02-2014 18:47:16  API> /users/5824
+13-02-2014 18:47:23  API POST /users/5824> {"db_object":{"id_utente":5824,"attivo":1,"first_login":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"1980-01-10","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 17:45:22","stato":0,"colore_maglietta":"#ffffff","tipo_maglietta":3,"numero_maglietta":10,"colore_pantaloncini":"#000000","colore_calzini":"#ffffff","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":1,"first_login":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":"1980-01-10","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 17:45:22","stato":0,"colore_maglietta":"#ffffff","tipo_maglietta":2,"numero_maglietta":10,"colore_pantaloncini":"#000000","colore_calzini":"#ffffff","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 18:47:23  API POST /users/5824> done
+13-02-2014 18:48:17  API> /users/5824
+13-02-2014 18:48:46  API POST /users/5824> {"db_object":{"id_utente":5824,"attivo":1,"first_login":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","nome":"Paolo","cognome":"Moretti","data_nascita":"1980-01-10","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 17:47:23","stato":0,"colore_maglietta":"#ffffff","tipo_maglietta":3,"numero_maglietta":"12","colore_pantaloncini":"#000000","colore_calzini":"#ffffff","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"},"messages":[],"totMessages":0,"badges":[],"sfide_da_giocare":[],"rewards":{"punti":[],"badges":[]},"picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg?sz=50","id_utente":5824,"attivo":1,"first_login":1,"social_provider":"Google","social_uid":"115304495556673294617","social_url":"https:\/\/plus.google.com\/115304495556673294617","username":"Paolo_Moretti","nome":"Paolo","cognome":"Moretti","data_nascita":"1980-01-10","sesso":"M","email":"littlebrown@gmail.com","email_utente":"littlebrown@gmail.com","punteggio_settimana":0,"punteggio_totale":0,"dta_reg":"2014-02-13 17:47:23","stato":0,"colore_maglietta":"#ffffff","tipo_maglietta":3,"numero_maglietta":10,"colore_pantaloncini":"#000000","colore_calzini":"#ffffff","dta_activ":null,"hobby":null,"frase":null,"giocatore":"","squadra":"","tipo_alert":0,"updated_at":"2014-02-13","created_at":"2014-02-13"}
+13-02-2014 18:48:46  API POST /users/5824> done
+13-02-2014 18:48:49 [U 5824] CORE CLASS> starts
+13-02-2014 18:48:49  API> /users/5824
+13-02-2014 18:48:49 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 18:48:49  API> /users/5824
+13-02-2014 18:48:49  API> /users/5824
+13-02-2014 18:49:15 [U 5824] CORE CLASS> starts
+13-02-2014 18:49:15  API> /users/5824
+13-02-2014 18:49:15 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 18:49:15  API> /users/5824
+13-02-2014 18:49:15  CORE CLASS> starts
+13-02-2014 18:49:15  CORE_CLASS> check_user ended
+13-02-2014 18:57:12 [U 5824] CORE CLASS> starts
+13-02-2014 18:57:12  API> /users/5824
+13-02-2014 18:57:12 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 18:57:12  API> /users/5824
+13-02-2014 18:57:13  API> /users/5824
+13-02-2014 18:58:14  API> /users/5824
+13-02-2014 18:59:14  API> /users/5824
+13-02-2014 19:00:14  API> /users/5824
+13-02-2014 19:01:14  API> /users/5824
+13-02-2014 19:01:24 [U 5824] CORE CLASS> starts
+13-02-2014 19:01:24  API> /users/5824
+13-02-2014 19:01:24 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 19:01:24  API> /users/5824
+13-02-2014 19:01:24  API> /users/5824
+13-02-2014 19:01:38 [U 5824] CORE CLASS> starts
+13-02-2014 19:01:38  API> /users/5824
+13-02-2014 19:01:38 [U 5824] CORE_CLASS> check_user ended
+13-02-2014 19:01:38  API> /users/5824
+13-02-2014 19:01:38  CORE CLASS> starts
+13-02-2014 19:01:38  CORE_CLASS> check_user ended

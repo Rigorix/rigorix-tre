@@ -1,25 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/activity.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/p_new_user.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/routes.sfide.php" />
+    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="Prima versione della gestione punteggi dopo sfida.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/i/rewards/b_first_game__small_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/ball.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-route/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/.gitattributes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/node_modules/wordwrap/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/.rspec" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/2014_Feb_13_log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/2014_Feb_14_log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/2014_Feb_17_log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/2014_Feb_18_log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/2014_Feb_19_log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/2014_Feb_20_log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/2014_Feb_22_log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/AUTHORS" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/AUTHORS" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/CHANGELOG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gruntfile_old.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/LICENSE-MIT" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/LICENSE-MIT" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/node_modules/async/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/async/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/Makefile.dryice.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/README.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/node_modules/wordwrap/README.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-route/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/node_modules/async/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/async/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/test/_.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/amdefine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/js/angular-locale_it-it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/angular-redactor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-redactor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/angular-resource.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-resource.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/angular-resource.min.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/angular-resource.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-route/angular-route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-route/angular-route.min.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-route/angular-route.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/angular-sanitize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-sanitize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/angular-sanitize.min.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/angular-sanitize.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/dist/app.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/dist/app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/test/_/argv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/lib/source-map/array-set.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/arrays.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/build/assert-shim.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/compiler/ast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/lib/ast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/node_modules/async/lib/async.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/async/lib/async.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/compiler/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/lib/source-map/base64-vlq.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/lib/source-map/base64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/bin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/test/_/bin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/lib/source-map/binary-search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/blocks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/bool.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/boolean_double.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/boolean_single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-route/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/node_modules/wordwrap/test/break.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/browser-prefix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/browser-suffix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/grunt/bs-glyphicons-data-generator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/grunt/bs-lessdoc-parser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/grunt/bs-raw-files-generator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/node_modules/wordwrap/example/center.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/docs/clean-examples.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/docs/clean-options.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/docs/clean-overview.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/tasks/clean.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/test/clean_test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/commit-msg.multipleHooks" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/compiler/compiler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/node_modules/async/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/async/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/lib/compress.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/tasks/concurrent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/conditionals.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/fixtures/custom-template.js.hb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/dead-code.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/debugger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/default_hash.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/default_singles.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/divide.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/drop-unused.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/lib/escapeBackslashes.handlebars.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/lib/githooks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/tasks/githooks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/githooks_test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/global-test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/global.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/handlebars-source.gemspec" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/handlebars.js.nuspec" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/dist/handlebars.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/dist/handlebars.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/dist/handlebars.runtime.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/dist/handlebars.runtime.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/.bin/handlebars" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/bin/handlebars" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/node_modules/wordwrap/test/idleness.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/compiler/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/node_modules/wordwrap/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/intercept.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/issue-105.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/issue-12.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/issue-143.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/issue-22.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/issue-44.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/issue-59.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/labels.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/line_count.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/line_count_options.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/line_count_wrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/test/fixtures/sample_long/long.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/loops.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/node_modules/lpad/lpad.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/node_modules/wordwrap/example/meat.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/min.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/build/mini-require.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/lib/mozilla-ast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/templates/node.js.hb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/tools/node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/nonopt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/js/notify.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/lib/output.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/docs/overview.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/node_modules/async/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/node_modules/lpad/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/node_modules/wordwrap/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/async/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/test/parse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/lib/parse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/compiler/parser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.append" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.command" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.customHashbangInvalidScriptingLanguage" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.customHashbang" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.customTemplate" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.default" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.hookSpecificOptions" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.insert" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.invalidScriptingLanguage" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.multipleHooks" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.multiple_tasks" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.noTaskNames" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.shellScript" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.withArguments" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/expected/pre-commit.withQuotedArguments" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/fixtures/append/pre-commit" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/fixtures/customHashbangInvalidScriptingLanguage/pre-commit" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/fixtures/insert/pre-commit" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/test/fixtures/invalidScriptingLanguage/pre-commit" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/build/prefix-source-map.jsm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/build/prefix-utils.jsm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/compiler/printer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/properties.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/readme.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-concurrent/node_modules/lpad/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/reflect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/release-notes.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/rimraf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/.bin/rimraf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/routes.users.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/run-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/run-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/test/run.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/runtime.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/lib/scope.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/sequences.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/test/setup.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/templates/shell.hb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/short.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/test/fixtures/sample_short/short.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/grunt/shrinkwrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/lib/source-map/source-map-consumer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/lib/source-map/source-map-generator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/lib/source-map.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/lib/source-map/source-node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/source.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/lib/sourcemap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speedtest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/string.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/build/suffix-browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/build/suffix-source-map.jsm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/build/suffix-utils.jsm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/switch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/test-api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/test-array-set.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/test/test-async.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/test-base64-vlq.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/test-base64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/test-binary-search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/test-dog-fooding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/build/test-prefix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/test-source-map-consumer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/test-source-map-generator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/test-source-node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/build/test-suffix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-clean/node_modules/rimraf/test/test-sync.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/lib/transform.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/test/compress/typeof.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/.bin/uglifyjs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/bin/uglifyjs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/ui-bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/ui-bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/usage-options.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/test/usage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/lib/source-map/util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/node_modules/source-map/test/source-map/util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/uglify-js/lib/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/lib/handlebars/compiler/visitor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/node_modules/wordwrap/test/wrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/grunt-githooks/node_modules/handlebars/node_modules/optimist/example/xup.js" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/TwitterStrategy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/Vendor/tmhOAuth/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/Vendor/tmhOAuth/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/Vendor/tmhOAuth/tmhOAuth.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/Vendor/tmhOAuth/tmhUtilities.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/composer.json" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/api/messages.php" afterPath="$PROJECT_DIR$/api/routes.messages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/Helper.php" afterPath="$PROJECT_DIR$/api/classes/Helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ListaSfide.coffee" afterPath="$PROJECT_DIR$/app/controllers/ListaSfide.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Modals.coffee" afterPath="$PROJECT_DIR$/app/controllers/Modals.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/TwitterStrategy.php" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Twitter/TwitterStrategy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/pages/home.page.html" afterPath="$PROJECT_DIR$/app/templates/pages/home.page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Opauth/index.php" afterPath="$PROJECT_DIR$/Opauth/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/index.php" afterPath="$PROJECT_DIR$/api/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/lista-sfide.html" afterPath="$PROJECT_DIR$/app/templates/lista-sfide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/rewards.class.php" afterPath="$PROJECT_DIR$/api/classes/rewards.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/sfide.class.php" afterPath="$PROJECT_DIR$/api/classes/sfide.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/user.class.php" afterPath="$PROJECT_DIR$/api/classes/user.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/modals/vedi-sfida.html" afterPath="$PROJECT_DIR$/app/templates/modals/vedi-sfida.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b22ffa96-ce66-4cc9-8c44-4b66f52233fe" name="ignore" comment="ignore" />
@@ -116,7 +385,7 @@
       <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Opauth/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="23" selection-start="966" selection-end="966" vertical-scroll-proportion="0.7484277" vertical-offset="93" max-vertical-offset="570">
+            <state line="26" column="0" selection-start="598" selection-end="598" vertical-scroll-proportion="0.63559324" vertical-offset="0" max-vertical-offset="570">
               <folding />
             </state>
           </provider>
@@ -309,7 +578,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
+              <option name="myItemId" value="Opauth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -323,7 +592,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="Opauth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Opauth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -337,83 +614,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="Opauth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="Opauth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rewards" />
+              <option name="myItemId" value="Strategy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -5206,23 +5419,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="823" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14643799" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6628734" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30440968" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17354196" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21479374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21479374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16488793" sideWeight="0.86038595" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23878628" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42329547" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22190611" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22190611" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35135135" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="8" y="26" width="1235" height="831" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13916786" sideWeight="0.78520626" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13916786" sideWeight="0.7780939" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -5274,7 +5487,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed grunt build" />
     <MESSAGE value="tuning" />
     <MESSAGE value="Adding git hooks" />
     <MESSAGE value="Test hooks" />
@@ -5299,7 +5511,8 @@
     <MESSAGE value="Aggiunto qualche step al first login, da migliorare la finistra di conferma.&#10;&#10;Test per sistemare altri social login" />
     <MESSAGE value="Refactor API&#10;Fixed mark as read for messages" />
     <MESSAGE value="Refactor API&#10;Fixed reply for messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor API&#10;Fixed reply for messages" />
+    <MESSAGE value="Prima versione della gestione punteggi dopo sfida." />
+    <option name="LAST_COMMIT_MESSAGE" value="Prima versione della gestione punteggi dopo sfida." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -5414,7 +5627,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Opauth/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="23" selection-start="966" selection-end="966" vertical-scroll-proportion="0.7484277" vertical-offset="93" max-vertical-offset="570">
+        <state line="26" column="0" selection-start="598" selection-end="598" vertical-scroll-proportion="0.63559324" vertical-offset="0" max-vertical-offset="570">
           <folding />
         </state>
       </provider>
