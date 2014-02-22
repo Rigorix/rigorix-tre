@@ -27,6 +27,8 @@ Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
     $scope.punti = 0
     $scope.risultatoLabel = "lose"
 
+  $scope.punti_rewards = if User.id_utente = $scope.sfida.id_sfidante then $scope.sfida.punti_sfidante - punti else $scope.sfida.punti_sfidato - punti
+
   $scope.risultatoLabel = 'ongoing' if $scope.sfida.stato < 2
 
   $scope.hasActiveButton = true
@@ -58,6 +60,8 @@ Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
         resolve:
           sfida: ->
             $scope.sfida
+          currentUser: ->
+            User
 
     else
       $modal.open

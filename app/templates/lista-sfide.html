@@ -35,7 +35,7 @@
             <span class="badge">{{punti}}</span>
         </td>
         <td class="text-center">
-            <span class="badge">{{sfida.id_sfidante == $scope.currentUser.id_utente ? sfida.punti_sfidante : sfida.punti_sfidato}}</span>
+            <span class="badge">{{punti_rewards}}</span>
         </td>
         <td class="text-center">
             <button ng-show="hasActiveButton" class="btn btn-sm" icon="{{statoButtonIcon}}" ng-class="{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vedi_sfida'}" ng-click="doClickSfida(statoButton)">{{statoButton | varToTitle}}</button>

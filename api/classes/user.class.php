@@ -37,15 +37,12 @@ class Users extends Illuminate\Database\Eloquent\Model {
 
   public function rewards ()
   {
-    $sfide = Sfide::user($this->id_utente)->get()->each(function($sfida) {
-//      $rewards =
-    });
-//    $rewards = $sfide->rewards;
-//    var_dump($rewards);
+    return $this->hasManyThrough('Rewards', 'RewardsSfide', 'id_utente', 'id_reward');
+  }
 
-//    return $this->hasManyThrough('RewardsSfide', 'Sfide', 'id_sfidante', 'id_sfida');
-//    var_dump($this);
-//    return [];
+  public function scopeHasReward($query, $id_reward)
+  {
+    return $query->where("id_reward", "=", $id_reward);
   }
 
 }

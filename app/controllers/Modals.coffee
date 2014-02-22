@@ -64,11 +64,14 @@ Rigorix.controller "Modals.Sfida", ($scope, $modal, $modalInstance, $rootScope, 
 
 
 
-Rigorix.controller "Modals.ViewSfida", ($scope, $modal, $modalInstance, $rootScope, sfida)->
+Rigorix.controller "Modals.ViewSfida", ($scope, $modal, $modalInstance, $rootScope, sfida, currentUser)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Modals.VediSfida'
     modalClass: 'modal-view-sfida'
+
+  $scope.currentUser = currentUser if currentUser?
+  console.log "$scope.currentUser", $scope.currentUser, currentUser
 
   $scope.sfida = if sfida? then sfida else
     id_sfidante: $scope.currentUser.id_utente

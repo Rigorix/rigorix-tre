@@ -17,8 +17,9 @@ class Rewards extends  Illuminate\Database\Eloquent\Model {
 }
 
 class RewardsSfide extends  Illuminate\Database\Eloquent\Model {
-  protected $table        = 'sfide_rewards';
-  protected $primaryKey   = 'id_sfida_reward';
+  protected $table        = 'sfida_reward';
+  protected $primaryKey   = 'id_reward';
+  protected $guarded      = array('id');
 
   public function scopeUser ($query, $id_utente)
   {
@@ -27,7 +28,7 @@ class RewardsSfide extends  Illuminate\Database\Eloquent\Model {
 
   public function users()
   {
-    return $this->belongsToMany('Users');
+    return $this->belongsToMany('Users', 'id_utente');
   }
 }
 

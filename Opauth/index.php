@@ -37,8 +37,3 @@ $Opauth = new Opauth( $config );
 _log("Opauth", "DONE");
 
 ?>
-
-
-Sto caricando il motherfucker
-
-<? var_dump($config); ?>

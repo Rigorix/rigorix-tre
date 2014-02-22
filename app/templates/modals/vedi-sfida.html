@@ -1,16 +1,9 @@
-<!--<div class="row">-->
-    <!--<div class="col col-sm-12 pal">-->
-        <!--<h2>Sfida</h2>-->
-    <!--</div>-->
-<!--</div>-->
-
 <object id="flash_object" type="application/x-shockwave-flash" data="/swf/rigorixGame_v3.swf" width="630" height="500">
-    <param name="flashvars" value="gameXML=/api/sfida/{{sfida.id_sfida}}/xml" />
+    <param name="flashvars" value="gameXML=/api/sfida/{{sfida.id_sfida}}/{{currentUser.id_utente}}/xml" />
     <param name="movie" value="/swf/rigorixGame_v3.swf" />
     <param name="quality" value="high" />
     <param name="wmode" value="transparent" />
 </object>
-
 
 <div class="row">
     <div class="col col-sm-12 phl pvs">
