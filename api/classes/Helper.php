@@ -14,7 +14,7 @@ function getUserObjectExtended($id_utente) {
   $obj->db_object           = Users::find($id_utente)->toArray();
   $obj->messages            = Messages::receiver($id_utente)->unread()->get()->toArray();
   $obj->totMessages         = Messages::receiver($id_utente)->count();
-  $obj->badges              = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
+//  $obj->badges              = $dm_utente->getArrayObjectQueryCustom ("select * from rewards, sfide_rewards where sfide_rewards.id_utente = $id_utente and rewards.id_reward = sfide_rewards.id_reward and rewards.tipo = 'badge'");
   $obj->sfide_da_giocare    = Sfide::receivedBy($id_utente)->unplayed()->get()->toArray();
   $obj->rewards             = Users::find($id_utente)->rewards->toJson();
   $obj->picture             = sanitizeUserPicture(Users::find($id_utente)->picture);

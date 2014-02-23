@@ -31,3 +31,97 @@
 22-02-2014 04:15:00 CORE_CLASS> check_user ended
 22-02-2014 04:15:32 CORE CLASS> starts
 22-02-2014 04:15:32 CORE_CLASS> check_user ended
+22-02-2014 04:18:59 CORE CLASS> starts
+22-02-2014 04:18:59 CORE_CLASS> check_user ended
+22-02-2014 04:19:11 CORE CLASS> starts
+22-02-2014 04:19:11 CORE_CLASS> check_user ended
+22-02-2014 04:19:16 CORE CLASS> starts
+22-02-2014 04:19:16 CORE_CLASS> check_user ended
+22-02-2014 04:19:34 CORE CLASS> starts
+22-02-2014 04:19:34 CORE_CLASS> check_user ended
+22-02-2014 04:21:20 CORE CLASS> starts
+22-02-2014 04:21:20 CORE_CLASS> check_user ended
+22-02-2014 04:25:15 CORE CLASS> starts
+22-02-2014 04:25:15 CORE_CLASS> check_user ended
+22-02-2014 04:28:16 CORE CLASS> starts
+22-02-2014 04:28:16 CORE_CLASS> check_user ended
+22-02-2014 04:29:10 CORE CLASS> starts
+22-02-2014 04:29:10 CORE_CLASS> check_user ended
+22-02-2014 04:30:26 CORE CLASS> starts
+22-02-2014 04:30:27 CORE_CLASS> check_user ended
+22-02-2014 04:30:29 CORE CLASS> starts
+22-02-2014 04:30:29 CORE_CLASS> check_user ended
+22-02-2014 04:30:32 CORE CLASS> starts
+22-02-2014 04:30:32 CORE_CLASS> check_user ended
+22-02-2014 04:30:43 CORE CLASS> starts
+22-02-2014 04:30:43 CORE_CLASS> check_user ended
+22-02-2014 04:30:45 CORE CLASS> starts
+22-02-2014 04:30:45 CORE_CLASS> check_user ended
+22-02-2014 04:30:45 CORE CLASS> starts
+22-02-2014 04:30:45 CORE_CLASS> check_user ended
+22-02-2014 04:30:47 CORE CLASS> starts
+22-02-2014 04:30:47 CORE_CLASS> check_user ended
+22-02-2014 04:30:47 CORE CLASS> starts
+22-02-2014 04:30:47 CORE_CLASS> check_user ended
+22-02-2014 04:30:59 CORE CLASS> starts
+22-02-2014 04:30:59 CORE_CLASS> check_user ended
+22-02-2014 04:31:22 CORE CLASS> starts
+22-02-2014 04:31:22 CORE_CLASS> check_user ended
+22-02-2014 04:31:30 CORE CLASS> starts
+22-02-2014 04:31:30 CORE_CLASS> check_user ended
+22-02-2014 04:36:06 CORE CLASS> starts
+22-02-2014 04:36:06 CORE_CLASS> check_user ended
+22-02-2014 04:36:07 CORE CLASS> starts
+22-02-2014 04:36:07 CORE_CLASS> check_user ended
+22-02-2014 04:38:23 CORE CLASS> starts
+22-02-2014 04:38:23 CORE_CLASS> check_user ended
+22-02-2014 04:41:30 CORE CLASS> starts
+22-02-2014 04:41:30 CORE_CLASS> check_user ended
+22-02-2014 04:41:54 CORE CLASS> starts
+22-02-2014 04:41:54 CORE_CLASS> check_user ended
+22-02-2014 04:41:59 CORE CLASS> starts
+22-02-2014 04:41:59 CORE_CLASS> check_user ended
+22-02-2014 04:42:58 CORE CLASS> starts
+22-02-2014 04:42:58 CORE_CLASS> check_user ended
+22-02-2014 04:45:03 CORE CLASS> starts
+22-02-2014 04:45:03 CORE_CLASS> check_user ended
+22-02-2014 04:49:13 Opauth callback> {"auth":{"provider":"Facebook","uid":"636103911","info":{"name":"Paolo Moretti","image":"https:\/\/graph.facebook.com\/636103911\/picture?type=square","email":"littlebrown@gmail.com","nickname":"pmoretti","first_name":"Paolo","last_name":"Moretti","location":"London, United Kingdom","urls":{"facebook":"https:\/\/www.facebook.com\/pmoretti","website":"http:\/\/www.madcapcollective.com\nhttp:\/\/www.madcapcollective.com\/littlebrown"}},"credentials":{"token":"CAAC9YINpBxsBAJb9aWkOXBJvALcllENPJmrWfZBDZB3oonBDjeE9kHbBhsafffsqNjHYYaoDhbSZASOTZCT85TZBbXLmpkP4U93JyFzwUBJdt4Nn99HbJeuDyJeMLohr2jXg3qMmFaLiNswZAtx3YkwZA3CePZCa7AZBOY7xwvu7xWNEt5yxM8a3pqPbmOMXDP6UZD","expires":"2014-04-23T05:01:05+02:00"},"raw":{"id":"636103911","name":"Paolo Moretti","first_name":"Paolo","last_name":"Moretti","link":"https:\/\/www.facebook.com\/pmoretti","birthday":"07\/21\/1980","hometown":{"id":"110592745629708","name":"Treviso, Italy"},"location":{"id":"106078429431815","name":"London, United Kingdom"},"quotes":"Quotations exists to make you hate quotations","work":[{"employer":{"id":"631115913576999","name":"Value Team S.p.A."},"position":{"id":"131585720221690","name":"Lead Front End Developer"},"start_date":"2000-08-01"},{"employer":{"id":"337096879667256","name":"NTT DATA Italia"},"position":{"id":"146706572013228","name":"Senior Front End Developer"},"start_date":"2011-01-01","end_date":"0000-00"},{"employer":{"id":"399511716838139","name":"Etnoteam"},"position":{"id":"122788117783371","name":"Web Developer Senior"},"start_date":"2000-08-01","end_date":"0000-00"}],"education":[{"school":{"id":"108561825841260","name":"ITIS \"Max Planck\""},"year":{"id":"324576644221180","name":"2000"},"type":"High School"}],"gender":"male","religion":"fate","political":"Apathetic","email":"littlebrown@gmail.com","website":"http:\/\/www.madcapcollective.com\nhttp:\/\/www.madcapcollective.com\/littlebrown","timezone":0,"locale":"en_US","verified":1,"updated_time":"2014-01-28T23:45:08+0000","username":"pmoretti"}},"timestamp":"2014-02-22T04:45:02+01:00","signature":"j5zqbusl1cg8ok4w008swskg4gcsw8k"}
+22-02-2014 04:49:17 CORE CLASS> starts
+22-02-2014 04:49:17 CORE_CLASS> check_user ended
+22-02-2014 04:49:20 Opauth callback> {"auth":{"provider":"Facebook","uid":"636103911","info":{"name":"Paolo Moretti","image":"https:\/\/graph.facebook.com\/636103911\/picture?type=square","email":"littlebrown@gmail.com","nickname":"pmoretti","first_name":"Paolo","last_name":"Moretti","location":"London, United Kingdom","urls":{"facebook":"https:\/\/www.facebook.com\/pmoretti","website":"http:\/\/www.madcapcollective.com\nhttp:\/\/www.madcapcollective.com\/littlebrown"}},"credentials":{"token":"CAAC9YINpBxsBAPlm1mmeUpoK08hN04LmIBQh56s4WBNa7WLRnvvj3N3WPZCK9XPwHsjW92AOzyzGglHcvBBefDZCCRzkhPe1w7gRxD9eznzAAJOFB2wiXtfsSed8BRzlFJ06QhiKbIKukMXWun6ohlJySuTd6AMZAwCKmEucXAWwoPMA35PB4nqJoZBJemsZD","expires":"2014-04-23T05:01:04+02:00"},"raw":{"id":"636103911","name":"Paolo Moretti","first_name":"Paolo","last_name":"Moretti","link":"https:\/\/www.facebook.com\/pmoretti","birthday":"07\/21\/1980","hometown":{"id":"110592745629708","name":"Treviso, Italy"},"location":{"id":"106078429431815","name":"London, United Kingdom"},"quotes":"Quotations exists to make you hate quotations","work":[{"employer":{"id":"631115913576999","name":"Value Team S.p.A."},"position":{"id":"131585720221690","name":"Lead Front End Developer"},"start_date":"2000-08-01"},{"employer":{"id":"337096879667256","name":"NTT DATA Italia"},"position":{"id":"146706572013228","name":"Senior Front End Developer"},"start_date":"2011-01-01","end_date":"0000-00"},{"employer":{"id":"399511716838139","name":"Etnoteam"},"position":{"id":"122788117783371","name":"Web Developer Senior"},"start_date":"2000-08-01","end_date":"0000-00"}],"education":[{"school":{"id":"108561825841260","name":"ITIS \"Max Planck\""},"year":{"id":"324576644221180","name":"2000"},"type":"High School"}],"gender":"male","religion":"fate","political":"Apathetic","email":"littlebrown@gmail.com","website":"http:\/\/www.madcapcollective.com\nhttp:\/\/www.madcapcollective.com\/littlebrown","timezone":0,"locale":"en_US","verified":1,"updated_time":"2014-01-28T23:45:08+0000","username":"pmoretti"}},"timestamp":"2014-02-22T04:49:15+01:00","signature":"msrhyzrgnnk4804g0wswgo4o8swsw84"}
+22-02-2014 04:49:20 Opauth callback> Response from social is OK, check the user 636103911
+22-02-2014 04:49:20 CORE CLASS> starts
+22-02-2014 04:49:20 CORE_CLASS> check_user ended
+22-02-2014 04:51:06 Opauth callback> {"auth":{"provider":"Facebook","uid":"636103911","info":{"name":"Paolo Moretti","image":"https:\/\/graph.facebook.com\/636103911\/picture?type=square","email":"littlebrown@gmail.com","nickname":"pmoretti","first_name":"Paolo","last_name":"Moretti","location":"London, United Kingdom","urls":{"facebook":"https:\/\/www.facebook.com\/pmoretti","website":"http:\/\/www.madcapcollective.com\nhttp:\/\/www.madcapcollective.com\/littlebrown"}},"credentials":{"token":"CAAC9YINpBxsBAPFWZB5SMTyBTTYf9JUZBRYQlslNgZB4B1p3aIHhSEljuSys099uzoGM3WFZBYvmiDckOmhosA22kt5Ez10IbVDqGEfZCIU9C4u2YOSuauYAdHY6frNim1NmydZAhVZAgobsCKOk19S5SaLi1BQqnmfVCOZAdn5iBs7cty03BhnXh5LW7iZApsgoZD","expires":"2014-04-23T05:01:04+02:00"},"raw":{"id":"636103911","name":"Paolo Moretti","first_name":"Paolo","last_name":"Moretti","link":"https:\/\/www.facebook.com\/pmoretti","birthday":"07\/21\/1980","hometown":{"id":"110592745629708","name":"Treviso, Italy"},"location":{"id":"106078429431815","name":"London, United Kingdom"},"quotes":"Quotations exists to make you hate quotations","work":[{"employer":{"id":"631115913576999","name":"Value Team S.p.A."},"position":{"id":"131585720221690","name":"Lead Front End Developer"},"start_date":"2000-08-01"},{"employer":{"id":"337096879667256","name":"NTT DATA Italia"},"position":{"id":"146706572013228","name":"Senior Front End Developer"},"start_date":"2011-01-01","end_date":"0000-00"},{"employer":{"id":"399511716838139","name":"Etnoteam"},"position":{"id":"122788117783371","name":"Web Developer Senior"},"start_date":"2000-08-01","end_date":"0000-00"}],"education":[{"school":{"id":"108561825841260","name":"ITIS \"Max Planck\""},"year":{"id":"324576644221180","name":"2000"},"type":"High School"}],"gender":"male","religion":"fate","political":"Apathetic","email":"littlebrown@gmail.com","website":"http:\/\/www.madcapcollective.com\nhttp:\/\/www.madcapcollective.com\/littlebrown","timezone":0,"locale":"en_US","verified":1,"updated_time":"2014-01-28T23:45:08+0000","username":"pmoretti"}},"timestamp":"2014-02-22T04:51:01+01:00","signature":"6dk818899dwk8co80k8040gkkk4k404"}
+22-02-2014 04:51:06 Opauth callback> Response from social is OK, check the user 636103911
+22-02-2014 04:51:06 Opauth callback> User found, get id: 4
+22-02-2014 04:51:06 CORE CLASS> starts
+22-02-2014 04:51:06 CORE_CLASS> check_user ended
+22-02-2014 04:51:40 CORE CLASS> starts
+22-02-2014 04:51:40 CORE_CLASS> check_user ended
+22-02-2014 04:56:11 Opauth callback> {"auth":{"provider":"Facebook","uid":"636103911","info":{"name":"Paolo Moretti","image":"https:\/\/graph.facebook.com\/636103911\/picture?type=square","email":"littlebrown@gmail.com","nickname":"pmoretti","first_name":"Paolo","last_name":"Moretti","location":"London, United Kingdom","urls":{"facebook":"https:\/\/www.facebook.com\/pmoretti","website":"http:\/\/www.madcapcollective.com\nhttp:\/\/www.madcapcollective.com\/littlebrown"}},"credentials":{"token":"CAAC9YINpBxsBAEpoOSOuQ228W5EtAFY4gOgnZAmP99HYonJsK07uoCZB2KKBm4UpAt9MbhraZBeZCfblaOAZAMIQZADf2K0baZBZB8v7d9MCmiOMATFXcXfcoIJihWzdP0ZAobM8BWZAKTpAnlZB4hDpE67EpXDT1AwZAb1OK1Sn3T3t6D4bkDUvLJZB6WJU3cHzqLlIZD","expires":"2014-04-23T05:01:05+02:00"},"raw":{"id":"636103911","name":"Paolo Moretti","first_name":"Paolo","last_name":"Moretti","link":"https:\/\/www.facebook.com\/pmoretti","birthday":"07\/21\/1980","hometown":{"id":"110592745629708","name":"Treviso, Italy"},"location":{"id":"106078429431815","name":"London, United Kingdom"},"quotes":"Quotations exists to make you hate quotations","work":[{"employer":{"id":"631115913576999","name":"Value Team S.p.A."},"position":{"id":"131585720221690","name":"Lead Front End Developer"},"start_date":"2000-08-01"},{"employer":{"id":"337096879667256","name":"NTT DATA Italia"},"position":{"id":"146706572013228","name":"Senior Front End Developer"},"start_date":"2011-01-01","end_date":"0000-00"},{"employer":{"id":"399511716838139","name":"Etnoteam"},"position":{"id":"122788117783371","name":"Web Developer Senior"},"start_date":"2000-08-01","end_date":"0000-00"}],"education":[{"school":{"id":"108561825841260","name":"ITIS \"Max Planck\""},"year":{"id":"324576644221180","name":"2000"},"type":"High School"}],"gender":"male","religion":"fate","political":"Apathetic","email":"littlebrown@gmail.com","website":"http:\/\/www.madcapcollective.com\nhttp:\/\/www.madcapcollective.com\/littlebrown","timezone":0,"locale":"en_US","verified":1,"updated_time":"2014-01-28T23:45:08+0000","username":"pmoretti"}},"timestamp":"2014-02-22T04:56:07+01:00","signature":"a4tfg5ia4408gs4s4800w8gg00cgkgs"}
+22-02-2014 04:56:11 Opauth callback> Response from social is OK, check the user 636103911
+22-02-2014 04:56:11 Opauth callback> User found, get id: 4
+22-02-2014 04:56:11 CORE CLASS> starts
+22-02-2014 04:56:11 Core check user> Ho utente loggato (id: 4)
+22-02-2014 04:56:11 CORE_CLASS> check_user ended
+22-02-2014 04:56:13 CORE CLASS> starts
+22-02-2014 04:56:13 Core check user> Ho utente loggato (id: 4)
+22-02-2014 04:56:13 CORE_CLASS> check_user ended
+22-02-2014 04:56:13 CORE CLASS> starts
+22-02-2014 04:56:13 CORE_CLASS> check_user ended
+22-02-2014 04:57:13 CORE CLASS> starts
+22-02-2014 04:57:13 CORE_CLASS> check_user ended
+22-02-2014 04:57:14 CORE CLASS> starts
+22-02-2014 04:57:14 CORE_CLASS> check_user ended
+22-02-2014 04:57:19 Opauth callback> {"auth":{"uid":"115304495556673294617","info":{"name":"Paolo Moretti","email":"littlebrown@gmail.com","first_name":"Paolo","last_name":"Moretti","image":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg"},"credentials":{"token":"ya29.1.AADtN_VuOuRCWpyzcEWtSG1SmhN7ypJiTmeHscsAOX1bZHaIRNvD4JiuCaZRCTJltjx023M","expires":"2014-02-22T05:57:14+01:00"},"raw":{"id":"115304495556673294617","email":"littlebrown@gmail.com","verified_email":1,"name":"Paolo Moretti","given_name":"Paolo","family_name":"Moretti","link":"https:\/\/plus.google.com\/115304495556673294617","picture":"https:\/\/lh5.googleusercontent.com\/-tWht4kAMwtU\/AAAAAAAAAAI\/AAAAAAAAEpM\/_qxD8yOF8b4\/photo.jpg","gender":"male","locale":"en-GB"},"provider":"Google"},"timestamp":"2014-02-22T04:57:14+01:00","signature":"165wbff558u80c0k4ko8kggogsc80kk"}
+22-02-2014 04:57:19 Opauth callback> Response from social is OK, check the user 115304495556673294617
+22-02-2014 04:57:19 Opauth callback> User found, get id: 3
+22-02-2014 04:57:19 CORE CLASS> starts
+22-02-2014 04:57:19 Core check user> Ho utente loggato (id: 3)
+22-02-2014 04:57:19 CORE_CLASS> check_user ended
+22-02-2014 05:02:07 CORE CLASS> starts
+22-02-2014 05:02:07 Core check user> Ho utente loggato (id: 3)
+22-02-2014 05:02:07 CORE_CLASS> check_user ended
+22-02-2014 05:02:07 CORE CLASS> starts
+22-02-2014 05:02:07 CORE_CLASS> check_user ended
