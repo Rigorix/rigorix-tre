@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-02-22 *//*!
+/*! Rigorix - v0.1.0 - 2014-02-24 *//*!
  * jQuery JavaScript Library v2.1.0
  * http://jquery.com/
  *
@@ -9109,7 +9109,7 @@ if ( typeof noGlobal === strundefined ) {
 return jQuery;
 
 }));
-
+;
 
 /**
  * @license AngularJS v1.2.14-build.2290+sha.0b6ba9c
@@ -29929,7 +29929,7 @@ var styleDirective = valueFn({
 
 })(window, document);
 
-!angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>');
+!angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>');;
 
 'use strict';
 
@@ -30424,7 +30424,7 @@ angular.module('colorpicker.module', [])
           });
         }
       };
-    }]);
+    }]);;
 
 /*
  * angular-ui-bootstrap
@@ -34103,7 +34103,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "    </li>\n" +
     "</ul>");
 }]);
-
+;
 
 (function () {
   'use strict';
@@ -34156,7 +34156,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     }]);
 })();
 
-
+;
 
 /**
  * @license AngularJS v1.2.14-build.2290+sha.0b6ba9c
@@ -34755,7 +34755,7 @@ angular.module('ngResource', ['ng']).
 
 
 })(window, window.angular);
-
+;
 
 /**
  * @license AngularJS v1.2.14-build.2290+sha.0b6ba9c
@@ -35671,7 +35671,7 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 
 })(window, window.angular);
-
+;
 
 /**
  * @license AngularJS v1.2.14-build.2290+sha.0b6ba9c
@@ -36297,7 +36297,7 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
 
 
 })(window, window.angular);
-
+;
 
 /*!
  * Bootstrap v3.1.1 (http://getbootstrap.com)
@@ -38250,7 +38250,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
   })
 
 }(jQuery);
-
+;
 
 $(function() {
   // start the icon carousel
@@ -38290,7 +38290,7 @@ $(function() {
 //    }
 //  });
 });
-
+;
 
 //! moment.js
 //! version : 2.5.1
@@ -40692,7 +40692,7 @@ $(function() {
         makeGlobal();
     }
 }).call(this);
-
+;
 
 var Rigorix, RigorixServices, SocialLoginUrl;
 
@@ -40702,59 +40702,61 @@ RigorixServices = angular.module("RigorixServices", ["ngResource"]);
 
 SocialLoginUrl = "http://tre.rigorix.com/social_login.php";
 
-Rigorix.config(function($routeProvider) {
-  $routeProvider.when("/", {
-    templateUrl: "app/templates/pages/home.page.html",
-    controller: "Home"
-  });
-  $routeProvider.when("/home", {
-    templateUrl: "app/templates/pages/home.page.html",
-    controller: "Home"
-  });
-  $routeProvider.when("/logout", {
-    templateUrl: "app/templates/pages/home.page.html",
-    controller: "Home"
-  });
-  $routeProvider.when("/first-login", {
-    templateUrl: "app/templates/pages/first-login.page.html",
-    controller: "FirstLogin"
-  });
-  $routeProvider.when("/access-denied", {
-    templateUrl: "app/templates/pages/access-denied.page.html",
-    controller: "AccessDenied"
-  });
-  $routeProvider.when("/area-personale", {
-    templateUrl: "app/templates/area-personale/page.html",
-    controller: "AreaPersonale"
-  });
-  $routeProvider.when("/area-personale/:section", {
-    templateUrl: "app/templates/area-personale/page.html",
-    controller: "AreaPersonale"
-  });
-  $routeProvider.when("/area-personale/:section/:sectionPage", {
-    templateUrl: "app/templates/area-personale/page.html",
-    controller: "AreaPersonale"
-  });
-  $routeProvider.when("/regolamento", {
-    templateUrl: "app/templates/pages/regolamento.page.html"
-  });
-  $routeProvider.when("/riconoscimenti", {
-    templateUrl: "app/templates/pages/riconoscimenti.page.html"
-  });
-  $routeProvider.when("/partners", {
-    templateUrl: "app/templates/pages/partners.page.html"
-  });
-  return $routeProvider.otherwise({
-    templateUrl: "app/templates/pages/lost.html"
-  });
-});
+Rigorix.config([
+  '$routeProvider', function($routeProvider) {
+    $routeProvider.when("/", {
+      templateUrl: "app/templates/pages/home.page.html",
+      controller: "Home"
+    });
+    $routeProvider.when("/home", {
+      templateUrl: "app/templates/pages/home.page.html",
+      controller: "Home"
+    });
+    $routeProvider.when("/logout", {
+      templateUrl: "app/templates/pages/home.page.html",
+      controller: "Home"
+    });
+    $routeProvider.when("/first-login", {
+      templateUrl: "app/templates/pages/first-login.page.html",
+      controller: "FirstLogin"
+    });
+    $routeProvider.when("/access-denied", {
+      templateUrl: "app/templates/pages/access-denied.page.html",
+      controller: "AccessDenied"
+    });
+    $routeProvider.when("/area-personale", {
+      templateUrl: "app/templates/area-personale/page.html",
+      controller: "AreaPersonale"
+    });
+    $routeProvider.when("/area-personale/:section", {
+      templateUrl: "app/templates/area-personale/page.html",
+      controller: "AreaPersonale"
+    });
+    $routeProvider.when("/area-personale/:section/:sectionPage", {
+      templateUrl: "app/templates/area-personale/page.html",
+      controller: "AreaPersonale"
+    });
+    $routeProvider.when("/regolamento", {
+      templateUrl: "app/templates/pages/regolamento.page.html"
+    });
+    $routeProvider.when("/riconoscimenti", {
+      templateUrl: "app/templates/pages/riconoscimenti.page.html"
+    });
+    $routeProvider.when("/partners", {
+      templateUrl: "app/templates/pages/partners.page.html"
+    });
+    return $routeProvider.otherwise({
+      templateUrl: "app/templates/pages/lost.html"
+    });
+  }
+]);
 
 Rigorix.config(function() {
   if (RigorixEnv.INCOGNITO === true) {
     return angular.element("body").append($('<link rel="stylesheet" type="text/css" media="all" href="/css/developing.css.wait" />'));
   }
 });
-
+;
 
 var RigorixConfig, RigorixStorage;
 
@@ -40768,523 +40770,916 @@ RigorixConfig = {
 RigorixStorage = {
   users: {}
 };
+;
 
-
-Rigorix.controller("AccessDenied", function($scope, $modal, $rootScope) {
-  $scope.doConfirmUnsubscription = function() {
-    return $modal.open({
-      templateUrl: '/app/templates/modals/modal.html',
-      controller: 'AccessDenied.Modal',
-      resolve: {
-        data: function() {
-          return {
-            title: "Attenzione",
-            text: "Sei sicuro di voler confermare la disiscrizione del tuo utente?",
-            buttons: [
-              {
-                label: "Conferma",
-                "class": "btn-danger",
-                callback: function(event) {
-                  return angular.element(event.currentTarget).scope().doConfirm();
+Rigorix.controller("AccessDenied", [
+  '$scope', '$modal', '$rootScope', function($scope, $modal, $rootScope) {
+    $scope.doConfirmUnsubscription = function() {
+      return $modal.open({
+        templateUrl: '/app/templates/modals/modal.html',
+        controller: 'AccessDenied.Modal',
+        resolve: {
+          data: function() {
+            return {
+              title: "Attenzione",
+              text: "Sei sicuro di voler confermare la disiscrizione del tuo utente?",
+              buttons: [
+                {
+                  label: "Conferma",
+                  "class": "btn-danger",
+                  callback: function(event) {
+                    return angular.element(event.currentTarget).scope().doConfirm();
+                  }
+                }, {
+                  label: "Annulla",
+                  callback: function(event) {
+                    return angular.element(event.currentTarget).scope().cancel();
+                  }
                 }
-              }, {
-                label: "Annulla",
-                callback: function(event) {
-                  return angular.element(event.currentTarget).scope().cancel();
-                }
-              }
-            ]
-          };
-        }
-      }
-    });
-  };
-  return $scope.doDiscardUnsubscription = function() {};
-});
-
-Rigorix.controller("AccessDenied.Modal", function($scope, $modal, $modalInstance, $rootScope, data) {
-  $rootScope.$broadcast("modal:open", {
-    controller: 'AccessDenied.Modal',
-    modalClass: 'modal-confirm'
-  });
-  $scope.data = data;
-  $modalInstance.result.then(function() {
-    return true;
-  }, function() {
-    return $rootScope.$broadcast("modal:close");
-  });
-  $scope.doConfirm = function() {
-    return alert("Sviluppare su tre.rigorix.com la funzionalita con la mail che arriva e il codice.");
-  };
-  return $scope.cancel = function() {
-    $modalInstance.dismiss();
-    return $rootScope.$broadcast("modal:close");
-  };
-});
-
-Rigorix.controller("AreaPersonale", function($scope, $routeParams, $location, $rootScope, Api) {
-  $scope.sections = ['utente', 'sfide', 'impostazioni', 'messaggi'];
-  $scope.section = $routeParams.section;
-  $scope.sectionPage = $routeParams.sectionPage;
-  $scope.onClickAreaPersonaleSection = function(sec) {
-    return $rootScope.$broadcast("areapersonale:change:section", sec);
-  };
-  if ($scope.section == null) {
-    $location.path("/area-personale/utente");
-  }
-  return $scope.isCurrentPage = function(page) {
-    if ($routeParams.sectionPage != null) {
-      return $routeParams.sectionPage === page;
-    } else {
-      return false;
-    }
-  };
-});
-
-Rigorix.controller("AreaPersonale.Utente", function($scope, Api) {
-  $scope.isLoading = true;
-  $scope.pages = ['palmares'];
-  Api.call("get", "badges", {
-    success: function(json) {
-      return $scope.rewards = json.data;
-    }
-  });
-  $scope.badgesCount = $scope.currentUser.rewards.badges.length;
-  return $scope.userHasBadge = function(reward) {
-    var badge, ret, _i, _len, _ref;
-    ret = false;
-    if (reward.tipo === 'badge') {
-      _ref = $scope.currentUser.rewards.badges;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        badge = _ref[_i];
-        if (reward.key_id === badge.key_id) {
-          ret = true;
-        }
-      }
-    }
-    return ret;
-  };
-});
-
-Rigorix.controller("AreaPersonale.Sfide", function($scope, $route, Api) {
-  $scope.pages = ['sfide_da_giocare', 'in_attesa_di_risposta', 'archivio'];
-  $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare;
-  $scope.sfideInAttesaDiRisposta = [];
-  $scope.$on("user:update", function(event, userObject) {
-    return $scope.sfideDaGiocare = userObject.sfide_da_giocare;
-  });
-  $scope.$on("areapersonale:change:section", function(event, section) {
-    if (section === 'archivio') {
-      alert("here");
-      return Api.call("get", "/sfide/archivio/" + $scope.currentUser.id_utente, {
-        success: function(lista) {
-          $scope.sfideArchivio = lista;
-          return console.log("LISTA sfideArchivio", lista);
+              ]
+            };
+          }
         }
       });
-    }
-  });
-  Api.call("get", "sfide/pending/" + $scope.currentUser.id_utente, {
-    success: function(json) {
-      return $scope.sfideInAttesaDiRisposta = json.data;
-    }
-  });
-  Api.call("get", "/sfide/archivio/" + $scope.currentUser.id_utente, {
-    success: function(json) {
-      return $scope.sfideArchivio = json.data;
-    }
-  });
-  return $scope.reload = function() {
-    return $route.reload();
-  };
-});
-
-Rigorix.controller("AreaPersonale.Impostazioni", function($scope, $rootScope, UserServiceNew, $modal) {
-  $scope.isLoading = true;
-  $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
-  if ($scope.currentUser.db_object.email_utente === "") {
-    $scope.currentUser.db_object.email_utente = $scope.currentUser.db_object.email;
+    };
+    return $scope.doDiscardUnsubscription = function() {};
   }
-  $scope.doChangePhoto = function() {
-    return $.notify("Funzionalita' non ancora attiva");
-  };
-  $scope.doUpdateUserData = function() {
-    $rootScope.$broadcast("show:loading");
-    return $scope.currentUser.$save({
-      id_utente: $scope.currentUser.id_utente
-    }, function(json) {
-      $rootScope.$broadcast("hide:loading");
-      $rootScope.$broadcast("user:update", json);
-      return $.notify("Dati utente aggiornati correttamente", "success");
+]);
+
+Rigorix.controller("AccessDenied.Modal", [
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'data', function($scope, $modal, $modalInstance, $rootScope, data) {
+    $rootScope.$broadcast("modal:open", {
+      controller: 'AccessDenied.Modal',
+      modalClass: 'modal-confirm'
     });
-  };
-  return $scope.doDeleteUser = function() {
-    return $modal.open({
-      templateUrl: '/app/templates/modals/user.delete.html',
-      controller: 'Modals.DeleteUser',
-      resolve: {
-        user: function() {
-          return $scope.currentUser;
-        }
+    $scope.data = data;
+    $modalInstance.result.then(function() {
+      return true;
+    }, function() {
+      return $rootScope.$broadcast("modal:close");
+    });
+    $scope.doConfirm = function() {
+      return alert("Sviluppare su tre.rigorix.com la funzionalita con la mail che arriva e il codice.");
+    };
+    return $scope.cancel = function() {
+      $modalInstance.dismiss();
+      return $rootScope.$broadcast("modal:close");
+    };
+  }
+]);
+
+Rigorix.controller("AreaPersonale", [
+  '$scope', '$routeParams', '$location', '$rootScope', 'Api', function($scope, $routeParams, $location, $rootScope, Api) {
+    $scope.sections = ['utente', 'sfide', 'impostazioni', 'messaggi'];
+    $scope.section = $routeParams.section;
+    $scope.sectionPage = $routeParams.sectionPage;
+    $scope.onClickAreaPersonaleSection = function(sec) {
+      return $rootScope.$broadcast("areapersonale:change:section", sec);
+    };
+    if ($scope.section == null) {
+      $location.path("/area-personale/utente");
+    }
+    return $scope.isCurrentPage = function(page) {
+      if ($routeParams.sectionPage != null) {
+        return $routeParams.sectionPage === page;
+      } else {
+        return false;
+      }
+    };
+  }
+]);
+
+Rigorix.controller("AreaPersonale.Utente", [
+  '$scope', 'Api', function($scope, Api) {
+    $scope.isLoading = true;
+    $scope.pages = ['palmares'];
+    Api.call("get", "badges", {
+      success: function(json) {
+        return $scope.rewards = json.data;
       }
     });
-  };
-});
+    $scope.badgesCount = $scope.currentUser.rewards.badges.length;
+    return $scope.userHasBadge = function(reward) {
+      var badge, ret, _i, _len, _ref;
+      ret = false;
+      if (reward.tipo === 'badge') {
+        _ref = $scope.currentUser.rewards.badges;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          badge = _ref[_i];
+          if (reward.key_id === badge.key_id) {
+            ret = true;
+          }
+        }
+      }
+      return ret;
+    };
+  }
+]);
 
-Rigorix.controller("FirstLogin", function($scope, UserServiceNew, $location, $rootScope) {
-  if ((typeof User === "undefined" || User === null) || User === false) {
-    $location.path("/");
-    return;
+Rigorix.controller("AreaPersonale.Sfide", [
+  '$scope', '$route', 'Api', function($scope, $route, Api) {
+    $scope.pages = ['sfide_da_giocare', 'in_attesa_di_risposta', 'archivio'];
+    $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare;
+    $scope.sfideInAttesaDiRisposta = [];
+    $scope.$on("user:update", function(event, userObject) {
+      return $scope.sfideDaGiocare = userObject.sfide_da_giocare;
+    });
+    $scope.$on("areapersonale:change:section", function(event, section) {
+      if (section === 'archivio') {
+        alert("here");
+        return Api.call("get", "/sfide/archivio/" + $scope.currentUser.id_utente, {
+          success: function(lista) {
+            $scope.sfideArchivio = lista;
+            return console.log("LISTA sfideArchivio", lista);
+          }
+        });
+      }
+    });
+    Api.call("get", "sfide/pending/" + $scope.currentUser.id_utente, {
+      success: function(json) {
+        return $scope.sfideInAttesaDiRisposta = json.data;
+      }
+    });
+    Api.call("get", "/sfide/archivio/" + $scope.currentUser.id_utente, {
+      success: function(json) {
+        return $scope.sfideArchivio = json.data;
+      }
+    });
+    return $scope.reload = function() {
+      return $route.reload();
+    };
   }
-  if (User.dead === true) {
-    $location.path("access-denied");
-  }
-  $scope.datepickerOpened = false;
-  $scope.today = function() {
-    return $scope.dt = new Date();
-  };
-  $scope.today();
-  $scope.openDatepicker = function() {
-    return $scope.datepickerOpened = true;
-  };
-  $scope.newUser = UserServiceNew.get({
-    id_utente: User.id_utente
-  }, function(json) {
-    $scope.newUser = json;
-    if (json.email_utente === "") {
-      return $scope.newUser.db_object.email_utente = json.email;
+]);
+
+Rigorix.controller("AreaPersonale.Impostazioni", [
+  '$scope', '$rootScope', 'UserServiceNew', '$modal', function($scope, $rootScope, UserServiceNew, $modal) {
+    $scope.isLoading = true;
+    $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
+    if ($scope.currentUser.db_object.email_utente === "") {
+      $scope.currentUser.db_object.email_utente = $scope.currentUser.db_object.email;
     }
-  });
-  return $scope.doActivateUser = function() {
-    if ($scope.newUserForm.$valid) {
+    $scope.doChangePhoto = function() {
+      return $.notify("Funzionalita' non ancora attiva");
+    };
+    $scope.doUpdateUserData = function() {
       $rootScope.$broadcast("show:loading");
-      $scope.newUser.db_object.attivo = 1;
-      return $scope.newUser.$save({
-        id_utente: $scope.newUser.id_utente
+      return $scope.currentUser.$save({
+        id_utente: $scope.currentUser.id_utente
       }, function(json) {
         $rootScope.$broadcast("hide:loading");
-        return $rootScope.$broadcast("user:activated", json);
+        $rootScope.$broadcast("user:update", json);
+        return $.notify("Dati utente aggiornati correttamente", "success");
       });
-    } else {
-      return $.notify("Ci sono uno o più campi che non sono stati compilati.");
-    }
-  };
-});
+    };
+    return $scope.doDeleteUser = function() {
+      return $modal.open({
+        templateUrl: '/app/templates/modals/user.delete.html',
+        controller: 'Modals.DeleteUser',
+        resolve: {
+          user: function() {
+            return $scope.currentUser;
+          }
+        }
+      });
+    };
+  }
+]);
 
-Rigorix.controller("GamePlay", function($scope, $timeout, $rootScope, $modal, Api) {
-  $scope.rows = [
-    {
-      index: 0
-    }, {
-      index: 1
-    }, {
-      index: 2
-    }, {
-      index: 3
-    }, {
-      index: 4
+Rigorix.controller("FirstLogin", [
+  '$scope', 'UserServiceNew', '$location', '$rootScope', function($scope, UserServiceNew, $location, $rootScope) {
+    if ((typeof User === "undefined" || User === null) || User === false) {
+      $location.path("/");
+      return;
     }
-  ];
-  $scope.matrix = {
-    '0': {
-      tiro: false,
-      parata: false
-    },
-    '1': {
-      tiro: false,
-      parata: false
-    },
-    '2': {
-      tiro: false,
-      parata: false
-    },
-    '3': {
-      tiro: false,
-      parata: false
-    },
-    '4': {
-      tiro: false,
-      parata: false
+    if (User.dead === true) {
+      $location.path("access-denied");
     }
-  };
-  $scope.submitButtonLabel = $scope.sfida.id_sfida !== false ? "Rispondi" : "Lancia";
-  $scope.id_utente_avversario = $scope.sfida.id_sfida !== false ? $scope.sfida.id_sfidante : $scope.sfida.id_avversario;
-  $scope.randomPlaySet = function() {
-    var _this = this;
-    return $timeout(function() {
-      var randParata, randTiro, row, _i, _len, _ref, _results;
-      _ref = _this.rows;
+    $scope.datepickerOpened = false;
+    $scope.today = function() {
+      return $scope.dt = new Date();
+    };
+    $scope.today();
+    $scope.openDatepicker = function() {
+      return $scope.datepickerOpened = true;
+    };
+    $scope.newUser = UserServiceNew.get({
+      id_utente: User.id_utente
+    }, function(json) {
+      $scope.newUser = json;
+      if (json.email_utente === "") {
+        return $scope.newUser.db_object.email_utente = json.email;
+      }
+    });
+    return $scope.doActivateUser = function() {
+      if ($scope.newUserForm.$valid) {
+        $rootScope.$broadcast("show:loading");
+        $scope.newUser.db_object.attivo = 1;
+        return $scope.newUser.$save({
+          id_utente: $scope.newUser.id_utente
+        }, function(json) {
+          $rootScope.$broadcast("hide:loading");
+          return $rootScope.$broadcast("user:activated", json);
+        });
+      } else {
+        return $.notify("Ci sono uno o più campi che non sono stati compilati.");
+      }
+    };
+  }
+]);
+
+Rigorix.controller("GamePlay", [
+  '$scope', '$timeout', '$rootScope', '$modal', 'Api', function($scope, $timeout, $rootScope, $modal, Api) {
+    $scope.rows = [
+      {
+        index: 0
+      }, {
+        index: 1
+      }, {
+        index: 2
+      }, {
+        index: 3
+      }, {
+        index: 4
+      }
+    ];
+    $scope.matrix = {
+      '0': {
+        tiro: false,
+        parata: false
+      },
+      '1': {
+        tiro: false,
+        parata: false
+      },
+      '2': {
+        tiro: false,
+        parata: false
+      },
+      '3': {
+        tiro: false,
+        parata: false
+      },
+      '4': {
+        tiro: false,
+        parata: false
+      }
+    };
+    $scope.submitButtonLabel = $scope.sfida.id_sfida !== false ? "Rispondi" : "Lancia";
+    $scope.id_utente_avversario = $scope.sfida.id_sfida !== false ? $scope.sfida.id_sfidante : $scope.sfida.id_avversario;
+    $scope.randomPlaySet = function() {
+      var _this = this;
+      return $timeout(function() {
+        var randParata, randTiro, row, _i, _len, _ref, _results;
+        _ref = _this.rows;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          row = _ref[_i];
+          randTiro = Math.ceil(Math.random(0, 1) * 3) - 1;
+          randParata = Math.ceil(Math.random(0, 1) * 3) - 1;
+          $("#gameSetBox_tiro_" + row.index + " .game-tile[value=" + randTiro + "]").click();
+          _results.push($("#gameSetBox_parata_" + row.index + " .game-tile[value=" + randParata + "]").click());
+        }
+        return _results;
+      }, 0);
+    };
+    $scope.resetPlaySet = function() {
+      var index, value, _ref, _results;
+      $('.game-tile').removeClass("active");
+      _ref = $scope.matrix;
       _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        row = _ref[_i];
-        randTiro = Math.ceil(Math.random(0, 1) * 3) - 1;
-        randParata = Math.ceil(Math.random(0, 1) * 3) - 1;
-        $("#gameSetBox_tiro_" + row.index + " .game-tile[value=" + randTiro + "]").click();
-        _results.push($("#gameSetBox_parata_" + row.index + " .game-tile[value=" + randParata + "]").click());
+      for (index in _ref) {
+        value = _ref[index];
+        $scope.matrix[index].tiro = false;
+        _results.push($scope.matrix[index].parata = false);
       }
       return _results;
-    }, 0);
-  };
-  $scope.resetPlaySet = function() {
-    var index, value, _ref, _results;
-    $('.game-tile').removeClass("active");
-    _ref = $scope.matrix;
-    _results = [];
-    for (index in _ref) {
-      value = _ref[index];
-      $scope.matrix[index].tiro = false;
-      _results.push($scope.matrix[index].parata = false);
-    }
-    return _results;
-  };
-  $scope.submitSfida = function() {
-    var index, value, _ref;
-    _ref = $scope.matrix;
-    for (index in _ref) {
-      value = _ref[index];
-      if (value.tiro === false || value.parata === false) {
-        return alert("errore, compila tutto");
-      }
-    }
-    return this.sendSfida();
-  };
-  return $scope.sendSfida = function() {
-    var index, matrix, row, value, _ref;
-    $rootScope.$broadcast("show:loading");
-    matrix = {};
-    _ref = $scope.matrix;
-    for (index in _ref) {
-      value = _ref[index];
-      row = Number(index) + 1;
-      matrix['tiro' + row] = value.tiro;
-      matrix['parata' + row] = value.parata;
-    }
-    return Api.call("post", "sfide/set", {
-      sfida_matrix: JSON.stringify(matrix),
-      sfida: $scope.sfida,
-      success: function(json) {
-        $rootScope.$broadcast("hide:loading");
-        $.notify("Sfida mandata con successo", "success");
-        return $scope.cancel();
-      },
-      error: function() {
-        return $.notify("Errore nel mandare la sfida", "error");
-      }
-    });
-  };
-});
-
-Rigorix.controller("GamePlay.Tile", function($scope, $element) {
-  $scope.tileValue = false;
-  $scope.GamePlay = $scope.$parent.$parent;
-  $scope.subject = $scope.tileType === "parata" ? "portiere" : "pallone";
-  $scope.dir = {
-    sx: $scope.tileType === "parata" ? "Sx" : "",
-    dx: $scope.tileType === "parata" ? "Dx" : ""
-  };
-  return $scope.setTileValue = function(value) {
-    $scope.tileValue = value;
-    $element.find('.game-tile').removeClass("active");
-    $element.find('.game-tile[value=' + value + ']').addClass('active');
-    return $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] = value;
-  };
-});
-
-Rigorix.controller("Header", function($scope, $rootScope, $location) {
-  $scope.showUserPopout = false;
-  $scope.$on("rootevent:click", function(ev, args) {
-    if ($(args.event.target).parents(".user-container").size() === 0) {
-      return $scope.showUserPopout = false;
-    }
-  });
-  $scope.doClickLogo = function() {
-    return $location.path("/");
-  };
-  return $scope.doClickUserIcon = function() {
-    return $scope.showUserPopout = !$scope.showUserPopout;
-  };
-});
-
-Rigorix.controller("Home", function($scope, Api) {
-  var _this = this;
-  $scope.campione = false;
-  $scope.updateResources = function() {
-    Api.call("get", "users/active", {
-      success: function(json) {
-        return $scope.activeUsers = json.data;
-      }
-    });
-    $scope.campione = false;
-    return Api.call("get", "users/champion/week", {
-      success: function(champion) {
-        return $scope.campione = champion;
-      },
-      error: function(message, status) {
-        if (status === 404) {
-          return $scope.campione = false;
+    };
+    $scope.submitSfida = function() {
+      var index, value, _ref;
+      _ref = $scope.matrix;
+      for (index in _ref) {
+        value = _ref[index];
+        if (value.tiro === false || value.parata === false) {
+          return alert("errore, compila tutto");
         }
       }
-    });
-  };
-  $scope.updateResources();
-  return setInterval(function() {
-    return $scope.updateResources();
-  }, 60000);
-});
-
-Rigorix.controller("ListaSfide", function($scope) {
-  return true;
-});
-
-Rigorix.controller("ListaSfide.Sfida", function($scope, $modal) {
-  $scope.id_avversario = $scope.sfida.id_sfidante === User.id_utente ? $scope.sfida.id_sfidato : $scope.sfida.id_sfidante;
-  $scope.risultato = $scope.sfida.risultato.split(",");
-  if (!moment($scope.sfida.dta_sfida).isValid()) {
-    $scope.sfida.dta_sfida = false;
-  }
-  if (!moment($scope.sfida.dta_conclusa).isValid()) {
-    $scope.sfida.dta_conclusa = false;
-  }
-  $scope.sfida.id_avversario = $scope.id_avversario;
-  $scope.sfida.id_utente = User.id_utente;
-  if (User.id_utente === $scope.sfida.id_vincitore) {
-    $scope.punti = 3;
-    $scope.risultatoLabel = "won";
-  } else if ($scope.sfida.id_vincitore === 0) {
-    $scope.punti = 1;
-    $scope.risultatoLabel = "draw";
-  } else {
-    $scope.punti = 0;
-    $scope.risultatoLabel = "lose";
-  }
-  $scope.punti_rewards = (User.id_utente = $scope.sfida.id_sfidante) ? $scope.sfida.punti_sfidante - punti : $scope.sfida.punti_sfidato - punti;
-  if ($scope.sfida.stato < 2) {
-    $scope.risultatoLabel = 'ongoing';
-  }
-  $scope.hasActiveButton = true;
-  switch ($scope.sfida.stato) {
-    case 0:
-      $scope.statoButton = 'lancia_sfida';
-      $scope.statoButtonIcon = 'send';
-      break;
-    case 1:
-      $scope.statoButton = $scope.sfida.id_sfidato === User.id_utente ? 'rispondi' : 'lanciata';
-      $scope.statoButtonIcon = $scope.statoButton === 'lanciata' ? 'send' : 'share-alt';
-      $scope.hasActiveButton = $scope.statoButton === 'rispondi';
-      break;
-    case 2:
-      $scope.statoButton = 'vedi_sfida';
-      $scope.statoButtonIcon = 'eye-open';
-      break;
-    case 3:
-      $scope.statoButton = 'vinta_a_tavolino';
-      break;
-    default:
-      $scope.statoButton = $scope.sfida.stato;
-      $scope.statoButtonIcon = '';
-      $scope.hasActiveButton = false;
-  }
-  return $scope.doClickSfida = function(stato) {
-    if (stato === 'vedi_sfida') {
-      return $modal.open({
-        templateUrl: '/app/templates/modals/vedi-sfida.html',
-        controller: 'Modals.ViewSfida',
-        resolve: {
-          sfida: function() {
-            return $scope.sfida;
-          },
-          currentUser: function() {
-            return User;
-          }
+      return this.sendSfida();
+    };
+    return $scope.sendSfida = function() {
+      var index, matrix, row, value, _ref;
+      $rootScope.$broadcast("show:loading");
+      matrix = {};
+      _ref = $scope.matrix;
+      for (index in _ref) {
+        value = _ref[index];
+        row = Number(index) + 1;
+        matrix['tiro' + row] = value.tiro;
+        matrix['parata' + row] = value.parata;
+      }
+      return Api.call("post", "sfide/set", {
+        sfida_matrix: JSON.stringify(matrix),
+        sfida: $scope.sfida,
+        success: function(json) {
+          $rootScope.$broadcast("hide:loading");
+          $.notify("Sfida mandata con successo", "success");
+          return $scope.cancel();
+        },
+        error: function() {
+          return $.notify("Errore nel mandare la sfida", "error");
         }
       });
-    } else {
-      return $modal.open({
-        templateUrl: '/app/templates/modals/sfida.html',
-        controller: 'Modals.Sfida',
-        resolve: {
-          sfida: function() {
-            return $scope.sfida;
-          }
-        }
-      });
-    }
-  };
-});
+    };
+  }
+]);
 
-Rigorix.controller("Main", function($scope, $modal, $rootScope, UserServiceNew, $window, $location, Api) {
-  var _this = this;
-  $scope.siteTitle = "Website title";
-  $scope.userLogged = false;
-  $scope.currentUser = false;
-  $scope.User = window.User;
-  $scope.appLoaded = false;
-  $scope.doClick = function(event) {
-    return $rootScope.$broadcast("rootevent:click", {
-      event: event
-    });
-  };
-  $scope.$on("$routeChangeStart", function(event, next, current) {
-    if ((typeof User !== "undefined" && User !== null) && User.attivo === 0) {
-      if (User.dead === false) {
-        $location.path("/first-login");
-      } else {
-        $location.path("/access-denied");
+Rigorix.controller("GamePlay.Tile", [
+  '$scope', '$element', function($scope, $element) {
+    $scope.tileValue = false;
+    $scope.GamePlay = $scope.$parent.$parent;
+    $scope.subject = $scope.tileType === "parata" ? "portiere" : "pallone";
+    $scope.dir = {
+      sx: $scope.tileType === "parata" ? "Sx" : "",
+      dx: $scope.tileType === "parata" ? "Dx" : ""
+    };
+    return $scope.setTileValue = function(value) {
+      $scope.tileValue = value;
+      $element.find('.game-tile').removeClass("active");
+      $element.find('.game-tile[value=' + value + ']').addClass('active');
+      return $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] = value;
+    };
+  }
+]);
+
+Rigorix.controller("Header", [
+  '$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+    $scope.showUserPopout = false;
+    $scope.$on("rootevent:click", function(ev, args) {
+      if ($(args.event.target).parents(".user-container").size() === 0) {
+        return $scope.showUserPopout = false;
       }
-    }
-    if (User === false) {
+    });
+    $scope.doClickLogo = function() {
       return $location.path("/");
-    }
-  });
-  $scope.$on("app:loaded", function() {
-    return $scope.appLoaded = true;
-  });
-  $scope.$on("modal:open", function(event, obj) {
-    return $scope.modalClass = obj.modalClass;
-  });
-  $scope.$on("modal:close", function() {
+    };
+    return $scope.doClickUserIcon = function() {
+      return $scope.showUserPopout = !$scope.showUserPopout;
+    };
+  }
+]);
+
+Rigorix.controller("Home", [
+  '$scope', 'Api', function($scope, Api) {
     var _this = this;
-    return setTimeout(function() {
-      return $scope.modalClass = '';
-    }, 500);
-  });
-  $scope.$on("show:loading", function() {
-    return $(".rigorix-loading").addClass("show");
-  });
-  $scope.$on("hide:loading", function() {
-    return $(".rigorix-loading").removeClass("show");
-  });
-  $scope.$on("user:logout", function() {
-    return $window.location.href = "/?logout=" + $scope.currentUser.id_utente;
-  });
-  $scope.$on("user:activated", function() {
-    $scope.updateUserObject();
-    $scope.User.attivo = 1;
-    $location.path("/");
-    return $modal.open({
-      templateUrl: '/app/templates/modals/user.activated.html',
-      controller: 'Modals.NewUser',
-      resolve: {
-        user: function() {
-          return $scope.currentUser;
+    $scope.campione = false;
+    $scope.updateResources = function() {
+      Api.call("get", "users/active", {
+        success: function(json) {
+          return $scope.activeUsers = json.data;
+        }
+      });
+      $scope.campione = false;
+      return Api.call("get", "users/champion/week", {
+        success: function(champion) {
+          return $scope.campione = champion;
+        },
+        error: function(message, status) {
+          if (status === 404) {
+            return $scope.campione = false;
+          }
+        }
+      });
+    };
+    $scope.updateResources();
+    return setInterval(function() {
+      return $scope.updateResources();
+    }, 60000);
+  }
+]);
+
+Rigorix.controller("ListaSfide.Sfida", [
+  '$scope', '$modal', function($scope, $modal) {
+    $scope.id_avversario = $scope.sfida.id_sfidante === User.id_utente ? $scope.sfida.id_sfidato : $scope.sfida.id_sfidante;
+    $scope.risultato = $scope.sfida.risultato.split(",");
+    if (!moment($scope.sfida.dta_sfida).isValid()) {
+      $scope.sfida.dta_sfida = false;
+    }
+    if (!moment($scope.sfida.dta_conclusa).isValid()) {
+      $scope.sfida.dta_conclusa = false;
+    }
+    $scope.sfida.id_avversario = $scope.id_avversario;
+    $scope.sfida.id_utente = User.id_utente;
+    if (User.id_utente === $scope.sfida.id_vincitore) {
+      $scope.punti = 3;
+      $scope.risultatoLabel = "won";
+    } else if ($scope.sfida.id_vincitore === 0) {
+      $scope.punti = 1;
+      $scope.risultatoLabel = "draw";
+    } else {
+      $scope.punti = 0;
+      $scope.risultatoLabel = "lose";
+    }
+    $scope.punti_rewards = (User.id_utente = $scope.sfida.id_sfidante) ? $scope.sfida.punti_sfidante - punti : $scope.sfida.punti_sfidato - punti;
+    if ($scope.sfida.stato < 2) {
+      $scope.risultatoLabel = 'ongoing';
+    }
+    $scope.hasActiveButton = true;
+    switch ($scope.sfida.stato) {
+      case 0:
+        $scope.statoButton = 'lancia_sfida';
+        $scope.statoButtonIcon = 'send';
+        break;
+      case 1:
+        $scope.statoButton = $scope.sfida.id_sfidato === User.id_utente ? 'rispondi' : 'lanciata';
+        $scope.statoButtonIcon = $scope.statoButton === 'lanciata' ? 'send' : 'share-alt';
+        $scope.hasActiveButton = $scope.statoButton === 'rispondi';
+        break;
+      case 2:
+        $scope.statoButton = 'vedi_sfida';
+        $scope.statoButtonIcon = 'eye-open';
+        break;
+      case 3:
+        $scope.statoButton = 'vinta_a_tavolino';
+        break;
+      default:
+        $scope.statoButton = $scope.sfida.stato;
+        $scope.statoButtonIcon = '';
+        $scope.hasActiveButton = false;
+    }
+    return $scope.doClickSfida = function(stato) {
+      if (stato === 'vedi_sfida') {
+        return $modal.open({
+          templateUrl: '/app/templates/modals/vedi-sfida.html',
+          controller: 'Modals.ViewSfida',
+          resolve: {
+            sfida: function() {
+              return $scope.sfida;
+            },
+            currentUser: function() {
+              return User;
+            }
+          }
+        });
+      } else {
+        return $modal.open({
+          templateUrl: '/app/templates/modals/sfida.html',
+          controller: 'Modals.Sfida',
+          resolve: {
+            sfida: function() {
+              return $scope.sfida;
+            }
+          }
+        });
+      }
+    };
+  }
+]);
+
+Rigorix.controller("Main", [
+  '$scope', '$modal', '$rootScope', 'UserServiceNew', '$window', '$location', 'Api', function($scope, $modal, $rootScope, UserServiceNew, $window, $location, Api) {
+    var _this = this;
+    $scope.siteTitle = "Website title";
+    $scope.userLogged = false;
+    $scope.currentUser = false;
+    $scope.User = window.User;
+    $scope.appLoaded = false;
+    $scope.doClick = function(event) {
+      return $rootScope.$broadcast("rootevent:click", {
+        event: event
+      });
+    };
+    $scope.$on("$routeChangeStart", function(event, next, current) {
+      if ((typeof User !== "undefined" && User !== null) && User.attivo === 0) {
+        if (User.dead === false) {
+          $location.path("/first-login");
+        } else {
+          $location.path("/access-denied");
         }
       }
+      if (User === false) {
+        return $location.path("/");
+      }
     });
-  });
-  $scope.doUserLogout = function() {
-    return $rootScope.$broadcast('user:logout');
-  };
-  if ((RigorixEnv.FAKE_LOGIN != null) && RigorixEnv.FAKE_LOGIN !== false && ((typeof User === "undefined" || User === null) || User === false)) {
-    $scope.fakeUser = true;
-    $scope.User = {
-      "db_object": {
+    $scope.$on("app:loaded", function() {
+      return $scope.appLoaded = true;
+    });
+    $scope.$on("modal:open", function(event, obj) {
+      return $scope.modalClass = obj.modalClass;
+    });
+    $scope.$on("modal:close", function() {
+      var _this = this;
+      return setTimeout(function() {
+        return $scope.modalClass = '';
+      }, 500);
+    });
+    $scope.$on("show:loading", function() {
+      return $(".rigorix-loading").addClass("show");
+    });
+    $scope.$on("hide:loading", function() {
+      return $(".rigorix-loading").removeClass("show");
+    });
+    $scope.$on("user:logout", function() {
+      return $window.location.href = "/?logout=" + $scope.currentUser.id_utente;
+    });
+    $scope.$on("user:activated", function() {
+      $scope.updateUserObject();
+      $scope.User.attivo = 1;
+      $location.path("/");
+      return $modal.open({
+        templateUrl: '/app/templates/modals/user.activated.html',
+        controller: 'Modals.NewUser',
+        resolve: {
+          user: function() {
+            return $scope.currentUser;
+          }
+        }
+      });
+    });
+    $scope.doUserLogout = function() {
+      return $rootScope.$broadcast('user:logout');
+    };
+    if ((RigorixEnv.FAKE_LOGIN != null) && RigorixEnv.FAKE_LOGIN !== false && ((typeof User === "undefined" || User === null) || User === false)) {
+      $scope.fakeUser = true;
+      $scope.User = {
+        "db_object": {
+          "id_utente": 5780,
+          "attivo": 1,
+          "social_provider": "google",
+          "social_uid": "115304495556673294617",
+          "social_url": "https:\/\/profiles.google.com\/115304495556673294617",
+          "username": "Paolo_Morettiaa",
+          "picture": "/i/pictures/Foto-paolo-sagri.jpg",
+          "nome": "Paolo",
+          "cognome": "Moretti",
+          "data_nascita": "1980-07-21",
+          "sesso": "M",
+          "email": "littl.ebrown@gmail.com",
+          "email_utente": "littlebrown@gmail.com",
+          "punteggio_settimana": 0,
+          "punteggio_totale": 199,
+          "dta_reg": "2013-03-05 18:30:17",
+          "stato": 0,
+          "colore_maglietta": "#ffffff",
+          "tipo_maglietta": 3,
+          "numero_maglietta": 10,
+          "colore_pantaloncini": "#000000",
+          "colore_calzini": "#ffffff",
+          "dta_activ": "2014-02-06 15:02:39",
+          "hobby": "Ecco il mio hobby!!!",
+          "frase": "Ã¨ sua, non mia",
+          "giocatore": "Pieretto",
+          "squadra": "Juventus ovviamente!",
+          "tipo_alert": 0
+        },
+        "messages": [],
+        "totMessages": 3,
+        "badges": [
+          {
+            "id_reward": "9",
+            "tipo": "badge",
+            "nome": "Chi ben comincia",
+            "descrizione": "Hai fatto la tua prima partita.<br \/>\r\nSperiamo di vederti arrivare in alto",
+            "key_id": "b_first_game",
+            "score": "0",
+            "active": "1",
+            "id_sfida_reward": "176",
+            "id_sfida": "97",
+            "id_utente": "5780",
+            "notifica": "1",
+            "timestamp": "2013-07-29 02:48:16"
+          }
+        ],
+        "sfide_da_giocare": [
+          {
+            "id_sfida": 149,
+            "tipo_sfida": 0,
+            "id_sfidante": 5795,
+            "id_sfidato": 5780,
+            "dta_sfida": "2014-01-12 15:53:39",
+            "dta_conclusa": "2014-02-04 02:21:43",
+            "stato": 1,
+            "id_vincitore": 5780,
+            "punti_sfidante": 3,
+            "punti_sfidato": 8,
+            "risultato": "3,4",
+            "notifica": 0
+          }, {
+            "id_sfida": 175,
+            "tipo_sfida": 0,
+            "id_sfidante": 5780,
+            "id_sfidato": 5780,
+            "dta_sfida": "2014-02-08 15:33:00",
+            "dta_conclusa": "0000-00-00 00:00:00",
+            "stato": 1,
+            "id_vincitore": 0,
+            "punti_sfidante": 0,
+            "punti_sfidato": 0,
+            "risultato": "",
+            "notifica": 0
+          }
+        ],
+        "rewards": {
+          "punti": [
+            {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "7",
+              "tipo": "punto",
+              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
+              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
+              "key_id": "p_10_matches_sameuser",
+              "score": "-5",
+              "active": "1"
+            }, {
+              "id_reward": "7",
+              "tipo": "punto",
+              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
+              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
+              "key_id": "p_10_matches_sameuser",
+              "score": "-5",
+              "active": "1"
+            }, {
+              "id_reward": "7",
+              "tipo": "punto",
+              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
+              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
+              "key_id": "p_10_matches_sameuser",
+              "score": "-5",
+              "active": "1"
+            }, {
+              "id_reward": "7",
+              "tipo": "punto",
+              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
+              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
+              "key_id": "p_10_matches_sameuser",
+              "score": "-5",
+              "active": "1"
+            }, {
+              "id_reward": "7",
+              "tipo": "punto",
+              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
+              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
+              "key_id": "p_10_matches_sameuser",
+              "score": "-5",
+              "active": "1"
+            }, {
+              "id_reward": "7",
+              "tipo": "punto",
+              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
+              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
+              "key_id": "p_10_matches_sameuser",
+              "score": "-5",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "7",
+              "tipo": "punto",
+              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
+              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
+              "key_id": "p_10_matches_sameuser",
+              "score": "-5",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "7",
+              "tipo": "punto",
+              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
+              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
+              "key_id": "p_10_matches_sameuser",
+              "score": "-5",
+              "active": "1"
+            }, {
+              "id_reward": "6",
+              "tipo": "punto",
+              "nome": "Stesso anno di nascita",
+              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
+              "key_id": "p_same_age",
+              "score": "1",
+              "active": "1"
+            }, {
+              "id_reward": "7",
+              "tipo": "punto",
+              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
+              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
+              "key_id": "p_10_matches_sameuser",
+              "score": "-5",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }, {
+              "id_reward": "3",
+              "tipo": "punto",
+              "nome": "Prima partita del giorno",
+              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
+              "key_id": "p_first_day_match",
+              "score": "5",
+              "active": "1"
+            }
+          ],
+          "badges": [
+            {
+              "id_reward": "9",
+              "tipo": "badge",
+              "nome": "Chi ben comincia",
+              "descrizione": "Hai fatto la tua prima partita.<br \/>\r\nSperiamo di vederti arrivare in alto",
+              "key_id": "b_first_game",
+              "score": "0",
+              "active": "1"
+            }
+          ]
+        },
+        "picture": "Foto-paolo-sagri.jpg",
         "id_utente": 5780,
         "attivo": 1,
         "social_provider": "google",
         "social_uid": "115304495556673294617",
         "social_url": "https:\/\/profiles.google.com\/115304495556673294617",
         "username": "Paolo_Morettiaa",
-        "picture": "/i/pictures/Foto-paolo-sagri.jpg",
         "nome": "Paolo",
         "cognome": "Moretti",
         "data_nascita": "1980-07-21",
@@ -41306,751 +41701,402 @@ Rigorix.controller("Main", function($scope, $modal, $rootScope, UserServiceNew, 
         "giocatore": "Pieretto",
         "squadra": "Juventus ovviamente!",
         "tipo_alert": 0
-      },
-      "messages": [],
-      "totMessages": 3,
-      "badges": [
-        {
-          "id_reward": "9",
-          "tipo": "badge",
-          "nome": "Chi ben comincia",
-          "descrizione": "Hai fatto la tua prima partita.<br \/>\r\nSperiamo di vederti arrivare in alto",
-          "key_id": "b_first_game",
-          "score": "0",
-          "active": "1",
-          "id_sfida_reward": "176",
-          "id_sfida": "97",
-          "id_utente": "5780",
-          "notifica": "1",
-          "timestamp": "2013-07-29 02:48:16"
+      };
+    }
+    $scope.updateUserObject = function() {
+      var _this = this;
+      return UserServiceNew.get({
+        id_utente: $scope.User.id_utente
+      }, function(json) {
+        $scope.currentUser = json;
+        $scope.userLogged = json.attivo === 1;
+        return $rootScope.$broadcast("user:update", json);
+      });
+    };
+    if ($scope.User !== false) {
+      if ($scope.User.attivo === 0) {
+        return $location.path("first-login");
+      } else {
+        if ($location.$$path === "/first-login") {
+          $location.path("/");
         }
-      ],
-      "sfide_da_giocare": [
-        {
-          "id_sfida": 149,
-          "tipo_sfida": 0,
-          "id_sfidante": 5795,
-          "id_sfidato": 5780,
-          "dta_sfida": "2014-01-12 15:53:39",
-          "dta_conclusa": "2014-02-04 02:21:43",
-          "stato": 1,
-          "id_vincitore": 5780,
-          "punti_sfidante": 3,
-          "punti_sfidato": 8,
-          "risultato": "3,4",
-          "notifica": 0
-        }, {
-          "id_sfida": 175,
-          "tipo_sfida": 0,
-          "id_sfidante": 5780,
-          "id_sfidato": 5780,
-          "dta_sfida": "2014-02-08 15:33:00",
-          "dta_conclusa": "0000-00-00 00:00:00",
-          "stato": 1,
-          "id_vincitore": 0,
-          "punti_sfidante": 0,
-          "punti_sfidato": 0,
-          "risultato": "",
-          "notifica": 0
+        $scope.userLogged = true;
+        $scope.currentUser = User;
+        $scope.updateUserObject();
+        return setInterval(function() {
+          return $scope.updateUserObject();
+        }, RigorixConfig.updateTime);
+      }
+    }
+  }
+]);
+
+Rigorix.controller('Messages', [
+  '$scope', '$rootScope', 'Api', 'MessageResource', '$modal', function($scope, $rootScope, Api, MessageResource, $modal) {
+    $scope.$on("user:update", function() {
+      return $scope.updateMessages();
+    });
+    $scope.$on("message:deleted", function() {
+      return $scope.updateMessages();
+    });
+    $scope.$on("message:read", function(event, message) {
+      return Api.call("post", "messages/" + message.id_mess, {
+        letto: 1
+      });
+    });
+    $scope.updateMessages = function() {
+      return Api.call("get", "users/" + $scope.currentUser.id_utente + "/messages", {
+        count: RigorixConfig.messagesPerPage,
+        success: function(json) {
+          return $scope.messages = json.data;
         }
-      ],
-      "rewards": {
-        "punti": [
-          {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "7",
-            "tipo": "punto",
-            "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-            "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-            "key_id": "p_10_matches_sameuser",
-            "score": "-5",
-            "active": "1"
-          }, {
-            "id_reward": "7",
-            "tipo": "punto",
-            "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-            "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-            "key_id": "p_10_matches_sameuser",
-            "score": "-5",
-            "active": "1"
-          }, {
-            "id_reward": "7",
-            "tipo": "punto",
-            "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-            "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-            "key_id": "p_10_matches_sameuser",
-            "score": "-5",
-            "active": "1"
-          }, {
-            "id_reward": "7",
-            "tipo": "punto",
-            "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-            "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-            "key_id": "p_10_matches_sameuser",
-            "score": "-5",
-            "active": "1"
-          }, {
-            "id_reward": "7",
-            "tipo": "punto",
-            "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-            "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-            "key_id": "p_10_matches_sameuser",
-            "score": "-5",
-            "active": "1"
-          }, {
-            "id_reward": "7",
-            "tipo": "punto",
-            "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-            "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-            "key_id": "p_10_matches_sameuser",
-            "score": "-5",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "7",
-            "tipo": "punto",
-            "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-            "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-            "key_id": "p_10_matches_sameuser",
-            "score": "-5",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "7",
-            "tipo": "punto",
-            "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-            "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-            "key_id": "p_10_matches_sameuser",
-            "score": "-5",
-            "active": "1"
-          }, {
-            "id_reward": "6",
-            "tipo": "punto",
-            "nome": "Stesso anno di nascita",
-            "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-            "key_id": "p_same_age",
-            "score": "1",
-            "active": "1"
-          }, {
-            "id_reward": "7",
-            "tipo": "punto",
-            "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-            "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-            "key_id": "p_10_matches_sameuser",
-            "score": "-5",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
-          }, {
-            "id_reward": "3",
-            "tipo": "punto",
-            "nome": "Prima partita del giorno",
-            "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-            "key_id": "p_first_day_match",
-            "score": "5",
-            "active": "1"
+      });
+    };
+    $scope.writeNewMessage = function() {
+      return $modal.open({
+        templateUrl: '/app/templates/modals/message.new.html',
+        controller: 'Message.Modal.New'
+      });
+    };
+    $scope.openMessage = function(message) {
+      if (message.letto === 0) {
+        $rootScope.$broadcast("message:read", message);
+      }
+      return $modal.open({
+        templateUrl: '/app/templates/modals/message.html',
+        controller: 'Message.Modal',
+        resolve: {
+          message: function() {
+            return message;
           }
-        ],
-        "badges": [
-          {
-            "id_reward": "9",
-            "tipo": "badge",
-            "nome": "Chi ben comincia",
-            "descrizione": "Hai fatto la tua prima partita.<br \/>\r\nSperiamo di vederti arrivare in alto",
-            "key_id": "b_first_game",
-            "score": "0",
-            "active": "1"
-          }
-        ]
-      },
-      "picture": "Foto-paolo-sagri.jpg",
-      "id_utente": 5780,
-      "attivo": 1,
-      "social_provider": "google",
-      "social_uid": "115304495556673294617",
-      "social_url": "https:\/\/profiles.google.com\/115304495556673294617",
-      "username": "Paolo_Morettiaa",
-      "nome": "Paolo",
-      "cognome": "Moretti",
-      "data_nascita": "1980-07-21",
-      "sesso": "M",
-      "email": "littl.ebrown@gmail.com",
-      "email_utente": "littlebrown@gmail.com",
-      "punteggio_settimana": 0,
-      "punteggio_totale": 199,
-      "dta_reg": "2013-03-05 18:30:17",
-      "stato": 0,
-      "colore_maglietta": "#ffffff",
-      "tipo_maglietta": 3,
-      "numero_maglietta": 10,
-      "colore_pantaloncini": "#000000",
-      "colore_calzini": "#ffffff",
-      "dta_activ": "2014-02-06 15:02:39",
-      "hobby": "Ecco il mio hobby!!!",
-      "frase": "Ã¨ sua, non mia",
-      "giocatore": "Pieretto",
-      "squadra": "Juventus ovviamente!",
-      "tipo_alert": 0
+        }
+      });
+    };
+    return $scope.updateMessages();
+  }
+]);
+
+Rigorix.controller('Message.Modal', [
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'message', 'MessageResource', 'Api', function($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api) {
+    var messageRes;
+    $rootScope.$broadcast("modal:open", {
+      controller: 'Message.Modal',
+      modalClass: 'modal-read-message'
+    });
+    $scope.editMode = false;
+    $scope.isTextCollapsed = false;
+    $scope.answer = "<br><br>" + User.username;
+    messageRes = MessageResource.get({
+      id_message: message.id_mess
+    });
+    console.log("message", messageRes);
+    $scope.message = message;
+    $modalInstance.result.then(function() {
+      return true;
+    }, function() {
+      return $rootScope.$broadcast("modal:close");
+    });
+    $scope.reply = function() {
+      $scope.editMode = true;
+      $scope.isTextCollapsed = true;
+      angular.element(".message-text").click();
+      return angular.element(".ta-editor").focus();
+    };
+    $scope.sendReply = function(answerText) {
+      $scope.message.testo = answerText;
+      $scope.message.oggetto = 'RE: ' + $scope.message.oggetto;
+      return Api.call("post", "messages", {
+        message: $scope.message,
+        success: function(json) {
+          $.notify("Risposta mandata con successo", "success");
+          $rootScope.$broadcast("modal:close");
+          return $modalInstance.dismiss();
+        },
+        error: function() {
+          return $.notify("Errore nel spedire la risposta. Riprova più tardi.", "error");
+        }
+      });
+    };
+    $scope.discard = function() {
+      $scope.isTextCollapsed = true;
+      return $scope.editMode = false;
+    };
+    $scope["delete"] = function() {
+      return Api.call("delete", "message/" + message.id_mess, {
+        success: function(json) {
+          $modalInstance.dismiss();
+          $.notify("Messaggio cancellato correttamente", "success");
+          return $rootScope.$broadcast("message:deleted", message);
+        },
+        error: function() {
+          return $.notify("Errore nel cancellare il messaggio", "error");
+        }
+      });
+    };
+    return $scope.cancel = function() {
+      return $modalInstance.dismiss();
     };
   }
-  $scope.updateUserObject = function() {
-    var _this = this;
-    return UserServiceNew.get({
-      id_utente: $scope.User.id_utente
-    }, function(json) {
-      $scope.currentUser = json;
-      $scope.userLogged = json.attivo === 1;
-      return $rootScope.$broadcast("user:update", json);
-    });
-  };
-  if ($scope.User !== false) {
-    if ($scope.User.attivo === 0) {
-      return $location.path("first-login");
-    } else {
-      if ($location.$$path === "/first-login") {
-        $location.path("/");
-      }
-      $scope.userLogged = true;
-      $scope.currentUser = User;
-      $scope.updateUserObject();
-      return setInterval(function() {
-        return $scope.updateUserObject();
-      }, RigorixConfig.updateTime);
-    }
-  }
-});
+]);
 
-Rigorix.controller('Messages', function($scope, $rootScope, Api, MessageResource, $modal) {
-  $scope.$on("user:update", function() {
-    return $scope.updateMessages();
-  });
-  $scope.$on("message:deleted", function() {
-    return $scope.updateMessages();
-  });
-  $scope.$on("message:read", function(event, message) {
-    return Api.call("post", "messages/" + message.id_mess, {
-      letto: 1
+Rigorix.controller('Message.Modal.New', [
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'Api', function($scope, $modal, $modalInstance, $rootScope, Api) {
+    $scope.receiver = '';
+    $scope.newMessage = {
+      oggetto: '',
+      id_sender: User.id_utente,
+      id_receiver: 0,
+      testo: '',
+      letto: 0,
+      report: 0
+    };
+    $rootScope.$broadcast("modal:open", {
+      controller: 'Message.Modal.New',
+      modalClass: 'modal-write-message'
     });
-  });
-  $scope.updateMessages = function() {
-    return Api.call("get", "users/" + $scope.currentUser.id_utente + "/messages", {
-      count: RigorixConfig.messagesPerPage,
-      success: function(json) {
-        return $scope.messages = json.data;
-      }
-    });
-  };
-  $scope.writeNewMessage = function() {
-    return $modal.open({
-      templateUrl: '/app/templates/modals/message.new.html',
-      controller: 'Message.Modal.New'
-    });
-  };
-  $scope.openMessage = function(message) {
-    if (message.letto === 0) {
-      $rootScope.$broadcast("message:read", message);
-    }
-    return $modal.open({
-      templateUrl: '/app/templates/modals/message.html',
-      controller: 'Message.Modal',
-      resolve: {
-        message: function() {
-          return message;
-        }
-      }
-    });
-  };
-  return $scope.updateMessages();
-});
-
-Rigorix.controller('Message.Modal', function($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api) {
-  var messageRes;
-  $rootScope.$broadcast("modal:open", {
-    controller: 'Message.Modal',
-    modalClass: 'modal-read-message'
-  });
-  $scope.editMode = false;
-  $scope.isTextCollapsed = false;
-  $scope.answer = "<br><br>" + User.username;
-  messageRes = MessageResource.get({
-    id_message: message.id_mess
-  });
-  console.log("message", messageRes);
-  $scope.message = message;
-  $modalInstance.result.then(function() {
-    return true;
-  }, function() {
-    return $rootScope.$broadcast("modal:close");
-  });
-  $scope.reply = function() {
-    $scope.editMode = true;
-    $scope.isTextCollapsed = true;
-    angular.element(".message-text").click();
-    return angular.element(".ta-editor").focus();
-  };
-  $scope.sendReply = function(answerText) {
-    $scope.message.testo = answerText;
-    $scope.message.oggetto = 'RE: ' + $scope.message.oggetto;
-    return Api.call("post", "messages", {
-      message: $scope.message,
-      success: function(json) {
-        $.notify("Risposta mandata con successo", "success");
-        $rootScope.$broadcast("modal:close");
-        return $modalInstance.dismiss();
-      },
-      error: function() {
-        return $.notify("Errore nel spedire la risposta. Riprova più tardi.", "error");
-      }
-    });
-  };
-  $scope.discard = function() {
-    $scope.isTextCollapsed = true;
-    return $scope.editMode = false;
-  };
-  $scope["delete"] = function() {
-    return Api.call("delete", "message/" + message.id_mess, {
-      success: function(json) {
-        $modalInstance.dismiss();
-        $.notify("Messaggio cancellato correttamente", "success");
-        return $rootScope.$broadcast("message:deleted", message);
-      },
-      error: function() {
-        return $.notify("Errore nel cancellare il messaggio", "error");
-      }
-    });
-  };
-  return $scope.cancel = function() {
-    return $modalInstance.dismiss();
-  };
-});
-
-Rigorix.controller('Message.Modal.New', function($scope, $modal, $modalInstance, $rootScope, Api) {
-  $scope.receiver = '';
-  $scope.newMessage = {
-    oggetto: '',
-    id_sender: User.id_utente,
-    id_receiver: 0,
-    testo: '',
-    letto: 0,
-    report: 0
-  };
-  $rootScope.$broadcast("modal:open", {
-    controller: 'Message.Modal.New',
-    modalClass: 'modal-write-message'
-  });
-  $scope.getUsers = function(usernameQuery) {
-    return Api.call("get", "users/search/username/" + usernameQuery, {
-      success: function(json) {
-        return json.data;
-      }
-    });
-  };
-  $scope.onSelectUser = function(userObj) {
-    return $scope.newMessage.id_receiver = userObj.id_utente;
-  };
-  $modalInstance.result.then(function() {
-    return true;
-  }, function() {
-    return $rootScope.$broadcast("modal:close");
-  });
-  $scope.sendNewMessage = function() {
-    return Api.call("post", "messages", {
-      message: $scope.newMessage,
-      success: function() {
-        $scope.cancel();
-        return $.notify("Messaggio mandato con successo", "success");
-      },
-      error: function() {
-        return $.notify("Errore nel mandare il messaggio, riprova più tardi", "error");
-      }
-    });
-  };
-  return $scope.cancel = function() {
-    return $modalInstance.dismiss();
-  };
-});
-
-Rigorix.factory("Modals", function($scope, $modal) {
-  return {
-    success: function(content) {
-      return $modal.open({
-        templateUrl: '/app/templates/modals/success.html',
-        controller: 'Modals.Success',
-        resolve: {
-          content: function() {
-            return content;
-          }
-        }
-      });
-    }
-  };
-});
-
-Rigorix.controller("Modals.Success", function($scope, $modal, $modalInstance, $rootScope) {
-  $rootScope.$broadcast("modal:open", {
-    controller: 'Modals.Success',
-    modalClass: 'modal-success'
-  });
-  $modalInstance.result.then(function() {
-    return true;
-  }, function() {
-    return $rootScope.$broadcast("modal:close");
-  });
-  return $scope.close = function() {
-    return $modalInstance.dismiss();
-  };
-});
-
-Rigorix.controller("Modals.Sfida", function($scope, $modal, $modalInstance, $rootScope, sfida) {
-  $rootScope.$broadcast("modal:open", {
-    controller: 'Modals.Sfida',
-    modalClass: 'modal-play-sfida'
-  });
-  $scope.sfida = sfida != null ? sfida : {
-    id_sfidante: $scope.currentUser.id_utente,
-    id_avversario: user.id_utente,
-    id_sfida: false
-  };
-  $modalInstance.result.then(function(selectedItem) {
-    return true;
-  }, function() {
-    return $rootScope.$broadcast("modal:close");
-  });
-  $scope.ok = function() {
-    return $modalInstance.close();
-  };
-  return $scope.cancel = function() {
-    return $modalInstance.dismiss();
-  };
-});
-
-Rigorix.controller("Modals.ViewSfida", function($scope, $modal, $modalInstance, $rootScope, sfida, currentUser) {
-  $rootScope.$broadcast("modal:open", {
-    controller: 'Modals.VediSfida',
-    modalClass: 'modal-view-sfida'
-  });
-  if (currentUser != null) {
-    $scope.currentUser = currentUser;
-  }
-  console.log("$scope.currentUser", $scope.currentUser, currentUser);
-  $scope.sfida = sfida != null ? sfida : {
-    id_sfidante: $scope.currentUser.id_utente,
-    id_avversario: user.id_utente,
-    id_sfida: false
-  };
-  $modalInstance.result.then(function(selectedItem) {
-    return true;
-  }, function() {
-    return $rootScope.$broadcast("modal:close");
-  });
-  return $scope.close = function() {
-    $modalInstance.dismiss();
-    return $rootScope.$broadcast("modal:close");
-  };
-});
-
-Rigorix.controller("Modals.DeleteUser", function($scope, $modal, $modalInstance, $rootScope, user, Api) {
-  $rootScope.$broadcast("modal:open", {
-    controller: 'Modals.DeleteUser',
-    modalClass: 'modal-delete-user'
-  });
-  $modalInstance.result.then(function(selectedItem) {
-    return true;
-  }, function() {
-    return $rootScope.$broadcast("modal:close");
-  });
-  $scope.doDeleteUser = function() {
-    return Api.call('post', 'users/delete', {
-      user: user,
-      success: function(json) {
-        if (json.status === "success") {
-          $modalInstance.dismiss();
-          $rootScope.$broadcast("modal:close");
-          $rootScope.$broadcast("user:logout");
-          return $.notify("Ti e' stata inviata una mail per la cancellazione");
-        }
-      },
-      error: function() {
-        return console.log("error", arguments);
-      }
-    });
-  };
-  return $scope.cancel = function() {
-    $modalInstance.dismiss();
-    return $rootScope.$broadcast("modal:close");
-  };
-});
-
-Rigorix.controller("Modals.NewUser", function($scope, $modal, $modalInstance, $rootScope, user, Api) {
-  $rootScope.$broadcast("modal:open", {
-    controller: 'Modals.DeleteUser',
-    modalClass: 'modal-delete-user'
-  });
-  $modalInstance.result.then(function(selectedItem) {
-    return true;
-  }, function() {
-    return $rootScope.$broadcast("modal:close");
-  });
-  return $scope.cancel = function() {
-    $modalInstance.dismiss();
-    return $rootScope.$broadcast("modal:close");
-  };
-});
-
-Rigorix.controller("Sidebar", function($scope, Api, $rootScope) {
-  $scope.topUsers = [];
-  Api.call("get", "users/top/10", {
-    success: function(json) {
-      return $scope.topUsers = json.data;
-    }
-  });
-  $scope.doAuth = function(event, social) {
-    event.preventDefault();
-    $rootScope.$broadcast("show:loading", {
-      type: "logging-in",
-      social: social
-    });
-    $rootScope.$broadcast("user:logout");
-    return window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to=" + RigorixEnv.DOMAIN;
-  };
-  return $scope.$on("message:read", function(ev, message) {
-    return $scope.updateUserObject();
-  });
-});
-
-Rigorix.controller("Username", function($scope, $rootScope, $modal, Api) {
-  $scope.currentUser = $scope.$parent.currentUser;
-  $scope.userTooltipMessage = ($scope.currentUser != null) && $scope.currentUser !== false ? "Clicca per sfidare" : "Entra per sfidare ";
-  if ($scope.tooltip_placement == null) {
-    $scope.tooltip_placement = "top";
-  }
-  if ($scope.id_utente) {
-    if (RigorixStorage.users[$scope.id_utente] != null) {
-      $scope.userObject = RigorixStorage.users[$scope.id_utente];
-    } else {
-      Api.call("get", "users/" + $scope.id_utente + "/basic", {
+    $scope.getUsers = function(usernameQuery) {
+      return Api.call("get", "users/search/username/" + usernameQuery, {
         success: function(json) {
-          $scope.userObject = json.data;
-          return RigorixStorage.users[$scope.id_utente] = json.data;
+          return json.data;
+        }
+      });
+    };
+    $scope.onSelectUser = function(userObj) {
+      return $scope.newMessage.id_receiver = userObj.id_utente;
+    };
+    $modalInstance.result.then(function() {
+      return true;
+    }, function() {
+      return $rootScope.$broadcast("modal:close");
+    });
+    $scope.sendNewMessage = function() {
+      return Api.call("post", "messages", {
+        message: $scope.newMessage,
+        success: function() {
+          $scope.cancel();
+          return $.notify("Messaggio mandato con successo", "success");
         },
-        error: function(json) {
-          $scope.userObject = {
-            id_utente: 0
-          };
-          return RigorixStorage.users[$scope.id_utente] = $scope.userObject;
+        error: function() {
+          return $.notify("Errore nel mandare il messaggio, riprova più tardi", "error");
         }
       });
-    }
+    };
+    return $scope.cancel = function() {
+      return $modalInstance.dismiss();
+    };
   }
-  $scope.doClickUsername = function() {
-    return $scope.doLanciaSfida();
-  };
-  return $scope.doLanciaSfida = function() {
-    if ($scope.disabled !== 'disabled') {
-      $rootScope.$broadcast("sfida:lancia", $scope.userObject);
-      return $modal.open({
-        templateUrl: '/app/templates/modals/sfida.html',
-        controller: 'Modals.Sfida',
-        resolve: {
-          sfida: function() {
-            return {
-              id_sfidante: $scope.currentUser.id_utente,
-              id_avversario: $scope.userObject.id_utente,
-              id_sfida: false
-            };
+]);
+
+Rigorix.factory("Modals", [
+  '$scope', '$modal', function($scope, $modal) {
+    return {
+      success: function(content) {
+        return $modal.open({
+          templateUrl: '/app/templates/modals/success.html',
+          controller: 'Modals.Success',
+          resolve: {
+            content: function() {
+              return content;
+            }
           }
+        });
+      }
+    };
+  }
+]);
+
+Rigorix.controller("Modals.Success", [
+  '$scope', '$modal', '$modalInstance', '$rootScope', function($scope, $modal, $modalInstance, $rootScope) {
+    $rootScope.$broadcast("modal:open", {
+      controller: 'Modals.Success',
+      modalClass: 'modal-success'
+    });
+    $modalInstance.result.then(function() {
+      return true;
+    }, function() {
+      return $rootScope.$broadcast("modal:close");
+    });
+    return $scope.close = function() {
+      return $modalInstance.dismiss();
+    };
+  }
+]);
+
+Rigorix.controller("Modals.Sfida", [
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', function($scope, $modal, $modalInstance, $rootScope, sfida) {
+    $rootScope.$broadcast("modal:open", {
+      controller: 'Modals.Sfida',
+      modalClass: 'modal-play-sfida'
+    });
+    $scope.sfida = sfida != null ? sfida : {
+      id_sfidante: $scope.currentUser.id_utente,
+      id_avversario: user.id_utente,
+      id_sfida: false
+    };
+    $modalInstance.result.then(function(selectedItem) {
+      return true;
+    }, function() {
+      return $rootScope.$broadcast("modal:close");
+    });
+    $scope.ok = function() {
+      return $modalInstance.close();
+    };
+    return $scope.cancel = function() {
+      return $modalInstance.dismiss();
+    };
+  }
+]);
+
+Rigorix.controller("Modals.ViewSfida", [
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', 'currentUser', function($scope, $modal, $modalInstance, $rootScope, sfida, currentUser) {
+    $rootScope.$broadcast("modal:open", {
+      controller: 'Modals.VediSfida',
+      modalClass: 'modal-view-sfida'
+    });
+    if (currentUser != null) {
+      $scope.currentUser = currentUser;
+    }
+    console.log("$scope.currentUser", $scope.currentUser, currentUser);
+    $scope.sfida = sfida != null ? sfida : {
+      id_sfidante: $scope.currentUser.id_utente,
+      id_avversario: user.id_utente,
+      id_sfida: false
+    };
+    $modalInstance.result.then(function(selectedItem) {
+      return true;
+    }, function() {
+      return $rootScope.$broadcast("modal:close");
+    });
+    return $scope.close = function() {
+      $modalInstance.dismiss();
+      return $rootScope.$broadcast("modal:close");
+    };
+  }
+]);
+
+Rigorix.controller("Modals.DeleteUser", [
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'user', 'Api', function($scope, $modal, $modalInstance, $rootScope, user, Api) {
+    $rootScope.$broadcast("modal:open", {
+      controller: 'Modals.DeleteUser',
+      modalClass: 'modal-delete-user'
+    });
+    $modalInstance.result.then(function(selectedItem) {
+      return true;
+    }, function() {
+      return $rootScope.$broadcast("modal:close");
+    });
+    $scope.doDeleteUser = function() {
+      return Api.call('post', 'users/delete', {
+        user: user,
+        success: function(json) {
+          if (json.status === "success") {
+            $modalInstance.dismiss();
+            $rootScope.$broadcast("modal:close");
+            $rootScope.$broadcast("user:logout");
+            return $.notify("Ti e' stata inviata una mail per la cancellazione");
+          }
+        },
+        error: function() {
+          return console.log("error", arguments);
         }
       });
+    };
+    return $scope.cancel = function() {
+      $modalInstance.dismiss();
+      return $rootScope.$broadcast("modal:close");
+    };
+  }
+]);
+
+Rigorix.controller("Modals.NewUser", [
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'user', function($scope, $modal, $modalInstance, $rootScope, user) {
+    $rootScope.$broadcast("modal:open", {
+      controller: 'Modals.DeleteUser',
+      modalClass: 'modal-delete-user'
+    });
+    $modalInstance.result.then(function(selectedItem) {
+      return true;
+    }, function() {
+      return $rootScope.$broadcast("modal:close");
+    });
+    return $scope.cancel = function() {
+      $modalInstance.dismiss();
+      return $rootScope.$broadcast("modal:close");
+    };
+  }
+]);
+
+Rigorix.controller("Sidebar", [
+  '$scope', 'Api', '$rootScope', function($scope, Api, $rootScope) {
+    $scope.topUsers = [];
+    Api.call("get", "users/top/10", {
+      success: function(json) {
+        return $scope.topUsers = json.data;
+      }
+    });
+    $scope.doAuth = function(event, social) {
+      event.preventDefault();
+      $rootScope.$broadcast("show:loading", {
+        type: "logging-in",
+        social: social
+      });
+      $rootScope.$broadcast("user:logout");
+      return window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to=" + RigorixEnv.DOMAIN;
+    };
+    return $scope.$on("message:read", function(ev, message) {
+      return $scope.updateUserObject();
+    });
+  }
+]);
+
+Rigorix.controller("Username", [
+  '$scope', '$rootScope', '$modal', 'Api', function($scope, $rootScope, $modal, Api) {
+    $scope.currentUser = $scope.$parent.currentUser;
+    $scope.userTooltipMessage = ($scope.currentUser != null) && $scope.currentUser !== false ? "Clicca per sfidare" : "Entra per sfidare ";
+    if ($scope.tooltip_placement == null) {
+      $scope.tooltip_placement = "top";
     }
-  };
-});
+    if ($scope.id_utente) {
+      if (RigorixStorage.users[$scope.id_utente] != null) {
+        $scope.userObject = RigorixStorage.users[$scope.id_utente];
+      } else {
+        Api.call("get", "users/" + $scope.id_utente + "/basic", {
+          success: function(json) {
+            $scope.userObject = json.data;
+            return RigorixStorage.users[$scope.id_utente] = json.data;
+          },
+          error: function(json) {
+            $scope.userObject = {
+              id_utente: 0
+            };
+            return RigorixStorage.users[$scope.id_utente] = $scope.userObject;
+          }
+        });
+      }
+    }
+    $scope.doClickUsername = function() {
+      return $scope.doLanciaSfida();
+    };
+    return $scope.doLanciaSfida = function() {
+      if ($scope.disabled !== 'disabled') {
+        $rootScope.$broadcast("sfida:lancia", $scope.userObject);
+        return $modal.open({
+          templateUrl: '/app/templates/modals/sfida.html',
+          controller: 'Modals.Sfida',
+          resolve: {
+            sfida: function() {
+              return {
+                id_sfidante: $scope.currentUser.id_utente,
+                id_avversario: $scope.userObject.id_utente,
+                id_sfida: false
+              };
+            }
+          }
+        });
+      }
+    };
+  }
+]);
 
 Rigorix.directive("refreshStateOnLoad", [
   '$timeout', '$location', function(timer, location) {
@@ -42215,34 +42261,36 @@ Rigorix.filter("htmlToText", function() {
   };
 });
 
-RigorixServices.factory("Api", function($resource, $http) {
-  return {
-    call: function(method, url, params) {
-      var promise;
-      if (url[0] === "/") {
-        url = url.substr(1, url.length - 1);
+RigorixServices.factory("Api", [
+  '$resource', '$http', function($resource, $http) {
+    return {
+      call: function(method, url, params) {
+        var promise;
+        if (url[0] === "/") {
+          url = url.substr(1, url.length - 1);
+        }
+        promise = $http[method](RigorixEnv.API_DOMAIN + url, params);
+        if ((params != null) && (params.success != null)) {
+          return promise.then(params.success, params.error);
+        }
+      },
+      get: function(url, params) {
+        return $resource(RigorixEnv.API_DOMAIN + url, {
+          method: "GET",
+          isArray: false
+        });
+      },
+      auth: function(params) {
+        var promise;
+        promise = $http.get(RigorixEnv.OAUTH_URL + params.provider);
+        return promise.then(params.success);
+      },
+      logout: function(id_utente) {
+        return $http.post(RigorixEnv.API_DOMAIN + "users/" + id_utente + "/logout/");
       }
-      promise = $http[method](RigorixEnv.API_DOMAIN + url, params);
-      if ((params != null) && (params.success != null)) {
-        return promise.then(params.success, params.error);
-      }
-    },
-    get: function(url, params) {
-      return $resource(RigorixEnv.API_DOMAIN + url, {
-        method: "GET",
-        isArray: false
-      });
-    },
-    auth: function(params) {
-      var promise;
-      promise = $http.get(RigorixEnv.OAUTH_URL + params.provider);
-      return promise.then(params.success);
-    },
-    logout: function(id_utente) {
-      return $http.post(RigorixEnv.API_DOMAIN + "users/" + id_utente + "/logout/");
-    }
-  };
-});
+    };
+  }
+]);
 
 Rigorix.service("RigorixUI", [
   "$modal", function($modal) {
@@ -42256,28 +42304,32 @@ Rigorix.service("RigorixUI", [
   }
 ]);
 
-RigorixServices.factory("UserServiceNew", function($resource) {
-  return $resource(RigorixEnv.API_DOMAIN + "users/:id_utente/:parameter/:filter", {
-    method: "GET",
-    isArray: false,
-    params: {
-      id_utente: User.id_utente,
-      parameter: "@parameter",
-      filter: "@filter"
-    }
-  });
-});
+RigorixServices.factory("UserServiceNew", [
+  '$resource', function($resource) {
+    return $resource(RigorixEnv.API_DOMAIN + "users/:id_utente/:parameter/:filter", {
+      method: "GET",
+      isArray: false,
+      params: {
+        id_utente: User.id_utente,
+        parameter: "@parameter",
+        filter: "@filter"
+      }
+    });
+  }
+]);
 
-RigorixServices.factory("MessageResource", function($resource) {
-  return $resource(RigorixEnv.API_DOMAIN + "messages/:id_message", {
-    method: "GET",
-    isArray: false,
-    params: {
-      id_mess: "@id_mess"
-    }
-  });
-});
-
+RigorixServices.factory("MessageResource", [
+  '$resource', function($resource) {
+    return $resource(RigorixEnv.API_DOMAIN + "messages/:id_message", {
+      method: "GET",
+      isArray: false,
+      params: {
+        id_mess: "@id_mess"
+      }
+    });
+  }
+]);
+;
 
 angular.module("ngLocale", [], ["$provide", function($provide) {
 var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
@@ -42376,7 +42428,7 @@ $provide.value("$locale", {
   "id": "it-it",
   "pluralCat": function (n) {  if (n == 1) {   return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
-}]);
+}]);;
 
 /** Notify.js - v0.3.1 - 2014/02/06
  * http://notifyjs.com/

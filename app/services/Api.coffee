@@ -1,4 +1,4 @@
-RigorixServices.factory "Api", ($resource, $http)->
+RigorixServices.factory "Api", ['$resource', '$http', ($resource, $http)->
 
   call: (method, url, params)->
     url = url.substr 1, url.length-1 if url[0] is "/"
@@ -17,3 +17,5 @@ RigorixServices.factory "Api", ($resource, $http)->
 
   logout: (id_utente)->
     $http.post RigorixEnv.API_DOMAIN + "users/" + id_utente + "/logout/"
+
+]

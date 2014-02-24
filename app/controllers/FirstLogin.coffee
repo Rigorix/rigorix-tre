@@ -1,4 +1,4 @@
-Rigorix.controller "FirstLogin", ($scope, UserServiceNew, $location, $rootScope)->
+Rigorix.controller "FirstLogin", ['$scope', 'UserServiceNew', '$location', '$rootScope', ($scope, UserServiceNew, $location, $rootScope)->
 
   if !User? or User is false
     $location.path "/"
@@ -37,3 +37,4 @@ Rigorix.controller "FirstLogin", ($scope, UserServiceNew, $location, $rootScope)
         $rootScope.$broadcast "user:activated", json
     else
       $.notify "Ci sono uno o più campi che non sono stati compilati."
+]

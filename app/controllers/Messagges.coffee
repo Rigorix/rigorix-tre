@@ -1,4 +1,4 @@
-Rigorix.controller 'Messages', ($scope, $rootScope, Api, MessageResource, $modal)->
+Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource', '$modal', ($scope, $rootScope, Api, MessageResource, $modal)->
 
   $scope.$on "user:update", ->
     do $scope.updateMessages
@@ -32,6 +32,8 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, MessageResource, $modal
           message
 
   do $scope.updateMessages
+]
+
 
 #  Pagination
 #  $scope.page = 1
@@ -44,7 +46,7 @@ Rigorix.controller 'Messages', ($scope, $rootScope, Api, MessageResource, $modal
 
 
 
-Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api)->
+Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$rootScope', 'message', 'MessageResource', 'Api', ($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Message.Modal'
@@ -101,14 +103,14 @@ Rigorix.controller 'Message.Modal', ($scope, $modal, $modalInstance, $rootScope,
 
   $scope.cancel = ->
     do $modalInstance.dismiss
-
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
 
-Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootScope, Api)->
+Rigorix.controller 'Message.Modal.New', ['$scope', '$modal', '$modalInstance', '$rootScope', 'Api', ($scope, $modal, $modalInstance, $rootScope, Api)->
 
   $scope.receiver = ''
   $scope.newMessage =
@@ -149,3 +151,4 @@ Rigorix.controller 'Message.Modal.New', ($scope, $modal, $modalInstance, $rootSc
 
   $scope.cancel = ->
     do $modalInstance.dismiss
+]

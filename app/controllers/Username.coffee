@@ -1,4 +1,4 @@
-Rigorix.controller "Username", ($scope, $rootScope, $modal, Api)->
+Rigorix.controller "Username", ['$scope', '$rootScope', '$modal', 'Api', ($scope, $rootScope, $modal, Api)->
 
   $scope.currentUser = $scope.$parent.currentUser;
   $scope.userTooltipMessage = if $scope.currentUser? and $scope.currentUser isnt false then "Clicca per sfidare" else "Entra per sfidare "
@@ -34,3 +34,4 @@ Rigorix.controller "Username", ($scope, $rootScope, $modal, Api)->
             id_avversario: $scope.userObject.id_utente
             id_sfida: false
 
+]

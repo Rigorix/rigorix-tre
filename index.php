@@ -47,5 +47,5 @@ require_once "classes/new.core.php";
 
   <?php if($env->SHOW_LOGS === true) { _on_page_log(); } ?>
 </body>
-<script src="/app/assets/dist/app.js" type="text/javascript"></script>
+<script src="/app/assets/dist/<?php echo $env->APP_FILE; ?>" type="text/javascript"></script>
 </html>

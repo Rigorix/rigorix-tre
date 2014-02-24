@@ -1,13 +1,4 @@
-Rigorix.controller "ListaSfide", ($scope) ->
-  true
-
-
-
-#-----------------------------------------------------------------------------------------------------------------------
-
-
-
-Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
+Rigorix.controller "ListaSfide.Sfida", ['$scope', '$modal', ($scope, $modal) ->
 
   $scope.id_avversario = if $scope.sfida.id_sfidante == User.id_utente then $scope.sfida.id_sfidato else $scope.sfida.id_sfidante
   $scope.risultato = $scope.sfida.risultato.split ","
@@ -70,3 +61,4 @@ Rigorix.controller "ListaSfide.Sfida", ($scope, $modal) ->
         resolve:
           sfida: ->
             $scope.sfida
+]

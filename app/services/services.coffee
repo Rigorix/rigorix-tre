@@ -1,4 +1,4 @@
-RigorixServices.factory "MessageResource", ($resource)->
+RigorixServices.factory "MessageResource", ['$resource', ($resource)->
 
   $resource RigorixEnv.API_DOMAIN + "messages/:id_message",
     method      : "GET"
@@ -6,3 +6,4 @@ RigorixServices.factory "MessageResource", ($resource)->
     params:
       id_mess     : "@id_mess"
 
+]

@@ -3,7 +3,7 @@ RigorixServices = angular.module "RigorixServices", ["ngResource"]
 SocialLoginUrl = "http://tre.rigorix.com/social_login.php"
 
 
-Rigorix.config ($routeProvider)->
+Rigorix.config ['$routeProvider', ($routeProvider)->
 
 # --- Main routes ---------------------------------------------------
   $routeProvider.when "/",
@@ -54,6 +54,7 @@ Rigorix.config ($routeProvider)->
   $routeProvider.otherwise
     templateUrl: "app/templates/pages/lost.html"
 
+]
 
 Rigorix.config ()->
 

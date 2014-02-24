@@ -26,9 +26,9 @@ require_once 'classes/error.class.php';
 /*
  * Api ruoutes
  */
-require_once 'routes.users.php';
-require_once 'routes.messages.php';
-require_once 'routes.sfide.php';
+require_once 'routes/routes.users.php';
+require_once 'routes/routes.messages.php';
+require_once 'routes/routes.sfide.php';
 
 
 

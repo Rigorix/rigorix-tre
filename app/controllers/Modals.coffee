@@ -1,6 +1,4 @@
-
-
-Rigorix.factory "Modals", ($scope, $modal)->
+Rigorix.factory "Modals", ['$scope', '$modal', ($scope, $modal)->
 
   success: (content)->
     $modal.open
@@ -10,13 +8,13 @@ Rigorix.factory "Modals", ($scope, $modal)->
         content: ->
           content
 
-
+]
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
 
-Rigorix.controller "Modals.Success", ($scope, $modal, $modalInstance, $rootScope)->
+Rigorix.controller "Modals.Success", ['$scope', '$modal', '$modalInstance', '$rootScope', ($scope, $modal, $modalInstance, $rootScope)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Modals.Success'
@@ -30,13 +28,14 @@ Rigorix.controller "Modals.Success", ($scope, $modal, $modalInstance, $rootScope
   $scope.close = ->
     do $modalInstance.dismiss
 
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
 
-Rigorix.controller "Modals.Sfida", ($scope, $modal, $modalInstance, $rootScope, sfida)->
+Rigorix.controller "Modals.Sfida", ['$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', ($scope, $modal, $modalInstance, $rootScope, sfida)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Modals.Sfida'
@@ -57,14 +56,14 @@ Rigorix.controller "Modals.Sfida", ($scope, $modal, $modalInstance, $rootScope, 
 
   $scope.cancel = ->
     do $modalInstance.dismiss
-
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
 
-Rigorix.controller "Modals.ViewSfida", ($scope, $modal, $modalInstance, $rootScope, sfida, currentUser)->
+Rigorix.controller "Modals.ViewSfida", ['$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', 'currentUser', ($scope, $modal, $modalInstance, $rootScope, sfida, currentUser)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Modals.VediSfida'
@@ -86,14 +85,14 @@ Rigorix.controller "Modals.ViewSfida", ($scope, $modal, $modalInstance, $rootSco
   $scope.close = ->
     do $modalInstance.dismiss
     $rootScope.$broadcast "modal:close"
-
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
 
-Rigorix.controller "Modals.DeleteUser", ($scope, $modal, $modalInstance, $rootScope, user, Api)->
+Rigorix.controller "Modals.DeleteUser", ['$scope', '$modal', '$modalInstance', '$rootScope', 'user', 'Api', ($scope, $modal, $modalInstance, $rootScope, user, Api)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Modals.DeleteUser'
@@ -121,13 +120,13 @@ Rigorix.controller "Modals.DeleteUser", ($scope, $modal, $modalInstance, $rootSc
   $scope.cancel = ->
     do $modalInstance.dismiss
     $rootScope.$broadcast "modal:close"
-
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "Modals.NewUser", ($scope, $modal, $modalInstance, $rootScope, user, Api)->
+Rigorix.controller "Modals.NewUser", ['$scope', '$modal', '$modalInstance', '$rootScope', 'user', ($scope, $modal, $modalInstance, $rootScope, user)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Modals.DeleteUser'
@@ -141,3 +140,4 @@ Rigorix.controller "Modals.NewUser", ($scope, $modal, $modalInstance, $rootScope
   $scope.cancel = ->
     do $modalInstance.dismiss
     $rootScope.$broadcast "modal:close"
+]

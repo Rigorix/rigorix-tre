@@ -1,4 +1,4 @@
-RigorixServices.factory "UserServiceNew", ($resource)->
+RigorixServices.factory "UserServiceNew", ['$resource', ($resource)->
 
   $resource RigorixEnv.API_DOMAIN + "users/:id_utente/:parameter/:filter",
     method: "GET"
@@ -8,3 +8,4 @@ RigorixServices.factory "UserServiceNew", ($resource)->
       parameter: "@parameter"
       filter: "@filter"
 
+]

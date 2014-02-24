@@ -1,4 +1,4 @@
-Rigorix.controller "Main", ($scope, $modal, $rootScope, UserServiceNew, $window, $location, Api) ->
+Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserServiceNew', '$window', '$location', 'Api', ($scope, $modal, $rootScope, UserServiceNew, $window, $location, Api) ->
 
   $scope.siteTitle = "Website title"
   $scope.userLogged = false
@@ -48,7 +48,6 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, UserServiceNew, $window,
           $scope.currentUser
 
 
-
 #-----------------------------------------------------------------------------------------------------------------------
 
 
@@ -85,3 +84,5 @@ Rigorix.controller "Main", ($scope, $modal, $rootScope, UserServiceNew, $window,
         do $scope.updateUserObject
 
       , RigorixConfig.updateTime
+
+]

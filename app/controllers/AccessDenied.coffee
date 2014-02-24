@@ -1,4 +1,4 @@
-Rigorix.controller "AccessDenied", ($scope, $modal, $rootScope)->
+Rigorix.controller "AccessDenied", ['$scope', '$modal', '$rootScope', ($scope, $modal, $rootScope)->
 
   $scope.doConfirmUnsubscription = ->
     $modal.open
@@ -20,12 +20,13 @@ Rigorix.controller "AccessDenied", ($scope, $modal, $rootScope)->
           ]
 
   $scope.doDiscardUnsubscription = ->
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AccessDenied.Modal", ($scope, $modal, $modalInstance, $rootScope, data)->
+Rigorix.controller "AccessDenied.Modal", ['$scope', '$modal', '$modalInstance', '$rootScope', 'data', ($scope, $modal, $modalInstance, $rootScope, data)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'AccessDenied.Modal'
@@ -44,3 +45,4 @@ Rigorix.controller "AccessDenied.Modal", ($scope, $modal, $modalInstance, $rootS
   $scope.cancel = ->
     do $modalInstance.dismiss
     $rootScope.$broadcast "modal:close"
+]

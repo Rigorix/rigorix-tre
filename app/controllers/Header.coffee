@@ -1,4 +1,4 @@
-Rigorix.controller "Header", ($scope, $rootScope, $location) ->
+Rigorix.controller "Header", ['$scope', '$rootScope', '$location', ($scope, $rootScope, $location) ->
 
   $scope.showUserPopout = false;
 
@@ -10,3 +10,5 @@ Rigorix.controller "Header", ($scope, $rootScope, $location) ->
 
   $scope.doClickUserIcon = ->
     $scope.showUserPopout = !$scope.showUserPopout
+
+]

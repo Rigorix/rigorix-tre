@@ -1,4 +1,4 @@
-Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, $modal, Api)->
+Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'Api', ($scope, $timeout, $rootScope, $modal, Api)->
 
   $scope.rows = [
     { index: 0 },
@@ -87,12 +87,13 @@ Rigorix.controller "GamePlay", ($scope, $timeout, $rootScope, $modal, Api)->
 #          $.notify "Errore nel mandare la sfida", "error"
 #
 #        do $scope.cancel
+]
 
 
 #  ------------------------------------------------------------------------
 
 
-Rigorix.controller "GamePlay.Tile", ($scope, $element)->
+Rigorix.controller "GamePlay.Tile", ['$scope', '$element', ($scope, $element)->
 
   $scope.tileValue = false
   $scope.GamePlay = $scope.$parent.$parent
@@ -108,4 +109,4 @@ Rigorix.controller "GamePlay.Tile", ($scope, $element)->
     $element.find('.game-tile[value='+value+']').addClass 'active'
 
     $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] = value
-
+]

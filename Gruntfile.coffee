@@ -49,7 +49,7 @@ module.exports = (grunt) ->
 
     concat:
       options:
-        separator: "\n\n" #add a new line after each file
+        separator: ";\n\n" #add a new line after each file
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
         '<%= grunt.template.today("yyyy-mm-dd") %> */'
       script:
@@ -97,7 +97,7 @@ module.exports = (grunt) ->
     uglify: {
       dev: {
         options: {
-          beautify: true
+#          beautify: true
         },
         files: {
           'app/assets/dist/app.min.js': ['app/assets/dist/app.js']
@@ -149,7 +149,7 @@ module.exports = (grunt) ->
   grunt.registerTask "dev:script", [
     "coffee:compileBare"
     "concat:script"
-#    "uglify:dev"
+    "uglify:dev"
     "clean:temp"
   ]
   grunt.registerTask "dev:less", [
@@ -175,5 +175,5 @@ module.exports = (grunt) ->
   # PRODUCTION tasks ---------------------------------------------------------------------------------------------------
 
 
-  grunt.registerTask "deploy:staging", ["git_ftp:development"]
+  grunt.registerTask "deploy:staging", ["dev:build", "git_ftp:development"]
   grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);

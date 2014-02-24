@@ -1,4 +1,4 @@
-Rigorix.controller "Home", ($scope, Api) ->
+Rigorix.controller "Home", ['$scope', 'Api', ($scope, Api) ->
 
   $scope.campione = false
 
@@ -22,3 +22,5 @@ Rigorix.controller "Home", ($scope, Api) ->
   setInterval ()=>
     do $scope.updateResources
   , 60000
+
+]

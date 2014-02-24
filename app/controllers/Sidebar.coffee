@@ -1,4 +1,4 @@
-Rigorix.controller "Sidebar", ($scope, Api, $rootScope)->
+Rigorix.controller "Sidebar", ['$scope', 'Api', '$rootScope', ($scope, Api, $rootScope)->
 
   $scope.topUsers = []
 
@@ -17,3 +17,5 @@ Rigorix.controller "Sidebar", ($scope, Api, $rootScope)->
 
   $scope.$on "message:read", (ev, message)->
     $scope.updateUserObject()
+
+]

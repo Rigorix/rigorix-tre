@@ -1,4 +1,4 @@
-Rigorix.controller "AreaPersonale", ($scope, $routeParams, $location, $rootScope, Api) ->
+Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', '$rootScope', 'Api', ($scope, $routeParams, $location, $rootScope, Api) ->
 
   $scope.sections = [ 'utente', 'sfide', 'impostazioni', 'messaggi' ]
   $scope.section = $routeParams.section
@@ -15,12 +15,12 @@ Rigorix.controller "AreaPersonale", ($scope, $routeParams, $location, $rootScope
       $routeParams.sectionPage is page
     else
       false
-
+]
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Utente", ($scope, Api) ->
+Rigorix.controller "AreaPersonale.Utente", ['$scope', 'Api', ($scope, Api) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'palmares' ]
@@ -37,13 +37,13 @@ Rigorix.controller "AreaPersonale.Utente", ($scope, Api) ->
         if reward.key_id == badge.key_id
           ret = true
     ret
-
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Sfide", ($scope, $route, Api) ->
+Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $route, Api) ->
 
   $scope.pages = [ 'sfide_da_giocare', 'in_attesa_di_risposta', 'archivio' ]
   $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare
@@ -70,12 +70,13 @@ Rigorix.controller "AreaPersonale.Sfide", ($scope, $route, Api) ->
 
   $scope.reload = ->
     do $route.reload
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Impostazioni", ($scope, $rootScope, UserServiceNew, $modal) ->
+Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', 'UserServiceNew', '$modal', ($scope, $rootScope, UserServiceNew, $modal) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'dati_utente', 'rigorix_mascotte', 'cancellazione_utente' ]
@@ -104,7 +105,7 @@ Rigorix.controller "AreaPersonale.Impostazioni", ($scope, $rootScope, UserServic
       resolve:
         user: ->
           $scope.currentUser
-
+]
 
 
 

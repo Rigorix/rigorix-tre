@@ -41,7 +41,7 @@ module.exports = function(grunt) {
     },
     concat: {
       options: {
-        separator: "\n\n",
+        separator: ";\n\n",
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */'
       },
       script: {
@@ -65,9 +65,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       dev: {
-        options: {
-          beautify: true
-        },
+        options: {},
         files: {
           'app/assets/dist/app.min.js': ['app/assets/dist/app.js']
         }
@@ -101,10 +99,10 @@ module.exports = function(grunt) {
   grunt.renameTask("bower", "bowerInstall");
   grunt.loadNpmTasks("grunt-bower");
   grunt.registerTask("dev", ["concurrent:dev"]);
-  grunt.registerTask("dev:script", ["coffee:compileBare", "concat:script", "clean:temp"]);
+  grunt.registerTask("dev:script", ["coffee:compileBare", "concat:script", "uglify:dev", "clean:temp"]);
   grunt.registerTask("dev:less", ["less:development", "concat:css", "clean:temp"]);
   grunt.registerTask("dev:dependencies", ["bowerInstall", "bower"]);
   grunt.registerTask("dev:build", ["clean:dependencies", "bowerInstall", "bower", "coffee:compileBare", "concat:script", "less:development", "concat:css", "clean:temp"]);
-  grunt.registerTask("deploy:staging", ["git_ftp:development"]);
+  grunt.registerTask("deploy:staging", ["dev:build", "git_ftp:development"]);
   return grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
 };
