@@ -3,22 +3,26 @@
 
 function finalizeSfida ($id_sfida)
 {
-  $sfida = Sfide::find($id_sfida);
+  $sfida = Sfide::find($id_sfida)->first();
   $sfidante = $sfida->sfidante;
   $sfidato = $sfida->sfidato;
 
   $punti_sfidante = 0;
   $punti_sfidato = 0;
 
-  echo "Trovata sfida? {$sfida->count()}\n";
-  echo "Sfidante: {$sfidante->getAttribute('username')} ({$sfidante->getAttribute('id_utente')})\n";
-  echo "Sfidato: {$sfidato->getAttribute('username')} ({$sfidato->getAttribute('id_utente')})\n";
+  echo "Trovata sfida ({$id_sfida})? {$sfida->count()}\n";
+  echo "Sfidante: {$sfidante->getAttribute('username')} ({$sfidante->getKey()})\n";
+  echo "Sfidato: {$sfidato->getAttribute('username')} ({$sfidato->getKey()})\n";
 
-  if ( $sfida->count() ):
+  if ( $sfida->count() > 0 ):
 
     // Aggiorno la data di chiusura
 //    $sfida->setAttribute("dta_conlusa", time());
     echo "Conclusa il ". time() . "\n";
+    $sfida->update(array(
+      "dta_conclusa"    => new \DateTime,
+      "stato"           => 2
+    ));
 
     // Trovo il risultato
     $result = getSfidaResult ($sfida);

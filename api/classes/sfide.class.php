@@ -27,8 +27,12 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
 
   public function scopeUser($query, $id_utente)
   {
-    $this->id_utente = $id_utente;
-    return $query->whereRaw("id_sfidante = $id_utente or id_sfidato = $id_utente");
+    return $query->where("id_sfidante", "=", $id_utente)->orWhere("id_sfidato", "=", $id_utente);
+  }
+
+  public function scopeBetween($query, $id_utente_f, $id_utente_s)
+  {
+    return $query->whereRaw("(id_sfidante = $id_utente_f and id_sfidato = $id_utente_s) or (id_sfidante = $id_utente_s and id_sfidato = $id_utente_f)");
   }
 
   public function scopeLastWeek($query)
@@ -43,12 +47,12 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
 
   public function scopeToday($query)
   {
-    return $query->where("dta_conclusa", ">=", "CURDATE()");
+    return $query->whereRaw("dta_conclusa >= CURDATE()");
   }
 
   public function scopeDone($query)
   {
-    return $query->where("stato", "=", "2");
+    return $query->whereStato(2);
   }
 
   public function scopePending($query)

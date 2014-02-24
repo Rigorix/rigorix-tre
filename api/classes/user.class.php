@@ -5,19 +5,31 @@ class Users extends Illuminate\Database\Eloquent\Model {
   protected $primaryKey   = 'id_utente';
   protected $guarded      = array('id', 'id_utente');
 
+//  RELATIONS
+  public function sfide ()
+  {
+    return $this->hasMany('Sfide', 'id_sender', 'id_utente');
+  }
+
   public function messages ()
   {
     return $this->hasMany('Messages', 'id_receiver', 'id_utente');
   }
 
-  public function scopeTop()
+  public function rewards ()
   {
-//    return $this->where("attivo", "=", 1)->
+    return $this->hasManyThrough('Rewards', 'RewardsSfide', 'id_utente', 'id_reward');
   }
 
   public function sentMessages ()
   {
     return $this->hasMany('Messages', 'id_sender', 'id_utente');
+  }
+
+//  METHODS
+  public function scopeTop()
+  {
+//    return $this->where("attivo", "=", 1)->
   }
 
   public function scopeActive ()
@@ -35,10 +47,6 @@ class Users extends Illuminate\Database\Eloquent\Model {
     return $this->whereRaw("$attr like '%$q%'");
   }
 
-  public function rewards ()
-  {
-    return $this->hasManyThrough('Rewards', 'RewardsSfide', 'id_utente', 'id_reward');
-  }
 
   public function scopeHasReward($query, $id_reward)
   {

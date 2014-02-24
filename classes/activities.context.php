@@ -814,34 +814,34 @@ class activities {
 				/*
 				 * Punti
 				 */
-				case "p_new_user":
-					$apply_sfidante = ( time() - strtotime($sfidato->dta_reg)  < 7 * 24 * 60 * 60 );
-					break;
+//				case "p_new_user":
+//					$apply_sfidante = ( time() - strtotime($sfidato->dta_reg)  < 7 * 24 * 60 * 60 );
+//					break;
+//
+//				case "p_20_matches":
+//					$apply_sfidante = ( count ( $sfidaUtenteSfidanteToday ) >= 20 );
+//					$apply_sfidato = ( count ( $sfidaUtenteSfidatoToday ) >= 20 );
+//					break;
+//
+//				case "p_first_day_match":
+//					$apply_sfidante = ( count ( $sfidaUtenteSfidanteToday ) == 1 );
+//					$apply_sfidato = ( count ( $sfidaUtenteSfidatoToday ) == 1 );
+//					break;
 
-				case "p_20_matches":
-					$apply_sfidante = ( count ( $sfidaUtenteSfidanteToday ) >= 20 );
-					$apply_sfidato = ( count ( $sfidaUtenteSfidatoToday ) >= 20 );
-					break;
+//				case "p_10_matches_sameuser":
+//					$apply_sfidante = $apply_sfidato = ( count ( $sfideGiornaliereConcluseTraStessiUtenti ) >= 10 && count ( $sfideGiornaliereConcluseTraStessiUtenti ) < 20 );
+//					_log ("REWARD",  "Sfide giornaliere tra stessi user: " . count ( $sfideGiornaliereConcluseTraStessiUtenti ));
+//					break;
 
-				case "p_first_day_match":
-					$apply_sfidante = ( count ( $sfidaUtenteSfidanteToday ) == 1 );
-					$apply_sfidato = ( count ( $sfidaUtenteSfidatoToday ) == 1 );
-					break;
-
-				case "p_10_matches_sameuser":
-					$apply_sfidante = $apply_sfidato = ( count ( $sfideGiornaliereConcluseTraStessiUtenti ) >= 10 && count ( $sfideGiornaliereConcluseTraStessiUtenti ) < 20 );
-					_log ("REWARD",  "Sfide giornaliere tra stessi user: " . count ( $sfideGiornaliereConcluseTraStessiUtenti ));
-					break;
-
-				case "p_20_matches_sameuser":
-					$apply_sfidante = $apply_sfidato = ( count ( $sfideGiornaliereConcluseTraStessiUtenti ) >= 20 );
-					_log ("REWARD",  "Sfide giornaliere tra stessi user: " . count ( $sfideGiornaliereConcluseTraStessiUtenti ));
-					break;
-
-				case "p_match_5xscore_user":
-					$apply_sfidato = false;
-					$apply_sfidante = ( $sfidato->punteggio_totale >= (5 * $sfidante->punteggio_totale ) );
-					break;
+//				case "p_20_matches_sameuser":
+//					$apply_sfidante = $apply_sfidato = ( count ( $sfideGiornaliereConcluseTraStessiUtenti ) >= 20 );
+//					_log ("REWARD",  "Sfide giornaliere tra stessi user: " . count ( $sfideGiornaliereConcluseTraStessiUtenti ));
+//					break;
+//
+//				case "p_match_5xscore_user":
+//					$apply_sfidato = false;
+//					$apply_sfidante = ( $sfidato->punteggio_totale >= (5 * $sfidante->punteggio_totale ) );
+//					break;
 
 				case "p_match_every_h":
 					$h = 0;
@@ -866,38 +866,38 @@ class activities {
 						$apply_sfidato = false;
 					break;
 
-				case "p_same_reg":
-					$apply_sfidante = $apply_sfidato = ( $sfidante->regione != "" && $sfidante->regione != NULL && $sfidante->regione == $sfidato->regione );
-					break;
+//				case "p_same_reg":
+//					$apply_sfidante = $apply_sfidato = ( $sfidante->regione != "" && $sfidante->regione != NULL && $sfidante->regione == $sfidato->regione );
+//					break;
 
-				case "p_same_age":
-					$apply_sfidante = $apply_sfidato = (
-						$sfidante->data_nascita != "" && $sfidante->data_nascita != NULL &&
-						$sfidato->data_nascita != "" && $sfidato->data_nascita != NULL &&
-						date ("Y", strtotime($sfidante->data_nascita)) == date ("Y", strtotime ($sfidato->data_nascita))
-					);
-					break;
+//				case "p_same_age":
+//					$apply_sfidante = $apply_sfidato = (
+//						$sfidante->data_nascita != "" && $sfidante->data_nascita != NULL &&
+//						$sfidato->data_nascita != "" && $sfidato->data_nascita != NULL &&
+//						date ("Y", strtotime($sfidante->data_nascita)) == date ("Y", strtotime ($sfidato->data_nascita))
+//					);
+//					break;
 
 
 				/*
 				 * Badges
 				 */
-				case "b_first_game":
-					$apply_sfidante = ( !$user->has_badge_by_key ( $sfidante->id_utente, "b_first_game") && count ( $sfideSfidante ) >= 1 );
-					$apply_sfidato = ( !$user->has_badge_by_key ( $sfidato->id_utente, "b_first_game") && count ( $sfideSfidato ) >= 1 );
-					break;
+//				case "b_first_game":
+//					$apply_sfidante = ( !$user->has_badge_by_key ( $sfidante->id_utente, "b_first_game") && count ( $sfideSfidante ) >= 1 );
+//					$apply_sfidato = ( !$user->has_badge_by_key ( $sfidato->id_utente, "b_first_game") && count ( $sfideSfidato ) >= 1 );
+//					break;
+//
+//				case "b_match_5xscore_user":
+//					$apply_sfidante = ( !$user->has_badge_by_key ( $sfidante->id_utente, "b_match_5xscore_user") && $sfidato->punteggio_totale >= $sfidante->punteggio_totale * 5);
+//					break;
 
-				case "b_match_5xscore_user":
-					$apply_sfidante = ( !$user->has_badge_by_key ( $sfidante->id_utente, "b_match_5xscore_user") && $sfidato->punteggio_totale >= $sfidante->punteggio_totale * 5);
-					break;
+//				case "b_match_25xscore_user":
+//					$apply_sfidante = ( !$user->has_badge_by_key ( $sfidante->id_utente, "b_match_5xscore_user") && $sfidato->punteggio_totale >= $sfidante->punteggio_totale * 25);
+//					break;
 
-				case "b_match_25xscore_user":
-					$apply_sfidante = ( !$user->has_badge_by_key ( $sfidante->id_utente, "b_match_5xscore_user") && $sfidato->punteggio_totale >= $sfidante->punteggio_totale * 25);
-					break;
-
-				case "b_nofear":
-					$apply_sfidante = ( !$user->has_badge_by_key ( $sfidante->id_utente, "b_nofear") && $sfidato->punteggio_totale > $sfidante->punteggio_totale );
-					break;
+//				case "b_nofear":
+//					$apply_sfidante = ( !$user->has_badge_by_key ( $sfidante->id_utente, "b_nofear") && $sfidato->punteggio_totale > $sfidante->punteggio_totale );
+//					break;
 
 				default;
 			}
