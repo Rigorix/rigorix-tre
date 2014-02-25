@@ -99,7 +99,7 @@ module.exports = function(grunt) {
   grunt.renameTask("bower", "bowerInstall");
   grunt.loadNpmTasks("grunt-bower");
   grunt.registerTask("dev", ["concurrent:dev"]);
-  grunt.registerTask("dev:script", ["coffee:compileBare", "concat:script", "uglify:dev", "clean:temp"]);
+  grunt.registerTask("dev:script", ["coffee:compileBare", "concat:script", "clean:temp"]);
   grunt.registerTask("dev:less", ["less:development", "concat:css", "clean:temp"]);
   grunt.registerTask("dev:dependencies", ["bowerInstall", "bower"]);
   grunt.registerTask("dev:build", ["clean:dependencies", "bowerInstall", "bower", "coffee:compileBare", "concat:script", "less:development", "concat:css", "clean:temp"]);

@@ -26,7 +26,19 @@ class Users extends Illuminate\Database\Eloquent\Model {
     return $this->hasMany('Messages', 'id_sender', 'id_utente');
   }
 
+  public function badges()
+  {
+    $badges = $this->hasManyThrough('Rewards', 'RewardsSfide', 'id_utente', 'id_reward')->get()->filter(function ($reward) {
+      if ( $reward->getAttribute("tipo") == "badge")
+        return $reward;
+    })->values();
+    return $badges;
+  }
+
+
+
 //  METHODS
+
   public function scopeTop()
   {
 //    return $this->where("attivo", "=", 1)->

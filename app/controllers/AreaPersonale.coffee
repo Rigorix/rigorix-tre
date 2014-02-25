@@ -28,15 +28,12 @@ Rigorix.controller "AreaPersonale.Utente", ['$scope', 'Api', ($scope, Api) ->
     success: (json)->
       $scope.rewards = json.data
 
-  $scope.badgesCount = $scope.currentUser.rewards.badges.length
-
   $scope.userHasBadge = (reward) ->
-    ret = false
     if reward.tipo == 'badge'
-      for badge in $scope.currentUser.rewards.badges
+      for badge in $scope.currentUser.badges
         if reward.key_id == badge.key_id
-          ret = true
-    ret
+          return true
+    false
 ]
 
 

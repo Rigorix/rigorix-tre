@@ -4,7 +4,7 @@
     <div class="row-fluid">
         <div class="col-sm-12 mtl">
             <div class="badge-list">
-                <p>Hai <strong>{{badgesCount}}</strong> delle 5 coppe da vincere.<br> Se vuoi sapere come vincere le coppe, vai alla pagina dei <a href="#riconoscimenti" class="link">RICONOSCIMENTI</a>! </p>
+                <p>Hai <strong>{{currentUser.badges.length}}</strong> delle 5 coppe da vincere.<br> Se vuoi sapere come vincere le coppe, vai alla pagina dei <a href="#riconoscimenti" class="link">RICONOSCIMENTI</a>! </p>
                 <div ng-repeat="reward in rewards" class="badge-container" ng-class="{haveit: userHasBadge(reward) == true}">
                     <img popover="{{reward.descrizione | htmlToText}}" popover-placement="top" popover-trigger="mouseenter" src="/i/rewards/{{reward.key_id}}__small{{userHasBadge(reward) ? '' : '_disabled'}}.png">
                 </div>

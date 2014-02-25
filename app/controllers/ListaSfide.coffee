@@ -8,17 +8,16 @@ Rigorix.controller "ListaSfide.Sfida", ['$scope', '$modal', ($scope, $modal) ->
   $scope.sfida.id_avversario = $scope.id_avversario
   $scope.sfida.id_utente = User.id_utente
 
+  $scope.punti = 0
+  $scope.risultatoLabel = "lose"
   if User.id_utente == $scope.sfida.id_vincitore
     $scope.punti = 3
     $scope.risultatoLabel = "won"
   else if $scope.sfida.id_vincitore == 0
     $scope.punti = 1
     $scope.risultatoLabel = "draw"
-  else
-    $scope.punti = 0
-    $scope.risultatoLabel = "lose"
 
-  $scope.punti_rewards = if User.id_utente = $scope.sfida.id_sfidante then $scope.sfida.punti_sfidante - punti else $scope.sfida.punti_sfidato - punti
+  $scope.punti_rewards = if User.id_utente = $scope.sfida.id_sfidante then $scope.sfida.punti_sfidante - $scope.punti else $scope.sfida.punti_sfidato - $scope.punti
 
   $scope.risultatoLabel = 'ongoing' if $scope.sfida.stato < 2
 

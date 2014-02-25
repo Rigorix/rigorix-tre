@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-02-24 *//*!
+/*! Rigorix - v0.1.0 - 2014-02-25 *//*!
  * jQuery JavaScript Library v2.1.0
  * http://jquery.com/
  *
@@ -40858,20 +40858,18 @@ Rigorix.controller("AreaPersonale.Utente", [
         return $scope.rewards = json.data;
       }
     });
-    $scope.badgesCount = $scope.currentUser.rewards.badges.length;
     return $scope.userHasBadge = function(reward) {
-      var badge, ret, _i, _len, _ref;
-      ret = false;
+      var badge, _i, _len, _ref;
       if (reward.tipo === 'badge') {
-        _ref = $scope.currentUser.rewards.badges;
+        _ref = $scope.currentUser.badges;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           badge = _ref[_i];
           if (reward.key_id === badge.key_id) {
-            ret = true;
+            return true;
           }
         }
       }
-      return ret;
+      return false;
     };
   }
 ]);
@@ -41168,17 +41166,16 @@ Rigorix.controller("ListaSfide.Sfida", [
     }
     $scope.sfida.id_avversario = $scope.id_avversario;
     $scope.sfida.id_utente = User.id_utente;
+    $scope.punti = 0;
+    $scope.risultatoLabel = "lose";
     if (User.id_utente === $scope.sfida.id_vincitore) {
       $scope.punti = 3;
       $scope.risultatoLabel = "won";
     } else if ($scope.sfida.id_vincitore === 0) {
       $scope.punti = 1;
       $scope.risultatoLabel = "draw";
-    } else {
-      $scope.punti = 0;
-      $scope.risultatoLabel = "lose";
     }
-    $scope.punti_rewards = (User.id_utente = $scope.sfida.id_sfidante) ? $scope.sfida.punti_sfidante - punti : $scope.sfida.punti_sfidato - punti;
+    $scope.punti_rewards = (User.id_utente = $scope.sfida.id_sfidante) ? $scope.sfida.punti_sfidante - $scope.punti : $scope.sfida.punti_sfidato - $scope.punti;
     if ($scope.sfida.stato < 2) {
       $scope.risultatoLabel = 'ongoing';
     }

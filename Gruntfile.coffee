@@ -149,7 +149,7 @@ module.exports = (grunt) ->
   grunt.registerTask "dev:script", [
     "coffee:compileBare"
     "concat:script"
-    "uglify:dev"
+#    "uglify:dev"
     "clean:temp"
   ]
   grunt.registerTask "dev:less", [
