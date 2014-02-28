@@ -41818,7 +41818,6 @@ Rigorix.controller('Messages', [
 
 Rigorix.controller('Message.Modal', [
   '$scope', '$modal', '$modalInstance', '$rootScope', 'message', 'MessageResource', 'Api', function($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api) {
-    var messageRes;
     $rootScope.$broadcast("modal:open", {
       controller: 'Message.Modal',
       modalClass: 'modal-read-message'
@@ -41826,10 +41825,6 @@ Rigorix.controller('Message.Modal', [
     $scope.editMode = false;
     $scope.isTextCollapsed = false;
     $scope.answer = "<br><br>" + User.username;
-    messageRes = MessageResource.get({
-      id_message: message.id_mess
-    });
-    console.log("message", messageRes);
     $scope.message = message;
     $modalInstance.result.then(function() {
       return true;
@@ -41845,7 +41840,10 @@ Rigorix.controller('Message.Modal', [
     $scope.sendReply = function(answerText) {
       $scope.message.testo = answerText;
       $scope.message.oggetto = 'RE: ' + $scope.message.oggetto;
-      return Api.call("post", "messages", {
+      $scope.message.id_receiver = $scope.message.id_sender;
+      $scope.message.id_sender = $rootScope.currentUser.id_utente;
+      $scope.message.letto = 0;
+      return Api.call("post", "messages/reply/", {
         message: $scope.message,
         success: function(json) {
           $.notify("Risposta mandata con successo", "success");
@@ -42024,7 +42022,9 @@ Rigorix.controller("Modals.ShowEndMatch", [
             $scope.badges.push(reward);
           }
         }
-        return $rootScope.$broadcast("show:newbadges");
+        if ($scope.badges.length > 0) {
+          return $rootScope.$broadcast("show:newbadges");
+        }
       }
     });
     $scope.resultLabel = sfida.id_vincitore === 0 ? "draw" : sfida.id_vincitore === $rootScope.currentUser.id_utente ? "win" : "lose";

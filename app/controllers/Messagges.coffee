@@ -55,12 +55,6 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
   $scope.editMode = false
   $scope.isTextCollapsed = false
   $scope.answer = "<br><br>" + User.username
-
-  messageRes = MessageResource.get
-    id_message: message.id_mess
-
-  console.log "message", messageRes
-
   $scope.message = message
 
   $modalInstance.result.then () ->
@@ -77,7 +71,11 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
   $scope.sendReply = (answerText)->
     $scope.message.testo = answerText
     $scope.message.oggetto = 'RE: ' + $scope.message.oggetto
-    Api.call "post", "messages",
+    $scope.message.id_receiver = $scope.message.id_sender
+    $scope.message.id_sender = $rootScope.currentUser.id_utente
+    $scope.message.letto = 0
+
+    Api.call "post", "messages/reply/",
       message: $scope.message
       success: (json)->
         $.notify "Risposta mandata con successo", "success"

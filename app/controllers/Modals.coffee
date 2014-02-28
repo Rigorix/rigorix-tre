@@ -97,7 +97,7 @@ Rigorix.controller "Modals.ShowEndMatch", ['$scope', '$modal', '$modalInstance',
     success: (json)->
       $scope.userRewards = json.data
       $scope.badges.push reward for reward in $scope.userRewards when reward.reward.tipo is "badge"
-      $rootScope.$broadcast "show:newbadges"
+      $rootScope.$broadcast "show:newbadges" if $scope.badges.length > 0
 
   $scope.resultLabel = if sfida.id_vincitore is 0 then "draw" else if sfida.id_vincitore is $rootScope.currentUser.id_utente then "win" else "lose"
 

@@ -4,9 +4,11 @@
 
 Flight::route('POST /messages', function() {
   $data = getParams();
+  Messages::create(get_object_vars($data->message));
+});
 
-  var_dump($data->message);
-
+Flight::route('POST /messages/reply', function() {
+  $data = getParams();
   Messages::create(get_object_vars($data->message));
 });
 
