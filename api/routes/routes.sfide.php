@@ -55,11 +55,11 @@ Flight::route('GET /sfida/@id_sfida/@id_utente/xml', function($id_sfida, $id_ute
 });
 
 Flight::route('GET /sfide/archivio/@id_utente', function($id_utente) {
-  echo Sfide::user($id_utente)->done()->get()->toJson();
+  echo (string)Sfide::done()->user($id_utente)->get();
 });
 
 Flight::route('GET /sfide/pending/@id_utente', function($id_utente) {
-  echo Sfide::user($id_utente)->pending()->get()->toJson();
+  echo (string)Sfide::pending()->user($id_utente)->get();
 });
 
 Flight::route('POST /sfide/set', function() {
@@ -105,7 +105,7 @@ Flight::route('POST /sfide/set', function() {
     $sfidaUpdate->stato = $risposta == false ? 1 : 2;
     $sfidaUpdate->save();
 
-    Flight::halt(200, array("status" => "success", "id_sfida" => $id_sfida));
+    echo (string)$sfidaUpdate;
   else:
     Flight::error();
   endif;
@@ -117,6 +117,10 @@ Flight::route('GET /sfide/@id_sfida', function($id_sfida) {
     echo Sfide::find($id_sfida)->toJson();
   else
     Flight::halt(404, "La sfida non esiste");
+});
+
+Flight::route('GET /sfide/@id_sfida/rewards/@id_utente', function($id_sfida, $id_utente) {
+  echo (string)RewardsSfide::whereRaw("id_utente = $id_utente and id_sfida = $id_sfida")->get()->load('reward');
 });
 
 Flight::route('POST /sfide/@id_sfida/finalize', function ($id_sfida) {

@@ -73,7 +73,8 @@ Rigorix.directive "listaSfide", ()->
 
 Rigorix.directive "icon", ->
   link: (scope, element, attr)->
-    $(element).prepend $('<span class="glyphicon glyphicon-'+attr.icon+' mrs"></span>')
+#    $(element).prepend $('<span class="glyphicon glyphicon-'+attr.icon+' mrs"></span>')
+    $(element).prepend $('<span class="fa fa-'+attr.icon+' mrs"></span>')
 
 
 #-----------------------------------------------------------------------------------------------------------------------

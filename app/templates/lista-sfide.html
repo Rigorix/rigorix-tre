@@ -1,4 +1,4 @@
-<table class="table mbn">
+<table class="table table-condensed mbn">
     <tr ng-show="sfide.length == 0">
         <td>
             <p icon="flag">Nessuna sfida</p>
@@ -14,16 +14,16 @@
         <th class="text-center">Rewards</th>
         <th class="text-center">Stato</th>
     </tr>
-    <tr ng-repeat="sfida in sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.if_sfida}}" on-sfida-load>
+    <tr ng-repeat="sfida in sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.id_sfida}}" on-sfida-load>
         <td class="{{risultatoLabel}}"></td>
         <td>
             <username id-utente="id_avversario" with-picture="true" with-punteggio="true"></username>
         </td>
         <td class="text-center">
-            <beautify-date ng-show="sfida.dta_sfida != false" date="{{sfida.dta_sfida}}"></beautify-date>
+            <beautify-date ng-show="sfida.dta_sfida != false" date="{{sfida.dta_sfida}}" inline="true"></beautify-date>
         </td>
         <td class="text-center">
-            <beautify-date ng-show="sfida.dta_conclusa != false" date="{{sfida.dta_conclusa}}"></beautify-date>
+            <beautify-date ng-show="sfida.dta_conclusa != false" date="{{sfida.dta_conclusa}}" inline="true"></beautify-date>
         </td>
         <td>
             <div class="result-screen" risultato="{{sfida.risultato}}">
@@ -40,7 +40,6 @@
         <td class="text-center">
             <button ng-show="hasActiveButton" class="btn btn-sm" icon="{{statoButtonIcon}}" ng-class="{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vedi_sfida'}" ng-click="doClickSfida(statoButton)">{{statoButton | varToTitle}}</button>
             <button ng-show="!hasActiveButton" class="btn btn-sm btn-disabled" disabled="disabled" icon="{{statoButtonIcon}}">{{statoButton | varToTitle}}</button>
-            <!--<span ng-show="statoButton != 'rispondi'" class="label label-default">{{statoButton | varToTitle}}</span>-->
         </td>
     </tr>
 </table>

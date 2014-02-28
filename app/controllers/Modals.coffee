@@ -17,7 +17,6 @@ Rigorix.factory "Modals", ['$scope', '$modal', ($scope, $modal)->
 Rigorix.controller "Modals.Success", ['$scope', '$modal', '$modalInstance', '$rootScope', ($scope, $modal, $modalInstance, $rootScope)->
 
   $rootScope.$broadcast "modal:open",
-    controller: 'Modals.Success'
     modalClass: 'modal-success'
 
   $modalInstance.result.then ->
@@ -38,7 +37,6 @@ Rigorix.controller "Modals.Success", ['$scope', '$modal', '$modalInstance', '$ro
 Rigorix.controller "Modals.Sfida", ['$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', ($scope, $modal, $modalInstance, $rootScope, sfida)->
 
   $rootScope.$broadcast "modal:open",
-    controller: 'Modals.Sfida'
     modalClass: 'modal-play-sfida'
 
   $scope.sfida = if sfida? then sfida else
@@ -63,28 +61,57 @@ Rigorix.controller "Modals.Sfida", ['$scope', '$modal', '$modalInstance', '$root
 
 
 
-Rigorix.controller "Modals.ViewSfida", ['$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', 'currentUser', ($scope, $modal, $modalInstance, $rootScope, sfida, currentUser)->
+Rigorix.controller "Modals.ViewSfida", ['$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', ($scope, $modal, $modalInstance, $rootScope, sfida)->
 
   $rootScope.$broadcast "modal:open",
-    controller: 'Modals.VediSfida'
     modalClass: 'modal-view-sfida'
 
-  $scope.currentUser = currentUser if currentUser?
-  console.log "$scope.currentUser", $scope.currentUser, currentUser
+  console.log "sfidadio", sfida
 
-  $scope.sfida = if sfida? then sfida else
-    id_sfidante: $scope.currentUser.id_utente
-    id_avversario: user.id_utente
-    id_sfida: false
+  $scope.id_sfida = sfida.id_sfida
+  $scope.id_utente = $rootScope.currentUser.id_utente
 
-  $modalInstance.result.then (selectedItem) ->
-    true
-  , ()->
-    $rootScope.$broadcast "modal:close"
+  $scope.close = ->
+    if $(".results-container").size() > 0
+      $rootScope.$broadcast "modal:open",
+        modalClass: "modal-show-end-match"
+    else
+      $rootScope.$broadcast "modal:close"
+    do $modalInstance.dismiss
+]
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+Rigorix.controller "Modals.ShowEndMatch", ['$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', 'Api', ($scope, $modal, $modalInstance, $rootScope, sfida, Api)->
+
+  $rootScope.$broadcast "modal:open",
+    modalClass: 'modal-show-end-match'
+
+  $scope.sfida = sfida
+  $scope.badges = []
+
+  Api.call "get", "sfide/"+sfida.id_sfida+"/rewards/"+$rootScope.currentUser.id_utente,
+    success: (json)->
+      $scope.userRewards = json.data
+      $scope.badges.push reward for reward in $scope.userRewards when reward.reward.tipo is "badge"
+      $rootScope.$broadcast "show:newbadges"
+
+  $scope.resultLabel = if sfida.id_vincitore is 0 then "draw" else if sfida.id_vincitore is $rootScope.currentUser.id_utente then "win" else "lose"
+
+  $scope.setBadgesSeen = ->
+    $rootScope.$broadcast "hide:newbadges"
+    $scope.badges = []
+
+  $scope.showSfida = ->
+    $rootScope.$broadcast "show:sfida", $scope.sfida
 
   $scope.close = ->
     do $modalInstance.dismiss
-    $rootScope.$broadcast "modal:close"
+    $rootScope.$broadcast "modal:show",
+      modalClass: 'modal-show-end-match'
 ]
 
 
@@ -95,7 +122,6 @@ Rigorix.controller "Modals.ViewSfida", ['$scope', '$modal', '$modalInstance', '$
 Rigorix.controller "Modals.DeleteUser", ['$scope', '$modal', '$modalInstance', '$rootScope', 'user', 'Api', ($scope, $modal, $modalInstance, $rootScope, user, Api)->
 
   $rootScope.$broadcast "modal:open",
-    controller: 'Modals.DeleteUser'
     modalClass: 'modal-delete-user'
 
   $modalInstance.result.then (selectedItem) ->
@@ -129,7 +155,6 @@ Rigorix.controller "Modals.DeleteUser", ['$scope', '$modal', '$modalInstance', '
 Rigorix.controller "Modals.NewUser", ['$scope', '$modal', '$modalInstance', '$rootScope', 'user', ($scope, $modal, $modalInstance, $rootScope, user)->
 
   $rootScope.$broadcast "modal:open",
-    controller: 'Modals.DeleteUser'
     modalClass: 'modal-delete-user'
 
   $modalInstance.result.then (selectedItem) ->
@@ -141,3 +166,9 @@ Rigorix.controller "Modals.NewUser", ['$scope', '$modal', '$modalInstance', '$ro
     do $modalInstance.dismiss
     $rootScope.$broadcast "modal:close"
 ]
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+

@@ -24,6 +24,8 @@ require_once "classes/new.core.php";
 
     <div ng-include="'/app/templates/partials/head.html'"></div>
 
+    <button class="test" ng-click="testEndSfida()">Test</button>
+
     <div id="body" class="row" ng-controller="Home">
 
       <div class="col col-sm-9">

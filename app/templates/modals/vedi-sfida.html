@@ -1,10 +1,9 @@
 <object id="flash_object" type="application/x-shockwave-flash" data="/swf/rigorixGame_v3.swf" width="630" height="500">
-    <param name="flashvars" value="gameXML=/api/sfida/{{sfida.id_sfida}}/{{currentUser.id_utente}}/xml" />
+    <param name="flashvars" value="gameXML=/api/sfida/{{id_sfida}}/{{id_utente}}/xml" />
     <param name="movie" value="/swf/rigorixGame_v3.swf" />
     <param name="quality" value="high" />
     <param name="wmode" value="transparent" />
 </object>
-
 <div class="row">
     <div class="col col-sm-12 phl pvs">
         <button class="btn btn-danger pull-right" ng-click="close()">Chiudi</button>

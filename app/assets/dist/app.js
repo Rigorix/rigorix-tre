@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-02-25 *//*!
+/*! Rigorix - v0.1.0 - 2014-02-28 *//*!
  * jQuery JavaScript Library v2.1.0
  * http://jquery.com/
  *
@@ -41079,8 +41079,23 @@ Rigorix.controller("GamePlay", [
         sfida: $scope.sfida,
         success: function(json) {
           $rootScope.$broadcast("hide:loading");
-          $.notify("Sfida mandata con successo", "success");
-          return $scope.cancel();
+          if (json.data.stato === 2) {
+            return $modal.open({
+              templateUrl: '/app/templates/modals/show-end-match.html',
+              controller: 'Modals.ShowEndMatch',
+              resolve: {
+                sfida: function() {
+                  return json.data;
+                },
+                currentUser: function() {
+                  return User;
+                }
+              }
+            });
+          } else {
+            $rootScope.$broadcast("modal:close");
+            return $scope.cancel();
+          }
         },
         error: function() {
           return $.notify("Errore nel mandare la sfida", "error");
@@ -41155,8 +41170,8 @@ Rigorix.controller("Home", [
 ]);
 
 Rigorix.controller("ListaSfide.Sfida", [
-  '$scope', '$modal', function($scope, $modal) {
-    $scope.id_avversario = $scope.sfida.id_sfidante === User.id_utente ? $scope.sfida.id_sfidato : $scope.sfida.id_sfidante;
+  '$scope', '$modal', '$rootScope', function($scope, $modal, $rootScope) {
+    $scope.id_avversario = $scope.sfida.id_sfidante === $rootScope.currentUser.id_utente ? $scope.sfida.id_sfidato : $scope.sfida.id_sfidante;
     $scope.risultato = $scope.sfida.risultato.split(",");
     if (!moment($scope.sfida.dta_sfida).isValid()) {
       $scope.sfida.dta_sfida = false;
@@ -41165,17 +41180,17 @@ Rigorix.controller("ListaSfide.Sfida", [
       $scope.sfida.dta_conclusa = false;
     }
     $scope.sfida.id_avversario = $scope.id_avversario;
-    $scope.sfida.id_utente = User.id_utente;
+    $scope.sfida.id_utente = $rootScope.currentUser.id_utente;
     $scope.punti = 0;
     $scope.risultatoLabel = "lose";
-    if (User.id_utente === $scope.sfida.id_vincitore) {
+    if ($rootScope.currentUser.id_utente === $scope.sfida.id_vincitore) {
       $scope.punti = 3;
       $scope.risultatoLabel = "won";
     } else if ($scope.sfida.id_vincitore === 0) {
       $scope.punti = 1;
       $scope.risultatoLabel = "draw";
     }
-    $scope.punti_rewards = (User.id_utente = $scope.sfida.id_sfidante) ? $scope.sfida.punti_sfidante - $scope.punti : $scope.sfida.punti_sfidato - $scope.punti;
+    $scope.punti_rewards = $rootScope.currentUser.id_utente === $scope.sfida.id_sfidante ? $scope.sfida.punti_sfidante - $scope.punti : $scope.sfida.punti_sfidato - $scope.punti;
     if ($scope.sfida.stato < 2) {
       $scope.risultatoLabel = 'ongoing';
     }
@@ -41186,7 +41201,7 @@ Rigorix.controller("ListaSfide.Sfida", [
         $scope.statoButtonIcon = 'send';
         break;
       case 1:
-        $scope.statoButton = $scope.sfida.id_sfidato === User.id_utente ? 'rispondi' : 'lanciata';
+        $scope.statoButton = $scope.sfida.id_sfidato === $rootScope.currentUser.id_utente ? 'rispondi' : 'lanciata';
         $scope.statoButtonIcon = $scope.statoButton === 'lanciata' ? 'send' : 'share-alt';
         $scope.hasActiveButton = $scope.statoButton === 'rispondi';
         break;
@@ -41204,18 +41219,7 @@ Rigorix.controller("ListaSfide.Sfida", [
     }
     return $scope.doClickSfida = function(stato) {
       if (stato === 'vedi_sfida') {
-        return $modal.open({
-          templateUrl: '/app/templates/modals/vedi-sfida.html',
-          controller: 'Modals.ViewSfida',
-          resolve: {
-            sfida: function() {
-              return $scope.sfida;
-            },
-            currentUser: function() {
-              return User;
-            }
-          }
-        });
+        return $rootScope.$broadcast("show:sfida", $scope.sfida);
       } else {
         return $modal.open({
           templateUrl: '/app/templates/modals/sfida.html',
@@ -41238,6 +41242,7 @@ Rigorix.controller("Main", [
     $scope.userLogged = false;
     $scope.currentUser = false;
     $scope.User = window.User;
+    $rootScope.currentUser = window.User;
     $scope.appLoaded = false;
     $scope.doClick = function(event) {
       return $rootScope.$broadcast("rootevent:click", {
@@ -41291,6 +41296,44 @@ Rigorix.controller("Main", [
         }
       });
     });
+    $scope.$on("show:newbadges", function(event, badges) {
+      return $(".modal-dialog").addClass("show-new-badges");
+    });
+    $scope.$on("hide:newbadges", function() {
+      return $(".modal-dialog").removeClass("show-new-badges");
+    });
+    $scope.$on("show:sfida", function(event, sfida) {
+      return $modal.open({
+        templateUrl: '/app/templates/modals/vedi-sfida.html',
+        controller: 'Modals.ViewSfida',
+        resolve: {
+          sfida: function() {
+            return sfida;
+          }
+        }
+      });
+    });
+    $scope.$on("show:sfida:end", function(event, sfida) {
+      return $modal.open({
+        templateUrl: '/app/templates/modals/show-end-match.html',
+        controller: 'Modals.ShowEndMatch',
+        keyboard: false,
+        resolve: {
+          sfida: function() {
+            return sfida;
+          }
+        }
+      });
+    });
+    $scope.testEndSfida = function(event) {
+      return $rootScope.$broadcast("show:sfida:end", {
+        id_sfida: 1,
+        id_vincitore: 4,
+        id_sfidante: 3,
+        id_sfidato: 4,
+        risultato: '3,5'
+      });
+    };
     $scope.doUserLogout = function() {
       return $rootScope.$broadcast('user:logout');
     };
@@ -41905,7 +41948,6 @@ Rigorix.factory("Modals", [
 Rigorix.controller("Modals.Success", [
   '$scope', '$modal', '$modalInstance', '$rootScope', function($scope, $modal, $modalInstance, $rootScope) {
     $rootScope.$broadcast("modal:open", {
-      controller: 'Modals.Success',
       modalClass: 'modal-success'
     });
     $modalInstance.result.then(function() {
@@ -41922,7 +41964,6 @@ Rigorix.controller("Modals.Success", [
 Rigorix.controller("Modals.Sfida", [
   '$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', function($scope, $modal, $modalInstance, $rootScope, sfida) {
     $rootScope.$broadcast("modal:open", {
-      controller: 'Modals.Sfida',
       modalClass: 'modal-play-sfida'
     });
     $scope.sfida = sfida != null ? sfida : {
@@ -41945,28 +41986,60 @@ Rigorix.controller("Modals.Sfida", [
 ]);
 
 Rigorix.controller("Modals.ViewSfida", [
-  '$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', 'currentUser', function($scope, $modal, $modalInstance, $rootScope, sfida, currentUser) {
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', function($scope, $modal, $modalInstance, $rootScope, sfida) {
     $rootScope.$broadcast("modal:open", {
-      controller: 'Modals.VediSfida',
       modalClass: 'modal-view-sfida'
     });
-    if (currentUser != null) {
-      $scope.currentUser = currentUser;
-    }
-    console.log("$scope.currentUser", $scope.currentUser, currentUser);
-    $scope.sfida = sfida != null ? sfida : {
-      id_sfidante: $scope.currentUser.id_utente,
-      id_avversario: user.id_utente,
-      id_sfida: false
+    console.log("sfidadio", sfida);
+    $scope.id_sfida = sfida.id_sfida;
+    $scope.id_utente = $rootScope.currentUser.id_utente;
+    return $scope.close = function() {
+      if ($(".results-container").size() > 0) {
+        $rootScope.$broadcast("modal:open", {
+          modalClass: "modal-show-end-match"
+        });
+      } else {
+        $rootScope.$broadcast("modal:close");
+      }
+      return $modalInstance.dismiss();
     };
-    $modalInstance.result.then(function(selectedItem) {
-      return true;
-    }, function() {
-      return $rootScope.$broadcast("modal:close");
+  }
+]);
+
+Rigorix.controller("Modals.ShowEndMatch", [
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', 'Api', function($scope, $modal, $modalInstance, $rootScope, sfida, Api) {
+    $rootScope.$broadcast("modal:open", {
+      modalClass: 'modal-show-end-match'
     });
+    $scope.sfida = sfida;
+    $scope.badges = [];
+    Api.call("get", "sfide/" + sfida.id_sfida + "/rewards/" + $rootScope.currentUser.id_utente, {
+      success: function(json) {
+        var reward, _i, _len, _ref;
+        $scope.userRewards = json.data;
+        _ref = $scope.userRewards;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          reward = _ref[_i];
+          if (reward.reward.tipo === "badge") {
+            $scope.badges.push(reward);
+          }
+        }
+        return $rootScope.$broadcast("show:newbadges");
+      }
+    });
+    $scope.resultLabel = sfida.id_vincitore === 0 ? "draw" : sfida.id_vincitore === $rootScope.currentUser.id_utente ? "win" : "lose";
+    $scope.setBadgesSeen = function() {
+      $rootScope.$broadcast("hide:newbadges");
+      return $scope.badges = [];
+    };
+    $scope.showSfida = function() {
+      return $rootScope.$broadcast("show:sfida", $scope.sfida);
+    };
     return $scope.close = function() {
       $modalInstance.dismiss();
-      return $rootScope.$broadcast("modal:close");
+      return $rootScope.$broadcast("modal:show", {
+        modalClass: 'modal-show-end-match'
+      });
     };
   }
 ]);
@@ -41974,7 +42047,6 @@ Rigorix.controller("Modals.ViewSfida", [
 Rigorix.controller("Modals.DeleteUser", [
   '$scope', '$modal', '$modalInstance', '$rootScope', 'user', 'Api', function($scope, $modal, $modalInstance, $rootScope, user, Api) {
     $rootScope.$broadcast("modal:open", {
-      controller: 'Modals.DeleteUser',
       modalClass: 'modal-delete-user'
     });
     $modalInstance.result.then(function(selectedItem) {
@@ -42008,7 +42080,6 @@ Rigorix.controller("Modals.DeleteUser", [
 Rigorix.controller("Modals.NewUser", [
   '$scope', '$modal', '$modalInstance', '$rootScope', 'user', function($scope, $modal, $modalInstance, $rootScope, user) {
     $rootScope.$broadcast("modal:open", {
-      controller: 'Modals.DeleteUser',
       modalClass: 'modal-delete-user'
     });
     $modalInstance.result.then(function(selectedItem) {
@@ -42176,7 +42247,7 @@ Rigorix.directive("listaSfide", function() {
 Rigorix.directive("icon", function() {
   return {
     link: function(scope, element, attr) {
-      return $(element).prepend($('<span class="glyphicon glyphicon-' + attr.icon + ' mrs"></span>'));
+      return $(element).prepend($('<span class="fa fa-' + attr.icon + ' mrs"></span>'));
     }
   };
 });

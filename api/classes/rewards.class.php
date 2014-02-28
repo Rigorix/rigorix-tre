@@ -21,6 +21,11 @@ class RewardsSfide extends  Illuminate\Database\Eloquent\Model {
   protected $primaryKey   = 'id_reward';
   protected $guarded      = array('id');
 
+  public function reward ()
+  {
+    return $this->hasOne('Rewards', 'id_reward');
+  }
+
   public function scopeUser ($query, $id_utente)
   {
     return $query->where("id_utente", "=", $id_utente);

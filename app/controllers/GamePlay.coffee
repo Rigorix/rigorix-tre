@@ -66,8 +66,23 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
       sfida: $scope.sfida
       success: (json)->
         $rootScope.$broadcast "hide:loading"
-        $.notify "Sfida mandata con successo", "success"
-        do $scope.cancel
+#        do $scope.cancel
+#
+#        $.notify "Sfida mandata con successo", "success" if json.data.stato is 1
+
+        if json.data.stato is 2
+          $modal.open
+            templateUrl:  '/app/templates/modals/show-end-match.html',
+            controller:    'Modals.ShowEndMatch',
+            resolve:
+              sfida: ->
+                json.data
+              currentUser: ->
+                User
+
+        else
+          $rootScope.$broadcast "modal:close"
+          do $scope.cancel
 
       error: ->
         $.notify "Errore nel mandare la sfida", "error"

@@ -4,6 +4,7 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserServiceNew', 
   $scope.userLogged = false
   $scope.currentUser = false
   $scope.User = window.User
+  $rootScope.currentUser = window.User
   $scope.appLoaded = false
 
   $scope.doClick = (event)->
@@ -46,6 +47,37 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserServiceNew', 
       resolve:
         user: ->
           $scope.currentUser
+
+  $scope.$on "show:newbadges", (event, badges)->
+    $(".modal-dialog").addClass "show-new-badges"
+
+  $scope.$on "hide:newbadges", ->
+    $(".modal-dialog").removeClass "show-new-badges"
+
+  $scope.$on "show:sfida", (event, sfida) ->
+    $modal.open
+      templateUrl : '/app/templates/modals/vedi-sfida.html',
+      controller  : 'Modals.ViewSfida',
+      resolve:
+        sfida: ->
+          sfida
+
+  $scope.$on "show:sfida:end", (event, sfida)->
+    $modal.open
+      templateUrl   :  '/app/templates/modals/show-end-match.html',
+      controller    :    'Modals.ShowEndMatch',
+      keyboard      : false
+      resolve:
+        sfida: ->
+          sfida
+
+  $scope.testEndSfida = (event)->
+    $rootScope.$broadcast "show:sfida:end",
+      id_sfida: 1
+      id_vincitore: 4
+      id_sfidante: 3
+      id_sfidato: 4
+      risultato: '3,5'
 
 
 #-----------------------------------------------------------------------------------------------------------------------

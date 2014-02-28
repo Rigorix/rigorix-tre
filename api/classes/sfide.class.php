@@ -25,6 +25,11 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
     return $this->hasMany('SfideParate', 'id_sfida');
   }
 
+  public function rewards()
+  {
+    return $this->hasManyThrough('Rewards', 'RewardsSfide', 'id_sfida', 'id_reward');
+  }
+
   public function scopeUser($query, $id_utente)
   {
     return $query->where("id_sfidante", "=", $id_utente)->orWhere("id_sfidato", "=", $id_utente);
