@@ -41198,16 +41198,16 @@ Rigorix.controller("ListaSfide.Sfida", [
     switch ($scope.sfida.stato) {
       case 0:
         $scope.statoButton = 'lancia_sfida';
-        $scope.statoButtonIcon = 'send';
+        $scope.statoButtonIcon = 'play';
         break;
       case 1:
         $scope.statoButton = $scope.sfida.id_sfidato === $rootScope.currentUser.id_utente ? 'rispondi' : 'lanciata';
-        $scope.statoButtonIcon = $scope.statoButton === 'lanciata' ? 'send' : 'share-alt';
+        $scope.statoButtonIcon = $scope.statoButton === 'lanciata' ? 'play' : 'play';
         $scope.hasActiveButton = $scope.statoButton === 'rispondi';
         break;
       case 2:
         $scope.statoButton = 'vedi_sfida';
-        $scope.statoButtonIcon = 'eye-open';
+        $scope.statoButtonIcon = 'eye';
         break;
       case 3:
         $scope.statoButton = 'vinta_a_tavolino';

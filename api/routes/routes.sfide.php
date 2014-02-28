@@ -59,7 +59,7 @@ Flight::route('GET /sfide/archivio/@id_utente', function($id_utente) {
 });
 
 Flight::route('GET /sfide/pending/@id_utente', function($id_utente) {
-  echo (string)Sfide::pending()->user($id_utente)->get();
+  echo (string)Sfide::whereRaw("id_sfidante = $id_utente")->pending()->get();
 });
 
 Flight::route('POST /sfide/set', function() {

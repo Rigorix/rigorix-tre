@@ -32,7 +32,7 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
 
   public function scopeUser($query, $id_utente)
   {
-    return $query->where("id_sfidante", "=", $id_utente)->orWhere("id_sfidato", "=", $id_utente);
+    return $query->whereRaw("(id_sfidante = $id_utente or id_sfidato = $id_utente)");
   }
 
   public function scopeBetween($query, $id_utente_f, $id_utente_s)
@@ -57,7 +57,7 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
 
   public function scopeDone($query)
   {
-    return $query->whereStato(2);
+    return $query->whereRaw("stato = 2");
   }
 
   public function scopePending($query)

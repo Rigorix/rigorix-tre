@@ -26,14 +26,14 @@ Rigorix.controller "ListaSfide.Sfida", ['$scope', '$modal', '$rootScope', ($scop
   switch $scope.sfida.stato
     when 0
       $scope.statoButton = 'lancia_sfida'
-      $scope.statoButtonIcon = 'send'
+      $scope.statoButtonIcon = 'play'
     when 1
       $scope.statoButton = if $scope.sfida.id_sfidato is $rootScope.currentUser.id_utente then 'rispondi' else 'lanciata'
-      $scope.statoButtonIcon = if $scope.statoButton is 'lanciata' then 'send' else 'share-alt'
+      $scope.statoButtonIcon = if $scope.statoButton is 'lanciata' then 'play' else 'play'
       $scope.hasActiveButton = $scope.statoButton is 'rispondi'
     when 2
       $scope.statoButton = 'vedi_sfida'
-      $scope.statoButtonIcon = 'eye-open'
+      $scope.statoButtonIcon = 'eye'
     when 3 then $scope.statoButton = 'vinta_a_tavolino'
     else
       $scope.statoButton = $scope.sfida.stato
