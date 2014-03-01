@@ -3,11 +3,11 @@
 
 
 Flight::route('GET /users/active', function() {
-  echo Users::active()->get();
+  echo (string)Users::active()->get();
 });
 
 Flight::route('GET /users/top/@count', function($count) {
-  echo Users::orderBy("punteggio_totale", "desc")->limit($count)->get();
+  echo Users::whereRaw("attivo = 1")->orderBy("punteggio_totale", "desc")->limit($count)->get();
 });
 
 Flight::route('GET /users/bysocial/@uid', function($uid) {
@@ -82,7 +82,7 @@ Flight::route('GET /users/@id_utente/basic', function($id_utente) {
   echo Flight::json(array(
     "id_utente"   => intval($id_utente),
     "username"    => $user->getAttribute("username"),
-    "picture"     => sanitizeUserPicture($user->getAttribute("picture")),
+    "picture"     => $user->getAttribute("picture"),
     "punteggio"   => $user->getAttribute("punteggio_totale"),
     "attivo"      => $user->getAttribute("attivo")
   ));
@@ -163,15 +163,22 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
  * Resource Object for Users
  */
 
-Flight::route('GET /users/@id_utente', function($id_utente) { ;
-  echo FastJSON::convert( getUserObjectExtended($id_utente) );
+Flight::route('GET /users/@id_utente', function($id_utente) {
+  if ( Users::find($id_utente)->exists ) {
+    Users::find($id_utente)->update(array(
+      "dta_activ" => date('Y-m-d H:i:s')
+    ));
+    echo FastJSON::convert( getUserObjectExtended($id_utente) );
+  } else
+    Flight::notFound();
 });
 
 Flight::route('POST /users/@id_utente', function($id_utente) {
   $data = json_decode(file_get_contents("php://input"));
-  $userData = ( isset($data->db_object) ) ? $data->db_object : $data;
+  $userData = (array)( isset($data->db_object) ) ? $data->db_object : $data;
+  $userData->picture = createUserPicture($userData->picture, $userData->username, $userData->id_utente);
 
-  $result = Users::find($id_utente)->update((array)$userData);
+  Users::find($id_utente)->update((array)$userData);
 
   echo FastJSON::convert( getUserObjectExtended($id_utente) );
 });

@@ -94,6 +94,9 @@ function finalizeSfida ($id_sfida)
       "dta_conclusa"    => new \DateTime,
       "risultato"       => getSfidaResult ($sfida)
     ));
+    return true;
+  else:
+    return false;
   endif;
 
 }

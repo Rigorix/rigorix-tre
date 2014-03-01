@@ -18,10 +18,22 @@ function getUserObjectExtended($id_utente) {
   $obj->badges              = Users::find($id_utente)->badges()->toArray();
   $obj->sfide_da_giocare    = Sfide::receivedBy($id_utente)->unplayed()->get()->toArray();
   $obj->rewards             = Users::find($id_utente)->rewards->toArray();
-  $obj->picture             = sanitizeUserPicture(Users::find($id_utente)->picture);
+  $obj->picture             = Users::find($id_utente)->picture;
   $obj->dead                = UsersUnsubscribe::user($id_utente)->get()->count() > 0;
 
-  return (object) array_merge((array) $obj, (array) Users::find($id_utente)->toArray());
+  $original = Users::find($id_utente)->toArray();
+
+  return (object) array_merge((array)$original, (array)$obj );
+}
+
+function createUserPicture ( $picture, $username, $id )
+{
+  $pictureName = explode("/", $picture)[count(explode("/", $picture))-1];
+  $pictureName = explode("?", $pictureName)[0];
+  if (file_put_contents("{$_SERVER['DOCUMENT_ROOT']}/i/profile_picture/{$username}_{$id}_{$pictureName}", file_get_contents($picture)) )
+    return "/i/profile_picture/{$username}_{$id}_{$pictureName}";
+  else
+    return $picture;
 }
 
 function sanitizeUsersPicture( $users ) {
@@ -47,21 +59,3 @@ function sanitizeUserPicture ($picture) {
 
   return $picture_uri;
 }
-
-//function retCorrTiroParata( $valInDb )
-//{
-//  $res = '';
-//  if (strlen($valInDb)==1){
-//    $res = $valInDb-1;
-//  } else {
-//    $res = ($valInDb[0]-1).($valInDb[1]-1);
-//  }
-//  if ($res == '33' || $res == 33) $res = 3;
-//  if ($res == '22' || $res == 22) $res = 2;
-//  if ($res == '11' || $res == 11) $res = 1;
-//  if ($res == '00' || $res == 00) $res = 0;
-//  return $res;
-//}
-
-
-?>

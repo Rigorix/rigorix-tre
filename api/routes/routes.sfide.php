@@ -80,35 +80,33 @@ Flight::route('POST /sfide/set', function() {
     $id_sfida = $sfidaObject->id_sfida;
   endif;
 
-  $tiri = SfideTiri::create(array(
+  SfideTiri::create(array(
     "id_sfida"  => $id_sfida,
     "id_utente" => $sfidaObject->id_utente ? $sfidaObject->id_utente : $sfidaObject->id_sfidante,
-    "o1"        => $sfidaMatrix->tiro1 + 1,
-    "o2"        => $sfidaMatrix->tiro1 + 1,
-    "o3"        => $sfidaMatrix->tiro1 + 1,
-    "o4"        => $sfidaMatrix->tiro1 + 1,
-    "o5"        => $sfidaMatrix->tiro1 + 1
+    "o1"        => $sfidaMatrix->tiro0,
+    "o2"        => $sfidaMatrix->tiro1,
+    "o3"        => $sfidaMatrix->tiro2,
+    "o4"        => $sfidaMatrix->tiro3,
+    "o5"        => $sfidaMatrix->tiro4
   ));
 
-  $parate = SfideParate::create(array(
+  SfideParate::create(array(
     "id_sfida"  => $id_sfida,
     "id_utente" => $sfidaObject->id_utente ? $sfidaObject->id_utente : $sfidaObject->id_sfidante,
-    "o1"        => $sfidaMatrix->parata1 + 1,
-    "o2"        => $sfidaMatrix->parata1 + 1,
-    "o3"        => $sfidaMatrix->parata1 + 1,
-    "o4"        => $sfidaMatrix->parata1 + 1,
-    "o5"        => $sfidaMatrix->parata1 + 1
+    "o1"        => $sfidaMatrix->parata0,
+    "o2"        => $sfidaMatrix->parata1,
+    "o3"        => $sfidaMatrix->parata2,
+    "o4"        => $sfidaMatrix->parata3,
+    "o5"        => $sfidaMatrix->parata4
   ));
 
-  if ( $tiri->getAttribute("id_tiri") && $parate->getAttribute("id_parate") ):
-    $sfidaUpdate = Sfide::find($id_sfida);
-    $sfidaUpdate->stato = $risposta == false ? 1 : 2;
-    $sfidaUpdate->save();
+  $sfidaUpdate = Sfide::find($id_sfida);
+  $sfidaUpdate->stato = $risposta == false ? 1 : 2;
+  $sfidaUpdate->save();
 
-    echo (string)$sfidaUpdate;
-  else:
-    Flight::error();
-  endif;
+  if ( $risposta !== false )
+    if (!finalizeSfida($id_sfida))
+      Flight::error();
 });
 
 Flight::route('GET /sfide/@id_sfida', function($id_sfida) {
@@ -123,7 +121,9 @@ Flight::route('GET /sfide/@id_sfida/rewards/@id_utente', function($id_sfida, $id
   echo (string)RewardsSfide::whereRaw("id_utente = $id_utente and id_sfida = $id_sfida")->get()->load('reward');
 });
 
-Flight::route('POST /sfide/@id_sfida/finalize', function ($id_sfida) {
+Flight::route('GET /sfide/@id_sfida/finalize', function ($id_sfida) {
+  // TEST METHOD TO CALL finalizeSfida
+
   finalizeSfida($id_sfida);
 //  Flight::halt(200, "vai con dios");
 });

@@ -32,13 +32,16 @@ require_once 'routes/routes.sfide.php';
 
 
 
-/// Badges
 Flight::route('GET /badges', function($count) {
   echo Rewards::badges()->active()->get()->toJson();
 });
 
 Flight::route('GET /test', function() {
   Flight::halt(200, "Api is working");
+});
+
+Flight::route('GET /test/getimage', function() {
+  getUserPicture("http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=6");
 });
 
 Flight::map('error', function(Exception $ex){

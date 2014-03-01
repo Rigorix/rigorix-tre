@@ -52,12 +52,15 @@ class Core {
 
     if ( isset($_SESSION['rigorix_logged_user']) && $_SESSION['rigorix_logged_user'] != 0 ) {
 
-      _log("Core check user", "Ho utente loggato (id: {$_SESSION['rigorix_logged_user']})");
-      $result = $api->get("users/" . $_SESSION['rigorix_logged_user']);
+      $result = $api->get("users/{$_SESSION['rigorix_logged_user']}");
       if ($result->info->http_code == 200 )
         $this->logged = $result->response;
-
-    } else if ( isset($_REQUEST['signature'])) {
+      else {
+        unset($_SESSION['rigorix_logged_user']);
+        $this->logged = "false";
+      }
+    }
+    if ( isset($_REQUEST['signature'])) {
 
       $result = $api->get("users/bysocial/{$_REQUEST['auth']['uid']}");
       if ($result->info->http_code == 200 ) {
@@ -75,7 +78,7 @@ class Core {
         if ($newUserPost->info->http_code == 200) {
 
           $_SESSION['rigorix_logged_user'] = $newUserPost->decode_response()->id_utente;
-          header('Location: /');
+          header('Location: /#/first-login');
 
         } else if ($newUserPost->info->http_code == 500 ) {
           echo "Error 500";
@@ -86,8 +89,7 @@ class Core {
         echo '<strong style="color: red;">Unknown error on login.'."<br>\n";
       }
 
-    } else
-      $this->logged = "false";
+    }
 
     _log ("CORE_CLASS", "check_user ended");
 

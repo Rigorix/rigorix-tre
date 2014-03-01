@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-02-28 *//*!
+/*! Rigorix - v0.1.0 - 2014-03-01 *//*!
  * jQuery JavaScript Library v2.1.0
  * http://jquery.com/
  *
@@ -41064,21 +41064,22 @@ Rigorix.controller("GamePlay", [
       return this.sendSfida();
     };
     return $scope.sendSfida = function() {
-      var index, matrix, row, value, _ref;
+      var index, matrix, value, _ref;
       $rootScope.$broadcast("show:loading");
       matrix = {};
       _ref = $scope.matrix;
       for (index in _ref) {
         value = _ref[index];
-        row = Number(index) + 1;
-        matrix['tiro' + row] = value.tiro;
-        matrix['parata' + row] = value.parata;
+        matrix['tiro' + index] = value.tiro;
+        matrix['parata' + index] = value.parata;
       }
       return Api.call("post", "sfide/set", {
         sfida_matrix: JSON.stringify(matrix),
         sfida: $scope.sfida,
         success: function(json) {
           $rootScope.$broadcast("hide:loading");
+          $rootScope.$broadcast("modal:close");
+          $scope.cancel();
           if (json.data.stato === 2) {
             return $modal.open({
               templateUrl: '/app/templates/modals/show-end-match.html',
@@ -41093,8 +41094,7 @@ Rigorix.controller("GamePlay", [
               }
             });
           } else {
-            $rootScope.$broadcast("modal:close");
-            return $scope.cancel();
+            return $.notify("Sfida mandata con successo", "success");
           }
         },
         error: function() {
