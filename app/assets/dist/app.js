@@ -41337,6 +41337,16 @@ Rigorix.controller("Main", [
     $scope.doUserLogout = function() {
       return $rootScope.$broadcast('user:logout');
     };
+    $scope.updateUserObject = function() {
+      var _this = this;
+      return UserServiceNew.get({
+        id_utente: $scope.User.id_utente
+      }, function(json) {
+        $scope.currentUser = json;
+        $scope.userLogged = json.attivo === 1;
+        return $rootScope.$broadcast("user:update", json);
+      });
+    };
     if ((RigorixEnv.FAKE_LOGIN != null) && RigorixEnv.FAKE_LOGIN !== false && ((typeof User === "undefined" || User === null) || User === false)) {
       $scope.fakeUser = true;
       $scope.User = {
@@ -41743,16 +41753,6 @@ Rigorix.controller("Main", [
         "tipo_alert": 0
       };
     }
-    $scope.updateUserObject = function() {
-      var _this = this;
-      return UserServiceNew.get({
-        id_utente: $scope.User.id_utente
-      }, function(json) {
-        $scope.currentUser = json;
-        $scope.userLogged = json.attivo === 1;
-        return $rootScope.$broadcast("user:update", json);
-      });
-    };
     if ($scope.User !== false) {
       if ($scope.User.attivo === 0) {
         return $location.path("first-login");
@@ -42111,9 +42111,12 @@ Rigorix.controller("Sidebar", [
       $rootScope.$broadcast("user:logout");
       return window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to=" + RigorixEnv.DOMAIN;
     };
-    return $scope.$on("message:read", function(ev, message) {
+    $scope.$on("message:read", function(ev, message) {
       return $scope.updateUserObject();
     });
+    return $scope.showBadges = function() {
+      return Api.call("post", "users/" + $rootScope.currentUser.id_utente + "/badges/seen");
+    };
   }
 ]);
 
@@ -42241,7 +42244,7 @@ Rigorix.directive("username", function() {
 Rigorix.directive("listaSfide", function() {
   return {
     restrict: 'E',
-    templateUrl: '/app/templates/lista-sfide.html',
+    templateUrl: '/app/templates/directives/lista-sfide.html',
     scope: {
       sfide: "="
     }

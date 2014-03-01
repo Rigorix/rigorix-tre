@@ -57,8 +57,6 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
 
     matrix = {}
     for index, value of $scope.matrix
-#      console.log "matrix", index, value
-#      row = Number(index) + 1
       matrix['tiro' + index] = value.tiro
       matrix['parata' + index] = value.parata
 

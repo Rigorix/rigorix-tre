@@ -26,9 +26,19 @@ class RewardsSfide extends  Illuminate\Database\Eloquent\Model {
     return $this->hasOne('Rewards', 'id_reward');
   }
 
+  public function scopeUnseen ($query)
+  {
+    return $query->whereRaw("seen = 0");
+  }
+
+  public function scopeBadge ($query)
+  {
+    return $query->whereRaw("tipo = 'badge'");
+  }
+
   public function scopeUser ($query, $id_utente)
   {
-    return $query->where("id_utente", "=", $id_utente);
+    return $query->whereRaw("id_utente = $id_utente");
   }
 
   public function users()

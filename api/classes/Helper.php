@@ -16,6 +16,7 @@ function getUserObjectExtended($id_utente) {
   $obj->messages            = Messages::receiver($id_utente)->unread()->get()->toArray();
   $obj->totMessages         = Messages::receiver($id_utente)->count();
   $obj->badges              = Users::find($id_utente)->badges()->toArray();
+  $obj->has_new_badges      = Users::find($id_utente)->unseenBadges()->toArray();
   $obj->sfide_da_giocare    = Sfide::receivedBy($id_utente)->unplayed()->get()->toArray();
   $obj->rewards             = Users::find($id_utente)->rewards->toArray();
   $obj->picture             = Users::find($id_utente)->picture;

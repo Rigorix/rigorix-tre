@@ -66,7 +66,7 @@ Flight::route('GET /users/@id_utente/messages/unread', function($id_utente) {
 });
 
 Flight::route('GET /user/@id_utente/messages/sent', function($id_utente) {
-  echo  Users::find($id_utente)->sentMessages->toJson();
+  echo Users::find($id_utente)->sentMessages->toJson();
 });
 
 Flight::route('GET /users/@id_utente/rewards', function($id_utente) {
@@ -97,6 +97,12 @@ Flight::route('GET /users/search/@attribute/@search', function($attribute, $sear
 /*
  * POSTS
  */
+
+Flight::route('POST /users/@id_utente/badges/seen', function($id_utente) {
+  RewardsSfide::user($id_utente)->update(array(
+    "seen" => 1
+  ));
+});
 
 Flight::route('POST /users/create', function() {
   if (Users::findBySocialId($_POST['id'])->get()->count() == 0):

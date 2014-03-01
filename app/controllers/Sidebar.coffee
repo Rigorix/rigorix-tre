@@ -18,4 +18,6 @@ Rigorix.controller "Sidebar", ['$scope', 'Api', '$rootScope', ($scope, Api, $roo
   $scope.$on "message:read", (ev, message)->
     $scope.updateUserObject()
 
+  $scope.showBadges = ->
+    Api.call "post", "users/" + $rootScope.currentUser.id_utente + "/badges/seen"
 ]

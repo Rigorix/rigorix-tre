@@ -63,7 +63,7 @@ Rigorix.directive "username", ()->
 
 Rigorix.directive "listaSfide", ()->
   restrict: 'E'
-  templateUrl: '/app/templates/lista-sfide.html'
+  templateUrl: '/app/templates/directives/lista-sfide.html'
   scope:
     sfide: "="
 

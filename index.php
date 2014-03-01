@@ -33,8 +33,8 @@ require_once "classes/new.core.php";
       </div>
 
       <div class="col col-sm-3" ng-controller="Sidebar">
-        <ng-include src="'app/templates/user-box.html'"></ng-include>
-        <ng-include src="'app/templates/best-users.html'"></ng-include>
+        <ng-include src="'app/templates/partials/user-box.html'"></ng-include>
+        <ng-include src="'app/templates/partials/best-users.html'"></ng-include>
       </div>
 
     </div>

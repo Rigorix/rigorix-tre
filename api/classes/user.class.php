@@ -35,6 +35,12 @@ class Users extends Illuminate\Database\Eloquent\Model {
     return $badges;
   }
 
+  public function unseenBadges()
+  {
+    $badges = $this->badges();
+    var_dump($badges);
+  }
+
 
 
 //  METHODS
