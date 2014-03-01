@@ -42146,21 +42146,25 @@ Rigorix.controller("Username", [
       return $scope.doLanciaSfida();
     };
     return $scope.doLanciaSfida = function() {
-      if ($scope.disabled !== 'disabled') {
-        $rootScope.$broadcast("sfida:lancia", $scope.userObject);
-        return $modal.open({
-          templateUrl: '/app/templates/modals/sfida.html',
-          controller: 'Modals.Sfida',
-          resolve: {
-            sfida: function() {
-              return {
-                id_sfidante: $scope.currentUser.id_utente,
-                id_avversario: $scope.userObject.id_utente,
-                id_sfida: false
-              };
+      if ($rootScope.currentUser === false) {
+        return $.notify("Devi entrare in Rigorix per poter sfidare un utente", "error");
+      } else {
+        if ($scope.disabled !== 'disabled') {
+          $rootScope.$broadcast("sfida:lancia", $scope.userObject);
+          return $modal.open({
+            templateUrl: '/app/templates/modals/sfida.html',
+            controller: 'Modals.Sfida',
+            resolve: {
+              sfida: function() {
+                return {
+                  id_sfidante: $scope.currentUser.id_utente,
+                  id_avversario: $scope.userObject.id_utente,
+                  id_sfida: false
+                };
+              }
             }
-          }
-        });
+          });
+        }
       }
     };
   }

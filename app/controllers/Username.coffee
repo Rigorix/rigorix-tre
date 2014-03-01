@@ -22,16 +22,19 @@ Rigorix.controller "Username", ['$scope', '$rootScope', '$modal', 'Api', ($scope
     do $scope.doLanciaSfida
 
   $scope.doLanciaSfida = ->
-    if $scope.disabled != 'disabled'
-      $rootScope.$broadcast "sfida:lancia", $scope.userObject
+    if $rootScope.currentUser is false
+      $.notify "Devi entrare in Rigorix per poter sfidare un utente", "error"
+    else
+      if $scope.disabled != 'disabled'
+        $rootScope.$broadcast "sfida:lancia", $scope.userObject
 
-      $modal.open
-        templateUrl:  '/app/templates/modals/sfida.html',
-        controller: 'Modals.Sfida'
-        resolve:
-          sfida: ->
-            id_sfidante: $scope.currentUser.id_utente
-            id_avversario: $scope.userObject.id_utente
-            id_sfida: false
+        $modal.open
+          templateUrl:  '/app/templates/modals/sfida.html',
+          controller: 'Modals.Sfida'
+          resolve:
+            sfida: ->
+              id_sfidante: $scope.currentUser.id_utente
+              id_avversario: $scope.userObject.id_utente
+              id_sfida: false
 
-]
+  ]
