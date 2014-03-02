@@ -44,7 +44,7 @@ function finalizeSfida ($id_sfida)
     }
 
     echo "Vincitore: {$vincitore}\n";
-    $sfida->setAttribute("id_vincitore", $result);
+    $sfida->setAttribute("id_vincitore", $vincitore);
 
     // Getting rewards
     $rewards = Rewards::all();
