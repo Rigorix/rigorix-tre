@@ -41112,6 +41112,9 @@ Rigorix.controller("GamePlay", [
           }
         },
         error: function() {
+          $rootScope.$broadcast("hide:loading");
+          $rootScope.$broadcast("modal:close");
+          $scope.cancel();
           return $.notify("Errore nel mandare la sfida", "error");
         }
       });
@@ -41978,6 +41981,7 @@ Rigorix.controller("Modals.Sfida", [
     $rootScope.$broadcast("modal:open", {
       modalClass: 'modal-play-sfida'
     });
+    console.log("Sfida da giocare:", sfida);
     $scope.sfida = sfida != null ? sfida : {
       id_sfidante: $scope.currentUser.id_utente,
       id_avversario: user.id_utente,

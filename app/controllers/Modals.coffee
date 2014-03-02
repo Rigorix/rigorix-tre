@@ -39,6 +39,8 @@ Rigorix.controller "Modals.Sfida", ['$scope', '$modal', '$modalInstance', '$root
   $rootScope.$broadcast "modal:open",
     modalClass: 'modal-play-sfida'
 
+  console.log "Sfida da giocare:", sfida
+
   $scope.sfida = if sfida? then sfida else
     id_sfidante: $scope.currentUser.id_utente
     id_avversario: user.id_utente

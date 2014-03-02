@@ -10,15 +10,9 @@ function finalizeSfida ($id_sfida)
   $punti_sfidante = 0;
   $punti_sfidato = 0;
 
-  echo "Trovata sfida ({$id_sfida})? {$sfida->count()}\n";
-  echo "Sfidante: {$sfidante->getAttribute('username')} ({$sfidante->getKey()})\n";
-  echo "Sfidato: {$sfidato->getAttribute('username')} ({$sfidato->getKey()})\n";
-
   if ( $sfida->count() > 0 ):
 
     // Aggiorno la data di chiusura
-//    $sfida->setAttribute("dta_conlusa", time());
-    echo "Conclusa il ". time() . "\n";
     $sfida->update(array(
       "dta_conclusa"    => new \DateTime,
       "stato"           => 2
@@ -26,8 +20,6 @@ function finalizeSfida ($id_sfida)
 
     // Trovo il risultato
     $result = getSfidaResult ($sfida);
-    echo "Risultato: $result\n";
-//    $sfida->setAttribute("risultato", $result);
 
     // Trovo il vincitore
     $resultArray = explode(",", $result);
@@ -42,8 +34,6 @@ function finalizeSfida ($id_sfida)
       $vincitore = $sfida->getAttribute('id_sfidato');
       $punti_sfidato += 3;
     }
-
-    echo "Vincitore: {$vincitore}\n";
     $sfida->setAttribute("id_vincitore", $vincitore);
 
     // Getting rewards
@@ -59,7 +49,6 @@ function finalizeSfida ($id_sfida)
 
       if ( $apply_sfidante === true ) {
         if ($sfidante->rewards->find($reward->getAttribute("id_reward")) === null) {
-          echo "apply sfidante {$reward->getAttribute("key_id")} --> {$reward->getAttribute("descrizione")}\n";
           RewardsSfide::create(array(
             'id_reward'   => $reward->getAttribute("id_reward"),
             'id_sfida'    => $sfida->getAttribute("id_sfida"),
@@ -68,7 +57,6 @@ function finalizeSfida ($id_sfida)
           $punti_sfidante += $reward->getAttribute("score");
         }
       }
-
       if ( $apply_sfidato === true ) {
         if ($sfidato->rewards->find($reward->getAttribute("id_reward")) === null) {
           RewardsSfide::create(array(
@@ -81,7 +69,6 @@ function finalizeSfida ($id_sfida)
       }
     }
 
-    echo "Aggiorno i punteggi\n";
     $sfidante->update(array(
       "punteggio_totale" => $sfidante->getAttribute("punteggio_totale") + $punti_sfidante
     ));
@@ -94,7 +81,7 @@ function finalizeSfida ($id_sfida)
       "dta_conclusa"    => new \DateTime,
       "risultato"       => getSfidaResult ($sfida)
     ));
-    return true;
+    return $sfida;
   else:
     return false;
   endif;
