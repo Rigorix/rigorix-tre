@@ -11,7 +11,7 @@ Rigorix.controller "Home", ['$scope', 'Api', ($scope, Api) ->
 
     Api.call "get", "users/champion/week",
       success: (champion)->
-        $scope.campione = champion
+        $scope.campione = champion.data
 
       error: (message, status)->
         if status is 404

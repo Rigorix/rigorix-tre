@@ -48,8 +48,9 @@ Flight::route('GET /users/champion/@period', function($period) {
       }
     }
     $best = new stdClass();
-    $best->userObject = Users::find($bestUser)->toArray();
+    $best->userObject = getUserObjectExtended($bestUser);
     $best->punteggio = $bestUserPunteggio;
+    $best->vittorie = Sfide::whereRaw("id_vincitore = $bestUser")->count();
     echo FastJSON::convert($best);
 
   else:

@@ -41036,6 +41036,7 @@ Rigorix.controller("GamePlay", [
         parata: false
       }
     };
+    alert($scope.sfida.id_sfida);
     $scope.submitButtonLabel = $scope.sfida.id_sfida !== false ? "Rispondi" : "Lancia";
     $scope.id_utente_avversario = $scope.sfida.id_sfida !== false ? $scope.sfida.id_sfidante : $scope.sfida.id_avversario;
     $scope.randomPlaySet = function() {
@@ -41170,7 +41171,7 @@ Rigorix.controller("Home", [
       $scope.campione = false;
       return Api.call("get", "users/champion/week", {
         success: function(champion) {
-          return $scope.campione = champion;
+          return $scope.campione = champion.data;
         },
         error: function(message, status) {
           if (status === 404) {
@@ -42145,6 +42146,7 @@ Rigorix.controller("Username", [
     if ($scope.tooltip_placement == null) {
       $scope.tooltip_placement = "top";
     }
+    $scope.tooltipDelay = $scope.disabled === "disabled" ? 9999999 : 1;
     if ($scope.id_utente) {
       if (RigorixStorage.users[$scope.id_utente] != null) {
         $scope.userObject = RigorixStorage.users[$scope.id_utente];

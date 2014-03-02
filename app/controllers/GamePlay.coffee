@@ -24,6 +24,8 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
       tiro: false
       parata: false
 
+  alert $scope.sfida.id_sfida
+
   $scope.submitButtonLabel = if $scope.sfida.id_sfida isnt false then "Rispondi" else "Lancia"
   $scope.id_utente_avversario = if $scope.sfida.id_sfida isnt false then $scope.sfida.id_sfidante else $scope.sfida.id_avversario
 
