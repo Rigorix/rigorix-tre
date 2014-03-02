@@ -1,6 +1,18 @@
 Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', '$rootScope', 'Api', ($scope, $routeParams, $location, $rootScope, Api) ->
 
-  $scope.sections = [ 'utente', 'sfide', 'impostazioni', 'messaggi' ]
+  $scope.sections = [
+    name: 'utente'
+    icon: 'user'
+  ,
+    name: 'sfide'
+    icon: 'gamepad'
+  ,
+    name: 'impostazioni'
+    icon: 'cogs'
+  ,
+    name: 'messaggi'
+    icon: 'envelope-o'
+  ]
   $scope.section = $routeParams.section
   $scope.sectionPage = $routeParams.sectionPage
 

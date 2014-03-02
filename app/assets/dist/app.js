@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-03-01 *//*!
+/*! Rigorix - v0.1.0 - 2014-03-02 *//*!
  * jQuery JavaScript Library v2.1.0
  * http://jquery.com/
  *
@@ -40830,7 +40830,21 @@ Rigorix.controller("AccessDenied.Modal", [
 
 Rigorix.controller("AreaPersonale", [
   '$scope', '$routeParams', '$location', '$rootScope', 'Api', function($scope, $routeParams, $location, $rootScope, Api) {
-    $scope.sections = ['utente', 'sfide', 'impostazioni', 'messaggi'];
+    $scope.sections = [
+      {
+        name: 'utente',
+        icon: 'user'
+      }, {
+        name: 'sfide',
+        icon: 'gamepad'
+      }, {
+        name: 'impostazioni',
+        icon: 'cogs'
+      }, {
+        name: 'messaggi',
+        icon: 'envelope-o'
+      }
+    ];
     $scope.section = $routeParams.section;
     $scope.sectionPage = $routeParams.sectionPage;
     $scope.onClickAreaPersonaleSection = function(sec) {

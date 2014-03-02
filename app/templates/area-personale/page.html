@@ -5,8 +5,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
         <ul class="nav navbar-nav">
-            <li ng-repeat="sec in sections" ng-class="{active: section == sec}">
-                <a href="#/area-personale/{{sec}}" ng-click="onClickAreaPersonaleSection(sec)">{{sec | capitalize}}</a>
+            <li ng-repeat="sec in sections" ng-class="{active: section == sec.name}">
+                <a href="#/area-personale/{{sec.name}}" ng-click="onClickAreaPersonaleSection(sec.name)" icon="{{sec.icon}}">{{sec.name | capitalize}}</a>
             </li>
         </ul>
     </div>

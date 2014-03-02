@@ -1,3 +1,0 @@
-
-2012-10-10 16:01:57> DELETE: query OK. (delete from unsubscribe where id_unsubscribe = 8)
-2012-10-10 16:02:01> DELETE: query OK. (delete from unsubscribe where id_unsubscribe = 9)

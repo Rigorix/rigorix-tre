@@ -37,8 +37,8 @@ class Users extends Illuminate\Database\Eloquent\Model {
 
   public function unseenBadges()
   {
+//    TODO
     $badges = $this->badges();
-    var_dump($badges);
   }
 
 

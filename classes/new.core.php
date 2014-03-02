@@ -37,7 +37,7 @@ class Core {
 
   function start ()
   {
-    _log("CORE CLASS", "starts");
+    _log("Core::start");
     $this->check_user ();
   }
 
@@ -45,37 +45,46 @@ class Core {
   { global $api;
 
     if ( isset ($_REQUEST['logout']) ) {
+      _log("Core::logout", "Logout user {$_REQUEST['logout']}");
       if ( $_REQUEST['logout'] == $_SESSION['rigorix_logged_user'])
         session_destroy();
+      else
+        _log("Core::logout", "User isn't logged in");
       header("Location: /");
     }
 
     if ( isset($_SESSION['rigorix_logged_user']) && $_SESSION['rigorix_logged_user'] != 0 ) {
+      _log("Core::rigorix_logged_user", $_SESSION['rigorix_logged_user']);
 
       $result = $api->get("users/{$_SESSION['rigorix_logged_user']}");
-      if ($result->info->http_code == 200 )
+      if ($result->info->http_code == 200 ) {
+        _log("Core::rigorix_logged_user", "User found, this->logged: {$result->response}");
         $this->logged = $result->response;
-      else {
+      } else {
+        _log("Core::rigorix_logged_user", "User not found, clear session and this->logged");
         unset($_SESSION['rigorix_logged_user']);
         $this->logged = "false";
       }
     }
     if ( isset($_REQUEST['signature'])) {
+      _log("Core::rigorix_logged_user", "Found a signature, coming from Opauth");
 
       $result = $api->get("users/bysocial/{$_REQUEST['auth']['uid']}");
       if ($result->info->http_code == 200 ) {
+        _log("Core::rigorix_logged_user", "User found by social uid ({$_REQUEST['auth']['uid']}), inserisco in sessione e vado in /");
 
-        _log("Opauth callback", "User found, get id: {$result->decode_response()->id_utente}");
         $_SESSION['rigorix_logged_user'] = $result->decode_response()->id_utente;
         header('Location: /');
 
-      } else if ($result->info->http_code == 404 ) {  // User not found, new subscription
+      } else if ($result->info->http_code == 404 ) {
+        _log("Core::rigorix_logged_user", "User not found by social uid, new subscription");
 
         $newUserParams = $_REQUEST['auth']['raw'];
         $newUserParams['provider'] = $_REQUEST['auth']['provider'];
         $newUserPost = $api->post("users/create/", $newUserParams);
 
         if ($newUserPost->info->http_code == 200) {
+          _log("Core::rigorix_logged_user", "User created successfully ({$newUserPost->decode_response()->id_utente})");
 
           $_SESSION['rigorix_logged_user'] = $newUserPost->decode_response()->id_utente;
           header('Location: /#/first-login');
@@ -85,13 +94,13 @@ class Core {
         }
 
       } else {
+        _log("Core::rigorix_logged_user", "Unknown error during login");
         $this->logged = "false";
-        echo '<strong style="color: red;">Unknown error on login.'."<br>\n";
       }
 
     }
 
-    _log ("CORE_CLASS", "check_user ended");
+    _log("Core::rigorix_logged_user", "[THE END]");
 
   }
 

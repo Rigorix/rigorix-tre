@@ -1,0 +1,1 @@
+RigorixAdmin = angular.module "RigorixAdmin", ["ngRoute", "ui.bootstrap"]

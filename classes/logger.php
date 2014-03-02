@@ -1,5 +1,5 @@
 <?php
-function _log ( $context, $log )
+function _log ( $context, $log = '' )
 {
 
   $logfile = $_SERVER['DOCUMENT_ROOT'] . "/log/" . date("Y_M_d") . "_log.txt";
