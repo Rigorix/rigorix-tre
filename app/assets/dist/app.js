@@ -41036,7 +41036,6 @@ Rigorix.controller("GamePlay", [
         parata: false
       }
     };
-    alert($scope.sfida.id_sfida);
     $scope.submitButtonLabel = $scope.sfida.id_sfida !== false ? "Rispondi" : "Lancia";
     $scope.id_utente_avversario = $scope.sfida.id_sfida !== false ? $scope.sfida.id_sfidante : $scope.sfida.id_avversario;
     $scope.randomPlaySet = function() {
@@ -41088,6 +41087,7 @@ Rigorix.controller("GamePlay", [
         matrix['tiro' + index] = value.tiro;
         matrix['parata' + index] = value.parata;
       }
+      console.log("Send to set sfida", $scope.sfida, JSON.stringify(matrix));
       return Api.call("post", "sfide/set", {
         sfida_matrix: JSON.stringify(matrix),
         sfida: $scope.sfida,

@@ -105,7 +105,7 @@ Flight::route('POST /sfide/set', function() {
   $sfidaUpdate->save();
 
   if ( $risposta !== false ) {
-    $finalizedSfida = finalizeSfida($id_sfida);
+    $finalizedSfida = finalizeSfida($sfidaUpdate);
     if ( $finalizedSfida === false )
       Flight::error();
     else

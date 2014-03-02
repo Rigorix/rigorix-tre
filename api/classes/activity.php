@@ -1,90 +1,83 @@
 <?php
 
 
-function finalizeSfida ($id_sfida)
+function finalizeSfida ($sfida)
 {
-  $sfida = Sfide::find($id_sfida)->first();
   $sfidante = $sfida->sfidante;
   $sfidato = $sfida->sfidato;
 
   $punti_sfidante = 0;
   $punti_sfidato = 0;
 
-  if ( $sfida->count() > 0 ):
+  // Aggiorno la data di chiusura
+  $sfida->update(array(
+    "dta_conclusa" => new \DateTime,
+  ));
 
-    // Aggiorno la data di chiusura
-    $sfida->update(array(
-      "dta_conclusa"    => new \DateTime,
-      "stato"           => 2
-    ));
+  // Trovo il risultato
+  $result = getSfidaResult ($sfida);
 
-    // Trovo il risultato
-    $result = getSfidaResult ($sfida);
+  // Trovo il vincitore
+  $resultArray = explode(",", $result);
+  if ((int)$resultArray[0] == (int)$resultArray[1]) {
+    $vincitore = 0;
+    $punti_sfidante += 1;
+    $punti_sfidato += 1;
+  } else if ((int)$resultArray[0] > (int)$resultArray[1]) {
+    $vincitore = $sfida->getAttribute('id_sfidante');
+    $punti_sfidante += 3;
+  } else {
+    $vincitore = $sfida->getAttribute('id_sfidato');
+    $punti_sfidato += 3;
+  }
 
-    // Trovo il vincitore
-    $resultArray = explode(",", $result);
-    if ((int)$resultArray[0] == (int)$resultArray[1]) {
-      $vincitore = 0;
-      $punti_sfidante += 1;
-      $punti_sfidato += 1;
-    } else if ((int)$resultArray[0] > (int)$resultArray[1]) {
-      $vincitore = $sfida->getAttribute('id_sfidante');
-      $punti_sfidante += 3;
-    } else {
-      $vincitore = $sfida->getAttribute('id_sfidato');
-      $punti_sfidato += 3;
-    }
-    $sfida->setAttribute("id_vincitore", $vincitore);
+  // Getting rewards
+  $rewards = Rewards::all();
 
-    // Getting rewards
-    $rewards = Rewards::all();
+  foreach($rewards as $reward) {
+    $apply_sfidante = false;
+    $apply_sfidato = false;
 
-    foreach($rewards as $reward) {
-      $apply_sfidante = false;
-      $apply_sfidato = false;
+    $rewardStrategyFile = __DIR__ . "/rewards/{$reward->getAttribute("key_id")}.php";
+    if (file_exists($rewardStrategyFile))
+      require_once $rewardStrategyFile;
 
-      $rewardStrategyFile = __DIR__ . "/rewards/{$reward->getAttribute("key_id")}.php";
-      if (file_exists($rewardStrategyFile))
-        require_once $rewardStrategyFile;
-
-      if ( $apply_sfidante === true ) {
-        if ($sfidante->rewards->find($reward->getAttribute("id_reward")) === null) {
-          RewardsSfide::create(array(
-            'id_reward'   => $reward->getAttribute("id_reward"),
-            'id_sfida'    => $sfida->getAttribute("id_sfida"),
-            'id_utente'   => $sfidante->getAttribute("id_utente")
-          ));
-          $punti_sfidante += $reward->getAttribute("score");
-        }
-      }
-      if ( $apply_sfidato === true ) {
-        if ($sfidato->rewards->find($reward->getAttribute("id_reward")) === null) {
-          RewardsSfide::create(array(
-            'id_reward'   => $reward->getAttribute("id_reward"),
-            'id_sfida'    => $sfida->getAttribute("id_sfida"),
-            'id_utente'   => $sfidato->getAttribute("id_utente")
-          ));
-          $punti_sfidato += $reward->getAttribute("score");
-        }
+    if ( $apply_sfidante === true ) {
+      if ($sfidante->rewards->find($reward->getAttribute("id_reward")) === null) {
+        RewardsSfide::create(array(
+          'id_reward'   => $reward->getAttribute("id_reward"),
+          'id_sfida'    => $sfida->getAttribute("id_sfida"),
+          'id_utente'   => $sfidante->getAttribute("id_utente")
+        ));
+        $punti_sfidante += $reward->getAttribute("score");
       }
     }
+    if ( $apply_sfidato === true ) {
+      if ($sfidato->rewards->find($reward->getAttribute("id_reward")) === null) {
+        RewardsSfide::create(array(
+          'id_reward'   => $reward->getAttribute("id_reward"),
+          'id_sfida'    => $sfida->getAttribute("id_sfida"),
+          'id_utente'   => $sfidato->getAttribute("id_utente")
+        ));
+        $punti_sfidato += $reward->getAttribute("score");
+      }
+    }
+  }
 
-    $sfidante->update(array(
-      "punteggio_totale" => $sfidante->getAttribute("punteggio_totale") + $punti_sfidante
-    ));
-    $sfidato->update(array(
-      "punteggio_totale" => $sfidato->getAttribute("punteggio_totale") + $punti_sfidato
-    ));
-    $sfida->update(array(
-      "punti_sfidante"  => $punti_sfidante,
-      "punti_sfidato"   => $punti_sfidato,
-      "dta_conclusa"    => new \DateTime,
-      "risultato"       => getSfidaResult ($sfida)
-    ));
-    return $sfida;
-  else:
-    return false;
-  endif;
+  $sfidante->update(array(
+    "punteggio_totale" => $sfidante->getAttribute("punteggio_totale") + $punti_sfidante
+  ));
+  $sfidato->update(array(
+    "punteggio_totale" => $sfidato->getAttribute("punteggio_totale") + $punti_sfidato
+  ));
+  $sfida->update(array(
+    "punti_sfidante"  => $punti_sfidante,
+    "punti_sfidato"   => $punti_sfidato,
+    "dta_conclusa"    => new \DateTime,
+    "risultato"       => getSfidaResult ($sfida),
+    "id_vincitore"    => $vincitore
+  ));
+  return $sfida;
 
 }
 
