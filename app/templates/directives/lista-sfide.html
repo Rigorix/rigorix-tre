@@ -27,8 +27,8 @@
         </td>
         <td>
             <div ng-show="sfida.dta_conclusa != false" class="result-screen" risultato="{{sfida.risultato}}">
-                <div class="team-screen home-team score{{risultato[0]}}" ng-class="{lose: sfida.id_vincitore == sfida.id_sfidato, win: sfida.id_vincitore == sfida.id_sfidante}"></div>
-                <div class="team-screen away-team score{{risultato[1]}}" ng-class="{win: sfida.id_vincitore == sfida.id_sfidato, lose: sfida.id_vincitore == sfida.id_sfidante}"></div>
+                <div class="team-screen home-team score{{risultato[0]}} win"></div>
+                <div class="team-screen away-team score{{risultato[1]}} win"></div>
             </div>
         </td>
         <td class="text-center">

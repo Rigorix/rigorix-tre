@@ -7,7 +7,7 @@
 
             <div ng-show="sectionPage == 'sfide_da_giocare'">
 
-                <span icon="square" class="color-green">Sfide vinte</span> <span icon="square" class="color-red mlm">Sfide perse</span>
+                <div ng-include="'/app/templates/area-personale/legenda-sfide.html'"></div>
 
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
@@ -24,7 +24,7 @@
 
             <div ng-show="sectionPage == 'in_attesa_di_risposta'">
                 <p>Qui trovi la lista di tutte le sfide che hai lanciato e non sono ancora state risposte.</p>
-                <span icon="square" class="color-green">Sfide vinte</span> <span icon="square" class="color-red mlm">Sfide perse</span>
+                <div ng-include="'/app/templates/area-personale/legenda-sfide.html'"></div>
 
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
@@ -39,8 +39,7 @@
             </div>
 
             <div ng-show="sectionPage == 'archivio'">
-
-                <span icon="square" class="color-green">Sfide vinte</span> <span icon="square" class="color-red mlm">Sfide perse</span>
+                <div ng-include="'/app/templates/area-personale/legenda-sfide.html'"></div>
 
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
