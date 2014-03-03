@@ -83,6 +83,8 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
         else
           $.notify "Sfida mandata con successo", "success"
 
+        $rootScope.$broadcast "user:refresh"
+
       error: ->
         $rootScope.$broadcast "hide:loading"
         $rootScope.$broadcast "modal:close"

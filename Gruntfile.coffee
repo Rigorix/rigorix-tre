@@ -35,7 +35,6 @@ module.exports = (grunt) ->
     coffee:
       compileBare:
         options:
-#          sourceMap: true
           bare: true
         files:
           "app/assets/temp/angular.app.config.js": ["app/config.coffee"]
@@ -46,6 +45,9 @@ module.exports = (grunt) ->
             "app/filters/*.coffee"
             "app/services/*.coffee"
           ]
+
+          "app/administr/dist/app.js": ["app/administr/app.coffee"]
+          "app/administr/dist/angular.js": ["app/administr/angular/**/*.coffee"]
 
     concat:
       options:
@@ -68,7 +70,6 @@ module.exports = (grunt) ->
         src: [
           "app/assets/css/*.css"
           "app/assets/temp/app.main.css"
-#          "app/assets/bower_components/angular-bootstrap-colorpicker/css/colorpicker.css"
           "css/*.css"
         ]
         dest: "app/assets/dist/app.css"
@@ -81,18 +82,60 @@ module.exports = (grunt) ->
         files:
           "app/assets/temp/app.main.css": "app/assets/less/common.less"
 
+    'ftp_upload': {
+      build: {
+        auth: {
+          host: 'ftp.rigorix.com',
+          port: 21,
+          authKey: 'tre_prod'
+        },
+        src: '/',
+        dest: 'tre/'
+        exclusions: [
+          'api/vendor/'
+          'api/flight/'
+          'api/.htaccess'
+          'api/database.php'
 
-  #    'ftp-deploy': {
-  #      build: {
-  #        auth: {
-  #          host: 'ftp.rigorix.com',
-  #          port: 21,
-  #          authKey: 'tre_prod'
-  #        },
-  #        src: 'app/assets/dist',
-  #        dest: 'tre/app/assets/dist'
-  #      }
-  #    },
+          'app/assets/bower_components/'
+          'app/assets/css/**/'
+          'app/assets/dist/dependencies/'
+          'app/assets/js/**/'
+          'app/assets/less/**/'
+          'app/controllers/**/'
+          'app/directives/**/'
+          'app/filters/**/'
+          'app/services/**/'
+          'app/app.coffee'
+          'app/config.coffee'
+          'app/server.coffee'
+
+          'i/profile_picture/**/'
+          'log/**/'
+          'node_modules/**/'
+          'Opauth/**/'
+          'swf/rigorixGame.fla'
+          'swf/rigorixGame_v3.fla'
+          '/to_be_deleted/**/'
+
+          '.bowerrc'
+          '.env'
+          '.idea'
+          '.git'
+          '.ftpass'
+          '.gitftppass'
+          '.gitignore'
+          '.project'
+          'bower.json'
+          'Gruntfile.coffee'
+          'package.json'
+          'Procfile'
+          'README.md'
+          'rigorix.ssh'
+          'rigorix.ssh.pub'
+        ]
+      }
+    }
 
     uglify: {
       dev: {
@@ -105,22 +148,6 @@ module.exports = (grunt) ->
       }
     }
 
-    git_ftp:
-      development:
-        options:
-          hostFile: ".gitftppass"
-          host: "staging"
-
-#    githooks:
-#        all:
-#          options:
-#            hashbang: '#!/bin/sh'
-#            template: './node_modules/grunt-githooks/templates/shell.hb'
-#            startMarker: '## LET THE FUN BEGIN'
-#            endMarker: '## PARTY IS OVER'
-#
-#          'post-commit': 'git_ftp:development'
-
     bowerInstall:
       install: {}
 
@@ -129,19 +156,19 @@ module.exports = (grunt) ->
         dest: "app/assets/dist/dependencies"
 
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  #  grunt.loadNpmTasks('grunt-ftp-deploy');
-#  grunt.loadNpmTasks "grunt-git-ftp"
+  grunt.loadNpmTasks "grunt-contrib-uglify"
+  grunt.loadNpmTasks "grunt-ftp-upload"
   grunt.loadNpmTasks "grunt-contrib-concat"
-#  grunt.loadNpmTasks "grunt-githooks"
   grunt.loadNpmTasks "grunt-concurrent"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-less"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   grunt.loadNpmTasks "grunt-contrib-clean"
   grunt.loadNpmTasks "grunt-bower-task"
-  grunt.renameTask "bower", "bowerInstall"
+  grunt.renameTask   "bower", "bowerInstall"
   grunt.loadNpmTasks "grunt-bower"
+
+  grunt.loadNpmTasks "grunt-contrib-jasmine";
 
 
   # DEVELOPMENT tasks --------------------------------------------------------------------------------------------------
@@ -149,7 +176,7 @@ module.exports = (grunt) ->
   grunt.registerTask "dev:script", [
     "coffee:compileBare"
     "concat:script"
-#    "uglify:dev"
+    "uglify:dev"
     "clean:temp"
   ]
   grunt.registerTask "dev:less", [
@@ -162,9 +189,9 @@ module.exports = (grunt) ->
     "bower"
   ]
   grunt.registerTask "dev:build", [
-    "clean:dependencies"
-    "bowerInstall"
-    "bower"
+#    "clean:dependencies"
+#    "bowerInstall"
+#    "bower"
     "coffee:compileBare"
     "concat:script"
     "less:development"
@@ -175,5 +202,6 @@ module.exports = (grunt) ->
   # PRODUCTION tasks ---------------------------------------------------------------------------------------------------
 
 
-  grunt.registerTask "deploy:staging", ["dev:build", "git_ftp:development"]
+#  grunt.registerTask "deploy:staging", ["dev:build", "git_ftp:development"]
+  grunt.registerTask "deploy:staging", ["dev:build", "ftp_upload"]
   grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);

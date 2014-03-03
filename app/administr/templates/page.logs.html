@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-12">
+
+            <div class="page-header">
+                <h1>Logs <small>Subtext for header</small></h1>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-2">
+            <ul>
+                <li ng-repeat="file in logs">
+                    <a href="#/logs/{{file | logFileToPath}}" class="text-muted" ng-class="{'text-primary': isActiveLogFile(file)}">{{file}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col col-md-10">
+            <p icon="asterisk" ng-show="logfile == false">Clicca il nome del log a sinistra per leggere il contenuto</p>
+            <pre ng-show="logfile != false">{{logContent}}</pre>
+        </div>
+    </div>
+</div>

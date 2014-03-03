@@ -35,7 +35,9 @@ module.exports = function(grunt) {
         files: {
           "app/assets/temp/angular.app.config.js": ["app/config.coffee"],
           "app/assets/temp/angular.app.main.js": ["app/app.coffee"],
-          "app/assets/temp/angular.app.js": ["app/controllers/*.coffee", "app/directives/*.coffee", "app/filters/*.coffee", "app/services/*.coffee"]
+          "app/assets/temp/angular.app.js": ["app/controllers/*.coffee", "app/directives/*.coffee", "app/filters/*.coffee", "app/services/*.coffee"],
+          "app/administr/dist/app.js": ["app/administr/app.coffee"],
+          "app/administr/dist/angular.js": ["app/administr/angular/**/*.coffee"]
         }
       }
     },
@@ -63,19 +65,23 @@ module.exports = function(grunt) {
         }
       }
     },
+    'ftp_upload': {
+      build: {
+        auth: {
+          host: 'ftp.rigorix.com',
+          port: 21,
+          authKey: 'tre_prod'
+        },
+        src: '/',
+        dest: 'tre/',
+        exclusions: ['api/vendor/', 'api/flight/', 'api/.htaccess', 'api/database.php', 'app/assets/bower_components/', 'app/assets/css/**/', 'app/assets/dist/dependencies/', 'app/assets/js/**/', 'app/assets/less/**/', 'app/controllers/**/', 'app/directives/**/', 'app/filters/**/', 'app/services/**/', 'app/app.coffee', 'app/config.coffee', 'app/server.coffee', 'i/profile_picture/**/', 'log/**/', 'node_modules/**/', 'Opauth/**/', 'swf/rigorixGame.fla', 'swf/rigorixGame_v3.fla', '/to_be_deleted/**/', '.bowerrc', '.env', '.idea', '.git', '.ftpass', '.gitftppass', '.gitignore', '.project', 'bower.json', 'Gruntfile.coffee', 'package.json', 'Procfile', 'README.md', 'rigorix.ssh', 'rigorix.ssh.pub']
+      }
+    },
     uglify: {
       dev: {
         options: {},
         files: {
           'app/assets/dist/app.min.js': ['app/assets/dist/app.js']
-        }
-      }
-    },
-    git_ftp: {
-      development: {
-        options: {
-          hostFile: ".gitftppass",
-          host: "staging"
         }
       }
     },
@@ -88,7 +94,8 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks("grunt-ftp-upload");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks("grunt-contrib-watch");
@@ -98,11 +105,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-bower-task");
   grunt.renameTask("bower", "bowerInstall");
   grunt.loadNpmTasks("grunt-bower");
+  grunt.loadNpmTasks("grunt-contrib-jasmine");
   grunt.registerTask("dev", ["concurrent:dev"]);
-  grunt.registerTask("dev:script", ["coffee:compileBare", "concat:script", "clean:temp"]);
+  grunt.registerTask("dev:script", ["coffee:compileBare", "concat:script", "uglify:dev", "clean:temp"]);
   grunt.registerTask("dev:less", ["less:development", "concat:css", "clean:temp"]);
   grunt.registerTask("dev:dependencies", ["bowerInstall", "bower"]);
-  grunt.registerTask("dev:build", ["clean:dependencies", "bowerInstall", "bower", "coffee:compileBare", "concat:script", "less:development", "concat:css", "clean:temp"]);
-  grunt.registerTask("deploy:staging", ["dev:build", "git_ftp:development"]);
+  grunt.registerTask("dev:build", ["coffee:compileBare", "concat:script", "less:development", "concat:css", "clean:temp"]);
+  grunt.registerTask("deploy:staging", ["dev:build", "ftp_upload"]);
   return grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
 };

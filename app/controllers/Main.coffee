@@ -20,6 +20,9 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserServiceNew', 
   $scope.$on "app:loaded", ->
     $scope.appLoaded = true
 
+  $scope.$on "user:refresh", ->
+    do $scope.updateUserObject if $scope.userLogged isnt false
+
   $scope.$on "modal:open", (event, obj)->
     $scope.modalClass = obj.modalClass
 

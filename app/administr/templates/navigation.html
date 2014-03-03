@@ -1,31 +1,25 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default mbn" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">Rigorix Admin</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
+                <li ng-class="{active: activeItem == ''}"><a href="#" icon="home">Home</a></li>
+                <li ng-class="{active: activeItem == '/logs'}"><a href="#/logs" icon="barcode">Logs</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" icon="tasks">Categorie <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li ng-class="{active: activeItem == '/users'}"><a href="#/users" icon="user">Utenti</a></li>
+                        <li ng-class="{active: activeItem == '/messages'}"><a href="#/messages" icon="comment">Messaggi</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li ng-class="{active: activeItem == '/sfide'}"><a href="#/sfide" icon="tower">Sfide</a></li>
+                        <li ng-class="{active: activeItem == '/rewards'}"><a href="#/rewards" icon="certificate">Rewards / Badges</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li ng-class="{active: activeItem == '/unsubscriptions'}"><a href="#/unsubscriptions" icon="floppy-remove">Disiscrizioni</a></li>
                     </ul>
                 </li>
             </ul>

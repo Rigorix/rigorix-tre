@@ -30,6 +30,8 @@ require_once 'routes/routes.users.php';
 require_once 'routes/routes.messages.php';
 require_once 'routes/routes.sfide.php';
 
+require_once 'routes/routes.admin.php';
+
 
 
 Flight::route('GET /badges', function($count) {

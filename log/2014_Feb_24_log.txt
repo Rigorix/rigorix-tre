@@ -5,3 +5,150 @@
 24-02-2014 10:53:20 CORE CLASS> starts
 24-02-2014 10:53:20 Core check user> Ho utente loggato (id: 3)
 24-02-2014 10:53:20 CORE_CLASS> check_user ended
+24-02-2014 13:36:35 CORE CLASS> starts
+24-02-2014 13:36:35 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:36:35 CORE_CLASS> check_user ended
+24-02-2014 13:36:47 CORE CLASS> starts
+24-02-2014 13:36:47 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:36:47 CORE_CLASS> check_user ended
+24-02-2014 13:39:29 CORE CLASS> starts
+24-02-2014 13:39:29 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:39:29 CORE_CLASS> check_user ended
+24-02-2014 13:39:32 CORE CLASS> starts
+24-02-2014 13:39:32 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:39:32 CORE_CLASS> check_user ended
+24-02-2014 13:42:06 CORE CLASS> starts
+24-02-2014 13:42:06 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:42:06 CORE_CLASS> check_user ended
+24-02-2014 13:42:30 CORE CLASS> starts
+24-02-2014 13:42:30 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:42:30 CORE_CLASS> check_user ended
+24-02-2014 13:43:25 CORE CLASS> starts
+24-02-2014 13:43:25 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:43:25 CORE_CLASS> check_user ended
+24-02-2014 13:43:26 CORE CLASS> starts
+24-02-2014 13:43:26 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:43:26 CORE_CLASS> check_user ended
+24-02-2014 13:46:59 CORE CLASS> starts
+24-02-2014 13:46:59 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:46:59 CORE_CLASS> check_user ended
+24-02-2014 13:47:17 CORE CLASS> starts
+24-02-2014 13:47:17 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:47:17 CORE_CLASS> check_user ended
+24-02-2014 13:47:24 CORE CLASS> starts
+24-02-2014 13:47:24 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:47:24 CORE_CLASS> check_user ended
+24-02-2014 13:47:36 CORE CLASS> starts
+24-02-2014 13:47:36 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:47:36 CORE_CLASS> check_user ended
+24-02-2014 13:47:37 CORE CLASS> starts
+24-02-2014 13:47:37 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:47:38 CORE_CLASS> check_user ended
+24-02-2014 13:47:51 CORE CLASS> starts
+24-02-2014 13:47:51 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:47:51 CORE_CLASS> check_user ended
+24-02-2014 13:48:02 CORE CLASS> starts
+24-02-2014 13:48:02 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:48:02 CORE_CLASS> check_user ended
+24-02-2014 13:48:31 CORE CLASS> starts
+24-02-2014 13:48:31 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:48:31 CORE_CLASS> check_user ended
+24-02-2014 13:48:33 CORE CLASS> starts
+24-02-2014 13:48:33 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:48:33 CORE_CLASS> check_user ended
+24-02-2014 13:51:08 CORE CLASS> starts
+24-02-2014 13:51:08 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:51:09 CORE_CLASS> check_user ended
+24-02-2014 13:52:44 CORE CLASS> starts
+24-02-2014 13:52:44 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:52:44 CORE_CLASS> check_user ended
+24-02-2014 13:52:45 CORE CLASS> starts
+24-02-2014 13:52:45 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:52:45 CORE_CLASS> check_user ended
+24-02-2014 13:52:46 CORE CLASS> starts
+24-02-2014 13:52:46 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:52:46 CORE_CLASS> check_user ended
+24-02-2014 13:54:03 CORE CLASS> starts
+24-02-2014 13:54:03 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:54:03 CORE_CLASS> check_user ended
+24-02-2014 13:54:47 CORE CLASS> starts
+24-02-2014 13:54:47 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:54:47 CORE_CLASS> check_user ended
+24-02-2014 13:55:46 CORE CLASS> starts
+24-02-2014 13:55:46 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:55:46 CORE_CLASS> check_user ended
+24-02-2014 13:56:26 CORE CLASS> starts
+24-02-2014 13:56:26 Core check user> Ho utente loggato (id: 3)
+24-02-2014 13:56:26 CORE_CLASS> check_user ended
+24-02-2014 14:04:11 CORE CLASS> starts
+24-02-2014 14:04:11 Core check user> Ho utente loggato (id: 3)
+24-02-2014 14:04:11 CORE_CLASS> check_user ended
+24-02-2014 14:04:32 CORE CLASS> starts
+24-02-2014 14:04:32 Core check user> Ho utente loggato (id: 3)
+24-02-2014 14:04:32 CORE_CLASS> check_user ended
+24-02-2014 14:07:08 CORE CLASS> starts
+24-02-2014 14:07:08 Core check user> Ho utente loggato (id: 3)
+24-02-2014 14:07:08 CORE_CLASS> check_user ended
+24-02-2014 14:07:38 CORE CLASS> starts
+24-02-2014 14:07:38 Core check user> Ho utente loggato (id: 3)
+24-02-2014 14:07:38 CORE_CLASS> check_user ended
+24-02-2014 14:20:19 CORE CLASS> starts
+24-02-2014 14:20:19 Core check user> Ho utente loggato (id: 3)
+24-02-2014 14:20:19 CORE_CLASS> check_user ended
+24-02-2014 14:20:24 CORE CLASS> starts
+24-02-2014 14:20:24 Core check user> Ho utente loggato (id: 3)
+24-02-2014 14:20:24 CORE_CLASS> check_user ended
+24-02-2014 15:04:37 CORE CLASS> starts
+24-02-2014 15:04:37 Core check user> Ho utente loggato (id: 3)
+24-02-2014 15:04:37 CORE_CLASS> check_user ended
+24-02-2014 15:04:53 CORE CLASS> starts
+24-02-2014 15:04:53 Core check user> Ho utente loggato (id: 3)
+24-02-2014 15:04:53 CORE_CLASS> check_user ended
+24-02-2014 17:48:53 CORE CLASS> starts
+24-02-2014 17:48:53 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:48:53 CORE_CLASS> check_user ended
+24-02-2014 17:49:05 CORE CLASS> starts
+24-02-2014 17:49:05 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:49:05 CORE_CLASS> check_user ended
+24-02-2014 17:49:53 CORE CLASS> starts
+24-02-2014 17:49:53 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:49:53 CORE_CLASS> check_user ended
+24-02-2014 17:51:45 CORE CLASS> starts
+24-02-2014 17:51:45 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:51:45 CORE_CLASS> check_user ended
+24-02-2014 17:52:30 CORE CLASS> starts
+24-02-2014 17:52:30 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:52:30 CORE_CLASS> check_user ended
+24-02-2014 17:53:15 CORE CLASS> starts
+24-02-2014 17:53:15 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:53:15 CORE_CLASS> check_user ended
+24-02-2014 17:53:49 CORE CLASS> starts
+24-02-2014 17:53:49 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:53:49 CORE_CLASS> check_user ended
+24-02-2014 17:55:17 CORE CLASS> starts
+24-02-2014 17:55:17 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:55:17 CORE_CLASS> check_user ended
+24-02-2014 17:55:55 CORE CLASS> starts
+24-02-2014 17:55:55 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:55:55 CORE_CLASS> check_user ended
+24-02-2014 17:55:57 CORE CLASS> starts
+24-02-2014 17:55:57 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:55:57 CORE_CLASS> check_user ended
+24-02-2014 17:55:58 CORE CLASS> starts
+24-02-2014 17:55:58 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:55:58 CORE_CLASS> check_user ended
+24-02-2014 17:56:42 CORE CLASS> starts
+24-02-2014 17:56:42 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:56:42 CORE_CLASS> check_user ended
+24-02-2014 17:56:50 CORE CLASS> starts
+24-02-2014 17:56:50 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:56:50 CORE_CLASS> check_user ended
+24-02-2014 17:57:00 CORE CLASS> starts
+24-02-2014 17:57:00 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:57:00 CORE_CLASS> check_user ended
+24-02-2014 17:57:41 CORE CLASS> starts
+24-02-2014 17:57:41 Core check user> Ho utente loggato (id: 3)
+24-02-2014 17:57:41 CORE_CLASS> check_user ended
+24-02-2014 18:41:42 CORE CLASS> starts
+24-02-2014 18:41:42 Core check user> Ho utente loggato (id: 3)
+24-02-2014 18:41:42 CORE_CLASS> check_user ended

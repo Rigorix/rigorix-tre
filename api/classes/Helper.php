@@ -29,8 +29,11 @@ function getUserObjectExtended($id_utente) {
 
 function createUserPicture ( $picture, $username, $id )
 {
-  $pictureName = explode("/", $picture)[count(explode("/", $picture))-1];
-  $pictureName = explode("?", $pictureName)[0];
+  $pictureName = explode("/", $picture);
+  $pictureName = $pictureName[count(explode("/", $picture))-1];
+  $pictureName = explode("?", $pictureName);
+  $pictureName = $pictureName[0];
+
   if (file_put_contents("{$_SERVER['DOCUMENT_ROOT']}/i/profile_picture/{$username}_{$id}_{$pictureName}", file_get_contents($picture)) )
     return "/i/profile_picture/{$username}_{$id}_{$pictureName}";
   else

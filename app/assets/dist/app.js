@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-03-02 *//*!
+/*! Rigorix - v0.1.0 - 2014-03-03 *//*!
  * jQuery JavaScript Library v2.1.0
  * http://jquery.com/
  *
@@ -41096,7 +41096,7 @@ Rigorix.controller("GamePlay", [
           $rootScope.$broadcast("modal:close");
           $scope.cancel();
           if (json.data.stato === 2) {
-            return $modal.open({
+            $modal.open({
               templateUrl: '/app/templates/modals/show-end-match.html',
               controller: 'Modals.ShowEndMatch',
               resolve: {
@@ -41109,8 +41109,9 @@ Rigorix.controller("GamePlay", [
               }
             });
           } else {
-            return $.notify("Sfida mandata con successo", "success");
+            $.notify("Sfida mandata con successo", "success");
           }
+          return $rootScope.$broadcast("user:refresh");
         },
         error: function() {
           $rootScope.$broadcast("hide:loading");
@@ -41281,6 +41282,11 @@ Rigorix.controller("Main", [
     });
     $scope.$on("app:loaded", function() {
       return $scope.appLoaded = true;
+    });
+    $scope.$on("user:refresh", function() {
+      if ($scope.userLogged !== false) {
+        return $scope.updateUserObject();
+      }
     });
     $scope.$on("modal:open", function(event, obj) {
       return $scope.modalClass = obj.modalClass;
