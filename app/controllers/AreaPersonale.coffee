@@ -1,4 +1,4 @@
-Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', '$rootScope', 'Api', ($scope, $routeParams, $location, $rootScope, Api) ->
+Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', '$rootScope', ($scope, $routeParams, $location, $rootScope) ->
 
   $scope.sections = [
     name: 'utente'
@@ -16,17 +16,14 @@ Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', '$ro
   $scope.section = $routeParams.section
   $scope.sectionPage = $routeParams.sectionPage
 
-  $scope.onClickAreaPersonaleSection = (sec)->
-    $rootScope.$broadcast "areapersonale:change:section", sec
+  $scope.$watch "section", ->
+    $scope.loading = true
 
   if !$scope.section?
     $location.path "/area-personale/utente"
 
   $scope.isCurrentPage = (page)->
-    if $routeParams.sectionPage?
-      $routeParams.sectionPage is page
-    else
-      false
+    if $routeParams.sectionPage? then $routeParams.sectionPage is page else false
 ]
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -56,26 +53,24 @@ Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $
 
   $scope.pages = [ 'sfide_da_giocare', 'in_attesa_di_risposta', 'archivio' ]
   $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare
+  $scope.status = "loading"
   $scope.sfideInAttesaDiRisposta = []
+  $scope.sfideArchivio = []
 
   $scope.$on "user:update", (event, userObject)->
     $scope.sfideDaGiocare = userObject.sfide_da_giocare
 
-  $scope.$on "areapersonale:change:section", (event, section)->
-    if section == 'archivio'
-      alert "here"
-      Api.call "get", "/sfide/archivio/" + $scope.currentUser.id_utente,
-        success: (lista)->
-          $scope.sfideArchivio = lista
-          console.log "LISTA sfideArchivio", lista
+  if $scope.sectionPage is "in_attesa_di_risposta"
+    Api.call "get", "sfide/pending/" + $scope.currentUser.id_utente,
+      success: (json)->
+        $scope.sfideInAttesaDiRisposta = json.data
+        $scope.status = "done"
 
-  Api.call "get", "sfide/pending/" + $scope.currentUser.id_utente,
-    success: (json)->
-      $scope.sfideInAttesaDiRisposta = json.data
-
-  Api.call "get", "/sfide/archivio/" + $scope.currentUser.id_utente,
-    success: (json)->
-      $scope.sfideArchivio = json.data
+  if $scope.sectionPage is "archivio"
+    Api.call "get", "/sfide/archivio/" + $scope.currentUser.id_utente,
+      success: (json)->
+        $scope.sfideArchivio = json.data
+        $scope.status = "done"
 
   $scope.reload = ->
     do $route.reload

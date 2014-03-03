@@ -106,6 +106,19 @@ Rigorix.directive "setLoader", ['RigorixUI', '$timeout', '$rootScope', (RigorixU
 ]
 
 
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+Rigorix.directive "loading", ->
+  restrict: 'E'
+  templateUrl: '/app/templates/partials/inline-loading.html'
+  controller: 'Directive.InlineLoader'
+  scope:
+    text: "="
+    icon: "@customIcon"
+
+
+
 ##-----------------------------------------------------------------------------------------------------------------------
 #
 #

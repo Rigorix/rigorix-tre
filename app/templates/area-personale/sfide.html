@@ -34,7 +34,8 @@
                     </div>
 
                     <!-- Table -->
-                    <lista-sfide sfide="sfideInAttesaDiRisposta"></lista-sfide>
+                    <lista-sfide sfide="sfideInAttesaDiRisposta" ng-show="status != 'loading'"></lista-sfide>
+                    <loading ng-show="status == 'loading'" text="'Caricamento sfide in corso'" custom-icon="coffee"></loading>
                 </div>
             </div>
 
@@ -49,7 +50,8 @@
                     </div>
 
                     <!-- Table -->
-                    <lista-sfide sfide="sfideArchivio"></lista-sfide>
+                    <lista-sfide sfide="sfideArchivio" ng-show="status != 'loading'"></lista-sfide>
+                    <loading ng-show="status == 'loading'" text="'Caricamento sfide in corso'" custom-icon="coffee"></loading>
                 </div>
             </div>
 

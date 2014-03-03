@@ -40829,7 +40829,7 @@ Rigorix.controller("AccessDenied.Modal", [
 ]);
 
 Rigorix.controller("AreaPersonale", [
-  '$scope', '$routeParams', '$location', '$rootScope', 'Api', function($scope, $routeParams, $location, $rootScope, Api) {
+  '$scope', '$routeParams', '$location', '$rootScope', function($scope, $routeParams, $location, $rootScope) {
     $scope.sections = [
       {
         name: 'utente',
@@ -40847,9 +40847,9 @@ Rigorix.controller("AreaPersonale", [
     ];
     $scope.section = $routeParams.section;
     $scope.sectionPage = $routeParams.sectionPage;
-    $scope.onClickAreaPersonaleSection = function(sec) {
-      return $rootScope.$broadcast("areapersonale:change:section", sec);
-    };
+    $scope.$watch("section", function() {
+      return $scope.loading = true;
+    });
     if ($scope.section == null) {
       $location.path("/area-personale/utente");
     }
@@ -40892,31 +40892,28 @@ Rigorix.controller("AreaPersonale.Sfide", [
   '$scope', '$route', 'Api', function($scope, $route, Api) {
     $scope.pages = ['sfide_da_giocare', 'in_attesa_di_risposta', 'archivio'];
     $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare;
+    $scope.status = "loading";
     $scope.sfideInAttesaDiRisposta = [];
+    $scope.sfideArchivio = [];
     $scope.$on("user:update", function(event, userObject) {
       return $scope.sfideDaGiocare = userObject.sfide_da_giocare;
     });
-    $scope.$on("areapersonale:change:section", function(event, section) {
-      if (section === 'archivio') {
-        alert("here");
-        return Api.call("get", "/sfide/archivio/" + $scope.currentUser.id_utente, {
-          success: function(lista) {
-            $scope.sfideArchivio = lista;
-            return console.log("LISTA sfideArchivio", lista);
-          }
-        });
-      }
-    });
-    Api.call("get", "sfide/pending/" + $scope.currentUser.id_utente, {
-      success: function(json) {
-        return $scope.sfideInAttesaDiRisposta = json.data;
-      }
-    });
-    Api.call("get", "/sfide/archivio/" + $scope.currentUser.id_utente, {
-      success: function(json) {
-        return $scope.sfideArchivio = json.data;
-      }
-    });
+    if ($scope.sectionPage === "in_attesa_di_risposta") {
+      Api.call("get", "sfide/pending/" + $scope.currentUser.id_utente, {
+        success: function(json) {
+          $scope.sfideInAttesaDiRisposta = json.data;
+          return $scope.status = "done";
+        }
+      });
+    }
+    if ($scope.sectionPage === "archivio") {
+      Api.call("get", "/sfide/archivio/" + $scope.currentUser.id_utente, {
+        success: function(json) {
+          $scope.sfideArchivio = json.data;
+          return $scope.status = "done";
+        }
+      });
+    }
     return $scope.reload = function() {
       return $route.reload();
     };
@@ -40954,6 +40951,18 @@ Rigorix.controller("AreaPersonale.Impostazioni", [
         }
       });
     };
+  }
+]);
+
+Rigorix.controller("Directive.InlineLoader", [
+  '$scope', function($scope) {
+    console.log("$scope.text", $scope.text);
+    if ($scope.icon == null) {
+      $scope.icon = "gear";
+    }
+    if ($scope.text == null) {
+      return $scope.text = "Caricamento in corso...";
+    }
   }
 ]);
 
@@ -41214,7 +41223,7 @@ Rigorix.controller("ListaSfide.Sfida", [
       $scope.risultatoLabel = 'ongoing';
     }
     $scope.hasActiveButton = true;
-    switch ($scope.sfida.stato) {
+    switch (parseInt($scope.sfida.stato, 10)) {
       case 0:
         $scope.statoButton = 'lancia_sfida';
         $scope.statoButtonIcon = 'play';
@@ -42314,6 +42323,18 @@ Rigorix.directive("setLoader", [
     };
   }
 ]);
+
+Rigorix.directive("loading", function() {
+  return {
+    restrict: 'E',
+    templateUrl: '/app/templates/partials/inline-loading.html',
+    controller: 'Directive.InlineLoader',
+    scope: {
+      text: "=",
+      icon: "@customIcon"
+    }
+  };
+});
 
 Rigorix.filter("capitalize", function() {
   return function(input, scope) {

@@ -23,7 +23,7 @@ Rigorix.controller "ListaSfide.Sfida", ['$scope', '$modal', '$rootScope', ($scop
 
   $scope.hasActiveButton = true
 
-  switch $scope.sfida.stato
+  switch parseInt($scope.sfida.stato, 10)
     when 0
       $scope.statoButton = 'lancia_sfida'
       $scope.statoButtonIcon = 'play'
