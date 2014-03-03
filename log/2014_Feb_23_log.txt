@@ -1,0 +1,58 @@
+
+23-02-2014 01:22:39 CORE CLASS> starts
+23-02-2014 01:22:39 CORE_CLASS> check_user ended
+23-02-2014 01:22:40 CORE CLASS> starts
+23-02-2014 01:22:40 CORE_CLASS> check_user ended
+23-02-2014 01:26:38 CORE CLASS> starts
+23-02-2014 01:26:38 CORE_CLASS> check_user ended
+23-02-2014 01:29:51 CORE CLASS> starts
+23-02-2014 01:29:51 CORE_CLASS> check_user ended
+23-02-2014 01:36:29 CORE CLASS> starts
+23-02-2014 01:36:29 CORE_CLASS> check_user ended
+23-02-2014 01:42:25 CORE CLASS> starts
+23-02-2014 01:42:25 CORE_CLASS> check_user ended
+23-02-2014 01:45:12 CORE CLASS> starts
+23-02-2014 01:45:12 CORE_CLASS> check_user ended
+23-02-2014 01:46:55 CORE CLASS> starts
+23-02-2014 01:46:55 CORE_CLASS> check_user ended
+23-02-2014 01:49:14 CORE CLASS> starts
+23-02-2014 01:49:14 CORE_CLASS> check_user ended
+23-02-2014 01:52:43 CORE CLASS> starts
+23-02-2014 01:52:43 CORE_CLASS> check_user ended
+23-02-2014 01:52:47 CORE CLASS> starts
+23-02-2014 01:52:47 CORE_CLASS> check_user ended
+23-02-2014 02:05:42 CORE CLASS> starts
+23-02-2014 02:05:42 CORE_CLASS> check_user ended
+23-02-2014 02:10:10 CORE CLASS> starts
+23-02-2014 02:10:10 CORE_CLASS> check_user ended
+23-02-2014 02:10:35 CORE CLASS> starts
+23-02-2014 02:10:35 CORE_CLASS> check_user ended
+23-02-2014 02:20:21 CORE CLASS> starts
+23-02-2014 02:20:21 CORE_CLASS> check_user ended
+23-02-2014 02:20:45 CORE CLASS> starts
+23-02-2014 02:20:45 CORE_CLASS> check_user ended
+23-02-2014 02:23:31 CORE CLASS> starts
+23-02-2014 02:23:31 CORE_CLASS> check_user ended
+23-02-2014 02:24:22 CORE CLASS> starts
+23-02-2014 02:24:22 CORE_CLASS> check_user ended
+23-02-2014 02:26:12 CORE CLASS> starts
+23-02-2014 02:26:12 CORE_CLASS> check_user ended
+23-02-2014 02:26:37 CORE CLASS> starts
+23-02-2014 02:26:37 CORE_CLASS> check_user ended
+23-02-2014 02:37:09 CORE CLASS> starts
+23-02-2014 02:37:10 Opauth callback> User found, get id: 4
+23-02-2014 02:37:10 CORE_CLASS> check_user ended
+23-02-2014 02:37:10 CORE CLASS> starts
+23-02-2014 02:37:10 Core check user> Ho utente loggato (id: 4)
+23-02-2014 02:37:10 CORE_CLASS> check_user ended
+23-02-2014 02:37:13 CORE CLASS> starts
+23-02-2014 02:37:13 Core check user> Ho utente loggato (id: 4)
+23-02-2014 02:37:13 CORE_CLASS> check_user ended
+23-02-2014 02:37:13 CORE CLASS> starts
+23-02-2014 02:37:13 CORE_CLASS> check_user ended
+23-02-2014 02:37:19 CORE CLASS> starts
+23-02-2014 02:37:19 Opauth callback> User found, get id: 3
+23-02-2014 02:37:19 CORE_CLASS> check_user ended
+23-02-2014 02:37:19 CORE CLASS> starts
+23-02-2014 02:37:19 Core check user> Ho utente loggato (id: 3)
+23-02-2014 02:37:19 CORE_CLASS> check_user ended

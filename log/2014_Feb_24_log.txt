@@ -1,0 +1,7 @@
+
+24-02-2014 10:53:17 CORE CLASS> starts
+24-02-2014 10:53:17 Core check user> Ho utente loggato (id: 3)
+24-02-2014 10:53:17 CORE_CLASS> check_user ended
+24-02-2014 10:53:20 CORE CLASS> starts
+24-02-2014 10:53:20 Core check user> Ho utente loggato (id: 3)
+24-02-2014 10:53:20 CORE_CLASS> check_user ended
