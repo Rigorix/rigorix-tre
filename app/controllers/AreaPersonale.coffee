@@ -56,6 +56,7 @@ Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $
   $scope.status = "loading"
   $scope.sfideInAttesaDiRisposta = []
   $scope.sfideArchivio = []
+  console.log "Sfide"
 
   $scope.$on "user:update", (event, userObject)->
     $scope.sfideDaGiocare = userObject.sfide_da_giocare
