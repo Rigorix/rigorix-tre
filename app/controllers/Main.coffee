@@ -74,13 +74,19 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserServiceNew', 
         sfida: ->
           sfida
 
-  $scope.testEndSfida = (event)->
-    $rootScope.$broadcast "show:sfida:end",
-      id_sfida: 1
-      id_vincitore: 4
-      id_sfidante: 3
-      id_sfidato: 4
-      risultato: '3,5'
+  $scope.$on "message:read", (event, message)->
+    Api.call "post", "messages/" + message.id_mess,
+      letto: 1
+
+    do $scope.updateUserObject
+
+#  $scope.testEndSfida = (event)->
+#    $rootScope.$broadcast "show:sfida:end",
+#      id_sfida: 1
+#      id_vincitore: 4
+#      id_sfidante: 3
+#      id_sfidato: 4
+#      risultato: '3,5'
 
 
 #-----------------------------------------------------------------------------------------------------------------------

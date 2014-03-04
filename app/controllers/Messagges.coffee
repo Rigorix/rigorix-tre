@@ -6,10 +6,6 @@ Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource'
   $scope.$on "message:deleted", ()->
     do $scope.updateMessages
 
-  $scope.$on "message:read", (event, message)->
-    Api.call "post", "messages/" + message.id_mess,
-      letto: 1
-
   $scope.updateMessages = ->
     Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages",
       count: RigorixConfig.messagesPerPage
@@ -22,7 +18,7 @@ Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource'
       controller:    'Message.Modal.New',
 
   $scope.openMessage = (message)->
-    $rootScope.$broadcast "message:read", message if message.letto is 0
+    $rootScope.$broadcast "message:read", message #if message.letto is 0
 
     $modal.open
       templateUrl:  '/app/templates/modals/message.html',

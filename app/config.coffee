@@ -7,7 +7,7 @@ RigorixConfig =
 RigorixStorage =
   users: {}
 
-if console?
+if !console?
   console =
     log: ->
       false

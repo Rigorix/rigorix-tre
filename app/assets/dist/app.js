@@ -41497,7 +41497,7 @@ RigorixStorage = {
   users: {}
 };
 
-if (typeof console !== "undefined" && console !== null) {
+if (typeof console === "undefined" || console === null) {
   console = {
     log: function() {
       return false;
@@ -42093,15 +42093,12 @@ Rigorix.controller("Main", [
         }
       });
     });
-    $scope.testEndSfida = function(event) {
-      return $rootScope.$broadcast("show:sfida:end", {
-        id_sfida: 1,
-        id_vincitore: 4,
-        id_sfidante: 3,
-        id_sfidato: 4,
-        risultato: '3,5'
+    $scope.$on("message:read", function(event, message) {
+      Api.call("post", "messages/" + message.id_mess, {
+        letto: 1
       });
-    };
+      return $scope.updateUserObject();
+    });
     $scope.doUserLogout = function() {
       return $rootScope.$broadcast('user:logout');
     };
@@ -42547,11 +42544,6 @@ Rigorix.controller('Messages', [
     $scope.$on("message:deleted", function() {
       return $scope.updateMessages();
     });
-    $scope.$on("message:read", function(event, message) {
-      return Api.call("post", "messages/" + message.id_mess, {
-        letto: 1
-      });
-    });
     $scope.updateMessages = function() {
       return Api.call("get", "users/" + $scope.currentUser.id_utente + "/messages", {
         count: RigorixConfig.messagesPerPage,
@@ -42567,9 +42559,7 @@ Rigorix.controller('Messages', [
       });
     };
     $scope.openMessage = function(message) {
-      if (message.letto === 0) {
-        $rootScope.$broadcast("message:read", message);
-      }
+      $rootScope.$broadcast("message:read", message);
       return $modal.open({
         templateUrl: '/app/templates/modals/message.html',
         controller: 'Message.Modal',
@@ -42880,9 +42870,6 @@ Rigorix.controller("Sidebar", [
       $rootScope.$broadcast("user:logout");
       return window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to=" + RigorixEnv.DOMAIN;
     };
-    $scope.$on("message:read", function(ev, message) {
-      return $scope.updateUserObject();
-    });
     return $scope.showBadges = function() {
       return Api.call("post", "users/" + $rootScope.currentUser.id_utente + "/badges/seen");
     };
@@ -43088,9 +43075,7 @@ Rigorix.filter("varToTitle", function() {
 
 Rigorix.filter("stringToDate", function() {
   return function(input) {
-    var date;
-    date = new Date(input);
-    return date;
+    return moment(input)._d;
   };
 });
 

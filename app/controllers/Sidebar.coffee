@@ -15,9 +15,6 @@ Rigorix.controller "Sidebar", ['$scope', 'Api', '$rootScope', ($scope, Api, $roo
     $rootScope.$broadcast "user:logout"
     window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to="+RigorixEnv.DOMAIN
 
-  $scope.$on "message:read", (ev, message)->
-    $scope.updateUserObject()
-
   $scope.showBadges = ->
     Api.call "post", "users/" + $rootScope.currentUser.id_utente + "/badges/seen"
 ]
