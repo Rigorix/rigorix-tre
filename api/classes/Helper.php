@@ -13,7 +13,7 @@ function getUserObjectExtended($id_utente) {
 
   $obj = new stdClass();
   $obj->db_object           = Users::find($id_utente)->toArray();
-  $obj->messages            = Messages::receiver($id_utente)->unread()->get()->toArray();
+  $obj->messages            = Messages::receiver($id_utente)->unread()->orderBy('created_at', 'DESC')->get()->toArray();
   $obj->totMessages         = Messages::receiver($id_utente)->count();
   $obj->badges              = Users::find($id_utente)->badges()->toArray();
   $obj->has_new_badges      = Users::find($id_utente)->badges()->count();

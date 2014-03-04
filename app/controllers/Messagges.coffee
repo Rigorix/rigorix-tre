@@ -42,7 +42,7 @@ Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource'
 
 
 
-Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$rootScope', 'message', 'MessageResource', 'Api', ($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api)->
+Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$rootScope', 'message', 'MessageResource', 'Api', '$sce', ($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api, $sce)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Message.Modal'
@@ -50,7 +50,7 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
 
   $scope.editMode = false
   $scope.isTextCollapsed = false
-  $scope.answer = "<br><br>" + User.username
+  $scope.answer = "coming from scope"
   $scope.message = message
 
   $modalInstance.result.then () ->
@@ -61,11 +61,13 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
   $scope.reply = ->
     $scope.editMode = true
     $scope.isTextCollapsed = true
-    angular.element(".message-text").click()
-    angular.element(".ta-editor").focus()
+    $("textarea").focus()
+    false
 
   $scope.sendReply = (answerText)->
-    $scope.message.testo = answerText
+    $scope.answer = $(".answer-text").val()
+
+    $scope.message.testo = $scope.answer
     $scope.message.oggetto = 'RE: ' + $scope.message.oggetto
     $scope.message.id_receiver = $scope.message.id_sender
     $scope.message.id_sender = $rootScope.currentUser.id_utente
@@ -77,6 +79,7 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
         $.notify "Risposta mandata con successo", "success"
         $rootScope.$broadcast "modal:close"
         do $modalInstance.dismiss
+
       error: ->
         $.notify "Errore nel spedire la risposta. Riprova più tardi.", "error"
 

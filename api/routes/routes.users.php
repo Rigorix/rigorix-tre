@@ -59,15 +59,15 @@ Flight::route('GET /users/champion/@period', function($period) {
 });
 
 Flight::route('GET /users/@id_utente/messages', function($id_utente) {
-  echo  Users::find($id_utente)->messages->toJson();
+  echo (string)Users::find($id_utente)->messages()->orderBy('created_at', 'DESC')->get();
 });
 
 Flight::route('GET /users/@id_utente/messages/unread', function($id_utente) {
-  echo Messages::receiver($id_utente)->unread()->get()->toJson();
+  echo (string)Messages::receiver($id_utente)->unread()->orderBy('created_at', 'DESC')->get();
 });
 
 Flight::route('GET /user/@id_utente/messages/sent', function($id_utente) {
-  echo Users::find($id_utente)->sentMessages->toJson();
+  echo (string)Users::find($id_utente)->sentMessages()->orderBy('created_at', 'DESC')->get();
 });
 
 Flight::route('GET /users/@id_utente/rewards', function($id_utente) {

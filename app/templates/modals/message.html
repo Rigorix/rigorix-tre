@@ -1,16 +1,16 @@
 <div class="mal">
     <div class="row mbl">
         <div class="col col-sm-12">
-            <h3>{{message.oggetto}}</h3>
+            <h3 class="mtn">{{message.oggetto}}</h3>
         </div>
     </div>
     <div class="row">
         <div class="col col-sm-12">
             <div ng-show="editMode">
-                <textarea ng-model="answer" redactor="{buttons: ['formatting', '|', 'bold', 'italic']}"></textarea>
+                <textarea class="answer-text" ng-model="answer" redactor="{buttons: ['formatting', '|', 'bold', 'italic']}" rows="7" placeholder="Scrivi la tua risposta qui"></textarea>
             </div>
             <blockquote ng-click="isTextCollapsed = !isTextCollapsed">
-                <p class="message-text" collapse="isTextCollapsed">{{message.testo}}</p>
+                <p class="message-text" ng-bind-html="message.testo | unsafe" collapse="isTextCollapsed"></p>
                 <p collapse="!isTextCollapsed">...</p>
                 <small><username id-utente="message.id_sender" disabled="disabled"></username></small>
             </blockquote>
@@ -18,13 +18,13 @@
     </div>
     <div class="row">
         <div class="col col-sm-12">
-            <button class="btn btn-danger" ng-click="delete()" icon="trash">Cancella</button>
+            <button class="btn btn-danger" ng-click="delete()" icon="trash-o">Cancella</button>
 
             <button class="btn btn-warning pull-right mlm" ng-show="!editMode" ng-click="reply()" icon="pencil">Rispondi</button>
-            <button class="btn btn-warning pull-right mlm" ng-show="editMode" ng-click="sendReply(answer)" data-loading-text="Invio in corso..." icon="send">Invia</button>
+            <button class="btn btn-warning pull-right mlm" ng-show="editMode" ng-click="sendReply(answer)" data-loading-text="Invio in corso..." icon="rocket">Invia</button>
 
-            <button class="btn btn-default pull-right" ng-show="!editMode" ng-click="cancel()" icon="remove">Chiudi</button>
-            <button class="btn btn-default pull-right" ng-show="editMode" ng-click="discard()" icon="floppy-remove">Annulla</button>
+            <button class="btn btn-default pull-right" ng-show="!editMode" ng-click="cancel()" icon="arrow-down">Chiudi</button>
+            <button class="btn btn-default pull-right" ng-show="editMode" ng-click="discard()" icon="arrow-left">Annulla</button>
         </div>
     </div>
 </div>
