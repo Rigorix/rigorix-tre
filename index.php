@@ -2,7 +2,7 @@
 require_once "classes/new.core.php";
 ?>
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="Rigorix">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="Rigorix">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <title>Rigorix - Gioco online a premi</title>

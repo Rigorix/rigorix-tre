@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.2.14-build.2290+sha.0b6ba9c
+ * @license AngularJS v1.2.15-build.2365+sha.d07101d
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -399,7 +399,7 @@ function decodeEntities(value) {
  * resulting string can be safely inserted into attribute or
  * element text.
  * @param value
- * @returns escaped text
+ * @returns {string} escaped text
  */
 function encodeEntities(value) {
   return value.
