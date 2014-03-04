@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "angular": "~1.2.10",
-    "jquery": "~2.1.0",
+    "jquery": "1.9",
     "moment": "~2.5.1",
     "font-awesome": "~4.0.3",
     "angular-sanitize": "~1.2.11",

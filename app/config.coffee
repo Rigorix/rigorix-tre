@@ -6,3 +6,8 @@ RigorixConfig =
 
 RigorixStorage =
   users: {}
+
+if console?
+  console =
+    log: ->
+      false

@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-03-03 *//*!
+/*! Rigorix - v0.1.0 - 2014-03-04 *//*!
  * jQuery JavaScript Library v2.1.0
  * http://jquery.com/
  *
@@ -40758,7 +40758,7 @@ Rigorix.config(function() {
 });
 ;
 
-var RigorixConfig, RigorixStorage;
+var RigorixConfig, RigorixStorage, console;
 
 RigorixConfig = {
   updateTime: (typeof User !== "undefined" && User !== null) && User.id_utente ? 60000 : 60000,
@@ -40770,6 +40770,14 @@ RigorixConfig = {
 RigorixStorage = {
   users: {}
 };
+
+if (typeof console !== "undefined" && console !== null) {
+  console = {
+    log: function() {
+      return false;
+    }
+  };
+}
 ;
 
 Rigorix.controller("AccessDenied", [
@@ -40895,6 +40903,7 @@ Rigorix.controller("AreaPersonale.Sfide", [
     $scope.status = "loading";
     $scope.sfideInAttesaDiRisposta = [];
     $scope.sfideArchivio = [];
+    console.log("Sfide");
     $scope.$on("user:update", function(event, userObject) {
       return $scope.sfideDaGiocare = userObject.sfide_da_giocare;
     });
