@@ -927,3 +927,16 @@
     height: auto;
   }
 }
+
+// Custom by Paolo Moretti
+.full-responsive-width() {
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm;
+  }
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+}

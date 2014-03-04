@@ -1,15 +1,17 @@
-<div class="row" id="header" ng-controller="Header">
-    <div class="col col-xs-6">
-        <h1 ng-click="doClickLogo()">RIGORIX</h1>
-    </div>
+<div class="container">
+    <div class="row" id="header" ng-controller="Header">
+        <div class="col col-xs-6">
+            <h1 ng-click="doClickLogo()">RIGORIX</h1>
+        </div>
 
-    <div class="col col-xs-6">
-        <div class="user-container pull-right" ng-show="currentUser">
-            <span>{{currentUser.username}}</span>
-            <img src="{{currentUser.picture}}" ng-click="doClickUserIcon()" width="40" height="40" class="media-object img-circle" />
+        <div class="col col-xs-6">
+            <div class="user-container pull-right" ng-show="currentUser">
+                <span>{{currentUser.username}}</span>
+                <img src="{{currentUser.picture}}" ng-click="doClickUserIcon()" width="40" height="40" class="media-object img-circle" />
 
-            <div class="user-popout" ng-show="showUserPopout">
-                Popout
+                <div class="user-popout" ng-show="showUserPopout">
+                    Popout
+                </div>
             </div>
         </div>
     </div>

@@ -7581,11 +7581,23 @@ input.ng-invalid:focus {
   height: 60px;
   position: fixed;
   top: 0;
-  left: 50%;
-  margin-left: -460px;
   z-index: 100;
-  width: 920px;
   box-shadow: 0 5px 5px #ffffff;
+}
+@media (min-width: 768px) {
+  #header {
+    width: 730px;
+  }
+}
+@media (min-width: 992px) {
+  #header {
+    width: 950px;
+  }
+}
+@media (min-width: 1200px) {
+  #header {
+    width: 1150px;
+  }
 }
 #header h1 {
   margin: 0;
@@ -7882,7 +7894,6 @@ body {
   height: 100%;
 }
 body > .container {
-  width: 920px;
   position: relative;
   height: 100%;
 }
