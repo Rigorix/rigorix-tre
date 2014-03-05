@@ -41,6 +41,13 @@ class Core {
     $this->check_user ();
   }
 
+  function get_env_vars ()
+  { global $env;
+    $envPrivate = $env;
+    unset($envPrivate->DB);
+    return json_encode($envPrivate);
+  }
+
   function check_user ()
   { global $api;
 

@@ -42467,7 +42467,7 @@ Rigorix.controller("Main", [
     }
     if ($scope.User !== false) {
       if ($scope.User.attivo === 0) {
-        return $location.path("first-login");
+        $location.path("first-login");
       } else {
         if ($location.$$path === "/first-login") {
           $location.path("/");
@@ -42475,11 +42475,12 @@ Rigorix.controller("Main", [
         $scope.userLogged = true;
         $scope.currentUser = User;
         $scope.updateUserObject();
-        return setInterval(function() {
+        setInterval(function() {
           return $scope.updateUserObject();
         }, RigorixConfig.updateTime);
       }
     }
+    return alert("Yeeesssss");
   }
 ]);
 

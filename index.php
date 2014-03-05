@@ -11,7 +11,7 @@ require_once "classes/new.core.php";
   <link rel="stylesheet" href="/app/assets/dist/app.css" type="text/css" />
   <script>
     var User = <?php echo $core->logged; ?>;
-    var RigorixEnv = <?php echo FastJSON::convert($env); ?>;
+    var RigorixEnv = <?php echo $core->get_env_vars($env); ?>;
   </script>
 </head>
 <body ng-controller="Main" ng-class="modalClass" ng-click="doClick($event)">

@@ -4,13 +4,13 @@
             <h1 ng-click="doClickLogo()">RIGORIX</h1>
         </div>
 
-        <div class="col col-xs-6">
+        <div class="col col-xs-6 hidden-sm">
             <div class="user-container pull-right" ng-show="currentUser">
                 <span>{{currentUser.username}}</span>
                 <img src="{{currentUser.picture}}" ng-click="doClickUserIcon()" width="40" height="40" class="media-object img-circle" />
 
                 <div class="user-popout" ng-show="showUserPopout">
-                    Popout
+                    <div ng-include="'/app/templates/partials/user-box.html'"></div>
                 </div>
             </div>
         </div>

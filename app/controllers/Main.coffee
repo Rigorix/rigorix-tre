@@ -126,5 +126,5 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserServiceNew', 
 
       , RigorixConfig.updateTime
 
-
+  alert "Yeeesssss"
 ]
