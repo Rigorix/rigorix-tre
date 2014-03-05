@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-03-04 *//*!
+/*! Rigorix - v0.1.0 - 2014-03-05 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -41844,7 +41844,7 @@ Rigorix.controller("Header", [
     $scope.doClickLogo = function() {
       return $location.path("/");
     };
-    return $scope.doClickUserIcon = function() {
+    return $scope.toggleVisibility = function() {
       return $scope.showUserPopout = !$scope.showUserPopout;
     };
   }

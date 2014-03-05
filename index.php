@@ -20,7 +20,7 @@ require_once "classes/new.core.php";
 
   <div class="container">
 
-    <div id="page" set-loader="20"></div>
+    <div set-loader="20"></div>
 
     <div ng-include="'/app/templates/partials/head.html'"></div>
 
@@ -30,7 +30,7 @@ require_once "classes/new.core.php";
         <div ng-view class="rigorix-main-view"></div>
       </div>
 
-      <div class="col col-sm-3" ng-controller="Sidebar">
+      <div class="col col-sm-3 sidebar" ng-controller="Sidebar">
         <ng-include src="'app/templates/partials/user-box.html'"></ng-include>
         <ng-include src="'app/templates/partials/best-users.html'"></ng-include>
       </div>

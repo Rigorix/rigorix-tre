@@ -8,7 +8,7 @@ Rigorix.controller "Header", ['$scope', '$rootScope', '$location', ($scope, $roo
   $scope.doClickLogo = ->
     $location.path "/"
 
-  $scope.doClickUserIcon = ->
+  $scope.toggleVisibility = ->
     $scope.showUserPopout = !$scope.showUserPopout
 
 ]

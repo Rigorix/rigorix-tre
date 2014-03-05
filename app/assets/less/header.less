@@ -2,6 +2,7 @@
   background-color: rgba(255, 255, 255, .9);
   padding: @base-margin;
   height: @header-height - 10;
+  width: 100%;
   position: fixed;
   top: 0;
   z-index: @zindex-header;
@@ -18,19 +19,58 @@
   }
 
   .user-container {
-
-    position: relative;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    padding: 10px;
+    text-align: right;
+    .transition(background .2s ease);
 
     .media-object {
       display: inline-block;
       margin-left: @base-margin;
+      cursor: pointer;
     }
 
-    .user-popout {
-      position: absolute;
-      top: 50px;
-      right: 20px;
-      background: #f3f3f3;
+    .user-box {
+      display: none;
+    }
+
+
+    &.visible {
+      background: @color-bg-userpopover;
+      box-shadow: 3px 7px 16px @color-gray;
+
+      .user-box {
+        display: block;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        margin-bottom: 0;
+
+        .panel-heading {
+          display: none;
+        }
+
+        .list-group-item {
+          background: transparent;
+
+          &.user-item {
+            display: none;
+          }
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+
+        @media (max-width: @screen-phone) {
+          .btn {
+            width: 100%;
+            margin-top: 6px;
+          }
+        }
+      }
     }
   }
 

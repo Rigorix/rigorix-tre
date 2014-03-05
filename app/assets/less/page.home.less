@@ -1,5 +1,4 @@
 .best-user-box {
-  width: 289px;
   position: relative;
   margin: 0 auto;
 
@@ -8,9 +7,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 289px;
     text-align: center;
     z-index: 1000;
+    width: 100%;
 
     h4 {
       display: block;
@@ -56,13 +55,15 @@
   }
 
   #setup_numero {
-    top: 150px;
-    left: 125px;
-  }
-
-  #setup_numero_shadow {
-    top: 151px;
-    left: 126px;
+    top: 48%;
+    left: 50%;
+    margin-top: 1px;
+    margin-left: -19px;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
 
   #mascotteScreen {

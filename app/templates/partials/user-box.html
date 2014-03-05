@@ -11,7 +11,7 @@
         </div>
 
         <div id="boxUtente" ng-show="currentUser">
-            <div class="list-group-item">
+            <div class="list-group-item user-item">
                 <div class="media">
                     <a class="pull-left user-picture" href="#" name="add-profile-picture">
                         <img src="{{currentUser.picture}}" width="30" height="30" class="media-object img-circle" id="profile_picture" />
@@ -20,24 +20,24 @@
                         <p>
                             Ciao <strong data-toggle="popover" data-content="And here\'s some amazing content. It\'s very engaging. right?">{{currentUser.username}}</strong>
                             <span class="badge" id="punteggioUtente">{{currentUser.punteggio_totale}}</span>
-
-                            <div ng-show="currentUser.messages.length > 0" >
-                                <a href="#area-personale/messaggi" class="messages-icon" title="Hai dei messaggi da leggere"><strong class="count-unread-messages">{{currentUser.messages.length}}</strong> <img src="i/ico_messaggi.gif" align="absmiddle" /></a>
-                            </div>
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="list-group-item" ng-show="currentUser.has_new_badges > 0">
-                <a href="#/area-personale/utente" ng-click="showBadges()" icon="sun-o">Hai nuovi badges!!</a>
+            <div class="list-group-item messages-item" ng-show="currentUser.messages.length > 0">
+                <a href="#area-personale/messaggi" title="Hai dei messaggi da leggere" icon="envelope">Hai <strong class="count-unread-messages">{{currentUser.messages.length}}</strong> nuovi messaggi</a>
             </div>
 
-            <div class="list-group-item" ng-show="currentUser.sfide_da_giocare.length > 0">
-                <p class="content"><img src="i/pallone_small.gif" alt="Pallone" /> &nbsp; Hai <strong>{{currentUser.sfide_da_giocare.length}} </strong> sfide &nbsp;<a href="#/area-personale/sfide/sfide_da_giocare" class="btn btn-success btn-sm" icon="globe">Gioca</a></p>
+            <div class="list-group-item new-badges-item" ng-show="currentUser.has_new_badges > 0">
+                <a href="#/area-personale/utente" ng-click="showBadges()" icon="trophy">Hai nuovi badges!!</a>
             </div>
 
-            <div class="list-group-item center-block">
+            <div class="list-group-item sfide-item" ng-show="currentUser.sfide_da_giocare.length > 0">
+                <a href="#/area-personale/sfide/sfide_da_giocare" class="text-success" icon="globe">Hai <strong>{{currentUser.sfide_da_giocare.length}} </strong> nuove sfide</a>
+            </div>
+
+            <div class="list-group-item buttons-item center-block">
                 <a href="#area-personale" class="btn btn-sm btn-info" icon="user">Area personale</a>
                 <a ng-click="doUserLogout()" class="btn btn-sm btn-danger" icon="sign-out">Esci</a>
             </div>

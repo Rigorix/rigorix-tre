@@ -218,17 +218,6 @@ ul.normal-list li { margin-left: 15px; }
 
 .deleted-user { color: #666; }
 
-.best-user-box { width: 289px; position: relative; }
-.best-user-box .best-user-detail { background: rgba(100, 140, 140, .7); position: absolute; top: 0; left: 0; width: 289px; text-align: center;  z-index: 1000; }
-.best-user-box .best-user-detail h4 { display: block;  padding: 8px 15px; font-size: 18px; font-weight: bold; color: #fff; text-shadow: 1px 1px 2px #000; }
-.best-user-box .best-user-detail h4 .label { font-size: 20px; padding: 4px 7px; }
-.best-user-box .best-user-detail h4 small { color: #fff; font-size: 11px; }
-.best-user-box .best-user-score { position: absolute; bottom: 0; right: 0; text-align: center; z-index: 1001; }
-.best-user-box .best-user-score span { display: block; background: rgba(100, 140, 140, .7); padding: 8px 15px; font-size: 18px; font-weight: bold; color: #fff; text-shadow: 1px 1px 2px #000; border-top-left-radius: 10px; }
-.best-user-box .best-user-score span small { color: #ccc; }
-.best-user-box #setup_numero { top: 150px; left: 125px; }
-.best-user-box #setup_numero_shadow { top: 151px; left: 126px; }
-
 /* #Playoff-show */
 .playoff-table { width: 100%; border-collapse: collapse; border: 2px solid #d4ec63; }
 .playoff-table thead th { background: #d4ec63; padding: 4px; }
