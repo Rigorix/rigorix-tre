@@ -1,16 +1,19 @@
 <?php
+
+$env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
+require_once '/classes/fastjson.php';
+require_once '/classes/restclient.php';
+
+$api = new RestClient(array(
+  'base_url' => substr($env->API_DOMAIN, 0, -1)
+));
+
 class StackTest extends \PHPUnit_Framework_TestCase
 {
-  public function testPushAndPop()
+  public function testUserEndpoints()
   {
-    $stack = array();
-    $this->assertEquals(0, count($stack));
+    $result = $api->get("users/0");
 
-    array_push($stack, 'foo');
-    $this->assertEquals('foo', $stack[count($stack)-1]);
-    $this->assertEquals(1, count($stack));
-
-    $this->assertEquals('foo', array_pop($stack));
-    $this->assertEquals(0, count($stack));
+    $this->assertObjectHasAttribute("info", $result);
   }
 }
