@@ -41420,9 +41420,200 @@ $(function() {
 }).call(this);
 ;
 
+/**!
+ * AngularJS file upload/drop directive with http post and progress
+ * @author  Danial  <danial.farid@gmail.com>
+ * @version 1.2.8
+ */
+(function() {
+	
+var angularFileUpload = angular.module('angularFileUpload', []);
+
+angularFileUpload.service('$upload', ['$http', '$rootScope', '$timeout', function($http, $rootScope, $timeout) {
+	function sendHttp(config) {
+		config.method = config.method || 'POST';
+		config.headers = config.headers || {};
+		config.transformRequest = config.transformRequest || function(data) {
+			if (window.ArrayBuffer && data instanceof ArrayBuffer) {
+				return data;
+			}
+			return $http.defaults.transformRequest[0](data);
+		};
+		
+		if (window.XMLHttpRequest.__isShim) {
+			config.headers['__setXHR_'] = function() {
+				return function(xhr) {
+					config.__XHR = xhr;
+					xhr.upload.addEventListener('progress', function(e) {
+						if (config.progress) {
+							$timeout(function() {
+								if(config.progress) config.progress(e);
+							});
+						}
+					}, false);
+					//fix for firefox not firing upload progress end, also IE8-9
+					xhr.upload.addEventListener('load', function(e) {
+						if (e.lengthComputable) {
+							$timeout(function() {
+								if(config.progress) config.progress(e);
+							});
+						}
+					}, false);
+				}	
+			};
+		}
+			
+		var promise = $http(config);
+		
+		promise.progress = function(fn) {
+			config.progress = fn;
+			return promise;
+		};		
+		promise.abort = function() {
+			if (config.__XHR) {
+				$timeout(function() {
+					config.__XHR.abort();
+				});
+			}
+			return promise;
+		};		
+		promise.then = (function(promise, origThen) {
+			return function(s, e, p) {
+				config.progress = p || config.progress;
+				var result = origThen.apply(promise, [s, e, p]);
+				result.abort = promise.abort;
+				result.progress = promise.progress;
+				return result;
+			};
+		})(promise, promise.then);
+		
+		return promise;
+	};
+	this.upload = function(config) {
+		config.headers = config.headers || {};
+		config.headers['Content-Type'] = undefined;
+		config.transformRequest = config.transformRequest || $http.defaults.transformRequest;
+		var formData = new FormData();
+		if (config.data) {
+			for (var key in config.data) {
+				var val = config.data[key];
+				if (!config.formDataAppender) {
+					if (typeof config.transformRequest == 'function') {
+						val = config.transformRequest(val);
+					} else {
+						for (var i = 0; i < config.transformRequest.length; i++) {
+							var fn = config.transformRequest[i];
+							if (typeof fn == 'function') {
+								val = fn(val);
+							}
+						}
+					}
+					formData.append(key, val);
+				} else {
+					config.formDataAppender(formData, key, val);
+				}
+			}
+		}
+		config.transformRequest =  angular.identity;
+		
+		var fileFormName = config.fileFormDataName || 'file';
+		
+		if (Object.prototype.toString.call(config.file) === '[object Array]') {
+			var isFileFormNameString = Object.prototype.toString.call(fileFormName) === '[object String]'; 
+			for (var i = 0; i < config.file.length; i++) {						         
+				formData.append(isFileFormNameString ? fileFormName + i : fileFormName[i], config.file[i], config.file[i].name);
+			}
+		} else {
+			formData.append(fileFormName, config.file, config.file.name);
+		}
+		
+		config.data = formData;
+		
+		return sendHttp(config);
+	};
+	this.http = function(config) {
+		return sendHttp(config);
+	}
+}]);
+
+angularFileUpload.directive('ngFileSelect', [ '$parse', '$http', '$timeout', function($parse, $http, $timeout) {
+	return function(scope, elem, attr) {
+		var fn = $parse(attr['ngFileSelect']);
+		elem.bind('change', function(evt) {
+			var files = [], fileList, i;
+			fileList = evt.target.files;
+			if (fileList != null) {
+				for (i = 0; i < fileList.length; i++) {
+					files.push(fileList.item(i));
+				}
+			}
+			$timeout(function() {
+				fn(scope, {
+					$files : files,
+					$event : evt
+				});
+			});
+		});
+		elem.bind('click', function(){
+			this.value = null;
+		});
+	};
+} ]);
+
+angularFileUpload.directive('ngFileDropAvailable', [ '$parse', '$http', '$timeout', function($parse, $http, $timeout) {
+	return function(scope, elem, attr) {
+		if ('draggable' in document.createElement('span')) {
+			var fn = $parse(attr['ngFileDropAvailable']);
+			$timeout(function() {
+				fn(scope);
+			});
+		}
+	};
+} ]);
+
+angularFileUpload.directive('ngFileDrop', [ '$parse', '$http', '$timeout', function($parse, $http, $timeout) {
+	return function(scope, elem, attr) {
+		if ('draggable' in document.createElement('span')) {
+			var cancel = null;
+			var fn = $parse(attr['ngFileDrop']);
+			elem[0].addEventListener("dragover", function(evt) {
+				$timeout.cancel(cancel);
+				evt.stopPropagation();
+				evt.preventDefault();
+				elem.addClass(attr['ngFileDragOverClass'] || "dragover");
+			}, false);
+			elem[0].addEventListener("dragleave", function(evt) {
+				cancel = $timeout(function() {
+					elem.removeClass(attr['ngFileDragOverClass'] || "dragover");
+				});
+			}, false);
+			elem[0].addEventListener("drop", function(evt) {
+				evt.stopPropagation();
+				evt.preventDefault();
+				elem.removeClass(attr['ngFileDragOverClass'] || "dragover");
+				var files = [], fileList = evt.dataTransfer.files, i;
+				if (fileList != null) {
+					for (i = 0; i < fileList.length; i++) {
+						files.push(fileList.item(i));
+					}
+				}
+				$timeout(function() {
+					fn(scope, {
+						$files : files,
+						$event : evt
+					});
+				});
+			}, false);
+		}
+	};
+} ]);
+
+})();
+;
+
 var Rigorix, RigorixServices, SocialLoginUrl;
 
-Rigorix = angular.module("Rigorix", ["ngRoute", "RigorixServices", "ui.bootstrap", 'colorpicker.module', 'ngSanitize']);
+Rigorix = angular.module("Rigorix", ["ngRoute", "RigorixServices", "ui.bootstrap", 'colorpicker.module', 'ngSanitize', 'angularFileUpload']);
 
 RigorixServices = angular.module("RigorixServices", ["ngResource"]);
 
@@ -41576,7 +41767,7 @@ Rigorix.controller("AreaPersonale", [
         icon: 'cogs'
       }, {
         name: 'messaggi',
-        icon: 'envelope-o'
+        icon: 'inbox'
       }
     ];
     $scope.section = $routeParams.section;
@@ -41656,15 +41847,13 @@ Rigorix.controller("AreaPersonale.Sfide", [
 ]);
 
 Rigorix.controller("AreaPersonale.Impostazioni", [
-  '$scope', '$rootScope', 'UserServiceNew', '$modal', function($scope, $rootScope, UserServiceNew, $modal) {
+  '$scope', '$rootScope', 'UserServiceNew', '$modal', '$upload', function($scope, $rootScope, UserServiceNew, $modal, $upload) {
     $scope.isLoading = true;
     $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
     if ($scope.currentUser.db_object.email_utente === "") {
       $scope.currentUser.db_object.email_utente = $scope.currentUser.db_object.email;
     }
-    $scope.doChangePhoto = function() {
-      return $.notify("Funzionalita' non ancora attiva");
-    };
+    $scope.storedPicture = $scope.currentUser.db_object.picture;
     $scope.doUpdateUserData = function() {
       $rootScope.$broadcast("show:loading");
       return $scope.currentUser.$save({
@@ -41675,7 +41864,7 @@ Rigorix.controller("AreaPersonale.Impostazioni", [
         return $.notify("Dati utente aggiornati correttamente", "success");
       });
     };
-    return $scope.doDeleteUser = function() {
+    $scope.doDeleteUser = function() {
       return $modal.open({
         templateUrl: '/app/templates/modals/user.delete.html',
         controller: 'Modals.DeleteUser',
@@ -41685,6 +41874,29 @@ Rigorix.controller("AreaPersonale.Impostazioni", [
           }
         }
       });
+    };
+    $scope.onFileSelect = function($files) {
+      $rootScope.$broadcast("show:loading");
+      return $scope.upload = $upload.upload({
+        url: "/api/users/save/picture",
+        file: $files[0]
+      }).success(function(data, status, headers, config) {
+        $rootScope.$broadcast("hide:loading");
+        if (data.profile_picture != null) {
+          $scope.currentUser.db_object.picture = data.profile_picture;
+          return $.notify("Immagine cambiata con sucesso", "success");
+        }
+      }).error(function(message, status) {
+        $rootScope.$broadcast("hide:loading");
+        return $.notify("Errore nel caricare l'immagine (" + message + ")", "error");
+      });
+    };
+    $scope.doAnnullaChangePicture = function() {
+      return $scope.currentUser.db_object.picture = $scope.storedPicture;
+    };
+    return $scope.doSaveNewPicture = function() {
+      $scope.storedPicture = $scope.currentUser.db_object.picture;
+      return $scope.doUpdateUserData();
     };
   }
 ]);
@@ -42939,6 +43151,130 @@ Rigorix.controller("Username", [
     };
   }
 ]);
+
+var postLink;
+
+Rigorix.directive("imageuploader", function($q) {
+  var URL, createImage, fileToDataURL, getResizeArea, resizeImage;
+  URL = window.URL || window.webkitURL;
+  getResizeArea = function() {
+    var resizeArea, resizeAreaId;
+    resizeAreaId = "fileupload-resize-area";
+    resizeArea = document.getElementById(resizeAreaId);
+    if (!resizeArea) {
+      resizeArea = document.createElement("canvas");
+      resizeArea.id = resizeAreaId;
+      resizeArea.style.visibility = "hidden";
+      document.body.appendChild(resizeArea);
+    }
+    return resizeArea;
+  };
+  resizeImage = function(origImage, options) {
+    var canvas, ctx, height, maxHeight, maxWidth, quality, type, width;
+    maxHeight = options.resizeMaxHeight || 300;
+    maxWidth = options.resizeMaxWidth || 250;
+    quality = options.resizeQuality || 0.7;
+    type = options.resizeType || "image/jpg";
+    canvas = getResizeArea();
+    height = origImage.height;
+    width = origImage.width;
+    if (width > height) {
+      if (width > maxWidth) {
+        height = Math.round(height *= maxWidth / width);
+        width = maxWidth;
+      }
+    } else {
+      if (height > maxHeight) {
+        width = Math.round(width *= maxHeight / height);
+        height = maxHeight;
+      }
+    }
+    canvas.width = width;
+    canvas.height = height;
+    ctx = canvas.getContext("2d");
+    ctx.drawImage(origImage, 0, 0, width, height);
+    return canvas.toDataURL(type, quality);
+  };
+  createImage = function(url, callback) {
+    var image;
+    image = new Image();
+    image.onload = function() {
+      return callback(image);
+    };
+    return image.src = url;
+  };
+  return fileToDataURL = function(file) {
+    var deferred, reader;
+    deferred = $q.defer();
+    reader = new FileReader();
+    reader.onload = function(e) {
+      return deferred.resolve(e.target.result);
+    };
+    reader.readAsDataURL(file);
+    return deferred.promise;
+  };
+});
+
+({
+  restrict: "A",
+  scope: {
+    image: "=",
+    resizeMaxHeight: "@?",
+    resizeMaxWidth: "@?",
+    resizeQuality: "@?",
+    resizeType: "@?"
+  },
+  link: postLink = function(scope, element, attrs, ctrl) {
+    var applyScope, doResizing;
+    doResizing = function(imageResult, callback) {
+      return createImage(imageResult.url, function(image) {
+        var dataURL;
+        dataURL = resizeImage(image, scope);
+        imageResult.resized = {
+          dataURL: dataURL,
+          type: dataURL.match(/:(.+\/.+);/)[1]
+        };
+        return callback(imageResult);
+      });
+    };
+    applyScope = function(imageResult) {
+      return scope.$apply(function() {
+        if (attrs.multiple) {
+          return scope.image.push(imageResult);
+        } else {
+          return scope.image = imageResult;
+        }
+      });
+    };
+    return element.bind("change", function(evt) {
+      var files, i, imageResult, _results;
+      if (attrs.multiple) {
+        scope.image = [];
+      }
+      files = evt.target.files;
+      i = 0;
+      _results = [];
+      while (i < files.length) {
+        imageResult = {
+          file: files[i],
+          url: URL.createObjectURL(files[i])
+        };
+        fileToDataURL(files[i]).then(function(dataURL) {
+          return imageResult.dataURL = dataURL;
+        });
+        if (scope.resizeMaxHeight || scope.resizeMaxWidth) {
+          doResizing(imageResult, function(imageResult) {
+            return applyScope(imageResult);
+          });
+        } else {
+          applyScope(imageResult);
+        }
+        _results.push(i++);
+      }
+      return _results;
+    });
+  }
+});
 
 Rigorix.directive("refreshStateOnLoad", [
   '$timeout', '$location', function(timer, location) {

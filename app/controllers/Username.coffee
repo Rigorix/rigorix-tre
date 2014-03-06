@@ -38,4 +38,4 @@ Rigorix.controller "Username", ['$scope', '$rootScope', '$modal', 'Api', ($scope
               id_avversario: $scope.userObject.id_utente
               id_sfida: false
 
-  ]
+]

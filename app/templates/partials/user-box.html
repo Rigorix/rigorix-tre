@@ -10,19 +10,15 @@
             <p icon="danger">Utente loggato FAKE!</p>
         </div>
 
-        <div id="boxUtente" ng-show="currentUser">
-            <div class="list-group-item user-item">
-                <div class="media">
-                    <a class="pull-left user-picture" href="#" name="add-profile-picture">
-                        <img src="{{currentUser.picture}}" width="30" height="30" class="media-object img-circle" id="profile_picture" />
-                    </a>
-                    <div class="media-body">
-                        <p>
-                            Ciao <strong data-toggle="popover" data-content="And here\'s some amazing content. It\'s very engaging. right?">{{currentUser.username}}</strong>
-                            <span class="badge" id="punteggioUtente">{{currentUser.punteggio_totale}}</span>
-                        </p>
-                    </div>
+        <div id="boxUtente" ng-show="currentUser" class="ptn">
+            <div class="list-group-item user-item clearfix">
+                <div class="pull-left" style="width: 30px; height: 30px;border-radius: 500px; overflow: hidden">
+                    <img src="{{currentUser.picture}}" width="100%" class="media-object img-circle" />
                 </div>
+                <p class="pull-left pts">
+                    Ciao <strong data-toggle="popover" data-content="And here\'s some amazing content. It\'s very engaging. right?">{{currentUser.username}}</strong>
+                    <span class="badge" id="punteggioUtente">{{currentUser.punteggio_totale}}</span>
+                </p>
             </div>
 
             <div class="list-group-item messages-item" ng-show="currentUser.messages.length > 0">
@@ -53,15 +49,15 @@
                 <p align="center">Accedi a Rigorix tramite questi social network:<br /><br /></p>
                 <div class="row-fluid">
                     <div class="col-sm-6 text-center">
-                        <a href="#" ng-click="doAuth($event, 'facebook')" icon="facebook">Facebook</a>
+                        <a href="#" class="btn btn-big btn-primary" ng-click="doAuth($event, 'facebook')" icon="facebook">Facebook</a>
                     </div>
                     <div class="col-sm-6 text-center">
-                        <a href="#" class="btn-google" ng-click="doAuth($event, 'google')" icon="google">Google</a>
+                        <a href="#" class="btn btn-big btn-danger" ng-click="doAuth($event, 'google')" icon="google">Google</a>
                     </div>
                 </div>
                 <div class="row-fluid mvm">
                     <div class="col-sm-6 text-center">
-                        <a href="#" class="btn-instagram" ng-click="doAuth($event, 'instagram')" icon="instagram">Instagram</a>
+                        <a href="#" class="btn btn-big btn-warning"  ng-click="doAuth($event, 'instagram')" icon="instagram">Instagram</a>
                     </div>
                 </div>
                 <hr/>
@@ -75,9 +71,6 @@
                     </div>
                 </div>
                 <div class="row-fluid mvm">
-                    <div class="col-sm-6 text-center">
-                        <a href="#" class="btn-instagram" ng-click="doAuth($event, 'instagram')">Cistagram</a>
-                    </div>
                     <div class="col-sm-6 text-center">
                         <a href="#" class="btn-foursquare" ng-click="doAuth($event, 'Linkedin')">Linkedin</a>
                     </div>

@@ -6,9 +6,10 @@
 
         <div class="col col-xs-7 hidden-md hidden-sm hidden-lg" ng-click="toggleVisibility()">
             <div class="user-container" ng-class="{'visible': showUserPopout}">
-                <div ng-show="currentUser">
-                    <!--<span>{{currentUser.username}}</span>-->
-                    <img src="{{currentUser.picture}}" width="40" height="40" class="media-object img-circle" />
+                <div ng-show="currentUser" class="clearfix">
+                    <div class="profile-picture pull-right ">
+                        <img src="{{currentUser.picture}}" />
+                    </div>
                 </div>
                 <div ng-show="!currentUser">
                     <button class="btn btn-success" icon="sign-in">Entra!</button>

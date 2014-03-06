@@ -10,8 +10,13 @@
                 <div class="row-fluid">
                     <div class="col col-sm-4 well">
                         <img src="{{currentUser.db_object.picture}}" width="100%" />
-                        <div align="center">
-                            <button ng-click="doChangePhoto()" class="btn btn-sm btn-warning mtm">Cambia foto</button>
+                        <div class="btn-file-container" ng-show="storedPicture == currentUser.db_object.picture">
+                            <button class="btn btn-sm btn-warning mtm" icon="picture-o">Cambia foto </button>
+                            <input id="pictureSelect" type="file" ng-file-select="onFileSelect($files)" />
+                        </div>
+                        <div ng-show="storedPicture != currentUser.db_object.picture" class="mtm">
+                            <button class="btn btn-danger" ng-click="doAnnullaChangePicture()" icon="undo">Annulla</button>
+                            <button class="btn btn-primary" ng-click="doSaveNewPicture()" icon="save">Salva</button>
                         </div>
                     </div>
                     <div class="col col-sm-8">

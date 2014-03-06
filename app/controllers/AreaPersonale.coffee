@@ -11,7 +11,7 @@ Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', '$ro
     icon: 'cogs'
   ,
     name: 'messaggi'
-    icon: 'envelope-o'
+    icon: 'inbox'
   ]
   $scope.section = $routeParams.section
   $scope.sectionPage = $routeParams.sectionPage
@@ -81,15 +81,12 @@ Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', 'UserServiceNew', '$modal', ($scope, $rootScope, UserServiceNew, $modal) ->
+Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', 'UserServiceNew', '$modal', '$upload', ($scope, $rootScope, UserServiceNew, $modal, $upload) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'dati_utente', 'rigorix_mascotte', 'cancellazione_utente' ]
-
   $scope.currentUser.db_object.email_utente = $scope.currentUser.db_object.email if $scope.currentUser.db_object.email_utente is ""
-
-  $scope.doChangePhoto = ->
-    $.notify "Funzionalita' non ancora attiva"
+  $scope.storedPicture = $scope.currentUser.db_object.picture
 
   $scope.doUpdateUserData = ->
     $rootScope.$broadcast "show:loading"
@@ -110,6 +107,30 @@ Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', 'UserS
       resolve:
         user: ->
           $scope.currentUser
+
+  $scope.onFileSelect = ($files) ->
+    $rootScope.$broadcast "show:loading"
+    $scope.upload = $upload.upload(
+      url: "/api/users/save/picture"
+      file: $files[0]
+    ).success((data, status, headers, config) ->
+      $rootScope.$broadcast "hide:loading"
+      if data.profile_picture?
+        $scope.currentUser.db_object.picture = data.profile_picture
+        $.notify "Immagine cambiata con sucesso", "success"
+    ).error((message, status)->
+      $rootScope.$broadcast "hide:loading"
+      $.notify "Errore nel caricare l'immagine ("+message+")", "error"
+    )
+
+  $scope.doAnnullaChangePicture = ->
+    $scope.currentUser.db_object.picture = $scope.storedPicture
+
+  $scope.doSaveNewPicture = ->
+    $scope.storedPicture = $scope.currentUser.db_object.picture
+    do $scope.doUpdateUserData
+
+
 ]
 
 

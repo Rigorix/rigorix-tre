@@ -105,6 +105,35 @@ Flight::route('POST /users/@id_utente/badges/seen', function($id_utente) {
   ));
 });
 
+Flight::route('POST /users/save/picture', function() { global $env;
+  _log('POST /users/save/picture', json_encode($_FILES));
+
+  if (!isset($_FILES['file']))
+    Flight::halt(500, "Errore generico. Riprova dopo");
+
+  if ($_FILES['file']['error'] !== 0)
+    Flight::halt(500, "Errore generico. Riprova di nuovo");
+
+  if ($_FILES['file']['size'] > $env->PROFILE_PICTURE_MAX_SIZE)
+    Flight::halt(500, "Immagine troppo grande (Max {$env->PROFILE_PICTURE_MAX_SIZE}bytes)");
+
+  $info = getimagesize($_FILES['file']['tmp_name']);
+  if ($info === false)
+    Flight::halt(500, "Tipo immagine non riconosciuto");
+
+  if ( !in_array($info[2], array(IMG_GIF, IMG_JPEG, IMG_JPG, IMG_PNG)))
+    Flight::halt(500, "L'immagine dev'essere gif/jpeg/png");
+
+  $fileName = $env->PROFILE_PICTURE_PATH . $_FILES['file']['name'];
+  if (file_exists($_SERVER['DOCUMENT_ROOT'] . $fileName))
+    $fileName = str_replace(".", time().".", $fileName);
+
+  if ( move_uploaded_file($_FILES['file']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . $fileName) )
+    Flight::json(array("profile_picture" => $fileName));
+
+  Flight::halt(500, "Errore generico");
+});
+
 Flight::route('POST /users/create', function() {
   if (Users::findBySocialId($_POST['id'])->get()->count() == 0):
     _log("Api:users/create", "social POST:".FastJSON::convert($_POST));

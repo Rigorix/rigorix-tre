@@ -15,6 +15,7 @@
     "angular-redactor": "~1.0.0"
   },
   "devDependencies": {
-    "animate.css": "~3.1.0"
+    "animate.css": "~3.1.0",
+    "ng-file-upload": "~1.2.8"
   }
 }

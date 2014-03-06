@@ -19,6 +19,9 @@
   }
 
   .user-container {
+    @profile-picture-width: 40px;
+    @profile-picture-height: 40px;
+
     position: absolute;
     right: -10px;
     top: -10px;
@@ -26,16 +29,12 @@
     text-align: right;
     .transition(background .2s ease);
 
-    .media-object {
-      display: inline-block;
-      margin-left: @base-margin;
+    .profile-picture {
       cursor: pointer;
     }
-
     .user-box {
       display: none;
     }
-
 
     &.visible {
       background: @color-bg-userpopover;
