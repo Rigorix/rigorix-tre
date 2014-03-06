@@ -11,7 +11,7 @@
 >
    <testsuites>
       <testsuite name="First suite">
-          <directory>./specs/api/</directory>
+          <directory>/specs/api/</directory>
       </testsuite>
    </testsuites>
 </phpunit>
