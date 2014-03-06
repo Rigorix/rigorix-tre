@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
 		 backupStaticAttributes="false"
-		 bootstrap="tests/TestFixture.php"
+		 bootstrap="specs/api/test.spec.php"
 		 colors="true"
 		 convertErrorsToExceptions="true"
 		 convertNoticesToExceptions="true"
@@ -11,15 +11,15 @@
 		 syntaxCheck="false"
 >
 
-  <filter>
-    <whitelist>
-      <directory>src/Carbon</directory>
-    </whitelist>
-  </filter>
+  <!--<filter>-->
+    <!--<whitelist>-->
+      <!--<directory>src/Carbon</directory>-->
+    <!--</whitelist>-->
+  <!--</filter>-->
 
    <testsuites>
-      <testsuite name="Carbon Test Suite">
-         <directory>tests</directory>
+      <testsuite name="First suite">
+         <directory>specs/api</directory>
       </testsuite>
    </testsuites>
 </phpunit>
