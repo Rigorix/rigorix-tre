@@ -100,9 +100,21 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserServiceNew', 
       id_utente: $scope.User.id_utente
     ,
     (json)=>
+      json.picture = "/i/profile_picture/default-user-picture.png" if json.picture is null
+      json.db_object.picture = "/i/profile_picture/default-user-picture.png" if json.db_object.picture is null
       $scope.currentUser = json
       $scope.userLogged = json.attivo is 1
       $rootScope.$broadcast "user:update", json
+
+  $scope.doAuth = (event, social) ->
+    do event.preventDefault
+    do event.stopPropagation
+
+    $rootScope.$broadcast "show:loading",
+      type: "logging-in"
+      social: social
+    $rootScope.$broadcast "user:logout"
+    window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to="+RigorixEnv.DOMAIN
 
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -126,5 +138,4 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserServiceNew', 
 
       , RigorixConfig.updateTime
 
-  alert "Yeeesssss"
 ]

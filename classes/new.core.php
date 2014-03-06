@@ -74,7 +74,7 @@ class Core {
       }
     }
     if ( isset($_REQUEST['signature'])) {
-      _log("Core::rigorix_logged_user", "Found a signature, coming from Opauth");
+      _log("Core::rigorix_logged_user", "Found a signature, coming from Opauth (uid: {$_REQUEST['auth']['uid']})");
 
       $result = $api->get("users/bysocial/{$_REQUEST['auth']['uid']}");
       if ($result->info->http_code == 200 ) {
@@ -86,8 +86,8 @@ class Core {
       } else if ($result->info->http_code == 404 ) {
         _log("Core::rigorix_logged_user", "User not found by social uid, new subscription");
 
-        $newUserParams = $_REQUEST['auth']['raw'];
-        $newUserParams['provider'] = $_REQUEST['auth']['provider'];
+        $newUserParams = $this->prepareSocialLoginObject($_REQUEST);
+        _log("Core::rigorix_logged_user", "Social AUTH: ".FastJSON::convert($newUserParams));
         $newUserPost = $api->post("users/create/", $newUserParams);
 
         if ($newUserPost->info->http_code == 200) {
@@ -107,8 +107,23 @@ class Core {
 
     }
 
-    _log("Core::rigorix_logged_user", "[THE END]");
+  }
 
+  function prepareSocialLoginObject($request)
+  {
+    return array(
+      "attivo"          => 0,
+      "first_login"     => 1,
+      "social_provider" => $request['auth']['provider'],
+      "social_uid"      => $request['auth']['uid'],
+      "social_url"      => isset($request['auth']['info']['urls'][0]),
+      "username"        => isset($request['auth']['info']['nickname']) ? $request['auth']['info']['nickname'] : "",
+      "picture"         => isset($request['auth']['info']['image']) ? $request['auth']['info']['image'] : "",
+      "nome"            => isset($request['auth']['info']['first_name']) ? $request['auth']['info']['first_name'] : "",
+      "cognome"         => isset($request['auth']['info']['last_name']) ? $request['auth']['info']['last_name'] : "",
+      "email"           => isset($request['auth']['info']['email']) ? $request['auth']['info']['email'] : "",
+      "email_utente"    => isset($request['auth']['info']['email']) ? $request['auth']['info']['email'] : ""
+    );
   }
 
 }

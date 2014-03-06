@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-03-05 *//*!
+/*! Rigorix - v0.1.0 - 2014-03-06 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -41649,7 +41649,7 @@ Rigorix.controller("Directive.InlineLoader", [
 ]);
 
 Rigorix.controller("FirstLogin", [
-  '$scope', 'UserServiceNew', '$location', '$rootScope', function($scope, UserServiceNew, $location, $rootScope) {
+  '$scope', 'UserServiceNew', '$location', '$rootScope', '$sce', function($scope, UserServiceNew, $location, $rootScope, $sce) {
     if ((typeof User === "undefined" || User === null) || User === false) {
       $location.path("/");
       return;
@@ -41670,8 +41670,10 @@ Rigorix.controller("FirstLogin", [
     }, function(json) {
       $scope.newUser = json;
       if (json.email_utente === "") {
-        return $scope.newUser.db_object.email_utente = json.email;
+        $scope.newUser.db_object.email_utente = json.email;
       }
+      $scope.social_url_trusted = $sce.trustAsResourceUrl($scope.newUser.social_url);
+      return $route.reload();
     });
     return $scope.doActivateUser = function() {
       if ($scope.newUserForm.$valid) {
@@ -42054,10 +42056,26 @@ Rigorix.controller("Main", [
       return UserServiceNew.get({
         id_utente: $scope.User.id_utente
       }, function(json) {
+        if (json.picture === null) {
+          json.picture = "/i/profile_picture/default-user-picture.png";
+        }
+        if (json.db_object.picture === null) {
+          json.db_object.picture = "/i/profile_picture/default-user-picture.png";
+        }
         $scope.currentUser = json;
         $scope.userLogged = json.attivo === 1;
         return $rootScope.$broadcast("user:update", json);
       });
+    };
+    $scope.doAuth = function(event, social) {
+      event.preventDefault();
+      event.stopPropagation();
+      $rootScope.$broadcast("show:loading", {
+        type: "logging-in",
+        social: social
+      });
+      $rootScope.$broadcast("user:logout");
+      return window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to=" + RigorixEnv.DOMAIN;
     };
     if ((RigorixEnv.FAKE_LOGIN != null) && RigorixEnv.FAKE_LOGIN !== false && ((typeof User === "undefined" || User === null) || User === false)) {
       $scope.fakeUser = true;
@@ -42467,7 +42485,7 @@ Rigorix.controller("Main", [
     }
     if ($scope.User !== false) {
       if ($scope.User.attivo === 0) {
-        $location.path("first-login");
+        return $location.path("first-login");
       } else {
         if ($location.$$path === "/first-login") {
           $location.path("/");
@@ -42475,12 +42493,11 @@ Rigorix.controller("Main", [
         $scope.userLogged = true;
         $scope.currentUser = User;
         $scope.updateUserObject();
-        setInterval(function() {
+        return setInterval(function() {
           return $scope.updateUserObject();
         }, RigorixConfig.updateTime);
       }
     }
-    return alert("Yeeesssss");
   }
 ]);
 
@@ -42810,15 +42827,6 @@ Rigorix.controller("Sidebar", [
         return $scope.topUsers = json.data;
       }
     });
-    $scope.doAuth = function(event, social) {
-      event.preventDefault();
-      $rootScope.$broadcast("show:loading", {
-        type: "logging-in",
-        social: social
-      });
-      $rootScope.$broadcast("user:logout");
-      return window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to=" + RigorixEnv.DOMAIN;
-    };
     return $scope.showBadges = function() {
       return Api.call("post", "users/" + $rootScope.currentUser.id_utente + "/badges/seen");
     };
@@ -42959,8 +42967,10 @@ Rigorix.directive("listaSfide", function() {
 
 Rigorix.directive("icon", function() {
   return {
-    link: function(scope, element, attr) {
-      return $(element).prepend($('<span class="fa fa-' + attr.icon + ' mrs"></span>'));
+    link: function(scope, element, attrs) {
+      return attrs.$observe('icon', function(iconName) {
+        return element.prepend($('<span class="fa fa-' + iconName.toLowerCase() + ' mrs"></span>'));
+      });
     }
   };
 });

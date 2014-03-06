@@ -4,10 +4,19 @@ require_once "classes/new.core.php";
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="Rigorix">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <title>Rigorix - Gioco online a premi</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <meta name="description" content="Gioca gratis e vinci bellissimi premi ai rigori. Rigorix e' uno dei piu' divertenti giochi online gratuiti in flash in cui si vincono veri premi. Gioca online!">
   <meta name="keywords" content="giochi on line gratuiti a premi">
+
+  <meta charset="utf-8" />
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+  <title>Cronycle</title>
+  <meta content="initial-scale=1.0 maximum-scale=1.0 user-scalable=no width=device-width" name="viewport" />
+  <meta content="website" property="og:type" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
   <link rel="stylesheet" href="/app/assets/dist/app.css" type="text/css" />
   <script>
     var User = <?php echo $core->logged; ?>;

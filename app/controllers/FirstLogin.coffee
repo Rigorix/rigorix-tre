@@ -1,4 +1,4 @@
-Rigorix.controller "FirstLogin", ['$scope', 'UserServiceNew', '$location', '$rootScope', ($scope, UserServiceNew, $location, $rootScope)->
+Rigorix.controller "FirstLogin", ['$scope', 'UserServiceNew', '$location', '$rootScope', '$sce', ($scope, UserServiceNew, $location, $rootScope, $sce)->
 
   if !User? or User is false
     $location.path "/"
@@ -22,6 +22,8 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserServiceNew', '$location', '$roo
     (json) ->
       $scope.newUser = json
       $scope.newUser.db_object.email_utente = json.email if json.email_utente is ""
+      $scope.social_url_trusted = $sce.trustAsResourceUrl $scope.newUser.social_url
+      $route.reload()
 
   $scope.doActivateUser = ->
 

@@ -107,20 +107,27 @@ Flight::route('POST /users/@id_utente/badges/seen', function($id_utente) {
 
 Flight::route('POST /users/create', function() {
   if (Users::findBySocialId($_POST['id'])->get()->count() == 0):
-    try {
-      $newUser                  = new Users;
-      $newUser->attivo          = 0;
-      $newUser->social_provider = $_POST['provider'];
-      $newUser->social_uid      = $_POST['id'];
-      $newUser->social_url      = $_POST['link'];
-      $newUser->username        = str_replace(" ", "_", $_POST['name']);
-      $newUser->picture         = $_POST['picture'];
-      $newUser->nome            = $_POST['given_name'];
-      $newUser->cognome         = $_POST['family_name'];
-      $newUser->sesso           = strtoupper(substr($_POST['gender'], 0, 1));
-      $newUser->email           = $_POST['email'];
+    _log("Api:users/create", "social POST:".FastJSON::convert($_POST));
+    _log("Api:users/create", "social AUTH-INFO:".getParams());
 
-      $newUser->save();
+    try {
+      $newUser = Users::create($_POST);
+//
+//      $newUser                  = new Users;
+//      $newUser->attivo          = 0;
+//      $newUser->social_provider = $_POST['provider'];
+//      $newUser->social_uid      = $_POST['uid'];
+//      $newUser->social_url      = $_POST['info']['urls'][0];
+//      $newUser->username        = $_POST['info']['nickname'];
+//      $newUser->picture         = $_POST['info']['image'];
+//      $newUser->nome            = $_POST['first_name'];
+//      $newUser->cognome         = $_POST['last_name'];
+//      $newUser->sesso           = $sesso;
+//      $newUser->email           = $_POST['info']['email'];
+
+      _log("Api:users/create", "new user:".(string)$newUser);
+
+//      $newUser->save();
 
       Flight::json(array("id_utente" => $newUser->id_utente));
     } catch (Exception $e) {
