@@ -51,7 +51,7 @@ module.exports = function(grunt) {
         dest: "app/assets/dist/app.js"
       },
       css: {
-        src: ["app/assets/css/*.css", "app/assets/temp/app.main.css", "css/*.css"],
+        src: ["app/assets/css/*.css", "app/assets/dist/dependencies/*.css.css", "app/assets/temp/app.main.css", "css/*.css"],
         dest: "app/assets/dist/app.css"
       }
     },
@@ -109,7 +109,7 @@ module.exports = function(grunt) {
   grunt.registerTask("dev", ["concurrent:dev"]);
   grunt.registerTask("dev:script", ["coffee:compileBare", "concat:script", "uglify:dev", "clean:temp"]);
   grunt.registerTask("dev:less", ["less:development", "concat:css", "clean:temp"]);
-  grunt.registerTask("dev:dependencies", ["bowerInstall", "bower"]);
+  grunt.registerTask("dev:bower", ["bowerInstall", "bower"]);
   grunt.registerTask("dev:build", ["coffee:compileBare", "concat:script", "less:development", "concat:css", "clean:temp"]);
   grunt.registerTask("deploy:staging", ["dev:build", "ftp_upload"]);
   return grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);

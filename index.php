@@ -18,6 +18,7 @@ require_once "classes/new.core.php";
   <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 
   <link rel="stylesheet" href="/app/assets/dist/app.css" type="text/css" />
+  <link rel="stylesheet" href="http://daneden.github.io/animate.css/animate.min.css" type="text/css" />
   <script>
     var User = <?php echo $core->logged; ?>;
     var RigorixEnv = <?php echo $core->get_env_vars($env); ?>;

@@ -69,6 +69,7 @@ module.exports = (grunt) ->
       css:
         src: [
           "app/assets/css/*.css"
+          "app/assets/dist/dependencies/*.css.css"
           "app/assets/temp/app.main.css"
           "css/*.css"
         ]
@@ -191,7 +192,7 @@ module.exports = (grunt) ->
     "concat:css"
     "clean:temp"
   ]
-  grunt.registerTask "dev:dependencies", [
+  grunt.registerTask "dev:bower", [
     "bowerInstall"
     "bower"
   ]
