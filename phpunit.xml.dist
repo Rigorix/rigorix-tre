@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
 		 backupStaticAttributes="false"
-		 bootstrap="specs/api/test.spec.php"
 		 colors="true"
 		 convertErrorsToExceptions="true"
 		 convertNoticesToExceptions="true"
@@ -10,16 +9,9 @@
 		 stopOnFailure="false"
 		 syntaxCheck="false"
 >
-
-  <!--<filter>-->
-    <!--<whitelist>-->
-      <!--<directory>src/Carbon</directory>-->
-    <!--</whitelist>-->
-  <!--</filter>-->
-
    <testsuites>
       <testsuite name="First suite">
-         <directory>specs/api</directory>
+         <file>/specs/api/test.spec.php</file>
       </testsuite>
    </testsuites>
 </phpunit>
