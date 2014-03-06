@@ -11,9 +11,7 @@
 >
    <testsuites>
       <testsuite name="First suite">
-         <file>./specs/api/test.spec.php</file>
-         <file>specs/api/test.spec</file>
-         <file>specs/api/WRONG</file>
+          <directory>./specs/api/</directory>
       </testsuite>
    </testsuites>
 </phpunit>
