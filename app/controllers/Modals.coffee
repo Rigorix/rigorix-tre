@@ -121,7 +121,7 @@ Rigorix.controller "Modals.ShowEndMatch", ['$scope', '$modal', '$modalInstance',
 
 
 
-Rigorix.controller "Modals.DeleteUser", ['$scope', '$modal', '$modalInstance', '$rootScope', 'user', 'Api', ($scope, $modal, $modalInstance, $rootScope, user, Api)->
+Rigorix.controller "Modals.DeleteUser", ['$scope', '$modal', '$modalInstance', '$rootScope', 'user', 'Api', 'notify', ($scope, $modal, $modalInstance, $rootScope, user, Api, notify)->
 
   $rootScope.$broadcast "modal:open",
     modalClass: 'modal-delete-user'
@@ -139,11 +139,11 @@ Rigorix.controller "Modals.DeleteUser", ['$scope', '$modal', '$modalInstance', '
           do $modalInstance.dismiss
           $rootScope.$broadcast "modal:close"
           $rootScope.$broadcast "user:logout"
-          $.notify "Ti e' stata inviata una mail per la cancellazione"
+          notify.info "Ti e' stata inviata una mail per la cancellazione"
 
 
       error: ->
-        console.log "error", arguments
+        notify.error "Errore durante la cancellazione. Contattaci per dettagli"
 
   $scope.cancel = ->
     do $modalInstance.dismiss

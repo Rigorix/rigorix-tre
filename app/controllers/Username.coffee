@@ -24,7 +24,7 @@ Rigorix.controller "Username", ['$scope', '$rootScope', '$modal', 'Api', ($scope
 
   $scope.doLanciaSfida = ->
     if $rootScope.currentUser is false
-      $.notify "Devi entrare in Rigorix per poter sfidare un utente", "error"
+      notify.warn "Devi entrare in Rigorix per poter sfidare un utente"
     else
       if $scope.disabled != 'disabled'
         $rootScope.$broadcast "sfida:lancia", $scope.userObject

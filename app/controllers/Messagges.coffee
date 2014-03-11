@@ -42,7 +42,7 @@ Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource'
 
 
 
-Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$rootScope', 'message', 'MessageResource', 'Api', '$sce', ($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api, $sce)->
+Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$rootScope', 'message', 'MessageResource', 'Api', 'notify', ($scope, $modal, $modalInstance, $rootScope, message, MessageResource, Api, notify)->
 
   $rootScope.$broadcast "modal:open",
     controller: 'Message.Modal'
@@ -76,12 +76,12 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
     Api.call "post", "messages/reply/",
       message: $scope.message
       success: (json)->
-        $.notify "Risposta mandata con successo", "success"
+        notify.success "Risposta mandata con successo"
         $rootScope.$broadcast "modal:close"
         do $modalInstance.dismiss
 
       error: ->
-        $.notify "Errore nel spedire la risposta. Riprova più tardi.", "error"
+        notify.error "Errore nel spedire la risposta. Riprova più tardi."
 
 
   $scope.discard = ->
@@ -92,11 +92,12 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
     Api.call "delete", "message/" + message.id_mess,
       success: (json)->
         do $modalInstance.dismiss
-        $.notify "Messaggio cancellato correttamente", "success"
+
+        notify.success "Messaggio cancellato correttamente"
         $rootScope.$broadcast "message:deleted", message
 
       error: ->
-        $.notify "Errore nel cancellare il messaggio", "error"
+        notify.error "Errore nel cancellare il messaggio"
 
   $scope.cancel = ->
     do $modalInstance.dismiss
@@ -141,10 +142,10 @@ Rigorix.controller 'Message.Modal.New', ['$scope', '$modal', '$modalInstance', '
       message: $scope.newMessage,
       success: ->
         do $scope.cancel
-        $.notify "Messaggio mandato con successo", "success"
+        notify.success "Messaggio mandato con successo"
 
       error: ->
-        $.notify "Errore nel mandare il messaggio, riprova più tardi", "error"
+        notify.error "Errore nel mandare il messaggio, riprova più tardi"
 
   $scope.cancel = ->
     do $modalInstance.dismiss

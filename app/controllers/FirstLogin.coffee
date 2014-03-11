@@ -1,4 +1,4 @@
-Rigorix.controller "FirstLogin", ['$scope', 'UserServiceNew', '$location', '$rootScope', '$sce', ($scope, UserServiceNew, $location, $rootScope, $sce)->
+Rigorix.controller "FirstLogin", ['$scope', 'UserService', '$location', '$rootScope', '$sce', 'notify', ($scope, UserService, $location, $rootScope, $sce, notify)->
 
   if !User? or User is false
     $location.path "/"
@@ -16,7 +16,7 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserServiceNew', '$location', '$roo
   $scope.openDatepicker = ->
     $scope.datepickerOpened = true
 
-  $scope.newUser = UserServiceNew.get
+  $scope.newUser = UserService.get
     id_utente: User.id_utente
   ,
     (json) ->
@@ -38,5 +38,5 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserServiceNew', '$location', '$roo
         $rootScope.$broadcast "hide:loading"
         $rootScope.$broadcast "user:activated", json
     else
-      $.notify "Ci sono uno o più campi che non sono stati compilati."
+      notify.warn "Ci sono uno o più campi che non sono stati compilati."
 ]

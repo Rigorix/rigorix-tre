@@ -1,6 +1,6 @@
 RigorixAdmin = angular.module "RigorixAdmin", ["ngRoute", "ui.bootstrap"]
 
-RigorixAdmin.config ['$routeProvider', ($routeProvider, $rootScope)->
+RigorixAdmin.config ['$routeProvider', ($routeProvider)->
 
   $routeProvider.when "/logs",
     templateUrl: "templates/page.logs.html",
@@ -13,5 +13,19 @@ RigorixAdmin.config ['$routeProvider', ($routeProvider, $rootScope)->
   $routeProvider.when "/users",
     templateUrl: "templates/page.utente.html",
     controller: "Users"
+
+]
+
+RigorixAdmin.config ['$rootScope', ($rootScope)->
+
+  $rootScope.TableDefinition =
+
+    utente:
+      name: "Utenti"
+      fields:
+        id_utente
+          name: "ID"
+          type: "number"
+          hidden: true
 
 ]

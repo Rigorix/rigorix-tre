@@ -5,8 +5,8 @@ RigorixServices.factory "Api", ['$resource', '$http', ($resource, $http)->
     promise = $http[method](RigorixEnv.API_DOMAIN + url, params)
     promise.then params.success, params.error if params? and params.success?
 
-  get: (url, params)->
-#    TODO: Impreve this!!
+  get: (url)->
+#    TODO: Improve this!!
     $resource RigorixEnv.API_DOMAIN + url,
       method: "GET"
       isArray: false

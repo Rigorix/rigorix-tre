@@ -1,4 +1,4 @@
-Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'Api', ($scope, $timeout, $rootScope, $modal, Api)->
+Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'Api', 'notify', ($scope, $timeout, $rootScope, $modal, Api, notify)->
 
   $scope.rows = [
     { index: 0 },
@@ -60,8 +60,6 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
       matrix['tiro' + index] = value.tiro
       matrix['parata' + index] = value.parata
 
-    console.log "Send to set sfida", $scope.sfida, JSON.stringify(matrix)
-
     Api.call "post", "sfide/set",
       sfida_matrix: JSON.stringify(matrix)
       sfida: $scope.sfida
@@ -81,7 +79,7 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
                 User
 
         else
-          $.notify "Sfida mandata con successo", "success"
+          notify.success "Sfida mandata con successo"
 
         $rootScope.$broadcast "user:refresh"
 
@@ -89,7 +87,7 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
         $rootScope.$broadcast "hide:loading"
         $rootScope.$broadcast "modal:close"
         do $scope.cancel
-        $.notify "Errore nel mandare la sfida", "error"
+        notify.error "Errore nel mandare la sfida"
 ]
 
 

@@ -1,0 +1,40 @@
+.notifications-container {
+  position: fixed;
+  top: 5px;
+  left: 0%;
+  width: 100%;
+  text-align: center;
+  z-index: @zindex-notification;
+
+  .notification-single {
+    margin: 0 4px 7px;
+    padding: 5px 10px;
+    font-size: 13px;
+    display: inline-block;
+
+    &.severity-default {
+      .notification(@brand-primary);
+    }
+
+    &.severity-success {
+      .notification(@brand-success);
+    }
+
+    &.severity-info {
+      .notification(@brand-info);
+    }
+
+    &.severity-warning {
+      .notification(@brand-warning);
+    }
+
+    &.severity-danger {
+      .notification(@brand-danger);
+    }
+
+    .fa {
+      font-size: 1.5em;
+      vertical-align: middle;
+    }
+  }
+}

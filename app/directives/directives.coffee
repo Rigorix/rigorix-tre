@@ -118,6 +118,29 @@ Rigorix.directive "loading", ->
     icon: "@customIcon"
 
 
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+Rigorix.directive "notificationTimeout", ['$rootScope', ($rootScope)->
+
+  dismissNotification = (scope, element, anim)->
+    if anim? then element.addClass anim else element.addClass "bounceOutUp"
+    element.one "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", ->
+      $rootScope.notifications = (notification for notification in $rootScope.notifications when notification isnt scope.notification)
+      do element.remove
+
+  (scope, element)->
+    if scope.notification.timeout
+      element.removeClass scope.animation
+
+      element.on "click", =>
+        dismissNotification scope, element, "hinge"
+
+      setTimeout =>
+        dismissNotification scope, element
+      , scope.notification.timeout
+
+]
 
 ##-----------------------------------------------------------------------------------------------------------------------
 #

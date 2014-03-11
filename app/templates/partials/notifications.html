@@ -1,0 +1,5 @@
+<div class="notifications-container">
+    <div class="notification-single animated {{notification.animation}} severity-{{notification.severity}}" ng-repeat="notification in notifications" icon="{{notification.icon}}" notification-timeout="{{notification.timeout}}">
+        {{notification.text}}
+    </div>
+</div>

@@ -81,7 +81,7 @@ Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', 'UserServiceNew', '$modal', '$upload', ($scope, $rootScope, UserServiceNew, $modal, $upload) ->
+Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', '$modal', '$upload', 'notify', ($scope, $rootScope, $modal, $upload, notify) ->
 
   $scope.isLoading = true
   $scope.pages = [ 'dati_utente', 'rigorix_mascotte', 'cancellazione_utente' ]
@@ -98,7 +98,7 @@ Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', 'UserS
       $rootScope.$broadcast "hide:loading"
       $rootScope.$broadcast "user:update", json
 
-      $.notify "Dati utente aggiornati correttamente", "success"
+      notify.success "Dati utente aggiornati correttamente"
 
   $scope.doDeleteUser = ->
     $modal.open
@@ -117,10 +117,13 @@ Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', 'UserS
       $rootScope.$broadcast "hide:loading"
       if data.profile_picture?
         $scope.currentUser.db_object.picture = data.profile_picture
-        $.notify "Immagine cambiata con sucesso", "success"
+        notify.success
+          text: "Immagine cambiata con sucesso"
+          icon: "picture-o"
+
     ).error((message, status)->
       $rootScope.$broadcast "hide:loading"
-      $.notify "Errore nel caricare l'immagine ("+message+")", "error"
+      notify.error "Errore nel caricare l'immagine ("+message+")"
     )
 
   $scope.doAnnullaChangePicture = ->

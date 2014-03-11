@@ -4,3 +4,13 @@ RigorixAdmin.directive "icon", ->
 
 
 #-----------------------------------------------------------------------------------------------------------------------
+
+
+RigorixAdmin.directive "adminCell", ->
+  restrict: 'E'
+  templateUrl: '/app/administr/templates/admin-table-cell.html'
+  controller: 'TableCell'
+  scope:
+    data: "="
+    column: "="
+    table: "="
