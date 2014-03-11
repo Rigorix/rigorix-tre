@@ -1,9 +1,9 @@
-<div class="user-panel">
+<div class="user-panel" ng-controller="UserPanel">
 
     <div ng-show="currentUser">
         <h3>{{currentUser.username}}</h3>
         <div class="summary">
-            <div class="user-picture animated swing">
+            <div class="user-picture">
                 <img src="{{currentUser.picture}}" />
             </div>
             <span class="punteggio">{{currentUser.punteggio_totale}}</span>

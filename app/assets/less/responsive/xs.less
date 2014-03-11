@@ -4,10 +4,26 @@
 
     body {
 
+      #body {
+        > .col {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+
       /// Header
       #header {
         left: 0;
       }
+
+
+      /// Sidebar
+      .sidebar {
+        .user-panel {
+          display: none;
+        }
+      }
+
 
       .badge-list {
         .badge-container {
@@ -25,12 +41,68 @@
       }
 
       /// Area personale
+      .sfide-legenda {
+        display: none;
+      }
+
       .navbar {
         .navbar-header {
           .navbar-brand {
+            background: transparent;
             display: block;
+            color: @color-rigorix-blue;
+            font-size: 42px;
+            line-height: 43px;
+
+            small {
+              display: inline-block;
+              font-size: 19px;
+            }
+
+            .fa {
+              vertical-align: middle;
+              margin-right: 10px !important;
+            }
           }
         }
+      }
+
+      .nav-pills {
+        > li {
+          width: 33.33%;
+          margin: 0;
+          text-align: center;
+
+          > a {
+            padding: 8px;
+            .text-overflow();
+          }
+        }
+      }
+
+      .lista-sfide-container {
+        padding: 0;
+        margin-right: -6px;
+        margin-left: -6px;
+
+        .sfide-description {
+          display: none;
+        }
+
+        .username-container {
+          .profile-picture {
+            display: none;
+          }
+          .punteggio-utente-container {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.AreaPersonale {
+      .sidebar {
+        display: none;
       }
     }
   }

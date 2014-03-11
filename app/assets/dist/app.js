@@ -41815,7 +41815,7 @@ Rigorix.controller("AreaPersonale.Utente", [
 
 Rigorix.controller("AreaPersonale.Sfide", [
   '$scope', '$route', 'Api', function($scope, $route, Api) {
-    $scope.pages = ['sfide_da_giocare', 'in_attesa_di_risposta', 'archivio'];
+    $scope.pages = ['da_giocare', 'in_attesa', 'archivio'];
     $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare;
     $scope.status = "loading";
     $scope.sfideInAttesaDiRisposta = [];
@@ -41824,7 +41824,7 @@ Rigorix.controller("AreaPersonale.Sfide", [
     $scope.$on("user:update", function(event, userObject) {
       return $scope.sfideDaGiocare = userObject.sfide_da_giocare;
     });
-    if ($scope.sectionPage === "in_attesa_di_risposta") {
+    if ($scope.sectionPage === "in_attesa") {
       Api.call("get", "sfide/pending/" + $scope.currentUser.id_utente, {
         success: function(json) {
           $scope.sfideInAttesaDiRisposta = json.data;
@@ -41849,7 +41849,7 @@ Rigorix.controller("AreaPersonale.Sfide", [
 Rigorix.controller("AreaPersonale.Impostazioni", [
   '$scope', '$rootScope', '$modal', '$upload', 'notify', function($scope, $rootScope, $modal, $upload, notify) {
     $scope.isLoading = true;
-    $scope.pages = ['dati_utente', 'rigorix_mascotte', 'cancellazione_utente'];
+    $scope.pages = ['dati_utente', 'mascotte', 'cancellazione'];
     if ($scope.currentUser.db_object.email_utente === "") {
       $scope.currentUser.db_object.email_utente = $scope.currentUser.db_object.email;
     }
@@ -42103,7 +42103,7 @@ Rigorix.controller("GamePlay.Tile", [
 ]);
 
 Rigorix.controller("Header", [
-  '$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+  '$scope', '$rootScope', '$location', 'notify', function($scope, $rootScope, $location, notify) {
     $scope.showUserPopout = false;
     $scope.$on("rootevent:click", function(ev, args) {
       if ($(args.event.target).parents(".user-container").size() === 0) {
@@ -42114,7 +42114,10 @@ Rigorix.controller("Header", [
       return $location.path("/");
     };
     return $scope.toggleVisibility = function() {
-      return $scope.showUserPopout = !$scope.showUserPopout;
+      $scope.showUserPopout = !$scope.showUserPopout;
+      if ($scope.showUserPopout === true) {
+        return notify.animate(".user-container", "fadeInDown");
+      }
     };
   }
 ]);
@@ -42176,7 +42179,7 @@ Rigorix.controller("ListaSfide.Sfida", [
     $scope.hasActiveButton = true;
     switch (parseInt($scope.sfida.stato, 10)) {
       case 0:
-        $scope.statoButton = 'lancia_sfida';
+        $scope.statoButton = 'lancia';
         $scope.statoButtonIcon = 'play';
         break;
       case 1:
@@ -42185,7 +42188,7 @@ Rigorix.controller("ListaSfide.Sfida", [
         $scope.hasActiveButton = $scope.statoButton === 'rispondi';
         break;
       case 2:
-        $scope.statoButton = 'vedi_sfida';
+        $scope.statoButton = 'vedi';
         $scope.statoButtonIcon = 'eye';
         break;
       case 3:
@@ -42197,7 +42200,7 @@ Rigorix.controller("ListaSfide.Sfida", [
         $scope.hasActiveButton = false;
     }
     return $scope.doClickSfida = function(stato) {
-      if (stato === 'vedi_sfida') {
+      if (stato === 'vedi') {
         return $rootScope.$broadcast("show:sfida", $scope.sfida);
       } else {
         return $modal.open({
@@ -42228,7 +42231,7 @@ Rigorix.controller("Main", [
         event: event
       });
     };
-    $scope.$on("$routeChangeStart", function(event, next, current) {
+    $scope.$on("$routeChangeStart", function(event, next) {
       if ((typeof User !== "undefined" && User !== null) && User.attivo === 0) {
         if (User.dead === false) {
           $location.path("/first-login");
@@ -42237,8 +42240,10 @@ Rigorix.controller("Main", [
         }
       }
       if (User === false) {
-        return $location.path("/");
+        $location.path("/");
       }
+      $("html")[0].className = next.$$route.controller;
+      return Rigorix.value("page", next.$$route.controller);
     });
     $scope.$on("app:loaded", function() {
       return $scope.appLoaded = true;
@@ -43102,6 +43107,34 @@ Rigorix.controller("Sidebar", [
   }
 ]);
 
+Rigorix.controller("UserPanel", [
+  '$rootScope', '$scope', 'notify', function($rootScope, $scope, notify) {
+    $scope.userPicture = $(".user-picture");
+    $scope.notificationsCount = 0;
+    $scope.$on("new:notification", function() {
+      return notify.animate($scope.userPicture, "swing");
+    });
+    $scope.$on("new:user:notifications", function() {
+      return notify.animate($scope.userPicture, "swing");
+    });
+    $scope.$on("user:update", function() {
+      return $scope.checkNotifications();
+    });
+    $scope.checkNotifications = function() {
+      var actualNotifications;
+      actualNotifications = 0;
+      actualNotifications += $scope.currentUser.messages.length;
+      actualNotifications += $scope.currentUser.has_new_badges;
+      actualNotifications += $scope.currentUser.sfide_da_giocare.length;
+      if ($scope.notificationsCount !== 0 && actualNotifications > $scope.notificationsCount) {
+        $rootScope.$broadcast("new:user:notifications");
+      }
+      return $scope.notificationsCount = actualNotifications;
+    };
+    return notify.animate($scope.userPicture, "pulse");
+  }
+]);
+
 Rigorix.controller("Username", [
   '$scope', '$rootScope', '$modal', 'Api', function($scope, $rootScope, $modal, Api) {
     $scope.currentUser = $scope.$parent.currentUser;
@@ -43478,6 +43511,15 @@ Rigorix.service("notify", [
         icon: 'info-circle',
         timeout: 7000
       },
+      animateDefaults: {
+        animations: ['bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'swing', 'tada', 'wobble', 'bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp', 'fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig', 'flip', 'flipInX', 'flipInY', 'flipOutX', 'flipOutY', 'lightSpeedIn', 'lightSpeedOut', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight', 'rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight', 'slideInDown', 'slideInLeft', 'slideInRight', 'slideOutLeft', 'slideOutRight', 'slideOutUp', 'hinge', 'rollIn', 'rollOut'],
+        after: function() {
+          return false;
+        },
+        before: function() {
+          return false;
+        }
+      },
       getConfigObject: function(arg) {
         if (typeof arg === "string") {
           return {
@@ -43487,12 +43529,26 @@ Rigorix.service("notify", [
           return arg;
         }
       },
+      extendDefaults: function(custom, defaults) {
+        var obj;
+        obj = angular.copy(defaults);
+        return obj = $.extend(obj, custom);
+      },
       addNotification: function(args) {
         var obj;
-        obj = angular.copy(this.defaults);
-        obj = $.extend(obj, this.getConfigObject(args));
+        obj = this.extendDefaults(this.getConfigObject(args), this.defaults);
         $rootScope.notifications.push(obj);
-        return console.log("$rootScope.notifications 2", $rootScope.notifications);
+        return $rootScope.$broadcast("new:notification", obj);
+      },
+      animate: function(element, animation, config) {
+        var el;
+        config = this.extendDefaults(config, this.animateDefaults);
+        el = $(element).removeClass("animated " + config.animations.join(" "));
+        config.before();
+        return el.addClass("animated " + animation).one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function() {
+          el.removeClass("animated " + animation);
+          return config.after();
+        });
       },
       show: function(args) {
         return this.addNotification(args);

@@ -3,16 +3,16 @@
     <div ng-include="'/app/templates/area-personale/pagetabs.html'"></div>
 
     <div class="row-fluid">
-        <div class="col-sm-12 mtl">
+        <div class="col-sm-12 mtl lista-sfide-container">
 
-            <div ng-show="sectionPage == 'sfide_da_giocare'">
+            <div ng-show="sectionPage == 'da_giocare'">
 
                 <div ng-include="'/app/templates/area-personale/legenda-sfide.html'"></div>
 
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
                     <div class="panel-heading">
-                        Sfide da giocare <span class="label label-info mlm">{{sfideDaGiocare | length}}</span>
+                        <span class="label label-info mlm">{{sfideDaGiocare | length}}</span> da giocare
                         <button class="btn btn-sm pull-right btn-default" ng-click="reload()" icon="refresh">Ricarica</button>
                     </div>
 
@@ -22,14 +22,14 @@
 
             </div>
 
-            <div ng-show="sectionPage == 'in_attesa_di_risposta'">
-                <p>Qui trovi la lista di tutte le sfide che hai lanciato e non sono ancora state risposte.</p>
+            <div ng-show="sectionPage == 'in_attesa'">
+                <p class="sfide-description">Qui trovi la lista di tutte le sfide che hai lanciato e non sono ancora state risposte.</p>
                 <div ng-include="'/app/templates/area-personale/legenda-sfide.html'"></div>
 
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
                     <div class="panel-heading">
-                        Lista sfide in attesa di risposta <span class="label label-info mlm">{{sfideInAttesaDiRisposta | length}}</span>
+                        <span class="label label-info mlm">{{sfideInAttesaDiRisposta | length}}</span> in attesa
                         <button class="btn btn-sm pull-right btn-default" ng-click="reload()" icon="refresh">Ricarica</button>
                     </div>
 
@@ -45,7 +45,7 @@
                 <div class="panel panel-default mtl">
                     <!-- Default panel contents -->
                     <div class="panel-heading">
-                        Archivio sfide giocate <span class="label label-info mlm" ng-model="sfideArchivio">{{sfideArchivio | length}}</span>
+                        <span class="label label-info mlm" ng-model="sfideArchivio">{{sfideArchivio | length}}</span> sfide giocate
                         <button class="btn btn-sm pull-right btn-default" ng-click="reload()" icon="refresh">Ricarica</button>
                     </div>
 

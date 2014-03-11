@@ -51,7 +51,7 @@ Rigorix.controller "AreaPersonale.Utente", ['$scope', 'Api', ($scope, Api) ->
 
 Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $route, Api) ->
 
-  $scope.pages = [ 'sfide_da_giocare', 'in_attesa_di_risposta', 'archivio' ]
+  $scope.pages = [ 'da_giocare', 'in_attesa', 'archivio' ]
   $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare
   $scope.status = "loading"
   $scope.sfideInAttesaDiRisposta = []
@@ -61,7 +61,7 @@ Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $
   $scope.$on "user:update", (event, userObject)->
     $scope.sfideDaGiocare = userObject.sfide_da_giocare
 
-  if $scope.sectionPage is "in_attesa_di_risposta"
+  if $scope.sectionPage is "in_attesa"
     Api.call "get", "sfide/pending/" + $scope.currentUser.id_utente,
       success: (json)->
         $scope.sfideInAttesaDiRisposta = json.data
@@ -84,7 +84,7 @@ Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $
 Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', '$modal', '$upload', 'notify', ($scope, $rootScope, $modal, $upload, notify) ->
 
   $scope.isLoading = true
-  $scope.pages = [ 'dati_utente', 'rigorix_mascotte', 'cancellazione_utente' ]
+  $scope.pages = [ 'dati_utente', 'mascotte', 'cancellazione' ]
   $scope.currentUser.db_object.email_utente = $scope.currentUser.db_object.email if $scope.currentUser.db_object.email_utente is ""
   $scope.storedPicture = $scope.currentUser.db_object.picture
 

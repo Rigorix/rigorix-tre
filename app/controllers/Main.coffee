@@ -11,11 +11,14 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
     $rootScope.$broadcast "rootevent:click",
       event: event
 
-  $scope.$on "$routeChangeStart", (event, next, current)->
+  $scope.$on "$routeChangeStart", (event, next)->
     if User? and User.attivo is 0
       if User.dead is false then $location.path "/first-login" else $location.path "/access-denied"
 
     $location.path "/" if User is false
+
+    $("html")[0].className = next.$$route.controller
+    Rigorix.value "page", next.$$route.controller
 
   $scope.$on "app:loaded", ->
     $scope.appLoaded = true

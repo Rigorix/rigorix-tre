@@ -4,7 +4,7 @@
             <p icon="flag">Nessuna sfida</p>
         </td>
     </tr>
-    <tr ng-show="sfide.length > 0">
+    <tr ng-show="sfide.length > 0" class="hidden-xs">
         <th></th>
         <th>Avversario</th>
         <th class="text-center">Lanciata</th>
@@ -15,11 +15,11 @@
         <th class="text-center">Stato</th>
     </tr>
     <tr ng-repeat="sfida in sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.id_sfida}}" on-sfida-load>
-        <td class="{{risultatoLabel}}"></td>
+        <td class="{{risultatoLabel}} hidden-xs"></td>
         <td>
             <username id-utente="id_avversario" with-picture="true" with-punteggio="true"></username>
         </td>
-        <td class="text-center">
+        <td class="text-center hidden-xs">
             <beautify-date ng-show="sfida.dta_sfida != false" date="{{sfida.dta_sfida}}" inline="true"></beautify-date>
         </td>
         <td class="text-center">
@@ -31,14 +31,14 @@
                 <div class="team-screen away-team score{{risultato[1]}} win"></div>
             </div>
         </td>
-        <td class="text-center">
+        <td class="text-center hidden-xs">
             <span class="badge" ng-show="sfida.stato > 1">{{punti}}</span>
         </td>
-        <td class="text-center">
+        <td class="text-center hidden-xs">
             <span class="badge" ng-show="sfida.stato > 1">{{punti_rewards}}</span>
         </td>
         <td class="text-center">
-            <button ng-show="hasActiveButton" class="btn btn-sm" icon="{{statoButtonIcon}}" ng-class="{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vedi_sfida'}" ng-click="doClickSfida(statoButton)">{{statoButton | varToTitle}}</button>
+            <button ng-show="hasActiveButton" class="btn btn-sm" icon="{{statoButtonIcon}}" ng-class="{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vedi'}" ng-click="doClickSfida(statoButton)">{{statoButton | varToTitle}}</button>
             <button ng-show="!hasActiveButton" class="btn btn-sm btn-disabled" disabled="disabled" icon="{{statoButtonIcon}}">{{statoButton | varToTitle}}</button>
         </td>
     </tr>

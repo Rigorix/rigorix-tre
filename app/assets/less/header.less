@@ -33,44 +33,28 @@
       cursor: pointer;
       width: 40px;
       height: 40px;
+      .transition(all .3s ease)
     }
-    .user-box {
+    .user-panel {
       display: none;
     }
 
     &.visible {
-      background: @color-bg-userpopover;
-      box-shadow: 3px 7px 16px @color-gray;
+      background: @color-rigorix-green;
+      box-shadow: 3px 7px 16px @color-rigorix-darkgreen;
+      min-width: 230px;
 
-      .user-box {
+      .profile-picture {
+        display: none;
+      }
+
+      .user-panel {
         display: block;
         border: 0;
         background: transparent;
         text-align: left;
         margin-bottom: 0;
 
-        .panel-heading {
-          display: none;
-        }
-
-        .list-group-item {
-          background: transparent;
-
-          &.user-item {
-            display: none;
-          }
-
-          &:last-child {
-            border-bottom: 0;
-          }
-        }
-
-        @media (max-width: @screen-phone) {
-          .btn {
-            width: 100%;
-            margin-top: 6px;
-          }
-        }
       }
     }
   }

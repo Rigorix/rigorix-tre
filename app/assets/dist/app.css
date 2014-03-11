@@ -10367,38 +10367,26 @@ input.ng-invalid:focus {
   cursor: pointer;
   width: 40px;
   height: 40px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
-#header .user-container .user-box {
+#header .user-container .user-panel {
   display: none;
 }
 #header .user-container.visible {
-  background: #f3f3f3;
-  box-shadow: 3px 7px 16px #999999;
+  background: #86be28;
+  box-shadow: 3px 7px 16px #597f1b;
+  min-width: 230px;
 }
-#header .user-container.visible .user-box {
+#header .user-container.visible .profile-picture {
+  display: none;
+}
+#header .user-container.visible .user-panel {
   display: block;
   border: 0;
   background: transparent;
   text-align: left;
   margin-bottom: 0;
-}
-#header .user-container.visible .user-box .panel-heading {
-  display: none;
-}
-#header .user-container.visible .user-box .list-group-item {
-  background: transparent;
-}
-#header .user-container.visible .user-box .list-group-item.user-item {
-  display: none;
-}
-#header .user-container.visible .user-box .list-group-item:last-child {
-  border-bottom: 0;
-}
-@media (max-width: 480px) {
-  #header .user-container.visible .user-box .btn {
-    width: 100%;
-    margin-top: 6px;
-  }
 }
 @media (max-width: 699px) {
   .sidebar .user-box {
@@ -10964,8 +10952,15 @@ input.ng-invalid:focus {
   }
 }
 @media (max-width: 699px) {
+  html body #body > .col {
+    padding-left: 0;
+    padding-right: 0;
+  }
   html body #header {
     left: 0;
+  }
+  html body .sidebar .user-panel {
+    display: none;
   }
   html body .badge-list .badge-container {
     width: 33%;
@@ -10978,8 +10973,51 @@ input.ng-invalid:focus {
   html body .badge-list .badge-container img {
     width: 85%;
   }
+  html body .sfide-legenda {
+    display: none;
+  }
   html body .navbar .navbar-header .navbar-brand {
+    background: transparent;
     display: block;
+    color: #0077a6;
+    font-size: 42px;
+    line-height: 43px;
+  }
+  html body .navbar .navbar-header .navbar-brand small {
+    display: inline-block;
+    font-size: 19px;
+  }
+  html body .navbar .navbar-header .navbar-brand .fa {
+    vertical-align: middle;
+    margin-right: 10px !important;
+  }
+  html body .nav-pills > li {
+    width: 33.33%;
+    margin: 0;
+    text-align: center;
+  }
+  html body .nav-pills > li > a {
+    padding: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  html body .lista-sfide-container {
+    padding: 0;
+    margin-right: -6px;
+    margin-left: -6px;
+  }
+  html body .lista-sfide-container .sfide-description {
+    display: none;
+  }
+  html body .lista-sfide-container .username-container .profile-picture {
+    display: none;
+  }
+  html body .lista-sfide-container .username-container .punteggio-utente-container {
+    display: none;
+  }
+  html.AreaPersonale .sidebar {
+    display: none;
   }
 }
 body {
