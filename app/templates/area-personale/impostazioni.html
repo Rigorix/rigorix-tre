@@ -31,7 +31,8 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Social</label>
                                 <div class="col-sm-8 pvs">
-                                    <a target="_blank" href="{{currentUser.db_object.social_url}}"><img src="/i/login_{{currentUser.db_object.social_provider}}.png" /></a>
+                                    <!--<a target="_blank" href="{{currentUser.db_object.social_url}}"><img src="/i/login_{{currentUser.db_object.social_provider}}.png" /></a>-->
+                                    <a class="social-network color-{{currentUser.db_object.social_provider | lowercase}}" target="_blank" href="{{currentUser.db_object.social_url}}" icon="{{currentUser.db_object.social_provider}}">{{currentUser.db_object.social_provider | capitalize}}</a>
                                 </div>
                             </div>
 

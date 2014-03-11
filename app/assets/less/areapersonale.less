@@ -56,13 +56,70 @@
   }
 }
 
-.navbar {
+.social-network {
+  font-size: 15px;
 
+  &.color-facebook {
+    color: @color-facebook;
+  }
+
+  &.color-google {
+    color: @color-google;
+  }
+
+  &.color-instagram {
+    color: @color-instagram;
+  }
+}
+
+.navbar {
+  .gradient(#f3f3f3, #efefef);
+
+  .navbar-brand {
+    font-size: 33px;
+    color: @color-white;
+    text-align: center;
+    padding: 1px 11px 5px 12px;
+    margin: 0;
+    background: @color-rigorix-blue;
+    height: 52px;
+
+    &:hover {
+      color: @color-white;
+      background: @color-rigorix-blue;
+    }
+
+    small {
+      display: block;
+      text-align: center;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-top: -2px;
+    }
+  }
   .navbar-toggle {
     padding: 8px 10px 5px;
+
     .fa {
       font-size: 20px;
       margin: 0 !important;
+    }
+  }
+
+  .navbar-nav {
+    li {
+      a {
+        font-size: 16px;
+        color: @color-base-blue;
+        font-family: Grobold;
+        text-transform: uppercase;
+
+        span {
+          margin-right: 9px !important;
+          font-size: 20px;
+//          color: @color-rigorix-blue;
+        }
+      }
     }
   }
 }
