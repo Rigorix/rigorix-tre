@@ -1,32 +1,42 @@
 <div id="GamePlay" class="container-fluid" ng-controller="GamePlay">
     <div class="row row-fluid">
-        <div class="col col-sm-3 pam">
-            Scheda utente <username id-utente="id_utente_avversario"></username>
-        </div>
-        <div class="col col-sm-9 pam">
+        <!--<div class="col col-sm-3 pam">-->
+            <!--Scheda utente <username id-utente="id_utente_avversario"></username>-->
+        <!--</div>-->
+        <div class="col col-sm-12 pam">
 
-            <div class="row">
-                <div class="col col-sm-9">
-                    <button name="set-shuffle-sequence" ng-click="randomPlaySet()" class="btn" icon="random"> Mi sento fortunato!</button>
-                    <button name="reset-sequence" ng-click="resetPlaySet()" class="btn btn-danger" icon="wrench">Reimposta</button>
-                </div>
-                <div class="col col-sm-3">
-                    <button name="submit-set-colpi-form" ng-click="submitSfida()" class="btn btn-warning pull-right" icon="send">{{submitButtonLabel}}</button>
-                </div>
+            <div class="pbm">
+                <button name="set-shuffle-sequence" ng-click="randomPlaySet()" class="btn" icon="random">Casuale</button>
+                <button name="reset-sequence" ng-click="resetPlaySet()" class="btn btn-danger" icon="wrench">Reset</button>
+                <button name="submit-set-colpi-form" ng-click="submitSfida()" class="btn btn-warning pull-right" icon="rocket">{{submitButtonLabel}}</button>
             </div>
 
             <form name="set-game-form">
-                <div class="well mam">
-                    <div id="GamePlayPanel">
-                        <div class="row" ng-repeat="row in rows">
-                            <div class="col col-sm-6">
-                                <game-tile row="row" tile-type="'tiro'" matrix="{{$scope.matrix}}"></game-tile>
-                            </div>
-                            <div class="col col-sm-6">
-                                <game-tile row="row" tile-type="'parata'" matrix="{{$scope.matrix}}"></game-tile>
-                            </div>
-                        </div>
-                    </div>
+                <div class="well game-set-box">
+                    <username id-utente="id_utente_avversario" with-picture="true"></username>
+                    <h4>Imposta 5 tiri</h4>
+                    <carousel>
+                        <slide ng-repeat="row in rows">
+                            <game-tile row="row" tile-type="'tiro'" matrix="{{$scope.matrix}}"></game-tile>
+                        </slide>
+                    </carousel>
+
+                    <h4>Imposta 5 parate</h4>
+                    <carousel>
+                        <slide ng-repeat="row in rows">
+                            <game-tile row="row" tile-type="'parate'" matrix="{{$scope.matrix}}"></game-tile>
+                        </slide>
+                    </carousel>
+                    <!--<div id="GamePlayPanel">-->
+                        <!--<div class="row" ng-repeat="row in rows">-->
+                            <!--<div class="col col-sm-6">-->
+                                <!--<game-tile row="row" tile-type="'tiro'" matrix="{{$scope.matrix}}"></game-tile>-->
+                            <!--</div>-->
+                            <!--<div class="col col-sm-6">-->
+                                <!--<game-tile row="row" tile-type="'parata'" matrix="{{$scope.matrix}}"></game-tile>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
             </form>
 

@@ -42033,7 +42033,7 @@ Rigorix.controller("GamePlay", [
       for (index in _ref) {
         value = _ref[index];
         if (value.tiro === false || value.parata === false) {
-          return alert("errore, compila tutto");
+          return notify.error("Devi impostare tutti i 5 tiri e parate");
         }
       }
       return this.sendSfida();

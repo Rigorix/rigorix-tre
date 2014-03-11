@@ -1,7 +1,7 @@
 /// Game Play Modal
 .modal-play-sfida {
   .modal-dialog {
-    width: 800px;
+    width: 310px;
   }
 }
 .modal-view-sfida {
@@ -72,6 +72,27 @@
 
 #GamePlay {
 
+  .game-set-box {
+    .carousel-indicators {
+      top: -25px;
+      bottom: auto;
+      left: auto;
+      right: 0;
+      width: auto;
+
+      li {
+        border-color: @color-black;
+
+        &.active {
+          background: @color-black;
+        }
+      }
+    }
+    .carousel-control {
+      display: none;
+    }
+  }
+
   .gameplay-tile {
     background: url(/app/assets/images/lanciaSfide_campo.gif) no-repeat center 0px;
     text-align: center;
@@ -91,6 +112,8 @@
       bottom: 4px;
       left: 50%;
       margin-left: -20px;
+      font-size: 12px;
+      text-transform: uppercase;
     }
 
     .game-tile {

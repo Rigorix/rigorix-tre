@@ -1,6 +1,4 @@
-<?php
-require_once "classes/new.core.php";
-?>
+<?php require_once "classes/new.core.php"; ?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="Rigorix">
 <head>
@@ -37,13 +35,13 @@ require_once "classes/new.core.php";
 
     <div id="body" class="row" ng-controller="Home">
 
-      <div class="col col-sm-8 col-md-9">
+      <div class="col col-sm-9">
         <div ng-view class="rigorix-main-view"></div>
       </div>
 
-      <div class="col col-sm-4 col-md-3 sidebar" ng-controller="Sidebar">
-        <ng-include src="'app/templates/partials/user-box.html'"></ng-include>
-        <ng-include src="'app/templates/partials/best-users.html'"></ng-include>
+      <div class="col col-sm-3 sidebar" ng-controller="Sidebar">
+        <div ng-include="'app/templates/partials/user-box.html'"></div>
+        <div ng-include="'app/templates/partials/best-users.html'"></div>
       </div>
 
     </div>

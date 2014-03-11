@@ -1,3 +1,83 @@
+.user-panel {
+  @user-picture-size: 80px;
+  @user-picture-overscreen: 7px;
+
+  background: @color-rigorix-green;
+  border-top: 4px solid @color-rigorix-darkgreen;
+  margin-bottom: 15px;
+
+  h3 {
+    color: @color-white;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'grobold';
+    letter-spacing: 1px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .summary {
+    background: @color-rigorix-darkgreen;
+    height: @user-picture-size - (@user-picture-overscreen*2);
+    position: relative;
+    margin-bottom: @user-picture-overscreen * 2;
+
+    .user-picture {
+      position: absolute;
+      top: -@user-picture-overscreen;
+      left: 50%;
+      margin-left: -@user-picture-size/2;
+      width: @user-picture-size;
+      height: @user-picture-size;
+      overflow: hidden;
+      border-radius: @user-picture-size;
+      border: 2px solid @color-white;
+      box-shadow: 0 2px 9px #555;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .punteggio {
+      position: absolute;
+      top: 5px;
+      right: 7px;
+      color: @color-white;
+      font-size: 13px;
+    }
+  }
+
+  .user-notifications {
+    .notification-item {
+      padding: 5px 11px;
+
+      a {
+        span {
+          vertical-align: middle;
+          font-size: 20px;
+          margin-right: 9px !important;
+
+          &.fa-trophy {
+            color: #E5D755;
+          }
+        }
+
+        font-size: 13px;
+        color: @color-white;
+      }
+    }
+  }
+
+  .user-actions {
+    .clearfix();
+    padding: 5px;
+    margin-top: 5px;
+    background: darken(@color-rigorix-green, 3);
+  }
+}
+
+
 .user-box {
   .clearfix();
 

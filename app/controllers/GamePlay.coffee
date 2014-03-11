@@ -48,7 +48,7 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
   $scope.submitSfida = ->
 
     for index, value of $scope.matrix
-      return alert "errore, compila tutto" if value.tiro is false or value.parata is false
+      return notify.error "Devi impostare tutti i 5 tiri e parate" if value.tiro is false or value.parata is false
 
     do @sendSfida
 
