@@ -42232,6 +42232,7 @@ Rigorix.controller("Main", [
       });
     };
     $scope.$on("$routeChangeStart", function(event, next) {
+      var pageName;
       if ((typeof User !== "undefined" && User !== null) && User.attivo === 0) {
         if (User.dead === false) {
           $location.path("/first-login");
@@ -42242,8 +42243,9 @@ Rigorix.controller("Main", [
       if (User === false) {
         $location.path("/");
       }
-      $("html")[0].className = next.$$route.controller;
-      return Rigorix.value("page", next.$$route.controller);
+      pageName = next.$$route.controller != null ? next.$$route.controller : "static-page " + next.$$route.originalPath.replace("/", "");
+      $("html")[0].className = pageName;
+      return Rigorix.value("page", pageName);
     });
     $scope.$on("app:loaded", function() {
       return $scope.appLoaded = true;

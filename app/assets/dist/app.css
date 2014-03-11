@@ -10394,10 +10394,14 @@ input.ng-invalid:focus {
   }
 }
 #footer {
-  padding: 0 15px 5px 15px;
+  background: #ffffff;
 }
 #footer.row {
   margin: 0;
+}
+#footer.row .rigorix-label {
+  font-family: 'groboldmedium';
+  color: #0077a6;
 }
 .notifications-container {
   position: fixed;
@@ -10930,6 +10934,13 @@ input.ng-invalid:focus {
 .modal-confirm .modal-dialog .modal-footer {
   padding: 10px;
 }
+html.static-page .rigorix-main-view .panel-heading {
+  font-size: 19px;
+}
+html.static-page .rigorix-main-view .panel-heading span.fa {
+  font-size: 22px;
+  vertical-align: middle;
+}
 @media (max-width: 991px) {
   html body #header {
     left: 3.5%;
@@ -11016,6 +11027,17 @@ input.ng-invalid:focus {
   html body .lista-sfide-container .username-container .punteggio-utente-container {
     display: none;
   }
+  html body .footer-link {
+    background: #ededed;
+    padding: 10px 0 4px 0;
+  }
+  html body .footer-link a {
+    display: inline-block;
+    margin-right: 0 !important;
+    width: 49%;
+    padding: 0 12px 6px 12px;
+    font-size: 14px;
+  }
   html.AreaPersonale .sidebar {
     display: none;
   }
@@ -11045,12 +11067,6 @@ body > .container #page {
   margin-left: auto;
   margin-right: auto;
   padding-top: 70px;
-}
-#footer {
-  background: #ffffff;
-}
-#footer h5 {
-  font-family: 'groboldmedium';
 }
 .row-fluid:before,
 .row-fluid:after {

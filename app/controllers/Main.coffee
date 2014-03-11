@@ -17,8 +17,9 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
 
     $location.path "/" if User is false
 
-    $("html")[0].className = next.$$route.controller
-    Rigorix.value "page", next.$$route.controller
+    pageName = if next.$$route.controller? then next.$$route.controller else "static-page " + next.$$route.originalPath.replace("/", "")
+    $("html")[0].className = pageName
+    Rigorix.value "page", pageName
 
   $scope.$on "app:loaded", ->
     $scope.appLoaded = true
