@@ -8,19 +8,26 @@
             <div ng-show="sectionPage == 'dati_utente'">
 
                 <div class="row-fluid">
-                    <div class="col col-sm-4 well">
-                        <img src="{{currentUser.db_object.picture}}" width="100%" />
-                        <div class="btn-file-container" ng-show="storedPicture == currentUser.db_object.picture">
-                            <button class="btn btn-sm btn-warning mtm" icon="picture-o">Cambia foto </button>
-                            <input id="pictureSelect" type="file" ng-file-select="onFileSelect($files)" />
-                        </div>
-                        <div ng-show="storedPicture != currentUser.db_object.picture" class="mtm">
-                            <button class="btn btn-danger" ng-click="doAnnullaChangePicture()" icon="undo">Annulla</button>
-                            <button class="btn btn-primary" ng-click="doSaveNewPicture()" icon="save">Salva</button>
-                        </div>
-                    </div>
-                    <div class="col col-sm-8">
+                    <div class="col col-sm-12">
                         <div class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-sm-4">
+                                    <div class="user-picture pull-right">
+                                        <img src="{{currentUser.db_object.picture}}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="btn-file-container mtl" ng-show="storedPicture == currentUser.db_object.picture">
+                                        <button class="btn btn-sm btn-warning" icon="picture-o">Cambia foto </button>
+                                        <input id="pictureSelect" type="file" ng-file-select="onFileSelect($files)" />
+                                    </div>
+                                    <div ng-show="storedPicture != currentUser.db_object.picture" class="mtl">
+                                        <button class="btn btn-danger" ng-click="doAnnullaChangePicture()" icon="undo">Annulla</button>
+                                        <button class="btn btn-primary" ng-click="doSaveNewPicture()" icon="save">Salva</button>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Username</label>
                                 <div class="col-sm-8">
@@ -74,7 +81,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-offset-4">
+                            <div class="text-center mvm">
                                 <button class="btn btn-success" icon="save" ng-click="doUpdateUserData()">Aggiorna dati utente</button>
                             </div>
 

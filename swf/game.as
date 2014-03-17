@@ -6,21 +6,19 @@ MovieClip.prototype.tabEnabled = false;
 
 // Setto i suoni
 _root.setSounds();
-//_root.gameXML = 'http://rigorix3/swf/xml_sfida.php?id_sfida=43&backType=';
+//_root.gameXML = 'http://tre.rigorix.dev/api/sfida/30/11/xml';
+//_root.gameXML = './sfida.xml';
 
 /* Carico i settaggi del gioco */
 var confXML:XML = new XML();
 confXML.ignoreWhite = true;
 confXML.onLoad = function(success) {
 	
-	trace ("caricato XML ");
 	if(success && this.status == 0) {
 		
 		_root.loader.load_mcc.deb.text += "loaded\n\r" + this;
 		
 		var configXML = XPathAPI.selectSingleNode(this.firstChild, "game");
-		//_root.nextFrame();
-		trace (this);
 		applySettings(configXML);
 		
 	}

@@ -34,17 +34,25 @@ Rigorix.controller "Modals.Success", ['$scope', '$modal', '$modalInstance', '$ro
 
 
 
-Rigorix.controller "Modals.Sfida", ['$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', ($scope, $modal, $modalInstance, $rootScope, sfida)->
+Rigorix.controller "Modals.Sfida", ['$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', 'Api', ($scope, $modal, $modalInstance, $rootScope, sfida, Api)->
 
   $rootScope.$broadcast "modal:open",
     modalClass: 'modal-play-sfida'
-
-  console.log "Sfida da giocare:", sfida
 
   $scope.sfida = if sfida? then sfida else
     id_sfidante: $scope.currentUser.id_utente
     id_avversario: user.id_utente
     id_sfida: false
+
+  $scope.canChangeAvversario = $scope.sfida.id_sfida is false
+
+  $scope.getUsers = (usernameQuery)->
+    Api.call "get", "users/search/username/" + usernameQuery,
+      success: (json)->
+        return json.data
+
+  $scope.onSelectUser = (userObj)->
+    $scope.sfida.id_avversario = userObj.id_utente
 
   $modalInstance.result.then (selectedItem) ->
     true
@@ -63,12 +71,42 @@ Rigorix.controller "Modals.Sfida", ['$scope', '$modal', '$modalInstance', '$root
 
 
 
+Rigorix.controller "Modals.NewSfida", ['$scope', '$modal', '$modalInstance', '$rootScope', 'Api', ($scope, $modal, $modalInstance, $rootScope, Api)->
+
+  $rootScope.$broadcast "modal:open",
+    modalClass: 'modal-play-sfida'
+
+    $scope.sfida =
+      id_sfidante: $scope.currentUser.id_utente
+      id_avversario: 0
+      id_sfida: false
+
+  $scope.canChangeAvversario = $scope.sfida.id_sfida is false
+
+  $scope.getUsers = (usernameQuery)->
+    Api.call "get", "users/search/username/" + usernameQuery,
+      success: (json)->
+        return json.data
+
+  $scope.onSelectUser = (userObj)->
+    $scope.sfida.id_avversario = userObj.id_utente
+
+  $scope.ok = ->
+    do $modalInstance.close
+
+  $scope.cancel = ->
+    do $modalInstance.dismiss
+]
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+
 Rigorix.controller "Modals.ViewSfida", ['$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', ($scope, $modal, $modalInstance, $rootScope, sfida)->
 
   $rootScope.$broadcast "modal:open",
     modalClass: 'modal-view-sfida'
-
-  console.log "sfidadio", sfida
 
   $scope.id_sfida = sfida.id_sfida
   $scope.id_utente = $rootScope.currentUser.id_utente

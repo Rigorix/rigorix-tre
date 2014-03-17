@@ -61,6 +61,17 @@ Rigorix.directive "username", ()->
 #-----------------------------------------------------------------------------------------------------------------------
 
 
+Rigorix.directive "user", ()->
+  restrict: 'E'
+  templateUrl: '/app/templates/directives/user.html'
+  controller: 'User'
+  scope:
+    id_utente: "=idUtente"
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
 Rigorix.directive "listaSfide", ()->
   restrict: 'E'
   templateUrl: '/app/templates/directives/lista-sfide.html'
@@ -75,6 +86,7 @@ Rigorix.directive "icon", ->
   link: (scope, element, attrs)->
     attrs.$observe 'icon', (iconName)->
       element.prepend $('<span class="fa fa-'+iconName.toLowerCase()+' mrs"></span>')
+      element.find(".fa").removeClass "mrs" if attrs.iconMargin is 'false'
 
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -141,32 +153,3 @@ Rigorix.directive "notificationTimeout", ['$rootScope', ($rootScope)->
       , scope.notification.timeout
 
 ]
-
-##-----------------------------------------------------------------------------------------------------------------------
-#
-#
-#Rigorix.directive "wysiwyg", ->
-#  require: '?ngModel'
-#  restrict: 'E'
-#  link: (scope, el, attr, ngModel) ->
-#    scope.redactor = el.redactor
-#      focus: false
-#      callback: (o)->
-#        o.setCode scope.content
-#        el.keydown ()->
-#          console.log(o.getCode())
-#          scope.$apply(ngModel.$setViewValue o.getCode())
-
-
-
-#-----------------------------------------------------------------------------------------------------------------------
-#
-#
-#Rigorix.directive "backgroundColor", ->
-#  link: (scope, el, attr) ->
-#    console.log "scope", scope
-#    el.css "background-color", attr.backgroundColor
-#
-#
-##-----------------------------------------------------------------------------------------------------------------------
-#

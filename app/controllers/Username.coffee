@@ -5,19 +5,10 @@ Rigorix.controller "Username", ['$scope', '$rootScope', '$modal', 'Api', ($scope
   $scope.tooltip_placement = "top" if !$scope.tooltip_placement?
   $scope.tooltipDelay = if $scope.disabled is "disabled" then 9999999 else 1
 
-  if $scope.id_utente
-    if RigorixStorage.users[$scope.id_utente]?
-      $scope.userObject = RigorixStorage.users[$scope.id_utente]
-    else
-      Api.call "get", "users/" + $scope.id_utente + "/basic",
-        success: (json)->
-          $scope.userObject = json.data
-          RigorixStorage.users[$scope.id_utente] = json.data
-
-        error: (json)->
-          $scope.userObject =
-            id_utente: 0
-          RigorixStorage.users[$scope.id_utente] = $scope.userObject
+  $scope.$watch "id_utente", (val)->
+    if val isnt 0
+      Api.getUserBasic(val).then (userObject)->
+        $scope.userObject = userObject
 
   $scope.doClickUsername = ->
     do $scope.doLanciaSfida

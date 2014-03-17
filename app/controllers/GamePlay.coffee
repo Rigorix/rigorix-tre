@@ -36,6 +36,10 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
 
         do $("#gameSetBox_tiro_" + row.index + " .game-tile[value="+randTiro+"]").click
         do $("#gameSetBox_parata_" + row.index + " .game-tile[value="+randParata+"]").click
+
+      $timeout ->
+        $rootScope.$broadcast "gameplay:tile:clicked"
+      , 400
     , 0
 
   $scope.resetPlaySet = ->
@@ -45,10 +49,32 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
       $scope.matrix[index].tiro = false
       $scope.matrix[index].parata = false
 
+    $(".carousel-indicators li").removeClass "ok"
+
+    do $(".parata-slides li:first").click
+    do $(".tiro-slides li:first").click
+    false
+
+  $scope.doChangeAvversario = ->
+    $scope.sfida.id_avversario = 0
+
+  $scope.$on "gameplay:tile:clicked", ->
+    for index,value of $scope.matrix
+      return if value.tiro is false or value.parata is false
+
+    notify.animate ".btn-submit-sfida", "shake"
+
   $scope.submitSfida = ->
 
-    for index, value of $scope.matrix
-      return notify.error "Devi impostare tutti i 5 tiri e parate" if value.tiro is false or value.parata is false
+    for index,value of $scope.matrix
+      if value.tiro is false or value.parata is false
+        tipo = if value.tiro is false then "tiro" else "parata"
+        $timeout =>
+          do $("."+tipo+"-slides li:eq("+index+")").click
+        , 0
+        return notify.error "Devi impostare tutti i 5 tiri e parate"
+
+    return notify.error "Devi scegliere un avversario" if $scope.sfida.id_avversario is 0
 
     do @sendSfida
 
@@ -88,16 +114,18 @@ Rigorix.controller "GamePlay", ['$scope', '$timeout', '$rootScope', '$modal', 'A
         $rootScope.$broadcast "modal:close"
         do $scope.cancel
         notify.error "Errore nel mandare la sfida"
+
 ]
 
 
 #  ------------------------------------------------------------------------
 
 
-Rigorix.controller "GamePlay.Tile", ['$scope', '$element', ($scope, $element)->
+Rigorix.controller "GamePlay.Tile", ['$scope', '$rootScope', '$element', '$timeout', ($scope, $rootScope, $element, $timeout)->
 
   $scope.tileValue = false
   $scope.GamePlay = $scope.$parent.$parent
+  $scope.sliderLi = $("."+$scope.tileType+"-slides li:eq("+$scope.row.index+")")
 
   $scope.subject = if $scope.tileType is "parata" then "portiere" else "pallone"
   $scope.dir =
@@ -105,9 +133,20 @@ Rigorix.controller "GamePlay.Tile", ['$scope', '$element', ($scope, $element)->
     dx: if $scope.tileType is "parata" then "Dx" else ""
 
   $scope.setTileValue = (value)->
+    $rootScope.$broadcast "gameplay:tile:clicked"
+
     $scope.tileValue = value
     $element.find('.game-tile').removeClass "active"
     $element.find('.game-tile[value='+value+']').addClass 'active'
 
+    $timeout =>
+      $scope.updateMatrixStatus value
+    , 0
+
+  $scope.updateMatrixStatus = (value)->
     $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] = value
+    $scope.sliderLi.addClass "ok" if $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] isnt false
+    do $scope.sliderLi.next().click if $scope.row.index != $scope.GamePlay.rows.length-1
+    false
+
 ]

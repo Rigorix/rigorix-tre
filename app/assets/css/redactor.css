@@ -1,7 +1,7 @@
 .redactor_box {
 	position: relative;
 	overflow: visible;
-	border: 1px solid #ddd;
+	border: 1px solid #ddd !important;
 	background-color: #fff;
 }
 

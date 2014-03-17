@@ -8,7 +8,6 @@
     <div class="table-responsive">
         <table class="table table-bordered table-messages mbn">
             <tr ng-show="messages.length > 0">
-                <th></th>
                 <th>Data</th>
                 <th>Mittente</th>
                 <th>Oggetto</th>
@@ -17,7 +16,6 @@
                 <td>Non hai nessun messaggio nel tuo archivio</td>
             </tr>
             <tr ng-repeat="message in messages" ng-class="{success:message.letto == 0}">
-                <td width="1"></td>
                 <td width="15%">
                     <beautify-date date="{{message.updated_at}}" inline="true"></beautify-date>
                 </td>
@@ -25,14 +23,9 @@
                     <username popover-placement="top" id-utente="message.id_sender"></username>
                 </td>
                 <td>
-                    <a ng-click="openMessage(message)">{{message.oggetto}}</a>
+                    <a ng-click="openMessage(message)" class="message-subject">{{message.oggetto}}</a>
                 </td>
             </tr>
-            <!--<tr>-->
-                <!--<td colspan="4" align="center">-->
-                    <!--<pagination total-items="50" items-per-page="10"></pagination>-->
-                <!--</td>-->
-            <!--</tr>-->
         </table>
     </div>
 </div>

@@ -108,7 +108,7 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
 
 
 
-Rigorix.controller 'Message.Modal.New', ['$scope', '$modal', '$modalInstance', '$rootScope', 'Api', ($scope, $modal, $modalInstance, $rootScope, Api)->
+Rigorix.controller 'Message.Modal.New', ['$scope', '$modal', '$modalInstance', '$rootScope', 'Api', 'notify', ($scope, $modal, $modalInstance, $rootScope, Api, notify)->
 
   $scope.receiver = ''
   $scope.newMessage =

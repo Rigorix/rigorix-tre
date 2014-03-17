@@ -95,7 +95,7 @@ body {
 }
 
 .rigorix-loading {
-  .transition(opacity, 1s);
+  .transition(opacity 1s);
   display: none;
   opacity: 0;
   position: fixed;
@@ -150,5 +150,36 @@ body {
 
   img {
     width: 100%;
+  }
+}
+
+.redactor_box {
+  border: 1px solid darken(@color-white, 15);
+  border-radius: 4px;
+  height: @redactor-height;
+}
+
+.user-picture {
+  width: @user-picture-size;
+  height: @user-picture-size;
+  overflow: hidden;
+  border-radius: @user-picture-size;
+  border: 2px solid @color-white;
+  box-shadow: 0 2px 9px #555;
+
+  img {
+    border-radius: 50px;
+    width: 100%;
+  }
+}
+
+.dropdown-menu > li > a.username-select {
+  padding: 3px 8px;
+}
+.active {
+  .username-select {
+    .ui-username {
+      color: @color-white;
+    }
   }
 }

@@ -25,6 +25,13 @@
       }
 
 
+      /// Directives
+      .directive-date {
+        .year {
+          display: none;
+        }
+      }
+
       .badge-list {
         .badge-container {
           width: 33%;
@@ -100,6 +107,15 @@
 
       }
 
+      .table {
+        .table-condensed();
+      }
+
+      .message-subject {
+        .text-overflow();
+        display: block;
+      }
+
       /// Footer
       .footer-link {
         background: darken(@color-white, 7);
@@ -113,7 +129,63 @@
           font-size: 14px;
         }
       }
+
+      /// Modals
+      &.modal-open {
+        .modal-dialog {
+          width: auto;
+
+          .modal-content {
+            padding: 8px;
+
+            > div.mal {
+              margin: 0 !important;
+
+              .row {
+                margin-bottom: 5px !important;
+              }
+
+              .btn {
+                padding: 6px;
+              }
+            }
+
+            #flash_object {
+              height: auto;
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &.modal-read-message {
+        .modal-content {
+          h3 {
+            font-size: 19px;
+          }
+          .message-text {
+            font-size: 13px;
+          }
+        }
+      }
+
+      &.modal-play-sfida {
+        #GamePlay {
+          padding: 0;
+
+          > .row {
+            > .col {
+              padding: 0 !important;
+
+              .game-set-box {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
     }
+
 
     &.AreaPersonale {
       .sidebar {

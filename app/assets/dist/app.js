@@ -1,4 +1,4 @@
-/*! Rigorix - v0.1.0 - 2014-03-11 *//*!
+/*! Rigorix - v0.1.0 - 2014-03-17 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -41820,7 +41820,6 @@ Rigorix.controller("AreaPersonale.Sfide", [
     $scope.status = "loading";
     $scope.sfideInAttesaDiRisposta = [];
     $scope.sfideArchivio = [];
-    console.log("Sfide");
     $scope.$on("user:update", function(event, userObject) {
       return $scope.sfideDaGiocare = userObject.sfide_da_giocare;
     });
@@ -41906,7 +41905,6 @@ Rigorix.controller("AreaPersonale.Impostazioni", [
 
 Rigorix.controller("Directive.InlineLoader", [
   '$scope', function($scope) {
-    console.log("$scope.text", $scope.text);
     if ($scope.icon == null) {
       $scope.icon = "gear";
     }
@@ -42002,39 +42000,64 @@ Rigorix.controller("GamePlay", [
     $scope.randomPlaySet = function() {
       var _this = this;
       return $timeout(function() {
-        var randParata, randTiro, row, _i, _len, _ref, _results;
+        var randParata, randTiro, row, _i, _len, _ref;
         _ref = _this.rows;
-        _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           row = _ref[_i];
           randTiro = Math.ceil(Math.random(0, 1) * 3) - 1;
           randParata = Math.ceil(Math.random(0, 1) * 3) - 1;
           $("#gameSetBox_tiro_" + row.index + " .game-tile[value=" + randTiro + "]").click();
-          _results.push($("#gameSetBox_parata_" + row.index + " .game-tile[value=" + randParata + "]").click());
+          $("#gameSetBox_parata_" + row.index + " .game-tile[value=" + randParata + "]").click();
         }
-        return _results;
+        return $timeout(function() {
+          return $rootScope.$broadcast("gameplay:tile:clicked");
+        }, 400);
       }, 0);
     };
     $scope.resetPlaySet = function() {
-      var index, value, _ref, _results;
+      var index, value, _ref;
       $('.game-tile').removeClass("active");
       _ref = $scope.matrix;
-      _results = [];
       for (index in _ref) {
         value = _ref[index];
         $scope.matrix[index].tiro = false;
-        _results.push($scope.matrix[index].parata = false);
+        $scope.matrix[index].parata = false;
       }
-      return _results;
+      $(".carousel-indicators li").removeClass("ok");
+      $(".parata-slides li:first").click();
+      $(".tiro-slides li:first").click();
+      return false;
     };
-    $scope.submitSfida = function() {
+    $scope.doChangeAvversario = function() {
+      return $scope.sfida.id_avversario = 0;
+    };
+    $scope.$on("gameplay:tile:clicked", function() {
       var index, value, _ref;
       _ref = $scope.matrix;
       for (index in _ref) {
         value = _ref[index];
         if (value.tiro === false || value.parata === false) {
+          return;
+        }
+      }
+      return notify.animate(".btn-submit-sfida", "shake");
+    });
+    $scope.submitSfida = function() {
+      var index, tipo, value, _ref,
+        _this = this;
+      _ref = $scope.matrix;
+      for (index in _ref) {
+        value = _ref[index];
+        if (value.tiro === false || value.parata === false) {
+          tipo = value.tiro === false ? "tiro" : "parata";
+          $timeout(function() {
+            return $("." + tipo + "-slides li:eq(" + index + ")").click();
+          }, 0);
           return notify.error("Devi impostare tutti i 5 tiri e parate");
         }
+      }
+      if ($scope.sfida.id_avversario === 0) {
+        return notify.error("Devi scegliere un avversario");
       }
       return this.sendSfida();
     };
@@ -42085,19 +42108,34 @@ Rigorix.controller("GamePlay", [
 ]);
 
 Rigorix.controller("GamePlay.Tile", [
-  '$scope', '$element', function($scope, $element) {
+  '$scope', '$rootScope', '$element', '$timeout', function($scope, $rootScope, $element, $timeout) {
     $scope.tileValue = false;
     $scope.GamePlay = $scope.$parent.$parent;
+    $scope.sliderLi = $("." + $scope.tileType + "-slides li:eq(" + $scope.row.index + ")");
     $scope.subject = $scope.tileType === "parata" ? "portiere" : "pallone";
     $scope.dir = {
       sx: $scope.tileType === "parata" ? "Sx" : "",
       dx: $scope.tileType === "parata" ? "Dx" : ""
     };
-    return $scope.setTileValue = function(value) {
+    $scope.setTileValue = function(value) {
+      var _this = this;
+      $rootScope.$broadcast("gameplay:tile:clicked");
       $scope.tileValue = value;
       $element.find('.game-tile').removeClass("active");
       $element.find('.game-tile[value=' + value + ']').addClass('active');
-      return $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] = value;
+      return $timeout(function() {
+        return $scope.updateMatrixStatus(value);
+      }, 0);
+    };
+    return $scope.updateMatrixStatus = function(value) {
+      $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] = value;
+      if ($scope.GamePlay.matrix[$scope.row.index][$scope.tileType] !== false) {
+        $scope.sliderLi.addClass("ok");
+      }
+      if ($scope.row.index !== $scope.GamePlay.rows.length - 1) {
+        $scope.sliderLi.next().click();
+      }
+      return false;
     };
   }
 ]);
@@ -42878,7 +42916,7 @@ Rigorix.controller('Message.Modal', [
 ]);
 
 Rigorix.controller('Message.Modal.New', [
-  '$scope', '$modal', '$modalInstance', '$rootScope', 'Api', function($scope, $modal, $modalInstance, $rootScope, Api) {
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'Api', 'notify', function($scope, $modal, $modalInstance, $rootScope, Api, notify) {
     $scope.receiver = '';
     $scope.newMessage = {
       oggetto: '',
@@ -42960,15 +42998,25 @@ Rigorix.controller("Modals.Success", [
 ]);
 
 Rigorix.controller("Modals.Sfida", [
-  '$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', function($scope, $modal, $modalInstance, $rootScope, sfida) {
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', 'Api', function($scope, $modal, $modalInstance, $rootScope, sfida, Api) {
     $rootScope.$broadcast("modal:open", {
       modalClass: 'modal-play-sfida'
     });
-    console.log("Sfida da giocare:", sfida);
     $scope.sfida = sfida != null ? sfida : {
       id_sfidante: $scope.currentUser.id_utente,
       id_avversario: user.id_utente,
       id_sfida: false
+    };
+    $scope.canChangeAvversario = $scope.sfida.id_sfida === false;
+    $scope.getUsers = function(usernameQuery) {
+      return Api.call("get", "users/search/username/" + usernameQuery, {
+        success: function(json) {
+          return json.data;
+        }
+      });
+    };
+    $scope.onSelectUser = function(userObj) {
+      return $scope.sfida.id_avversario = userObj.id_utente;
     };
     $modalInstance.result.then(function(selectedItem) {
       return true;
@@ -42984,12 +43032,40 @@ Rigorix.controller("Modals.Sfida", [
   }
 ]);
 
+Rigorix.controller("Modals.NewSfida", [
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'Api', function($scope, $modal, $modalInstance, $rootScope, Api) {
+    $rootScope.$broadcast("modal:open", {
+      modalClass: 'modal-play-sfida'
+    }, $scope.sfida = {
+      id_sfidante: $scope.currentUser.id_utente,
+      id_avversario: 0,
+      id_sfida: false
+    });
+    $scope.canChangeAvversario = $scope.sfida.id_sfida === false;
+    $scope.getUsers = function(usernameQuery) {
+      return Api.call("get", "users/search/username/" + usernameQuery, {
+        success: function(json) {
+          return json.data;
+        }
+      });
+    };
+    $scope.onSelectUser = function(userObj) {
+      return $scope.sfida.id_avversario = userObj.id_utente;
+    };
+    $scope.ok = function() {
+      return $modalInstance.close();
+    };
+    return $scope.cancel = function() {
+      return $modalInstance.dismiss();
+    };
+  }
+]);
+
 Rigorix.controller("Modals.ViewSfida", [
   '$scope', '$modal', '$modalInstance', '$rootScope', 'sfida', function($scope, $modal, $modalInstance, $rootScope, sfida) {
     $rootScope.$broadcast("modal:open", {
       modalClass: 'modal-view-sfida'
     });
-    console.log("sfidadio", sfida);
     $scope.id_sfida = sfida.id_sfida;
     $scope.id_utente = $rootScope.currentUser.id_utente;
     return $scope.close = function() {
@@ -43109,8 +43185,21 @@ Rigorix.controller("Sidebar", [
   }
 ]);
 
+Rigorix.controller("User", [
+  '$scope', '$rootScope', 'Api', function($scope, $rootScope, Api) {
+    $scope.currentUser = $scope.$parent.currentUser;
+    return $scope.$watch("id_utente", function(val) {
+      if (val !== 0) {
+        return Api.getUser(val).then(function(userObject) {
+          return $scope.userObject = userObject;
+        });
+      }
+    });
+  }
+]);
+
 Rigorix.controller("UserPanel", [
-  '$rootScope', '$scope', 'notify', function($rootScope, $scope, notify) {
+  '$rootScope', '$scope', 'notify', '$modal', function($rootScope, $scope, notify, $modal) {
     $scope.userPicture = $(".user-picture");
     $scope.notificationsCount = 0;
     $scope.$on("new:notification", function() {
@@ -43122,7 +43211,15 @@ Rigorix.controller("UserPanel", [
     $scope.$on("user:update", function() {
       return $scope.checkNotifications();
     });
-    $scope.checkNotifications = function() {
+    $scope.doLanciaNewSfida = function() {
+      notify.animate(".lancia-sfida", "bounce");
+      $modal.open({
+        templateUrl: '/app/templates/modals/sfida.html',
+        controller: 'Modals.NewSfida'
+      });
+      return false;
+    };
+    return $scope.checkNotifications = function() {
       var actualNotifications;
       actualNotifications = 0;
       actualNotifications += $scope.currentUser.messages.length;
@@ -43133,7 +43230,6 @@ Rigorix.controller("UserPanel", [
       }
       return $scope.notificationsCount = actualNotifications;
     };
-    return notify.animate($scope.userPicture, "pulse");
   }
 ]);
 
@@ -43145,24 +43241,13 @@ Rigorix.controller("Username", [
       $scope.tooltip_placement = "top";
     }
     $scope.tooltipDelay = $scope.disabled === "disabled" ? 9999999 : 1;
-    if ($scope.id_utente) {
-      if (RigorixStorage.users[$scope.id_utente] != null) {
-        $scope.userObject = RigorixStorage.users[$scope.id_utente];
-      } else {
-        Api.call("get", "users/" + $scope.id_utente + "/basic", {
-          success: function(json) {
-            $scope.userObject = json.data;
-            return RigorixStorage.users[$scope.id_utente] = json.data;
-          },
-          error: function(json) {
-            $scope.userObject = {
-              id_utente: 0
-            };
-            return RigorixStorage.users[$scope.id_utente] = $scope.userObject;
-          }
+    $scope.$watch("id_utente", function(val) {
+      if (val !== 0) {
+        return Api.getUserBasic(val).then(function(userObject) {
+          return $scope.userObject = userObject;
         });
       }
-    }
+    });
     $scope.doClickUsername = function() {
       return $scope.doLanciaSfida();
     };
@@ -43259,6 +43344,17 @@ Rigorix.directive("username", function() {
   };
 });
 
+Rigorix.directive("user", function() {
+  return {
+    restrict: 'E',
+    templateUrl: '/app/templates/directives/user.html',
+    controller: 'User',
+    scope: {
+      id_utente: "=idUtente"
+    }
+  };
+});
+
 Rigorix.directive("listaSfide", function() {
   return {
     restrict: 'E',
@@ -43273,7 +43369,10 @@ Rigorix.directive("icon", function() {
   return {
     link: function(scope, element, attrs) {
       return attrs.$observe('icon', function(iconName) {
-        return element.prepend($('<span class="fa fa-' + iconName.toLowerCase() + ' mrs"></span>'));
+        element.prepend($('<span class="fa fa-' + iconName.toLowerCase() + ' mrs"></span>'));
+        if (attrs.iconMargin === 'false') {
+          return element.find(".fa").removeClass("mrs");
+        }
       });
     }
   };
@@ -43422,11 +43521,8 @@ Rigorix.directive("redactor", [
       require: "ngModel",
       link: function(scope, element, attrs, ngModel) {
         var $_element, additionalOptions, editor, options, updateModel;
-        console.log("scope, element, attrs, ngModel", scope, element, attrs, ngModel);
         updateModel = function(value) {
-          console.log("apply", value);
           return scope.$apply(function() {
-            console.log("I'm applying", value, ngModel);
             return ngModel.$setViewValue(value);
           });
         };
@@ -43438,16 +43534,12 @@ Rigorix.directive("redactor", [
         $_element = angular.element(element);
         angular.extend(options, additionalOptions);
         $timeout(function() {
-          console.log("appling redactor to ", $_element, options);
           editor = $_element.redactor(options);
           return ngModel.$render();
         });
         return ngModel.$render = function() {
-          console.log("is editor defined?");
           if (angular.isDefined(editor)) {
-            console.log("editor defined");
             return $timeout(function() {
-              console.log("ngModel.$viewValue".ngModel, ngModel.$viewValue);
               return $_element.redactor("set", ngModel.$viewValue || "");
             });
           }
@@ -43458,17 +43550,13 @@ Rigorix.directive("redactor", [
 ]);
 
 RigorixServices.factory("Api", [
-  '$resource', '$http', function($resource, $http) {
+  '$resource', '$http', '$q', function($resource, $http, $q) {
     return {
       call: function(method, url, params) {
-        var promise;
         if (url[0] === "/") {
           url = url.substr(1, url.length - 1);
         }
-        promise = $http[method](RigorixEnv.API_DOMAIN + url, params);
-        if ((params != null) && (params.success != null)) {
-          return promise.then(params.success, params.error);
-        }
+        return $http[method](RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error);
       },
       get: function(url) {
         return $resource(RigorixEnv.API_DOMAIN + url, {
@@ -43483,6 +43571,48 @@ RigorixServices.factory("Api", [
       },
       logout: function(id_utente) {
         return $http.post(RigorixEnv.API_DOMAIN + "users/" + id_utente + "/logout/");
+      },
+      getUserBasic: function(id_utente) {
+        var deferred;
+        deferred = $q.defer();
+        if (RigorixStorage.users[id_utente] != null) {
+          deferred.resolve(RigorixStorage.users[id_utente]);
+        } else {
+          this.call("get", "users/" + id_utente + "/basic", {
+            success: function(json) {
+              RigorixStorage.users[id_utente] = json.data;
+              return deferred.resolve(json.data);
+            },
+            error: function(json) {
+              RigorixStorage.users[id_utente] = {
+                id_utente: 0
+              };
+              return deferred.resolve(RigorixStorage.users[id_utente]);
+            }
+          });
+        }
+        return deferred.promise;
+      },
+      getUser: function(id_utente) {
+        var deferred;
+        deferred = $q.defer();
+        if ((RigorixStorage.users[id_utente] != null) && (RigorixStorage.users[id_utente].badges != null)) {
+          deferred.resolve(RigorixStorage.users[id_utente]);
+        } else {
+          this.call("get", "users/" + id_utente, {
+            success: function(json) {
+              RigorixStorage.users[id_utente] = json.data;
+              return deferred.resolve(json.data);
+            },
+            error: function(json) {
+              RigorixStorage.users[id_utente] = {
+                id_utente: 0
+              };
+              return deferred.resolve(RigorixStorage.users[id_utente]);
+            }
+          });
+        }
+        return deferred.promise;
       }
     };
   }

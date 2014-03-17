@@ -67,6 +67,13 @@
   .opacity(80%);
 }
 
+.background-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover
+}
+
 .gradient (@startColor: #eee, @endColor: white) {
   background-color: @startColor;
   background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));

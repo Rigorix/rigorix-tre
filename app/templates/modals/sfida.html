@@ -1,44 +1,45 @@
 <div id="GamePlay" class="container-fluid" ng-controller="GamePlay">
     <div class="row row-fluid">
-        <!--<div class="col col-sm-3 pam">-->
-            <!--Scheda utente <username id-utente="id_utente_avversario"></username>-->
-        <!--</div>-->
         <div class="col col-sm-12 pam">
+            <h4 class="mtn">Lancia la sfida</h4>
 
-            <div class="pbm">
-                <button name="set-shuffle-sequence" ng-click="randomPlaySet()" class="btn" icon="random">Casuale</button>
-                <button name="reset-sequence" ng-click="resetPlaySet()" class="btn btn-danger" icon="wrench">Reset</button>
-                <button name="submit-set-colpi-form" ng-click="submitSfida()" class="btn btn-warning pull-right" icon="rocket">{{submitButtonLabel}}</button>
+            <div ng-show="sfida.id_avversario == 0" class="mbm">
+                <input name="avversario" autofocus ng-model="scope.id_avversario" typeahead-template-url="app/templates/partials/username-select.html" typeahead-on-select="onSelectUser(scope.id_avversario)" typeahead="user as user.username for user in getUsers($viewValue) | filter:{username: $viewValue} | limitTo:12" placeholder="Digita il nome del tuo avversario" class="form-control" />
+            </div>
+
+            <div ng-show="sfida.id_avversario != 0">
+                <user id-utente="sfida.id_avversario"></user>
+                <a ng-show="canChangeAvversario" class="mbs text-right display-block" ng-click="doChangeAvversario()" icon="exchange">Cambia avversario</a>
             </div>
 
             <form name="set-game-form">
-                <div class="well game-set-box">
-                    <username id-utente="id_utente_avversario" with-picture="true"></username>
-                    <h4>Imposta 5 tiri</h4>
-                    <carousel>
-                        <slide ng-repeat="row in rows">
-                            <game-tile row="row" tile-type="'tiro'" matrix="{{$scope.matrix}}"></game-tile>
-                        </slide>
-                    </carousel>
+                <div class="well game-set-box mbs">
+                    <username ng-show="" id-utente="id_utente_avversario" with-picture="true"></username>
+                    <div class="container-slides tiro-slides">
+                        <h4>Imposta 5 tiri</h4>
+                        <carousel>
+                            <slide ng-repeat="row in rows">
+                                <game-tile row="row" tile-type="'tiro'" matrix="{{$scope.matrix}}"></game-tile>
+                            </slide>
+                        </carousel>
+                    </div>
 
-                    <h4>Imposta 5 parate</h4>
-                    <carousel>
-                        <slide ng-repeat="row in rows">
-                            <game-tile row="row" tile-type="'parate'" matrix="{{$scope.matrix}}"></game-tile>
-                        </slide>
-                    </carousel>
-                    <!--<div id="GamePlayPanel">-->
-                        <!--<div class="row" ng-repeat="row in rows">-->
-                            <!--<div class="col col-sm-6">-->
-                                <!--<game-tile row="row" tile-type="'tiro'" matrix="{{$scope.matrix}}"></game-tile>-->
-                            <!--</div>-->
-                            <!--<div class="col col-sm-6">-->
-                                <!--<game-tile row="row" tile-type="'parata'" matrix="{{$scope.matrix}}"></game-tile>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
+                    <div class="container-slides parata-slides">
+                        <h4>Imposta 5 parate</h4>
+                        <carousel>
+                            <slide ng-repeat="row in rows">
+                                <game-tile row="row" tile-type="'parata'" matrix="{{$scope.matrix}}"></game-tile>
+                            </slide>
+                        </carousel>
+                    </div>
                 </div>
             </form>
+
+            <div>
+                <button tooltip="Imposta sequenza random" name="set-shuffle-sequence" ng-click="randomPlaySet()" class="btn btn-shuffle" icon="random" icon-margin="false"></button>
+                <button tooltip="Reimposta tiri e parate" name="reset-sequence" ng-click="resetPlaySet()" class="btn btn-danger" icon="undo" icon-margin="false"></button>
+                <button ng-click="submitSfida()" class="btn btn-warning btn-submit-sfida pull-right" icon="rocket">{{submitButtonLabel}}</button>
+            </div>
 
         </div>
     </div>

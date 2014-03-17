@@ -1,0 +1,17 @@
+<div class="user-container" ng-show="userObject.id_utente > 0 && userObject.attivo > 0">
+    <div id_utente="{{userObject.id_utente}}">
+        <div class="profile-picture pull-left">
+            <img src="{{userObject.picture}}" />
+        </div>
+        <div class="pull-left">
+            <span class="ui-username" ng-click="doLanciaSfida()">{{userObject.username}}</span>
+            <div>
+                Punti: <span class="label label-warning">{{userObject.punteggio_totale}}</span> Badges: <span class="label label-success">{{userObject.badges.length}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-show="userObject.attivo == 0">
+    {{userObject.username}} non è attivo
+</div>

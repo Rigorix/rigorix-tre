@@ -1,7 +1,4 @@
 .user-panel {
-  @user-picture-size: 80px;
-  @user-picture-overscreen: 7px;
-
   background: @color-rigorix-green;
   border-top: 4px solid @color-rigorix-darkgreen;
   margin-bottom: 15px;
@@ -27,16 +24,6 @@
       top: -@user-picture-overscreen;
       left: 50%;
       margin-left: -@user-picture-size/2;
-      width: @user-picture-size;
-      height: @user-picture-size;
-      overflow: hidden;
-      border-radius: @user-picture-size;
-      border: 2px solid @color-white;
-      box-shadow: 0 2px 9px #555;
-
-      img {
-        width: 100%;
-      }
     }
 
     .punteggio {
@@ -45,6 +32,13 @@
       right: 7px;
       color: @color-white;
       font-size: 13px;
+    }
+
+    .lancia-sfida {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      margin-top: -25px;
     }
   }
 
