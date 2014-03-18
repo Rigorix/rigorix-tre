@@ -41,6 +41,13 @@ module.exports = function(grunt) {
         }
       }
     },
+    uglify: {
+      dev: {
+        files: {
+          'app/assets/dist/app.min.js': ['app/assets/dist/app.js']
+        }
+      }
+    },
     concat: {
       options: {
         separator: ";\n\n",
@@ -65,6 +72,16 @@ module.exports = function(grunt) {
         }
       }
     },
+    cssmin: {
+      add_banner: {
+        options: {
+          banner: '/* Rigorix css minified. Generated: <%= grunt.template.today("yyyy-mm-dd") %> */'
+        },
+        files: {
+          'app/assets/dist/app.min.css': ['app/assets/dist/app.css']
+        }
+      }
+    },
     'ftp_upload': {
       build: {
         auth: {
@@ -77,14 +94,6 @@ module.exports = function(grunt) {
         exclusions: ['.git*', './.bowerrc', './.env', './.idea', './.ftppass', './.gitftppass', './.gitignore', './.project', './.travis.yml', './bower.json', './Gruntfile.coffee', './Gruntfile.js', './package.json', './Procfile', './**/README.md', './**/.DS_Store', './rigorix.ssh', './rigorix.ssh.pub', './app/administr/app.coffee', './app/administr/angular', './app/assets/bower_components', './app/assets/css', './app/assets/dist/dependencies', './app/assets/js', './app/assets/less', './app/controllers', './app/directives', './app/filters', './app/services', './app/app.coffee', './app/config.coffee', './app/server.coffee', './i/profile_picture', './log', './node_modules', './Opauth', './swf/rigorixGame.fla', './swf/rigorixGame_v3.fla', './to_be_deleted']
       }
     },
-    uglify: {
-      dev: {
-        options: {},
-        files: {
-          'app/assets/dist/app.min.js': ['app/assets/dist/app.js']
-        }
-      }
-    },
     bowerInstall: {
       install: {}
     },
@@ -92,25 +101,39 @@ module.exports = function(grunt) {
       dev: {
         dest: "app/assets/dist/dependencies"
       }
+    },
+    ngtemplates: {
+      Rigorix: {
+        src: 'app/templates/**/*.html',
+        dest: 'app/assets/js/rigorix-templates.js',
+        options: {
+          htmlmin: {
+            collapseWhitespace: true,
+            collapseBooleanAttributes: true
+          }
+        }
+      }
     }
   });
   grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-ftp-upload");
   grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-contrib-coffee");
   grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks("grunt-contrib-cssmin");
+  grunt.loadNpmTasks("grunt-concurrent");
+  grunt.loadNpmTasks("grunt-ftp-upload");
+  grunt.loadNpmTasks("grunt-angular-templates");
   grunt.loadNpmTasks("grunt-bower-task");
   grunt.renameTask("bower", "bowerInstall");
   grunt.loadNpmTasks("grunt-bower");
   grunt.loadNpmTasks("grunt-contrib-jasmine");
   grunt.registerTask("dev", ["concurrent:dev"]);
-  grunt.registerTask("dev:script", ["coffee:compileBare", "concat:script", "uglify:dev", "clean:temp"]);
-  grunt.registerTask("dev:less", ["less:development", "concat:css", "clean:temp"]);
+  grunt.registerTask("dev:script", ["coffee:compileBare", "ngtemplates", "concat:script", "uglify:dev", "clean:temp"]);
+  grunt.registerTask("dev:less", ["less:development", "concat:css", "cssmin", "clean:temp"]);
   grunt.registerTask("dev:bower", ["bowerInstall", "bower"]);
-  grunt.registerTask("dev:build", ["coffee:compileBare", "concat:script", "less:development", "concat:css", "clean:temp"]);
+  grunt.registerTask("dev:build", ["dev:script", "dev:less"]);
   grunt.registerTask("deploy:staging", ["dev:build", "ftp_upload"]);
-  return grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
+  return grunt.registerTask('deploy:production', ['dev:build', 'less:development', 'ftp_upload']);
 };

@@ -9,7 +9,6 @@ module.exports = (grunt) ->
         tasks: [
           "watch:scripts"
           "watch:less"
-#          "githooks"
         ]
 
     clean:
@@ -20,8 +19,6 @@ module.exports = (grunt) ->
       scripts:
         files: [
           "app/**/*.coffee"
-#          "app/assets/dist/dependencies/*.js"
-#          "app/assets/**/*.less"
         ]
         tasks: ["dev:script"]
       less:
@@ -49,6 +46,11 @@ module.exports = (grunt) ->
 
           "app/administr/dist/app.js": ["app/administr/app.coffee"]
           "app/administr/dist/angular.js": ["app/administr/angular/**/*.coffee"]
+
+    uglify:
+      dev:
+        files:
+          'app/assets/dist/app.min.js': ['app/assets/dist/app.js']
 
     concat:
       options:
@@ -83,6 +85,13 @@ module.exports = (grunt) ->
 
         files:
           "app/assets/temp/app.main.css": "app/assets/less/common.less"
+
+    cssmin:
+      add_banner:
+        options:
+          banner: '/* Rigorix css minified. Generated: <%= grunt.template.today("yyyy-mm-dd") %> */'
+        files:
+          'app/assets/dist/app.min.css': ['app/assets/dist/app.css']
 
     'ftp_upload': {
       build: {
@@ -146,17 +155,6 @@ module.exports = (grunt) ->
       }
     }
 
-    uglify: {
-      dev: {
-        options: {
-#          beautify: true
-        },
-        files: {
-          'app/assets/dist/app.min.js': ['app/assets/dist/app.js']
-        }
-      }
-    }
-
     bowerInstall:
       install: {}
 
@@ -164,15 +162,29 @@ module.exports = (grunt) ->
       dev:
         dest: "app/assets/dist/dependencies"
 
+    ngtemplates:
+      Rigorix:
+        src: 'app/templates/**/*.html'
+        dest: 'app/assets/js/rigorix-templates.js'
+        options:
+          htmlmin:
+            collapseWhitespace: true
+            collapseBooleanAttributes: true
+
 
   grunt.loadNpmTasks "grunt-contrib-uglify"
-  grunt.loadNpmTasks "grunt-ftp-upload"
   grunt.loadNpmTasks "grunt-contrib-concat"
-  grunt.loadNpmTasks "grunt-concurrent"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-less"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   grunt.loadNpmTasks "grunt-contrib-clean"
+  grunt.loadNpmTasks "grunt-contrib-cssmin"
+  grunt.loadNpmTasks "grunt-concurrent"
+  grunt.loadNpmTasks "grunt-ftp-upload"
+
+  grunt.loadNpmTasks "grunt-angular-templates"
+
+#  Bower task
   grunt.loadNpmTasks "grunt-bower-task"
   grunt.renameTask   "bower", "bowerInstall"
   grunt.loadNpmTasks "grunt-bower"
@@ -184,6 +196,7 @@ module.exports = (grunt) ->
   grunt.registerTask "dev", [ "concurrent:dev" ]
   grunt.registerTask "dev:script", [
     "coffee:compileBare"
+    "ngtemplates"
     "concat:script"
     "uglify:dev"
     "clean:temp"
@@ -191,6 +204,7 @@ module.exports = (grunt) ->
   grunt.registerTask "dev:less", [
     "less:development"
     "concat:css"
+    "cssmin"
     "clean:temp"
   ]
   grunt.registerTask "dev:bower", [
@@ -201,16 +215,13 @@ module.exports = (grunt) ->
 #    "clean:dependencies"
 #    "bowerInstall"
 #    "bower"
-    "coffee:compileBare"
-    "concat:script"
-    "less:development"
-    "concat:css"
-    "clean:temp"
+    "dev:script"
+    "dev:less"
   ]
 
-  # PRODUCTION tasks ---------------------------------------------------------------------------------------------------
+  # STAGING / PRODUCTION tasks -----------------------------------------------------------------------------------------
 
 
-#  grunt.registerTask "deploy:staging", ["dev:build", "git_ftp:development"]
   grunt.registerTask "deploy:staging", ["dev:build", "ftp_upload"]
-  grunt.registerTask('prod', ['concat:dist', 'less:development', 'ftp-deploy:build']);
+
+  grunt.registerTask('deploy:production', ['dev:build', 'less:development', 'ftp_upload']);

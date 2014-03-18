@@ -15,7 +15,7 @@
   <meta content="yes" name="apple-mobile-web-app-capable" />
   <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 
-  <link rel="stylesheet" href="/app/assets/dist/app.css" type="text/css" />
+  <link rel="stylesheet" href="/app/assets/dist/app<?php echo $env->USE_MINIFIED === true ? ".min" : ""; ?>.css" type="text/css" />
   <link rel="stylesheet" href="http://daneden.github.io/animate.css/animate.min.css" type="text/css" />
   <script>
     var User = <?php echo $core->logged; ?>;
@@ -28,8 +28,6 @@
   <div ng-include="'/app/templates/partials/notifications.html'"></div>
 
   <div class="container">
-
-    <div set-loader="20"></div>
 
     <div ng-include="'/app/templates/partials/head.html'"></div>
 
@@ -46,21 +44,17 @@
 
     </div>
 
-    <div set-loader="60"></div>
-
     <div ng-include="'/app/templates/partials/footer.html'"></div>
 
   </div>
 
-  <div set-loader="100"></div>
-
-  <div class="visible-sm">Layout SM</div>
-  <div class="visible-xs">Layout XS</div>
-  <div class="visible-lg">Layout LG</div>
-  <div class="visible-md">Layout MD</div>
-  <div class="visible-print">Layout Print</div>
   <?php if($env->SHOW_LOGS === true) { _on_page_log(); ?>
+    <div class="visible-sm">Layout SM</div>
+    <div class="visible-xs">Layout XS</div>
+    <div class="visible-lg">Layout LG</div>
+    <div class="visible-md">Layout MD</div>
+    <div class="visible-print">Layout Print</div>
   <?php } ?>
 </body>
-<script src="/app/assets/dist/<?php echo $env->APP_FILE; ?>" type="text/javascript"></script>
+<script src="/app/assets/dist/app<?php echo $env->USE_MINIFIED === true ? ".min" : ""; ?>.js" type="text/javascript"></script>
 </html>

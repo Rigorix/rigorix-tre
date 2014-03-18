@@ -1,7 +1,0 @@
-
-17-02-2014 18:57:34 CORE CLASS> starts
-17-02-2014 18:57:34 CORE_CLASS> check_user ended
-17-02-2014 19:00:27 CORE CLASS> starts
-17-02-2014 19:00:27 CORE_CLASS> check_user ended
-17-02-2014 19:00:29 CORE CLASS> starts
-17-02-2014 19:00:29 CORE_CLASS> check_user ended
