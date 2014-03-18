@@ -105,22 +105,6 @@ Rigorix.directive "gameTile", ->
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.directive "setLoader", ['RigorixUI', '$timeout', '$rootScope', (RigorixUI, $timeout, $rootScope)->
-  link: (scope, element, attr)->
-
-    RigorixUI.updateLoader attr.setLoader
-
-    if attr.setLoader is '100'
-      $timeout ()=>
-        $rootScope.$broadcast "hide:loading"
-        $rootScope.$broadcast "app:loaded"
-      , 300
-]
-
-
-#-----------------------------------------------------------------------------------------------------------------------
-
-
 Rigorix.directive "loading", ->
   restrict: 'E'
   templateUrl: '/app/templates/partials/inline-loading.html'

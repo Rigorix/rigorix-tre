@@ -4,18 +4,18 @@
             <p icon="flag">Nessuna sfida</p>
         </td>
     </tr>
-    <tr ng-show="sfide.length > 0" class="hidden-xs">
+    <tr ng-show="sfide.length > 0">
         <th></th>
         <th>Avversario</th>
-        <th class="text-center">Lanciata</th>
+        <th class="text-center hidden-xs">Lanciata</th>
         <th class="text-center">Risposta</th>
         <th>Risultato</th>
-        <th class="text-center">Punti</th>
-        <th class="text-center">Rewards</th>
+        <th class="text-center hidden-xs">Punti</th>
+        <th class="text-center hidden-xs">Rewards</th>
         <th class="text-center">Stato</th>
     </tr>
     <tr ng-repeat="sfida in sfide" ng-controller="ListaSfide.Sfida" id_sfida="{{sfida.id_sfida}}" on-sfida-load>
-        <td class="{{risultatoLabel}} hidden-xs"></td>
+        <td class="{{risultatoLabel}}"></td>
         <td>
             <username id-utente="id_avversario" with-picture="true" with-punteggio="true"></username>
         </td>

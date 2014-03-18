@@ -11,7 +11,14 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
     $rootScope.$broadcast "rootevent:click",
       event: event
 
+# App Events
+
+  $scope.$on "$viewContentLoaded", ->
+    $scope.appLoaded = true
+    $rootScope.$broadcast "hide:loading"
+
   $scope.$on "$routeChangeStart", (event, next)->
+    $rootScope.$broadcast "show:loading"
     if User? and User.attivo is 0
       if User.dead is false then $location.path "/first-login" else $location.path "/access-denied"
 
@@ -20,9 +27,6 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
     pageName = if next.$$route.controller? then next.$$route.controller else "static-page " + next.$$route.originalPath.replace("/", "")
     $("html")[0].className = pageName
     Rigorix.value "page", pageName
-
-  $scope.$on "app:loaded", ->
-    $scope.appLoaded = true
 
   $scope.$on "user:refresh", ->
     do $scope.updateUserObject if $scope.userLogged isnt false
@@ -83,14 +87,6 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
       letto: 1
 
     do $scope.updateUserObject
-
-#  $scope.testEndSfida = (event)->
-#    $rootScope.$broadcast "show:sfida:end",
-#      id_sfida: 1
-#      id_vincitore: 4
-#      id_sfidante: 3
-#      id_sfidato: 4
-#      risultato: '3,5'
 
 
 #-----------------------------------------------------------------------------------------------------------------------

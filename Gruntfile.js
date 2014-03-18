@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         logConcurrentOutput: true
       },
       dev: {
-        tasks: ["watch:scripts", "watch:less"]
+        tasks: ["watch:scripts", "watch:less", "watch:jasmine"]
       }
     },
     clean: {
@@ -22,6 +22,10 @@ module.exports = function(grunt) {
       less: {
         files: ["app/assets/**/*.less"],
         tasks: ["dev:less"]
+      },
+      jasmine: {
+        files: ["specs/app/**/*.coffee"],
+        tasks: ["dev:jasmine"]
       },
       options: {
         interrupt: true
@@ -38,6 +42,14 @@ module.exports = function(grunt) {
           "app/assets/temp/angular.app.js": ["app/modules/*.coffee", "app/controllers/*.coffee", "app/directives/*.coffee", "app/filters/*.coffee", "app/services/*.coffee"],
           "app/administr/dist/app.js": ["app/administr/app.coffee"],
           "app/administr/dist/angular.js": ["app/administr/angular/**/*.coffee"]
+        }
+      },
+      compileJasmine: {
+        options: {
+          bare: true
+        },
+        files: {
+          "specs/app/specs.js": ["specs/app/**/*.coffee"]
         }
       }
     },
@@ -65,7 +77,8 @@ module.exports = function(grunt) {
     less: {
       development: {
         options: {
-          paths: ["app/assets/bower_components/bootstrap/less"]
+          paths: ["app/assets/bower_components/bootstrap/less"],
+          compress: true
         },
         files: {
           "app/assets/temp/app.main.css": "app/assets/less/common.less"
@@ -113,6 +126,16 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    jasmine: {
+      pivotal: {
+        src: 'app/assets/dist/app.js',
+        options: {
+          specs: 'specs/app/specs.js',
+          host: "http://tre.rigorix.dev/",
+          summary: true
+        }
+      }
     }
   });
   grunt.loadNpmTasks("grunt-contrib-uglify");
@@ -132,6 +155,7 @@ module.exports = function(grunt) {
   grunt.registerTask("dev", ["concurrent:dev"]);
   grunt.registerTask("dev:script", ["coffee:compileBare", "ngtemplates", "concat:script", "uglify:dev", "clean:temp"]);
   grunt.registerTask("dev:less", ["less:development", "concat:css", "cssmin", "clean:temp"]);
+  grunt.registerTask("dev:jasmine", ["coffee:compileJasmine"]);
   grunt.registerTask("dev:bower", ["bowerInstall", "bower"]);
   grunt.registerTask("dev:build", ["dev:script", "dev:less"]);
   grunt.registerTask("deploy:staging", ["dev:build", "ftp_upload"]);

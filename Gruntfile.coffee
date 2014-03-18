@@ -9,6 +9,7 @@ module.exports = (grunt) ->
         tasks: [
           "watch:scripts"
           "watch:less"
+          "watch:jasmine"
         ]
 
     clean:
@@ -21,11 +22,19 @@ module.exports = (grunt) ->
           "app/**/*.coffee"
         ]
         tasks: ["dev:script"]
+
       less:
         files: [
           "app/assets/**/*.less"
         ]
         tasks: ["dev:less"]
+
+      jasmine:
+        files: [
+          "specs/app/**/*.coffee"
+        ]
+        tasks: ["dev:jasmine"]
+
       options:
         interrupt: true
 
@@ -46,6 +55,12 @@ module.exports = (grunt) ->
 
           "app/administr/dist/app.js": ["app/administr/app.coffee"]
           "app/administr/dist/angular.js": ["app/administr/angular/**/*.coffee"]
+
+      compileJasmine:
+        options:
+          bare: true
+        files:
+          "specs/app/specs.js": ["specs/app/**/*.coffee"]
 
     uglify:
       dev:
@@ -82,6 +97,10 @@ module.exports = (grunt) ->
       development:
         options:
           paths: ["app/assets/bower_components/bootstrap/less"]
+#          sourceMap: true
+#          sourceMapFilename: "app/assets/dist/app.css.map"
+#          sourceMapRootpath: "app/assets/dist/app.css.map"
+          compress: true
 
         files:
           "app/assets/temp/app.main.css": "app/assets/less/common.less"
@@ -172,6 +191,17 @@ module.exports = (grunt) ->
             collapseBooleanAttributes: true
 
 
+    # Jasmine Tests
+
+    jasmine:
+      pivotal:
+        src: 'app/assets/dist/app.js'
+        options:
+          specs: 'specs/app/specs.js'
+          host: "http://tre.rigorix.dev/"
+          summary: true
+#          helpers: '/specs/app/helpers.js'
+
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-watch"
@@ -206,6 +236,9 @@ module.exports = (grunt) ->
     "concat:css"
     "cssmin"
     "clean:temp"
+  ]
+  grunt.registerTask "dev:jasmine", [
+    "coffee:compileJasmine"
   ]
   grunt.registerTask "dev:bower", [
     "bowerInstall"

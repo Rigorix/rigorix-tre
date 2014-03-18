@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "animate.css": "~3.1.0",
-    "ng-file-upload": "~1.2.8"
+    "ng-file-upload": "~1.2.8",
+    "angular-mocks": "~1.2.14"
   }
 }
