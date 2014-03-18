@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <game>
+        <settings delayAfterShoot_time="2000" totalShots="10" shooter="player1" firstShooter="player1" keeper="player2" firstKeeper="player2" transitionTime=".6" currentShoot="1" />
+        <players>
+            <player name="littlebrown_G" number="14" whatcher="false">
+                <skin calzini="0xffffff" maglia="0xffffff" pantaloni="0x000000" tipoMaglia="3"/>
+                <shoots>
+                    <shoot target="0" />
+                    <shoot target="2" />
+                    <shoot target="2" />
+                    <!--<shoot target="1" />-->
+                    <!--<shoot target="2" />-->
+                </shoots>
+                <keeps>
+                    <keep target="1" />
+                    <keep target="1" />
+                    <keep target="2" />
+                    <!--<keep target="0" />-->
+                    <!--<keep target="0" />-->
+                </keeps>
+            </player>
+            <player name="Paolo_Moretti" number="10" whatcher="false">
+                <skin calzini="0xffffff" maglia="0xffffff" pantaloni="0x000000" tipoMaglia="3"/>
+                <shoots>
+                    <shoot target="1" />
+                    <shoot target="2" />
+                    <shoot target="2" />
+                    <!--<shoot target="0" />-->
+                    <!--<shoot target="2" />-->
+                </shoots>
+                <keeps>
+                    <keep target="1" />
+                    <keep target="1" />
+                    <keep target="2" />
+                    <!--<keep target="2" />-->
+                    <!--<keep target="1" />-->
+                </keeps>
+            </player>
+        </players>
+    </game>
