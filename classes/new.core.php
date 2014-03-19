@@ -49,7 +49,7 @@ class Core {
   }
 
   function check_user ()
-  { global $api;
+  { global $api, $env;
 
     if ( isset ($_REQUEST['logout']) ) {
       _log("Core::logout", "Logout user {$_REQUEST['logout']}");
@@ -80,6 +80,14 @@ class Core {
       if ($result->info->http_code == 200 ) {
         _log("Core::rigorix_logged_user", "User found by social uid ({$_REQUEST['auth']['uid']}), inserisco in sessione e vado in /");
 
+//        $token = $this->createUserToken($result->decode_response()->id_utente)->response;
+        $token = $_REQUEST['auth']['credentials']['token'];
+        $path = "users/{$result->decode_response()->id_utente}/{$env->TOKEN_SECRET}/{$token}";
+        $api->put($path);
+
+        _log("Core::rigorix_logged_user_token", $token);
+        setcookie("auth_token", $token, time() + $env->AUTH_TOKEN_VALIDITY * (24 * 60 * 60));
+
         $_SESSION['rigorix_logged_user'] = $result->decode_response()->id_utente;
         header('Location: /');
 
@@ -107,6 +115,14 @@ class Core {
 
     }
 
+  }
+
+  function createUserToken($id_utente)
+  { global $env, $api;
+
+    $path = "users/{$id_utente}/{$env->TOKEN_SECRET}";
+    $result = $api->put($path);
+    return $result;
   }
 
   function prepareSocialLoginObject($request)

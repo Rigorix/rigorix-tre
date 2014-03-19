@@ -45588,6 +45588,8 @@ Rigorix.controller("Main", [
           return $scope.updateUserObject();
         }, RigorixConfig.updateTime);
       }
+    } else {
+      return $rootScope.$broadcast("hide:loading");
     }
   }
 ]);

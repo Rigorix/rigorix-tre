@@ -1,6 +1,31 @@
 <?php
 
+/// Save user token
+Flight::route("PUT /users/@id_utente/{$env->TOKEN_SECRET}/@token", function($id_utente, $token) { global $env;
+  if (Users::find($id_utente)->token()->count() > 0) {
+    $userToken = Users::find($id_utente)->token;
+    $userToken->update(array(
+      "token" => $token
+    ));
+  } else
+    UserToken::create(array(
+      "id_utente"   => $id_utente,
+      "expire"      => date("Y-m-d H:m:s", strtotime("+1 week")),
+      "token"       => $token
+    ));
+//  if (Users::find($id_utente)->token)
+//    echo (string)Users::find($id_utente)->token->token;
+//  else
+//    $token = UserToken::create(array(
+//      "id_utente"   => $id_utente,
+//      "expire"      => date("Y-m-d H:m:s", strtotime("+1 week")),
+//      "token"       => md5(strtotime("+1 week") . $id_utente . $env->DB->password)
+//    ));
+  echo $token;
+  return false;
+});
 
+///---------------------------------------------------------------------------------------------------------------------
 
 Flight::route('GET /users/active', function() {
   echo (string)Users::active()->get();
@@ -104,7 +129,7 @@ Flight::route('GET /users/search/@attribute/@search', function($attribute, $sear
 
 
 /*
- * POSTS
+ * POSTS / PUTS
  */
 
 Flight::route('POST /users/@id_utente/badges/seen', function($id_utente) {

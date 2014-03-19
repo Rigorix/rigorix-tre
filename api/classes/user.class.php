@@ -26,13 +26,17 @@ class Users extends Illuminate\Database\Eloquent\Model {
     return $this->hasMany('Messages', 'id_sender', 'id_utente');
   }
 
+  public function token ()
+  {
+    return $this->hasOne("UserToken", "id_utente");
+  }
+
   public function badges()
   {
-    $badges = $this->hasManyThrough('Rewards', 'RewardsSfide', 'id_utente', 'id_reward')->get()->filter(function ($reward) {
+    return $this->hasManyThrough('Rewards', 'RewardsSfide', 'id_utente', 'id_reward')->get()->filter(function ($reward) {
       if ( $reward->getAttribute("tipo") == "badge")
         return $reward;
     })->values();
-    return $badges;
   }
 
   public function unseenBadges()
@@ -91,5 +95,13 @@ class UsersUnsubscribe extends Illuminate\Database\Eloquent\Model {
   {
     return $query->where ("id_utente", "=", $id_utente);
   }
+
+}
+
+
+class UserToken extends Illuminate\Database\Eloquent\Model {
+  protected $table        = 'tokens';
+  protected $primaryKey   = 'id';
+  protected $guarded      = array("id");
 
 }

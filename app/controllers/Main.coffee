@@ -140,5 +140,7 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
         do $scope.updateUserObject
 
       , RigorixConfig.updateTime
+  else
+    $rootScope.$broadcast "hide:loading"
 
 ]

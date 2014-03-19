@@ -21,7 +21,10 @@
 </head>
 <body ng-controller="Main" ng-class="modalClass" ng-click="doClick($event)">
 
-  <div ng-include="'/app/templates/partials/loader.html'"></div>
+  <div class="rigorix-loading show">
+    <div class="ball"></div>
+  </div>
+
   <div ng-include="'/app/templates/partials/notifications.html'"></div>
 
   <div class="container">
