@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-03-18 *//*!
+/*! Rigorix - v0.5.0 - 2014-03-19 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -44570,6 +44570,8 @@ Rigorix.controller("AreaPersonale.Utente", [
         return $scope.rewards = json.data;
       }
     });
+    Api.post("users/" + $scope.currentUser.id_utente + "/badges/seen");
+    $scope.currentUser.has_new_badges = 0;
     return $scope.userHasBadge = function(reward) {
       var badge, _i, _len, _ref;
       if (reward.tipo === 'badge') {
@@ -45947,16 +45949,13 @@ Rigorix.controller("Modals.NewUser", [
 ]);
 
 Rigorix.controller("Sidebar", [
-  '$scope', 'Api', '$rootScope', function($scope, Api, $rootScope) {
+  '$scope', 'Api', '$rootScope', function($scope, Api) {
     $scope.topUsers = [];
-    Api.call("get", "users/top/10", {
+    return Api.call("get", "users/top/10", {
       success: function(json) {
         return $scope.topUsers = json.data;
       }
     });
-    return $scope.showBadges = function() {
-      return Api.call("post", "users/" + $rootScope.currentUser.id_utente + "/badges/seen");
-    };
   }
 ]);
 
@@ -46308,15 +46307,30 @@ Rigorix.directive("redactor", [
 ]);
 
 RigorixServices.factory("Api", [
-  '$resource', '$http', '$q', function($resource, $http, $q) {
+  '$resource', '$http', '$q', 'Helpers', function($resource, $http, $q, Helpers) {
     return {
       call: function(method, url, params) {
+        params = Helpers.extendPromiseParams(params);
         if (url[0] === "/") {
           url = url.substr(1, url.length - 1);
         }
         return $http[method](RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error);
       },
-      get: function(url) {
+      post: function(url, params) {
+        params = Helpers.extendPromiseParams(params);
+        if (url[0] === "/") {
+          url = url.substr(1, url.length - 1);
+        }
+        return $http.post(RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error);
+      },
+      get: function(url, params) {
+        params = Helpers.extendPromiseParams(params);
+        if (url[0] === "/") {
+          url = url.substr(1, url.length - 1);
+        }
+        return $http.get(RigorixEnv.API_DOMAIN + url, params);
+      },
+      getResource: function(url) {
         return $resource(RigorixEnv.API_DOMAIN + url, {
           method: "GET",
           isArray: false
@@ -46486,6 +46500,27 @@ RigorixServices.factory("UserService", [
     });
   }
 ]);
+
+Rigorix.factory("Helpers", function() {
+  return {
+    extendPromiseParams: function(params) {
+      if (params == null) {
+        params = {};
+      }
+      if (params.success == null) {
+        params.success = function() {
+          return false;
+        };
+      }
+      if (params.error == null) {
+        params.error = function() {
+          return false;
+        };
+      }
+      return params;
+    }
+  };
+});
 ;
 
 angular.module("ngLocale", [], ["$provide", function($provide) {
@@ -50812,7 +50847,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/templates/area-personale/messaggi.html',
-    "<div class=\"panel panel-default mtl\" ng-controller=\"Messages\"><!-- Default panel contents --><div class=\"panel-heading\"><span icon=\"envelope\">Inbox</span> <button ng-click=\"writeNewMessage()\" class=\"btn btn-sm btn-info pull-right\" icon=\"plus\">Nuovo</button></div><div class=\"table-responsive\"><table class=\"table table-bordered table-messages mbn\"><tr ng-show=\"messages.length > 0\"><th>Data</th><th>Mittente</th><th>Oggetto</th></tr><tr ng-show=\"messages.length == 0\"><td>Non hai nessun messaggio nel tuo archivio</td></tr><tr ng-repeat=\"message in messages\" ng-class=\"{success:message.letto == 0}\"><td width=\"15%\"><beautify-date date=\"{{message.updated_at}}\" inline=\"true\"></beautify-date></td><td width=\"25%\"><username popover-placement=\"top\" id-utente=\"message.id_sender\"></username></td><td><a ng-click=\"openMessage(message)\" class=\"message-subject\">{{message.oggetto}}</a></td></tr></table></div></div>"
+    "<div class=\"panel panel-default mtl\" ng-controller=\"Messages\"><!-- Default panel contents --><div class=\"panel-heading\"><span icon=\"envelope\">Inbox</span> <button ng-click=\"writeNewMessage()\" class=\"btn btn-sm btn-info pull-right\" icon=\"plus\">Nuovo</button></div><div class=\"table-responsive\"><table class=\"table table-bordered table-messages mbn\"><tr ng-show=\"messages.length > 0\"><th>Data</th><th>Mittente</th><th>Oggetto</th></tr><tr ng-show=\"!messages\"><td>Caricamento messaggi ...</td></tr><tr ng-show=\"messages.length == 0\"><td>Non hai nessun messaggio nel tuo archivio</td></tr><tr ng-repeat=\"message in messages\" ng-class=\"{success:message.letto == 0}\"><td width=\"15%\"><beautify-date date=\"{{message.updated_at}}\" inline=\"true\"></beautify-date></td><td width=\"25%\"><username popover-placement=\"top\" id-utente=\"message.id_sender\"></username></td><td><a ng-click=\"openMessage(message)\" class=\"message-subject\">{{message.oggetto}}</a></td></tr></table></div></div>"
   );
 
 
@@ -50981,7 +51016,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/templates/partials/user-box.html',
-    "<div class=\"user-panel\" ng-controller=\"UserPanel\"><div ng-show=\"currentUser\"><h3>{{currentUser.username}}</h3><div class=\"summary\"><div class=\"user-picture\"><img src=\"{{currentUser.picture}}\"></div><span class=\"punteggio\">{{currentUser.punteggio_totale}}</span> <a class=\"lancia-sfida\" ng-click=\"doLanciaNewSfida()\" tooltip-html-unsafe=\"Clicca per lanciare una sfida\" tooltip-placement=\"left\"><img src=\"/app/assets/images/ball.png\"></a></div><div class=\"user-notifications\"><div class=\"notification-item\" ng-show=\"currentUser.messages.length > 0\"><a href=\"#area-personale/messaggi\" title=\"Hai dei messaggi da leggere\" icon=\"envelope\">Hai <strong class=\"count-unread-messages\">{{currentUser.messages.length}}</strong> nuovi messaggi</a></div><div class=\"notification-item\" ng-show=\"currentUser.has_new_badges > 0\"><a href=\"#/area-personale/utente\" ng-click=\"showBadges()\" icon=\"trophy\">Hai nuovi badges!!</a></div><div class=\"notification-item\" ng-show=\"currentUser.sfide_da_giocare.length > 0\"><a href=\"#/area-personale/sfide/sfide_da_giocare\" class=\"text-success\" icon=\"globe\">Hai <strong>{{currentUser.sfide_da_giocare.length}}</strong> nuove sfide</a></div></div><div class=\"user-actions\"><a href=\"#area-personale\" class=\"btn btn-sm btn-info pull-left\" icon=\"user\">Area personale</a> <a ng-click=\"doUserLogout()\" class=\"btn btn-sm btn-danger pull-right\" icon=\"sign-out\">Esci</a></div></div><div ng-show=\"!currentUser\"><p align=\"center\" class=\"mvm\">Accedi a Rigorix tramite questi social network:</p><div class=\"row-fluid\"><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-primary\" ng-click=\"doAuth($event, 'facebook')\" icon=\"facebook\">Facebook</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-danger\" ng-click=\"doAuth($event, 'google')\" icon=\"google\">Google</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-warning\" ng-click=\"doAuth($event, 'instagram')\" icon=\"instagram\">Instagram</a></div></div></div></div>"
+    "<div class=\"user-panel\" ng-controller=\"UserPanel\"><div ng-show=\"currentUser\"><h3>{{currentUser.username}}</h3><div class=\"summary\"><div class=\"user-picture\"><img src=\"{{currentUser.picture}}\"></div><span class=\"punteggio\">{{currentUser.punteggio_totale}}</span> <a class=\"lancia-sfida\" ng-click=\"doLanciaNewSfida()\" tooltip-html-unsafe=\"Clicca per lanciare una sfida\" tooltip-placement=\"left\"><img src=\"/app/assets/images/ball.png\"></a></div><div class=\"user-notifications\"><div class=\"notification-item\" ng-show=\"currentUser.messages.length > 0\"><a href=\"#area-personale/messaggi\" title=\"Hai dei messaggi da leggere\" icon=\"envelope\">Hai <strong class=\"count-unread-messages\">{{currentUser.messages.length}}</strong> nuovi messaggi</a></div><div class=\"notification-item\" ng-show=\"currentUser.has_new_badges > 0\"><a href=\"#/area-personale/utente\" icon=\"trophy\">Hai nuovi badges!!</a></div><div class=\"notification-item\" ng-show=\"currentUser.sfide_da_giocare.length > 0\"><a href=\"#/area-personale/sfide/sfide_da_giocare\" class=\"text-success\" icon=\"globe\">Hai <strong>{{currentUser.sfide_da_giocare.length}}</strong> nuove sfide</a></div></div><div class=\"user-actions\"><a href=\"#area-personale\" class=\"btn btn-sm btn-info pull-left\" icon=\"user\">Area personale</a> <a ng-click=\"doUserLogout()\" class=\"btn btn-sm btn-danger pull-right\" icon=\"sign-out\">Esci</a></div></div><div ng-show=\"!currentUser\"><p align=\"center\" class=\"mvm\">Accedi a Rigorix tramite questi social network:</p><div class=\"row-fluid\"><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-primary\" ng-click=\"doAuth($event, 'facebook')\" icon=\"facebook\">Facebook</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-danger\" ng-click=\"doAuth($event, 'google')\" icon=\"google\">Google</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-warning\" ng-click=\"doAuth($event, 'instagram')\" icon=\"instagram\">Instagram</a></div></div></div></div>"
   );
 
 

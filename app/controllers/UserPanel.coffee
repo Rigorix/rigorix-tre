@@ -3,6 +3,7 @@ Rigorix.controller "UserPanel", ['$rootScope', '$scope', 'notify', '$modal', ($r
   $scope.userPicture = $(".user-picture")
   $scope.notificationsCount = 0
 
+#  Events
   $scope.$on "new:notification", ->
     notify.animate $scope.userPicture, "swing"
 
@@ -12,6 +13,7 @@ Rigorix.controller "UserPanel", ['$rootScope', '$scope', 'notify', '$modal', ($r
   $scope.$on "user:update", ->
     do $scope.checkNotifications
 
+#  Methods
   $scope.doLanciaNewSfida = ->
     notify.animate ".lancia-sfida", "bounce"
 

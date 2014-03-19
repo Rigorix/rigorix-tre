@@ -74,6 +74,14 @@ Flight::route('GET /users/@id_utente/rewards', function($id_utente) {
   echo Users::find($id_utente)->rewards->toJson();
 });
 
+Flight::route('GET /users/@id_utente/badges/unseen', function($id_utente) {
+  echo (string)Users::find($id_utente)->unseenBadges();
+});
+
+Flight::route('GET /users/@id_utente/badges', function($id_utente) {
+  echo (string)Users::find($id_utente)->badges();
+});
+
 Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
   echo Sfide::receivedBy($id_utente)->unplayed()->get();
 });
@@ -141,22 +149,7 @@ Flight::route('POST /users/create', function() {
 
     try {
       $newUser = Users::create($_POST);
-//
-//      $newUser                  = new Users;
-//      $newUser->attivo          = 0;
-//      $newUser->social_provider = $_POST['provider'];
-//      $newUser->social_uid      = $_POST['uid'];
-//      $newUser->social_url      = $_POST['info']['urls'][0];
-//      $newUser->username        = $_POST['info']['nickname'];
-//      $newUser->picture         = $_POST['info']['image'];
-//      $newUser->nome            = $_POST['first_name'];
-//      $newUser->cognome         = $_POST['last_name'];
-//      $newUser->sesso           = $sesso;
-//      $newUser->email           = $_POST['info']['email'];
-
       _log("Api:users/create", "new user:".(string)$newUser);
-
-//      $newUser->save();
 
       Flight::json(array("id_utente" => $newUser->id_utente));
     } catch (Exception $e) {
@@ -175,7 +168,7 @@ Flight::route('POST /users/delete', function() {
     $unsubscribe = new UsersUnsubscribe;
     $unsubscribe->id_utente = $user->id_utente;
     $unsubscribe->stato = 0;
-    $unsubscribe->conf_code = md5( $id_utente . $user->username . "unsubscribe_utente_key" );
+    $unsubscribe->conf_code = md5( $user->id_utente . $user->username . "unsubscribe_utente_key" );
     $unsubscribe->save();
 
     $userObj = Users::find($user->id_utente);

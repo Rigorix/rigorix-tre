@@ -11,15 +11,16 @@ function getParams() {
 
 function getUserObjectExtended($id_utente) {
 
+  $user = Users::find($id_utente);
   $obj = new stdClass();
-  $obj->db_object           = Users::find($id_utente)->toArray();
+  $obj->db_object           = $user->toArray();
   $obj->messages            = Messages::receiver($id_utente)->unread()->orderBy('created_at', 'DESC')->get()->toArray();
   $obj->totMessages         = Messages::receiver($id_utente)->count();
-  $obj->badges              = Users::find($id_utente)->badges()->toArray();
-  $obj->has_new_badges      = Users::find($id_utente)->badges()->count();
+  $obj->badges              = $user->badges()->toArray();
+  $obj->has_new_badges      = $user->unseenBadges()->count();
   $obj->sfide_da_giocare    = Sfide::receivedBy($id_utente)->unplayed()->get()->toArray();
-  $obj->rewards             = Users::find($id_utente)->rewards->toArray();
-  $obj->picture             = Users::find($id_utente)->picture;
+  $obj->rewards             = $user->rewards->toArray();
+  $obj->picture             = $user->picture;
   $obj->dead                = UsersUnsubscribe::user($id_utente)->get()->count() > 0;
 
   $original = Users::find($id_utente)->toArray();

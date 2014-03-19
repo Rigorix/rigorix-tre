@@ -1,4 +1,4 @@
-Rigorix.controller "Sidebar", ['$scope', 'Api', '$rootScope', ($scope, Api, $rootScope)->
+Rigorix.controller "Sidebar", ['$scope', 'Api', '$rootScope', ($scope, Api)->
 
   $scope.topUsers = []
 
@@ -6,6 +6,4 @@ Rigorix.controller "Sidebar", ['$scope', 'Api', '$rootScope', ($scope, Api, $roo
     success: (json)->
       $scope.topUsers = json.data
 
-  $scope.showBadges = ->
-    Api.call "post", "users/" + $rootScope.currentUser.id_utente + "/badges/seen"
 ]

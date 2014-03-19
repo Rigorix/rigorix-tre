@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         files: {
           "app/assets/temp/angular.app.config.js": ["app/config.coffee"],
           "app/assets/temp/angular.app.main.js": ["app/app.coffee"],
-          "app/assets/temp/angular.app.js": ["app/modules/*.coffee", "app/controllers/*.coffee", "app/directives/*.coffee", "app/filters/*.coffee", "app/services/*.coffee"],
+          "app/assets/temp/angular.app.js": ["app/modules/*.coffee", "app/controllers/*.coffee", "app/directives/*.coffee", "app/filters/*.coffee", "app/services/*.coffee", "app/factories/*.coffee"],
           "app/administr/dist/app.js": ["app/administr/app.coffee"],
           "app/administr/dist/angular.js": ["app/administr/angular/**/*.coffee"]
         }

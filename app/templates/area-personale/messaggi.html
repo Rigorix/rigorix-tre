@@ -12,6 +12,9 @@
                 <th>Mittente</th>
                 <th>Oggetto</th>
             </tr>
+            <tr ng-show="!messages">
+                <td>Caricamento messaggi ...</td>
+            </tr>
             <tr ng-show="messages.length == 0">
                 <td>Non hai nessun messaggio nel tuo archivio</td>
             </tr>

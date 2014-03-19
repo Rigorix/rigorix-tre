@@ -10,8 +10,6 @@ header('Content-type: application/json');
 
 $env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
 
-sleep(1);
-
 require_once 'database.php';
 require_once '../classes/fastjson.php';
 require_once '../classes/logger.php';

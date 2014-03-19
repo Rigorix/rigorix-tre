@@ -37,6 +37,9 @@ Rigorix.controller "AreaPersonale.Utente", ['$scope', 'Api', ($scope, Api) ->
     success: (json)->
       $scope.rewards = json.data
 
+  Api.post "users/" + $scope.currentUser.id_utente + "/badges/seen"
+  $scope.currentUser.has_new_badges = 0
+
   $scope.userHasBadge = (reward) ->
     if reward.tipo == 'badge'
       for badge in $scope.currentUser.badges

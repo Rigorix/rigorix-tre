@@ -37,8 +37,17 @@ class Users extends Illuminate\Database\Eloquent\Model {
 
   public function unseenBadges()
   {
-//    TODO
-    $badges = $this->badges();
+    $badges = array();
+    $unseenPivots = $this->hasMany('RewardsSfide', 'id_utente')->get()->filter(function ($rewardSfida){
+      if ($rewardSfida->getAttribute("seen") == 0)
+        return $rewardSfida;
+    });
+    foreach ($unseenPivots as $rewardSfida) {
+      $reward = Rewards::find($rewardSfida->getAttribute("id_reward"));
+      if ($reward->getAttribute("tipo") == "badge")
+        array_push($badges, $reward);
+    };
+    return \Illuminate\Database\Eloquent\Collection::make($badges);
   }
 
 

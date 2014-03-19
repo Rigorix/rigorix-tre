@@ -51,6 +51,7 @@ module.exports = (grunt) ->
             "app/directives/*.coffee"
             "app/filters/*.coffee"
             "app/services/*.coffee"
+            "app/factories/*.coffee"
           ]
 
           "app/administr/dist/app.js": ["app/administr/app.coffee"]
