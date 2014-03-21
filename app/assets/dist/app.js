@@ -44778,8 +44778,8 @@ Rigorix.controller("AreaPersonale.Impostazioni", [
         $rootScope.$broadcast("hide:loading");
         if (data.profile_picture != null) {
           $scope.currentUser.db_object.picture = data.profile_picture;
-          return notify.success({
-            text: "Immagine cambiata con sucesso",
+          return notify.warn({
+            text: "Clicca 'salva' per impostare la nuova immagine",
             icon: "picture-o"
           });
         }

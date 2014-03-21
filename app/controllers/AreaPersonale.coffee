@@ -119,8 +119,8 @@ Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', '$moda
       $rootScope.$broadcast "hide:loading"
       if data.profile_picture?
         $scope.currentUser.db_object.picture = data.profile_picture
-        notify.success
-          text: "Immagine cambiata con sucesso"
+        notify.warn
+          text: "Clicca 'salva' per impostare la nuova immagine"
           icon: "picture-o"
 
     ).error((message, status)->
