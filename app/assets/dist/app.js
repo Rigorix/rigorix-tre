@@ -45027,6 +45027,7 @@ Rigorix.controller("GamePlay.Tile", [
       if ($scope.GamePlay.matrix[$scope.row.index][$scope.tileType] !== false) {
         $scope.sliderLi.addClass("ok");
       }
+      console.log("vai");
       if ($scope.row.index !== $scope.GamePlay.rows.length - 1) {
         $scope.sliderLi.next().click();
       }

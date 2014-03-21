@@ -146,6 +146,7 @@ Rigorix.controller "GamePlay.Tile", ['$scope', '$rootScope', '$element', '$timeo
   $scope.updateMatrixStatus = (value)->
     $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] = value
     $scope.sliderLi.addClass "ok" if $scope.GamePlay.matrix[$scope.row.index][$scope.tileType] isnt false
+    console.log "vai"
     do $scope.sliderLi.next().click if $scope.row.index != $scope.GamePlay.rows.length-1
     false
 
