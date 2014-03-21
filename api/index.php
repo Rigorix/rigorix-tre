@@ -32,18 +32,15 @@ require_once 'routes/routes.sfide.php';
 
 require_once 'routes/routes.admin.php';
 
+Flight::route('GET /test_app_auth', function() {
+  $auth_token = Flight::request()->cookies['auth_token'] ? Flight::request()->cookies['auth_token'] : Flight::request()->query->auth_token;
+  $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
 
+  var_dump($auth_token, $auth_id);
+});
 
-Flight::route('GET /badges', function($count) {
+Flight::route('GET /badges', function() {
   echo Rewards::badges()->active()->get()->toJson();
-});
-
-Flight::route('GET /test', function() {
-  Flight::halt(200, "Api is working");
-});
-
-Flight::route('GET /test/getimage', function() {
-  getUserPicture("http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=6");
 });
 
 Flight::map('error', function(Exception $ex){

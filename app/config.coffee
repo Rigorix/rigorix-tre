@@ -3,6 +3,7 @@ RigorixConfig =
   deletedUsernameQuery: "__DELETED__"
   messagesPerPage: 15
   userPicturePath: "/i/profile_picture/"
+  token: $.cookie "auth_token"
 
 RigorixStorage =
   users: {}

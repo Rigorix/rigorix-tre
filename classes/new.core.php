@@ -19,9 +19,12 @@ require_once __DIR__ . '/restclient.php';
 require_once __DIR__ . '/logger.php';
 
 $api = new RestClient(array(
-  'base_url' => substr($env->API_DOMAIN, 0, -1)
+  'base_url' => substr($env->API_DOMAIN, 0, -1),
+  'parameters' => array(
+    'auth_token' => isset($_COOKIE['auth_token']) ? $_COOKIE['auth_token'] : "",
+    'auth_id' => isset($_COOKIE['auth_id']) ? $_COOKIE['auth_id'] : ""
+  )
 ));
-
 
 // Start App
 $core = new Core();
@@ -52,6 +55,10 @@ class Core {
   { global $api, $env;
 
     if ( isset ($_REQUEST['logout']) ) {
+
+      setcookie("auth_token", "", time()-(60*60*24));
+      setcookie("auth_id", "", time()-(60*60*24));
+
       _log("Core::logout", "Logout user {$_REQUEST['logout']}");
       if ( $_REQUEST['logout'] == $_SESSION['rigorix_logged_user'])
         session_destroy();
@@ -60,10 +67,11 @@ class Core {
       header("Location: /");
     }
 
-    if ( isset($_SESSION['rigorix_logged_user']) && $_SESSION['rigorix_logged_user'] != 0 ) {
+//    if ( isset($_SESSION['rigorix_logged_user']) && $_SESSION['rigorix_logged_user'] != 0 ) {
+    if ( isset($_COOKIE['auth_token']) && isset($_COOKIE['auth_id']) ) {
       _log("Core::rigorix_logged_user", $_SESSION['rigorix_logged_user']);
 
-      $result = $api->get("users/{$_SESSION['rigorix_logged_user']}");
+      $result = $api->get("users/{$_COOKIE['auth_id']}");
       if ($result->info->http_code == 200 ) {
         _log("Core::rigorix_logged_user", "User found, this->logged: {$result->response}");
         $this->logged = $result->response;
@@ -81,12 +89,13 @@ class Core {
         _log("Core::rigorix_logged_user", "User found by social uid ({$_REQUEST['auth']['uid']}), inserisco in sessione e vado in /");
 
 //        $token = $this->createUserToken($result->decode_response()->id_utente)->response;
-        $token = $_REQUEST['auth']['credentials']['token'];
+        $token = md5($_REQUEST['auth']['credentials']['token']);
         $path = "users/{$result->decode_response()->id_utente}/{$env->TOKEN_SECRET}/{$token}";
         $api->put($path);
 
         _log("Core::rigorix_logged_user_token", $token);
         setcookie("auth_token", $token, time() + $env->AUTH_TOKEN_VALIDITY * (24 * 60 * 60));
+        setcookie("auth_id", $result->decode_response()->id_utente, time() + $env->AUTH_TOKEN_VALIDITY * (24 * 60 * 60));
 
         $_SESSION['rigorix_logged_user'] = $result->decode_response()->id_utente;
         header('Location: /');

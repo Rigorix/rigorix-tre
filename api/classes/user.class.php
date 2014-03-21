@@ -104,4 +104,5 @@ class UserToken extends Illuminate\Database\Eloquent\Model {
   protected $primaryKey   = 'id';
   protected $guarded      = array("id");
 
+
 }

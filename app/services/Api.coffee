@@ -1,17 +1,20 @@
 RigorixServices.factory "Api", ['$resource', '$http', '$q', 'Helpers', ($resource, $http, $q, Helpers)->
 
   call: (method, url, params)->
-    params = Helpers.extendPromiseParams params
+    params = Helpers.extendApiParams params
+
     url = url.substr 1, url.length-1 if url[0] is "/"
     $http[method](RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error)
 
   post: (url, params)->
-    params = Helpers.extendPromiseParams params
+    params = Helpers.extendApiParams params
+
     url = url.substr 1, url.length-1 if url[0] is "/"
     $http.post(RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error)
 
   get: (url, params)->
-    params = Helpers.extendPromiseParams params
+    params = Helpers.extendApiParams params
+
     url = url.substr 1, url.length-1 if url[0] is "/"
     $http.get(RigorixEnv.API_DOMAIN + url, params)
 

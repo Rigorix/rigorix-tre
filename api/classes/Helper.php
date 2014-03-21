@@ -1,7 +1,11 @@
 <?php
 
-function hasAuth ($id_utente) {
-  return ( $_SESSION['rigorix']['user'] !== false && $id_utente == $_SESSION['rigorix']['user']->id_utente);
+function needsAuth () {
+  $auth_token = Flight::request()->cookies['auth_token'] ? Flight::request()->cookies['auth_token'] : Flight::request()->query->auth_token;
+  $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
+
+  if (UserToken::where("id_utente", "=", $auth_id)->where("token", "=", $auth_token)->get()->count() == 0)
+    Flight::halt(403, "Auth token not valid. Needs to authenticate");
 }
 
 function getParams() {

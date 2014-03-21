@@ -170,11 +170,6 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
   );
 
 
-  $templateCache.put('app/templates/partials/loader.html',
-    "<div class=\"rigorix-loading show\"><div class=\"ball\"></div></div>"
-  );
-
-
   $templateCache.put('app/templates/partials/notifications.html',
     "<div class=\"notifications-container\"><div class=\"notification-single animated {{notification.animation}} severity-{{notification.severity}}\" ng-repeat=\"notification in notifications\" icon=\"{{notification.icon}}\" notification-timeout=\"{{notification.timeout}}\">{{notification.text}}</div></div>"
   );
