@@ -5,8 +5,8 @@
             <div class="jumbotron">
                 <h1>Benvenuto!</h1>
                 <p>
-                    Ciao {{newUser.username}}, questa è la prima volta che ti colleghi a Rigorix. <br/>
-                    Ti sei autenticato usando il tuo account di <img src="/i/login_{{newUser.social_provider}}.png" alt=""/>
+                    Ciao {{newUser.username}}, questa &egrave; la prima volta che ti colleghi a Rigorix. <br/>
+                    Ti sei autenticato usando <a target="_blank" href="{{newUSer.social_url_trusted}}#" icon="{{newUser.social_provider}}" style="font-size: 25px">{{newUser.social_provider}}</a>
                 </p>
             </div>
 
@@ -24,7 +24,7 @@
                     <label class="col-sm-3 control-label" icon="asterisk">Username</label>
                     <div class="col-sm-9">
                         <input type="text" ng-pattern="/^[A-Za-z0-9_-]*$/" required ng-minlength="3" ng-maxlength="14" name="username" class="form-control" ng-model="newUser.db_object.username" value="{{newUser.db_object.username}}">
-                        <span class="error-message" ng-show="newUserForm.username.$invalid && newUserForm.username.$dirty">Lo username è obbligatorio, con una lunghezza di minimo 3 e massimo 14 caratteri, composto solo da lettere, numeri _ e -.</span>
+                        <span class="error-message" ng-show="newUserForm.username.$invalid && newUserForm.username.$dirty">Lo username &egrave; obbligatorio, con una lunghezza di minimo 3 e massimo 14 caratteri, composto solo da lettere, numeri _ e -.</span>
                     </div>
                 </div>
 

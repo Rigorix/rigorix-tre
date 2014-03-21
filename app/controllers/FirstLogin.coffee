@@ -38,5 +38,5 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserService', '$location', '$rootSc
         $rootScope.$broadcast "hide:loading"
         $rootScope.$broadcast "user:activated", json
     else
-      notify.warn "Ci sono uno o più campi che non sono stati compilati."
+      notify.warn "Ci sono uno o piu' campi che non sono stati compilati."
 ]

@@ -163,6 +163,9 @@ Flight::route('POST /users/create', function() {
     _log("Api:users/create", "social POST:".FastJSON::convert($_POST));
     _log("Api:users/create", "social AUTH-INFO:".getParams());
 
+    unset($_POST["auth_token"]);
+    unset($_POST["auth_id"]);
+
     try {
       $newUser = Users::create($_POST);
       _log("Api:users/create", "new user:".(string)$newUser);

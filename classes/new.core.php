@@ -67,7 +67,6 @@ class Core {
       header("Location: /");
     }
 
-//    if ( isset($_SESSION['rigorix_logged_user']) && $_SESSION['rigorix_logged_user'] != 0 ) {
     if ( isset($_COOKIE['auth_token']) && isset($_COOKIE['auth_id']) ) {
       _log("Core::rigorix_logged_user", $_SESSION['rigorix_logged_user']);
 
@@ -81,6 +80,7 @@ class Core {
         $this->logged = "false";
       }
     }
+
     if ( isset($_REQUEST['signature'])) {
       _log("Core::rigorix_logged_user", "Found a signature, coming from Opauth (uid: {$_REQUEST['auth']['uid']})");
 
@@ -88,14 +88,7 @@ class Core {
       if ($result->info->http_code == 200 ) {
         _log("Core::rigorix_logged_user", "User found by social uid ({$_REQUEST['auth']['uid']}), inserisco in sessione e vado in /");
 
-//        $token = $this->createUserToken($result->decode_response()->id_utente)->response;
-        $token = md5($_REQUEST['auth']['credentials']['token']);
-        $path = "users/{$result->decode_response()->id_utente}/{$env->TOKEN_SECRET}/{$token}";
-        $api->put($path);
-
-        _log("Core::rigorix_logged_user_token", $token);
-        setcookie("auth_token", $token, time() + $env->AUTH_TOKEN_VALIDITY * (24 * 60 * 60));
-        setcookie("auth_id", $result->decode_response()->id_utente, time() + $env->AUTH_TOKEN_VALIDITY * (24 * 60 * 60));
+        $this->createUserToken($result->decode_response()->id_utente, md5($_REQUEST['auth']['credentials']['token']));
 
         $_SESSION['rigorix_logged_user'] = $result->decode_response()->id_utente;
         header('Location: /');
@@ -107,8 +100,13 @@ class Core {
         _log("Core::rigorix_logged_user", "Social AUTH: ".FastJSON::convert($newUserParams));
         $newUserPost = $api->post("users/create/", $newUserParams);
 
+//        var_dump($newUserPost);
+//        die();
+
         if ($newUserPost->info->http_code == 200) {
           _log("Core::rigorix_logged_user", "User created successfully ({$newUserPost->decode_response()->id_utente})");
+
+          $this->createUserToken($newUserPost->decode_response()->id_utente, md5($_REQUEST['auth']['credentials']['token']));
 
           $_SESSION['rigorix_logged_user'] = $newUserPost->decode_response()->id_utente;
           header('Location: /#/first-login');
@@ -126,12 +124,15 @@ class Core {
 
   }
 
-  function createUserToken($id_utente)
+  function createUserToken($id_utente, $token)
   { global $env, $api;
 
-    $path = "users/{$id_utente}/{$env->TOKEN_SECRET}";
-    $result = $api->put($path);
-    return $result;
+    $path = "users/{$id_utente}/{$env->TOKEN_SECRET}/{$token}";
+    $api->put($path);
+
+    _log("Core::rigorix_logged_user_token", $token);
+    setcookie("auth_token", $token, time() + $env->AUTH_TOKEN_VALIDITY * (24 * 60 * 60));
+    setcookie("auth_id", $id_utente, time() + $env->AUTH_TOKEN_VALIDITY * (24 * 60 * 60));
   }
 
   function prepareSocialLoginObject($request)

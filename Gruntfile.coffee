@@ -19,7 +19,8 @@ module.exports = (grunt) ->
     watch:
       scripts:
         files: [
-          "app/**/*.coffee"
+          "app/**/*.coffee",
+          "app/templates/**/*.html"
         ]
         tasks: ["dev:script"]
 
@@ -162,6 +163,7 @@ module.exports = (grunt) ->
           './app/app.coffee'
           './app/config.coffee'
           './app/server.coffee'
+          './app/templates'
 
           #Others
           './i/profile_picture'
@@ -251,6 +253,7 @@ module.exports = (grunt) ->
 #    "bower"
     "dev:script"
     "dev:less"
+    "ngtemplates"
   ]
 
   # STAGING / PRODUCTION tasks -----------------------------------------------------------------------------------------
@@ -258,4 +261,4 @@ module.exports = (grunt) ->
 
   grunt.registerTask "deploy:staging", ["dev:build", "ftp_upload"]
 
-  grunt.registerTask('deploy:production', ['dev:build', 'less:development', 'ftp_upload']);
+#  grunt.registerTask('deploy:production', ['dev:build', 'ftp_upload']);

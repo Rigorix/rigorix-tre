@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ["app/**/*.coffee"],
+        files: ["app/**/*.coffee", "app/templates/**/*.html"],
         tasks: ["dev:script"]
       },
       less: {
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
         },
         src: './',
         dest: '/tre/',
-        exclusions: ['.git*', './.bowerrc', './.env', './.idea', './.ftppass', './.gitftppass', './.gitignore', './.project', './.travis.yml', './bower.json', './Gruntfile.coffee', './Gruntfile.js', './package.json', './Procfile', './**/README.md', './**/.DS_Store', './rigorix.ssh', './rigorix.ssh.pub', './app/administr/app.coffee', './app/administr/angular', './app/assets/bower_components', './app/assets/css', './app/assets/dist/dependencies', './app/assets/js', './app/assets/less', './app/controllers', './app/directives', './app/filters', './app/services', './app/app.coffee', './app/config.coffee', './app/server.coffee', './i/profile_picture', './log', './node_modules', './Opauth', './swf/rigorixGame.fla', './swf/rigorixGame_v3.fla', './to_be_deleted']
+        exclusions: ['.git*', './.bowerrc', './.env', './.idea', './.ftppass', './.gitftppass', './.gitignore', './.project', './.travis.yml', './bower.json', './Gruntfile.coffee', './Gruntfile.js', './package.json', './Procfile', './**/README.md', './**/.DS_Store', './rigorix.ssh', './rigorix.ssh.pub', './app/administr/app.coffee', './app/administr/angular', './app/assets/bower_components', './app/assets/css', './app/assets/dist/dependencies', './app/assets/js', './app/assets/less', './app/controllers', './app/directives', './app/filters', './app/services', './app/app.coffee', './app/config.coffee', './app/server.coffee', './app/templates', './i/profile_picture', './log', './node_modules', './Opauth', './swf/rigorixGame.fla', './swf/rigorixGame_v3.fla', './to_be_deleted']
       }
     },
     bowerInstall: {
@@ -157,7 +157,6 @@ module.exports = function(grunt) {
   grunt.registerTask("dev:less", ["less:development", "concat:css", "cssmin", "clean:temp"]);
   grunt.registerTask("dev:jasmine", ["coffee:compileJasmine"]);
   grunt.registerTask("dev:bower", ["bowerInstall", "bower"]);
-  grunt.registerTask("dev:build", ["dev:script", "dev:less"]);
-  grunt.registerTask("deploy:staging", ["dev:build", "ftp_upload"]);
-  return grunt.registerTask('deploy:production', ['dev:build', 'less:development', 'ftp_upload']);
+  grunt.registerTask("dev:build", ["dev:script", "dev:less", "ngtemplates"]);
+  return grunt.registerTask("deploy:staging", ["dev:build", "ftp_upload"]);
 };
