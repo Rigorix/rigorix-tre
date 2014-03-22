@@ -45085,6 +45085,14 @@ Rigorix.controller("Home", [
   }
 ]);
 
+Rigorix.controller("Jasmine", [
+  "$scope", function($scope) {
+    return $scope.toggleApp = function() {
+      return $(".html-reporter").toggleClass("hide");
+    };
+  }
+]);
+
 Rigorix.controller("ListaSfide.Sfida", [
   '$scope', '$modal', '$rootScope', function($scope, $modal, $rootScope) {
     $scope.id_avversario = $scope.sfida.id_sfidante === $rootScope.currentUser.id_utente ? $scope.sfida.id_sfidato : $scope.sfida.id_sfidante;

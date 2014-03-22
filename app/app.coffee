@@ -53,6 +53,7 @@ Rigorix.config ['$routeProvider', ($routeProvider)->
   $routeProvider.otherwise
     templateUrl: "app/templates/pages/lost.html"
 
+
 ]
 
 Rigorix.config ()->
