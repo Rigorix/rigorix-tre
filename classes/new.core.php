@@ -51,99 +51,103 @@ class Core {
     return json_encode($envPrivate);
   }
 
-  function check_user ()
-  { global $api, $env;
+  function check_user () { global $api;
 
-    if ( isset ($_REQUEST['logout']) ) {
-
-      setcookie("auth_token", "", time()-(60*60*24));
-      setcookie("auth_id", "", time()-(60*60*24));
-
-      _log("Core::logout", "Logout user {$_REQUEST['logout']}");
-      if ( $_REQUEST['logout'] == $_SESSION['rigorix_logged_user'])
-        session_destroy();
-      else
-        _log("Core::logout", "User isn't logged in");
-      header("Location: /");
-    }
+    if ( isset ($_REQUEST['logout']) )
+      $this->do_user_logout ();
 
     if ( isset($_COOKIE['auth_token']) && isset($_COOKIE['auth_id']) ) {
-      _log("Core::rigorix_logged_user", $_SESSION['rigorix_logged_user']);
-
-      $result = $api->get("users/{$_COOKIE['auth_id']}");
-      if ($result->info->http_code == 200 ) {
-        _log("Core::rigorix_logged_user", "User found, this->logged: {$result->response}");
-        $this->logged = $result->response;
-      } else {
-        _log("Core::rigorix_logged_user", "User not found, clear session and this->logged");
-        unset($_SESSION['rigorix_logged_user']);
-        $this->logged = "false";
-      }
+      $this->do_user_login ();
     }
 
-    if ( isset($_REQUEST['signature'])) {
-      _log("Core::rigorix_logged_user", "Found a signature, coming from Opauth (uid: {$_REQUEST['auth']['uid']})");
+    if (isset($_REQUEST['signature'])) {
 
       $result = $api->get("users/bysocial/{$_REQUEST['auth']['uid']}");
+
       if ($result->info->http_code == 200 ) {
-        _log("Core::rigorix_logged_user", "User found by social uid ({$_REQUEST['auth']['uid']}), inserisco in sessione e vado in /");
 
-        $this->createUserToken($result->decode_response()->id_utente, md5($_REQUEST['auth']['credentials']['token']));
-
-        $_SESSION['rigorix_logged_user'] = $result->decode_response()->id_utente;
+        $this->create_user_token($result->decode_response()->id_utente, md5($_REQUEST['auth']['credentials']['token']));
         header('Location: /');
 
       } else if ($result->info->http_code == 404 ) {
-        _log("Core::rigorix_logged_user", "User not found by social uid, new subscription");
 
-        $newUserParams = $this->prepareSocialLoginObject($_REQUEST);
-        _log("Core::rigorix_logged_user", "Social AUTH: ".FastJSON::convert($newUserParams));
-        $newUserPost = $api->post("users/create/", $newUserParams);
+        // User not found, maybe has the same email. Check in the database
+        $result = $api->get("users/byemail/{$_REQUEST['auth']['info']['email']}");
+        if ( $result->info->http_code == 200 )
+          setcookie("auth_user_exist", $result->decode_response()->social_provider, time() + (60*512312));
 
-//        var_dump($newUserPost);
-//        die();
+        $this->do_create_new_user();
 
-        if ($newUserPost->info->http_code == 200) {
-          _log("Core::rigorix_logged_user", "User created successfully ({$newUserPost->decode_response()->id_utente})");
-
-          $this->createUserToken($newUserPost->decode_response()->id_utente, md5($_REQUEST['auth']['credentials']['token']));
-
-          $_SESSION['rigorix_logged_user'] = $newUserPost->decode_response()->id_utente;
-          header('Location: /#/first-login');
-
-        } else if ($newUserPost->info->http_code == 500 ) {
-          echo "Error 500";
-        }
-
-      } else {
-        _log("Core::rigorix_logged_user", "Unknown error during login");
-        $this->logged = "false";
-      }
+      } else
+        $this->do_user_logout ();
 
     }
 
   }
 
-  function createUserToken($id_utente, $token)
-  { global $env, $api;
+  function do_create_new_user () { global $api;
 
-    $path = "users/{$id_utente}/{$env->TOKEN_SECRET}/{$token}";
-    $api->put($path);
+    $newUserParams = $this->prepare_social_login_object($_REQUEST);
+    $newUserPost = $api->post("users/create/", $newUserParams);
 
-    _log("Core::rigorix_logged_user_token", $token);
+    if ($newUserPost->info->http_code == 200) {
+      _log("Core::rigorix_logged_user", "User created successfully ({$newUserPost->decode_response()->id_utente})");
+
+      $this->create_user_token($newUserPost->decode_response()->id_utente, md5($_REQUEST['auth']['credentials']['token']));
+
+      header('Location: /#/first-login');
+
+    } else if ($newUserPost->info->http_code == 500 ) {
+      echo "Error 500";
+    }
+  }
+
+  function do_user_login () { global $api;
+    $result = $api->get("users/{$_COOKIE["auth_id"]}");
+    if ($result->info->http_code == 200 )
+      $this->logged = $result->response;
+  }
+
+  function do_user_logout ()
+  {
+//    echo "do_user_logout";
+//    die();
+    setcookie("auth_token", "", time()-(60*60*24));
+    setcookie("auth_id", "", time()-(60*60*24));
+
+    _log("Core::logout", "Logout user {$_REQUEST['logout']}");
+    if ( $_REQUEST['logout'] == $_SESSION['rigorix_logged_user'])
+      session_destroy();
+    else
+      _log("Core::logout", "User isn't logged in");
+    $this->logged = "false";
+    header("Location: /");
+  }
+
+  function create_user_token($id_utente, $token) { global $env, $api;
+    $api->put("users/{$id_utente}/{$env->TOKEN_SECRET}/{$token}");
+
     setcookie("auth_token", $token, time() + $env->AUTH_TOKEN_VALIDITY * (24 * 60 * 60));
     setcookie("auth_id", $id_utente, time() + $env->AUTH_TOKEN_VALIDITY * (24 * 60 * 60));
   }
 
-  function prepareSocialLoginObject($request)
+  function sanitizeUsername ($username)
   {
+    return $username;
+  }
+
+  function prepare_social_login_object($request)
+  {
+    $username = $this->sanitizeUsername(isset($request['auth']['info']['nickname']) ? $request['auth']['info']['nickname'] : "");
+    // TODO: get a safe username
+
     return array(
       "attivo"          => 0,
       "first_login"     => 1,
       "social_provider" => $request['auth']['provider'],
       "social_uid"      => $request['auth']['uid'],
       "social_url"      => isset($request['auth']['info']['urls'][0]),
-      "username"        => isset($request['auth']['info']['nickname']) ? $request['auth']['info']['nickname'] : "",
+      "username"        => $username,
       "picture"         => isset($request['auth']['info']['image']) ? $request['auth']['info']['image'] : "",
       "nome"            => isset($request['auth']['info']['first_name']) ? $request['auth']['info']['first_name'] : "",
       "cognome"         => isset($request['auth']['info']['last_name']) ? $request['auth']['info']['last_name'] : "",

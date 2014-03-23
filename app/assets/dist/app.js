@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-03-21 *//*!
+/*! Rigorix - v0.5.0 - 2014-03-23 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -44529,6 +44529,10 @@ Rigorix.config([
       templateUrl: "app/templates/pages/first-login.page.html",
       controller: "FirstLogin"
     });
+    $routeProvider.when("/same-email", {
+      templateUrl: "app/templates/pages/same-email.page.html",
+      controller: "FirstLogin.SameEmail"
+    });
     $routeProvider.when("/access-denied", {
       templateUrl: "app/templates/pages/access-denied.page.html",
       controller: "AccessDenied"
@@ -44574,7 +44578,8 @@ RigorixConfig = {
   deletedUsernameQuery: "__DELETED__",
   messagesPerPage: 15,
   userPicturePath: "/i/profile_picture/",
-  token: $.cookie("auth_token")
+  token: $.cookie("auth_token"),
+  safeLocations: ["/same-email", "/regolamento", "/riconoscimenti"]
 };
 
 RigorixStorage = {
@@ -44810,7 +44815,7 @@ Rigorix.controller("Directive.InlineLoader", [
 ]);
 
 Rigorix.controller("FirstLogin", [
-  '$scope', 'UserService', '$location', '$rootScope', '$sce', 'notify', function($scope, UserService, $location, $rootScope, $sce, notify) {
+  '$scope', 'UserService', '$location', '$rootScope', '$sce', 'notify', 'Api', function($scope, UserService, $location, $rootScope, $sce, notify, Api) {
     if ((typeof User === "undefined" || User === null) || User === false) {
       $location.path("/");
       return;
@@ -44818,6 +44823,7 @@ Rigorix.controller("FirstLogin", [
     if (User.dead === true) {
       $location.path("access-denied");
     }
+    $scope.auth_user_exist = $.cookie("auth_user_exist");
     $scope.datepickerOpened = false;
     $scope.today = function() {
       return $scope.dt = new Date();
@@ -44834,11 +44840,21 @@ Rigorix.controller("FirstLogin", [
         $scope.newUser.db_object.email_utente = json.email;
       }
       $scope.social_url_trusted = $sce.trustAsResourceUrl($scope.newUser.social_url);
+      $scope.picture_trusted = $sce.trustAsResourceUrl($scope.newUser.picture);
       return $route.reload();
     });
+    $scope.useOldUser = function($event) {
+      Api.post("users/rawdelete/" + User.id_utente);
+      return $scope.doAuth($event, $scope.auth_user_exist.toLowerCase());
+    };
+    $scope.discardOldUser = function() {
+      $scope.auth_user_exist = null;
+      return $.removeCookie("auth_user_exist");
+    };
     return $scope.doActivateUser = function() {
       if ($scope.newUserForm.$valid) {
         $rootScope.$broadcast("show:loading");
+        Api.get("user/newuser/check");
         $scope.newUser.db_object.attivo = 1;
         return $scope.newUser.$save({
           id_utente: $scope.newUser.id_utente
@@ -44850,6 +44866,19 @@ Rigorix.controller("FirstLogin", [
         return notify.warn("Ci sono uno o piu' campi che non sono stati compilati.");
       }
     };
+  }
+]);
+
+Rigorix.controller("FirstLogin.SameEmail", [
+  '$scope', '$rootScope', 'Api', function($scope, $rootScope, Api) {
+    $scope.userAlreadyPresent = false;
+    Api.get("users/byemail/" + $.cookie("auth_same_email"), {
+      success: function(json) {
+        console.log("json.data.id_utente", json.data.id_utente);
+        return $scope.userAlreadyPresent = json.data.id_utente;
+      }
+    });
+    return $rootScope.$broadcast("hide:loading");
   }
 ]);
 
@@ -45159,6 +45188,8 @@ Rigorix.controller("ListaSfide.Sfida", [
   }
 ]);
 
+var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
 Rigorix.controller("Main", [
   '$scope', '$modal', '$rootScope', 'UserService', '$window', '$location', 'Api', 'notify', function($scope, $modal, $rootScope, UserService, $window, $location, Api, notify) {
     var _this = this;
@@ -45178,7 +45209,7 @@ Rigorix.controller("Main", [
       return $rootScope.$broadcast("hide:loading");
     });
     $scope.$on("$routeChangeStart", function(event, next) {
-      var pageName;
+      var pageName, _ref;
       $rootScope.$broadcast("show:loading");
       if ((typeof User !== "undefined" && User !== null) && User.attivo === 0) {
         if (User.dead === false) {
@@ -45187,7 +45218,7 @@ Rigorix.controller("Main", [
           $location.path("/access-denied");
         }
       }
-      if (User === false) {
+      if (User === false && (_ref = next.$$route.originalPath, __indexOf.call(RigorixConfig.safeLocations, _ref) < 0)) {
         $location.path("/");
       }
       pageName = next.$$route.controller != null ? next.$$route.controller : "static-page " + next.$$route.originalPath.replace("/", "");
@@ -45712,6 +45743,7 @@ Rigorix.controller("Main", [
         }
         $scope.userLogged = true;
         $scope.currentUser = User;
+        $.removeCookie("auth_user_exist");
         $scope.updateUserObject();
         return setInterval(function() {
           return $scope.updateUserObject();
@@ -46459,7 +46491,7 @@ RigorixServices.factory("Api", [
         if (url[0] === "/") {
           url = url.substr(1, url.length - 1);
         }
-        return $http.get(RigorixEnv.API_DOMAIN + url, params);
+        return $http.get(RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error);
       },
       getResource: function(url) {
         return $resource(RigorixEnv.API_DOMAIN + url, {
@@ -51078,7 +51110,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/templates/pages/first-login.page.html',
-    "<div class=\"first-login-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"jumbotron\"><h1>Benvenuto!</h1><p>Ciao {{newUser.username}}, questa &egrave; la prima volta che ti colleghi a Rigorix.<br>Ti sei autenticato usando <a target=\"_blank\" href=\"{{newUSer.social_url_trusted}}#\" icon=\"{{newUser.social_provider}}\" style=\"font-size: 25px\">{{newUser.social_provider}}</a></p></div></div></div><div class=\"row\"><div class=\"col col-sm-10 col-sm-offset-1\"><h4 class=\"mbl\">Ti chiediamo di completare/confermare la form sottostante per attivare il tuo account.</h4><form name=\"newUserForm\" class=\"form-horizontal mbl\" role=\"form\"><div class=\"form-group\"><label class=\"col-sm-3 control-label\" icon=\"asterisk\">Username</label><div class=\"col-sm-9\"><input type=\"text\" ng-pattern=\"/^[A-Za-z0-9_-]*$/\" required ng-minlength=\"3\" ng-maxlength=\"14\" name=\"username\" class=\"form-control\" ng-model=\"newUser.db_object.username\" value=\"{{newUser.db_object.username}}\"><span class=\"error-message\" ng-show=\"newUserForm.username.$invalid && newUserForm.username.$dirty\">Lo username &egrave; obbligatorio, con una lunghezza di minimo 3 e massimo 14 caratteri, composto solo da lettere, numeri _ e -.</span></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\">Social</label><div class=\"col-sm-9 pvs\"><a target=\"_blank\" href=\"{{newUSer.social_url_trusted}}#\" icon=\"{{newUser.social_provider}}\" style=\"font-size: 25px\">{{newUser.social_provider}}</a></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\">Nome</label><div class=\"col-sm-9\"><input type=\"text\" class=\"form-control\" ng-model=\"newUser.db_object.nome\" value=\"{{newUser.db_object.nome}}\"></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\">Cognome</label><div class=\"col-sm-9\"><input type=\"text\" class=\"form-control\" ng-model=\"newUser.db_object.cognome\" value=\"{{newUser.db_object.cognome}}\"></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\" icon=\"asterisk\">Email</label><div class=\"col-sm-9\"><input type=\"email\" required class=\"form-control\" ng-model=\"newUser.db_object.email_utente\" value=\"{{newUser.db_object.email_utente}}\"><span class=\"error-message\" ng-show=\"newUserForm.email.$invalid\">La email è obbligatorie e dev'essere in un formato valido</span></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\">Sesso</label><div class=\"col-sm-9\"><select class=\"form-control\" ng-model=\"newUser.db_object.sesso\" name=\"indb_sesso\"><option value=\"M\" selected>Maschio</option><option value=\"F\" selected>Femmina</option></select></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\" icon=\"asterisk\">Data di nascita</label><div class=\"col-sm-9 enlarge-inside-table\"><datepicker ng-model=\"newUser.db_object.data_nascita\" show-weeks=\"false\" required ng-required=\"true\"></datepicker><!--<input type=\"text\" name=\"data_nascita\" required ng-required=\"true\" value=\"newUser.db_object.data_nascita\" id=\"nome\" ng-model=\"newUser.db_object.data_nascita\" class=\"form-control\" />--><span class=\"error-message\" ng-show=\"newUserForm.data_nascita.$invalid\">La data di nascita è obbligatoria, clicca il campo e selezionala dal calendario</span></div></div><div class=\"col-sm-offset-4\"><button class=\"btn btn-lg btn-success\" icon=\"log-in\" ng-click=\"doActivateUser()\">ENTRA IN RIGORIX!</button></div></form></div></div></div>"
+    "<div class=\"first-login-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"jumbotron\"><h1>Benvenuto!</h1><p ng-show=\"!auth_user_exist\">Ciao <strong>{{newUser.username}}</strong>, questa &egrave; un nuovo utente per Rigorix.<br>Ti stai registrando usando <a target=\"_blank\" class=\"mls\" href=\"{{newUSer.social_url_trusted}}#\" icon=\"{{newUser.social_provider}}\" style=\"font-size: 25px\">{{newUser.social_provider}}</a></p><div ng-show=\"auth_user_exist\"><p>Ciao <strong>{{newUser.username}}</strong>, ci risulta che tu ti sia gi&agrave; registrato ma con un diverso social network (<span icon=\"{{auth_user_exist}}\">{{auth_user_exist}}</span>)<br><br>Scegli se continuare con la nuova registrazione o se entrare con il precedente social network.</p><div class=\"text-center\"><button class=\"mas btn btn-{{auth_user_exist | lowercase}}\" icon=\"{{auth_user_exist}}\" ng-click=\"useOldUser($event)\">Accedi tramite {{auth_user_exist}}</button> <button class=\"mas btn btn-{{newUser.social_provider | lowercase}}\" icon=\"{{newUser.social_provider}}\" ng-click=\"discardOldUser()\">Registrati con {{newUser.social_provider}}</button></div></div></div></div></div><div class=\"row\" ng-show=\"!auth_user_exist\"><div class=\"col col-sm-10 col-sm-offset-1\"><h4 class=\"mbl\">Ti chiediamo di completare/confermare la form sottostante per attivare il tuo account.</h4><form name=\"newUserForm\" class=\"form-horizontal mbl\" role=\"form\"><div class=\"form-group\"><label class=\"col-sm-3 control-label\" icon=\"asterisk\">Username</label><div class=\"col-sm-9\"><input type=\"text\" ng-pattern=\"/^[A-Za-z0-9_-]*$/\" required ng-minlength=\"3\" ng-maxlength=\"14\" name=\"username\" class=\"form-control\" ng-model=\"newUser.db_object.username\" value=\"{{newUser.db_object.username}}\"><span class=\"error-message\" ng-show=\"newUserForm.username.$invalid && newUserForm.username.$dirty\">Lo username &egrave; obbligatorio, con una lunghezza di minimo 3 e massimo 14 caratteri, composto solo da lettere, numeri _ e -.</span></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\">Social</label><div class=\"col-sm-9 pvs\"><a target=\"_blank\" href=\"{{newUSer.social_url_trusted}}#\" icon=\"{{newUser.social_provider}}\" style=\"font-size: 25px\">{{newUser.social_provider}}</a></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\">Nome</label><div class=\"col-sm-9\"><input type=\"text\" class=\"form-control\" ng-model=\"newUser.db_object.nome\" value=\"{{newUser.db_object.nome}}\"></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\">Cognome</label><div class=\"col-sm-9\"><input type=\"text\" class=\"form-control\" ng-model=\"newUser.db_object.cognome\" value=\"{{newUser.db_object.cognome}}\"></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\" icon=\"asterisk\">Email</label><div class=\"col-sm-9\"><input type=\"email\" required class=\"form-control\" ng-model=\"newUser.db_object.email_utente\" value=\"{{newUser.db_object.email_utente}}\"><span class=\"error-message\" ng-show=\"newUserForm.email.$invalid\">La email è obbligatorie e dev'essere in un formato valido</span></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\">Sesso</label><div class=\"col-sm-9\"><select class=\"form-control\" ng-model=\"newUser.db_object.sesso\" name=\"indb_sesso\"><option value=\"M\" selected>Maschio</option><option value=\"F\" selected>Femmina</option></select></div></div><div class=\"form-group\"><label class=\"col-sm-3 control-label\" icon=\"asterisk\">Data di nascita</label><div class=\"col-sm-9 enlarge-inside-table\"><datepicker ng-model=\"newUser.db_object.data_nascita\" show-weeks=\"false\" required ng-required=\"true\"></datepicker><!--<input type=\"text\" name=\"data_nascita\" required ng-required=\"true\" value=\"newUser.db_object.data_nascita\" id=\"nome\" ng-model=\"newUser.db_object.data_nascita\" class=\"form-control\" />--><span class=\"error-message\" ng-show=\"newUserForm.data_nascita.$invalid\">La data di nascita è obbligatoria, clicca il campo e selezionala dal calendario</span></div></div><div class=\"col-sm-offset-4\"><button class=\"btn btn-lg btn-success\" icon=\"log-in\" ng-click=\"doActivateUser()\">ENTRA IN RIGORIX!</button></div></form></div></div></div>"
   );
 
 
@@ -51104,6 +51136,11 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('app/templates/pages/riconoscimenti.page.html',
     "<div class=\"row-fluid\"><div class=\"col-sm-12\"><div class=\"panel panel-success\"><div class=\"panel-heading\" icon=\"trophy\">Riconoscimenti</div><div class=\"panel-body\"><p>Ogni volta che giochi una partita, stai attento al risultato, potresti ricevere dei punti extra o, per premiare la tua abilità, delle coppe.<br>I punti extra (vedi sotto il dettaglio) sono applicati in specifiche situazioni e sono ricorrenti per ogni partita.<br><br>Le Coppe sono dei riconoscimenti da vincere una sola volta, alzano il valore del giocatore e ti aiuteranno a essere temuto dai tuoi avversari.</p><h3 class=\"title\">COPPE</h3><ul class=\"lista-riconoscimenti\"><li><table cellpadding=\"4\"><tbody><tr valign=\"middle\"><td width=\"80\"><img src=\"/i/rewards/b_first_game__small.png\" alt=\"Chi ben comincia\" width=\"75\"></td><td><h4 class=\"title\">Chi ben comincia</h4><p>Hai fatto la tua prima partita.<br>Speriamo di vederti arrivare in alto</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"middle\"><td width=\"80\"><img src=\"/i/rewards/b_match_5xscore_user__small.png\" alt=\"Gladiatore\" width=\"75\"></td><td><h4 class=\"title\">Gladiatore</h4><p>Hai sfidato un utente che ha 5 volte i tuoi punti. Sei un gladiatore!!</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"middle\"><td width=\"80\"><img src=\"/i/rewards/b_50matches__small.png\" alt=\"Allenato\" width=\"75\"></td><td><h4 class=\"title\">Allenato</h4><p>Hai giocato più di 50 sfide. Principiante a chi?!?!?</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"middle\"><td width=\"80\"><img src=\"/i/rewards/b_nofear__small.png\" alt=\"Senza paura\" width=\"75\"></td><td><h4 class=\"title\">Senza paura</h4><p>Hai sfidato un giocatore con più punti di te. Paura? Non la conosco!!</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"middle\"><td width=\"80\"><img src=\"/i/rewards/b_match_25xscore_user__small.png\" alt=\"Super Gladiatore\" width=\"75\"></td><td><h4 class=\"title\">Super Gladiatore</h4><p>Hai sfidato un utente che ha 25 volte i tuoi punti. Sei un super gladiatore!!</p></td></tr></tbody></table></li></ul><br><br><br><h3 class=\"title\">PUNTI EXTRA</h3><ul class=\"lista-riconoscimenti\"><li><table cellpadding=\"4\"><tbody><tr valign=\"top\"><td><div class=\"punti\"><big>3</big><h5>PUNTI</h5></div></td><td><h4 class=\"title\">Sfida nuovo utente</h4><p>Ogni volta che sfidi un nuovo utente ti vengono accreditati 3 punti. Non annoiarti sempre con gli stessi utenti, sfidane di nuovi!!</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"top\"><td><div class=\"punti\"><big>3</big><h5>PUNTI</h5></div></td><td><h4 class=\"title\">20 Sfide al giorno</h4><p>Quando arrivi alle 20 sfide al giorno Rigorix ti premia con 3 punti extra. Più giochi, più ti premiamo!!</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"top\"><td><div class=\"punti\"><big>5</big><h5>PUNTI</h5></div></td><td><h4 class=\"title\">Prima partita del giorno</h4><p>Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"top\"><td><div class=\"punti\"><big>3</big><h5>PUNTI</h5></div></td><td><h4 class=\"title\">Una partita all'ora per otto ore</h4><p>Hai giocato almeno una partita all'ora per otto ore consecutive: ti premiamo con 3 punti per il tuo impegno!</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"top\"><td><div class=\"punti\"><big>1</big><h5>PUNTI</h5></div></td><td><h4 class=\"title\">Stessa regione sfidante</h4><p>Sei conterraneo con il tuo sfidante? Regaliamo 1 punto di campanilismo!</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"top\"><td><div class=\"punti\"><big>1</big><h5>PUNTI</h5></div></td><td><h4 class=\"title\">Stesso anno di nascita</h4><p>Hai la stessa etè del tuo sfidante, ti regaliamo un punto per la lotta pari!</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"top\"><td><div class=\"punti rosso\"><big>-5</big><h5>PUNTI</h5></div></td><td><h4 class=\"title\"><strong>Noioso!</strong> 10 sfide allo stesso utente oggi</h4><p>Vederti giocare 10 o più partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"top\"><td><div class=\"punti rosso\"><big>-15</big><h5>PUNTI</h5></div></td><td><h4 class=\"title\"><strong>NOOooo!</strong> 20 sfide allo stesso utente oggi</h4><p>Manchi completamente di originalità: 20 partite al giorno con lo stesso utente? ti togliamo 15 punti</p></td></tr></tbody></table></li><li><table cellpadding=\"4\"><tbody><tr valign=\"top\"><td><div class=\"punti\"><big>3</big><h5>PUNTI</h5></div></td><td><h4 class=\"title\">Gladiatore</h4><p>Hai sfidato un utente che ha 5 volte i tuoi punti. Sei un gladiatore!!</p></td></tr></tbody></table></li></ul></div></div></div></div>"
+  );
+
+
+  $templateCache.put('app/templates/pages/same-email.page.html',
+    "<div class=\"same-email-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"well\"><h4>Utente con la stessa email trovato</h4><p>Ci risulta che ci sia gi&agrave; un utente registrato da un diverso social network.</p></div><username id_utente=\"userAlreadyPresent\"></username></div></div></div>"
   );
 
 
@@ -51142,7 +51179,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/templates/partials/user-box.html',
-    "<div class=\"user-panel\" ng-controller=\"UserPanel\"><div ng-show=\"currentUser\"><h3>{{currentUser.username}}</h3><div class=\"summary\"><div class=\"user-picture\"><img src=\"{{currentUser.picture}}\"></div><span class=\"punteggio\">{{currentUser.punteggio_totale}}</span> <a class=\"lancia-sfida\" ng-click=\"doLanciaNewSfida()\" tooltip-html-unsafe=\"Clicca per lanciare una sfida\" tooltip-placement=\"left\"><img src=\"/app/assets/images/ball.png\"></a></div><div class=\"user-notifications\"><div class=\"notification-item\" ng-show=\"currentUser.messages.length > 0\"><a href=\"#area-personale/messaggi\" title=\"Hai dei messaggi da leggere\" icon=\"envelope\">Hai <strong class=\"count-unread-messages\">{{currentUser.messages.length}}</strong> nuovi messaggi</a></div><div class=\"notification-item\" ng-show=\"currentUser.has_new_badges > 0\"><a href=\"#/area-personale/utente\" icon=\"trophy\">Hai nuovi badges!!</a></div><div class=\"notification-item\" ng-show=\"currentUser.sfide_da_giocare.length > 0\"><a href=\"#/area-personale/sfide/sfide_da_giocare\" class=\"text-success\" icon=\"globe\">Hai <strong>{{currentUser.sfide_da_giocare.length}}</strong> nuove sfide</a></div></div><div class=\"user-actions\"><a href=\"#area-personale\" class=\"btn btn-sm btn-info pull-left\" icon=\"user\">Area personale</a> <a ng-click=\"doUserLogout()\" class=\"btn btn-sm btn-danger pull-right\" icon=\"sign-out\">Esci</a></div></div><div ng-show=\"!currentUser\"><p align=\"center\" class=\"mvm\">Accedi a Rigorix tramite questi social network:</p><div class=\"row-fluid\"><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-primary\" ng-click=\"doAuth($event, 'facebook')\" icon=\"facebook\">Facebook</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-danger\" ng-click=\"doAuth($event, 'google')\" icon=\"google\">Google</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-warning\" ng-click=\"doAuth($event, 'instagram')\" icon=\"instagram\">Instagram</a></div></div></div></div>"
+    "<div class=\"user-panel\" ng-controller=\"UserPanel\"><div ng-show=\"currentUser\"><h3>{{currentUser.username}}</h3><div class=\"summary\"><div class=\"user-picture\"><img src=\"{{currentUser.picture}}\"></div><span class=\"punteggio\">{{currentUser.punteggio_totale}}</span> <a class=\"lancia-sfida\" ng-click=\"doLanciaNewSfida()\" tooltip-html-unsafe=\"Clicca per lanciare una sfida\" tooltip-placement=\"left\"><img src=\"/app/assets/images/ball.png\"></a></div><div class=\"user-notifications\"><div class=\"notification-item\" ng-show=\"currentUser.messages.length > 0\"><a href=\"#area-personale/messaggi\" title=\"Hai dei messaggi da leggere\" icon=\"envelope\">Hai <strong class=\"count-unread-messages\">{{currentUser.messages.length}}</strong> nuovi messaggi</a></div><div class=\"notification-item\" ng-show=\"currentUser.has_new_badges > 0\"><a href=\"#/area-personale/utente\" icon=\"trophy\">Hai nuovi badges!!</a></div><div class=\"notification-item\" ng-show=\"currentUser.sfide_da_giocare.length > 0\"><a href=\"#/area-personale/sfide/sfide_da_giocare\" class=\"text-success\" icon=\"globe\">Hai <strong>{{currentUser.sfide_da_giocare.length}}</strong> nuove sfide</a></div></div><div class=\"user-actions\"><a href=\"#area-personale\" class=\"btn btn-sm btn-info pull-left\" icon=\"user\">Area personale</a> <a ng-click=\"doUserLogout()\" class=\"btn btn-sm btn-danger pull-right\" icon=\"sign-out\">Esci</a></div></div><div ng-show=\"!currentUser\"><p align=\"center\" class=\"mvm\">Accedi a Rigorix tramite questi social network:</p><div class=\"row-fluid\"><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-facebook\" ng-click=\"doAuth($event, 'facebook')\" icon=\"facebook\">Facebook</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-google\" ng-click=\"doAuth($event, 'google')\" icon=\"google\">Google</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-instagram\" ng-click=\"doAuth($event, 'instagram')\" icon=\"instagram\">Instagram</a></div></div></div></div>"
   );
 
 

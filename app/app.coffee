@@ -21,6 +21,10 @@ Rigorix.config ['$routeProvider', ($routeProvider)->
     templateUrl: "app/templates/pages/first-login.page.html",
     controller: "FirstLogin"
 
+  $routeProvider.when "/same-email",
+    templateUrl: "app/templates/pages/same-email.page.html",
+    controller: "FirstLogin.SameEmail"
+
   $routeProvider.when "/access-denied",
     templateUrl: "app/templates/pages/access-denied.page.html",
     controller: "AccessDenied"

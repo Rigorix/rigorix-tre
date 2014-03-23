@@ -8,6 +8,13 @@ function needsAuth () {
     Flight::halt(403, "Auth token not valid. Needs to authenticate");
 }
 
+function needsPermission ($id_utente) {
+  $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
+
+  if ($id_utente != $auth_id)
+    Flight::halt(403, "Auth token not valid. Needs to authenticate");
+}
+
 function getParams() {
   $postdata = file_get_contents("php://input");
   return json_decode($postdata);

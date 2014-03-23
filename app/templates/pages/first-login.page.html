@@ -4,17 +4,27 @@
         <div class="col-sm-12">
             <div class="jumbotron">
                 <h1>Benvenuto!</h1>
-                <p>
-                    Ciao {{newUser.username}}, questa &egrave; la prima volta che ti colleghi a Rigorix. <br/>
-                    Ti sei autenticato usando <a target="_blank" href="{{newUSer.social_url_trusted}}#" icon="{{newUser.social_provider}}" style="font-size: 25px">{{newUser.social_provider}}</a>
+                <p ng-show="!auth_user_exist">
+                    Ciao <strong>{{newUser.username}}</strong>, questa &egrave; un nuovo utente per Rigorix. <br/>
+                    Ti stai registrando usando <a target="_blank" class="mls" href="{{newUSer.social_url_trusted}}#" icon="{{newUser.social_provider}}" style="font-size: 25px">{{newUser.social_provider}}</a>
                 </p>
+                <div ng-show="auth_user_exist">
+                    <p>
+                        Ciao <strong>{{newUser.username}}</strong>, ci risulta che tu ti sia gi&agrave; registrato ma con un diverso social network (<span icon="{{auth_user_exist}}">{{auth_user_exist}}</span>)<br/><br/>
+                        Scegli se continuare con la nuova registrazione o se entrare con il precedente social network.
+                    </p>
+                    <div class="text-center">
+                        <button class="mas btn btn-{{auth_user_exist | lowercase}}" icon="{{auth_user_exist}}" ng-click="useOldUser($event)">Accedi tramite {{auth_user_exist}}</button>
+                        <button class="mas btn btn-{{newUser.social_provider | lowercase}}" icon="{{newUser.social_provider}}" ng-click="discardOldUser()">Registrati con {{newUser.social_provider}}</button>
+                    </div>
+                </div>
             </div>
 
         </div>
 
     </div>
 
-    <div class="row">
+    <div class="row" ng-show="!auth_user_exist">
         <div class="col col-sm-10 col-sm-offset-1">
             <h4 class="mbl">Ti chiediamo di completare/confermare la form sottostante per attivare il tuo account.</h4>
 

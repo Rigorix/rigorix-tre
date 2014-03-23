@@ -16,7 +16,7 @@ RigorixServices.factory "Api", ['$resource', '$http', '$q', 'Helpers', ($resourc
     params = Helpers.extendApiParams params
 
     url = url.substr 1, url.length-1 if url[0] is "/"
-    $http.get(RigorixEnv.API_DOMAIN + url, params)
+    $http.get(RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error)
 
   getResource: (url)->
 #    TODO: Improve this!!

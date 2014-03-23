@@ -5,6 +5,8 @@ RigorixConfig =
   userPicturePath: "/i/profile_picture/"
   token: $.cookie "auth_token"
 
+  safeLocations: ["/same-email", "/regolamento", "/riconoscimenti"]
+
 RigorixStorage =
   users: {}
 

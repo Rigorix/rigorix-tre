@@ -37,6 +37,17 @@ Flight::route('GET /users/bysocial/@uid', function($uid) {
 
 });
 
+Flight::route('GET /users/byemail/@email', function($email) {
+  $result = Users::where("email", "=", $email)->get();
+  if ( $result->count() == 0)
+    Flight::notFound();
+  else
+    echo Flight::json(array(
+      "id_utente" => $result->first()->getAttribute("id_utente"),
+      "social_provider" => $result->first()->getAttribute("social_provider")
+    ));
+});
+
 Flight::route('GET /users/champion/@period', function($period) {
   if ($period == "week")
     $sfide = Sfide::lastWeek()->done();
@@ -177,6 +188,13 @@ Flight::route('POST /users/create', function() {
   else:
     Flight::halt(409, "Trying to create a user that is already there");
   endif;
+});
+
+Flight::route('POST /users/rawdelete/@id_utente', function($id_utente) {
+  needsAuth();
+  needsPermission($id_utente);
+
+  Users::find($id_utente)->delete();
 });
 
 Flight::route('POST /users/delete', function() { needsAuth();
