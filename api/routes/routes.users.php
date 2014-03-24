@@ -48,6 +48,19 @@ Flight::route('GET /users/byemail/@email', function($email) {
     ));
 });
 
+Flight::route('GET /user/exists', function($username) {
+  foreach(Flight::request()->query as $field => $value) {
+    if (!isset($users))
+      $users = Users::where($field, "=", $value);
+    else
+      $users = $users->where($field, "=", $value);
+  }
+  if ($users->get()->count() > 0)
+    echo "true";
+  else
+    echo "false";
+});
+
 Flight::route('GET /users/champion/@period', function($period) {
   if ($period == "week")
     $sfide = Sfide::lastWeek()->done();

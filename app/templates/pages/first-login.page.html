@@ -27,14 +27,15 @@
     <div class="row" ng-show="!auth_user_exist">
         <div class="col col-sm-10 col-sm-offset-1">
             <h4 class="mbl">Ti chiediamo di completare/confermare la form sottostante per attivare il tuo account.</h4>
-
+{{newUserForm.username.$errors}}
             <form name="newUserForm" class="form-horizontal mbl" role="form">
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" icon="asterisk">Username</label>
                     <div class="col-sm-9">
-                        <input type="text" ng-pattern="/^[A-Za-z0-9_-]*$/" required ng-minlength="3" ng-maxlength="14" name="username" class="form-control" ng-model="newUser.db_object.username" value="{{newUser.db_object.username}}">
-                        <span class="error-message" ng-show="newUserForm.username.$invalid && newUserForm.username.$dirty">Lo username &egrave; obbligatorio, con una lunghezza di minimo 3 e massimo 14 caratteri, composto solo da lettere, numeri _ e -.</span>
+                        <input ng-keyup="validateUsername()" type="text" ng-pattern="/^[A-Za-z0-9_-]*$/" required ng-minlength="3" ng-maxlength="14" name="username" class="form-control" ng-model="newUser.db_object.username" value="{{newUser.db_object.username}}">
+                        <span class="error-message" ng-show="newUserForm.username.$invalid && newUserForm.username.$dirty && !newUserForm.username.$error.usernametaken">Lo username &egrave; obbligatorio, con una lunghezza di minimo 3 e massimo 14 caratteri, composto solo da lettere, numeri _ e -.</span>
+                        <span class="error-message" ng-show="newUserForm.username.$error.usernametaken">Lo username scelto &egrave; gi&agrave; in uso</span>
                     </div>
                 </div>
 

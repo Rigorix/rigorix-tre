@@ -8,6 +8,8 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserService', '$location', '$rootSc
     $location.path "access-denied"
 
   $scope.auth_user_exist = $.cookie "auth_user_exist"
+  $scope.validUsername = true
+  $scope.isGettingUsernameValidation = false
   $scope.datepickerOpened = false
   $scope.today = ->
     $scope.dt = new Date()
@@ -25,7 +27,16 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserService', '$location', '$rootSc
       $scope.newUser.db_object.email_utente = json.email if json.email_utente is ""
       $scope.social_url_trusted = $sce.trustAsResourceUrl $scope.newUser.social_url
       $scope.picture_trusted = $sce.trustAsResourceUrl $scope.newUser.picture
-      $route.reload()
+
+  $scope.validateUsername = ->
+    $scope.validUsername = false
+    $scope.isGettingUsernameValidation = true
+    Api.get "user/exists",
+      params:
+        username: $scope.newUser.db_object.username
+      success: (json)->
+        $scope.newUserForm.username.$setValidity "usernametaken", false if json.data is "true"
+
 
   $scope.useOldUser = ($event)->
     Api.post "users/rawdelete/" + User.id_utente
@@ -36,7 +47,6 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserService', '$location', '$rootSc
     $.removeCookie "auth_user_exist"
 
   $scope.doActivateUser = ->
-
     if $scope.newUserForm.$valid
       $rootScope.$broadcast "show:loading"
 
@@ -49,7 +59,7 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserService', '$location', '$rootSc
         $rootScope.$broadcast "hide:loading"
         $rootScope.$broadcast "user:activated", json
     else
-      notify.warn "Ci sono uno o piu' campi che non sono stati compilati."
+      notify.error "Ci sono uno o piu' campi che non sono stati compilati o contengono errori."
 ]
 
 
