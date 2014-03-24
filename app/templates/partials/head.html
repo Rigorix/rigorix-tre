@@ -8,7 +8,7 @@
             <div class="user-container" ng-class="{'visible': showUserPopout}">
                 <div ng-show="currentUser" class="clearfix">
                     <div class="profile-picture pull-right ">
-                        <img src="{{currentUser.picture}}" />
+                        <img ng-src="{{currentUser.picture}}" /> a
                     </div>
                 </div>
                 <div ng-show="!currentUser">

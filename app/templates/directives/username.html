@@ -1,15 +1,15 @@
 <div class="username-container" ng-show="userObject.id_utente > 0">
     <div ng-show="currentUser.id_utente == userObject.id_utente">
         <div class="profile-picture pull-left" ng-show="with_picture">
-            <img src="{{userObject.picture}}" />
+            <img ng-src="{{userObject.picture}}" />
         </div>
         <span class="ui-username"><em>{{userObject.username}}</em></span>
         <span ng-show="with_punteggio" class="punteggio-utente-container label">{{userObject.punteggio}}</span>
     </div>
 
-    <div tooltip-html-unsafe="{{userTooltipMessage}}" tooltip-placement="tooltip_placement" tooltip-popup-delay="{{tooltipDelay}}" id_utente="{{userObject.id_utente}}" ng-show="currentUser.id_utente != userObject.id_utente">
-        <div class="profile-picture pull-left" ng-show="with_picture">
-            <img src="{{userObject.picture}}" />
+    <div ng-show="currentUser.id_utente != userObject.id_utente" tooltip-html-unsafe="{{userTooltipMessage}}" tooltip-placement="tooltip_placement" tooltip-popup-delay="{{tooltipDelay}}" id_utente="{{userObject.id_utente}}">
+        <div class="profile-picture pull-left" ng-show="with_picture && userObject.picture">
+            <img ng-src="{{userObject.picture}}" />
         </div>
 
         <span class="ui-username" ng-click="doLanciaSfida()" ng-show="userObject.attivo > 0">{{userObject.username}}</span>

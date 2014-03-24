@@ -13,7 +13,7 @@
                             <div class="form-group">
                                 <div class="col-sm-4">
                                     <div class="user-picture pull-right">
-                                        <img src="{{currentUser.db_object.picture}}">
+                                        <img ng-src="{{currentUser.db_object.picture}}">
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -118,13 +118,13 @@
                                             <img src="i/maschera_maglia_4.png" width="227" height="136" />
                                         </div>
                                         <div id="setup_maglietta" style="background-color:{{currentUser.db_object.colore_maglietta}}">
-                                            <img src="i/maschera_maglia_{{currentUser.db_object.tipo_maglietta}}.png" width="227" height="136">
+                                            <img ng-src="i/maschera_maglia_{{currentUser.db_object.tipo_maglietta}}.png" width="227" height="136">
                                         </div>
                                         <div id="setup_pantaloncini"  style="background-color:{{currentUser.db_object.colore_pantaloncini}}">
-                                            <img src="i/maschera_pantaloni.png" width="227" height="39">
+                                            <img ng-src="i/maschera_pantaloni.png" width="227" height="39">
                                         </div>
                                         <div id="setup_calzini"  style="background-color:{{currentUser.db_object.colore_calzini}}">
-                                            <img src="i/maschera_gambe.png" width="227" height="81">
+                                            <img ng-src="i/maschera_gambe.png" width="227" height="81">
                                         </div>
                                         <div id="setup_numero">{{currentUser.db_object.numero_maglietta}}</div>
                                         <div id="setup_numero_shadow">{{currentUser.db_object.numero_maglietta}}</div>

@@ -18,5 +18,6 @@ Rigorix.controller "Header", ['$scope', '$rootScope', '$location', 'notify', ($s
     $scope.showUserPopout = !$scope.showUserPopout
     if $scope.showUserPopout is true
       notify.animate ".user-container", "fadeInDown"
+    false
 
 ]

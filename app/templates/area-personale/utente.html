@@ -6,7 +6,7 @@
             <div class="badge-list">
                 <p>Hai <strong>{{currentUser.badges.length}}</strong> delle 5 coppe da vincere.<br> Se vuoi sapere come vincere le coppe, vai alla pagina dei <a href="#riconoscimenti" class="link">RICONOSCIMENTI</a>! </p>
                 <div ng-repeat="reward in rewards" class="badge-container" ng-class="{haveit: userHasBadge(reward) == true}">
-                    <img popover="{{reward.descrizione | htmlToText}}" popover-placement="top" popover-trigger="mouseenter" src="/i/rewards/{{reward.key_id}}__small{{userHasBadge(reward) ? '' : '_disabled'}}.png">
+                    <img popover="{{reward.descrizione | htmlToText}}" popover-placement="top" popover-trigger="mouseenter" ng-src="/i/rewards/{{reward.key_id}}__small{{userHasBadge(reward) ? '' : '_disabled'}}.png">
                 </div>
             </div>
         </div>

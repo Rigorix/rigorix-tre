@@ -1,7 +1,7 @@
 <div class="user-container" ng-show="userObject.id_utente > 0 && userObject.attivo > 0">
     <div id_utente="{{userObject.id_utente}}">
         <div class="profile-picture pull-left">
-            <img src="{{userObject.picture}}" />
+            <img ng-src="{{userObject.picture}}" />
         </div>
         <div class="pull-left">
             <span class="ui-username" ng-click="doLanciaSfida()">{{userObject.username}}</span>
