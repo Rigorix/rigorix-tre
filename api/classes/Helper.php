@@ -1,19 +1,36 @@
 <?php
 
-function needsAuth () {
+Flight::map("userExists", function ($params) {
+  foreach($params as $field => $value) {
+    if (!isset($users))
+      $users = Users::where($field, "=", $value);
+    else
+      $users = $users->where($field, "=", $value);
+  }
+  return $users->get()->count() > 0;
+});
+
+Flight::map("needsAuth", function () {
   $auth_token = Flight::request()->cookies['auth_token'] ? Flight::request()->cookies['auth_token'] : Flight::request()->query->auth_token;
   $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
 
   if (UserToken::where("id_utente", "=", $auth_id)->where("token", "=", $auth_token)->get()->count() == 0)
     Flight::halt(403, "Auth token not valid. Needs to authenticate");
-}
+});
 
-function needsPermission ($id_utente) {
+Flight::map("needsPermission", function($id_utente) {
   $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
 
   if ($id_utente != $auth_id)
     Flight::halt(403, "Auth token not valid. Needs to authenticate");
-}
+});
+
+Flight::map("getValidUsername", function($username) {
+  if (Flight::userExists(array("username" => $username)) )
+    return Flight::getValidUsername ($username . rand(0, 9));
+  else
+    return $username;
+});
 
 function getParams() {
   $postdata = file_get_contents("php://input");
@@ -71,7 +88,7 @@ function sanitizeUserPicture ($picture) {
   else if ( strpos($picture, "http") === 0 )
     $picture_uri = $picture;
   else
-    $picture_uri =  '/i/profile_picture/' . $picture; 
+    $picture_uri =  '/i/profile_picture/' . $picture;
 
   return $picture_uri;
 }

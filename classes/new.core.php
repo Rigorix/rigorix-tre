@@ -98,7 +98,7 @@ class Core {
       header('Location: /#/first-login');
 
     } else if ($newUserPost->info->http_code == 500 ) {
-      echo "Error 500";
+      echo "Error 500 - cannot create new user";
     }
   }
 

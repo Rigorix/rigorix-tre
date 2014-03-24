@@ -35,7 +35,7 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserService', '$location', '$rootSc
       params:
         username: $scope.newUser.db_object.username
       success: (json)->
-        $scope.newUserForm.username.$setValidity "usernametaken", false if json.data is "true"
+        $scope.newUserForm.username.$setValidity "usernametaken", json.data isnt "true" || $scope.newUserForm.username.$viewValue is $scope.newUser.username
 
 
   $scope.useOldUser = ($event)->
@@ -50,7 +50,6 @@ Rigorix.controller "FirstLogin", ['$scope', 'UserService', '$location', '$rootSc
     if $scope.newUserForm.$valid
       $rootScope.$broadcast "show:loading"
 
-      Api.get "user/newuser/check"
       $scope.newUser.db_object.attivo = 1
       $scope.newUser.$save
         id_utente: $scope.newUser.id_utente

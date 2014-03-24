@@ -49,16 +49,7 @@ Flight::route('GET /users/byemail/@email', function($email) {
 });
 
 Flight::route('GET /user/exists', function($username) {
-  foreach(Flight::request()->query as $field => $value) {
-    if (!isset($users))
-      $users = Users::where($field, "=", $value);
-    else
-      $users = $users->where($field, "=", $value);
-  }
-  if ($users->get()->count() > 0)
-    echo "true";
-  else
-    echo "false";
+  echo Flight::userExists(Flight::request()->query) ? "true" : "false";
 });
 
 Flight::route('GET /users/champion/@period', function($period) {
@@ -100,31 +91,38 @@ Flight::route('GET /users/champion/@period', function($period) {
   endif;
 });
 
-Flight::route('GET /users/@id_utente/messages', function($id_utente) { needsAuth();
+Flight::route('GET /users/@id_utente/messages', function($id_utente) {
+  Flight::needsAuth();
   echo (string)Users::find($id_utente)->messages()->orderBy('created_at', 'DESC')->get();
 });
 
-Flight::route('GET /users/@id_utente/messages/unread', function($id_utente) { needsAuth();
+Flight::route('GET /users/@id_utente/messages/unread', function($id_utente) {
+  Flight::needsAuth();
   echo (string)Messages::receiver($id_utente)->unread()->orderBy('created_at', 'DESC')->get();
 });
 
-Flight::route('GET /user/@id_utente/messages/sent', function($id_utente) { needsAuth();
+Flight::route('GET /user/@id_utente/messages/sent', function($id_utente) {
+  Flight::needsAuth();
   echo (string)Users::find($id_utente)->sentMessages()->orderBy('created_at', 'DESC')->get();
 });
 
-Flight::route('GET /users/@id_utente/rewards', function($id_utente) { needsAuth();
+Flight::route('GET /users/@id_utente/rewards', function($id_utente) {
+  Flight::needsAuth();
   echo Users::find($id_utente)->rewards->toJson();
 });
 
-Flight::route('GET /users/@id_utente/badges/unseen', function($id_utente) { needsAuth();
+Flight::route('GET /users/@id_utente/badges/unseen', function($id_utente) {
+  Flight::needsAuth();
   echo (string)Users::find($id_utente)->unseenBadges();
 });
 
-Flight::route('GET /users/@id_utente/badges', function($id_utente) { needsAuth();
+Flight::route('GET /users/@id_utente/badges', function($id_utente) {
+  Flight::needsAuth();
   echo (string)Users::find($id_utente)->badges();
 });
 
-Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) { needsAuth();
+Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
+  Flight::needsAuth();
   echo Sfide::receivedBy($id_utente)->unplayed()->get();
 });
 
@@ -139,7 +137,8 @@ Flight::route('GET /users/@id_utente/basic', function($id_utente) {
   ));
 });
 
-Flight::route('GET /users/search/@attribute/@search', function($attribute, $search) { needsAuth();
+Flight::route('GET /users/search/@attribute/@search', function($attribute, $search) {
+  Flight::needsAuth();
   echo  Users::searchAttribute($attribute, $search)->get()->toJson();
 });
 
@@ -149,7 +148,8 @@ Flight::route('GET /users/search/@attribute/@search', function($attribute, $sear
  * POSTS / PUTS
  */
 
-Flight::route('POST /users/@id_utente/badges/seen', function($id_utente) { needsAuth();
+Flight::route('POST /users/@id_utente/badges/seen', function($id_utente) {
+  Flight::needsAuth();
   RewardsSfide::user($id_utente)->update(array(
     "seen" => 1
   ));
@@ -183,12 +183,13 @@ Flight::route('POST /users/save/picture', function() { global $env;
 });
 
 Flight::route('POST /users/create', function() {
-  if (Users::findBySocialId($_POST['id'])->get()->count() == 0):
-    _log("Api:users/create", "social POST:".FastJSON::convert($_POST));
-    _log("Api:users/create", "social AUTH-INFO:".getParams());
-
+  if (
+    Users::findBySocialId($_POST['id'])->get()->count() == 0 &&
+    Flight::request()->ajax === false
+  ):
     unset($_POST["auth_token"]);
     unset($_POST["auth_id"]);
+    $_POST["username"] = Flight::getValidUsername($_POST["username"]);
 
     try {
       $newUser = Users::create($_POST);
@@ -203,14 +204,24 @@ Flight::route('POST /users/create', function() {
   endif;
 });
 
+
+Flight::route("GET /test/@username", function ($username) {
+  echo Flight::getValidUsername($username);
+});
+
+
+
+
+
 Flight::route('POST /users/rawdelete/@id_utente', function($id_utente) {
-  needsAuth();
-  needsPermission($id_utente);
+  Flight::needsAuth();
+  Flight::needsPermission($id_utente);
 
   Users::find($id_utente)->delete();
 });
 
-Flight::route('POST /users/delete', function() { needsAuth();
+Flight::route('POST /users/delete', function() {
+  Flight::needsAuth();
   $data = getParams();
   $user = $data->user;
 
@@ -231,11 +242,13 @@ Flight::route('POST /users/delete', function() { needsAuth();
   endif;
 });
 
-Flight::route('POST /users/@id_utente/logout', function($id_utente) { needsAuth();
+Flight::route('POST /users/@id_utente/logout', function($id_utente) {
+  Flight::needsAuth();
   Flight::redirect($_SERVER["HTTP_REFERER"] . "?logout={$id_utente}");
 });
 
-Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) { needsAuth();
+Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribute) {
+  Flight::needsAuth();
   $userAttr = Users::find($id_utente);
   $attrValue = ( $userAttr != null ) ? $userAttr->getAttribute($attribute) : "- sconosciuto -";
 
@@ -249,7 +262,8 @@ Flight::route('GET /users/@id_utente/@attribute', function($id_utente, $attribut
  * Resource Object for Users
  */
 
-Flight::route('GET /users/@id_utente', function($id_utente) { needsAuth();
+Flight::route('GET /users/@id_utente', function($id_utente) {
+  Flight::needsAuth();
   if ( Users::find($id_utente)->exists ) {
     Users::find($id_utente)->update(array(
       "dta_activ" => date('Y-m-d H:i:s')
@@ -259,10 +273,16 @@ Flight::route('GET /users/@id_utente', function($id_utente) { needsAuth();
     Flight::notFound();
 });
 
-Flight::route('POST /users/@id_utente', function($id_utente) { needsAuth();
-  $data = json_decode(file_get_contents("php://input"));
+Flight::route('POST /users/@id_utente', function($id_utente) {
+  Flight::needsAuth();
+  Flight::needsPermission($id_utente);
+
+  $data = json_decode(Flight::request()->body);
+
   $userData = (array)( isset($data->db_object) ) ? $data->db_object : $data;
   $userData->picture = createUserPicture($userData->picture, $userData->username, $userData->id_utente);
+  unset($userData->username);
+  unset($userData->email);
 
   Users::find($id_utente)->update((array)$userData);
 
