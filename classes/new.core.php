@@ -52,26 +52,30 @@ class Core {
   }
 
   function check_user () { global $api;
+    _log("CHECK_USER", "##############################################################################################");
 
     if ( isset ($_REQUEST['logout']) )
       $this->do_user_logout ();
 
     if ( isset($_COOKIE['auth_token']) && isset($_COOKIE['auth_id']) ) {
+      _log("CHECK_USER", "auth_token={$_COOKIE['auth_token']}, auth_id={$_COOKIE['auth_id']}");
       $this->do_user_login ();
     }
 
     if (isset($_REQUEST['signature'])) {
+      _log("CHECK_USER", "signature found");
 
       $result = $api->get("users/bysocial/{$_REQUEST['auth']['uid']}");
 
       if ($result->info->http_code == 200 ) {
+        _log("CHECK_USER", "Found user by social uid ({$_REQUEST['auth']['uid']}), create token and redirect to /");
 
         $this->create_user_token($result->decode_response()->id_utente, md5($_REQUEST['auth']['credentials']['token']));
         header('Location: /');
 
       } else if ($result->info->http_code == 404 ) {
+        _log("CHECK_USER", "User not found, check if this new user uses an existing email, then create it");
 
-        // User not found, maybe has the same email. Check in the database
         $result = $api->get("users/byemail/{$_REQUEST['auth']['info']['email']}");
         if ( $result->info->http_code == 200 )
           setcookie("auth_user_exist", $result->decode_response()->social_provider, time() + (60*512312));
@@ -86,32 +90,37 @@ class Core {
   }
 
   function do_create_new_user () { global $api;
+    _log("DO_CREATE_NEW_USER");
 
     $newUserParams = $this->prepare_social_login_object($_REQUEST);
     $newUserPost = $api->post("users/create/", $newUserParams);
 
     if ($newUserPost->info->http_code == 200) {
-      _log("Core::rigorix_logged_user", "User created successfully ({$newUserPost->decode_response()->id_utente})");
+      _log("DO_CREATE_NEW_USER", "User created successfully ({$newUserPost->decode_response()->id_utente}), create token");
 
       $this->create_user_token($newUserPost->decode_response()->id_utente, md5($_REQUEST['auth']['credentials']['token']));
 
+      _log("DO_CREATE_NEW_USER", "User token created, going to /first-login");
       header('Location: /#/first-login');
 
     } else if ($newUserPost->info->http_code == 500 ) {
+      _log("DO_CREATE_NEW_USER", "Problems creating new user, response 500 from API");
       echo "Error 500 - cannot create new user";
     }
   }
 
   function do_user_login () { global $api;
+    _log("DO_USER_LOGIN", "User id: {$_COOKIE["auth_id"]}");
+
     $result = $api->get("users/{$_COOKIE["auth_id"]}");
     if ($result->info->http_code == 200 )
       $this->logged = $result->response;
+    else
+      _log("DO_USER_LOGIN", "Not able to get the logged user with id: {$_COOKIE["auth_id"]}");
   }
 
   function do_user_logout ()
   {
-//    echo "do_user_logout";
-//    die();
     setcookie("auth_token", "", time()-(60*60*24));
     setcookie("auth_id", "", time()-(60*60*24));
 

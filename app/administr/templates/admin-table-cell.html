@@ -1,1 +1,31 @@
-{{fieldContent}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-12">
+
+            <div class="page-header">
+                <h1>Utenti</h1>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-12">
+            <table class="table table-condensed table-bordered">
+                <thead>
+                <tr>
+                    <th ng-repeat="th in table.header">
+                        {{th}}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in table.content">
+                    <td ng-repeat="th in table.header">
+                        {{row[th]}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

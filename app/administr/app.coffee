@@ -16,16 +16,16 @@ RigorixAdmin.config ['$routeProvider', ($routeProvider)->
 
 ]
 
-RigorixAdmin.config ['$rootScope', ($rootScope)->
-
-  $rootScope.TableDefinition =
-
-    utente:
-      name: "Utenti"
-      fields:
-        id_utente
-          name: "ID"
-          type: "number"
-          hidden: true
-
-]
+#RigorixAdmin.config "TableDefinitions", ['$rootScope', ($rootScope)->
+#
+#  $rootScope.TableDefinition =
+#
+#    utente:
+#      name: "Utenti"
+#      fields:
+#        id_utente
+#          name: "ID"
+#          type: "number"
+#          hidden: true
+#
+#]

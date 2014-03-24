@@ -5,12 +5,12 @@
             <div class="jumbotron">
                 <h1>Benvenuto!</h1>
                 <p ng-show="!auth_user_exist">
-                    Ciao <strong>{{newUser.nome | capitalize}}</strong>, questo &egrave; un nuovo utente per Rigorix. <br/>
+                    Ciao <strong>{{newUser.nome}}</strong>, questo &egrave; un nuovo utente per Rigorix. <br/>
                     Ti stai registrando usando <a target="_blank" class="mls" href="{{newUSer.social_url_trusted}}#" icon="{{newUser.social_provider}}" style="font-size: 25px">{{newUser.social_provider}}</a>
                 </p>
                 <div ng-show="auth_user_exist">
                     <p>
-                        Ciao <strong>{{newUser.nome | capitalize}}</strong>, ci risulta che tu ti sia gi&agrave; registrato ma con un diverso social network (<span icon="{{auth_user_exist}}">{{auth_user_exist}}</span>)<br/><br/>
+                        Ciao <strong>{{newUser.nome}}</strong>, ci risulta che tu ti sia gi&agrave; registrato ma con un diverso social network (<span icon="{{auth_user_exist}}">{{auth_user_exist}}</span>)<br/><br/>
                         Scegli se continuare con la nuova registrazione o se entrare con il precedente social network.
                     </p>
                     <div class="text-center">

@@ -18,18 +18,3 @@ RigorixAdmin.config([
     });
   }
 ]);
-
-RigorixAdmin.config([
-  '$rootScope', function($rootScope) {
-    return $rootScope.TableDefinition = {
-      utente: {
-        name: "Utenti",
-        fields: id_utente({
-          name: "ID",
-          type: "number",
-          hidden: true
-        })
-      }
-    };
-  }
-]);
