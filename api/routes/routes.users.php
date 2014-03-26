@@ -277,14 +277,16 @@ Flight::route('POST /users/@id_utente', function($id_utente) {
   Flight::needsAuth();
   Flight::needsPermission($id_utente);
 
+  $user = Users::find($id_utente);
   $data = json_decode(Flight::request()->body);
 
   $userData = (array)( isset($data->db_object) ) ? $data->db_object : $data;
   $userData->picture = createUserPicture($userData->picture, $userData->username, $userData->id_utente);
-  unset($userData->username);
+  if ($user->getAttribute("attivo") == 1)
+    unset($userData->username);
   unset($userData->email);
 
-  Users::find($id_utente)->update((array)$userData);
+  $user->update((array)$userData);
 
   echo FastJSON::convert( getUserObjectExtended($id_utente) );
 });

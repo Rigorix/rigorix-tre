@@ -1,6 +1,6 @@
 var RigorixAdmin;
 
-RigorixAdmin = angular.module("RigorixAdmin", ["ngRoute", "ui.bootstrap"]);
+RigorixAdmin = angular.module("RigorixAdmin", ["ngRoute", "ngResource", "ui.bootstrap"]);
 
 RigorixAdmin.config([
   '$routeProvider', function($routeProvider) {
@@ -12,9 +12,17 @@ RigorixAdmin.config([
       templateUrl: "templates/page.logs.html",
       controller: "Logs"
     });
-    return $routeProvider.when("/users", {
-      templateUrl: "templates/page.utente.html",
-      controller: "Users"
+    $routeProvider.when("/tables/:table", {
+      templateUrl: "templates/page.table.html",
+      controller: "Tables"
+    });
+    return $routeProvider.when("/tables/:table/edit/:id", {
+      templateUrl: "templates/page.table-edit.html",
+      controller: "TableEdit"
     });
   }
 ]);
+
+RigorixAdmin.schemas = {};
+
+RigorixAdmin.tables = {};

@@ -1,0 +1,31 @@
+{
+  "name": "Messaggi",
+  "index": "id_mess",
+
+  "fields": {
+    "id_sender": {
+      "type": "relation",
+      "name": "Utente",
+      "relation": {
+        "table": "utente",
+        "indexField": "id_utente",
+        "showField": "username"
+      }
+    },
+    "id_receiver": {
+      "type": "relation",
+      "name": "Utente",
+      "relation": {
+        "table": "utente",
+        "indexField": "id_utente",
+        "showField": "username"
+      }
+    },
+    "updated_at": {
+      "hidden": true
+    },
+    "created_at": {
+      "hidden": true
+    }
+  }
+}

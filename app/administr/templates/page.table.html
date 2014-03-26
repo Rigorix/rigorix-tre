@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-12">
+
+            <div class="page-header">
+                <h1 class="mtn">{{tableName | capitalize}}</h1>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-12">
+            <p ng-show="!schema" class="alert alert-danger">
+                C'&egrave; un errore di configurazione, manca lo schema per questa tabella <br/>
+                Contattare l'amministratore!
+            </p>
+            <p ng-show="schema == loading">
+                Caricamento schema tabella in corso ...
+            </p>
+            <table class="table table-condensed table-bordered" ng-controller="Table" ng-show="schema">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th ng-repeat="th in table.header">
+                            <div ng-include="'templates/admin-table-th.html'" ng-controller="TableTh"></div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in table.content" ng-controller="TableRow">
+                        <td>
+                            <button class="btn btn-small btn-primary" ng-click="doEdit()">EDIT</button>
+                        </td>
+                        <td ng-repeat="th in table.header" class="{{th}}">
+                            <div ng-include="'templates/admin-table-cell.html'" ng-controller="TableCell" ng-class="{'truncate': def.truncate, 'center': def.align == 'center'}"></div>
+                            <!--<admin-cell data="row[th]" column="th" table="utenti"></admin-cell>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

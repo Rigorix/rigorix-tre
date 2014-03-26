@@ -24,9 +24,38 @@ Flight::route('GET /logs/@logfile', function ($logfile) {
   echo implode("", $lines);
 });
 
-Flight::route('GET /tables/@name', function ($name) {
-  if ($name == "utente") {
-    echo (string)Users::all();
-  }
+Flight::map("getEloquentObject", function ($name) {
+  $name = strtolower($name);
+  if ($name == "utente" || $name == "utenti")
+    return Users;
+  if ($name == "messaggi")
+    return Messages;
+  if ($name == "rewards")
+    return Rewards;
+  if ($name == "sfide")
+    return Sfide;
+  if ($name == "unsubscribe")
+    return UsersUnsubscribe;
+});
 
+Flight::route('GET /tables/@name/@id', function ($name, $id) {
+  $table = Flight::getEloquentObject($name);
+  echo (string)$table::find($id);
+});
+
+Flight::route('POST /tables/@name/@id', function ($name, $id) {
+  $table = Flight::getEloquentObject($name);
+  $table::find($id)->update(json_decode(Flight::request()->body));
+
+  echo (String)$table::find($id);
+});
+
+Flight::route('GET /tables/@name', function ($name) {
+  $table = Flight::getEloquentObject($name);
+  echo (string)$table::all();
+});
+
+Flight::route('GET /relations/@table/@id_field/@show_field', function ($table, $index, $show) {
+  $table = Flight::getEloquentObject($table);
+  echo (string)$table::find($index)->getAttribute($show);
 });

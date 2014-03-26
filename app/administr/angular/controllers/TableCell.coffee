@@ -1,17 +1,13 @@
-RigorixAdmin.controller "TableCell", ['$scope', '$rootScope', ($scope, $rootScope)->
+RigorixAdmin.controller "TableCell", ['$scope', '$rootScope', '$element', '$sce', ($scope, $rootScope, $element, $sce)->
 
-  schema = $rootScope.TableDefinition[$scope.table]
+  $scope.data = $scope.row[$scope.th]
+  $scope.def = $scope.schema.fields[$scope.th]
 
-  $scope.fieldContent = $scope.getFieldContent()
+  if $scope.def?
+    if $scope.def.hidden is true
+      $element.parent("td").remove()
 
-  $scope.getFieldContent = ->
-
-    switch schema.fields[$scope.column].type
-      when "number"
-        return "["+$scope.data+"]"
-      else "cicccio"
-
-
-#  console.log "cell", $scope.column, , $scope.data
+  $scope.fieldContent = $scope.getFieldContent $scope.th, $scope.data, $scope.row
+  $scope.fieldContent = $sce.trustAsHtml $scope.fieldContent.toString()
 
 ]

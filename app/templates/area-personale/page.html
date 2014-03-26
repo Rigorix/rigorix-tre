@@ -15,5 +15,6 @@
     </div>
 </nav>
 
-<div ng-include="'/app/templates/area-personale/' + section + '.html'">Loading</div>
+<p ng-show="loading != false">Caricamento ... </p>
+<div ng-show="loading == false" ng-include="'/app/templates/area-personale/' + section + '.html'"></div>
 

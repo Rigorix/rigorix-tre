@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-12">
+
+            <div class="page-header">
+                <h1 class="mtn">{{tableName | capitalize}} <small>ID: {{index}}</small></h1>
+                <a href="#" ng-click="backToList($event)">Torna alla lista</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group" ng-repeat="(field,value) in data">
+                    <label for="{{field}}" class="col-sm-4 control-label">{{field | capitalize}}</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" ng-model="data[field]" id="{{field}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button class="btn btn-primary" ng-click="doUpdate()">SALVA</button>
+                    </div>
+                </div>
+            </form>
+            <!--<table class="table table-condensed table-bordered">-->
+                <!--<tr ng-repeat="(field,value) in data">-->
+                    <!--<td>-->
+                        <!--{{field}}-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--{{value}}-->
+                    <!--</td>-->
+                <!--</tr>-->
+            <!--</table>-->
+        </div>
+    </div>
+</div>

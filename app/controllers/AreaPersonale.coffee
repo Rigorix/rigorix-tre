@@ -1,4 +1,4 @@
-Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', '$rootScope', ($scope, $routeParams, $location, $rootScope) ->
+Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', ($scope, $routeParams, $location) ->
 
   $scope.sections = [
     name: 'utente'
@@ -13,11 +13,15 @@ Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', '$ro
     name: 'messaggi'
     icon: 'inbox'
   ]
+
   $scope.section = $routeParams.section
   $scope.sectionPage = $routeParams.sectionPage
 
-  $scope.$watch "section", ->
+  $scope.$on "$routeChangeStart", ->
     $scope.loading = true
+
+  $scope.$on "$routeChangeSuccess", ->
+    $scope.loading = false
 
   if !$scope.section?
     $location.path "/area-personale/utente"
@@ -31,7 +35,6 @@ Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', '$ro
 
 Rigorix.controller "AreaPersonale.Utente", ['$scope', 'Api', ($scope, Api) ->
 
-  $scope.isLoading = true
   $scope.pages = [ 'palmares' ]
   Api.call "get", "badges",
     success: (json)->

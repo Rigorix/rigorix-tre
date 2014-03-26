@@ -27,25 +27,110 @@ RigorixAdmin.controller("Navigation", [
   }
 ]);
 
-RigorixAdmin.controller("TableCell", [
-  '$scope', '$rootScope', function($scope, $rootScope) {
-    var schema;
-    schema = $rootScope.TableDefinition[$scope.table];
-    $scope.fieldContent = $scope.getFieldContent();
-    return $scope.getFieldContent = function() {
-      switch (schema.fields[$scope.column].type) {
-        case "number":
-          return "[" + $scope.data + "]";
-        default:
-          return "cicccio";
+RigorixAdmin.controller("Table", [
+  "$scope", "$http", "$element", "$q", "$route", function($scope, $http, $element, $q, $route) {
+    $scope.tableName = $route.current.params.table;
+    $scope.temp = [];
+    return $scope.getFieldContent = function(fieldName, data, row) {
+      var conf, relationId;
+      if ($scope.schema.fields[fieldName] != null) {
+        conf = $scope.schema.fields[fieldName];
+        switch (conf.type) {
+          case "index":
+            return "#" + data;
+          case "date":
+            return moment(data).format("Do MMM YY");
+          case "color":
+            return '<div class="type-color" style="background: ' + data + ';">' + data + '</div>';
+          case "userpicture":
+            return '<img src="' + data + '" class="user-picture" />';
+          case "relation":
+            relationId = fieldName + '_' + row[$scope.schema.index] + '_promise';
+            $http.get("/api/relations/" + conf.relation.table + "/" + data + "/" + conf.relation.showField).then(function(json) {
+              return angular.element('#' + relationId).html(json.data);
+            });
+            return '<div id="' + relationId + '">Loading...</div>';
+          case "boolean":
+            if (data === 0 || data === "0" || data === false || data === "false") {
+              return "false";
+            } else {
+              return "true";
+            }
+        }
       }
+      return data;
     };
   }
 ]);
 
-RigorixAdmin.controller("Users", [
-  '$scope', '$http', function($scope, $http) {
-    return $http.get("/api/tables/utente").success(function(table) {
+RigorixAdmin.controller("TableRow", [
+  "$scope", "$location", function($scope, $location) {
+    return $scope.doEdit = function() {
+      return $location.path("/tables/" + $scope.tableName + "/edit/" + $scope.row[$scope.schema.index]);
+    };
+  }
+]);
+
+RigorixAdmin.controller("TableTh", [
+  "$scope", "$element", function($scope, $element) {
+    $scope.def = $scope.schema.fields[$scope.th];
+    if ($scope.def != null) {
+      $scope.fieldContent = $scope.def.name != null ? $scope.def.name : $scope.th;
+      if ($scope.def.hidden === true) {
+        return $element.parent("th").remove();
+      }
+    } else {
+      return $scope.fieldContent = $scope.th;
+    }
+  }
+]);
+
+RigorixAdmin.controller("TableCell", [
+  '$scope', '$rootScope', '$element', '$sce', function($scope, $rootScope, $element, $sce) {
+    $scope.data = $scope.row[$scope.th];
+    $scope.def = $scope.schema.fields[$scope.th];
+    if ($scope.def != null) {
+      if ($scope.def.hidden === true) {
+        $element.parent("td").remove();
+      }
+    }
+    $scope.fieldContent = $scope.getFieldContent($scope.th, $scope.data, $scope.row);
+    return $scope.fieldContent = $sce.trustAsHtml($scope.fieldContent.toString());
+  }
+]);
+
+RigorixAdmin.controller("TableEdit", [
+  "$scope", "$http", "$route", "$location", "$resource", function($scope, $http, $route, $location, $resource) {
+    $scope.tableName = $route.current.params.table;
+    $scope.index = parseInt($route.current.params.id, 10);
+    $scope.backToList = function($event) {
+      $event.preventDefault();
+      return $location.path("/tables/" + $scope.tableName);
+    };
+    $scope.doUpdate = function() {
+      return $scope.data.$save(function(data) {
+        return console.log("Done saving", data);
+      });
+    };
+    $scope.resource = $resource("/api/tables/" + $scope.tableName + "/" + $scope.index, {
+      method: "GET",
+      isArray: false
+    });
+    return $scope.data = $scope.resource.get();
+  }
+]);
+
+RigorixAdmin.controller("Tables", [
+  '$scope', '$http', '$route', function($scope, $http, $route) {
+    $scope.tableName = $route.current.params.table;
+    $scope.schema = "loading";
+    $http.get("/app/administr/schema/" + $scope.tableName + ".json").then(function(schema) {
+      $scope.schema = schema.data;
+      return RigorixAdmin.schemas[$scope.tableName] = $scope.schema;
+    }, function() {
+      return $scope.schema = false;
+    });
+    return $http.get("/api/tables/" + $scope.tableName).success(function(table) {
       var k, v, _ref;
       if (table.length > 0) {
         $scope.table = {
@@ -58,7 +143,7 @@ RigorixAdmin.controller("Users", [
           $scope.table.header.push(k);
         }
         $scope.table.content = table;
-        return console.log("table", table, $scope.table);
+        return RigorixAdmin.tables[$scope.tableName] = table;
       }
     });
   }
@@ -96,5 +181,11 @@ RigorixAdmin.filter("locationToTitle", function() {
 RigorixAdmin.filter("logFileToPath", function() {
   return function(input) {
     return input.split(" ").join("_") + "_log.txt";
+  };
+});
+
+RigorixAdmin.filter("capitalize", function() {
+  return function(input) {
+    return input.substring(0, 1).toUpperCase() + input.substring(1);
   };
 });

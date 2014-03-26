@@ -163,7 +163,7 @@ module.exports = (grunt) ->
           './app/app.coffee'
           './app/config.coffee'
           './app/server.coffee'
-#          './app/templates'
+          './app/templates'
 
           #Others
           './i/profile_picture'

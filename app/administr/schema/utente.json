@@ -1,0 +1,64 @@
+{
+  "name": "Utenti",
+  "index": "id_utente",
+
+  "fields": {
+    "id_utente": {
+      "type": "index",
+      "name": "id"
+    },
+    "attivo": {
+      "type": "boolean",
+      "name": "ON"
+    },
+    "first_login": {
+      "hidden": true
+    },
+    "social_uid": {
+      "truncate": true
+    },
+    "punteggio_totale": {
+      "name": "punteggio"
+    },
+    "picture": {
+      "type": "userpicture",
+      "name": "Avatar"
+    },
+    "dta_reg": {
+      "type": "date",
+      "name": "Registrazione"
+    },
+    "data_nascita": {
+      "type": "date",
+      "name": "Compleanno"
+    },
+    "colore_maglietta": {
+      "type": "color",
+      "name": "Maglietta"
+    },
+    "colore_pantaloncini": {
+      "type": "color",
+      "name": "Pantaloni"
+    },
+    "colore_calzini": {
+      "type": "color",
+      "name": "Calzini"
+    },
+    "numero_maglietta": {
+      "align": "center",
+      "name": "Numero"
+    },
+    "dta_activ": {
+      "hidden": true
+    },
+    "sesso": {
+      "align": "center"
+    },
+    "updated_at": {
+      "hidden": true
+    },
+    "created_at": {
+      "hidden": true
+    }
+  }
+}

@@ -104,7 +104,7 @@ module.exports = function(grunt) {
         },
         src: './',
         dest: '/tre/',
-        exclusions: ['.git*', './.bowerrc', './.env', './.idea', './.ftppass', './.gitftppass', './.gitignore', './.project', './.travis.yml', './bower.json', './Gruntfile.coffee', './Gruntfile.js', './package.json', './Procfile', './**/README.md', './**/.DS_Store', './rigorix.ssh', './rigorix.ssh.pub', './app/administr/app.coffee', './app/administr/angular', './app/assets/bower_components', './app/assets/css', './app/assets/dist/dependencies', './app/assets/js', './app/assets/less', './app/controllers', './app/directives', './app/filters', './app/services', './app/app.coffee', './app/config.coffee', './app/server.coffee', './i/profile_picture', './log', './node_modules', './Opauth', './swf/rigorixGame.fla', './swf/rigorixGame_v3.fla', './to_be_deleted']
+        exclusions: ['.git*', './.bowerrc', './.env', './.idea', './.ftppass', './.gitftppass', './.gitignore', './.project', './.travis.yml', './bower.json', './Gruntfile.coffee', './Gruntfile.js', './package.json', './Procfile', './**/README.md', './**/.DS_Store', './rigorix.ssh', './rigorix.ssh.pub', './app/administr/app.coffee', './app/administr/angular', './app/assets/bower_components', './app/assets/css', './app/assets/dist/dependencies', './app/assets/js', './app/assets/less', './app/controllers', './app/directives', './app/filters', './app/services', './app/app.coffee', './app/config.coffee', './app/server.coffee', './app/templates', './i/profile_picture', './log', './node_modules', './Opauth', './swf/rigorixGame.fla', './swf/rigorixGame_v3.fla', './to_be_deleted']
       }
     },
     bowerInstall: {

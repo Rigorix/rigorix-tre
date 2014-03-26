@@ -1,4 +1,4 @@
-RigorixAdmin = angular.module "RigorixAdmin", ["ngRoute", "ui.bootstrap"]
+RigorixAdmin = angular.module "RigorixAdmin", ["ngRoute", "ngResource", "ui.bootstrap"]
 
 RigorixAdmin.config ['$routeProvider', ($routeProvider)->
 
@@ -10,22 +10,15 @@ RigorixAdmin.config ['$routeProvider', ($routeProvider)->
     templateUrl: "templates/page.logs.html",
     controller: "Logs"
 
-  $routeProvider.when "/users",
-    templateUrl: "templates/page.utente.html",
-    controller: "Users"
+  $routeProvider.when "/tables/:table",
+    templateUrl: "templates/page.table.html",
+    controller: "Tables"
+
+  $routeProvider.when "/tables/:table/edit/:id",
+    templateUrl: "templates/page.table-edit.html",
+    controller: "TableEdit"
 
 ]
 
-#RigorixAdmin.config "TableDefinitions", ['$rootScope', ($rootScope)->
-#
-#  $rootScope.TableDefinition =
-#
-#    utente:
-#      name: "Utenti"
-#      fields:
-#        id_utente
-#          name: "ID"
-#          type: "number"
-#          hidden: true
-#
-#]
+RigorixAdmin.schemas = {}
+RigorixAdmin.tables = {}

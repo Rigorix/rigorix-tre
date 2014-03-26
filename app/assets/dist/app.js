@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-03-24 *//*!
+/*! Rigorix - v0.5.0 - 2014-03-26 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -44652,7 +44652,7 @@ Rigorix.controller("AccessDenied.Modal", [
 ]);
 
 Rigorix.controller("AreaPersonale", [
-  '$scope', '$routeParams', '$location', '$rootScope', function($scope, $routeParams, $location, $rootScope) {
+  '$scope', '$routeParams', '$location', function($scope, $routeParams, $location) {
     $scope.sections = [
       {
         name: 'utente',
@@ -44670,8 +44670,11 @@ Rigorix.controller("AreaPersonale", [
     ];
     $scope.section = $routeParams.section;
     $scope.sectionPage = $routeParams.sectionPage;
-    $scope.$watch("section", function() {
+    $scope.$on("$routeChangeStart", function() {
       return $scope.loading = true;
+    });
+    $scope.$on("$routeChangeSuccess", function() {
+      return $scope.loading = false;
     });
     if ($scope.section == null) {
       $location.path("/area-personale/utente");
@@ -44688,7 +44691,6 @@ Rigorix.controller("AreaPersonale", [
 
 Rigorix.controller("AreaPersonale.Utente", [
   '$scope', 'Api', function($scope, Api) {
-    $scope.isLoading = true;
     $scope.pages = ['palmares'];
     Api.call("get", "badges", {
       success: function(json) {
@@ -51028,7 +51030,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/templates/area-personale/page.html',
-    "<nav class=\"navbar navbar-default navbar-static-top\" role=\"navigation\"><div class=\"navbar-header\"><a class=\"navbar-brand\" icon=\"dashboard\"><small>Area personale</small></a> <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-8\" icon=\"bars\"><span class=\"sr-only\">Toggle navigation</span></button></div><div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-8\"><ul class=\"nav navbar-nav\"><li ng-repeat=\"sec in sections\" ng-class=\"{active: section == sec.name}\"><a href=\"#/area-personale/{{sec.name}}\" icon=\"{{sec.icon}}\">{{sec.name | capitalize}}</a></li></ul></div></nav><div ng-include=\"'/app/templates/area-personale/' + section + '.html'\">Loading</div>"
+    "<nav class=\"navbar navbar-default navbar-static-top\" role=\"navigation\"><div class=\"navbar-header\"><a class=\"navbar-brand\" icon=\"dashboard\"><small>Area personale</small></a> <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-8\" icon=\"bars\"><span class=\"sr-only\">Toggle navigation</span></button></div><div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-8\"><ul class=\"nav navbar-nav\"><li ng-repeat=\"sec in sections\" ng-class=\"{active: section == sec.name}\"><a href=\"#/area-personale/{{sec.name}}\" icon=\"{{sec.icon}}\">{{sec.name | capitalize}}</a></li></ul></div></nav><p ng-show=\"loading != false\">Caricamento ...</p><div ng-show=\"loading == false\" ng-include=\"'/app/templates/area-personale/' + section + '.html'\"></div>"
   );
 
 
