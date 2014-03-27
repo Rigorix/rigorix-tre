@@ -16,7 +16,11 @@ RigorixAdmin.config([
       templateUrl: "templates/page.table.html",
       controller: "Tables"
     });
-    return $routeProvider.when("/tables/:table/edit/:id", {
+    $routeProvider.when("/tables/:table/edit/:id", {
+      templateUrl: "templates/page.table-edit.html",
+      controller: "TableEdit"
+    });
+    return $routeProvider.when("/tables/:table/create", {
       templateUrl: "templates/page.table-edit.html",
       controller: "TableEdit"
     });

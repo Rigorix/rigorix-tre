@@ -1,0 +1,11 @@
+{
+  "name": "Disiscrizioni",
+  "index": "id_unsubscribe",
+
+  "fields": {
+    "id_unsubscribe": {
+      "type": "index",
+      "name": "id"
+    }
+  }
+}

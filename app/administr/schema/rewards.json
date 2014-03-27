@@ -1,0 +1,11 @@
+{
+  "name": "Rewards",
+  "index": "id_reward",
+
+  "fields": {
+    "id_reward": {
+      "type": "index",
+      "name": "id"
+    }
+  }
+}

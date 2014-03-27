@@ -1,4 +1,4 @@
-RigorixAdmin.controller "Table", ["$scope", "$http", "$element", "$q", "$route", ($scope, $http, $element, $q, $route)->
+RigorixAdmin.controller "Table", ["$scope", "$http", "$element", "$q", "$route", "$location", ($scope, $http, $element, $q, $route, $location)->
 
   $scope.tableName = $route.current.params.table
   $scope.temp = []
@@ -34,10 +34,18 @@ RigorixAdmin.controller "Table", ["$scope", "$http", "$element", "$q", "$route",
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-RigorixAdmin.controller "TableRow", ["$scope", "$location", ($scope, $location)->
+RigorixAdmin.controller "TableRow", ["$scope", "$location", "$resource", "$route", ($scope, $location, $resource, $route)->
 
   $scope.doEdit = ->
     $location.path "/tables/" + $scope.tableName + "/edit/" + $scope.row[$scope.schema.index]
+
+  $scope.doDelete = ->
+    if confirm "delete"
+      entry = $resource "/api/tables/"+$scope.tableName+"/"+$scope.row[$scope.schema.index],
+        method      : "GET"
+        isArray     : false
+      entry.get().$delete()
+      $route.reload()
 
 ]
 

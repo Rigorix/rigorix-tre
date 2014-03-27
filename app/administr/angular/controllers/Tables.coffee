@@ -1,7 +1,10 @@
-RigorixAdmin.controller "Tables", ['$scope', '$http', '$route', ($scope, $http, $route)->
+RigorixAdmin.controller "Tables", ['$scope', '$http', '$route', '$location', ($scope, $http, $route, $location)->
 
   $scope.tableName = $route.current.params.table
   $scope.schema = "loading"
+
+  $scope.doAdd = ->
+    $location.path "/tables/" + $scope.tableName + "/create"
 
   $http.get("/app/administr/schema/"+$scope.tableName+".json").then (schema)->
     $scope.schema = schema.data

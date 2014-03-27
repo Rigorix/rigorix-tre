@@ -2,8 +2,11 @@
     <div class="row">
         <div class="col col-md-12">
 
-            <div class="page-header">
-                <h1 class="mtn">{{tableName | capitalize}}</h1>
+            <div class="page-header clearfix">
+                <h1 class="mtn pull-left">{{tableName | capitalize}}</h1>
+                <div class="pull-right">
+                    <button class="btn btn-success" ng-click="doAdd()">Aggiungi</button>
+                </div>
             </div>
 
         </div>
@@ -28,12 +31,12 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="row in table.content" ng-controller="TableRow">
-                        <td>
-                            <button class="btn btn-small btn-primary" ng-click="doEdit()">EDIT</button>
+                        <td class="controllers">
+                            <button class="btn btn-xs btn-primary" ng-click="doEdit()">EDIT</button>
+                            <button class="btn btn-xs btn-danger" ng-click="doDelete()">DEL</button>
                         </td>
                         <td ng-repeat="th in table.header" class="{{th}}">
                             <div ng-include="'templates/admin-table-cell.html'" ng-controller="TableCell" ng-class="{'truncate': def.truncate, 'center': def.align == 'center'}"></div>
-                            <!--<admin-cell data="row[th]" column="th" table="utenti"></admin-cell>-->
                         </td>
                     </tr>
                 </tbody>

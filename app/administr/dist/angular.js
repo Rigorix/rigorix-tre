@@ -28,7 +28,7 @@ RigorixAdmin.controller("Navigation", [
 ]);
 
 RigorixAdmin.controller("Table", [
-  "$scope", "$http", "$element", "$q", "$route", function($scope, $http, $element, $q, $route) {
+  "$scope", "$http", "$element", "$q", "$route", "$location", function($scope, $http, $element, $q, $route, $location) {
     $scope.tableName = $route.current.params.table;
     $scope.temp = [];
     return $scope.getFieldContent = function(fieldName, data, row) {
@@ -64,9 +64,20 @@ RigorixAdmin.controller("Table", [
 ]);
 
 RigorixAdmin.controller("TableRow", [
-  "$scope", "$location", function($scope, $location) {
-    return $scope.doEdit = function() {
+  "$scope", "$location", "$resource", "$route", function($scope, $location, $resource, $route) {
+    $scope.doEdit = function() {
       return $location.path("/tables/" + $scope.tableName + "/edit/" + $scope.row[$scope.schema.index]);
+    };
+    return $scope.doDelete = function() {
+      var entry;
+      if (confirm("delete")) {
+        entry = $resource("/api/tables/" + $scope.tableName + "/" + $scope.row[$scope.schema.index], {
+          method: "GET",
+          isArray: false
+        });
+        entry.get().$delete();
+        return $route.reload();
+      }
     };
   }
 ]);
@@ -102,28 +113,41 @@ RigorixAdmin.controller("TableCell", [
 RigorixAdmin.controller("TableEdit", [
   "$scope", "$http", "$route", "$location", "$resource", function($scope, $http, $route, $location, $resource) {
     $scope.tableName = $route.current.params.table;
-    $scope.index = parseInt($route.current.params.id, 10);
+    $scope.index = $route.current.params.id != null ? parseInt($route.current.params.id, 10) : 0;
+    $scope.action = $scope.index !== 0 ? "edit" : "create";
     $scope.backToList = function($event) {
       $event.preventDefault();
       return $location.path("/tables/" + $scope.tableName);
     };
     $scope.doUpdate = function() {
-      return $scope.data.$save(function(data) {
+      return $scope.data.$save({
+        table: $scope.tableName,
+        index: $scope.index
+      }, function(data) {
         return console.log("Done saving", data);
       });
     };
-    $scope.resource = $resource("/api/tables/" + $scope.tableName + "/" + $scope.index, {
+    $scope.resource = $resource("/api/tables/:table/:index", {
       method: "GET",
-      isArray: false
+      isArray: false,
+      table: "@table",
+      index: "@index"
     });
-    return $scope.data = $scope.resource.get();
+    $scope.data = $scope.resource.get({
+      table: $scope.tableName,
+      index: $scope.index
+    });
+    return console.log("data", $scope.data);
   }
 ]);
 
 RigorixAdmin.controller("Tables", [
-  '$scope', '$http', '$route', function($scope, $http, $route) {
+  '$scope', '$http', '$route', '$location', function($scope, $http, $route, $location) {
     $scope.tableName = $route.current.params.table;
     $scope.schema = "loading";
+    $scope.doAdd = function() {
+      return $location.path("/tables/" + $scope.tableName + "/create");
+    };
     $http.get("/app/administr/schema/" + $scope.tableName + ".json").then(function(schema) {
       $scope.schema = schema.data;
       return RigorixAdmin.schemas[$scope.tableName] = $scope.schema;

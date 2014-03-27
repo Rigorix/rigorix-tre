@@ -1,0 +1,11 @@
+{
+  "name": "Sfide",
+  "index": "id_sfida",
+
+  "fields": {
+    "id_sfida": {
+      "type": "index",
+      "name": "id"
+    }
+  }
+}

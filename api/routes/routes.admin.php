@@ -38,16 +38,41 @@ Flight::map("getEloquentObject", function ($name) {
     return UsersUnsubscribe;
 });
 
-Flight::route('GET /tables/@name/@id', function ($name, $id) {
+Flight::route('GET /tables/@name/@id', function ($name, $id) { global $capsule;
   $table = Flight::getEloquentObject($name);
-  echo (string)$table::find($id);
+  if ($table::find($id) !== null)
+    echo (string)$table::find($id);
+  else {
+    $fields = $capsule->getDatabaseManager()->select("SHOW COLUMNS FROM {$name}");
+    $fieldsModel = [];
+    foreach ($fields as $field) {
+      if ($field["Key"] != "PRI" && $field["Field"] != "created_at" && $field["Field"] != "updated_at")
+        $fieldsModel[$field["Field"]] = "";
+    }
+    Flight::json($fieldsModel);
+  }
 });
 
 Flight::route('POST /tables/@name/@id', function ($name, $id) {
   $table = Flight::getEloquentObject($name);
-  $table::find($id)->update(json_decode(Flight::request()->body));
+  if ($table::find($id)) {
+    $table::find($id)->update(json_decode(Flight::request()->body));
+    echo (String)$table::find($id);
+  } else {
+    $newEntry = (array)json_decode(Flight::request()->body);
+    try {
+      $inserted = $table::create($newEntry);
+    } catch(Exception $e) {
+      throw new Exception( 'Something really gone wrong', 0, $e);
+    }
+    echo (string)$inserted;
+  }
 
-  echo (String)$table::find($id);
+});
+
+Flight::route('DELETE /tables/@name/@id', function ($name, $id) {
+  $table = Flight::getEloquentObject($name);
+  $table::find($id)->delete();
 });
 
 Flight::route('GET /tables/@name', function ($name) {

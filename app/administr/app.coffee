@@ -18,6 +18,10 @@ RigorixAdmin.config ['$routeProvider', ($routeProvider)->
     templateUrl: "templates/page.table-edit.html",
     controller: "TableEdit"
 
+  $routeProvider.when "/tables/:table/create",
+    templateUrl: "templates/page.table-edit.html",
+    controller: "TableEdit"
+
 ]
 
 RigorixAdmin.schemas = {}

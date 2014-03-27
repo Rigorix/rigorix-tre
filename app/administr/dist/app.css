@@ -59,6 +59,9 @@
   display: block;
   margin: 0 auto;
 }
+td.controllers {
+  white-space: nowrap;
+}
 .type-color {
   padding: 3px 5px;
   display: inline-block;
