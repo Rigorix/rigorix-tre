@@ -57,7 +57,16 @@ Rigorix.controller "AreaPersonale.Utente", ['$scope', 'Api', ($scope, Api) ->
 
 Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $route, Api) ->
 
-  $scope.pages = [ 'da_giocare', 'in_attesa', 'archivio' ]
+  $scope.pages = [
+    name: 'da_giocare'
+    icon: 'play'
+  ,
+    name: 'in_attesa'
+    icon: 'coffee'
+  ,
+    name: 'archivio'
+    icon: 'archive'
+  ]
   $scope.sfideDaGiocare = $scope.currentUser.sfide_da_giocare
   $scope.status = "loading"
   $scope.sfideInAttesaDiRisposta = []
@@ -89,7 +98,16 @@ Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $
 Rigorix.controller "AreaPersonale.Impostazioni", ['$scope', '$rootScope', '$modal', '$upload', 'notify', ($scope, $rootScope, $modal, $upload, notify) ->
 
   $scope.isLoading = true
-  $scope.pages = [ 'dati_utente', 'mascotte', 'cancellazione' ]
+  $scope.pages = [
+    name: 'dati_utente'
+    icon: 'user'
+  ,
+    name: 'mascotte'
+    icon: 'male'
+  ,
+    name: 'cancellazione'
+    icon: 'trash-o'
+  ]
   $scope.currentUser.db_object.email_utente = $scope.currentUser.db_object.email if $scope.currentUser.db_object.email_utente is ""
   $scope.storedPicture = $scope.currentUser.db_object.picture
 

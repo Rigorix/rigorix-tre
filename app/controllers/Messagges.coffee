@@ -136,16 +136,20 @@ Rigorix.controller 'Message.Modal.New', ['$scope', '$modal', '$modalInstance', '
   , ()->
     $rootScope.$broadcast "modal:close"
 
-  $scope.sendNewMessage = ()->
+  $scope.sendNewMessage = ->
 
-    Api.call "post", "messages",
-      message: $scope.newMessage,
-      success: ->
-        do $scope.cancel
-        notify.success "Messaggio mandato con successo"
+    if $scope.newMessage.id_receiver isnt 0 and $scope.newMessage.oggetto isnt ""
+      Api.call "post", "messages",
+        message: $scope.newMessage,
+        success: ->
+          do $scope.cancel
+          notify.success "Messaggio mandato con successo"
 
-      error: ->
-        notify.error "Errore nel mandare il messaggio, riprova più tardi"
+        error: ->
+          notify.error "Errore nel mandare il messaggio, riprova più tardi"
+
+    else
+      notify.warn "Devi scegliere destinatario e scrivere un oggetto per mandare il messaggio"
 
   $scope.cancel = ->
     do $modalInstance.dismiss
