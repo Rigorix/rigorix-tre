@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Administration Rigorix</title>
-  <link rel="stylesheet" href="../assets/dist/dependencies/bootstrap.css"/>
+  <link rel="stylesheet" href="/app/assets/dist/dependencies/bootstrap.css"/>
   <link rel="stylesheet" href="dist/app.css"/>
 </head>
 <body>

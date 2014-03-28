@@ -247,18 +247,18 @@ module.exports = (grunt) ->
     "bowerInstall"
     "bower"
   ]
-  grunt.registerTask "dev:build", [
-#    "clean:dependencies"
-#    "bowerInstall"
-#    "bower"
+  grunt.registerTask "dev:update", [
+    "clean:dependencies"
+    "bowerInstall"
+    "bower"
+    "ngtemplates"
     "dev:script"
     "dev:less"
-    "ngtemplates"
   ]
 
   # STAGING / PRODUCTION tasks -----------------------------------------------------------------------------------------
 
 
-  grunt.registerTask "deploy:staging", ["dev:build", "ftp_upload"]
+  grunt.registerTask "deploy:staging", ["dev:update", "ftp_upload"]
 
-#  grunt.registerTask('deploy:production', ['dev:build', 'ftp_upload']);
+#  grunt.registerTask('deploy:production', ['dev:update', 'ftp_upload']);

@@ -1,6 +1,6 @@
 {
   "name": "Rigorix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "angular": "1.2.15",
     "jquery": "1.9",
@@ -16,6 +16,33 @@
   "devDependencies": {
     "animate.css": "~3.1.0",
     "ng-file-upload": "~1.2.8",
-    "jquery-cookie": "~1.4.0"
+    "jquery-cookie": "~1.4.0",
+    "angular-animate": "~1.2.15",
+    "bootstrap": "~3.1.1"
+  },
+  "homepage": "http://www.rigorix.com",
+  "authors": [
+    "Paolo Moretti <littlebrown@gmail.com>"
+  ],
+  "description": "Rigorix new version",
+  "keywords": [
+    "rigorix",
+    "online",
+    "soccer",
+    "game",
+    "rigori",
+    "free"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/assets/bower_components",
+    "specs"
+  ],
+  "resolutions": {
+    "angular": "1.2.15",
+    "jquery": "1.9"
   }
 }

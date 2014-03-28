@@ -156,6 +156,6 @@ module.exports = function(grunt) {
   grunt.registerTask("dev:less", ["less:development", "concat:css", "cssmin", "clean:temp"]);
   grunt.registerTask("dev:jasmine", ["coffee:compileJasmine"]);
   grunt.registerTask("dev:bower", ["bowerInstall", "bower"]);
-  grunt.registerTask("dev:build", ["dev:script", "dev:less", "ngtemplates"]);
-  return grunt.registerTask("deploy:staging", ["dev:build", "ftp_upload"]);
+  grunt.registerTask("dev:update", ["clean:dependencies", "bowerInstall", "bower", "ngtemplates", "dev:script", "dev:less"]);
+  return grunt.registerTask("deploy:staging", ["dev:update", "ftp_upload"]);
 };
