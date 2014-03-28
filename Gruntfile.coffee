@@ -13,7 +13,7 @@ module.exports = (grunt) ->
         ]
 
     clean:
-      temp: ['app/assets/temp']
+      temp: ['app/assets/temp', 'app/assets/bower_components']
       dependencies: ['app/assets/dist/dependencies']
 
     watch:
@@ -98,7 +98,7 @@ module.exports = (grunt) ->
     less:
       development:
         options:
-          paths: ["app/assets/bower_components/bootstrap/less"]
+#          paths: ["app/assets/bower_components/bootstrap/less"]
 #          sourceMap: true
 #          sourceMapFilename: "app/assets/dist/app.css.map"
 #          sourceMapRootpath: "app/assets/dist/app.css.map"

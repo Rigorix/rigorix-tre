@@ -1,22 +1,932 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/2014_Feb_23_log.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/2014_Feb_24_log.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/b_first_game.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/b_nofear.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/p_10_matches_sameuser.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/p_20_matches.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/p_20_matches_sameuser.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/p_first_day_match.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/p_match_25xscore_user.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/p_match_5xscore_user.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/rewards/p_same_age.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/activities.context.php" afterPath="$PROJECT_DIR$/classes/activities.context.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/activity.php" afterPath="$PROJECT_DIR$/api/classes/activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/sfide.class.php" afterPath="$PROJECT_DIR$/api/classes/sfide.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/user.class.php" afterPath="$PROJECT_DIR$/api/classes/user.class.php" />
+    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="Sistemato il processo di login for good">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/MIT-LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/css/colorpicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/img/alpha.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/img/hue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/img/saturation.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap-colorpicker/less/colorpicker.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/ui-bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-bootstrap/ui-bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/angular-redactor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-redactor/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/angular-resource.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/angular-resource.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/angular-resource.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-resource/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-route/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-route/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-route/angular-route.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-route/angular-route.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-route/angular-route.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-route/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/angular-sanitize.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/angular-sanitize.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/angular-sanitize.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular-sanitize/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular/angular-csp.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular/angular.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular/angular.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular/angular.min.js.gzip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular/angular.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/angular/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/Gruntfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/css/bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/css/bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/css/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/dist/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/affix.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/alert.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/button.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/dropdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/popover.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/scrollspy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/tab.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/tooltip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/js/transition.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/alerts.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/badges.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/bootstrap.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/breadcrumbs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/button-groups.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/buttons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/carousel.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/close.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/code.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/component-animations.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/dropdowns.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/forms.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/glyphicons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/grid.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/input-groups.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/jumbotron.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/labels.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/list-group.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/media.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/modals.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/navs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/normalize.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/pager.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/pagination.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/panels.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/popovers.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/print.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/progress-bars.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/responsive-utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/scaffolding.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/tables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/theme.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/thumbnails.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/tooltip.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/type.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/less/wells.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/test-infra/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/test-infra/npm-shrinkwrap.canonical.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/test-infra/requirements.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/test-infra/s3_cache.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/test-infra/sauce_browsers.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/bootstrap/test-infra/uncached-npm-install.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/Gemfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/Gemfile.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/_config.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/component.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/css/font-awesome.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/css/font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/fonts/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/bordered-pulled.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/core.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/extras.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/fixed-width.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/font-awesome.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/icons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/larger.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/path.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/rotated-flipped.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/spinning.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/stacked.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_bordered-pulled.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_core.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_extras.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_fixed-width.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_icons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_larger.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_list.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_mixins.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_path.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_rotated-flipped.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_spinning.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_stacked.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/scss/font-awesome.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/CNAME" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/css/prettify.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/css/pygments.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/css/site.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/css/font-awesome-ie7.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/css/font-awesome-ie7.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/css/font-awesome.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/css/font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/font/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/font/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/font/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/font/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/font/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/less/bootstrap.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/less/core.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/less/extras.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/less/font-awesome-ie7.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/less/font-awesome.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/less/icons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/less/path.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/scss/_bootstrap.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/scss/_core.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/scss/_extras.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/scss/_icons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/scss/_mixins.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/scss/_path.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/scss/_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/scss/font-awesome-ie7.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/font-awesome/scss/font-awesome.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/ico/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/img/contribution-sample.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/img/fort_awesome.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/img/glyphicons-halflings-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/img/glyphicons-halflings.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/img/icon-flag.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/js/ZeroClipboard-1.1.7.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/js/ZeroClipboard-1.1.7.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/js/backbone.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/js/bootstrap-2.3.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/js/bootstrap-222.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/js/jquery-1.7.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/js/prettify.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/js/site.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/js/underscore.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/accordion.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/alerts.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/bootstrap.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/breadcrumbs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/button-groups.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/buttons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/carousel.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/close.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/code.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/component-animations.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/dropdowns.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/forms.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/grid.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/hero-unit.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/labels-badges.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/layouts.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/media.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/modals.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/navs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/pager.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/pagination.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/popovers.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/progress-bars.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/reset.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/responsive-1200px-min.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/responsive-767px-max.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/responsive-768px-979px.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/responsive-navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/responsive-utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/responsive.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/scaffolding.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/sprites.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/tables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/thumbnails.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/tooltip.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/type.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/wells.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/lazy.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/responsive-1200px-min.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/responsive-767px-max.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/responsive-768px-979px.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/responsive-navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/responsive.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/site.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/sticky-footer.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/assets/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/cheatsheet/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/community/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/design.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/examples/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/get-started/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/adjust/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/adn/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/align-center/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/align-justify/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/align-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/align-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/ambulance/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/anchor/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/android/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/angle-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/angle-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/angle-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/angle-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/apple/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/archive/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/arrow-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/arrow-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/arrow-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/arrow-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/asterisk/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/backward/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/ban-circle/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bar-chart/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/barcode/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/beaker/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/beer/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bell-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bell/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bitbucket-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bitbucket/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bold/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bolt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/book/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bookmark-empty/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bookmark/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/briefcase/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/btc/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bug/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/building/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bullhorn/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/bullseye/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/calendar-empty/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/calendar/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/camera-retro/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/camera/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/caret-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/caret-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/caret-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/caret-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/certificate/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/check-empty/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/check-minus/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/check-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/check/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/chevron-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/chevron-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/chevron-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/chevron-sign-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/chevron-sign-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/chevron-sign-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/chevron-sign-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/chevron-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/circle-arrow-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/circle-arrow-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/circle-arrow-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/circle-arrow-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/circle-blank/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/circle/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/cloud-download/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/cloud-upload/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/cloud/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/cny/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/code-fork/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/code/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/coffee/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/cog/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/cogs/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/collapse-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/collapse-top/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/collapse/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/columns/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/comment-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/comment/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/comments-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/comments/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/compass/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/copy/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/credit-card/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/crop/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/css3/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/cut/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/dashboard/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/desktop/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/double-angle-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/double-angle-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/double-angle-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/double-angle-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/download-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/download/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/dribbble/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/dropbox/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/edit-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/edit/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/eject/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/ellipsis-horizontal/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/ellipsis-vertical/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/envelope-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/envelope/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/eraser/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/eur/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/exchange/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/exclamation-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/exclamation/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/expand-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/expand/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/external-link-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/external-link/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/eye-close/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/eye-open/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/facebook-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/facebook/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/facetime-video/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/fast-backward/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/fast-forward/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/female/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/fighter-jet/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/file-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/file-text-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/file-text/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/file/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/film/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/filter/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/fire-extinguisher/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/fire/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/flag-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/flag-checkered/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/flag/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/flickr/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/folder-close-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/folder-close/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/folder-open-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/folder-open/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/font/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/food/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/forward/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/foursquare/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/frown/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/fullscreen/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/gamepad/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/gbp/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/gift/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/github-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/github-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/github/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/gittip/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/glass/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/globe/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/google-plus-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/google-plus/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/group/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/h-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/hand-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/hand-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/hand-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/hand-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/hdd/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/headphones/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/heart-empty/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/heart/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/home/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/hospital/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/html5/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/inbox/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/indent-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/indent-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/info-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/info/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/inr/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/instagram/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/italic/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/jpy/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/key/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/keyboard/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/krw/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/laptop/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/leaf/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/legal/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/lemon/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/level-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/level-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/lightbulb/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/link/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/linkedin-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/linkedin/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/linux/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/list-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/list-ol/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/list-ul/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/list/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/location-arrow/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/lock/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/long-arrow-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/long-arrow-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/long-arrow-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/long-arrow-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/magic/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/magnet/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/mail-reply-all/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/male/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/map-marker/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/maxcdn/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/medkit/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/meh/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/microphone-off/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/microphone/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/minus-sign-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/minus-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/minus/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/mobile-phone/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/money/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/moon/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/move/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/music/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/off/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/ok-circle/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/ok-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/ok/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/paper-clip/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/paste/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/pause/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/pencil/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/phone-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/phone/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/picture/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/pinterest-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/pinterest/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/plane/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/play-circle/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/play-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/play/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/plus-sign-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/plus-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/plus/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/print/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/pushpin/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/puzzle-piece/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/qrcode/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/question-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/question/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/quote-left/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/quote-right/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/random/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/refresh/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/remove-circle/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/remove-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/remove/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/renren/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/reorder/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/repeat/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/reply-all/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/reply/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/resize-full/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/resize-horizontal/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/resize-small/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/resize-vertical/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/retweet/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/road/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/rocket/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/rss-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/rss/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/save/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/screenshot/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/search/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/share-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/share-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/share/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/shield/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/shopping-cart/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sign-blank/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/signal/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/signin/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/signout/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sitemap/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/skype/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/smile/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sort-by-alphabet-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sort-by-alphabet/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sort-by-attributes-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sort-by-attributes/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sort-by-order-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sort-by-order/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sort-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sort-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sort/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/spinner/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/stackexchange/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/star-empty/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/star-half-empty/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/star-half/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/star/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/step-backward/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/step-forward/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/stethoscope/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/stop/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/strikethrough/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/subscript/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/suitcase/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/sun/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/superscript/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/table/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/tablet/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/tag/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/tags/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/tasks/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/terminal/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/text-height/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/text-width/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/th-large/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/th-list/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/th/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/thumbs-down-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/thumbs-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/thumbs-up-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/thumbs-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/ticket/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/time/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/tint/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/trash/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/trello/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/trophy/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/truck/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/tumblr-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/tumblr/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/twitter-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/twitter/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/umbrella/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/underline/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/undo/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/unlink/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/unlock-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/unlock/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/upload-alt/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/upload/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/usd/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/user-md/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/user/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/vk/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/volume-down/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/volume-off/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/volume-up/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/warning-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/weibo/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/windows/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/wrench/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/xing-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/xing/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/youtube-play/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/youtube-sign/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/youtube/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/zoom-in/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icon/zoom-out/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icons.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/icons/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/license/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/test/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/3.2.1/whats-new/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/CNAME" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/ads/carbon-dark-vertical.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/ads/carbon-light-horizontal.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/ads/carbon-light-vertical.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/brand-license.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/community/getting-support.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/community/project-milestones.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/community/reporting-bugs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/community/requesting-new-icons.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/community/submitting-pull-requests.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/bootstrap.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/bordered-pulled.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/custom.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/fixed-width.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/inline.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/larger.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/list.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/rotated-flipped.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/spinning.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/examples/stacked.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/footer.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/icons/brand.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/icons/currency.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/icons/directional.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/icons/form-control.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/icons/medical.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/icons/new.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/icons/text-editor.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/icons/video-player.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/icons/web-application.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/jumbotron-carousel.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/jumbotron.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/license-code.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/navbar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/new-features.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/new-naming.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/new-upgrading.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/stripe-ad.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/stripe-social.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/tell-me-thanks.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/tests/rotated-flipped-inside-anchor.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/tests/rotated-flipped-inside-btn.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/tests/rotated-flipped.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/tests/stacked-inside-anchor.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/tests/stacked.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/thanks-to.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_includes/why.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_layouts/base.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_layouts/icon.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_plugins/icon_page_generator.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/_plugins/site.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/css/prettify.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/css/pygments.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/fonts/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/bordered-pulled.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/core.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/fixed-width.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/font-awesome.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/icons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/larger.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/path.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/rotated-flipped.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/spinning.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/stacked.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_bordered-pulled.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_core.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_fixed-width.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_icons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_larger.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_list.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_mixins.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_path.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_rotated-flipped.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_spinning.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_stacked.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/font-awesome/scss/font-awesome.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/ico/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/ZeroClipboard-1.1.7.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/ZeroClipboard-1.1.7.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/backbone.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/bootstrap-2.3.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/bootstrap-222.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/bootstrap-3.0.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/html5shiv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/jquery-1.10.2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/jquery-1.10.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/jquery-1.10.2.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/jquery-1.7.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/prettify.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/respond.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/site.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/js/underscore.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/alerts.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/badges.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/bootstrap.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/breadcrumbs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/button-groups.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/buttons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/carousel.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/close.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/code.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/component-animations.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/dropdowns.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/forms.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/glyphicons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/grid.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/input-groups.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/jumbotron.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/labels.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/list-group.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/media.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/modals.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/navs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/normalize.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/pager.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/pagination.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/panels.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/popovers.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/print.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/progress-bars.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/responsive-utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/scaffolding.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/tables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/theme.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/thumbnails.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/tooltip.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/type.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/wells.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/bootstrap/buttons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/bootstrap/jumbotron.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/bootstrap/navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/bootstrap/type.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/bootstrap/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/bootstrap/wells.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/carbonad.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/example-rating.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/feature-list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/fontawesome-icon-list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/footer.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/jumbotron-carousel.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/layout.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/lazy.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/responsive/screen-lg.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/responsive/screen-md.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/responsive/screen-sm.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/responsive/screen-xs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/social-buttons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/stripe-ad.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/assets/less/site/textured-bg.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/cheatsheet.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/community.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/design.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/examples.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/get-started.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/glyphicons-test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/icons.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/icons.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/license.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/test-2.3.2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/font-awesome/src/whats-new.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/component.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/jquery-migrate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/jquery-migrate.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/jquery.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/jquery/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ar-ma.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/bg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/br.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/bs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/cs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/cv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/cy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/da.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/de.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/el.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/en-au.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/en-ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/en-gb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/eo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/es.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/et.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/eu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/fa.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/fi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/fo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/fr-ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/fr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/gl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/he.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/hi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/hr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/hu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/hy-am.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/id.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/is.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/it.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ja.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ka.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ko.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/lb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/lt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/lv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/mk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ml.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/mr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ms-my.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/nb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ne.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/nl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/nn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/pl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/pt-br.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/pt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ro.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/rs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ru.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/sk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/sl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/sq.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/sv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/ta.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/th.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/tl-ph.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/tr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/tzm-la.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/tzm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/uk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/uz.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/vn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/zh-cn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/lang/zh-tw.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/min/langs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/min/langs.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/min/moment-with-langs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/min/moment-with-langs.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/min/moment.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/moment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/bower_components/moment/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-mocks.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-redactor.js.old" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/bootstrap.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.coffee" afterPath="$PROJECT_DIR$/Gruntfile.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-resource.js" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-resource.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-route.js" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-route.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-sanitize.js" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-sanitize.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular.js" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/rigorix-templates.js" afterPath="$PROJECT_DIR$/app/assets/js/rigorix-templates.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b22ffa96-ce66-4cc9-8c44-4b66f52233fe" name="ignore" comment="ignore" />
@@ -47,46 +957,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="activities.context.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/classes/activities.context.php">
+      <file leaf-file-name="app.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="913" column="35" selection-start="31433" selection-end="31433" vertical-scroll-proportion="0.57905984" vertical-offset="13154" max-vertical-offset="14025">
+            <state line="34" column="24" selection-start="1259" selection-end="1259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sfide.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/classes/sfide.class.php">
+      <file leaf-file-name="bower.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="1308" selection-end="1308" vertical-scroll-proportion="-28.75" vertical-offset="75" max-vertical-offset="1830">
+            <state line="12" column="25" selection-start="343" selection-end="343" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="405">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/classes/user.class.php">
+      <file leaf-file-name="Gruntfile.coffee" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gruntfile.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="39" selection-start="282" selection-end="282" vertical-scroll-proportion="-1.875" vertical-offset="105" max-vertical-offset="1095">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/classes/activity.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="54" selection-start="287" selection-end="311" vertical-scroll-proportion="5.0" vertical-offset="315" max-vertical-offset="1875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="p_new_user.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_new_user.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="31" selection-start="37" selection-end="37" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="105">
+            <state line="71" column="11" selection-start="1703" selection-end="1703" vertical-scroll-proportion="0.30150753" vertical-offset="825" max-vertical-offset="4035">
               <folding />
             </state>
           </provider>
@@ -103,6 +995,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
     <option name="myDateState">
       <MyDateState />
     </option>
@@ -110,14 +1003,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Opauth/opauth.conf.php" />
-        <option value="$PROJECT_DIR$/classes/new.core.php" />
-        <option value="$PROJECT_DIR$/Opauth/callback.php" />
-        <option value="$PROJECT_DIR$/api/classes/user.class.php" />
-        <option value="$PROJECT_DIR$/api/classes/rewards/p_20_matches.php" />
-        <option value="$PROJECT_DIR$/api/classes/rewards/p_first_day_match.php" />
-        <option value="$PROJECT_DIR$/api/classes/sfide.class.php" />
-        <option value="$PROJECT_DIR$/api/classes/rewards/p_10_matches_sameuser.php" />
         <option value="$PROJECT_DIR$/api/classes/rewards/p_20_matches_sameuser.php" />
         <option value="$PROJECT_DIR$/api/classes/rewards/p_match_5xscore_user.php" />
         <option value="$PROJECT_DIR$/api/classes/rewards/p_same_age.php" />
@@ -126,6 +1011,14 @@
         <option value="$PROJECT_DIR$/api/classes/rewards/p_match_25xscore_user.php" />
         <option value="$PROJECT_DIR$/api/classes/rewards/b_nofear.php" />
         <option value="$PROJECT_DIR$/classes/activities.context.php" />
+        <option value="$PROJECT_DIR$/app/assets/dist/dependencies/angular-bootstrap.js" />
+        <option value="$PROJECT_DIR$/app/assets/bower_components/angular-route/angular-route.js" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/assets/dist/app.js" />
+        <option value="$PROJECT_DIR$/app/app.coffee" />
+        <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/Gruntfile.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/dist/dependencies/angular.js" />
       </list>
     </option>
   </component>
@@ -141,7 +1034,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1920" />
-    <option name="height" value="1001" />
+    <option name="height" value="1121" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -261,7 +1154,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Opauth" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -275,15 +1168,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Opauth" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Opauth" />
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -297,7 +1186,55 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -307,21 +1244,21 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="137" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="139" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="248" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="265" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="138" />
-    <property name="recentsLimit" value="5" />
-    <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="261" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/index.php" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="148" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="929" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="927" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="144" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="140" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="268" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1063" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1052" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="268" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="263" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
@@ -333,8 +1270,8 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -370,11 +1307,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/dist" />
+      <recent name="$PROJECT_DIR$/app/assets/js" />
       <recent name="$PROJECT_DIR$/api/classes/rewards" />
       <recent name="$PROJECT_DIR$/api/classes" />
       <recent name="$PROJECT_DIR$/app/templates/pages" />
-      <recent name="$PROJECT_DIR$/app/templates/modals" />
-      <recent name="$PROJECT_DIR$/api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/api/classes" />
@@ -5095,28 +6032,28 @@
     </servers>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1001" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="1121" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14643799" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30440968" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17354196" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2688478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2729332" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15254237" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26819542" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16488793" sideWeight="0.86038595" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23878628" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23782559" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42329547" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42273182" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22190611" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39500567" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="769" y="22" width="1235" height="824" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15741728" sideWeight="0.6049943" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23265742" sideWeight="0.84745765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14643799" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39500567" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -5142,9 +6079,9 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="769" y="22" width="1235" height="824" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16642755" sideWeight="0.7311522" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -5197,114 +6134,74 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Opauth/callback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="38" selection-start="1036" selection-end="1036" vertical-scroll-proportion="0.71428573" vertical-offset="0" max-vertical-offset="651">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_first_day_match.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="85" selection-start="184" selection-end="184" vertical-scroll-proportion="0.1212938" vertical-offset="0" max-vertical-offset="371">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dm/dm_sfide.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="13" selection-start="796" selection-end="796" vertical-scroll-proportion="-8.125" vertical-offset="60" max-vertical-offset="6210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_20_matches.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="90" selection-start="97" selection-end="97" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_10_matches_sameuser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_20_matches_sameuser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="123" selection-start="164" selection-end="164" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_same_age.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/sfide.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1308" selection-end="1308" vertical-scroll-proportion="-28.75" vertical-offset="75" max-vertical-offset="1830">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/rewards/b_first_game.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="32" selection-start="102" selection-end="120" vertical-scroll-proportion="0.08050089" vertical-offset="0" max-vertical-offset="559">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="54" selection-start="287" selection-end="311" vertical-scroll-proportion="5.0" vertical-offset="315" max-vertical-offset="1875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_new_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="31" selection-start="37" selection-end="37" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="105">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_match_5xscore_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="114" selection-start="0" selection-end="126" vertical-scroll-proportion="0.05154639" vertical-offset="0" max-vertical-offset="582">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_match_25xscore_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="68" selection-start="75" selection-end="75" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/user.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="39" selection-start="282" selection-end="282" vertical-scroll-proportion="-1.875" vertical-offset="105" max-vertical-offset="1095">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/classes/rewards/b_nofear.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="100" selection-start="106" selection-end="106" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="105">
+        <state line="1" column="100" selection-start="106" selection-end="106" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="105" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/logger.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/activities.context.php">
+    <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/buttons.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="913" column="35" selection-start="31433" selection-end="31433" vertical-scroll-proportion="0.57905984" vertical-offset="13154" max-vertical-offset="14025">
+        <state line="12" column="11" selection-start="253" selection-end="253" vertical-scroll-proportion="-5.625" vertical-offset="45" max-vertical-offset="2550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/dist/dependencies/angular-bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="53" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="55245">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <marker date="1396011784000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1396011784000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1396011784000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1396011784000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="23" selection-start="403" selection-end="408" vertical-scroll-proportion="0.43441227" vertical-offset="0" max-vertical-offset="587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="24" selection-start="1259" selection-end="1259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="25" selection-start="343" selection-end="343" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/dist/dependencies/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="19" selection-start="842" selection-end="842" vertical-scroll-proportion="0.4264524" vertical-offset="0" max-vertical-offset="320115">
+          <folding>
+            <marker date="1396011784000" expanded="true" signature="-1:-1" placeholder="/** @license AngularJS v1.2.14-build.2290+sha.0b6ba9c ...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="11" selection-start="1703" selection-end="1703" vertical-scroll-proportion="0.30150753" vertical-offset="825" max-vertical-offset="4035">
           <folding />
         </state>
       </provider>

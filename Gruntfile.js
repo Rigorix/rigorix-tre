@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      temp: ['app/assets/temp'],
+      temp: ['app/assets/temp', 'app/assets/bower_components'],
       dependencies: ['app/assets/dist/dependencies']
     },
     watch: {
@@ -77,7 +77,6 @@ module.exports = function(grunt) {
     less: {
       development: {
         options: {
-          paths: ["app/assets/bower_components/bootstrap/less"],
           compress: true
         },
         files: {

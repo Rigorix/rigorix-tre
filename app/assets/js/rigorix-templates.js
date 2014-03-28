@@ -22,7 +22,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/templates/area-personale/pagetabs.html',
-    "<div class=\"row-fluid\"><div class=\"col-sm-12 phn\"><ul class=\"nav nav-pills\" refresh-state-on-load=\"\"><li ng-repeat=\"page in pages\" ng-class=\"{active: isCurrentPage(page, $first)}\"><a href=\"#area-personale/{{section}}/{{page}}\">{{page | varToTitle}}</a></li></ul></div></div>"
+    "<div class=\"row-fluid\"><div class=\"col-sm-12 phn\"><ul class=\"nav nav-pills\" refresh-state-on-load=\"\"><li ng-repeat=\"page in pages\" ng-class=\"{active: isCurrentPage(page.name, $first)}\"><a href=\"#area-personale/{{section}}/{{page.name}}\" icon=\"{{page.icon}}\">{{page.name | varToTitle}}</a></li></ul></div></div>"
   );
 
 
