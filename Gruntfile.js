@@ -135,6 +135,16 @@ module.exports = function(grunt) {
           summary: true
         }
       }
+    },
+    phpunit: {
+      classes: {
+        dir: 'specs/api/'
+      },
+      options: {
+        bin: '/usr/local/bin/phpunit',
+        bootstrap: 'specs/api/bootstrap.php',
+        colors: true
+      }
     }
   });
   grunt.loadNpmTasks("grunt-contrib-uglify");
@@ -151,11 +161,12 @@ module.exports = function(grunt) {
   grunt.renameTask("bower", "bowerInstall");
   grunt.loadNpmTasks("grunt-bower");
   grunt.loadNpmTasks("grunt-contrib-jasmine");
+  grunt.loadNpmTasks("grunt-phpunit");
   grunt.registerTask("dev", ["concurrent:dev"]);
   grunt.registerTask("dev:script", ["coffee:compileBare", "ngtemplates", "concat:script", "uglify:dev", "clean:temp"]);
   grunt.registerTask("dev:less", ["less:development", "concat:css", "cssmin", "clean:temp"]);
-  grunt.registerTask("dev:jasmine", ["coffee:compileJasmine"]);
   grunt.registerTask("dev:bower", ["bowerInstall", "bower"]);
   grunt.registerTask("dev:update", ["clean:dependencies", "bowerInstall", "bower", "ngtemplates", "dev:script", "dev:less"]);
-  return grunt.registerTask("deploy:staging", ["dev:update", "ftp_upload"]);
+  grunt.registerTask("specs", ["coffee:compileJasmine", "jasmine:pivotal", "phpunit"]);
+  return grunt.registerTask("deploy:staging", ["specs", "dev:update", "ftp_upload"]);
 };

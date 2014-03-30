@@ -194,7 +194,7 @@ module.exports = (grunt) ->
             collapseBooleanAttributes: true
 
 
-    # Jasmine Tests
+    # Specs
 
     jasmine:
       pivotal:
@@ -204,6 +204,14 @@ module.exports = (grunt) ->
           host: "http://tre.rigorix.dev/"
           summary: true
 #          helpers: '/specs/app/helpers.js'
+
+    phpunit:
+      classes:
+        dir: 'specs/api/'
+      options:
+        bin: '/usr/local/bin/phpunit'
+        bootstrap: 'specs/api/bootstrap.php'
+        colors: true
 
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-concat"
@@ -223,6 +231,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-bower"
 
   grunt.loadNpmTasks "grunt-contrib-jasmine";
+  grunt.loadNpmTasks "grunt-phpunit";
 
 
   # DEVELOPMENT tasks --------------------------------------------------------------------------------------------------
@@ -240,9 +249,6 @@ module.exports = (grunt) ->
     "cssmin"
     "clean:temp"
   ]
-  grunt.registerTask "dev:jasmine", [
-    "coffee:compileJasmine"
-  ]
   grunt.registerTask "dev:bower", [
     "bowerInstall"
     "bower"
@@ -255,10 +261,15 @@ module.exports = (grunt) ->
     "dev:script"
     "dev:less"
   ]
+  grunt.registerTask "specs", [
+    "coffee:compileJasmine"
+    "jasmine:pivotal"
+    "phpunit"
+  ]
 
   # STAGING / PRODUCTION tasks -----------------------------------------------------------------------------------------
 
 
-  grunt.registerTask "deploy:staging", ["dev:update", "ftp_upload"]
+  grunt.registerTask "deploy:staging", ["specs", "dev:update", "ftp_upload"]
 
 #  grunt.registerTask('deploy:production', ['dev:update', 'ftp_upload']);
