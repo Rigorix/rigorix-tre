@@ -1,5 +1,55 @@
 <?php
 
+/*
+ * Periodic actions - crons
+ */
+Flight::map("checkPeriodicActions", function () {
+
+  $sfideBot = Sfide::receivedBy(Flight::get("BOT_ID"))->pending()->get();
+  if ($sfideBot->count() > 0) {
+    foreach ($sfideBot as $sfidaBot) {
+
+      SfideTiri::create(array(
+        "id_sfida"  => $sfidaBot->getAttribute("id_sfida"),
+        "id_utente" => Flight::get("BOT_ID"),
+        "o1"        => rand(0, 2),
+        "o2"        => rand(0, 2),
+        "o3"        => rand(0, 2),
+        "o4"        => rand(0, 2),
+        "o5"        => rand(0, 2)
+      ));
+      SfideParate::create(array(
+        "id_sfida"  => $sfidaBot->id_sfida,
+        "id_utente" => Flight::get("BOT_ID"),
+        "o1"        => rand(0, 2),
+        "o2"        => rand(0, 2),
+        "o3"        => rand(0, 2),
+        "o4"        => rand(0, 2),
+        "o5"        => rand(0, 2)
+      ));
+      finalizeSfida($sfidaBot);
+      $sfidaBot->stato = 2;
+      $sfidaBot->save();
+
+    }
+  }
+
+  $messaggiBot = Messages::receiver(Flight::get("BOT_ID"))->unread()->get();
+  if ($messaggiBot->count() > 0 ) {
+    foreach ($messaggiBot as $messaggioBot) {
+      Messages::create(array(
+        "id_sender"   => Flight::get("BOT_ID"),
+        "id_receiver" => $messaggioBot->id_sender,
+        "oggetto"     => "RE: " . $messaggioBot->oggetto,
+        "testo"       => "hey! sono un automa, una macchina, senza anima, io non rispondo, io mando solo questo messaggio!",
+        "letto"       => 1,
+        "report"      => 0
+      ));
+    }
+
+  }
+
+});
 
 function finalizeSfida ($sfida)
 {

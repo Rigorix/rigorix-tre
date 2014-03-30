@@ -1,6 +1,4 @@
 <?php
-//error_reporting(E_ALL);
-//ini_set( 'display_errors','1');
 error_reporting(0);
 ini_set( 'display_errors','0');
 
@@ -29,25 +27,15 @@ require_once 'classes/error.class.php';
 require_once 'routes/routes.users.php';
 require_once 'routes/routes.messages.php';
 require_once 'routes/routes.sfide.php';
-
 require_once 'routes/routes.admin.php';
 
-Flight::route('GET /test_app_auth', function() {
-  $auth_token = Flight::request()->cookies['auth_token'] ? Flight::request()->cookies['auth_token'] : Flight::request()->query->auth_token;
-  $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
+Flight::set("BOT_ID", 1);
+Flight::after("start", function () {
 
-  var_dump($auth_token, $auth_id);
+  Flight::checkPeriodicActions();
 });
 
-Flight::route('GET /badges', function() {
-  echo Rewards::badges()->active()->get()->toJson();
-});
 
-Flight::map('error', function(Exception $ex){
-  // Handle error
-  echo $ex->getTraceAsString();
-});
-Flight::set('flight.log_errors', true);
 
 Flight::start();
 ?>

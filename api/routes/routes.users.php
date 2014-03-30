@@ -20,6 +20,10 @@ Flight::route("PUT /users/@id_utente/{$env->TOKEN_SECRET}/@token", function($id_
 
 ///---------------------------------------------------------------------------------------------------------------------
 
+Flight::route('GET /badges', function() {
+  echo Rewards::badges()->active()->get()->toJson();
+});
+
 Flight::route('GET /users/active', function() {
   echo (string)Users::active()->get();
 });
@@ -81,7 +85,7 @@ Flight::route('GET /users/champion/@period', function($period) {
       }
     }
     $best = new stdClass();
-    $best->userObject = getUserObjectExtended($bestUser);
+    $best->userObject = Flight::getUserObjectExtended($bestUser);
     $best->punteggio = $bestUserPunteggio;
     $best->vittorie = Sfide::whereRaw("id_vincitore = $bestUser")->count();
     echo FastJSON::convert($best);
@@ -205,8 +209,8 @@ Flight::route('POST /users/create', function() {
 });
 
 
-Flight::route("GET /test/@username", function ($username) {
-  echo Flight::getValidUsername($username);
+Flight::route("GET /test", function ($username) {
+  Flight::checkPeriodicActions();
 });
 
 
@@ -268,7 +272,7 @@ Flight::route('GET /users/@id_utente', function($id_utente) {
     Users::find($id_utente)->update(array(
       "dta_activ" => date('Y-m-d H:i:s')
     ));
-    echo FastJSON::convert( getUserObjectExtended($id_utente) );
+    echo FastJSON::convert( Flight::getUserObjectExtended($id_utente) );
   } else
     Flight::notFound();
 });
@@ -281,12 +285,12 @@ Flight::route('POST /users/@id_utente', function($id_utente) {
   $data = json_decode(Flight::request()->body);
 
   $userData = (array)( isset($data->db_object) ) ? $data->db_object : $data;
-  $userData->picture = createUserPicture($userData->picture, $userData->username, $userData->id_utente);
+  $userData->picture = Flight::createUserPicture($userData->picture, $userData->username, $userData->id_utente);
   if ($user->getAttribute("attivo") == 1)
     unset($userData->username);
   unset($userData->email);
 
   $user->update((array)$userData);
 
-  echo FastJSON::convert( getUserObjectExtended($id_utente) );
+  echo FastJSON::convert( Flight::getUserObjectExtended($id_utente) );
 });
