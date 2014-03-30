@@ -1,5 +1,19 @@
 <?php
 
+Flight::map("getEloquentObject", function ($name) {
+  $name = strtolower($name);
+  if ($name == "utente" || $name == "utenti")
+    return Users;
+  if ($name == "messaggi")
+    return Messages;
+  if ($name == "rewards")
+    return Rewards;
+  if ($name == "sfide")
+    return Sfide;
+  if ($name == "unsubscribe")
+    return UsersUnsubscribe;
+});
+
 Flight::map("userExists", function ($params) {
   foreach($params as $field => $value) {
     if (!isset($users))

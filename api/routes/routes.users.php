@@ -208,10 +208,10 @@ Flight::route('POST /users/create', function() {
   endif;
 });
 
-
-Flight::route("GET /test", function ($username) {
-  Flight::checkPeriodicActions();
-});
+//
+//Flight::route("GET /test", function ($username) {
+//  Flight::checkPeriodicActions();
+//});
 
 
 

@@ -29,6 +29,11 @@ require_once 'routes/routes.messages.php';
 require_once 'routes/routes.sfide.php';
 require_once 'routes/routes.admin.php';
 
+Flight::route("GET /test", function () {
+  echo "Api works!!";
+  return false;
+});
+
 Flight::set("BOT_ID", 1);
 Flight::after("start", function () {
 

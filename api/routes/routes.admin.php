@@ -24,27 +24,13 @@ Flight::route('GET /logs/@logfile', function ($logfile) {
   echo implode("", $lines);
 });
 
-Flight::map("getEloquentObject", function ($name) {
-  $name = strtolower($name);
-  if ($name == "utente" || $name == "utenti")
-    return Users;
-  if ($name == "messaggi")
-    return Messages;
-  if ($name == "rewards")
-    return Rewards;
-  if ($name == "sfide")
-    return Sfide;
-  if ($name == "unsubscribe")
-    return UsersUnsubscribe;
-});
-
 Flight::route('GET /tables/@name/@id', function ($name, $id) { global $capsule;
   $table = Flight::getEloquentObject($name);
   if ($table::find($id) !== null)
     echo (string)$table::find($id);
   else {
     $fields = $capsule->getDatabaseManager()->select("SHOW COLUMNS FROM {$name}");
-    $fieldsModel = [];
+    $fieldsModel = array();
     foreach ($fields as $field) {
       if ($field["Key"] != "PRI" && $field["Field"] != "created_at" && $field["Field"] != "updated_at")
         $fieldsModel[$field["Field"]] = "";
