@@ -1,12 +1,12 @@
 <?php
 
-$env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
-require_once '/classes/fastjson.php';
-require_once '/classes/restclient.php';
+//$env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
+//require_once '/classes/fastjson.php';
+//require_once '/classes/restclient.php';
 
-$api = new RestClient(array(
-  'base_url' => substr($env->API_DOMAIN, 0, -1)
-));
+//$api = new RestClient(array(
+//  'base_url' => substr($env->API_DOMAIN, 0, -1)
+//));
 
 class StackTest extends \PHPUnit_Framework_TestCase
 {
