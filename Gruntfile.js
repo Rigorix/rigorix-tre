@@ -133,7 +133,8 @@ module.exports = function(grunt) {
         options: {
           specs: 'specs/app/specs.js',
           host: "http://tre.rigorix.dev/",
-          summary: true
+          summary: true,
+          helpers: '/specs/app/helpers.js'
         }
       }
     },

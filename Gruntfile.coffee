@@ -204,7 +204,7 @@ module.exports = (grunt) ->
           specs: 'specs/app/specs.js'
           host: "http://tre.rigorix.dev/"
           summary: true
-#          helpers: '/specs/app/helpers.js'
+          helpers: '/specs/app/helpers.js'
 
     phpunit:
       classes:

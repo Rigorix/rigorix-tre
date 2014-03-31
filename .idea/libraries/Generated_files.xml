@@ -3,6 +3,7 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/Gruntfile.js" />
+        <item url="file://$PROJECT_DIR$/specs/app/helpers.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -52,6 +53,7 @@
       <root url="file://$PROJECT_DIR$/app/server.js" />
       <root url="file://$PROJECT_DIR$/Gruntfile_old.js" />
       <root url="file://$PROJECT_DIR$/Gruntfile.js" />
+      <root url="file://$PROJECT_DIR$/specs/app/helpers.js" />
     </CLASSES>
     <SOURCES />
   </library>
