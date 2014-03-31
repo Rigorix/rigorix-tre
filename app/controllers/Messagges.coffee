@@ -54,7 +54,7 @@ Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource'
           $scope.messages = json.data
 
   $scope.writeNewMessage = ->
-    $modal.open
+    modalInsance = $modal.open
       templateUrl:  '/app/templates/modals/message.new.html',
       controller:    'Message.Modal.New',
 
@@ -87,11 +87,6 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
   $scope.isTextCollapsed = false
   $scope.answer = "coming from scope"
   $scope.message = message
-
-  $modalInstance.result.then () ->
-    true
-  , ()->
-    $rootScope.$broadcast "modal:close"
 
   $scope.reply = ->
     $scope.editMode = true
@@ -139,11 +134,12 @@ Rigorix.controller 'Message.Modal', ['$scope', '$modal', '$modalInstance', '$roo
 ]
 
 
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 
 
-Rigorix.controller 'Message.Modal.New', ['$scope', '$modal', '$modalInstance', '$rootScope', 'Api', 'notify', ($scope, $modal, $modalInstance, $rootScope, Api, notify)->
+Rigorix.controller 'Message.Modal.New', ['$scope', '$modal', '$modalInstance', '$rootScope', 'Api', 'notify', '$timeout', ($scope, $modal, $modalInstance, $rootScope, Api, notify, $timeout)->
 
   $scope.receiver = ''
   $scope.newMessage =
@@ -153,6 +149,10 @@ Rigorix.controller 'Message.Modal.New', ['$scope', '$modal', '$modalInstance', '
     testo: ''
     letto: 0
     report: 0
+
+  $timeout ->
+    $("[autofocus]").focus()
+  , 500
 
   $rootScope.$broadcast "modal:open",
     controller: 'Message.Modal.New'

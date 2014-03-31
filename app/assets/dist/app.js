@@ -44855,7 +44855,8 @@ Rigorix.controller('Messages', [
       }
     };
     $scope.writeNewMessage = function() {
-      return $modal.open({
+      var modalInsance;
+      return modalInsance = $modal.open({
         templateUrl: '/app/templates/modals/message.new.html',
         controller: 'Message.Modal.New'
       });
@@ -44886,11 +44887,6 @@ Rigorix.controller('Message.Modal', [
     $scope.isTextCollapsed = false;
     $scope.answer = "coming from scope";
     $scope.message = message;
-    $modalInstance.result.then(function() {
-      return true;
-    }, function() {
-      return $rootScope.$broadcast("modal:close");
-    });
     $scope.reply = function() {
       $scope.editMode = true;
       $scope.isTextCollapsed = true;
@@ -44939,7 +44935,7 @@ Rigorix.controller('Message.Modal', [
 ]);
 
 Rigorix.controller('Message.Modal.New', [
-  '$scope', '$modal', '$modalInstance', '$rootScope', 'Api', 'notify', function($scope, $modal, $modalInstance, $rootScope, Api, notify) {
+  '$scope', '$modal', '$modalInstance', '$rootScope', 'Api', 'notify', '$timeout', function($scope, $modal, $modalInstance, $rootScope, Api, notify, $timeout) {
     $scope.receiver = '';
     $scope.newMessage = {
       oggetto: '',
@@ -44949,6 +44945,9 @@ Rigorix.controller('Message.Modal.New', [
       letto: 0,
       report: 0
     };
+    $timeout(function() {
+      return $("[autofocus]").focus();
+    }, 500);
     $rootScope.$broadcast("modal:open", {
       controller: 'Message.Modal.New',
       modalClass: 'modal-write-message'
