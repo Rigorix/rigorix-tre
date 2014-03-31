@@ -54,7 +54,7 @@ Flight::map("getUserObjectExtended", function ($id_utente) {
   $obj = new stdClass();
   $obj->db_object           = $user->toArray();
   $obj->messages            = $messages->unread()->orderBy('created_at', 'DESC')->get()->toArray();
-  $obj->totMessages         = $messages->count();
+  $obj->totMessages         = $user->messages->count();
   $obj->badges              = $user->badges()->toArray();
   $obj->has_new_badges      = $user->unseenBadges()->count();
   $obj->sfide_da_giocare    = Sfide::receivedBy($id_utente)->unplayed()->get()->toArray();

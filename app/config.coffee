@@ -1,5 +1,5 @@
 RigorixConfig =
-  updateTime: if User? and User.id_utente then 60000 else 60000
+  updateTime: RigorixEnv.UPDATE_USER_TIME * 1000
   deletedUsernameQuery: "__DELETED__"
   messagesPerPage: 15
   userPicturePath: "/i/profile_picture/"

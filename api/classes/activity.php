@@ -42,8 +42,12 @@ Flight::map("checkPeriodicActions", function () {
         "id_receiver" => $messaggioBot->id_sender,
         "oggetto"     => "RE: " . $messaggioBot->oggetto,
         "testo"       => "hey! sono un automa, una macchina, senza anima, io non rispondo, io mando solo questo messaggio!",
-        "letto"       => 1,
+        "letto"       => 0,
         "report"      => 0
+      ));
+
+      $messaggioBot->update(array(
+        "letto" => 1
       ));
     }
 

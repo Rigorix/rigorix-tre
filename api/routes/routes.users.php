@@ -97,7 +97,11 @@ Flight::route('GET /users/champion/@period', function($period) {
 
 Flight::route('GET /users/@id_utente/messages', function($id_utente) {
   Flight::needsAuth();
-  echo (string)Users::find($id_utente)->messages()->orderBy('created_at', 'DESC')->get();
+
+  $start = isset(Flight::request()->query->start) ? Flight::request()->query->start : 0;
+  $count = isset(Flight::request()->query->count) ? Flight::request()->query->count : 20;
+
+  echo (string)Users::find($id_utente)->messages()->orderBy('created_at', 'DESC')->take($count)->skip($start)->get();
 });
 
 Flight::route('GET /users/@id_utente/messages/unread', function($id_utente) {
@@ -208,10 +212,10 @@ Flight::route('POST /users/create', function() {
   endif;
 });
 
-//
-//Flight::route("GET /test", function ($username) {
-//  Flight::checkPeriodicActions();
-//});
+
+Flight::route("GET /test", function () {
+  Flight::checkPeriodicActions();
+});
 
 
 

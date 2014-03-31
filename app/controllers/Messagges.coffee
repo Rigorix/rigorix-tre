@@ -1,14 +1,24 @@
 Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource', '$modal', ($scope, $rootScope, Api, MessageResource, $modal)->
 
+  $scope.currentPage = 1
+  $scope.messagesCount = $scope.currentUser.totMessages
+  $scope.messagesPerPage = RigorixConfig.messagesPerPage
+
   $scope.$on "user:update", ->
     do $scope.updateMessages
 
   $scope.$on "message:deleted", ()->
     do $scope.updateMessages
 
+  $scope.$watch "currentPage", ->
+    do $scope.updateMessages
+
   $scope.updateMessages = ->
     Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages",
-      count: RigorixConfig.messagesPerPage
+      params:
+        start: ($scope.currentPage-1) * $scope.messagesPerPage
+        count: $scope.messagesPerPage
+
       success: (json)->
         $scope.messages = json.data
 
