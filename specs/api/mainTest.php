@@ -12,5 +12,6 @@ class StackTest extends \PHPUnit_Framework_TestCase
     $result = $api->get("test");
 
     $this->assertEquals($result->response, "Api works!!");
+
   }
 }
