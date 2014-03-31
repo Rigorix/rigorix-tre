@@ -3,12 +3,16 @@
     <div class="panel-heading">
         <span icon="envelope">Inbox <span ng-show="currentUser.messages.length > 0" class="label label-info">{{currentUser.messages.length}}</span></span>
         <button ng-click="writeNewMessage()" class="btn btn-sm btn-info pull-right" icon="plus">Nuovo</button>
+        <button ng-show="stopUpdates == true" ng-click="deleteMessages()" class="btn btn-sm btn-danger pull-right mrm" icon="trash-o">Cancella</button>
     </div>
 
     <div class="table-responsive">
         <table class="table table-bordered table-messages mbn">
             <thead>
                 <tr ng-show="messages.length > 0">
+                    <th>
+                        <input type="checkbox" name="toggleAllMessages" ng-click="toggleAllMessages()">
+                    </th>
                     <th>Data</th>
                     <th>Mittente</th>
                     <th>Oggetto</th>
@@ -22,6 +26,9 @@
                     <td>Non hai nessun messaggio nel tuo archivio</td>
                 </tr>
                 <tr ng-repeat="message in messages" ng-class="{success:message.letto == 0}">
+                    <td width="1%">
+                        <input type="checkbox" ng-click="checkMessagesActions()">
+                    </td>
                     <td width="15%">
                         <beautify-date date="{{message.updated_at}}" inline="true"></beautify-date>
                     </td>

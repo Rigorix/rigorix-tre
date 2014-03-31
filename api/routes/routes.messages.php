@@ -29,3 +29,9 @@ Flight::route('POST /messages/@id_message', function($id_message) {
 Flight::route('DELETE /message/@id_message', function($id_message) {
   Messages::find($id_message)->delete();
 });
+
+Flight::route('DELETE /messages', function() {
+  foreach(json_decode(Flight::request()->query->ids) as $id) {
+    Messages::find($id)->delete();
+  }
+});

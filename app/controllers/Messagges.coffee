@@ -1,4 +1,6 @@
-Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource', '$modal', ($scope, $rootScope, Api, MessageResource, $modal)->
+Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource', '$modal', 'notify', ($scope, $rootScope, Api, MessageResource, $modal, notify)->
+
+  $scope.stopUpdates = false
 
   $scope.currentPage = 1
   $scope.messagesCount = $scope.currentUser.totMessages
@@ -10,17 +12,46 @@ Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource'
   $scope.$on "message:deleted", ()->
     do $scope.updateMessages
 
+  $scope.$on "messages:deleted", ()->
+    $scope.stopUpdates = false
+    $(".table-messages tbody").find("input[type=checkbox]").prop "checked", null
+    do $scope.updateMessages
+
   $scope.$watch "currentPage", ->
     do $scope.updateMessages
 
-  $scope.updateMessages = ->
-    Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages",
-      params:
-        start: ($scope.currentPage-1) * $scope.messagesPerPage
-        count: $scope.messagesPerPage
 
+  $scope.toggleAllMessages = ->
+    $(".table-messages tbody").find("input[type=checkbox]").prop "checked", $("[name=toggleAllMessages]").prop("checked")
+    do $scope.checkMessagesActions
+    false
+
+  $scope.checkMessagesActions = ->
+    $scope.stopUpdates = $(".table-messages tbody").find(":checked").size() > 0
+
+  $scope.deleteMessages = ->
+    messages = $(".table-messages tbody").find(":checked")
+    ids = (angular.element(message).scope().message.id_mess for message in messages)
+
+    Api.call "delete", "messages",
+      params:
+        ids: JSON.stringify ids
       success: (json)->
-        $scope.messages = json.data
+        notify.success "Messaggi cancellati correttamente"
+        $rootScope.$broadcast "messages:deleted"
+
+      error: ->
+        notify.error "Errore nel cancellare i messaggi"
+
+  $scope.updateMessages = ->
+    if $scope.stopUpdates isnt true
+      Api.call "get", "users/" + $scope.currentUser.id_utente + "/messages",
+        params:
+          start: ($scope.currentPage-1) * $scope.messagesPerPage
+          count: $scope.messagesPerPage
+
+        success: (json)->
+          $scope.messages = json.data
 
   $scope.writeNewMessage = ->
     $modal.open
@@ -39,12 +70,6 @@ Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource'
 
   do $scope.updateMessages
 ]
-
-
-#  Pagination
-#  $scope.page = 1
-#  $scope.currentPage = 1
-#  $scope.totMessages = Number $scope.currentUser.totMessages
 
 
 

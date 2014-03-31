@@ -13,6 +13,9 @@ Rigorix.controller "UserPanel", ['$rootScope', '$scope', 'notify', '$modal', ($r
   $scope.$on "user:update", ->
     do $scope.checkNotifications
 
+  $scope.$on "messages:deleted", ->
+    do $scope.updateUserObject
+
 #  Methods
   $scope.doLanciaNewSfida = ->
     notify.animate ".lancia-sfida", "bounce"

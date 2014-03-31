@@ -44789,7 +44789,8 @@ Rigorix.controller("Main", [
 ]);
 
 Rigorix.controller('Messages', [
-  '$scope', '$rootScope', 'Api', 'MessageResource', '$modal', function($scope, $rootScope, Api, MessageResource, $modal) {
+  '$scope', '$rootScope', 'Api', 'MessageResource', '$modal', 'notify', function($scope, $rootScope, Api, MessageResource, $modal, notify) {
+    $scope.stopUpdates = false;
     $scope.currentPage = 1;
     $scope.messagesCount = $scope.currentUser.totMessages;
     $scope.messagesPerPage = RigorixConfig.messagesPerPage;
@@ -44799,19 +44800,59 @@ Rigorix.controller('Messages', [
     $scope.$on("message:deleted", function() {
       return $scope.updateMessages();
     });
+    $scope.$on("messages:deleted", function() {
+      $scope.stopUpdates = false;
+      $(".table-messages tbody").find("input[type=checkbox]").prop("checked", null);
+      return $scope.updateMessages();
+    });
     $scope.$watch("currentPage", function() {
       return $scope.updateMessages();
     });
-    $scope.updateMessages = function() {
-      return Api.call("get", "users/" + $scope.currentUser.id_utente + "/messages", {
+    $scope.toggleAllMessages = function() {
+      $(".table-messages tbody").find("input[type=checkbox]").prop("checked", $("[name=toggleAllMessages]").prop("checked"));
+      $scope.checkMessagesActions();
+      return false;
+    };
+    $scope.checkMessagesActions = function() {
+      return $scope.stopUpdates = $(".table-messages tbody").find(":checked").size() > 0;
+    };
+    $scope.deleteMessages = function() {
+      var ids, message, messages;
+      messages = $(".table-messages tbody").find(":checked");
+      ids = (function() {
+        var _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = messages.length; _i < _len; _i++) {
+          message = messages[_i];
+          _results.push(angular.element(message).scope().message.id_mess);
+        }
+        return _results;
+      })();
+      return Api.call("delete", "messages", {
         params: {
-          start: ($scope.currentPage - 1) * $scope.messagesPerPage,
-          count: $scope.messagesPerPage
+          ids: JSON.stringify(ids)
         },
         success: function(json) {
-          return $scope.messages = json.data;
+          notify.success("Messaggi cancellati correttamente");
+          return $rootScope.$broadcast("messages:deleted");
+        },
+        error: function() {
+          return notify.error("Errore nel cancellare i messaggi");
         }
       });
+    };
+    $scope.updateMessages = function() {
+      if ($scope.stopUpdates !== true) {
+        return Api.call("get", "users/" + $scope.currentUser.id_utente + "/messages", {
+          params: {
+            start: ($scope.currentPage - 1) * $scope.messagesPerPage,
+            count: $scope.messagesPerPage
+          },
+          success: function(json) {
+            return $scope.messages = json.data;
+          }
+        });
+      }
     };
     $scope.writeNewMessage = function() {
       return $modal.open({
@@ -45193,6 +45234,9 @@ Rigorix.controller("UserPanel", [
     });
     $scope.$on("user:update", function() {
       return $scope.checkNotifications();
+    });
+    $scope.$on("messages:deleted", function() {
+      return $scope.updateUserObject();
     });
     $scope.doLanciaNewSfida = function() {
       notify.animate(".lancia-sfida", "bounce");
@@ -50056,7 +50100,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/templates/area-personale/messaggi.html',
-    "<div class=\"panel panel-default mtl\" ng-controller=\"Messages\"><!-- Default panel contents --><div class=\"panel-heading\"><span icon=\"envelope\">Inbox <span ng-show=\"currentUser.messages.length > 0\" class=\"label label-info\">{{currentUser.messages.length}}</span></span> <button ng-click=\"writeNewMessage()\" class=\"btn btn-sm btn-info pull-right\" icon=\"plus\">Nuovo</button></div><div class=\"table-responsive\"><table class=\"table table-bordered table-messages mbn\"><thead><tr ng-show=\"messages.length > 0\"><th>Data</th><th>Mittente</th><th>Oggetto</th></tr></thead><tbody><tr ng-show=\"!messages\"><td>Caricamento messaggi ...</td></tr><tr ng-show=\"messages.length == 0\"><td>Non hai nessun messaggio nel tuo archivio</td></tr><tr ng-repeat=\"message in messages\" ng-class=\"{success:message.letto == 0}\"><td width=\"15%\"><beautify-date date=\"{{message.updated_at}}\" inline=\"true\"></beautify-date></td><td width=\"25%\"><username popover-placement=\"top\" id-utente=\"message.id_sender\"></username></td><td><a ng-click=\"openMessage(message)\" class=\"message-subject\">{{message.oggetto}}</a></td></tr></tbody></table></div><div class=\"text-center\" ng-show=\"messagesCount > messagesPerPage\"><pagination class=\"pagination-sm\" direction-links=\"false\" total-items=\"messagesCount\" items-per-page=\"messagesPerPage\" page=\"currentPage\" num-pages=\"smallnumPages\"></pagination></div></div>"
+    "<div class=\"panel panel-default mtl\" ng-controller=\"Messages\"><!-- Default panel contents --><div class=\"panel-heading\"><span icon=\"envelope\">Inbox <span ng-show=\"currentUser.messages.length > 0\" class=\"label label-info\">{{currentUser.messages.length}}</span></span> <button ng-click=\"writeNewMessage()\" class=\"btn btn-sm btn-info pull-right\" icon=\"plus\">Nuovo</button> <button ng-show=\"stopUpdates == true\" ng-click=\"deleteMessages()\" class=\"btn btn-sm btn-danger pull-right mrm\" icon=\"trash-o\">Cancella</button></div><div class=\"table-responsive\"><table class=\"table table-bordered table-messages mbn\"><thead><tr ng-show=\"messages.length > 0\"><th><input type=\"checkbox\" name=\"toggleAllMessages\" ng-click=\"toggleAllMessages()\"></th><th>Data</th><th>Mittente</th><th>Oggetto</th></tr></thead><tbody><tr ng-show=\"!messages\"><td>Caricamento messaggi ...</td></tr><tr ng-show=\"messages.length == 0\"><td>Non hai nessun messaggio nel tuo archivio</td></tr><tr ng-repeat=\"message in messages\" ng-class=\"{success:message.letto == 0}\"><td width=\"1%\"><input type=\"checkbox\" ng-click=\"checkMessagesActions()\"></td><td width=\"15%\"><beautify-date date=\"{{message.updated_at}}\" inline=\"true\"></beautify-date></td><td width=\"25%\"><username popover-placement=\"top\" id-utente=\"message.id_sender\"></username></td><td><a ng-click=\"openMessage(message)\" class=\"message-subject\">{{message.oggetto}}</a></td></tr></tbody></table></div><div class=\"text-center\" ng-show=\"messagesCount > messagesPerPage\"><pagination class=\"pagination-sm\" direction-links=\"false\" total-items=\"messagesCount\" items-per-page=\"messagesPerPage\" page=\"currentPage\" num-pages=\"smallnumPages\"></pagination></div></div>"
   );
 
 
