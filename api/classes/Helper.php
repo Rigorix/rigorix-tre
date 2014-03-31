@@ -57,7 +57,7 @@ Flight::map("getUserObjectExtended", function ($id_utente) {
   $obj->totMessages         = $user->messages->count();
   $obj->badges              = $user->badges()->toArray();
   $obj->has_new_badges      = $user->unseenBadges()->count();
-  $obj->sfide_da_giocare    = Sfide::receivedBy($id_utente)->unplayed()->get()->toArray();
+  $obj->sfide_da_giocare    = Sfide::receivedBy($id_utente)->unplayed()->orderBy('dta_sfida', 'DESC')->get()->toArray();
   $obj->rewards             = $user->rewards->toArray();
   $obj->picture             = $user->picture;
   $obj->dead                = UsersUnsubscribe::user($id_utente)->get()->count() > 0;

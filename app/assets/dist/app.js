@@ -43951,6 +43951,9 @@ Rigorix.controller("GamePlay", [
         parata: false
       }
     };
+    $timeout(function() {
+      return $("[autofocus]").focus();
+    }, 500);
     $scope.submitButtonLabel = $scope.sfida.id_sfida !== false ? "Rispondi" : "Lancia";
     $scope.id_utente_avversario = $scope.sfida.id_sfida !== false ? $scope.sfida.id_sfidante : $scope.sfida.id_avversario;
     $scope.randomPlaySet = function() {

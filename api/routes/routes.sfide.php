@@ -55,11 +55,11 @@ Flight::route('GET /sfida/@id_sfida/@id_utente/xml', function($id_sfida, $id_ute
 });
 
 Flight::route('GET /sfide/archivio/@id_utente', function($id_utente) {
-  echo (string)Sfide::done()->user($id_utente)->get();
+  echo (string)Sfide::done()->user($id_utente)->orderBy('dta_conclusa', 'DESC')->get();
 });
 
 Flight::route('GET /sfide/pending/@id_utente', function($id_utente) {
-  echo (string)Sfide::whereRaw("id_sfidante = $id_utente")->pending()->get();
+  echo (string)Sfide::whereRaw("id_sfidante = $id_utente")->pending()->orderBy('dta_sfida', 'DESC')->get();
 });
 
 Flight::route('POST /sfide/set', function() {
