@@ -6,9 +6,9 @@
  * Time: 03:13
  */
 
-$env = json_decode(file_get_contents(__DIR__ . '/../../.env'));
+//$env = json_decode(file_get_contents(__DIR__ . '/../../.env'));
 require_once __DIR__ . '/../../classes/restclient.php';
 
 $api = new RestClient(array(
-  'base_url' => substr($env->API_DOMAIN, 0, -1)
+  'base_url' => "http://tre.rigorix.com/api"
 ));
