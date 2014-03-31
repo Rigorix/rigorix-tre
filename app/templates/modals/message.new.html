@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col col-sm-12">
             <div class="form-group">
-                <input name="user-receiver" autofocus ng-model="receiver" typeahead-template-url="app/templates/partials/username-select.html" typeahead-on-select="onSelectUser(receiver)" typeahead="user as user.username for user in getUsers($viewValue) | filter:{username: $viewValue} | limitTo:12" placeholder="Destinatario" class="form-control" />
+                <input name="user-receiver" autofocus ng-model="receiver" typeahead-template-url="/app/templates/partials/username-select.html" typeahead-on-select="onSelectUser(receiver)" typeahead="user as user.username for user in getUsers($viewValue) | filter:{username: $viewValue} | limitTo:12" placeholder="Destinatario" class="form-control" />
             </div>
             <div class="form-group">
                 <input ng-model="newMessage.oggetto" placeholder="Oggetto" class="form-control mvl" />

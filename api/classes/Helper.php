@@ -63,6 +63,8 @@ Flight::map("getUserObjectExtended", function ($id_utente) {
   $obj->dead                = UsersUnsubscribe::user($id_utente)->get()->count() > 0;
   $original = Users::find($id_utente)->toArray();
 
+//  var_dump(Messages::all());
+
   return (object) array_merge((array)$original, (array)$obj);
 });
 

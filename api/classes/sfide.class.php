@@ -5,6 +5,16 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
   protected $primaryKey   = 'id_sfida';
   protected $guarded      = array("id_sfida");
 
+  // Accessors
+  public function getIdSfidaAttribute ($attr) { return (int)$attr; }
+  public function getIdSfidanteAttribute ($attr) { return (int)$attr; }
+  public function getIdSfidatoAttribute ($attr) { return (int)$attr; }
+  public function getStatoAttribute ($attr) { return (int)$attr; }
+  public function getIdVincitoreAttribute ($attr) { return (int)$attr; }
+  public function getPuntiSfidanteAttribute ($attr) { return (int)$attr; }
+  public function getPuntiSfidatoAttribute ($attr) { return (int)$attr; }
+  public function getNotificaAttribute ($attr) { return (int)$attr; }
+
   public function tiri()
   {
     return $this->hasMany('SfideTiri', 'id_sfida');
@@ -87,6 +97,16 @@ class SfideTiri extends  Illuminate\Database\Eloquent\Model {
   protected $guarded      = array("id_tiri");
   public $timestamps      = false;
 
+  // Accessors
+  public function getIdTiriAttribute ($attr) { return (int)$attr; }
+  public function getIdSfidaAttribute ($attr) { return (int)$attr; }
+  public function getIdUtenteAttribute ($attr) { return (int)$attr; }
+  public function getO1Attribute ($attr) { return (int)$attr; }
+  public function getO2Attribute ($attr) { return (int)$attr; }
+  public function getO3Attribute ($attr) { return (int)$attr; }
+  public function getO4Attribute ($attr) { return (int)$attr; }
+  public function getO5Attribute ($attr) { return (int)$attr; }
+
   public function scopeUser ($query, $id_utente)
   {
     return $query->where("id_utente", "=", $id_utente);
@@ -109,6 +129,16 @@ class SfideParate extends  Illuminate\Database\Eloquent\Model {
   protected $fillable     = array("id_sfida", "id_utente", "o1", "o2","o3", "o4","o5");
   protected $guarded      = array("id_parate");
   public $timestamps      = false;
+
+  // Accessors
+  public function getIdParateAttribute ($attr) { return (int)$attr; }
+  public function getIdSfidaAttribute ($attr) { return (int)$attr; }
+  public function getIdUtenteAttribute ($attr) { return (int)$attr; }
+  public function getO1Attribute ($attr) { return (int)$attr; }
+  public function getO2Attribute ($attr) { return (int)$attr; }
+  public function getO3Attribute ($attr) { return (int)$attr; }
+  public function getO4Attribute ($attr) { return (int)$attr; }
+  public function getO5Attribute ($attr) { return (int)$attr; }
 
   public function scopeUser ($query, $id_utente)
   {

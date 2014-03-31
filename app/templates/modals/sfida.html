@@ -4,7 +4,7 @@
             <h4 class="mtn">Lancia la sfida</h4>
 
             <div ng-show="sfida.id_avversario == 0" class="mbm">
-                <input name="avversario" autofocus ng-model="scope.id_avversario" typeahead-template-url="app/templates/partials/username-select.html" typeahead-on-select="onSelectUser(scope.id_avversario)" typeahead="user as user.username for user in getUsers($viewValue) | filter:{username: $viewValue} | limitTo:12" placeholder="Digita il nome del tuo avversario" class="form-control" />
+                <input name="avversario" autofocus ng-model="scope.id_avversario" typeahead-template-url="/app/templates/partials/username-select.html" typeahead-on-select="onSelectUser(scope.id_avversario)" typeahead="user as user.username for user in getUsers($viewValue) | filter:{username: $viewValue} | limitTo:12" placeholder="Digita il nome del tuo avversario" class="form-control" />
             </div>
 
             <div ng-show="sfida.id_avversario != 0">

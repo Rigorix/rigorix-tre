@@ -5,6 +5,17 @@ class Users extends Illuminate\Database\Eloquent\Model {
   protected $primaryKey   = 'id_utente';
   protected $guarded      = array('id', 'id_utente');
 
+  // Accessors
+  public function getIdUtenteAttribute ($attr) { return (int)$attr; }
+  public function getAttivpAttribute ($attr) { return (int)$attr; }
+  public function getFirstLoginAttribute ($attr) { return (int)$attr; }
+  public function getPunteggioTotaleAttribute ($attr) { return (int)$attr; }
+  public function getStatoAttribute ($attr) { return (int)$attr; }
+  public function getTipoMagliettaAttribute ($attr) { return (int)$attr; }
+  public function getNumeroMagliettaAttribute ($attr) { return (int)$attr; }
+
+
+
 //  RELATIONS
   public function sfide ()
   {
@@ -91,6 +102,11 @@ class UsersUnsubscribe extends Illuminate\Database\Eloquent\Model {
   protected $table        = 'unsubscribe';
   protected $primaryKey   = 'id_unsubscribe';
 
+  // Accessors
+  public function getIdUnsubscribeAttribute ($attr) { return (int)$attr; }
+  public function getIdUtenteAttribute ($attr) { return (int)$attr; }
+  public function getStatoAttribute ($attr) { return (int)$attr; }
+
   public function scopeUser ($query, $id_utente)
   {
     return $query->where ("id_utente", "=", $id_utente);
@@ -104,5 +120,8 @@ class UserToken extends Illuminate\Database\Eloquent\Model {
   protected $primaryKey   = 'id';
   protected $guarded      = array("id");
 
+  // Accessors
+  public function getIdAttribute ($attr) { return (int)$attr; }
+  public function getIdUtenteAttribute ($attr) { return (int)$attr; }
 
 }
