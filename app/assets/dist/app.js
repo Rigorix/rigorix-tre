@@ -30766,7 +30766,7 @@ var styleDirective = valueFn({
 !angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>');;
 
 /**
- * @license AngularJS v1.2.16-build.58+sha.db2a4c0
+ * @license AngularJS v1.2.16-build.63+sha.8d4d437
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -31885,7 +31885,7 @@ angular.module('ngAnimate', ['ng'])
 
         //but it may not need to cancel out the existing timeout
         //if the timestamp is less than the previous one
-        var futureTimestamp = Date.now() + (totalTime * 1000);
+        var futureTimestamp = Date.now() + totalTime;
         if(futureTimestamp <= closingTimestamp) {
           return;
         }
@@ -36611,7 +36611,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 ;
 
 /**
- * @license AngularJS v1.2.16-build.58+sha.db2a4c0
+ * @license AngularJS v1.2.16-build.63+sha.8d4d437
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -37223,7 +37223,7 @@ angular.module('ngResource', ['ng']).
 ;
 
 /**
- * @license AngularJS v1.2.16-build.58+sha.db2a4c0
+ * @license AngularJS v1.2.16-build.63+sha.8d4d437
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -38152,7 +38152,7 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 ;
 
 /**
- * @license AngularJS v1.2.16-build.58+sha.db2a4c0
+ * @license AngularJS v1.2.16-build.63+sha.8d4d437
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */

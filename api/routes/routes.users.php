@@ -213,7 +213,7 @@ Flight::route('POST /users/create', function() {
 });
 
 
-Flight::route("GET /test", function () {
+Flight::route("GET /test-periodic-actions", function () {
   Flight::checkPeriodicActions();
 });
 
