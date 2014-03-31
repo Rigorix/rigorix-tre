@@ -119,6 +119,7 @@ module.exports = function(grunt) {
         src: 'app/templates/**/*.html',
         dest: 'app/assets/js/rigorix-templates.js',
         options: {
+          prefix: '/',
           htmlmin: {
             collapseWhitespace: true,
             collapseBooleanAttributes: true

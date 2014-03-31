@@ -46,8 +46,8 @@ require_once "classes/new.core.php";
       </div>
 
       <div class="col col-sm-3 sidebar" ng-controller="Sidebar">
-        <div ng-include="'app/templates/partials/user-box.html'"></div>
-        <div ng-include="'app/templates/partials/best-users.html'"></div>
+        <div ng-include="'/app/templates/partials/user-box.html'"></div>
+        <div ng-include="'/app/templates/partials/best-users.html'"></div>
       </div>
 
     </div>
