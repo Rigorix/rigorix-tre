@@ -52,6 +52,10 @@
                     <!-- Table -->
                     <lista-sfide sfide="sfideArchivio" ng-show="status != 'loading'"></lista-sfide>
                     <loading ng-show="status == 'loading'" text="'Caricamento sfide in corso'" custom-icon="coffee"></loading>
+
+                    <div class="text-center" ng-show="sfideArchivioCount > sfideArchivioPerPage">
+                        <pagination class="pagination-sm" direction-links="false" total-items="sfideArchivioCount" items-per-page="sfideArchivioPerPage" page="sfideArchivioCurrentPage" num-pages="smallnumPages"></pagination>
+                    </div>
                 </div>
             </div>
 

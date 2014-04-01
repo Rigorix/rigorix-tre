@@ -157,25 +157,6 @@ ul.normal-list li { margin-left: 15px; }
 
 .su-username { font-size: 16px; font-weight: normal; color: #111; text-transform: uppercase;}
 
-.result-screen { width: 44px; height: 24px; background: url(/i/tabellone.gif) no-repeat top left; position: relative; }
-.result-screen .team-screen { position: absolute; top: 2px; width: 15px; height: 19px; background: url(/i/numeri_tabellone.gif) no-repeat top left;  }
-.result-screen .home-team { left: 2px; }
-.result-screen .away-team { right: 3px; }
-.result-screen .team-screen.win.score0 { background-position: 0 0; }
-.result-screen .team-screen.win.score1 { background-position: -15px 0; }
-.result-screen .team-screen.win.score2 { background-position: -30px 0; }
-.result-screen .team-screen.win.score3 { background-position: -45px 0; }
-.result-screen .team-screen.win.score4 { background-position: -60px 0; }
-.result-screen .team-screen.win.score5 { background-position: -75px 0; }
-.result-screen .team-screen.win.score_none { background-position: -90px 0; }
-.result-screen .team-screen.lose.score0 { background-position: 0 0; }
-.result-screen .team-screen.lose.score1 { background-position: -15px -19px; }
-.result-screen .team-screen.lose.score2 { background-position: -30px -19px; }
-.result-screen .team-screen.lose.score3 { background-position: -45px -19px; }
-.result-screen .team-screen.lose.score4 { background-position: -60px -19px; }
-.result-screen .team-screen.lose.score5 { background-position: -75px -19px; }
-.result-screen .team-screen.lose.score_none { background-position: -90px -19px; }
-
 .rx-scheda-utente-normal h3 a { font-size: 16px; margin-bottom: 10px; display: block;  }
 
 .context-menu-dropdown { position: absolute; top: 0; left: 0; background: #dfcf82; border: 1px solid #c9b860; }

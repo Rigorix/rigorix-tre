@@ -9,7 +9,7 @@
         <th>Avversario</th>
         <th class="text-center hidden-xs">Lanciata</th>
         <th class="text-center">Risposta</th>
-        <th>Risultato</th>
+        <th class="text-center">Risultato</th>
         <th class="text-center hidden-xs">Punti</th>
         <th class="text-center hidden-xs">Rewards</th>
         <th class="text-center">Stato</th>
@@ -26,9 +26,17 @@
             <beautify-date ng-show="sfida.dta_conclusa != false" date="{{sfida.dta_conclusa}}" inline="true"></beautify-date>
         </td>
         <td>
+            <!--<div ng-show="sfida.dta_conclusa != false" class="result-screen" risultato="{{sfida.risultato}}">-->
+                <!--<div class="team-screen home-team score{{risultato[0]}} win"></div>-->
+                <!--<div class="team-screen away-team score{{risultato[1]}} win"></div>-->
+            <!--</div>-->
             <div ng-show="sfida.dta_conclusa != false" class="result-screen" risultato="{{sfida.risultato}}">
-                <div class="team-screen home-team score{{risultato[0]}} win"></div>
-                <div class="team-screen away-team score{{risultato[1]}} win"></div>
+                <div class="team-screen home-team">
+                    {{risultato[0]}}
+                </div>
+                <div class="team-screen away-team">
+                    {{risultato[1]}}
+                </div>
             </div>
         </td>
         <td class="text-center hidden-xs">

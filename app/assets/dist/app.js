@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-03-31 *//*!
+/*! Rigorix - v0.5.0 - 2014-04-01 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -45734,6 +45734,7 @@ RigorixConfig = {
   updateTime: RigorixEnv.UPDATE_USER_TIME * 1000,
   deletedUsernameQuery: "__DELETED__",
   messagesPerPage: 15,
+  sfidePerPage: 15,
   userPicturePath: "/i/profile_picture/",
   token: $.cookie("auth_token"),
   safeLocations: ["/same-email", "/regolamento", "/riconoscimenti"]
@@ -45890,9 +45891,28 @@ Rigorix.controller("AreaPersonale.Sfide", [
     $scope.status = "loading";
     $scope.sfideInAttesaDiRisposta = [];
     $scope.sfideArchivio = [];
+    $scope.sfideArchivioCount = 0;
+    $scope.sfideArchivioPerPage = RigorixConfig.sfidePerPage;
+    $scope.sfideArchivioCurrentPage = 1;
     $scope.$on("user:update", function(event, userObject) {
       return $scope.sfideDaGiocare = userObject.sfide_da_giocare;
     });
+    $scope.$watch("sfideArchivioCurrentPage", function() {
+      return $scope.getSfideArchivio();
+    });
+    $scope.getSfideArchivio = function() {
+      return Api.call("get", "/sfide/archivio/" + $scope.currentUser.id_utente, {
+        params: {
+          start: ($scope.sfideArchivioCurrentPage - 1) * $scope.sfideArchivioPerPage,
+          count: $scope.sfideArchivioPerPage
+        },
+        success: function(json) {
+          $scope.sfideArchivio = json.data.sfide;
+          $scope.sfideArchivioCount = json.data.count;
+          return $scope.status = "done";
+        }
+      });
+    };
     if ($scope.sectionPage === "in_attesa") {
       Api.call("get", "sfide/pending/" + $scope.currentUser.id_utente, {
         success: function(json) {
@@ -45902,12 +45922,7 @@ Rigorix.controller("AreaPersonale.Sfide", [
       });
     }
     if ($scope.sectionPage === "archivio") {
-      Api.call("get", "/sfide/archivio/" + $scope.currentUser.id_utente, {
-        success: function(json) {
-          $scope.sfideArchivio = json.data;
-          return $scope.status = "done";
-        }
-      });
+      $scope.getSfideArchivio();
     }
     return $scope.reload = function() {
       return $route.reload();
@@ -52278,7 +52293,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/area-personale/sfide.html',
-    "<div ng-controller=\"AreaPersonale.Sfide\"><div ng-include=\"'/app/templates/area-personale/pagetabs.html'\"></div><div class=\"row-fluid\"><div class=\"col-sm-12 mtl lista-sfide-container\"><div ng-show=\"sectionPage == 'da_giocare'\"><div ng-include=\"'/app/templates/area-personale/legenda-sfide.html'\"></div><div class=\"panel panel-default mtl\"><!-- Default panel contents --><div class=\"panel-heading\"><span class=\"label label-info mlm\">{{sfideDaGiocare | length}}</span> da giocare <button class=\"btn btn-sm pull-right btn-default\" ng-click=\"reload()\" icon=\"refresh\">Ricarica</button></div><!-- Table --><lista-sfide sfide=\"sfideDaGiocare\"></lista-sfide></div></div><div ng-show=\"sectionPage == 'in_attesa'\"><p class=\"sfide-description\">Qui trovi la lista di tutte le sfide che hai lanciato e non sono ancora state risposte.</p><div ng-include=\"'/app/templates/area-personale/legenda-sfide.html'\"></div><div class=\"panel panel-default mtl\"><!-- Default panel contents --><div class=\"panel-heading\"><span class=\"label label-info mlm\">{{sfideInAttesaDiRisposta | length}}</span> in attesa <button class=\"btn btn-sm pull-right btn-default\" ng-click=\"reload()\" icon=\"refresh\">Ricarica</button></div><!-- Table --><lista-sfide sfide=\"sfideInAttesaDiRisposta\" ng-show=\"status != 'loading'\"></lista-sfide><loading ng-show=\"status == 'loading'\" text=\"'Caricamento sfide in corso'\" custom-icon=\"coffee\"></loading></div></div><div ng-show=\"sectionPage == 'archivio'\"><div ng-include=\"'/app/templates/area-personale/legenda-sfide.html'\"></div><div class=\"panel panel-default mtl\"><!-- Default panel contents --><div class=\"panel-heading\"><span class=\"label label-info mlm\" ng-model=\"sfideArchivio\">{{sfideArchivio | length}}</span> sfide giocate <button class=\"btn btn-sm pull-right btn-default\" ng-click=\"reload()\" icon=\"refresh\">Ricarica</button></div><!-- Table --><lista-sfide sfide=\"sfideArchivio\" ng-show=\"status != 'loading'\"></lista-sfide><loading ng-show=\"status == 'loading'\" text=\"'Caricamento sfide in corso'\" custom-icon=\"coffee\"></loading></div></div></div></div></div>"
+    "<div ng-controller=\"AreaPersonale.Sfide\"><div ng-include=\"'/app/templates/area-personale/pagetabs.html'\"></div><div class=\"row-fluid\"><div class=\"col-sm-12 mtl lista-sfide-container\"><div ng-show=\"sectionPage == 'da_giocare'\"><div ng-include=\"'/app/templates/area-personale/legenda-sfide.html'\"></div><div class=\"panel panel-default mtl\"><!-- Default panel contents --><div class=\"panel-heading\"><span class=\"label label-info mlm\">{{sfideDaGiocare | length}}</span> da giocare <button class=\"btn btn-sm pull-right btn-default\" ng-click=\"reload()\" icon=\"refresh\">Ricarica</button></div><!-- Table --><lista-sfide sfide=\"sfideDaGiocare\"></lista-sfide></div></div><div ng-show=\"sectionPage == 'in_attesa'\"><p class=\"sfide-description\">Qui trovi la lista di tutte le sfide che hai lanciato e non sono ancora state risposte.</p><div ng-include=\"'/app/templates/area-personale/legenda-sfide.html'\"></div><div class=\"panel panel-default mtl\"><!-- Default panel contents --><div class=\"panel-heading\"><span class=\"label label-info mlm\">{{sfideInAttesaDiRisposta | length}}</span> in attesa <button class=\"btn btn-sm pull-right btn-default\" ng-click=\"reload()\" icon=\"refresh\">Ricarica</button></div><!-- Table --><lista-sfide sfide=\"sfideInAttesaDiRisposta\" ng-show=\"status != 'loading'\"></lista-sfide><loading ng-show=\"status == 'loading'\" text=\"'Caricamento sfide in corso'\" custom-icon=\"coffee\"></loading></div></div><div ng-show=\"sectionPage == 'archivio'\"><div ng-include=\"'/app/templates/area-personale/legenda-sfide.html'\"></div><div class=\"panel panel-default mtl\"><!-- Default panel contents --><div class=\"panel-heading\"><span class=\"label label-info mlm\" ng-model=\"sfideArchivio\">{{sfideArchivio | length}}</span> sfide giocate <button class=\"btn btn-sm pull-right btn-default\" ng-click=\"reload()\" icon=\"refresh\">Ricarica</button></div><!-- Table --><lista-sfide sfide=\"sfideArchivio\" ng-show=\"status != 'loading'\"></lista-sfide><loading ng-show=\"status == 'loading'\" text=\"'Caricamento sfide in corso'\" custom-icon=\"coffee\"></loading><div class=\"text-center\" ng-show=\"sfideArchivioCount > sfideArchivioPerPage\"><pagination class=\"pagination-sm\" direction-links=\"false\" total-items=\"sfideArchivioCount\" items-per-page=\"sfideArchivioPerPage\" page=\"sfideArchivioCurrentPage\" num-pages=\"smallnumPages\"></pagination></div></div></div></div></div></div>"
   );
 
 
@@ -52293,7 +52308,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/directives/lista-sfide.html',
-    "<table class=\"table table-condensed mbn\"><tr ng-show=\"sfide.length == 0\"><td><p icon=\"flag\">Nessuna sfida</p></td></tr><tr ng-show=\"sfide.length > 0\"><th></th><th>Avversario</th><th class=\"text-center hidden-xs\">Lanciata</th><th class=\"text-center\">Risposta</th><th>Risultato</th><th class=\"text-center hidden-xs\">Punti</th><th class=\"text-center hidden-xs\">Rewards</th><th class=\"text-center\">Stato</th></tr><tr ng-repeat=\"sfida in sfide\" ng-controller=\"ListaSfide.Sfida\" id_sfida=\"{{sfida.id_sfida}}\" on-sfida-load=\"\"><td class=\"{{risultatoLabel}}\"></td><td><username id-utente=\"id_avversario\" with-picture=\"true\" with-punteggio=\"true\"></username></td><td class=\"text-center hidden-xs\"><beautify-date ng-show=\"sfida.dta_sfida != false\" date=\"{{sfida.dta_sfida}}\" inline=\"true\"></beautify-date></td><td class=\"text-center\"><beautify-date ng-show=\"sfida.dta_conclusa != false\" date=\"{{sfida.dta_conclusa}}\" inline=\"true\"></beautify-date></td><td><div ng-show=\"sfida.dta_conclusa != false\" class=\"result-screen\" risultato=\"{{sfida.risultato}}\"><div class=\"team-screen home-team score{{risultato[0]}} win\"></div><div class=\"team-screen away-team score{{risultato[1]}} win\"></div></div></td><td class=\"text-center hidden-xs\"><span class=\"badge\" ng-show=\"sfida.stato > 1\">{{punti}}</span></td><td class=\"text-center hidden-xs\"><span class=\"badge\" ng-show=\"sfida.stato > 1\">{{punti_rewards}}</span></td><td class=\"text-center\"><button ng-show=\"hasActiveButton\" class=\"btn btn-sm\" icon=\"{{statoButtonIcon}}\" ng-class=\"{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vedi'}\" ng-click=\"doClickSfida(statoButton)\">{{statoButton | varToTitle}}</button> <button ng-show=\"!hasActiveButton\" class=\"btn btn-sm btn-disabled\" disabled icon=\"{{statoButtonIcon}}\">{{statoButton | varToTitle}}</button></td></tr></table>"
+    "<table class=\"table table-condensed mbn\"><tr ng-show=\"sfide.length == 0\"><td><p icon=\"flag\">Nessuna sfida</p></td></tr><tr ng-show=\"sfide.length > 0\"><th></th><th>Avversario</th><th class=\"text-center hidden-xs\">Lanciata</th><th class=\"text-center\">Risposta</th><th class=\"text-center\">Risultato</th><th class=\"text-center hidden-xs\">Punti</th><th class=\"text-center hidden-xs\">Rewards</th><th class=\"text-center\">Stato</th></tr><tr ng-repeat=\"sfida in sfide\" ng-controller=\"ListaSfide.Sfida\" id_sfida=\"{{sfida.id_sfida}}\" on-sfida-load=\"\"><td class=\"{{risultatoLabel}}\"></td><td><username id-utente=\"id_avversario\" with-picture=\"true\" with-punteggio=\"true\"></username></td><td class=\"text-center hidden-xs\"><beautify-date ng-show=\"sfida.dta_sfida != false\" date=\"{{sfida.dta_sfida}}\" inline=\"true\"></beautify-date></td><td class=\"text-center\"><beautify-date ng-show=\"sfida.dta_conclusa != false\" date=\"{{sfida.dta_conclusa}}\" inline=\"true\"></beautify-date></td><td><!--<div ng-show=\"sfida.dta_conclusa != false\" class=\"result-screen\" risultato=\"{{sfida.risultato}}\">--><!--<div class=\"team-screen home-team score{{risultato[0]}} win\"></div>--><!--<div class=\"team-screen away-team score{{risultato[1]}} win\"></div>--><!--</div>--><div ng-show=\"sfida.dta_conclusa != false\" class=\"result-screen\" risultato=\"{{sfida.risultato}}\"><div class=\"team-screen home-team\">{{risultato[0]}}</div><div class=\"team-screen away-team\">{{risultato[1]}}</div></div></td><td class=\"text-center hidden-xs\"><span class=\"badge\" ng-show=\"sfida.stato > 1\">{{punti}}</span></td><td class=\"text-center hidden-xs\"><span class=\"badge\" ng-show=\"sfida.stato > 1\">{{punti_rewards}}</span></td><td class=\"text-center\"><button ng-show=\"hasActiveButton\" class=\"btn btn-sm\" icon=\"{{statoButtonIcon}}\" ng-class=\"{'btn-warning': statoButton == 'rispondi', 'btn-info': statoButton == 'vedi'}\" ng-click=\"doClickSfida(statoButton)\">{{statoButton | varToTitle}}</button> <button ng-show=\"!hasActiveButton\" class=\"btn btn-sm btn-disabled\" disabled icon=\"{{statoButtonIcon}}\">{{statoButton | varToTitle}}</button></td></tr></table>"
   );
 
 

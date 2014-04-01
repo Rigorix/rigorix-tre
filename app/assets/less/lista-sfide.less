@@ -1,0 +1,45 @@
+.result-screen {
+  background: lighten(@color-black, 15);
+  border-bottom: 3px solid lighten(@color-black, 40);
+  padding: 2px;
+  white-space: nowrap;
+  max-width: 70px;
+  margin: 0 auto;
+  .clearfix();
+
+  .team-screen {
+    background: @color-black;
+    float: left;
+    width: 48%;
+    text-align: center;
+    color: lawngreen;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: courier, monospace;
+    line-height: 18px;
+
+    &.away-team {
+      float: right;
+    }
+  }
+}
+//
+//
+//.result-screen { width: 44px; height: 24px; background: url(/i/tabellone.gif) no-repeat top left; position: relative; }
+//.result-screen .team-screen { position: absolute; top: 2px; width: 15px; height: 19px; background: url(/i/numeri_tabellone.gif) no-repeat top left;  }
+//.result-screen .home-team { left: 2px; }
+//.result-screen .away-team { right: 3px; }
+//.result-screen .team-screen.win.score0 { background-position: 0 0; }
+//.result-screen .team-screen.win.score1 { background-position: -15px 0; }
+//.result-screen .team-screen.win.score2 { background-position: -30px 0; }
+//.result-screen .team-screen.win.score3 { background-position: -45px 0; }
+//.result-screen .team-screen.win.score4 { background-position: -60px 0; }
+//.result-screen .team-screen.win.score5 { background-position: -75px 0; }
+//.result-screen .team-screen.win.score_none { background-position: -90px 0; }
+//.result-screen .team-screen.lose.score0 { background-position: 0 0; }
+//.result-screen .team-screen.lose.score1 { background-position: -15px -19px; }
+//.result-screen .team-screen.lose.score2 { background-position: -30px -19px; }
+//.result-screen .team-screen.lose.score3 { background-position: -45px -19px; }
+//.result-screen .team-screen.lose.score4 { background-position: -60px -19px; }
+//.result-screen .team-screen.lose.score5 { background-position: -75px -19px; }
+//.result-screen .team-screen.lose.score_none { background-position: -90px -19px; }

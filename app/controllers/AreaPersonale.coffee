@@ -71,9 +71,28 @@ Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $
   $scope.status = "loading"
   $scope.sfideInAttesaDiRisposta = []
   $scope.sfideArchivio = []
+  $scope.sfideArchivioCount = 0
+  $scope.sfideArchivioPerPage = RigorixConfig.sfidePerPage
+  $scope.sfideArchivioCurrentPage = 1
 
   $scope.$on "user:update", (event, userObject)->
     $scope.sfideDaGiocare = userObject.sfide_da_giocare
+
+  $scope.$watch "sfideArchivioCurrentPage", ->
+    do $scope.getSfideArchivio
+
+  $scope.getSfideArchivio = ->
+    Api.call "get", "/sfide/archivio/" + $scope.currentUser.id_utente,
+      params:
+        start: ($scope.sfideArchivioCurrentPage-1) * $scope.sfideArchivioPerPage
+        count: $scope.sfideArchivioPerPage
+
+      success: (json)->
+        $scope.sfideArchivio = json.data.sfide
+        $scope.sfideArchivioCount = json.data.count
+        $scope.status = "done"
+
+
 
   if $scope.sectionPage is "in_attesa"
     Api.call "get", "sfide/pending/" + $scope.currentUser.id_utente,
@@ -82,10 +101,7 @@ Rigorix.controller "AreaPersonale.Sfide", ['$scope', '$route', 'Api', ($scope, $
         $scope.status = "done"
 
   if $scope.sectionPage is "archivio"
-    Api.call "get", "/sfide/archivio/" + $scope.currentUser.id_utente,
-      success: (json)->
-        $scope.sfideArchivio = json.data
-        $scope.status = "done"
+    do $scope.getSfideArchivio
 
   $scope.reload = ->
     do $route.reload
