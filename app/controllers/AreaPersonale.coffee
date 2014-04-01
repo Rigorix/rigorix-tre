@@ -1,4 +1,4 @@
-Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', ($scope, $routeParams, $location) ->
+Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', 'notify', '$timeout', ($scope, $routeParams, $location, notify, $timeout) ->
 
   $scope.sections = [
     name: 'utente'
@@ -22,6 +22,9 @@ Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', ($sc
 
   $scope.$on "$routeChangeSuccess", ->
     $scope.loading = false
+    $timeout ->
+      notify.animate ".area-personale-page-container", "fadeInDown"
+    , 0
 
   if !$scope.section?
     $location.path "/area-personale/utente"
