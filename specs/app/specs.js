@@ -18,26 +18,20 @@ RigorixEnv = {
   LOG_DIR: "/log/"
 };
 
-var HomeController;
 
-HomeController = angular.element("[ng-controller=Home]").scope;
-
-describe("Home page", function() {
-  it("should have a specific controller", function() {
-    return expect(HomeController).toBeDefined();
-  });
-  it("should contain $scope.campione object", function() {
-    return expect(true).toBe(true);
-  });
-  return describe("Sidebar", function() {
-    return describe("User box", function() {
-      return describe("Logged out", function() {});
-    });
-  });
-});
 
 describe("Rigorix Module", function() {
-  return it("should have the right name", function() {
-    return expect(Rigorix.name).toBe("Rigorix");
+  it("module should be defined", function() {
+    return expect(Rigorix).toBeDefined();
+  });
+  it("should be able to load a controller", function() {
+    angular.mock.module('Rigorix');
+    return expect(Rigorix.MainCtrl).toBeDefined();
+  });
+  it("should have env parameters", function() {
+    return expect(RigorixEnv).toBeDefined();
+  });
+  return it("should have a User object", function() {
+    return expect(User).toBeDefined();
   });
 });

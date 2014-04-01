@@ -18,7 +18,8 @@
     "ng-file-upload": "~1.2.8",
     "jquery-cookie": "~1.4.0",
     "angular-animate": "~1.2.15",
-    "bootstrap": "~3.1.1"
+    "bootstrap": "~3.1.1",
+    "angular-mocks": "~1.2.15"
   },
   "homepage": "http://www.rigorix.com",
   "authors": [

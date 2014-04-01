@@ -34,7 +34,7 @@ module.exports = (grunt) ->
         files: [
           "specs/app/**/*.coffee"
         ]
-        tasks: ["dev:jasmine"]
+        tasks: ["coffee:compileJasmine"]
 
       options:
         interrupt: true
@@ -197,6 +197,11 @@ module.exports = (grunt) ->
 
     # Specs
 
+    karma:
+      unit:
+        configFile: 'karma.conf.js'
+        background: true
+
     jasmine:
       pivotal:
         src: 'app/assets/dist/app.js'
@@ -231,6 +236,7 @@ module.exports = (grunt) ->
   grunt.renameTask   "bower", "bowerInstall"
   grunt.loadNpmTasks "grunt-bower"
 
+  grunt.loadNpmTasks "grunt-karma"
   grunt.loadNpmTasks "grunt-contrib-jasmine";
   grunt.loadNpmTasks "grunt-phpunit";
 
@@ -266,6 +272,9 @@ module.exports = (grunt) ->
     "coffee:compileJasmine"
     "jasmine:pivotal"
     "phpunit"
+  ]
+  grunt.registerTask "karmarun", [
+    "karma:unit"
   ]
 
   # STAGING / PRODUCTION tasks -----------------------------------------------------------------------------------------

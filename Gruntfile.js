@@ -25,7 +25,7 @@ module.exports = function(grunt) {
       },
       jasmine: {
         files: ["specs/app/**/*.coffee"],
-        tasks: ["dev:jasmine"]
+        tasks: ["coffee:compileJasmine"]
       },
       options: {
         interrupt: true
@@ -127,6 +127,12 @@ module.exports = function(grunt) {
         }
       }
     },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        background: true
+      }
+    },
     jasmine: {
       pivotal: {
         src: 'app/assets/dist/app.js',
@@ -162,6 +168,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-bower-task");
   grunt.renameTask("bower", "bowerInstall");
   grunt.loadNpmTasks("grunt-bower");
+  grunt.loadNpmTasks("grunt-karma");
   grunt.loadNpmTasks("grunt-contrib-jasmine");
   grunt.loadNpmTasks("grunt-phpunit");
   grunt.registerTask("dev", ["concurrent:dev"]);
@@ -170,5 +177,6 @@ module.exports = function(grunt) {
   grunt.registerTask("dev:bower", ["bowerInstall", "bower"]);
   grunt.registerTask("dev:update", ["clean:dependencies", "bowerInstall", "bower", "ngtemplates", "dev:script", "dev:less"]);
   grunt.registerTask("specs", ["coffee:compileJasmine", "jasmine:pivotal", "phpunit"]);
+  grunt.registerTask("karmarun", ["karma:unit"]);
   return grunt.registerTask("deploy:staging", ["specs", "dev:update", "ftp_upload"]);
 };

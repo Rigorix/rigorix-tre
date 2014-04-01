@@ -3,7 +3,9 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/Gruntfile.js" />
-        <item url="file://$PROJECT_DIR$/specs/app/helpers.js" />
+        <item url="file://$PROJECT_DIR$/specs/app/module/rigorix.spec.js" />
+        <item url="file://$PROJECT_DIR$/specs/app/home/homepage.spec.js" />
+        <item url="file://$PROJECT_DIR$/app/app.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -41,19 +43,21 @@
       <root url="file://$PROJECT_DIR$/app/controllers/AreaPersonale.js" />
       <root url="file://$PROJECT_DIR$/app/services/auth.js" />
       <root url="file://$PROJECT_DIR$/app/services/user.js" />
-      <root url="file://$PROJECT_DIR$/app/app.js" />
       <root url="file://$PROJECT_DIR$/app/services/sfide.js" />
       <root url="file://$PROJECT_DIR$/app/config.js" />
       <root url="file://$PROJECT_DIR$/app/controllers/ListaSfide.js" />
       <root url="file://$PROJECT_DIR$/app/directives/directives.js" />
       <root url="file://$PROJECT_DIR$/app/controllers/Main.js" />
       <root url="file://$PROJECT_DIR$/app/controllers/Modals.js" />
-      <root url="file://$PROJECT_DIR$/app/app.js" />
       <root url="file://$PROJECT_DIR$/app/config.js" />
       <root url="file://$PROJECT_DIR$/app/server.js" />
       <root url="file://$PROJECT_DIR$/Gruntfile_old.js" />
-      <root url="file://$PROJECT_DIR$/Gruntfile.js" />
       <root url="file://$PROJECT_DIR$/specs/app/helpers.js" />
+      <root url="file://$PROJECT_DIR$/specs/app/helpers.js" />
+      <root url="file://$PROJECT_DIR$/Gruntfile.js" />
+      <root url="file://$PROJECT_DIR$/specs/app/module/rigorix.spec.js" />
+      <root url="file://$PROJECT_DIR$/specs/app/home/homepage.spec.js" />
+      <root url="file://$PROJECT_DIR$/app/app.js" />
     </CLASSES>
     <SOURCES />
   </library>
