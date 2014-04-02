@@ -1,0 +1,108 @@
+.icon-b_50matches__big {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -662px 0px;
+  width: 325px;
+  height: 325px;
+}
+.icon-b_50matches__small {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -545px -662px;
+  width: 102px;
+  height: 102px;
+}
+.icon-b_50matches__small_disabled {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -771px -439px;
+  width: 104px;
+  height: 104px;
+}
+.icon-b_first_game__big {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: 0px -662px;
+  width: 326px;
+  height: 325px;
+}
+.icon-b_first_game__small {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -331px -662px;
+  width: 102px;
+  height: 103px;
+}
+.icon-b_first_game__small_disabled {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -662px -330px;
+  width: 104px;
+  height: 104px;
+}
+.icon-b_match_25xscore_user__big {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: 0px -331px;
+  width: 326px;
+  height: 326px;
+}
+.icon-b_match_25xscore_user__small {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -438px -662px;
+  width: 102px;
+  height: 102px;
+}
+.icon-b_match_25xscore_user__small_disabled {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -880px -330px;
+  width: 104px;
+  height: 104px;
+}
+.icon-b_match_5xscore_user__big {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -331px -331px;
+  width: 325px;
+  height: 325px;
+}
+.icon-b_match_5xscore_user__small {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -879px -548px;
+  width: 103px;
+  height: 103px;
+}
+.icon-b_match_5xscore_user__small_disabled {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -880px -439px;
+  width: 104px;
+  height: 104px;
+}
+.icon-b_nofear__big {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -332px 0px;
+  width: 325px;
+  height: 326px;
+}
+.icon-b_nofear__small {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -771px -548px;
+  width: 103px;
+  height: 103px;
+}
+.icon-b_nofear__small_disabled {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -662px -548px;
+  width: 104px;
+  height: 104px;
+}
+.icon-default__big {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: 0px 0px;
+  width: 327px;
+  height: 326px;
+}
+.icon-default__small {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -662px -439px;
+  width: 104px;
+  height: 104px;
+}
+.icon-default__small_disabled {
+  background-image: url(/app/assets/images/sprite-rewards.png);
+  background-position: -771px -330px;
+  width: 104px;
+  height: 104px;
+}

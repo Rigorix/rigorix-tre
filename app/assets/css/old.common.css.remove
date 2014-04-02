@@ -41,9 +41,9 @@ textarea { width: 100%; }
 .generic .button { padding: 8px 15px; font-size: 14px; border-radius: 4px; margin: 30px auto; }
 
 /* #Titles & Texts */
-h3.title { font-size: 15px; color: #b2d700; }
-h3.title strong { color: #000; font-size: 15px; }
-h4.title { font-size: 14px; color: #2e95bd; margin-bottom: 7px; }
+h3.title { color: #b2d700; }
+h3.title strong { color: #000; }
+h4.title { color: #2e95bd; margin-bottom: 7px; }
 .medium-text { font-size: 13px; color: #333; }
 .medium-text a { font-size: 13px; }
 .blue { color: #39c !important; }
@@ -171,14 +171,6 @@ ul.normal-list li { margin-left: 15px; }
 .its-me { background: #2e95bd !important; color: #fff; }
 .punteggio-utente-container { margin: 4px 2px; background: #b2d700; display: inline-block; padding: 1px 2px; font-size: 10px; color: #fff; }
 
-.badge-list { width: 100%; float: none; overflow: visible; clear: both; }
-.badge-container { width: 100px; height: 100px; float: left; margin: 10px 15px;  }
-.badge-container img { opacity: .5}
-.badge-container.I-have-it img,
-.badge-container.haveit img { opacity: 1;}
-
-.badge-icon { background: #ccc; border: 2px dashed #333; width: 50px; height: 50px; display: inline-block; margin: 5px 10px; overflow: hidden; }
-
 .new-badges-container { padding: 10px; text-align: center; }
 .new-badges-container h2 { font-size: 17px; font-weight: normal; color: #666; margin-bottom: 14px; }
 .new-badges-container h2 strong { font-size: 17px; font-weight: bold; color: #b2d700; }
@@ -189,12 +181,6 @@ ul.normal-list li { margin-left: 15px; }
 
 .new-badges-container #mycarousel { margin: 0 30px !important; }
 .new-badges-container #mycarousel li { width: 322px; overflow: hidden; margin-right: 50px; height: 278px; }
-
-.lista-riconoscimenti { list-style: none; padding: 4px;  }
-.lista-riconoscimenti li { list-style: none; }
-.lista-riconoscimenti .punti { background: #eee; padding: 5px 0; width: 50px; margin: 0 10px 0 0; text-align: center; }
-.lista-riconoscimenti .punti.rosso { background-color: #BF3030; color: #fff !important;  }
-.lista-riconoscimenti .punti big { font-size: 25px; padding: 5px 0; }
 
 .deleted-user { color: #666; }
 

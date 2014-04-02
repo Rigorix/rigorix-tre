@@ -27,6 +27,10 @@ module.exports = function(grunt) {
         files: ["specs/app/**/*.coffee"],
         tasks: ["coffee:compileJasmine"]
       },
+      sprites: {
+        files: ["app/assets/sprites/*.*"],
+        tasks: ['sprite:all', 'sprite:rewards']
+      },
       options: {
         interrupt: true
       }
@@ -39,7 +43,7 @@ module.exports = function(grunt) {
         files: {
           "app/assets/temp/angular.app.config.js": ["app/config.coffee"],
           "app/assets/temp/angular.app.main.js": ["app/app.coffee"],
-          "app/assets/temp/angular.app.js": ["app/modules/*.coffee", "app/controllers/*.coffee", "app/directives/*.coffee", "app/filters/*.coffee", "app/services/*.coffee", "app/factories/*.coffee"],
+          "app/assets/temp/angular.app.js": ["app/modules/**/*.coffee", "app/controllers/**/*.coffee", "app/directives/**/*.coffee", "app/filters/**/*.coffee", "app/services/**/*.coffee", "app/factories/**/*.coffee"],
           "app/administr/dist/app.js": ["app/administr/app.coffee"],
           "app/administr/dist/angular.js": ["app/administr/angular/**/*.coffee"]
         }
@@ -81,6 +85,32 @@ module.exports = function(grunt) {
         },
         files: {
           "app/assets/temp/app.main.css": "app/assets/less/common.less"
+        }
+      }
+    },
+    sprite: {
+      all: {
+        src: "app/assets/sprites/*.*",
+        destImg: "app/assets/images/spritesmith.png",
+        destCSS: "app/assets/less/sprites/spritesmith.less",
+        imgPath: "/app/assets/images/spritesmith.png",
+        algorithm: "binary-tree",
+        cssFormat: "less",
+        padding: 5,
+        imgOpts: {
+          quality: 100
+        }
+      },
+      rewards: {
+        src: "app/assets/sprites/rewards/*",
+        destImg: "app/assets/images/sprite-rewards.png",
+        destCSS: "app/assets/css/sprite-rewards.css",
+        imgPath: "/app/assets/images/sprite-rewards.png",
+        algorithm: "binary-tree",
+        cssFormat: "css",
+        padding: 5,
+        imgOpts: {
+          quality: 100
         }
       }
     },
@@ -164,6 +194,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks("grunt-ftp-upload");
+  grunt.loadNpmTasks("grunt-spritesmith");
   grunt.loadNpmTasks("grunt-angular-templates");
   grunt.loadNpmTasks("grunt-bower-task");
   grunt.renameTask("bower", "bowerInstall");
@@ -175,7 +206,7 @@ module.exports = function(grunt) {
   grunt.registerTask("dev:script", ["coffee:compileBare", "ngtemplates", "concat:script", "uglify:dev", "clean:temp"]);
   grunt.registerTask("dev:less", ["less:development", "concat:css", "cssmin", "clean:temp"]);
   grunt.registerTask("dev:bower", ["bowerInstall", "bower"]);
-  grunt.registerTask("dev:update", ["clean:dependencies", "bowerInstall", "bower", "ngtemplates", "dev:script", "dev:less"]);
+  grunt.registerTask("dev:update", ["clean:dependencies", "bowerInstall", "bower", "ngtemplates", "dev:script", "sprite:all", "sprite:rewards", "dev:less"]);
   grunt.registerTask("specs", ["coffee:compileJasmine", "jasmine:pivotal", "phpunit"]);
   grunt.registerTask("karmarun", ["karma:unit"]);
   return grunt.registerTask("deploy:staging", ["specs", "dev:update", "ftp_upload"]);

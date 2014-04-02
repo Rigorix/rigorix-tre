@@ -20,10 +20,6 @@ Flight::route("PUT /users/@id_utente/{$env->TOKEN_SECRET}/@token", function($id_
 
 ///---------------------------------------------------------------------------------------------------------------------
 
-Flight::route('GET /badges', function() {
-  echo Rewards::badges()->active()->get()->toJson();
-});
-
 Flight::route('GET /users/active', function() {
   echo (string)Users::active()->get();
 });

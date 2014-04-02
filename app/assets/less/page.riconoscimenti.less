@@ -1,0 +1,25 @@
+.lista-riconoscimenti {
+  .list-unstyled();
+
+  li {
+    .list-unstyled();
+
+    .punti {
+      background: lighten(@color-gray, 20);
+      padding: 5px 0;
+      width: 50px;
+      .text-center();
+      .center-block();
+
+      &.negative {
+        background: @color-red;
+        color: @color-white;
+      }
+
+      big {
+        font-size: 2.2em;
+        padding: 5px 0;
+      }
+    }
+  }
+}

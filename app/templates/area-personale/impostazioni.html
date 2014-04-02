@@ -95,105 +95,93 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 
-            <div ng-show="sectionPage == 'mascotte'">
+            <div ng-show="sectionPage == 'mascotte'" class="mascotte">
 
-                    <div class="callout callout-warning mtn">
-                        <h4 class="mbm">Rigorix mascotte</h4>
-                        <p class="mbm">Da questa pagina puoi aggiornare l'aspetto del tuo giocatore.<br>Inoltre, puoi impostare le tue frasi di guerra o il tuo giocatore preferito!</p>
+                <div class="callout callout-warning mtn">
+                    <h4 class="mbm">Rigorix mascotte</h4>
+                    <p class="mbm">Da questa pagina puoi aggiornare l'aspetto del tuo giocatore.<br>Inoltre, puoi impostare le tue frasi di guerra o il tuo giocatore preferito!</p>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h5>Personalizza la tua divisa</h5>
                     </div>
 
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h5>Personalizza la tua divisa</h5>
-                        </div>
-
-                        <div class="panel-content pbl">
-                            <div class="row">
-                                <div class="col col-sm-5 pam">
-                                    <div id="mascotteScreen">
-                                        <div id="mascottePreloader">
-                                            <img src="i/maschera_maglia_1.png" width="227" height="136" />
-                                            <img src="i/maschera_maglia_2.png" width="227" height="136" />
-                                            <img src="i/maschera_maglia_3.png" width="227" height="136" />
-                                            <img src="i/maschera_maglia_4.png" width="227" height="136" />
-                                        </div>
-                                        <div id="setup_maglietta" style="background-color:{{currentUser.db_object.colore_maglietta}}">
-                                            <img ng-src="i/maschera_maglia_{{currentUser.db_object.tipo_maglietta}}.png" width="227" height="136">
-                                        </div>
-                                        <div id="setup_pantaloncini"  style="background-color:{{currentUser.db_object.colore_pantaloncini}}">
-                                            <img ng-src="i/maschera_pantaloni.png" width="227" height="39">
-                                        </div>
-                                        <div id="setup_calzini"  style="background-color:{{currentUser.db_object.colore_calzini}}">
-                                            <img ng-src="i/maschera_gambe.png" width="227" height="81">
-                                        </div>
-                                        <div id="setup_numero">{{currentUser.db_object.numero_maglietta}}</div>
-                                        <div id="setup_numero_shadow">{{currentUser.db_object.numero_maglietta}}</div>
+                    <div class="panel-content pam pbl">
+                        <div class="row">
+                            <div class="col col-sm-5">
+                                <div id="mascotteScreen">
+                                    <div id="mascottePreloader">
+                                        <img src="/app/assets/images/maschera_maglia_1.png" />
+                                        <img src="/app/assets/images/maschera_maglia_2.png" />
+                                        <img src="/app/assets/images/maschera_maglia_3.png" />
+                                        <img src="/app/assets/images/maschera_maglia_4.png" />
                                     </div>
-                                </div>
-                                <div class="col col-sm-7 pam">
-                                    <div class="well well-small">
-                                        <div class="row">
-                                            <div class="col col-sm-12">
-                                                <h5 class="mbm">Numero maglia</h5>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col col-sm-2">
-                                                <input type="text" maxlength="2" class="form-control" ng-model="currentUser.db_object.numero_maglietta" >
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row mtl">
-                                            <div class="col col-sm-12">
-                                                <h5 class="mbm">Topo divisa</h5>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col col-sm-12">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn" ng-class="{'active': currentUser.db_object.tipo_maglietta == 1}" ng-model="currentUser.db_object.tipo_maglietta" btn-radio="1"><img src="i/maglia_thumb_1.gif"></button>
-                                                    <button type="button" class="btn" ng-class="{'active': currentUser.db_object.tipo_maglietta == 2}" ng-model="currentUser.db_object.tipo_maglietta" btn-radio="2"><img src="i/maglia_thumb_2.gif"></button>
-                                                    <button type="button" class="btn" ng-class="{'active': currentUser.db_object.tipo_maglietta == 3}" ng-model="currentUser.db_object.tipo_maglietta" btn-radio="3"><img src="i/maglia_thumb_3.gif"></button>
-                                                    <button type="button" class="btn" ng-class="{'active': currentUser.db_object.tipo_maglietta == 4}" ng-model="currentUser.db_object.tipo_maglietta" btn-radio="4"><img src="i/maglia_thumb_4.gif"></button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mtl">
-                                            <div class="col col-sm-12">
-                                                <h5 class="mbm">Colore divisa</h5>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col col-sm-12">
-                                                <div class="input-group">
-                                                    <input colorpicker class="form-control" type="text" ng-model="currentUser.db_object.colore_maglietta" style="background-color: {{currentUser.db_object.colore_maglietta}}; color: {{currentUser.db_object.colore_maglietta}}" />
-                                                    <span class="input-group-addon">Maglietta</span>
-                                                </div>
-                                                <div class="input-group mvm">
-                                                    <input colorpicker class="form-control" type="text" ng-model="currentUser.db_object.colore_pantaloncini" style="background-color: {{currentUser.db_object.colore_pantaloncini}}; color: {{currentUser.db_object.colore_pantaloncini}}" />
-                                                    <span class="input-group-addon">Pantaloncini</span>
-                                                </div>
-                                                <div class="input-group">
-                                                    <input colorpicker class="form-control" type="text" ng-model="currentUser.db_object.colore_calzini" style="background-color: {{currentUser.db_object.colore_calzini}}; color: {{currentUser.db_object.colore_calzini}}" />
-                                                    <span class="input-group-addon">Calzini</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                    <div id="setup_maglietta" style="background-color:{{currentUser.db_object.colore_maglietta}}">
+                                        <img ng-src="/app/assets/images/maschera_maglia_{{currentUser.db_object.tipo_maglietta}}.png">
                                     </div>
+                                    <div id="setup_pantaloncini"  style="background-color:{{currentUser.db_object.colore_pantaloncini}}">
+                                        <img ng-src="/app/assets/images/maschera_pantaloni.png">
+                                    </div>
+                                    <div id="setup_calzini"  style="background-color:{{currentUser.db_object.colore_calzini}}">
+                                        <img ng-src="/app/assets/images/maschera_gambe.png">
+                                    </div>
+                                    <div id="setup_numero">{{currentUser.db_object.numero_maglietta}}</div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col col-sm-12 text-center">
-                                    <button class="btn btn-success" ng-click="doUpdateUserData()" icon="save">AGGIORNA DATI</button>
-                                </div>
+                            <div class="col col-sm-7">
+                                <!--<div class="well well-small">-->
+                                    <div class="row">
+                                        <div class="col col-sm-12">
+                                            <h5 class="mbm">Maglietta</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-sm-2">
+                                            <input type="text" maxlength="2" class="form-control give-space text-center" ng-model="currentUser.db_object.numero_maglietta" >
+                                        </div>
+                                        <div class="col col-sm-10">
+                                            <div class="btn-group tipo-divisa">
+                                                <button type="button" style="background-color: {{currentUser.db_object.colore_maglietta}};" class="maglietta-thumb-1" ng-class="{'active': currentUser.db_object.tipo_maglietta == 1}" ng-model="currentUser.db_object.tipo_maglietta" btn-radio="1"></button>
+                                                <button type="button" style="background-color: {{currentUser.db_object.colore_maglietta}};" class="maglietta-thumb-2" ng-class="{'active': currentUser.db_object.tipo_maglietta == 2}" ng-model="currentUser.db_object.tipo_maglietta" btn-radio="2"></button>
+                                                <button type="button" style="background-color: {{currentUser.db_object.colore_maglietta}};" class="maglietta-thumb-3" ng-class="{'active': currentUser.db_object.tipo_maglietta == 3}" ng-model="currentUser.db_object.tipo_maglietta" btn-radio="3"></button>
+                                                <button type="button" style="background-color: {{currentUser.db_object.colore_maglietta}};" class="maglietta-thumb-4" ng-class="{'active': currentUser.db_object.tipo_maglietta == 4}" ng-model="currentUser.db_object.tipo_maglietta" btn-radio="4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mtm">
+                                        <div class="col col-sm-12">
+                                            <h5 class="mbm">Colore divisa</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-sm-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Maglietta</span>
+                                                <input colorpicker class="form-control" type="text" ng-model="currentUser.db_object.colore_maglietta" style="background-color: {{currentUser.db_object.colore_maglietta}}; color: {{currentUser.db_object.colore_maglietta}}" />
+                                            </div>
+                                            <div class="input-group mvm">
+                                                <span class="input-group-addon">Pantaloncini</span>
+                                                <input colorpicker class="form-control" type="text" ng-model="currentUser.db_object.colore_pantaloncini" style="background-color: {{currentUser.db_object.colore_pantaloncini}}; color: {{currentUser.db_object.colore_pantaloncini}}" />
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Calzini</span>
+                                                <input colorpicker class="form-control" type="text" ng-model="currentUser.db_object.colore_calzini" style="background-color: {{currentUser.db_object.colore_calzini}}; color: {{currentUser.db_object.colore_calzini}}" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <div class="row mtl">
+                            <div class="col col-sm-12 text-center">
+                                <button class="btn btn-success" ng-click="doUpdateUserData()" icon="save">AGGIORNA DATI</button>
                             </div>
                         </div>
                     </div>
-
-
+                </div>
 
             </div>
 

@@ -14,6 +14,11 @@ class Rewards extends  Illuminate\Database\Eloquent\Model {
     return $query->where("tipo", "=", "badge");
   }
 
+  public function scopePunti ($query)
+  {
+    return $query->where("tipo", "=", "punto");
+  }
+
   public function scopeActive ($query)
   {
     return $query->where("active", "=", 1);

@@ -33,11 +33,11 @@
 
     <div id="body" class="row" ng-controller="Home">
 
-      <div class="col col-sm-9">
+      <div class="col col-sm-8 col-md-9 col-lg-9">
         <div ng-view class="rigorix-main-view"></div>
       </div>
 
-      <div class="col col-sm-3 sidebar" ng-controller="Sidebar">
+      <div class="col col-sm-4 col-md-3 col-lg-3 sidebar" ng-controller="Sidebar">
         <div ng-include="'/app/templates/partials/user-box.html'"></div>
         <div ng-include="'/app/templates/partials/best-users.html'"></div>
       </div>

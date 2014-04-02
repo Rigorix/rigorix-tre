@@ -27,6 +27,8 @@
     "karma": "~0.12.2",
     "grunt-karma": "~0.8.2",
     "karma-chrome-launcher": "~0.1.2",
-    "karma-jasmine": "~0.1.5"
+    "karma-jasmine": "~0.1.5",
+    "grunt-montage": "0.0.7",
+    "grunt-spritesmith": "~1.24.0"
   }
 }

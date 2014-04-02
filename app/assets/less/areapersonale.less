@@ -1,121 +1,231 @@
-/// Modals
-.modal-read-message {
-  .modal-dialog {
-    width: 500px;
-  }
-}
-.modal-write-message {
-  .modal-dialog {
-    width: 500px;
-  }
-}
-.modal-delete-user {
-  .modal-dialog {
-    width: 320px;
-  }
-}
+html.AreaPersonale {
 
-.table-messages {
-  .success {
-    td {
-      font-weight: 600;
+  /// Modals
+  .modal-read-message {
+    .modal-dialog {
+      width: 500px;
     }
   }
-}
-
-.ta-editor {
-  height: auto;
-}
-
-.panel-heading {
-  .btn {
-    margin: -4px;
-    padding: 3px 10px;
+  .modal-write-message {
+    .modal-dialog {
+      width: 500px;
+    }
   }
-}
-
-#mascotteScreen {
-  width: 227px;
-  margin: 0 auto;
-}
-
-.btn-file-container {
-  position: relative;
-
-  input {
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    opacity: 0;
-    height: 30px;
-  }
-}
-
-.social-network {
-  font-size: 15px;
-
-  &.color-facebook {
-    color: @color-facebook;
+  .modal-delete-user {
+    .modal-dialog {
+      width: 320px;
+    }
   }
 
-  &.color-google {
-    color: @color-google;
+  .table-messages {
+    .success {
+      td {
+        font-weight: 600;
+      }
+    }
   }
 
-  &.color-instagram {
-    color: @color-instagram;
+  .ta-editor {
+    height: auto;
   }
-}
 
-.navbar {
-  .gradient(#f3f3f3, #efefef);
+  .panel-heading {
+    .btn {
+      margin: -4px;
+      padding: 3px 10px;
+    }
+  }
 
-  .navbar-brand {
-    font-size: 33px;
-    color: @color-white;
-    text-align: center;
-    padding: 1px 11px 5px 12px;
-    margin: 0;
-    background: @color-rigorix-blue;
-    height: 52px;
+  #mascotteScreen {
+    width: auto;
+    margin: 0 auto;
+    position: relative;
 
-    &:hover {
+    #mascottePreloader {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    #setup_numero {
+      position: absolute;
+      top: 37%;
+      left: 50%;
+      margin-left: -15px;
       color: @color-white;
-      background: @color-rigorix-blue;
-    }
-
-    small {
-      display: block;
-      text-align: center;
-      font-size: 11px;
-      text-transform: uppercase;
-      margin-top: -2px;
-    }
-  }
-  .navbar-toggle {
-    padding: 8px 10px 5px;
-
-    .fa {
       font-size: 20px;
-      margin: 0 !important;
+      font-weight: bold;
+      text-shadow: 0px 0px 4px #000;
     }
   }
 
-  .navbar-nav {
-    li {
-      a {
-        font-size: 16px;
-        color: @color-base-blue;
-        font-family: Grobold;
-        text-transform: uppercase;
+  .btn-file-container {
+    position: relative;
 
-        span {
-          margin-right: 9px !important;
-          font-size: 20px;
-//          color: @color-rigorix-blue;
+    input {
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      left: 0;
+      opacity: 0;
+      height: 30px;
+    }
+  }
+
+  .social-network {
+    font-size: 15px;
+
+    &.color-facebook {
+      color: @color-facebook;
+    }
+
+    &.color-google {
+      color: @color-google;
+    }
+
+    &.color-instagram {
+      color: @color-instagram;
+    }
+  }
+
+  .navbar {
+    .gradient(#f3f3f3, #efefef);
+
+    .navbar-brand {
+      font-size: 33px;
+      color: @color-white;
+      text-align: center;
+      padding: 1px 11px 5px 12px;
+      margin: 0;
+      background: @color-rigorix-blue;
+      height: 52px;
+
+      &:hover {
+        color: @color-white;
+        background: @color-rigorix-blue;
+      }
+
+      small {
+        display: block;
+        text-align: center;
+        font-size: 11px;
+        text-transform: uppercase;
+        margin-top: -2px;
+      }
+    }
+    .navbar-toggle {
+      padding: 8px 10px 5px;
+
+      .fa {
+        font-size: 20px;
+        margin: 0 !important;
+      }
+    }
+
+    .navbar-nav {
+      li {
+        a {
+          font-size: 16px;
+          color: @color-base-blue;
+          font-family: Grobold;
+          text-transform: uppercase;
+
+          span {
+            margin-right: 9px !important;
+            font-size: 20px;
+  //          color: @color-rigorix-blue;
+          }
         }
       }
     }
   }
+
+
+  /// User page
+  .areapersonale-utente {
+
+    .badge-list {
+      .clearfix();
+
+      .badge-container {
+        display: inline-block;
+        margin: 10px;
+
+        > div {
+          .opacity(.5);
+        }
+
+        &.haveit {
+          > div {
+            .opacity(1);
+          }
+        }
+      }
+    }
+  }
+
+  /// Impostazioni
+  .mascotte {
+    .tipo-divisa {
+      white-space: nowrap;
+      width: 200px;
+      border-bottom: 5px solid darken(@btn-info-bg, 20);
+      .clearfix();
+
+      button {
+        float: left;
+        border-radius: 0;
+        border: 0;
+        background-color: transparent;
+        width: 50px;
+        height: 31px;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        .transition(margin);
+        .transition-duration(.2s);
+
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: " ";
+          z-index: 2;
+        }
+        &:active {
+          margin: 0;
+          border: 0;
+        }
+
+        &.active {
+          margin: 5px 0 -5px 0;
+        }
+      }
+      .maglietta-thumb-1 {
+        &:after {
+          .sprite(@maschera_maglia_1);
+        }
+      }
+      .maglietta-thumb-2 {
+        &:after {
+          .sprite(@maschera_maglia_2);
+        }
+      }
+      .maglietta-thumb-3 {
+        &:after {
+          .sprite(@maschera_maglia_3);
+        }
+      }
+      .maglietta-thumb-4 {
+        &:after {
+          .sprite(@maschera_maglia_4);
+        }
+      }
+    }
+  }
+
+
+
 }
