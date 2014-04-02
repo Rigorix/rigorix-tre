@@ -28,6 +28,7 @@ Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource'
 
   $scope.checkMessagesActions = ->
     $scope.stopUpdates = $(".table-messages tbody").find(":checked").size() > 0
+    $("[name=toggleAllMessages]").prop("checked", null) if $(".table-messages tbody").find(":checked").size() isnt $(".table-messages tbody").size()
 
   $scope.deleteMessages = ->
     messages = $(".table-messages tbody").find(":checked")

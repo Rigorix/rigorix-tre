@@ -30766,7 +30766,7 @@ var styleDirective = valueFn({
 !angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>');;
 
 /**
- * @license AngularJS v1.2.16-build.63+sha.8d4d437
+ * @license AngularJS v1.2.16-build.70+sha.6e420ff
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -36558,7 +36558,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 ;
 
 /**
- * @license AngularJS v1.2.15
+ * @license AngularJS v1.2.16-build.70+sha.6e420ff
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -37656,12 +37656,12 @@ function createHttpBackendMock($rootScope, $delegate, $browser) {
       responsesPush = angular.bind(responses, responses.push),
       copy = angular.copy;
 
-  function createResponse(status, data, headers) {
+  function createResponse(status, data, headers, statusText) {
     if (angular.isFunction(status)) return status;
 
     return function() {
       return angular.isNumber(status)
-          ? [status, data, headers]
+          ? [status, data, headers, statusText]
           : [200, status, data];
     };
   }
@@ -37686,7 +37686,8 @@ function createHttpBackendMock($rootScope, $delegate, $browser) {
       function handleResponse() {
         var response = wrapped.response(method, url, data, headers);
         xhr.$$respHeaders = response[2];
-        callback(copy(response[0]), copy(response[1]), xhr.getAllResponseHeaders());
+        callback(copy(response[0]), copy(response[1]), xhr.getAllResponseHeaders(),
+                 copy(response[3] || ''));
       }
 
       function handleTimeout() {
@@ -37753,16 +37754,17 @@ function createHttpBackendMock($rootScope, $delegate, $browser) {
    *   request is handled.
    *
    *  - respond –
-   *      `{function([status,] data[, headers])|function(function(method, url, data, headers)}`
-   *    – The respond method takes a set of static data to be returned or a function that can return
-   *    an array containing response status (number), response data (string) and response headers
-   *    (Object).
+   *      `{function([status,] data[, headers, statusText])
+   *      | function(function(method, url, data, headers)}`
+   *    – The respond method takes a set of static data to be returned or a function that can
+   *    return an array containing response status (number), response data (string), response
+   *    headers (Object), and the text for the status (string).
    */
   $httpBackend.when = function(method, url, data, headers) {
     var definition = new MockHttpExpectation(method, url, data, headers),
         chain = {
-          respond: function(status, data, headers) {
-            definition.response = createResponse(status, data, headers);
+          respond: function(status, data, headers, statusText) {
+            definition.response = createResponse(status, data, headers, statusText);
           }
         };
 
@@ -37870,17 +37872,18 @@ function createHttpBackendMock($rootScope, $delegate, $browser) {
    *  request is handled.
    *
    *  - respond –
-   *    `{function([status,] data[, headers])|function(function(method, url, data, headers)}`
-   *    – The respond method takes a set of static data to be returned or a function that can return
-   *    an array containing response status (number), response data (string) and response headers
-   *    (Object).
+   *    `{function([status,] data[, headers, statusText])
+   *    | function(function(method, url, data, headers)}`
+   *    – The respond method takes a set of static data to be returned or a function that can
+   *    return an array containing response status (number), response data (string), response
+   *    headers (Object), and the text for the status (string).
    */
   $httpBackend.expect = function(method, url, data, headers) {
     var expectation = new MockHttpExpectation(method, url, data, headers);
     expectations.push(expectation);
     return {
-      respond: function(status, data, headers) {
-        expectation.response = createResponse(status, data, headers);
+      respond: function (status, data, headers, statusText) {
+        expectation.response = createResponse(status, data, headers, statusText);
       }
     };
   };
@@ -38382,13 +38385,14 @@ angular.module('ngMockE2E', ['ng']).config(['$provide', function($provide) {
  *   control how a matched request is handled.
  *
  *  - respond –
- *    `{function([status,] data[, headers])|function(function(method, url, data, headers)}`
+ *    `{function([status,] data[, headers, statusText])
+ *    | function(function(method, url, data, headers)}`
  *    – The respond method takes a set of static data to be returned or a function that can return
- *    an array containing response status (number), response data (string) and response headers
- *    (Object).
- *  - passThrough – `{function()}` – Any request matching a backend definition with `passThrough`
- *    handler will be passed through to the real backend (an XHR request will be made to the
- *    server.)
+ *    an array containing response status (number), response data (string), response headers
+ *    (Object), and the text for the status (string).
+ *  - passThrough – `{function()}` – Any request matching a backend definition with
+ *    `passThrough` handler will be passed through to the real backend (an XHR request will be made
+ *    to the server.)
  */
 
 /**
@@ -38772,7 +38776,7 @@ if(window.jasmine || window.mocha) {
 ;
 
 /**
- * @license AngularJS v1.2.16-build.63+sha.8d4d437
+ * @license AngularJS v1.2.16-build.70+sha.6e420ff
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -39384,7 +39388,7 @@ angular.module('ngResource', ['ng']).
 ;
 
 /**
- * @license AngularJS v1.2.16-build.63+sha.8d4d437
+ * @license AngularJS v1.2.16-build.70+sha.6e420ff
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -40313,7 +40317,7 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 ;
 
 /**
- * @license AngularJS v1.2.16-build.63+sha.8d4d437
+ * @license AngularJS v1.2.16-build.70+sha.6e420ff
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -46996,7 +47000,10 @@ Rigorix.controller('Messages', [
       return false;
     };
     $scope.checkMessagesActions = function() {
-      return $scope.stopUpdates = $(".table-messages tbody").find(":checked").size() > 0;
+      $scope.stopUpdates = $(".table-messages tbody").find(":checked").size() > 0;
+      if ($(".table-messages tbody").find(":checked").size() !== $(".table-messages tbody").size()) {
+        return $("[name=toggleAllMessages]").prop("checked", null);
+      }
     };
     $scope.deleteMessages = function() {
       var ids, message, messages;
@@ -47382,9 +47389,11 @@ Rigorix.controller("Modals.NewUser", [
 Rigorix.controller("Sidebar", [
   '$scope', 'Api', '$rootScope', function($scope, Api) {
     $scope.topUsers = [];
+    $scope.topUsersLoaded = false;
     return Api.call("get", "users/top/10", {
       success: function(json) {
-        return $scope.topUsers = json.data;
+        $scope.topUsers = json.data;
+        return $scope.topUsersLoaded = true;
       }
     });
   }
@@ -52399,7 +52408,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/pages/home.page.html',
-    "<div class=\"row-fluid\"><!--<?php $core->render_user_alerts (); ?>--><div class=\"col-sm-12 mbl\"><img src=\"app/assets/images/emotional-home.jpg\" width=\"100%\"></div></div><div class=\"row-fluid mtl\"><div class=\"col-sm-6\"><div class=\"panel panel-info\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Il campione della settimana</h3></div><p class=\"panel-body\" ng-show=\"!campione\">Non &egrave; possibile stabilire il campione dell'ultima settimana.</p><div ng-show=\"campione\"><div class=\"best-user-box\"><div class=\"best-user-detail\"><h4>{{campione.userObject.username}}</h4><h4><span class=\"label label-warning\">{{campione.punteggio}}</span> <small>(punti ultimi 7 giorni)</small></h4></div><div class=\"best-user-score\"><span><small>{{campione.userObject.punteggio_totale}} punti totali</small> <small>&nbsp;{{campione.userObject.badges.length}} copp{{campione.userObject.badges.length > 1 ? 'e' : 'a'}}</small> <small>&nbsp;{{campione.vittorie}} vittorie</small></span></div><div id=\"mascotteScreen\"><div id=\"setup_maglietta\" style=\"background-color: {{campione.userObject.colore_maglietta}}\"><img src=\"/app/assets/images/maschera_maglia_{{campione.userObject.tipo_maglietta || 1}}_f.png\" width=\"100%\"></div><div id=\"setup_pantaloncini\" style=\"background-color: {{campione.userObject.colore_pantaloncini}}\"><img src=\"/app/assets/images/maschera_pantaloni_f.png\" width=\"100%\"></div><div id=\"setup_calzini\" style=\"background-color: {{campione.userObject.colore_calzini}}\"><img src=\"/app/assets/images/maschera_gambe_f.png\" width=\"100%\"></div><div id=\"setup_numero\">{{campione.userObject.numero_maglietta}}</div></div></div></div></div></div><div class=\"col-sm-6\"><div class=\"panel\" ng-class=\"{'panel-danger': activeUsers.length == 0, 'panel-success': activeUsers.length > 0}\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Utenti attivi</h3></div><div class=\"panel-body\" ng-show=\"activeUsers.length == 0\"><p icon=\"warning-sign\">Nessun utente online in questo momento!</p></div><div class=\"list-group\" ng-show=\"activeUsers.length > 0\"><div class=\"list-group-item\" ng-repeat=\"user in activeUsers\"><username id-utente=\"user.id_utente\" with-picture=\"true\"></username></div></div></div></div></div>"
+    "<div class=\"row-fluid\"><!--<?php $core->render_user_alerts (); ?>--><div class=\"col-sm-12 mbl\"><img src=\"app/assets/images/emotional-home.jpg\" width=\"100%\"></div></div><div class=\"row-fluid\"><div class=\"col-sm-6\"><div ng-include=\"'/app/templates/partials/campione-settimana.html'\"></div></div><div class=\"col-sm-6\"><div ng-include=\"'/app/templates/partials/utenti-attivi.html'\"></div></div></div>"
   );
 
 
@@ -52438,7 +52447,12 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/partials/best-users.html',
-    "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h5 class=\"panel-title\">I migliori della settimana</h5></div><div class=\"list-group\"><div class=\"list-group-item\" ng-show=\"topUsers.length == 0\">Nessun utente</div><div class=\"list-group-item\" ng-repeat=\"user in topUsers\"><username id-utente=\"user.id_utente\" with-picture=\"true\" with-punteggio=\"true\"></username></div></div></div>"
+    "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h5 class=\"panel-title\">I migliori della settimana</h5></div><div class=\"list-group\"><div class=\"list-group-item\" ng-show=\"topUsersLoaded == false\">Caricamento utenti ...</div><div class=\"list-group-item\" ng-show=\"topUsers.length == 0 && topUsersLoaded == true\">Nessun utente</div><div class=\"list-group-item\" ng-repeat=\"user in topUsers\"><username id-utente=\"user.id_utente\" with-picture=\"true\" with-punteggio=\"true\"></username></div></div></div>"
+  );
+
+
+  $templateCache.put('/app/templates/partials/campione-settimana.html',
+    "<div class=\"panel panel-info\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Il campione della settimana</h3></div><p class=\"panel-body\" ng-show=\"!campione\">Non &egrave; possibile stabilire il campione dell'ultima settimana.</p><div ng-show=\"campione\"><div class=\"best-user-box\"><div class=\"best-user-detail\"><h4>{{campione.userObject.username}}</h4><h4><span class=\"label label-warning\">{{campione.punteggio}}</span> <small>(punti ultimi 7 giorni)</small></h4></div><div class=\"best-user-score\"><span><small>{{campione.userObject.punteggio_totale}} punti totali</small> <small>&nbsp;{{campione.userObject.badges.length}} copp{{campione.userObject.badges.length > 1 ? 'e' : 'a'}}</small> <small>&nbsp;{{campione.vittorie}} vittorie</small></span></div><div id=\"mascotteScreen\"><div id=\"setup_maglietta\" style=\"background-color: {{campione.userObject.colore_maglietta}}\"><img src=\"/app/assets/images/maschera_maglia_{{campione.userObject.tipo_maglietta || 1}}_f.png\" width=\"100%\"></div><div id=\"setup_pantaloncini\" style=\"background-color: {{campione.userObject.colore_pantaloncini}}\"><img src=\"/app/assets/images/maschera_pantaloni_f.png\" width=\"100%\"></div><div id=\"setup_calzini\" style=\"background-color: {{campione.userObject.colore_calzini}}\"><img src=\"/app/assets/images/maschera_gambe_f.png\" width=\"100%\"></div><div id=\"setup_numero\">{{campione.userObject.numero_maglietta}}</div></div></div></div></div>"
   );
 
 
@@ -52469,6 +52483,11 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('/app/templates/partials/username-select.html',
     "<a class=\"username-select\"><username id-utente=\"match.model.id_utente\" with-picture=\"true\"></username></a>"
+  );
+
+
+  $templateCache.put('/app/templates/partials/utenti-attivi.html',
+    "<div class=\"panel\" ng-class=\"{'panel-danger': activeUsers.length == 0, 'panel-success': activeUsers.length > 0}\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Utenti attivi</h3></div><div class=\"panel-body\" ng-show=\"activeUsers.length == 0\"><p icon=\"warning-sign\">Nessun utente online in questo momento!</p></div><div class=\"list-group\" ng-show=\"activeUsers.length > 0\"><div class=\"list-group-item\" ng-repeat=\"user in activeUsers\"><username id-utente=\"user.id_utente\" with-picture=\"true\"></username></div></div></div>"
   );
 
 }]);

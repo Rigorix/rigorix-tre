@@ -1,0 +1,14 @@
+<div class="panel" ng-class="{'panel-danger': activeUsers.length == 0, 'panel-success': activeUsers.length > 0}">
+    <div class="panel-heading">
+        <h3 class="panel-title">Utenti attivi</h3>
+    </div>
+    <div class="panel-body" ng-show="activeUsers.length == 0">
+        <p icon="warning-sign"> Nessun utente online in questo momento! </p>
+    </div>
+
+    <div class="list-group" ng-show="activeUsers.length > 0">
+        <div class="list-group-item" ng-repeat="user in activeUsers">
+            <username id-utente="user.id_utente" with-picture="true"></username>
+        </div>
+    </div>
+</div>

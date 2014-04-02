@@ -2,8 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Linkedin" afterPath="$PROJECT_DIR$/Opauth/lib/Opauth/Strategy/Linkedin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/partials/campione-settimana.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/partials/utenti-attivi.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/sprites/bg.gif" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/sprites/bg-website.png" afterPath="$PROJECT_DIR$/app/assets/images/bg-website.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/spritesmith.png" afterPath="$PROJECT_DIR$/app/assets/images/spritesmith.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Messagges.coffee" afterPath="$PROJECT_DIR$/app/controllers/Messagges.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" afterPath="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-animate.js" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-animate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-mocks.js" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-mocks.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-resource.js" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-resource.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-route.js" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-route.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-sanitize.js" afterPath="$PROJECT_DIR$/app/assets/dist/dependencies/angular-sanitize.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/partials/best-users.html" afterPath="$PROJECT_DIR$/app/templates/partials/best-users.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/common.less" afterPath="$PROJECT_DIR$/app/assets/less/common.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/pages/home.page.html" afterPath="$PROJECT_DIR$/app/templates/pages/home.page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/page.home.less" afterPath="$PROJECT_DIR$/app/assets/less/page.home.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/rigorix-templates.js" afterPath="$PROJECT_DIR$/app/assets/js/rigorix-templates.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/sprites/spritesmith.less" afterPath="$PROJECT_DIR$/app/assets/less/sprites/spritesmith.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/responsive/xs.less" afterPath="$PROJECT_DIR$/app/assets/less/responsive/xs.less" />
     </list>
     <list id="b22ffa96-ce66-4cc9-8c44-4b66f52233fe" name="ignore" comment="ignore" />
     <list id="6846ad5a-a70b-4884-b25b-56cc4f4958de" name="ignoreme" comment="ignoreme" />
@@ -36,93 +58,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="impostazioni.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/templates/area-personale/impostazioni.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="42" selection-start="7603" selection-end="7603" vertical-scroll-proportion="0.05388471" vertical-offset="1817" max-vertical-offset="3240">
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#2;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#3;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/forms.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="14" selection-start="3759" selection-end="3769" vertical-scroll-proportion="-28.458334" vertical-offset="1597" max-vertical-offset="6720">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="areapersonale.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/less/areapersonale.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="31" selection-start="855" selection-end="859" vertical-scroll-proportion="-25.583334" vertical-offset="271" max-vertical-offset="3540">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mixin.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/mixin.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="52" selection-start="23" selection-end="52" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2370">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/area-personale/page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="920" selection-end="920" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="colorpicker.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/angular-bootstrap-colorpicker/colorpicker.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="23" selection-start="1134" selection-end="1134" vertical-scroll-proportion="-32.541668" vertical-offset="179" max-vertical-offset="3000">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buttons.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/buttons.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="525">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buttons.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/buttons.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2550">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="old.common.css.remove" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/css/old.common.css.remove">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="23" selection-start="7856" selection-end="7856" vertical-scroll-proportion="-9.038462" vertical-offset="2045" max-vertical-offset="5640">
+            <state line="60" column="5" selection-start="648" selection-end="866" vertical-scroll-proportion="-23.083334" vertical-offset="346" max-vertical-offset="3540">
               <folding />
             </state>
           </provider>
@@ -131,7 +70,83 @@
       <file leaf-file-name="page.home.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/less/page.home.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="3" selection-start="1173" selection-end="1173" vertical-scroll-proportion="-21.208334" vertical-offset="511" max-vertical-offset="1185">
+            <state line="54" column="3" selection-start="958" selection-end="958" vertical-scroll-proportion="-23.916666" vertical-offset="236" max-vertical-offset="1185">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sm.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/less/responsive/sm.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="780">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xs.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/less/responsive/xs.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="11" selection-start="84" selection-end="163" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="3030">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="25" selection-start="1575" selection-end="1575" vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="990">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.page.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/pages/home.page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="63" selection-start="435" selection-end="435" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="390">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utenti-attivi.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/partials/utenti-attivi.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="6" selection-start="605" selection-end="605" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="285">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="best-users.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/templates/partials/best-users.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="6" selection-start="632" selection-end="632" vertical-scroll-proportion="0.32650447" vertical-offset="0" max-vertical-offset="781">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sidebar.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Sidebar.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="17" selection-start="104" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <folding>
+                <marker date="1396451886000" expanded="true" signature="81:259" placeholder="..." />
+                <marker date="1396451886000" expanded="true" signature="173:259" placeholder="success: (json)-&gt;&#10;      $scope.topUsers = json.data&#10;      $scope.topUsersLoaded = true..." />
+                <marker date="1396451886000" expanded="true" signature="197:259" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="campione-settimana.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/partials/campione-settimana.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="6" selection-start="1905" selection-end="1905" vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="585">
               <folding />
             </state>
           </provider>
@@ -156,15 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/api/routes/routes.users.php" />
-        <option value="$PROJECT_DIR$/api/classes/rewards.class.php" />
-        <option value="$PROJECT_DIR$/api/routes/routes.generic.php" />
-        <option value="$PROJECT_DIR$/Gruntfile.coffee" />
-        <option value="$PROJECT_DIR$/app/controllers/pages/Pages.coffee" />
-        <option value="$PROJECT_DIR$/app/assets/less/helpers.less" />
-        <option value="$PROJECT_DIR$/app/assets/less/common.less" />
-        <option value="$PROJECT_DIR$/app/assets/less/mixin.less" />
-        <option value="$PROJECT_DIR$/app/assets/less/page.riconoscimenti.less" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/app/assets/css/old.common.css" />
         <option value="$PROJECT_DIR$/app/templates/pages/riconoscimenti.page.html" />
@@ -172,6 +178,15 @@
         <option value="$PROJECT_DIR$/app/assets/less/areapersonale.less" />
         <option value="$PROJECT_DIR$/app/assets/less/bootstrap/forms.less" />
         <option value="$PROJECT_DIR$/app/templates/area-personale/impostazioni.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Messagges.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/less/common.less" />
+        <option value="$PROJECT_DIR$/app/assets/less/page.home.less" />
+        <option value="$PROJECT_DIR$/app/assets/less/responsive/xs.less" />
+        <option value="$PROJECT_DIR$/app/templates/partials/campione-settimana.html" />
+        <option value="$PROJECT_DIR$/app/templates/pages/home.page.html" />
+        <option value="$PROJECT_DIR$/app/templates/partials/utenti-attivi.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
+        <option value="$PROJECT_DIR$/app/templates/partials/best-users.html" />
       </list>
     </option>
   </component>
@@ -279,6 +294,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -328,6 +344,10 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -346,8 +366,22 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="area-personale" />
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -391,9 +425,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RigorixTre" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="less" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="responsive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -401,15 +460,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="265" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="261" />
-    <property name="recentsLimit" value="5" />
-    <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="261" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/phpunit.xml.dist" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="268" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1052" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1063" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1052" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="268" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="263" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -423,8 +482,8 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -467,8 +526,8 @@
       <recent name="$PROJECT_DIR$/app/assets/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/assets/sprites" />
       <recent name="$PROJECT_DIR$/app/assets/images" />
+      <recent name="$PROJECT_DIR$/app/assets/sprites" />
       <recent name="$PROJECT_DIR$/i/backup" />
       <recent name="$PROJECT_DIR$/api/classes" />
       <recent name="$PROJECT_DIR$/api" />
@@ -5055,26 +5114,26 @@
     <frame x="0" y="22" width="1920" height="1121" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18581419" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27172828" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13786213" sideWeight="0.5021521" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2747253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16783217" sideWeight="0.5021521" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2747253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16488793" sideWeight="0.86038595" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2372159" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28388017" sideWeight="0.4978479" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4225774" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26973027" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5606277" sideWeight="0.5050215" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="769" y="22" width="1235" height="824" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15154749" sideWeight="0.86213785" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14407684" sideWeight="0.8321678" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32382312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18581419" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26973027" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5606277" sideWeight="0.5050215" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -5100,9 +5159,9 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="769" y="22" width="1235" height="824" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16642755" sideWeight="0.7311522" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -5164,12 +5223,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/assets/dist/app.js</url>
-          <line>46436</line>
+          <line>46440</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/assets/dist/app.js</url>
-          <line>46451</line>
+          <line>46455</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
@@ -5177,114 +5236,16 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/type.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="0" selection-start="3103" selection-end="3103" vertical-scroll-proportion="-25.083334" vertical-offset="1783" max-vertical-offset="4485">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="39" selection-start="1855" selection-end="1855" vertical-scroll-proportion="-13.125" vertical-offset="270" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/page.riconoscimenti.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="22" selection-start="342" selection-end="342" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/userbox.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="14.375" vertical-offset="345" max-vertical-offset="1440">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/pages/riconoscimenti.page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="167" selection-start="455" selection-end="455" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="795">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/buttons.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2550">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/buttons.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="920" selection-end="920" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/page.home.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="3" selection-start="1173" selection-end="1173" vertical-scroll-proportion="-21.208334" vertical-offset="511" max-vertical-offset="1185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/dist/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3692" column="120564" selection-start="260961" selection-end="260961" vertical-scroll-proportion="0.8686131" vertical-offset="54785" max-vertical-offset="55470">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/css/old.common.css.remove">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="23" selection-start="7856" selection-end="7856" vertical-scroll-proportion="-9.038462" vertical-offset="2045" max-vertical-offset="5640">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/angular-bootstrap-colorpicker/colorpicker.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="23" selection-start="1134" selection-end="1134" vertical-scroll-proportion="-32.541668" vertical-offset="179" max-vertical-offset="3000">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/mixin.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="52" selection-start="23" selection-end="52" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2370">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/areapersonale.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="31" selection-start="855" selection-end="859" vertical-scroll-proportion="-25.583334" vertical-offset="271" max-vertical-offset="3540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/forms.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="14" selection-start="3759" selection-end="3769" vertical-scroll-proportion="-28.458334" vertical-offset="1597" max-vertical-offset="6720">
+        <state line="152" column="14" selection-start="3759" selection-end="3769" vertical-scroll-proportion="0.8421702" vertical-offset="1597" max-vertical-offset="6720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/area-personale/impostazioni.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="42" selection-start="7603" selection-end="7603" vertical-scroll-proportion="0.05388471" vertical-offset="1817" max-vertical-offset="3240">
+        <state line="154" column="78" selection-start="10508" selection-end="10508" vertical-scroll-proportion="0.6177945" vertical-offset="1817" max-vertical-offset="3240">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -5297,6 +5258,106 @@
             <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/images/bg-website.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Messagges.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="141" selection-start="1162" selection-end="1162" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="0" selection-start="1694" selection-end="1694" vertical-scroll-proportion="-24.333334" vertical-offset="451" max-vertical-offset="2985">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/areapersonale.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="5" selection-start="648" selection-end="866" vertical-scroll-proportion="-23.083334" vertical-offset="346" max-vertical-offset="3540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/page.home.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="3" selection-start="958" selection-end="958" vertical-scroll-proportion="-23.916666" vertical-offset="236" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/responsive/sm.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/responsive/xs.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="11" selection-start="84" selection-end="163" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="3030">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="25" selection-start="1575" selection-end="1575" vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/partials/campione-settimana.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="6" selection-start="1905" selection-end="1905" vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/pages/home.page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="63" selection-start="435" selection-end="435" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/partials/utenti-attivi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="6" selection-start="605" selection-end="605" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Home.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="835">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Sidebar.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="17" selection-start="104" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding>
+            <marker date="1396451886000" expanded="true" signature="81:259" placeholder="..." />
+            <marker date="1396451886000" expanded="true" signature="173:259" placeholder="success: (json)-&gt;&#10;      $scope.topUsers = json.data&#10;      $scope.topUsersLoaded = true..." />
+            <marker date="1396451886000" expanded="true" signature="197:259" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/partials/best-users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="6" selection-start="632" selection-end="632" vertical-scroll-proportion="0.32650447" vertical-offset="0" max-vertical-offset="781">
+          <folding />
         </state>
       </provider>
     </entry>
