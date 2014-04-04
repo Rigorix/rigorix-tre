@@ -1,4 +1,4 @@
-Rigorix.controller "UserPanel", ['$rootScope', '$scope', 'notify', '$modal', ($rootScope, $scope, notify, $modal)->
+Rigorix.controller "UserPanel", ['$rootScope', '$scope', 'notify', '$modal', '$location', ($rootScope, $scope, notify, $modal, $location)->
 
   $scope.userPicture = $(".user-picture")
   $scope.notificationsCount = 0
@@ -17,6 +17,9 @@ Rigorix.controller "UserPanel", ['$rootScope', '$scope', 'notify', '$modal', ($r
     do $scope.updateUserObject
 
 #  Methods
+  $scope.startRealtime = ->
+    $location.path "/realtime"
+
   $scope.doLanciaNewSfida = ->
     notify.animate ".lancia-sfida", "bounce"
 

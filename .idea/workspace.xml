@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="fixed game play popup images">
+    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/realtime/page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/UserPanel.coffee" afterPath="$PROJECT_DIR$/app/controllers/UserPanel.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.coffee" afterPath="$PROJECT_DIR$/app/app.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/bootstrap/jumbotron.less" afterPath="$PROJECT_DIR$/app/assets/less/bootstrap/jumbotron.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/rigorix-templates.js" afterPath="$PROJECT_DIR$/app/assets/js/rigorix-templates.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/partials/user-box.html" afterPath="$PROJECT_DIR$/app/templates/partials/user-box.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -39,64 +45,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lista-sfide.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/directives/lista-sfide.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="34" selection-start="874" selection-end="874" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="870">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="incognito.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/incognito.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="21" selection-start="189" selection-end="189" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="690">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="35" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="3015">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="40" selection-start="1846" selection-end="1846" vertical-scroll-proportion="0.0" vertical-offset="137" max-vertical-offset="1110">
+            <state line="62" column="32" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="1170">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lista-sfide.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/lista-sfide.less">
+      <file leaf-file-name="UserPanel.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/UserPanel.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="32" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="720">
+            <state line="20" column="20" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="AreaPersonale.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AreaPersonale.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="103" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1080">
+            <state line="29" column="5" selection-start="687" selection-end="687" vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="2820">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
+      <file leaf-file-name="page.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/realtime/page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="14" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2250">
+            <state line="3" column="51" selection-start="137" selection-end="137" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="300">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jumbotron.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/jumbotron.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="36" selection-start="276" selection-end="276" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="825">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/realtime/server/server.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="19" selection-start="614" selection-end="614" vertical-scroll-proportion="0.4431818" vertical-offset="0" max-vertical-offset="450">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="variables.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/variables.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="155" column="1" selection-start="5254" selection-end="5254" vertical-scroll-proportion="-11.416667" vertical-offset="2051" max-vertical-offset="12525">
               <folding />
             </state>
           </provider>
@@ -114,19 +120,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-box.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user-box.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/partials/user-box.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="132" selection-start="1518" selection-end="1520" vertical-scroll-proportion="0.4505632" vertical-offset="0" max-vertical-offset="810">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helpers.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/helpers.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="1717" selection-end="1717" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="915">
+            <state line="24" column="100" selection-start="1473" selection-end="1486" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
@@ -156,10 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/swf/shoots.html" />
-        <option value="$PROJECT_DIR$/api/classes/Helper.php" />
-        <option value="$PROJECT_DIR$/app/controllers/Animations.coffee" />
-        <option value="$PROJECT_DIR$/classes/new.core.php" />
         <option value="$PROJECT_DIR$/app/controllers/Messagges.coffee" />
         <option value="$PROJECT_DIR$/app/templates/game/tile.html" />
         <option value="$PROJECT_DIR$/app/assets/less/gameplay.less" />
@@ -169,9 +162,13 @@
         <option value="$PROJECT_DIR$/app/assets/css/developing.css.notused" />
         <option value="$PROJECT_DIR$/app/assets/less/common.less" />
         <option value="$PROJECT_DIR$/app/assets/less/incognito.less" />
-        <option value="$PROJECT_DIR$/app/app.coffee" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/templates/partials/user-box.html" />
+        <option value="$PROJECT_DIR$/app/controllers/UserPanel.coffee" />
+        <option value="$PROJECT_DIR$/app/app.coffee" />
+        <option value="$PROJECT_DIR$/app/templates/realtime/page.html" />
+        <option value="$PROJECT_DIR$/app/assets/less/bootstrap/jumbotron.less" />
+        <option value="$PROJECT_DIR$/realtime/server/server.php" />
       </list>
     </option>
   </component>
@@ -186,8 +183,8 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Unnamed" />
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1920" />
-    <option name="height" value="1121" />
+    <option name="width" value="1440" />
+    <option name="height" value="821" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -298,154 +295,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -521,11 +370,11 @@
       <recent name="$PROJECT_DIR$/app/assets/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app/assets/images" />
       <recent name="$PROJECT_DIR$/app/assets/sprites" />
       <recent name="$PROJECT_DIR$/i/backup" />
       <recent name="$PROJECT_DIR$/api/classes" />
-      <recent name="$PROJECT_DIR$/api" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -5100,7 +4949,11 @@
       <created>1396622255876</created>
       <updated>1396622255876</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="link per real time play">
+      <created>1396622651366</created>
+      <updated>1396622651366</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers>
       <GitHub shared="false" url="github.com">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -5118,11 +4971,13 @@
     </servers>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1121" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1440" height="821" extended-state="6" />
+    <editor active="false" />
     <layout>
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26533523" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27172828" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14985014" sideWeight="0.5021521" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14985014" sideWeight="0.5021521" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2747253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16488793" sideWeight="0.86038595" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2372159" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -5132,13 +4987,11 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26973027" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="769" y="22" width="1235" height="824" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15154749" sideWeight="0.85014987" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20373027" sideWeight="0.73466474" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32382312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18581419" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2747253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5606277" sideWeight="0.5050215" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -5189,7 +5042,6 @@
       <TodoPanelSettings />
     </option>
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="true" />
-    <MESSAGE value="adding dependencies to git" />
     <MESSAGE value="behaviour updates" />
     <MESSAGE value="update Api" />
     <MESSAGE value="fix build" />
@@ -5214,7 +5066,8 @@
     <MESSAGE value="- bower update&#10;- update mascotte in home&#10;- ripristinato bg rigorix&#10;- sistemato il toggle check sui messaggi&#10;- esternalizzato i box in home&#10;- aggiunto loader su sidebar per lista top users" />
     <MESSAGE value="create branch" />
     <MESSAGE value="fixed game play popup images" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed game play popup images" />
+    <MESSAGE value="link per real time play" />
+    <option name="LAST_COMMIT_MESSAGE" value="link per real time play" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -5225,12 +5078,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/assets/dist/app.js</url>
-          <line>46438</line>
+          <line>46441</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/assets/dist/app.js</url>
-          <line>46453</line>
+          <line>46456</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
@@ -5238,76 +5091,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/less/mixin.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="2" selection-start="1082" selection-end="1082" vertical-scroll-proportion="-11.833333" vertical-offset="196" max-vertical-offset="2370">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/gameplay.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="18" selection-start="2557" selection-end="2557" vertical-scroll-proportion="-7.75" vertical-offset="1884" max-vertical-offset="3225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/dist/app.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="150697" selection-start="231832" selection-end="231832" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/legenda-sfide.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="35" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/helpers.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1717" selection-end="1717" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/less/lista-sfide.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="32" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="103" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/css/old.common.css.remove">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="244" column="39" selection-start="13099" selection-end="13099" vertical-scroll-proportion="5.5538697" vertical-offset="0" max-vertical-offset="5640">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/dist/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46551" column="22" selection-start="1549535" selection-end="1549535" vertical-scroll-proportion="0.3328467" vertical-offset="698037" max-vertical-offset="787470">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="14" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/directives/lista-sfide.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="34" selection-start="874" selection-end="874" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="870">
@@ -5329,13 +5112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="40" selection-start="1846" selection-end="1846" vertical-scroll-proportion="0.0" vertical-offset="137" max-vertical-offset="1110">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -5348,7 +5124,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/partials/user-box.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="132" selection-start="1518" selection-end="1520" vertical-scroll-proportion="0.4505632" vertical-offset="0" max-vertical-offset="810">
+        <state line="24" column="100" selection-start="1473" selection-end="1486" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/pages/first-login.page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="45" selection-start="0" selection-end="6018" vertical-scroll-proportion="0.3053435" vertical-offset="0" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="30" selection-start="551" selection-end="551" vertical-scroll-proportion="0.18773466" vertical-offset="0" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AreaPersonale.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="5" selection-start="687" selection-end="687" vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="2820">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/UserPanel.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="20" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="32" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="1170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/realtime/page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="51" selection-start="137" selection-end="137" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/variables.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="1" selection-start="5254" selection-end="5254" vertical-scroll-proportion="-11.416667" vertical-offset="2051" max-vertical-offset="12525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/jumbotron.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="36" selection-start="276" selection-end="276" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realtime/server/server.pem">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="823">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realtime/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="823">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realtime/server/server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="19" selection-start="614" selection-end="614" vertical-scroll-proportion="0.4431818" vertical-offset="0" max-vertical-offset="450">
           <folding />
         </state>
       </provider>

@@ -58,6 +58,10 @@ Rigorix.config ['$routeProvider', ($routeProvider)->
     templateUrl: "/app/templates/pages/lost.html"
 
 
+# --- Realtime  ------------------------------------------------------
+  $routeProvider.when "/realtime",
+    templateUrl: "/app/templates/realtime/page.html"
+
 ]
 
 

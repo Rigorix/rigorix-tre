@@ -45719,8 +45719,11 @@ Rigorix.config([
     $routeProvider.when("/partners", {
       templateUrl: "app/templates/pages/partners.page.html"
     });
-    return $routeProvider.otherwise({
+    $routeProvider.otherwise({
       templateUrl: "/app/templates/pages/lost.html"
+    });
+    return $routeProvider.when("/realtime", {
+      templateUrl: "/app/templates/realtime/page.html"
     });
   }
 ]);
@@ -47411,7 +47414,7 @@ Rigorix.controller("User", [
 ]);
 
 Rigorix.controller("UserPanel", [
-  '$rootScope', '$scope', 'notify', '$modal', function($rootScope, $scope, notify, $modal) {
+  '$rootScope', '$scope', 'notify', '$modal', '$location', function($rootScope, $scope, notify, $modal, $location) {
     $scope.userPicture = $(".user-picture");
     $scope.notificationsCount = 0;
     $scope.$on("new:notification", function() {
@@ -47426,6 +47429,9 @@ Rigorix.controller("UserPanel", [
     $scope.$on("messages:deleted", function() {
       return $scope.updateUserObject();
     });
+    $scope.startRealtime = function() {
+      return $location.path("/realtime");
+    };
     $scope.doLanciaNewSfida = function() {
       notify.animate(".lancia-sfida", "bounce");
       $modal.open({
@@ -52475,7 +52481,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/partials/user-box.html',
-    "<div class=\"user-panel\" ng-controller=\"UserPanel\"><div ng-show=\"currentUser\"><h3>{{currentUser.username}}</h3><div class=\"summary\"><div class=\"user-picture\"><img src=\"{{currentUser.picture}}\"></div><span class=\"punteggio\">{{currentUser.punteggio_totale}}</span> <a class=\"lancia-sfida\" ng-click=\"doLanciaNewSfida()\" tooltip-html-unsafe=\"Clicca per lanciare una sfida\" tooltip-placement=\"left\"></a></div><div class=\"user-notifications\"><div class=\"notification-item\" ng-show=\"currentUser.messages.length > 0\"><a href=\"#area-personale/messaggi\" title=\"Hai dei messaggi da leggere\" icon=\"envelope\">Hai <strong class=\"count-unread-messages\">{{currentUser.messages.length}}</strong> nuovi messaggi</a></div><div class=\"notification-item\" ng-show=\"currentUser.has_new_badges > 0\"><a href=\"#/area-personale/utente\" icon=\"trophy\">Hai nuovi badges!!</a></div><div class=\"notification-item\" ng-show=\"currentUser.sfide_da_giocare.length > 0\"><a href=\"#/area-personale/sfide/sfide_da_giocare\" class=\"text-success\" icon=\"globe\">Hai <strong>{{currentUser.sfide_da_giocare.length}}</strong> nuove sfide</a></div><div class=\"notification-item\"><button class=\"btn btn-warning center-block\" icon=\"bullhorn\">Gioca realtime!!! <sup class=\"color-red\">beta</sup></button></div></div><div class=\"user-actions\"><a href=\"#area-personale\" class=\"btn btn-sm btn-info pull-left\" icon=\"user\">Area personale</a> <a ng-click=\"doUserLogout()\" class=\"btn btn-sm btn-danger pull-right\" icon=\"sign-out\">Esci</a></div></div><div ng-show=\"!currentUser\"><p align=\"center\" class=\"mvm\">Accedi a Rigorix tramite questi social network:</p><div class=\"row-fluid\"><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-facebook\" ng-click=\"doAuth($event, 'facebook')\" icon=\"facebook\">Facebook</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-google\" ng-click=\"doAuth($event, 'google')\" icon=\"google\">Google</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-instagram\" ng-click=\"doAuth($event, 'instagram')\" icon=\"instagram\">Instagram</a></div></div></div></div>"
+    "<div class=\"user-panel\" ng-controller=\"UserPanel\"><div ng-show=\"currentUser\"><h3>{{currentUser.username}}</h3><div class=\"summary\"><div class=\"user-picture\"><img src=\"{{currentUser.picture}}\"></div><span class=\"punteggio\">{{currentUser.punteggio_totale}}</span> <a class=\"lancia-sfida\" ng-click=\"doLanciaNewSfida()\" tooltip-html-unsafe=\"Clicca per lanciare una sfida\" tooltip-placement=\"left\"></a></div><div class=\"user-notifications\"><div class=\"notification-item\" ng-show=\"currentUser.messages.length > 0\"><a href=\"#area-personale/messaggi\" title=\"Hai dei messaggi da leggere\" icon=\"envelope\">Hai <strong class=\"count-unread-messages\">{{currentUser.messages.length}}</strong> nuovi messaggi</a></div><div class=\"notification-item\" ng-show=\"currentUser.has_new_badges > 0\"><a href=\"#/area-personale/utente\" icon=\"trophy\">Hai nuovi badges!!</a></div><div class=\"notification-item\" ng-show=\"currentUser.sfide_da_giocare.length > 0\"><a href=\"#/area-personale/sfide/sfide_da_giocare\" class=\"text-success\" icon=\"globe\">Hai <strong>{{currentUser.sfide_da_giocare.length}}</strong> nuove sfide</a></div><div class=\"notification-item\"><button class=\"btn btn-warning center-block\" icon=\"bullhorn\" ng-click=\"startRealtime()\">Gioca realtime!!! <sup class=\"color-red\">beta</sup></button></div></div><div class=\"user-actions\"><a href=\"#area-personale\" class=\"btn btn-sm btn-info pull-left\" icon=\"user\">Area personale</a> <a ng-click=\"doUserLogout()\" class=\"btn btn-sm btn-danger pull-right\" icon=\"sign-out\">Esci</a></div></div><div ng-show=\"!currentUser\"><p align=\"center\" class=\"mvm\">Accedi a Rigorix tramite questi social network:</p><div class=\"row-fluid\"><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-facebook\" ng-click=\"doAuth($event, 'facebook')\" icon=\"facebook\">Facebook</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-google\" ng-click=\"doAuth($event, 'google')\" icon=\"google\">Google</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-instagram\" ng-click=\"doAuth($event, 'instagram')\" icon=\"instagram\">Instagram</a></div></div></div></div>"
   );
 
 
@@ -52486,6 +52492,11 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('/app/templates/partials/utenti-attivi.html',
     "<div class=\"panel\" ng-class=\"{'panel-danger': activeUsers.length == 0, 'panel-success': activeUsers.length > 0}\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Utenti attivi</h3></div><div class=\"panel-body\" ng-show=\"activeUsers.length == 0\"><p icon=\"warning-sign\">Nessun utente online in questo momento!</p></div><div class=\"list-group\" ng-show=\"activeUsers.length > 0\"><div class=\"list-group-item\" ng-repeat=\"user in activeUsers\"><username id-utente=\"user.id_utente\" with-picture=\"true\"></username></div></div></div>"
+  );
+
+
+  $templateCache.put('/app/templates/realtime/page.html',
+    "<div class=\"realtime-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"jumbotron jumbotron-warning\"><h1>Gioca in tempo reale!</h1><p ng-show=\"!auth_user_exist\">Stiamo partendo con una versione di prova di Rigorix in tempo reale!<br>Provala subito!!</p></div></div></div></div>"
   );
 
 }]);
