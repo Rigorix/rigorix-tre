@@ -1,0 +1,40 @@
+html[incognito=true] {
+  img {
+    visibility: hidden !important;
+    background: darken(@color-white, 5);
+    border: 1px solid darken(@color-white, 15);
+  }
+  body {
+    background: #eee;
+  }
+  a {
+    color: darken(@color-white, 10);
+  }
+
+  #header {
+    h1 {
+      color: darken(@color-white, 10);
+    }
+  }
+
+  .panel {
+    * {
+      border-color: darken(@color-white, 10);
+      background: darken(@color-white, 5);
+      box-shadow: 0;
+    }
+  }
+
+  .campione {
+    * {
+      background: darken(@color-white, 5);
+    }
+  }
+
+  .user-container.visible {
+    * {
+      background: darken(@color-white, 5);
+    }
+  }
+}
+

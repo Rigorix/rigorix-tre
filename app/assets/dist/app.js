@@ -45725,9 +45725,9 @@ Rigorix.config([
   }
 ]);
 
-Rigorix.config(function() {
+Rigorix.run(function() {
   if (RigorixEnv.INCOGNITO === true) {
-    return angular.element("body").append($('<link rel="stylesheet" type="text/css" media="all" href="/css/developing.css.wait" />'));
+    return $("html").attr("incognito", true);
   }
 });
 ;
@@ -46414,7 +46414,6 @@ var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; 
 Rigorix.controller("Main", [
   '$scope', '$modal', '$rootScope', 'UserService', '$window', '$location', 'Api', 'notify', function($scope, $modal, $rootScope, UserService, $window, $location, Api, notify) {
     var _this = this;
-    $scope.siteTitle = "Website title";
     $scope.userLogged = false;
     $scope.currentUser = false;
     $scope.User = window.User;

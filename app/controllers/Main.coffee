@@ -1,6 +1,5 @@
 Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$window', '$location', 'Api', 'notify', ($scope, $modal, $rootScope, UserService, $window, $location, Api, notify) ->
 
-  $scope.siteTitle = "Website title"
   $scope.userLogged = false
   $scope.currentUser = false
   $scope.User = window.User

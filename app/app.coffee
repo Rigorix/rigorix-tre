@@ -60,8 +60,9 @@ Rigorix.config ['$routeProvider', ($routeProvider)->
 
 ]
 
-Rigorix.config ()->
 
-  if RigorixEnv.INCOGNITO is true
-    angular.element("body").append $('<link rel="stylesheet" type="text/css" media="all" href="/css/developing.css.wait" />')
+# --- Initialize App -------------------------------------------------
 
+Rigorix.run ()->
+
+  $("html").attr "incognito", true if RigorixEnv.INCOGNITO is true
