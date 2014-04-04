@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/less/incognito.less" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/css/developing.css.notused" afterPath="" />
+    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="fixed game play popup images">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Main.coffee" afterPath="$PROJECT_DIR$/app/controllers/Main.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.coffee" afterPath="$PROJECT_DIR$/app/app.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/common.less" afterPath="$PROJECT_DIR$/app/assets/less/common.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/lista-sfide.less" afterPath="$PROJECT_DIR$/app/assets/less/lista-sfide.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/new.core.php" afterPath="$PROJECT_DIR$/classes/new.core.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b22ffa96-ce66-4cc9-8c44-4b66f52233fe" name="ignore" comment="ignore" />
@@ -51,16 +39,16 @@
       <file leaf-file-name="lista-sfide.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/directives/lista-sfide.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="34" selection-start="874" selection-end="874" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="870">
+            <state line="21" column="34" selection-start="874" selection-end="874" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="870">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="incognito.less" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="incognito.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/less/incognito.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="42" selection-start="607" selection-end="607" vertical-scroll-proportion="0.65707135" vertical-offset="0" max-vertical-offset="799">
+            <state line="7" column="21" selection-start="189" selection-end="189" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="690">
               <folding />
             </state>
           </provider>
@@ -69,16 +57,16 @@
       <file leaf-file-name="common.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="35" selection-start="1388" selection-end="1388" vertical-scroll-proportion="-19.375" vertical-offset="150" max-vertical-offset="3015">
+            <state line="41" column="35" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="3015">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.coffee" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/app.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="0" selection-start="2161" selection-end="2161" vertical-scroll-proportion="0.0" vertical-offset="367" max-vertical-offset="1110">
+            <state line="46" column="70" selection-start="1704" selection-end="1704" vertical-scroll-proportion="0.7866287" vertical-offset="137" max-vertical-offset="1110">
               <folding />
             </state>
           </provider>
@@ -87,7 +75,7 @@
       <file leaf-file-name="lista-sfide.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/less/lista-sfide.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="32" selection-start="715" selection-end="715" vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="720">
+            <state line="38" column="32" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
@@ -96,7 +84,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="103" selection-start="165" selection-end="165" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="1080">
+            <state line="2" column="103" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1080">
               <folding />
             </state>
           </provider>
@@ -105,7 +93,7 @@
       <file leaf-file-name="Main.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="14" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2250">
+            <state line="6" column="14" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2250">
               <folding />
             </state>
           </provider>
@@ -117,7 +105,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="20" selection-start="544" selection-end="544" vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="480">
+            <state line="23" column="23" selection-start="569" selection-end="569" vertical-scroll-proportion="-12.777778" vertical-offset="0" max-vertical-offset="480">
               <folding />
             </state>
           </provider>
@@ -126,7 +114,7 @@
       <file leaf-file-name="legenda-sfide.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/area-personale/legenda-sfide.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="35" selection-start="126" selection-end="126" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="165">
+            <state line="2" column="35" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="165">
               <folding />
             </state>
           </provider>
@@ -135,7 +123,7 @@
       <file leaf-file-name="helpers.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/less/helpers.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="1717" selection-end="1717" vertical-scroll-proportion="-24.916666" vertical-offset="92" max-vertical-offset="915">
+            <state line="46" column="0" selection-start="1717" selection-end="1717" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="915">
               <folding />
             </state>
           </provider>
@@ -150,6 +138,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="animazione-gioco" />
+      </map>
+    </option>
   </component>
   <component name="GitLogSettings">
     <option name="myStructureFilterPaths" />
@@ -169,13 +162,13 @@
         <option value="$PROJECT_DIR$/app/templates/game/tile.html" />
         <option value="$PROJECT_DIR$/app/assets/less/gameplay.less" />
         <option value="$PROJECT_DIR$/app/assets/less/lista-sfide.less" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/app/app.coffee" />
         <option value="$PROJECT_DIR$/app/controllers/Main.coffee" />
         <option value="$PROJECT_DIR$/app/assets/css/developing.css.notused" />
         <option value="$PROJECT_DIR$/app/assets/less/common.less" />
         <option value="$PROJECT_DIR$/app/assets/less/incognito.less" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/app.coffee" />
       </list>
     </option>
   </component>
@@ -283,6 +276,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -473,7 +467,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -481,15 +474,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="265" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="261" />
-    <property name="recentsLimit" value="5" />
-    <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="261" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/phpunit.xml.dist" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="268" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1052" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1063" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1052" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="268" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="263" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -503,8 +496,8 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -5144,25 +5137,25 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27172828" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14985014" sideWeight="0.5021521" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2747253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14985014" sideWeight="0.5021521" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16488793" sideWeight="0.86038595" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2372159" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28388017" sideWeight="0.4978479" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4225774" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26973027" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26973027" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="769" y="22" width="1235" height="824" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14994664" sideWeight="0.85014987" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15154749" sideWeight="0.73026973" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32382312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18581419" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5606277" sideWeight="0.5050215" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2747253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5606277" sideWeight="0.5050215" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -5188,9 +5181,9 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="769" y="22" width="1235" height="824" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16642755" sideWeight="0.7311522" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -5211,7 +5204,6 @@
       <TodoPanelSettings />
     </option>
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="true" />
-    <MESSAGE value="remove old shit" />
     <MESSAGE value="adding dependencies to git" />
     <MESSAGE value="behaviour updates" />
     <MESSAGE value="update Api" />
@@ -5236,7 +5228,8 @@
     <MESSAGE value="fixing git" />
     <MESSAGE value="- bower update&#10;- update mascotte in home&#10;- ripristinato bg rigorix&#10;- sistemato il toggle check sui messaggi&#10;- esternalizzato i box in home&#10;- aggiunto loader su sidebar per lista top users" />
     <MESSAGE value="fixed game play popup images" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed game play popup images" />
+    <MESSAGE value="create branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="create branch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -5262,23 +5255,17 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/templates/game/tile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="900" selection-end="900" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
+        <state line="7" column="6" selection-start="900" selection-end="900" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="195" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/mixin.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="2" selection-start="1082" selection-end="1082" vertical-scroll-proportion="-11.833333" vertical-offset="196" max-vertical-offset="2370">
-          <folding />
-        </state>
+        <state line="32" column="2" selection-start="1082" selection-end="1082" vertical-scroll-proportion="-11.833333" vertical-offset="196" max-vertical-offset="2370" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/gameplay.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="18" selection-start="2557" selection-end="2557" vertical-scroll-proportion="-7.75" vertical-offset="1884" max-vertical-offset="3225">
-          <folding />
-        </state>
+        <state line="138" column="18" selection-start="2557" selection-end="2557" vertical-scroll-proportion="-7.75" vertical-offset="1884" max-vertical-offset="3225" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/dist/app.min.css">
@@ -5290,38 +5277,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/area-personale/legenda-sfide.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="35" selection-start="126" selection-end="126" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="165">
+        <state line="2" column="35" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="165">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/helpers.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1717" selection-end="1717" vertical-scroll-proportion="-24.916666" vertical-offset="92" max-vertical-offset="915">
+        <state line="46" column="0" selection-start="1717" selection-end="1717" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="915">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/lista-sfide.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="32" selection-start="715" selection-end="715" vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="20" selection-start="544" selection-end="544" vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="480">
+        <state line="38" column="32" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="103" selection-start="165" selection-end="165" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="1080">
+        <state line="2" column="103" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1080">
           <folding />
         </state>
       </provider>
@@ -5329,13 +5306,6 @@
     <entry file="file://$PROJECT_DIR$/app/assets/css/old.common.css.remove">
       <provider selected="true" editor-type-id="text-editor">
         <state line="244" column="39" selection-start="13099" selection-end="13099" vertical-scroll-proportion="5.5538697" vertical-offset="0" max-vertical-offset="5640">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2161" selection-end="2161" vertical-scroll-proportion="0.0" vertical-offset="367" max-vertical-offset="1110">
           <folding />
         </state>
       </provider>
@@ -5356,21 +5326,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/directives/lista-sfide.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="34" selection-start="874" selection-end="874" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="870">
+        <state line="21" column="34" selection-start="874" selection-end="874" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="870">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="35" selection-start="1388" selection-end="1388" vertical-scroll-proportion="-19.375" vertical-offset="150" max-vertical-offset="3015">
+        <state line="41" column="35" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="3015">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/incognito.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="42" selection-start="607" selection-end="607" vertical-scroll-proportion="0.65707135" vertical-offset="0" max-vertical-offset="799">
+        <state line="7" column="21" selection-start="189" selection-end="189" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="23" selection-start="569" selection-end="569" vertical-scroll-proportion="-12.777778" vertical-offset="0" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="70" selection-start="1704" selection-end="1704" vertical-scroll-proportion="0.7866287" vertical-offset="137" max-vertical-offset="1110">
           <folding />
         </state>
       </provider>
