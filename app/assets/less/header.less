@@ -1,12 +1,13 @@
 #header {
-  background-color: rgba(255, 255, 255, .9);
+  background-color: @site-bg-color;
   padding: @base-margin;
   height: @header-height - 10;
   width: 100%;
   position: fixed;
   top: 0;
   z-index: @zindex-header;
-  box-shadow: 0 5px 5px @color-white;
+//  box-shadow: 0 5px 5px @site-bg-color;
+  box-shadow: 0 14px 16px -12px rgba(200, 200, 200, 0.7);
 
   .full-responsive-width();
 

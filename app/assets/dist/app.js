@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-04-02 *//*!
+/*! Rigorix - v0.5.0 - 2014-04-04 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -45813,6 +45813,8 @@ Rigorix.controller("AccessDenied.Modal", [
   }
 ]);
 
+Rigorix.controller("Animation.Shooter", ['$scope', function($scope) {}]);
+
 Rigorix.controller("AreaPersonale", [
   '$scope', '$routeParams', '$location', 'notify', '$timeout', function($scope, $routeParams, $location, notify, $timeout) {
     $scope.sections = [
@@ -47000,10 +47002,7 @@ Rigorix.controller('Messages', [
       return false;
     };
     $scope.checkMessagesActions = function() {
-      $scope.stopUpdates = $(".table-messages tbody").find(":checked").size() > 0;
-      if ($(".table-messages tbody").find(":checked").size() !== $(".table-messages tbody").size()) {
-        return $("[name=toggleAllMessages]").prop("checked", null);
-      }
+      return $scope.stopUpdates = $(".table-messages tbody").find(":checked").size() > 0;
     };
     $scope.deleteMessages = function() {
       var ids, message, messages;
@@ -52348,7 +52347,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/game/tile.html',
-    "<div id=\"gameSetBox_{{tileType}}_{{row.index}}\" class=\"gameplay-tile\" ng-controller=\"GamePlay.Tile\"><div title=\"{{tileType}}\" class=\"label label-info\">{{tileType | capitalize}} {{row.index + 1}}</div><input type=\"hidden\" class=\"game_setup_input\" name=\"{{tileType}}{{row.index + 1}}\" value=\"\"><a class=\"game-tile {{subject}}Sx_game\" value=\"0\" ng-class=\"{active: $scope.tileValue == 0}\" ng-click=\"setTileValue(0)\"><img src=\"/i/lanciaSfide_{{subject}}{{dir.sx}}.png\"></a> <a class=\"game-tile {{subject}}Center_game\" value=\"1\" ng-class=\"{active: $scope.tileValue == 1}\" ng-click=\"setTileValue(1)\"><img src=\"/i/lanciaSfide_{{subject}}.png\"></a> <a class=\"game-tile {{subject}}Dx_game\" value=\"2\" ng-class=\"{active: $scope.tileValue == 2}\" ng-click=\"setTileValue(2)\"><img src=\"/i/lanciaSfide_{{subject}}{{dir.dx}}.png\"></a></div>"
+    "<div id=\"gameSetBox_{{tileType}}_{{row.index}}\" class=\"gameplay-tile\" ng-controller=\"GamePlay.Tile\"><div title=\"{{tileType}}\" class=\"label label-info\">{{tileType | capitalize}} {{row.index + 1}}</div><input type=\"hidden\" class=\"game_setup_input\" name=\"{{tileType}}{{row.index + 1}}\" value=\"\"><a class=\"game-tile {{subject}}Sx_game\" value=\"0\" ng-class=\"{active: $scope.tileValue == 0}\" ng-click=\"setTileValue(0)\"><img src=\"/app/assets/images/lanciaSfide_{{subject}}{{dir.sx}}.png\"></a> <a class=\"game-tile {{subject}}Center_game\" value=\"1\" ng-class=\"{active: $scope.tileValue == 1}\" ng-click=\"setTileValue(1)\"><img src=\"/app/assets/images/lanciaSfide_{{subject}}.png\"></a> <a class=\"game-tile {{subject}}Dx_game\" value=\"2\" ng-class=\"{active: $scope.tileValue == 2}\" ng-click=\"setTileValue(2)\"><img src=\"/app/assets/images/lanciaSfide_{{subject}}{{dir.dx}}.png\"></a></div>"
   );
 
 

@@ -103,8 +103,10 @@
 
   .gameplay-tile {
     @game-tile-size: 10%;
-    @game-tile-portiere-center-size: 10%;
-    @game-tile-portiere-side-size: 17%;
+    @game-tile-portiere-center-w: 10%;
+    @game-tile-portiere-center-h: 41%;
+    @game-tile-portiere-side-w: 18%;
+    @game-tile-portiere-side-h: 33%;
 
     background: url(/app/assets/images/lanciaSfide_campo.gif) no-repeat center center;
     .background-cover();
@@ -136,88 +138,71 @@
     .game-tile {
       opacity: .7;
       width: @game-tile-size;
-      height: @game-tile-size;
-//      .transition('opacity .8s linear');
+      padding-bottom: @game-tile-size;
+      background: url(/app/assets/images/lanciaSfide_pallone.png) no-repeat center center;
+      position: absolute;
+      display: block;
+      .background-cover();
+      .transition(opacity .3s);
 
-      &:hover {
-        opacity: 1;
+      img {
+        display: none;
       }
+
+      &:hover,
       &.active {
         opacity: 1;
       }
-    }
 
-    .palloneSx_game {
-      position: absolute;
-      display: block;
-      top: 40%;
-      left: 20%;
-    }
-    .palloneCenter_game {
-      position: absolute;
-      display: block;
-      top: 20%;
-      left: 50%;
-      margin-left: -@game-tile-size/2;
-    }
-    .palloneDx_game {
-      position: absolute;
-      display: block;
-      top: 40%;
-      right: 20%;
-    }
-    .portiereSx_game {
-      position: absolute;
-      display: block;
-      top: 20%;
-      left: 17%;
-      width: @game-tile-portiere-side-size;
+      &.palloneSx_game {
+        top: 40%;
+        left: 20%;
+      }
+      &.palloneCenter_game {
+        top: 20%;
+        left: 50%;
+        margin-left: -@game-tile-size/2;
+      }
+      &.palloneDx_game {
+        top: 40%;
+        right: 20%;
+      }
+      &.portiereSx_game {
+        top: 20%;
+        left: 17%;
+        width: @game-tile-portiere-side-w;
+        height: @game-tile-portiere-side-h;
+        background-image: url(/app/assets/images/lanciaSfide_portiereSx.png);
 
-      &.active {
-        background: url(/app/assets/images/lanciaSfide_portiereSx_on.png) no-repeat left top;
-        width: 50px;
-        height: 39px;
+        &.active {
+          background-image: url(/app/assets/images/lanciaSfide_portiereSx_on.png);
+        }
+      }
+      &.portiereCenter_game {
+        top: 17%;
+        left: 50%;
+        width: @game-tile-portiere-center-w;
+        height: @game-tile-portiere-center-h;
+        margin-left: -@game-tile-portiere-center-w/2;
+        background-image: url(/app/assets/images/lanciaSfide_portiere.png);
 
-        img {
-          display: none;
+        &.active {
+          background-image: url(/app/assets/images/lanciaSfide_portiere_on.png);
+        }
+      }
+      &.portiereDx_game {
+        top: 20%;
+        right: 19%;
+        width: @game-tile-portiere-side-w;
+        height: @game-tile-portiere-side-h;
+        background-image: url(/app/assets/images/lanciaSfide_portiereDx.png);
+
+        &.active {
+          background-image: url(/app/assets/images/lanciaSfide_portiereDx_on.png);
         }
       }
     }
-    .portiereCenter_game {
-      position: absolute;
-      display: block;
-      top: 17%;
-      left: 50%;
-      width: @game-tile-portiere-center-size;
-      margin-left: -@game-tile-portiere-center-size/2;
 
-      &.active {
-        background: url(/app/assets/images/lanciaSfide_portiere_on.png) no-repeat left top;
-        width: 27px;
-        height: 47px;
-
-        img {
-          display: none;
-        }
-      }
-    }
-    .portiereDx_game {
-      position: absolute;
-      display: block;
-      top: 20%;
-      right: 17%;
-      width: @game-tile-portiere-side-size;
-
-      &.active {
-        background: url(/app/assets/images/lanciaSfide_portiereDx_on.png) no-repeat left top;
-        width: 50px;
-        height: 39px;
-
-        img {
-          display: none;
-        }
-      }
-    }
   }
 
 }
