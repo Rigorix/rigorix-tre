@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-04-04 *//*!
+/*! Rigorix - v0.5.0 - 2014-04-05 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -52312,7 +52312,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/area-personale/page.html',
-    "<nav class=\"navbar navbar-default navbar-static-top\" role=\"navigation\"><div class=\"navbar-header\"><a class=\"navbar-brand\" icon=\"dashboard\"><small>Area personale</small></a> <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-8\" icon=\"bars\"><span class=\"sr-only\">Toggle navigation</span></button></div><div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-8\"><ul class=\"nav navbar-nav\"><li ng-repeat=\"sec in sections\" ng-class=\"{active: section == sec.name}\"><a href=\"#/area-personale/{{sec.name}}\" icon=\"{{sec.icon}}\">{{sec.name | capitalize}}</a></li></ul></div></nav><p ng-show=\"loading != false\">Caricamento ...</p><div ng-show=\"loading == false\" ng-include=\"'/app/templates/area-personale/' + section + '.html'\"></div>"
+    "<nav class=\"navbar navbar-default navbar-static-top mbs\" role=\"navigation\"><div class=\"navbar-header\"><a class=\"navbar-brand\" icon=\"dashboard\"><small>Area personale</small></a> <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-8\" icon=\"bars\"><span class=\"sr-only\">Toggle navigation</span></button></div><div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-8\"><!--<a class=\"btn btn-warning\" ng-class=\"{active: section == sec.name}\" ng-repeat=\"sec in sections\" href=\"#/area-personale/{{sec.name}}\" icon=\"{{sec.icon}}\">{{sec.name | capitalize}}</a>--><ul class=\"nav navbar-nav area-personale-nav\"><li ng-repeat=\"sec in sections\" ng-class=\"{active: section == sec.name}\"><a href=\"#/area-personale/{{sec.name}}\" icon=\"{{sec.icon}}\">{{sec.name | capitalize}}</a></li></ul></div></nav><p ng-show=\"loading != false\">Caricamento ...</p><div ng-show=\"loading == false\" ng-include=\"'/app/templates/area-personale/' + section + '.html'\"></div>"
   );
 
 

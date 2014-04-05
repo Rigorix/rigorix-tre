@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<nav class="navbar navbar-default navbar-static-top mbs" role="navigation">
     <div class="navbar-header">
         <a class="navbar-brand" icon="dashboard"><small>Area personale</small></a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8" icon="bars">
@@ -7,7 +7,8 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
-        <ul class="nav navbar-nav">
+        <!--<a class="btn btn-warning" ng-class="{active: section == sec.name}" ng-repeat="sec in sections" href="#/area-personale/{{sec.name}}" icon="{{sec.icon}}">{{sec.name | capitalize}}</a>-->
+        <ul class="nav navbar-nav area-personale-nav">
             <li ng-repeat="sec in sections" ng-class="{active: section == sec.name}">
                 <a href="#/area-personale/{{sec.name}}" icon="{{sec.icon}}">{{sec.name | capitalize}}</a>
             </li>

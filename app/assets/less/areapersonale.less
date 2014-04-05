@@ -1,5 +1,51 @@
 html.AreaPersonale {
 
+  .nav.navbar-nav.area-personale-nav {
+    background: @brand-warning;
+    border-bottom: 5px solid darken(@brand-warning, 15);
+    width: 100%;
+
+    li {
+      .transition(margin,border .3s);
+      a {
+        color: @color-white;
+        font-size: 1.2em;
+        font-weight: 400;
+      }
+
+      &.active {
+        margin-bottom: -4px;
+        border-top: 4px solid @site-bg-color;
+        background: darken(@brand-warning, 15);
+
+        a {
+          color: darken(@brand-warning, 15);
+        }
+      }
+    }
+  }
+
+  .nav.nav-pills {
+    li {
+      a {
+        background: transparent;
+        font-size: 1em;
+        color: darken(@color-white, 30);
+
+        &:hover {
+          color: darken(@brand-warning, 15);
+        }
+      }
+
+      &.active {
+        a {
+          border-bottom: 2px solid darken(@brand-warning, 15);
+          color: darken(@brand-warning, 15);
+        }
+      }
+    }
+  }
+
   /// Modals
   .modal-read-message {
     .modal-dialog {
@@ -90,57 +136,57 @@ html.AreaPersonale {
     }
   }
 
-  .navbar {
-    .gradient(#f3f3f3, #efefef);
-
-    .navbar-brand {
-      font-size: 33px;
-      color: @color-white;
-      text-align: center;
-      padding: 1px 11px 5px 12px;
-      margin: 0;
-      background: @color-rigorix-blue;
-      height: 52px;
-
-      &:hover {
-        color: @color-white;
-        background: @color-rigorix-blue;
-      }
-
-      small {
-        display: block;
-        text-align: center;
-        font-size: 11px;
-        text-transform: uppercase;
-        margin-top: -2px;
-      }
-    }
-    .navbar-toggle {
-      padding: 8px 10px 5px;
-
-      .fa {
-        font-size: 20px;
-        margin: 0 !important;
-      }
-    }
-
-    .navbar-nav {
-      li {
-        a {
-          font-size: 16px;
-          color: @color-base-blue;
-          font-family: Grobold;
-          text-transform: uppercase;
-
-          span {
-            margin-right: 9px !important;
-            font-size: 20px;
-  //          color: @color-rigorix-blue;
-          }
-        }
-      }
-    }
-  }
+//  .navbar {
+//    .gradient(#f3f3f3, #efefef);
+//
+//    .navbar-brand {
+//      font-size: 33px;
+//      color: @color-white;
+//      text-align: center;
+//      padding: 1px 11px 5px 12px;
+//      margin: 0;
+//      background: @color-rigorix-blue;
+//      height: 52px;
+//
+//      &:hover {
+//        color: @color-white;
+//        background: @color-rigorix-blue;
+//      }
+//
+//      small {
+//        display: block;
+//        text-align: center;
+//        font-size: 11px;
+//        text-transform: uppercase;
+//        margin-top: -2px;
+//      }
+//    }
+//    .navbar-toggle {
+//      padding: 8px 10px 5px;
+//
+//      .fa {
+//        font-size: 20px;
+//        margin: 0 !important;
+//      }
+//    }
+//
+//    .navbar-nav {
+//      li {
+//        a {
+//          font-size: 16px;
+//          color: @color-base-blue;
+//          font-family: Grobold;
+//          text-transform: uppercase;
+//
+//          span {
+//            margin-right: 9px !important;
+//            font-size: 20px;
+//  //          color: @color-rigorix-blue;
+//          }
+//        }
+//      }
+//    }
+//  }
 
 
   /// User page
