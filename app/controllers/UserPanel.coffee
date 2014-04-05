@@ -2,6 +2,7 @@ Rigorix.controller "UserPanel", ['$rootScope', '$scope', 'notify', '$modal', '$l
 
   $scope.userPicture = $(".user-picture")
   $scope.notificationsCount = 0
+  $scope.realtimeEnabled = RigorixEnv.REALTIME? and RigorixEnv.REALTIME is true
 
 #  Events
   $scope.$on "new:notification", ->

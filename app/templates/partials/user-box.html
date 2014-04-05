@@ -21,7 +21,7 @@
             <div class="notification-item" ng-show="currentUser.sfide_da_giocare.length > 0">
                 <a href="#/area-personale/sfide/sfide_da_giocare" class="text-success" icon="globe">Hai <strong>{{currentUser.sfide_da_giocare.length}} </strong> nuove sfide</a>
             </div>
-            <div class="notification-item">
+            <div class="notification-item" ng-show="realtimeEnabled">
                 <button class="btn btn-warning center-block" icon="bullhorn" ng-click="startRealtime()">Gioca realtime!!! <sup class="color-red">beta</sup></button>
             </div>
         </div>
