@@ -201,7 +201,12 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/realtime/page.html',
-    "<div class=\"realtime-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"jumbotron jumbotron-warning\"><h1>Gioca in tempo reale!</h1><p ng-show=\"!auth_user_exist\">Stiamo partendo con una versione di prova di Rigorix in tempo reale!<br>Provala subito!!</p></div></div></div></div>"
+    "<div class=\"realtime-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"jumbotron jumbotron-warning\"><h1>Gioca in tempo reale!</h1><p ng-show=\"!auth_user_exist\">Stiamo partendo con una versione di prova di Rigorix in tempo reale!<br>Provala subito!!</p><div class=\"text-center\"><a href=\"#/realtime/room\" class=\"btn btn-primary btn-lg\" icon=\"group\">ENTRA!</a></div></div></div></div></div>"
+  );
+
+
+  $templateCache.put('/app/templates/realtime/room.html',
+    "<div ng-controller=\"Realtime\"><h1>Realtime play!</h1><div ng-controller=\"Realtime.Room\" ng-show=\"registered\"><h5>Lista utenti nella stanza:</h5><p ng-show=\"members.length == 0\">Nessun utente</p><ul><li ng-repeat=\"member in members\"><username id_utente=\"member.id_utente\" with_thumb=\"true\"></username></li></ul></div></div>"
   );
 
 }]);

@@ -45722,8 +45722,11 @@ Rigorix.config([
     $routeProvider.otherwise({
       templateUrl: "/app/templates/pages/lost.html"
     });
-    return $routeProvider.when("/realtime", {
+    $routeProvider.when("/realtime", {
       templateUrl: "/app/templates/realtime/page.html"
+    });
+    return $routeProvider.when("/realtime/room", {
+      templateUrl: "/app/templates/realtime/room.html"
     });
   }
 ]);
@@ -47387,6 +47390,43 @@ Rigorix.controller("Modals.NewUser", [
   }
 ]);
 
+Rigorix.controller("Realtime", [
+  '$scope', 'Api', '$http', function($scope, Api, $http) {
+    Api.post("realtime/register/" + $scope.currentUser.id_utente, {
+      success: function(json) {
+        $scope.registered = true;
+        return $scope.members = json.data;
+      },
+      error: function() {
+        return $scope.registered = false;
+      }
+    });
+    $scope.updateMembers = function() {
+      return Api.poll('get', 'realtime/members', {
+        timeout: 120000,
+        success: function(json) {
+          $scope.members = json.data;
+          return $scope.updateMembers();
+        }
+      });
+    };
+    return $scope.updateMembers();
+  }
+]);
+
+Rigorix.controller("Realtime.Room", [
+  '$scope', 'notify', function($scope, notify) {
+    return $scope.$watch("registered", function(val) {
+      if (val === true) {
+        notify.success("Sei entrato nella stanza");
+      }
+      if (val === false) {
+        return notify.error("C'e'; stato un problema nel registrarsi nella stanza!");
+      }
+    });
+  }
+]);
+
 Rigorix.controller("Sidebar", [
   '$scope', 'Api', '$rootScope', function($scope, Api) {
     $scope.topUsers = [];
@@ -47771,11 +47811,7 @@ RigorixServices.factory("Api", [
   '$resource', '$http', '$q', 'Helpers', function($resource, $http, $q, Helpers) {
     return {
       call: function(method, url, params) {
-        params = Helpers.extendApiParams(params);
-        if (url[0] === "/") {
-          url = url.substr(1, url.length - 1);
-        }
-        return $http[method](RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error);
+        return this[method](url, params);
       },
       post: function(url, params) {
         params = Helpers.extendApiParams(params);
@@ -47791,16 +47827,17 @@ RigorixServices.factory("Api", [
         }
         return $http.get(RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error);
       },
+      poll: function(method, url, params) {
+        if (url[0] === "/") {
+          url = url.substr(1, url.length - 1);
+        }
+        return $http[method](RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error);
+      },
       getResource: function(url) {
         return $resource(RigorixEnv.API_DOMAIN + url, {
           method: "GET",
           isArray: false
         });
-      },
-      auth: function(params) {
-        var promise;
-        promise = $http.get(RigorixEnv.OAUTH_URL + params.provider);
-        return promise.then(params.success);
       },
       logout: function(id_utente) {
         return $http.post(RigorixEnv.API_DOMAIN + "users/" + id_utente + "/logout/");
@@ -52497,7 +52534,12 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/realtime/page.html',
-    "<div class=\"realtime-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"jumbotron jumbotron-warning\"><h1>Gioca in tempo reale!</h1><p ng-show=\"!auth_user_exist\">Stiamo partendo con una versione di prova di Rigorix in tempo reale!<br>Provala subito!!</p></div></div></div></div>"
+    "<div class=\"realtime-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"jumbotron jumbotron-warning\"><h1>Gioca in tempo reale!</h1><p ng-show=\"!auth_user_exist\">Stiamo partendo con una versione di prova di Rigorix in tempo reale!<br>Provala subito!!</p><div class=\"text-center\"><a href=\"#/realtime/room\" class=\"btn btn-primary btn-lg\" icon=\"group\">ENTRA!</a></div></div></div></div></div>"
+  );
+
+
+  $templateCache.put('/app/templates/realtime/room.html',
+    "<div ng-controller=\"Realtime\"><h1>Realtime play!</h1><div ng-controller=\"Realtime.Room\" ng-show=\"registered\"><h5>Lista utenti nella stanza:</h5><p ng-show=\"members.length == 0\">Nessun utente</p><ul><li ng-repeat=\"member in members\"><username id_utente=\"member.id_utente\" with_thumb=\"true\"></username></li></ul></div></div>"
   );
 
 }]);

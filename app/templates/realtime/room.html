@@ -1,0 +1,12 @@
+<div ng-controller="Realtime">
+    <h1>Realtime play!</h1>
+    <div ng-controller="Realtime.Room" ng-show="registered">
+        <h5>Lista utenti nella stanza:</h5>
+        <p ng-show="members.length == 0">Nessun utente</p>
+        <ul>
+            <li ng-repeat="member in members">
+                <username id_utente="member.id_utente" with_thumb="true"></username>
+            </li>
+        </ul>
+    </div>
+</div>

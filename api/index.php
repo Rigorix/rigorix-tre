@@ -19,6 +19,7 @@ require_once 'classes/user.class.php';
 require_once 'classes/messages.class.php';
 require_once 'classes/rewards.class.php';
 require_once 'classes/sfide.class.php';
+require_once 'classes/realtime.class.php';
 require_once 'classes/error.class.php';
 
 /*
@@ -29,6 +30,7 @@ require_once 'routes/routes.users.php';
 require_once 'routes/routes.messages.php';
 require_once 'routes/routes.sfide.php';
 require_once 'routes/routes.admin.php';
+require_once 'routes/routes.realtime.php';
 
 Flight::route("GET /test", function () {
   echo "Api works!!";

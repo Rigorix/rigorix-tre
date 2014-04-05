@@ -62,6 +62,9 @@ Rigorix.config ['$routeProvider', ($routeProvider)->
   $routeProvider.when "/realtime",
     templateUrl: "/app/templates/realtime/page.html"
 
+  $routeProvider.when "/realtime/room",
+    templateUrl: "/app/templates/realtime/room.html"
+
 ]
 
 
