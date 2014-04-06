@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
-$env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
+$env = Flight::get("env");
 
 $capsule->addConnection(array(
   'driver'    => 'mysql',
@@ -18,5 +18,3 @@ $capsule->addConnection(array(
 ));
 
 $capsule->bootEloquent();
-
-?>

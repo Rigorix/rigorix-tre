@@ -1,0 +1,47 @@
+<div ng-controller="Realtime">
+    <h1>Realtime play!</h1>
+    <div ng-controller="Realtime.Private" ng-show="registered">
+        <h5>Avversario: <username id_utente="id_sfidato"></username></h5>
+
+        <div class="panel panel-primary">
+            <div class="panel-body" ng-switch on="loading">
+
+                <div ng-switch-default>
+                    <p>Caricamento sfida in corso ... </p>
+                </div>
+
+                <div ng-switch-when="false">
+                    {{member}}
+                    <br/>
+                    {{avversario}}
+                    <hr/>
+
+                    <div ng-show="!accessDenied">
+                        <h3>Partita in corso</h3>
+                    </div>
+
+                    <div ng-show="accessDenied" class="label-danger">
+                        <h4>Nessuna partita in corso</h4>
+                        <a href="#/realtime/room" class="btn btn-info">Torna indietro</a>
+                    </div>
+
+                    <!--<div ng-show="avversario.busy_with != 0 && avversario.busy_with != currentUser.id_utente">-->
+                    <!--L'avversario e' impegnato in un'altra partita, non puoi sfidarlo-->
+                    <!--</div>-->
+
+                    <!--<div ng-show="avversario.busy_with == 0 && avversario.has_request_from == currentUser.id_utente && accepted != false">-->
+                    <!--&lt;!&ndash;<button ng-click="sendRequest()" class="btn btn-primary" icon="rocket">Chiedi di giocare</button>&ndash;&gt;-->
+                    <!--<button ng-click="discardRequest()" class="btn btn-primary" icon="rocket">Annulla</button>-->
+                    <!--<p>In attesa della risposta ...</p>-->
+                    <!--</div>-->
+
+                    <!--<div ng-show="accepted == false">-->
+                    <!--<p>L'avversario non ha accettato la tua richiesta!</p>-->
+                    <!--<a href="#/realtime/room" class="btn btn-info">Torna indietro</a>-->
+                    <!--</div>-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

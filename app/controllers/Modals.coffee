@@ -1,19 +1,3 @@
-Rigorix.factory "Modals", ['$scope', '$modal', ($scope, $modal)->
-
-  success: (content)->
-    $modal.open
-      templateUrl:  '/app/templates/modals/success.html',
-      controller:    'Modals.Success',
-      resolve:
-        content: ->
-          content
-
-]
-
-#-----------------------------------------------------------------------------------------------------------------------
-
-
-
 Rigorix.controller "Modals.Success", ['$scope', '$modal', '$modalInstance', '$rootScope', ($scope, $modal, $modalInstance, $rootScope)->
 
   $rootScope.$broadcast "modal:open",

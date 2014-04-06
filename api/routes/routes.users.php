@@ -1,7 +1,7 @@
 <?php
 
 /// Save user token
-Flight::route("PUT /users/@id_utente/{$env->TOKEN_SECRET}/@token", function($id_utente, $token) { global $env;
+Flight::route("PUT /users/@id_utente/{$env->TOKEN_SECRET}/@token", function($id_utente, $token) {
   if (Users::find($id_utente)->token()->count() > 0) {
     $userToken = Users::find($id_utente)->token;
     $userToken->update(array(

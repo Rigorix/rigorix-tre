@@ -4,9 +4,22 @@
         <h5>Lista utenti nella stanza:</h5>
         <p ng-show="members.length == 0">Nessun utente</p>
         <ul>
-            <li ng-repeat="member in members">
-                <username id_utente="member.id_utente" with_thumb="true"></username>
+            <li ng-repeat="user in members">
+                <username id_utente="user.id_utente" with-picture="true"></username>
+                <div ng-switch on="userAction(user)">
+                    <button ng-switch-when="sfidaPossible" ng-click="doSendSfida(user.id_utente)" class="btn btn-xs btn-warning" icon="rocket">Sfida</button>
+                    <button ng-switch-when="sfidaRequestReceived" ng-click="doAcceptSfida(user.id_utente)" class="btn btn-xs btn-info" icon="rocket">Accetta la sfida</button>
+                    <button ng-switch-when="sfidaRequestSent" class="btn btn-xs disabled" icon="rocket">In attesa ...</button>
+
+                </div>
             </li>
         </ul>
+    </div>
+
+    <div ng-show="!registered">
+        <p>La tua sessione e' scaduta. <br/>Per accedere clicca qui:</p>
+        <div class="text-center">
+            <button ng-click="registerUser()" class="btn btn-primary btn-lg" icon="group" >ENTRA NELLA STANZA!</button>
+        </div>
     </div>
 </div>

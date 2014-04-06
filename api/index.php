@@ -6,12 +6,14 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
 header('Content-type: application/json');
 
-$env = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/.env'));
+require_once 'flight/Flight.php';
+require_once 'config.php';
+
+$env = Flight::get("env");
 
 require_once 'database.php';
 require_once '../classes/fastjson.php';
 require_once '../classes/logger.php';
-require_once 'flight/Flight.php';
 
 require_once 'classes/Helper.php';
 require_once 'classes/activity.php';

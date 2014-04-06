@@ -5,6 +5,19 @@
  */
 Flight::map("checkPeriodicActions", function () {
 
+  Flight::doBotActions();
+  Flight::updateRealtimeMembers();
+
+});
+
+Flight::map("updateRealtimeMembers", function() {
+  $unactiveUsers = RealtimeRegistrations::unactive(Flight::get("realtime_members_expire_time"))->get();
+  foreach ($unactiveUsers as $unactiveUser) {
+    $unactiveUser->delete();
+  }
+});
+
+Flight::map("doBotActions", function() {
   $sfideBot = Sfide::receivedBy(Flight::get("BOT_ID"))->pending()->get();
   if ($sfideBot->count() > 0) {
     foreach ($sfideBot as $sfidaBot) {
@@ -41,7 +54,7 @@ Flight::map("checkPeriodicActions", function () {
         "id_sender"   => Flight::get("BOT_ID"),
         "id_receiver" => $messaggioBot->id_sender,
         "oggetto"     => "RE: " . $messaggioBot->oggetto,
-        "testo"       => "hey! sono un automa, una macchina, senza anima, io non rispondo, io mando solo questo messaggio!",
+        "testo"       => "hey! sono un automa, una macchina, non ho anima, io non rispondo, io mando solo questo messaggio!",
         "letto"       => 0,
         "report"      => 0
       ));
@@ -52,7 +65,6 @@ Flight::map("checkPeriodicActions", function () {
     }
 
   }
-
 });
 
 function finalizeSfida ($sfida)

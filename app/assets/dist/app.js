@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-04-05 *//*!
+/*! Rigorix - v0.5.0 - 2014-04-06 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -45725,8 +45725,11 @@ Rigorix.config([
     $routeProvider.when("/realtime", {
       templateUrl: "/app/templates/realtime/page.html"
     });
-    return $routeProvider.when("/realtime/room", {
+    $routeProvider.when("/realtime/room", {
       templateUrl: "/app/templates/realtime/room.html"
+    });
+    return $routeProvider.when("/realtime/private/:id_sfidato", {
+      templateUrl: "/app/templates/realtime/private.html"
     });
   }
 ]);
@@ -45818,8 +45821,6 @@ Rigorix.controller("AccessDenied.Modal", [
     };
   }
 ]);
-
-Rigorix.controller("Animation.Shooter", ['$scope', function($scope) {}]);
 
 Rigorix.controller("AreaPersonale", [
   '$scope', '$routeParams', '$location', 'notify', '$timeout', function($scope, $routeParams, $location, notify, $timeout) {
@@ -47182,24 +47183,6 @@ Rigorix.controller('Message.Modal.New', [
   }
 ]);
 
-Rigorix.factory("Modals", [
-  '$scope', '$modal', function($scope, $modal) {
-    return {
-      success: function(content) {
-        return $modal.open({
-          templateUrl: '/app/templates/modals/success.html',
-          controller: 'Modals.Success',
-          resolve: {
-            content: function() {
-              return content;
-            }
-          }
-        });
-      }
-    };
-  }
-]);
-
 Rigorix.controller("Modals.Success", [
   '$scope', '$modal', '$modalInstance', '$rootScope', function($scope, $modal, $modalInstance, $rootScope) {
     $rootScope.$broadcast("modal:open", {
@@ -47391,39 +47374,138 @@ Rigorix.controller("Modals.NewUser", [
 ]);
 
 Rigorix.controller("Realtime", [
-  '$scope', 'Api', '$http', function($scope, Api, $http) {
-    Api.post("realtime/register/" + $scope.currentUser.id_utente, {
-      success: function(json) {
-        $scope.registered = true;
-        return $scope.members = json.data;
-      },
-      error: function() {
-        return $scope.registered = false;
-      }
-    });
-    $scope.updateMembers = function() {
-      return Api.poll('get', 'realtime/members', {
-        timeout: 120000,
+  '$scope', 'Api', '$http', 'notify', '$location', '$q', function($scope, Api, $http, notify, $location, $q) {
+    $scope.registerUser = function() {
+      return Api.post("realtime/register/" + $scope.currentUser.id_utente, {
         success: function(json) {
-          $scope.members = json.data;
-          return $scope.updateMembers();
+          $scope.registered = true;
+          $scope.member = json.data.member;
+          $scope.members = json.data.members;
+          return $scope.updateMember();
+        },
+        error: function() {
+          return $scope.registered = false;
         }
       });
     };
-    return $scope.updateMembers();
+    $scope.unregisterUser = function() {
+      return Api.post("realtime/unregister/" + $scope.currentUser.id_utente);
+    };
+    $scope.updateMember = function() {
+      $scope.pollingStopper = $q.defer();
+      return Api.poll('get', 'realtime/member', {
+        timeout: $scope.pollingStopper.promise,
+        success: function(json) {
+          $scope.member = json.data.member;
+          $scope.members = json.data.members;
+          return $scope.updateMember();
+        },
+        error: function() {
+          $scope.registered = false;
+          $scope.member = false;
+          return $scope.unregisterUser();
+        }
+      });
+    };
+    $scope.registerUser();
+    $scope.updateMember();
+    return $scope.$watch("member", function(val) {
+      if (val != null) {
+        if ($scope.member === false) {
+          return $location.path("/realtime/room");
+        }
+        if ($scope.member.busy_with !== 0) {
+          $location.path("/realtime/private/" + $scope.member.busy_with);
+        }
+        if ($scope.member.has_request_from !== 0) {
+          return notify.warn("Hai ricevuto una nuova richiesta!");
+        }
+      }
+    });
   }
 ]);
 
 Rigorix.controller("Realtime.Room", [
-  '$scope', 'notify', function($scope, notify) {
+  '$scope', 'notify', '$location', 'Api', function($scope, notify, $location, Api) {
+    $scope.userAction = function(user) {
+      if ($scope.member.has_request_from === user.id_utente) {
+        return "sfidaRequestReceived";
+      }
+      if (user.has_request_from === $scope.member.id_utente) {
+        return "sfidaRequestSent";
+      }
+      if (user.id_utente !== $scope.member.id_utente && user.busy_with === 0) {
+        return "sfidaPossible";
+      }
+    };
+    $scope.doSendSfida = function(id_avversario) {
+      return Api.post("realtime/request/" + id_avversario);
+    };
+    $scope.doAcceptSfida = function(id_avversario) {
+      return Api.post("realtime/accept/" + id_avversario, {
+        success: function() {
+          return $location.path("/realtime/private/" + id_avversario);
+        }
+      });
+    };
     return $scope.$watch("registered", function(val) {
       if (val === true) {
-        notify.success("Sei entrato nella stanza");
-      }
-      if (val === false) {
-        return notify.error("C'e'; stato un problema nel registrarsi nella stanza!");
+        return notify.success("Sei entrato nella stanza");
       }
     });
+  }
+]);
+
+Rigorix.controller("Realtime.Private", [
+  '$scope', 'notify', '$routeParams', 'Api', '$q', function($scope, notify, $routeParams, Api, $q) {
+    $scope.accessDenied = false;
+    $scope.loading = true;
+    $scope.id_sfidato = parseInt($routeParams.id_sfidato, 10);
+    $scope.start = function() {
+      var user, _i, _len, _ref;
+      $scope.pollingStopper.resolve();
+      _ref = $scope.members;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        user = _ref[_i];
+        if (user.id_utente === $scope.id_sfidato) {
+          $scope.avversario = user;
+        }
+      }
+      return $scope.startGame();
+    };
+    $scope.pollGame = function() {
+      $scope.gameStopper = $q.defer();
+      return Api.poll("get", "realtime/game/" + $scope.sfida.id({
+        timeout: $scope.gameStopper.promise,
+        success: function(json) {
+          console.log("something happened");
+          return $scope.pollGame();
+        }
+      }));
+    };
+    return $scope.$watch("member", function(val) {
+      if ((val != null) && val !== false) {
+        return Api.get("realtime/sfida/" + $scope.id_sfidato, {
+          success: function(json) {
+            $scope.loading = false;
+            $scope.sfida = json.data;
+            $scope.accessDenied = (json.data == null) || json.data === false || $scope.sfida.stato === 2;
+            return $scope.start();
+          }
+        });
+      }
+    });
+  }
+]);
+
+Rigorix.controller("Realtime.NewRequest", [
+  '$scope', '$modalInstance', '$rootScope', function($scope, $modal, $rootScope) {
+    $rootScope.$broadcast("modal:open", {
+      modalClass: 'modal-success'
+    });
+    return $scope.close = function() {
+      return $modalInstance.dismiss();
+    };
   }
 ]);
 
@@ -52534,12 +52616,17 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/realtime/page.html',
-    "<div class=\"realtime-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"jumbotron jumbotron-warning\"><h1>Gioca in tempo reale!</h1><p ng-show=\"!auth_user_exist\">Stiamo partendo con una versione di prova di Rigorix in tempo reale!<br>Provala subito!!</p><div class=\"text-center\"><a href=\"#/realtime/room\" class=\"btn btn-primary btn-lg\" icon=\"group\">ENTRA!</a></div></div></div></div></div>"
+    "<div class=\"realtime-page pbl\"><div class=\"row\"><div class=\"col-sm-12\"><div class=\"jumbotron jumbotron-warning\"><h1>Gioca in tempo reale!</h1><p ng-show=\"!auth_user_exist\">Stiamo partendo con una versione di prova di Rigorix in tempo reale!<br>Provala subito!!</p><div class=\"text-center\"><a href=\"#/realtime/room\" class=\"btn btn-primary btn-lg\" icon=\"group\">ENTRA NELLA STANZA!</a></div></div></div></div></div>"
+  );
+
+
+  $templateCache.put('/app/templates/realtime/private.html',
+    "<div ng-controller=\"Realtime\"><h1>Realtime play!</h1><div ng-controller=\"Realtime.Private\" ng-show=\"registered\"><h5>Avversario:<username id_utente=\"id_sfidato\"></username></h5><div class=\"panel panel-primary\"><div class=\"panel-body\" ng-switch=\"\" on=\"loading\"><div ng-switch-default=\"\"><p>Caricamento sfida in corso ...</p></div><div ng-switch-when=\"false\">{{member}}<br>{{avversario}}<hr><div ng-show=\"!accessDenied\"><h3>Partita in corso</h3></div><div ng-show=\"accessDenied\" class=\"label-danger\"><h4>Nessuna partita in corso</h4><a href=\"#/realtime/room\" class=\"btn btn-info\">Torna indietro</a></div><!--<div ng-show=\"avversario.busy_with != 0 && avversario.busy_with != currentUser.id_utente\">--><!--L'avversario e' impegnato in un'altra partita, non puoi sfidarlo--><!--</div>--><!--<div ng-show=\"avversario.busy_with == 0 && avversario.has_request_from == currentUser.id_utente && accepted != false\">--><!--&lt;!&ndash;<button ng-click=\"sendRequest()\" class=\"btn btn-primary\" icon=\"rocket\">Chiedi di giocare</button>&ndash;&gt;--><!--<button ng-click=\"discardRequest()\" class=\"btn btn-primary\" icon=\"rocket\">Annulla</button>--><!--<p>In attesa della risposta ...</p>--><!--</div>--><!--<div ng-show=\"accepted == false\">--><!--<p>L'avversario non ha accettato la tua richiesta!</p>--><!--<a href=\"#/realtime/room\" class=\"btn btn-info\">Torna indietro</a>--><!--</div>--></div></div></div></div></div>"
   );
 
 
   $templateCache.put('/app/templates/realtime/room.html',
-    "<div ng-controller=\"Realtime\"><h1>Realtime play!</h1><div ng-controller=\"Realtime.Room\" ng-show=\"registered\"><h5>Lista utenti nella stanza:</h5><p ng-show=\"members.length == 0\">Nessun utente</p><ul><li ng-repeat=\"member in members\"><username id_utente=\"member.id_utente\" with_thumb=\"true\"></username></li></ul></div></div>"
+    "<div ng-controller=\"Realtime\"><h1>Realtime play!</h1><div ng-controller=\"Realtime.Room\" ng-show=\"registered\"><h5>Lista utenti nella stanza:</h5><p ng-show=\"members.length == 0\">Nessun utente</p><ul><li ng-repeat=\"user in members\"><username id_utente=\"user.id_utente\" with-picture=\"true\"></username><div ng-switch=\"\" on=\"userAction(user)\"><button ng-switch-when=\"sfidaPossible\" ng-click=\"doSendSfida(user.id_utente)\" class=\"btn btn-xs btn-warning\" icon=\"rocket\">Sfida</button> <button ng-switch-when=\"sfidaRequestReceived\" ng-click=\"doAcceptSfida(user.id_utente)\" class=\"btn btn-xs btn-info\" icon=\"rocket\">Accetta la sfida</button> <button ng-switch-when=\"sfidaRequestSent\" class=\"btn btn-xs disabled\" icon=\"rocket\">In attesa ...</button></div></li></ul></div><div ng-show=\"!registered\"><p>La tua sessione e' scaduta.<br>Per accedere clicca qui:</p><div class=\"text-center\"><button ng-click=\"registerUser()\" class=\"btn btn-primary btn-lg\" icon=\"group\">ENTRA NELLA STANZA!</button></div></div></div>"
   );
 
 }]);
