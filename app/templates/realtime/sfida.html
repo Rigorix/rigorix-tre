@@ -1,6 +1,6 @@
-<div ng-controller="Realtime">
+<div>
     <h1>Realtime play!</h1>
-    <div ng-controller="Realtime.Private" ng-show="registered">
+    <div ng-controller="Realtime.Sfida">
         <h5>Avversario: <username id_utente="id_sfidato"></username></h5>
 
         <div class="panel panel-primary">
@@ -12,18 +12,12 @@
 
                 <div ng-switch-when="false">
                     {{member}}
-                    <br/>
-                    {{avversario}}
                     <hr/>
 
-                    <div ng-show="!accessDenied">
+                    <div>
                         <h3>Partita in corso</h3>
                     </div>
 
-                    <div ng-show="accessDenied" class="label-danger">
-                        <h4>Nessuna partita in corso</h4>
-                        <a href="#/realtime/room" class="btn btn-info">Torna indietro</a>
-                    </div>
 
                     <!--<div ng-show="avversario.busy_with != 0 && avversario.busy_with != currentUser.id_utente">-->
                     <!--L'avversario e' impegnato in un'altra partita, non puoi sfidarlo-->

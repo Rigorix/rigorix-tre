@@ -1,6 +1,5 @@
-Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$window', '$location', 'Api', 'notify', ($scope, $modal, $rootScope, UserService, $window, $location, Api, notify) ->
+Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$window', '$location', 'Api', 'notify', '$q', ($scope, $modal, $rootScope, UserService, $window, $location, Api, notify, $q) ->
 
-  $scope.userLogged = false
   $scope.currentUser = false
   $scope.User = window.User
   $rootScope.currentUser = window.User
@@ -28,7 +27,7 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
     Rigorix.value "page", pageName
 
   $scope.$on "user:refresh", ->
-    do $scope.updateUserObject if $scope.userLogged isnt false
+    do $scope.updateUserObject if $scope.currentUser isnt false
 
   $scope.$on "modal:open", (event, obj)->
     $scope.modalClass = obj.modalClass
@@ -88,6 +87,37 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
     do $scope.updateUserObject
 
 
+  ## Realtime ##########################################################################################################
+
+  $scope.$on "realtime:register", ->
+    Api.post "realtime/register/"+$scope.currentUser.id_utente,
+      success: (json)->
+        $rootScope.$broadcast "realtime:registered", json.data
+
+      error: ()->
+        $rootScope.$broadcast "realtime:unregister"
+
+  $scope.$on "realtime:unregister", ->
+    Api.post "realtime/unregister/"+$scope.currentUser.id_utente,
+      success: ->
+        $rootScope.$broadcast "realtime:unregistered"
+
+  $scope.$on "realtime:polling:start", ->
+    $scope.pollingStopper = do $q.defer
+
+    Api.poll 'get', 'realtime/member',
+      timeout: $scope.pollingStopper.promise
+      success: (json)->
+        $rootScope.$broadcast "realtime:updates", json.data
+        $rootScope.$broadcast "realtime:polling:start"
+
+      error: ->
+        $rootScope.$broadcast "realtime:unregistered"
+
+  $scope.$on "realtime:polling:stop", ->
+    do $scope.pollingStopper.resolve
+
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 
@@ -102,7 +132,6 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
       json.picture = "/i/profile_picture/default-user-picture.png" if json.picture is null
       json.db_object.picture = "/i/profile_picture/default-user-picture.png" if json.db_object.picture is null
       $scope.currentUser = json
-      $scope.userLogged = json.attivo is 1
       $rootScope.$broadcast "user:update", json
       $rootScope.$broadcast "hide:loading"
 
@@ -129,7 +158,6 @@ Rigorix.controller "Main", ['$scope', '$modal', '$rootScope', 'UserService', '$w
       $location.path "first-login"
     else
       $location.path "/" if $location.$$path is "/first-login"
-      $scope.userLogged = true
       $scope.currentUser = User
       $.removeCookie "auth_user_exist"
 

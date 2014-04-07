@@ -46,16 +46,10 @@ Flight::route('GET /realtime/member', function() {
   Flight::returnRealtimeResponse();
 });
 
-Flight::route('GET /realtime/sfida/@id_avversario', function($id_avversario) {
+Flight::route('GET /realtime/sfida/@id_sfida', function($id_sfida) {
   Flight::needsAuth();
 
-  echo (string)RealtimeSfide::between(Flight::get("auth_id"),$id_avversario)->first();
-});
-
-Flight::route('GET /realtime/game/@id_sfida', function($id_sfida) {
-  Flight::needsAuth();
-
-  $sfida = RealtimeSfide::find($id_sfida);
+  echo (string)RealtimeSfide::find($id_sfida);
 
 });
 
@@ -87,7 +81,7 @@ Flight::route('POST /realtime/request/@id_utente', function($id_utente) {
     $avversario->update(array(
       "has_request_from" => Flight::get("auth_id")
     ));
-    RealtimeRegistrations::user(Flight::get("auth_id"))->touch();
+    RealtimeRegistrations::user(Flight::get("auth_id"))->first()->touch();
   }
 });
 
@@ -97,19 +91,19 @@ Flight::route('POST /realtime/accept/@id_avversario', function($id_avversario) {
   $loggedUser = RealtimeRegistrations::user(Flight::get("auth_id"))->first();
   if ($loggedUser->has_request_from == $id_avversario) {
 
-    $loggedUser->update(array(
-      "busy_with"         => $id_avversario,
-      "has_request_from"  => 0
-    ));
-    RealtimeRegistrations::user($id_avversario)->first()->update(array(
-      "busy_with"         => Flight::get("auth_id"),
-      "has_request_from"  => 0
-    ));
-
     $newSfida = RealtimeSfide::create(array(
       "id_sfidante"   => $id_avversario,
       "id_sfidato"    => Flight::get("auth_id"),
       "stato"         => 0
+    ));
+
+    $loggedUser->update(array(
+      "busy_with"         => $newSfida->getAttribute("id"),
+      "has_request_from"  => 0
+    ));
+    RealtimeRegistrations::user($id_avversario)->first()->update(array(
+      "busy_with"         => $newSfida->getAttribute("id"),
+      "has_request_from"  => 0
     ));
 
     Flight::json(array(

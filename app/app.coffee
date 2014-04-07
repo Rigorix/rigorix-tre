@@ -61,12 +61,15 @@ Rigorix.config ['$routeProvider', ($routeProvider)->
 # --- Realtime  ------------------------------------------------------
   $routeProvider.when "/realtime",
     templateUrl: "/app/templates/realtime/page.html"
+    controller: "Realtime"
 
   $routeProvider.when "/realtime/room",
     templateUrl: "/app/templates/realtime/room.html"
+    controller: "Realtime"
 
-  $routeProvider.when "/realtime/private/:id_sfidato",
-    templateUrl: "/app/templates/realtime/private.html"
+  $routeProvider.when "/realtime/sfida/:id_sfida",
+    templateUrl: "/app/templates/realtime/sfida.html"
+    controller: "Realtime"
 
 ]
 
