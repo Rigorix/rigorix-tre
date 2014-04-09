@@ -2,10 +2,10 @@
     <div class="panel-heading">
         <h5 class="panel-title">I migliori della settimana</h5>
     </div>
-    <div class="list-group">
-        <div class="list-group-item" ng-show="topUsersLoaded == false">
-            Caricamento utenti ...
-        </div>
+    <div class="list-group" wait-for="topUsers">
+        <!--<div class="list-group-item" ng-show="topUsersLoaded == false">-->
+            <!--Caricamento utenti ...-->
+        <!--</div>-->
 
         <div class="list-group-item" ng-show="topUsers.length == 0 && topUsersLoaded == true">
             Nessun utente

@@ -39,9 +39,16 @@ Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', 'not
 Rigorix.controller "AreaPersonale.Utente", ['$scope', 'Api', ($scope, Api) ->
 
   $scope.pages = [ 'palmares' ]
-  Api.call "get", "badges",
-    success: (json)->
-      $scope.rewards = json.data
+  $scope.loadingBadges = !RigorixStorage.badges? or RigorixStorage.badges.length is 0
+
+  if $scope.loadingBadges
+    Api.call "get", "badges",
+      success: (json)->
+        $scope.loadingBadges = false
+        $scope.rewards = json.data
+        RigorixStorage.badges = $scope.rewards
+  else
+    $scope.rewards = RigorixStorage.badges
 
   Api.post "users/" + $scope.currentUser.id_utente + "/badges/seen"
   $scope.currentUser.has_new_badges = 0

@@ -45860,11 +45860,18 @@ Rigorix.controller("AreaPersonale", [
 Rigorix.controller("AreaPersonale.Utente", [
   '$scope', 'Api', function($scope, Api) {
     $scope.pages = ['palmares'];
-    Api.call("get", "badges", {
-      success: function(json) {
-        return $scope.rewards = json.data;
-      }
-    });
+    $scope.loadingBadges = (RigorixStorage.badges == null) || RigorixStorage.badges.length === 0;
+    if ($scope.loadingBadges) {
+      Api.call("get", "badges", {
+        success: function(json) {
+          $scope.loadingBadges = false;
+          $scope.rewards = json.data;
+          return RigorixStorage.badges = $scope.rewards;
+        }
+      });
+    } else {
+      $scope.rewards = RigorixStorage.badges;
+    }
     Api.post("users/" + $scope.currentUser.id_utente + "/badges/seen");
     $scope.currentUser.has_new_badges = 0;
     return $scope.userHasBadge = function(reward) {
@@ -47387,12 +47394,9 @@ Rigorix.controller("Modals.NewUser", [
 
 Rigorix.controller("Sidebar", [
   '$scope', 'Api', '$rootScope', function($scope, Api) {
-    $scope.topUsers = [];
-    $scope.topUsersLoaded = false;
     return Api.call("get", "users/top/10", {
       success: function(json) {
-        $scope.topUsers = json.data;
-        return $scope.topUsersLoaded = true;
+        return $scope.topUsers = json.data;
       }
     });
   }
@@ -47628,6 +47632,23 @@ Rigorix.directive("loading", function() {
     scope: {
       text: "=",
       icon: "@customIcon"
+    }
+  };
+});
+
+Rigorix.directive("waitFor", function() {
+  return {
+    link: function(scope, element, attrs) {
+      element.addClass("is-waiting");
+      element.append($('<div class="loader">Caricamento ...</div>'));
+      return scope.$watch(attrs.waitFor, function(newValue) {
+        console.log("Wait for:", attrs.waitFor, newValue);
+        if ((newValue != null) && newValue !== false && newValue.length !== 0) {
+          element.removeClass("is-waiting");
+          element.find(".loader").remove();
+          return element.addClass("has-finish-waiting");
+        }
+      });
     }
   };
 });
@@ -57556,7 +57577,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/area-personale/utente.html',
-    "<div ng-controller=\"AreaPersonale.Utente\" class=\"areapersonale-utente\"><div class=\"row-fluid\"><div class=\"col-sm-12\"><div class=\"badge-list\"><p>Hai <strong>{{currentUser.badges.length}}</strong> delle 5 coppe da vincere.<br>Se vuoi sapere come vincere le coppe, vai alla pagina dei <a href=\"#riconoscimenti\" class=\"link\">RICONOSCIMENTI</a>!</p><div ng-repeat=\"reward in rewards\" class=\"badge-container\" ng-class=\"{haveit: userHasBadge(reward) == true}\" popover=\"{{reward.descrizione | htmlToText}}\" popover-placement=\"top\" popover-trigger=\"mouseenter\"><div class=\"icon-{{reward.key_id}}__small{{userHasBadge(reward) ? '' : '_disabled'}}\"></div></div></div></div></div></div>"
+    "<div ng-controller=\"AreaPersonale.Utente\" class=\"areapersonale-utente\"><div class=\"row-fluid\" wait-for=\"rewards\"><div class=\"col-sm-12\"><div class=\"badge-list\"><p>Hai <strong>{{currentUser.badges.length}}</strong> delle 5 coppe da vincere.<br>Se vuoi sapere come vincere le coppe, vai alla pagina dei <a href=\"#riconoscimenti\" class=\"link\">RICONOSCIMENTI</a>!</p><div ng-repeat=\"reward in rewards\" class=\"badge-container\" ng-class=\"{haveit: userHasBadge(reward) == true}\" popover=\"{{reward.descrizione | htmlToText}}\" popover-placement=\"top\" popover-trigger=\"mouseenter\"><div class=\"icon-{{reward.key_id}}__small{{userHasBadge(reward) ? '' : '_disabled'}}\"></div></div></div></div></div></div>"
   );
 
 
@@ -57680,7 +57701,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/partials/best-users.html',
-    "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h5 class=\"panel-title\">I migliori della settimana</h5></div><div class=\"list-group\"><div class=\"list-group-item\" ng-show=\"topUsersLoaded == false\">Caricamento utenti ...</div><div class=\"list-group-item\" ng-show=\"topUsers.length == 0 && topUsersLoaded == true\">Nessun utente</div><div class=\"list-group-item\" ng-repeat=\"user in topUsers\"><username id-utente=\"user.id_utente\" with-picture=\"true\" with-punteggio=\"true\"></username></div></div></div>"
+    "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h5 class=\"panel-title\">I migliori della settimana</h5></div><div class=\"list-group\" wait-for=\"topUsers\"><!--<div class=\"list-group-item\" ng-show=\"topUsersLoaded == false\">--><!--Caricamento utenti ...--><!--</div>--><div class=\"list-group-item\" ng-show=\"topUsers.length == 0 && topUsersLoaded == true\">Nessun utente</div><div class=\"list-group-item\" ng-repeat=\"user in topUsers\"><username id-utente=\"user.id_utente\" with-picture=\"true\" with-punteggio=\"true\"></username></div></div></div>"
   );
 
 

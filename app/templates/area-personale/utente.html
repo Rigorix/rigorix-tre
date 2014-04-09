@@ -1,9 +1,10 @@
 <div ng-controller="AreaPersonale.Utente" class="areapersonale-utente">
 
-    <div class="row-fluid">
+    <div class="row-fluid" wait-for="rewards">
         <div class="col-sm-12">
             <div class="badge-list">
                 <p>Hai <strong>{{currentUser.badges.length}}</strong> delle 5 coppe da vincere.<br> Se vuoi sapere come vincere le coppe, vai alla pagina dei <a href="#riconoscimenti" class="link">RICONOSCIMENTI</a>! </p>
+
                 <div ng-repeat="reward in rewards" class="badge-container" ng-class="{haveit: userHasBadge(reward) == true}" popover="{{reward.descrizione | htmlToText}}" popover-placement="top" popover-trigger="mouseenter">
                     <div class="icon-{{reward.key_id}}__small{{userHasBadge(reward) ? '' : '_disabled'}}"></div>
                 </div>

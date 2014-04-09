@@ -117,6 +117,36 @@ Rigorix.directive "loading", ->
 #-----------------------------------------------------------------------------------------------------------------------
 
 
+Rigorix.directive "waitFor", ->
+  link: (scope, element, attrs) ->
+
+    element.addClass "is-waiting"
+    element.append $('<div class="loader">Caricamento ...</div>')
+
+    scope.$watch attrs.waitFor, (newValue)->
+      console.log "Wait for:", attrs.waitFor, newValue
+
+      if newValue? and newValue isnt false and newValue.length isnt 0
+        element.removeClass "is-waiting"
+        do element.find(".loader").remove
+        element.addClass "has-finish-waiting"
+
+#      console.log "new value", newValue
+
+
+#    console.log "scope", scope, element, attrs
+
+
+#  restrict: 'A'
+#  controller: 'Directive.InlineLoader'
+#  scope:
+#    text: "="
+#    icon: "@customIcon"
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
 Rigorix.directive "notificationTimeout", ['$rootScope', ($rootScope)->
 
   dismissNotification = (scope, element, anim)->
