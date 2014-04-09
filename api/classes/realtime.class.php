@@ -18,6 +18,11 @@ class RealtimeRegistrations extends Illuminate\Database\Eloquent\Model {
     return $query->whereRaw("updated_at<=SUBDATE(NOW(), INTERVAL {$activityPeriod} SECOND)");
   }
 
+  public function scopeBusyWith($query, $id_sfida)
+  {
+    return $query->where("busy_with", "=", $id_sfida);
+  }
+
 }
 
 
@@ -25,6 +30,7 @@ class RealtimeSfide extends Illuminate\Database\Eloquent\Model {
   protected $table        = 'realtime_sfide';
   protected $primaryKey   = 'id';
   protected $guarded      = array('id');
+  public $timestamps      = true;
 
   // Accessors
   public function getIdSfidanteAttribute ($attr) { return (int)$attr; }
@@ -35,5 +41,11 @@ class RealtimeSfide extends Illuminate\Database\Eloquent\Model {
   {
     return $query->whereRaw("(id_sfidante = $id1 and id_sfidato = $id2) or (id_sfidante = $id2 and id_sfidato = $id1)");
   }
+
+  public function scopeDead($query, $deadPeriod)
+  {
+    return $query->whereRaw("stato < 2 and created_at < SUBDATE(NOW(), INTERVAL {$deadPeriod} SECOND)");
+  }
+
 
 }

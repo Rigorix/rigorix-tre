@@ -1,27 +1,35 @@
 <div>
     <h1>Realtime play!</h1>
-    Member: {{member}}<br/>
-    Members: {{members}}
 
-    <div ng-controller="Realtime.Room" ng-show="member">
-        <h5>Lista utenti nella stanza:</h5>
-        <p ng-show="members.length == 0">Nessun utente</p>
-        <div class="list-group">
-            <div class="list-group-item clearfix" ng-repeat="user in members">
-                <username class="pull-left" id_utente="user.id_utente" with-picture="true"></username>
-                <div ng-switch on="userAction(user)">
-                    <button ng-switch-when="sfidaPossible" ng-click="doSendSfida(user.id_utente)" class="btn btn-xs btn-warning" icon="rocket">Sfida</button>
-                    <button ng-switch-when="sfidaRequestReceived" ng-click="doAcceptSfida(user.id_utente)" class="btn btn-xs btn-info" icon="rocket">Accetta la sfida</button>
-                    <button ng-switch-when="sfidaRequestSent" class="btn btn-xs disabled" icon="rocket">In attesa ...</button>
+    <div ng-show="loading == false">
+
+        <div ng-controller="Realtime.Room" ng-show="member">
+            <h5>Lista utenti nella stanza:</h5>
+            <p ng-show="members.length == 0">Nessun utente</p>
+            <div class="list-group">
+                <div class="list-group-item clearfix" ng-repeat="user in members">
+                    <username class="pull-left" id_utente="user.id_utente" with-picture="true"></username>
+                    <div ng-switch on="userAction(user)">
+                        <button ng-switch-when="sfidaPossible" ng-click="doSendSfida($event, user.id_utente)" class="btn btn-xs btn-warning" icon="rocket">Sfida</button>
+                        <button ng-switch-when="sfidaRequestReceived" ng-click="doAcceptSfida(user.id_utente)" class="btn btn-xs btn-info" icon="rocket">Accetta la sfida</button>
+                        <button ng-switch-when="sfidaRequestSent" class="btn btn-xs disabled" icon="rocket">In attesa ...</button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div ng-show="!member">
+            <p>La tua sessione e' scaduta. <br/>Per accedere clicca qui:</p>
+            <div class="text-center">
+                <button ng-click="registerUser()" class="btn btn-primary btn-lg" icon="group" >ENTRA NELLA STANZA!</button>
+            </div>
+        </div>
+
     </div>
 
-    <div ng-show="!member">
-        <p>La tua sessione e' scaduta. <br/>Per accedere clicca qui:</p>
-        <div class="text-center">
-            <button ng-click="registerUser()" class="btn btn-primary btn-lg" icon="group" >ENTRA NELLA STANZA!</button>
-        </div>
+    <div ng-show="loading == true">
+        <p>Caricamento stanza in corso ...</p>
     </div>
+
+
 </div>

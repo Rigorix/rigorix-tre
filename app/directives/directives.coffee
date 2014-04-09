@@ -1,25 +1,25 @@
 # Refresh for area personale tabs, is triggered once route change and check the default tab and open it
 Rigorix.directive "refreshStateOnLoad", ['$timeout', '$location', (timer, location)->
-    link: (scope, element, attrs, ctrl) ->
-      doRefresh = ()->
-        window.location.href = $(element).find("li:first a").attr "href" if $(element).find("li.active").size() is 0
+  link: (scope, element, attrs, ctrl) ->
+    doRefresh = ()->
+      window.location.href = $(element).find("li:first a").attr "href" if $(element).find("li.active").size() is 0
 
-      timer doRefresh, 0
-  ]
+    timer doRefresh, 0
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 
 Rigorix.directive "onSfidaLoad", ['$timeout', (timer)->
-    link: (scope, element, attrs)->
-      checkDeletedUser = ()->
-        if $(element).find(".deleted").size() isnt 0
-          element.addClass "deleted-user"
-          $(element).find(".deleted").html $(element).find(".deleted").html().replace(RigorixConfig.deletedUsernameQuery, "")
+  link: (scope, element, attrs)->
+    checkDeletedUser = ()->
+      if $(element).find(".deleted").size() isnt 0
+        element.addClass "deleted-user"
+        $(element).find(".deleted").html $(element).find(".deleted").html().replace(RigorixConfig.deletedUsernameQuery, "")
 
-      timer checkDeletedUser, 200
-  ]
+    timer checkDeletedUser, 200
+]
 
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -56,6 +56,17 @@ Rigorix.directive "username", ()->
     with_punteggio    : "@withPunteggio"
     tooltip_placement : "@tooltipPlacement"
     disabled          : "@"
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+Rigorix.directive "countdown", ()->
+  restrict: 'E'
+  controller: 'Directive.Countdown'
+  scope:
+    seconds           : "@"
+    on_finish         : "@onFinish"
 
 
 #-----------------------------------------------------------------------------------------------------------------------

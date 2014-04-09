@@ -7,7 +7,23 @@ Flight::map("checkPeriodicActions", function () {
 
   Flight::doBotActions();
   Flight::updateRealtimeMembers();
+  Flight::clearDeadRealtimeSfide();
 
+});
+
+Flight::map("clearDeadRealtimeSfide", function() {
+  RealtimeSfide::dead(Flight::get("realtime_dead_sfida_time"))->get()->each(function ($deadSfida) {
+    RealtimeRegistrations::busyWith($deadSfida->getAttribute("id"))->get()->each(function ($user) {
+      $user->update(array(
+        "busy_with" => 0
+      ));
+    });
+    $deadSfida->delete();
+  });
+});
+
+Flight::route("GET /testdead", function() {
+  Flight::clearDeadRealtimeSfide();
 });
 
 Flight::map("updateRealtimeMembers", function() {

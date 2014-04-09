@@ -45,6 +45,12 @@ Flight::map("needsPermission", function($id_utente) {
     Flight::halt(403, "Auth token not valid. Needs to authenticate");
 });
 
+Flight::map("needsPermissionToSfida", function ($id_sfida) {
+  $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
+  if (RealtimeSfide::whereRaw("id = $id_sfida and (id_sfidante = $auth_id or id_sfidato = $auth_id) and stato != 2")->get()->count() == 0)
+    Flight::halt(403, "User doesn't have permissions to change this sfida");
+});
+
 Flight::map("getValidUsername", function($username) {
   if (Flight::userExists(array("username" => $username)) )
     return Flight::getValidUsername ($username . rand(0, 9));

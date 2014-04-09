@@ -1,41 +1,60 @@
 <div>
     <h1>Realtime play!</h1>
     <div ng-controller="Realtime.Sfida">
-        <h5>Avversario: <username id_utente="id_sfidato"></username></h5>
-
-        <div class="panel panel-primary">
-            <div class="panel-body" ng-switch on="loading">
-
-                <div ng-switch-default>
-                    <p>Caricamento sfida in corso ... </p>
+        <div ng-show="!accessDenied">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h5 class="panel-title">Partita in corso</h5>
                 </div>
+                <div class="panel-body" ng-switch on="loading">
 
-                <div ng-switch-when="false">
-                    {{member}}
-                    <hr/>
-
-                    <div>
-                        <h3>Partita in corso</h3>
+                    <div ng-switch-default>
+                        <p>Caricamento sfida in corso ... </p>
                     </div>
 
+                    <div ng-switch-when="false">
+                        Sfida tra <username id_utente="sfida.id_sfidante"></username> e <username id_utente="sfida.id_sfidato"></username>
 
-                    <!--<div ng-show="avversario.busy_with != 0 && avversario.busy_with != currentUser.id_utente">-->
-                    <!--L'avversario e' impegnato in un'altra partita, non puoi sfidarlo-->
-                    <!--</div>-->
+                        <div ng-show="sfidaStatus == 'pending'">
+                            <h3>Attenzione</h3>
+                            <p>La sfida iniziera' tra <countdown seconds="5" on-finish="startSfida"></countdown> secondi</p>
+                        </div>
 
-                    <!--<div ng-show="avversario.busy_with == 0 && avversario.has_request_from == currentUser.id_utente && accepted != false">-->
-                    <!--&lt;!&ndash;<button ng-click="sendRequest()" class="btn btn-primary" icon="rocket">Chiedi di giocare</button>&ndash;&gt;-->
-                    <!--<button ng-click="discardRequest()" class="btn btn-primary" icon="rocket">Annulla</button>-->
-                    <!--<p>In attesa della risposta ...</p>-->
-                    <!--</div>-->
+                        <div ng-show="sfidaStatus == 'start'">
+                            <h3>Sfida partitaaaaaaa</h3>
+                            <hr/>
+                            <div ng-model="round">
+                                <h4>Imposta {{round.type}}</h4>
+                                <p>Hai ancora <countdown seconds="15" on-finish="roundFinished"></countdown> secondi</p>
+                                <button class="btn btn-warning" ng-click="setRoundValue(0)">sinistra</button>
+                                <button class="btn btn-warning" ng-click="setRoundValue(1)">centro</button>
+                                <button class="btn btn-warning" ng-click="setRoundValue(2)">destra</button>
+                            </div>
+                        </div>
 
-                    <!--<div ng-show="accepted == false">-->
-                    <!--<p>L'avversario non ha accettato la tua richiesta!</p>-->
-                    <!--<a href="#/realtime/room" class="btn btn-info">Torna indietro</a>-->
-                    <!--</div>-->
+                        <!--<div ng-show="avversario.busy_with != 0 && avversario.busy_with != currentUser.id_utente">-->
+                        <!--L'avversario e' impegnato in un'altra partita, non puoi sfidarlo-->
+                        <!--</div>-->
+
+                        <!--<div ng-show="avversario.busy_with == 0 && avversario.has_request_from == currentUser.id_utente && accepted != false">-->
+                        <!--&lt;!&ndash;<button ng-click="sendRequest()" class="btn btn-primary" icon="rocket">Chiedi di giocare</button>&ndash;&gt;-->
+                        <!--<button ng-click="discardRequest()" class="btn btn-primary" icon="rocket">Annulla</button>-->
+                        <!--<p>In attesa della risposta ...</p>-->
+                        <!--</div>-->
+
+                        <!--<div ng-show="accepted == false">-->
+                        <!--<p>L'avversario non ha accettato la tua richiesta!</p>-->
+                        <!--<a href="#/realtime/room" class="btn btn-info">Torna indietro</a>-->
+                        <!--</div>-->
+                    </div>
+
                 </div>
-
             </div>
+        </div>
+
+        <div ng-show="accessDenied">
+            <p>Questa sfida non esiste o non e' stata accettata.</p>
+            <a href="#/realtime/room" class="btn btn-primary" icon="group">Torna alla stanza</a>
         </div>
     </div>
 </div>

@@ -1,5 +1,8 @@
 <?php
 
+
+// METHODS //-----------------------------------------------------------------------------------------------------------
+
 Flight::map("membersListChanged", function($count) {
   return $count != RealtimeRegistrations::all()->count();
 });
@@ -17,21 +20,7 @@ Flight::map("returnRealtimeResponse", function () {
 
 
 
-
-//Flight::route('GET /realtime/members', function() {
-//  Flight::needsAuth();
-//
-//  $userCount = RealtimeRegistrations::all()->count();
-//  $attempts = 0;
-//  $maxAttempts = 20;
-//
-//  while (!Flight::membersListChanged($userCount) && $maxAttempts > $attempts) {
-//    $attempts++;
-//    sleep(3);
-//  }
-//
-//  echo (string)RealtimeRegistrations::all();
-//});
+// GETS //--------------------------------------------------------------------------------------------------------------
 
 Flight::route('GET /realtime/member', function() {
   Flight::needsAuth();
@@ -46,15 +35,10 @@ Flight::route('GET /realtime/member', function() {
   Flight::returnRealtimeResponse();
 });
 
-Flight::route('GET /realtime/sfida/@id_sfida', function($id_sfida) {
-  Flight::needsAuth();
-
-  echo (string)RealtimeSfide::find($id_sfida);
-
-});
 
 
 
+// POSTS //-------------------------------------------------------------------------------------------------------------
 
 Flight::route('POST /realtime/register/@id_utente', function($id_utente) {
   Flight::needsAuth();
@@ -97,6 +81,26 @@ Flight::route('POST /realtime/accept/@id_avversario', function($id_avversario) {
       "stato"         => 0
     ));
 
+    // TODO: non posso usare i tiri e parate delle sfide normali, altrimenti sovrascrivo l'id della sfida e quindi tiri e parate vecchie.
+    // Trovare una soluzione, magari centralizzando tutto sulle sfide inserendo una colonna Tipo per non mischiarle
+
+    SfideParate::create(array(
+      "id_sfida"  => $newSfida->getAttribute("id"),
+      "id_utente" => Flight::get("auth_id")
+    ));
+    SfideParate::create(array(
+      "id_sfida"  => $newSfida->getAttribute("id"),
+      "id_utente" => $id_avversario
+    ));
+    SfideTiri::create(array(
+      "id_sfida"  => $newSfida->getAttribute("id"),
+      "id_utente" => Flight::get("auth_id")
+    ));
+    SfideTiri::create(array(
+      "id_sfida"  => $newSfida->getAttribute("id"),
+      "id_utente" => $id_avversario
+    ));
+
     $loggedUser->update(array(
       "busy_with"         => $newSfida->getAttribute("id"),
       "has_request_from"  => 0
@@ -111,4 +115,38 @@ Flight::route('POST /realtime/accept/@id_avversario', function($id_avversario) {
     ));
   }
 
+});
+
+
+
+
+
+// RESOURCES //---------------------------------------------------------------------------------------------------------
+
+
+Flight::route('GET /realtime/sfida/@id_sfida', function($id_sfida) {
+  Flight::needsAuth();
+
+  $sfida = RealtimeSfide::find($id_sfida);
+  if ($sfida->first())
+    echo (string)$sfida->first();
+  else
+    Flight::halt(404, "Sfida not found.");
+});
+
+Flight::route('POST /realtime/sfida/@id_sfida', function($id_sfida) {
+  Flight::needsAuth();
+  Flight::needsPermissionToSfida($id_sfida);
+
+  RealtimeSfide::find($id_sfida)->update((array)json_decode(Flight::request()->body));
+});
+
+Flight::route('GET /realtime/sfida/@id_sfida/tiri', function($id_sfida) {
+//  Flight::needsAuth();
+
+  $sfida = RealtimeSfide::find($id_sfida);
+  if ($sfida->first())
+    echo (string)$sfida->first()->user(Flight::get("auth_id"))->tiri;
+  else
+    Flight::halt(404, "Tiri not found.");
 });
