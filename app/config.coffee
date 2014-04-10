@@ -8,9 +8,6 @@ RigorixConfig =
 
   safeLocations: ["/same-email", "/regolamento", "/riconoscimenti"]
 
-RigorixStorage =
-  users: {}
-
 if !console?
   console =
     log: ->

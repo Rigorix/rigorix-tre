@@ -67,6 +67,12 @@ Rigorix.config ['$routeProvider', ($routeProvider)->
 
 # --- Initialize App -------------------------------------------------
 
-Rigorix.run ()->
+Rigorix.Storage =
+  users: {}
+  waiters: {}
 
+Rigorix.run ()->
   $("html").attr "incognito", true if RigorixEnv.INCOGNITO is true
+
+
+

@@ -47,138 +47,68 @@
         }
       }
 
-      /// Area personale
-      .sfide-legenda {
+
+    }
+
+
+    &.AreaPersonale {
+      .sidebar {
         display: none;
       }
+    }
+  }
 
-      .navbar {
-        .navbar-header {
-          .navbar-brand {
-            background: transparent;
-            display: block;
-            color: @color-rigorix-blue;
-            font-size: 42px;
-            line-height: 43px;
 
-            small {
-              display: inline-block;
-              font-size: 19px;
-            }
+  /// Area personale
+  html.AreaPersonale {
 
-            .fa {
-              vertical-align: middle;
-              margin-right: 10px !important;
-            }
-          }
-        }
-      }
+    .sfide-legenda {
+      display: none;
+    }
 
-      .nav-pills {
-        > li {
-          width: 33.33%;
-          margin: 0;
-          text-align: center;
+    .navbar {
+      .navbar-header {
 
-          > a {
-            padding: 8px;
-            .text-overflow();
-          }
-        }
-      }
+        .navbar-brand {
+          background: transparent;
+          display: block;
+          font-size: 42px;
+          line-height: 43px;
 
-      .lista-sfide-container {
-        padding: 0;
-        margin-right: -6px;
-        margin-left: -6px;
-
-        .sfide-description {
-          display: none;
-        }
-
-        .username-container {
-          .profile-picture {
-            display: none;
-          }
-          .punteggio-utente-container {
-            display: none;
-          }
-        }
-
-      }
-
-      .table {
-        .table-condensed();
-      }
-
-      .message-subject {
-        .text-overflow();
-        display: block;
-      }
-
-      /// Footer
-      .footer-link {
-        background: darken(@color-white, 7);
-        padding: 10px 0 4px 0;
-
-        a {
-          display: inline-block;
-          margin-right: 0 !important;
-          width: 49%;
-          padding: 0 12px 6px 12px;
-          font-size: 14px;
-        }
-      }
-
-      /// Modals
-      &.modal-open {
-        .modal-dialog {
-          width: auto;
-
-          .modal-content {
-            padding: 8px;
-
-            > div.mal {
-              margin: 0 !important;
-
-              .row {
-                margin-bottom: 5px !important;
-              }
-
-              .btn {
-                padding: 6px;
-              }
-            }
-
-            #flash_object {
-              height: auto;
-              width: 100%;
-            }
-          }
-        }
-      }
-
-      &.modal-read-message {
-        .modal-content {
-          h3 {
+          small {
+            display: inline-block;
             font-size: 19px;
           }
-          .message-text {
-            font-size: 13px;
+
+          .fa {
+            vertical-align: top;
+            margin-right: 10px !important;
           }
         }
       }
 
-      &.modal-play-sfida {
-        #GamePlay {
-          padding: 0;
+      .navbar-collapse {
+        padding: 0;
+        width: 50%;
+        position: absolute;
+        right: 0px;
+        box-shadow: 0px 6px 16px @color-gray;
 
-          > .row {
-            > .col {
-              padding: 0 !important;
+        .navbar-nav {
+          margin: 0;
 
-              .game-set-box {
+          &.area-personale-nav {
+            li {
+              background: darken(@color-white, 5);
+
+              a {
+                color: @brand-warning;
+              }
+
+              &.active {
+                background: darken(@color-gray, 10);
                 margin-bottom: 0;
+                border-top: 0;
               }
             }
           }
@@ -186,10 +116,116 @@
       }
     }
 
+    .nav-pills {
+      > li {
+        width: 33.33%;
+        margin: 0;
+        text-align: center;
 
-    &.AreaPersonale {
-      .sidebar {
+        > a {
+          padding: 8px;
+          .text-overflow();
+        }
+      }
+    }
+
+    .lista-sfide-container {
+      padding: 0;
+      margin-right: -6px;
+      margin-left: -6px;
+
+      .sfide-description {
         display: none;
+      }
+
+      .username-container {
+        .profile-picture {
+          display: none;
+        }
+        .punteggio-utente-container {
+          display: none;
+        }
+      }
+
+    }
+
+    .table {
+      .table-condensed();
+    }
+
+    .message-subject {
+      .text-overflow();
+      display: block;
+    }
+
+    /// Footer
+    .footer-link {
+      background: darken(@color-white, 7);
+      padding: 10px 0 4px 0;
+
+      a {
+        display: inline-block;
+        margin-right: 0 !important;
+        width: 49%;
+        padding: 0 12px 6px 12px;
+        font-size: 14px;
+      }
+    }
+
+    /// Modals
+
+    .modal-open {
+      .modal-dialog {
+        margin: 4% 2%;
+        width: 96%;
+
+        .modal-content {
+          padding: 8px;
+
+          > div.mal {
+            margin: 0 !important;
+
+            .row {
+              margin-bottom: 5px !important;
+            }
+
+            .btn {
+              padding: 6px;
+            }
+          }
+
+          #flash_object {
+            height: auto;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &.modal-read-message {
+      .modal-content {
+        h3 {
+          font-size: 19px;
+        }
+        .message-text {
+          font-size: 13px;
+        }
+      }
+    }
+
+    &.modal-play-sfida {
+      #GamePlay {
+        padding: 0;
+
+        > .row {
+          > .col {
+            padding: 0 !important;
+
+            .game-set-box {
+              margin-bottom: 0;
+            }
+          }
+        }
       }
     }
   }

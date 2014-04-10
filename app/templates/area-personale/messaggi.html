@@ -18,10 +18,7 @@
                     <th>Oggetto</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr ng-show="!messages">
-                    <td>Caricamento messaggi ...</td>
-                </tr>
+            <tbody wait-for="messages">
                 <tr ng-show="messages.length == 0">
                     <td>Non hai nessun messaggio nel tuo archivio</td>
                 </tr>

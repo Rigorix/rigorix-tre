@@ -20,7 +20,6 @@ Rigorix.controller 'Messages', ['$scope', '$rootScope', 'Api', 'MessageResource'
   $scope.$watch "currentPage", ->
     do $scope.updateMessages
 
-
   $scope.toggleAllMessages = ->
     $(".table-messages tbody").find("input[type=checkbox]").prop "checked", $("[name=toggleAllMessages]").prop("checked")
     do $scope.checkMessagesActions

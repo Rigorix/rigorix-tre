@@ -34,34 +34,34 @@ RigorixServices.factory "Api", ['$resource', '$http', '$q', 'Helpers', ($resourc
   getUserBasic: (id_utente)->
     deferred = do $q.defer
 
-    if RigorixStorage.users[id_utente]?
-      deferred.resolve RigorixStorage.users[id_utente]
+    if Rigorix.Storage.users[id_utente]?
+      deferred.resolve Rigorix.Storage.users[id_utente]
     else
       @call "get", "users/" + id_utente + "/basic",
         success: (json)->
-          RigorixStorage.users[id_utente] = json.data
+          Rigorix.Storage.users[id_utente] = json.data
           deferred.resolve json.data
 
         error: (json)->
-          RigorixStorage.users[id_utente] = id_utente: 0
-          deferred.resolve RigorixStorage.users[id_utente]
+          Rigorix.Storage.users[id_utente] = id_utente: 0
+          deferred.resolve Rigorix.Storage.users[id_utente]
 
     deferred.promise
 
   getUser: (id_utente)->
     deferred = do $q.defer
 
-    if RigorixStorage.users[id_utente]? and RigorixStorage.users[id_utente].badges?
-      deferred.resolve RigorixStorage.users[id_utente]
+    if Rigorix.Storage.users[id_utente]? and Rigorix.Storage.users[id_utente].badges?
+      deferred.resolve Rigorix.Storage.users[id_utente]
     else
       @call "get", "users/" + id_utente,
         success: (json)->
-          RigorixStorage.users[id_utente] = json.data
+          Rigorix.Storage.users[id_utente] = json.data
           deferred.resolve json.data
 
         error: (json)->
-          RigorixStorage.users[id_utente] = id_utente: 0
-          deferred.resolve RigorixStorage.users[id_utente]
+          Rigorix.Storage.users[id_utente] = id_utente: 0
+          deferred.resolve Rigorix.Storage.users[id_utente]
 
     deferred.promise
 

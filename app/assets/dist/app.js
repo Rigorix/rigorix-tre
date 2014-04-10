@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-04-09 *//*!
+/*! Rigorix - v0.5.0 - 2014-04-10 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -30766,7 +30766,7 @@ var styleDirective = valueFn({
 !angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>');;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.105+sha.1ebed26
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -31622,6 +31622,7 @@ angular.module('ngAnimate', ['ng'])
         }
 
         if(skipAnimation) {
+          fireDOMOperation();
           fireBeforeCallbackAsync();
           fireAfterCallbackAsync();
           fireDoneCallbackAsync();
@@ -31984,7 +31985,7 @@ angular.module('ngAnimate', ['ng'])
           parentElement.data(NG_ANIMATE_PARENT_KEY, ++parentCounter);
           parentID = parentCounter;
         }
-        return parentID + '-' + extractElementNode(element).className;
+        return parentID + '-' + extractElementNode(element).getAttribute('class');
       }
 
       function animateSetup(animationEvent, element, className, calculationDecorator) {
@@ -32089,7 +32090,7 @@ angular.module('ngAnimate', ['ng'])
       function animateRun(animationEvent, element, className, activeAnimationComplete) {
         var node = extractElementNode(element);
         var elementData = element.data(NG_ANIMATE_CSS_DATA_KEY);
-        if(node.className.indexOf(className) == -1 || !elementData) {
+        if(node.getAttribute('class').indexOf(className) == -1 || !elementData) {
           activeAnimationComplete();
           return;
         }
@@ -32395,18 +32396,29 @@ angular.module('colorpicker.module', [])
           }
           return elem;
         },
-        getOffset: function (elem) {
+        getOffset: function (elem, fixedPosition) {
           var
               x = 0,
-              y = 0;
+              y = 0,
+              scrollX = 0,
+              scrollY = 0;
           while (elem && !isNaN(elem.offsetLeft) && !isNaN(elem.offsetTop)) {
             x += elem.offsetLeft;
             y += elem.offsetTop;
+            if (!fixedPosition && elem.tagName === 'BODY') {
+              scrollX += document.documentElement.scrollLeft || elem.scrollLeft;
+              scrollY += document.documentElement.scrollTop || elem.scrollTop;
+            } else {
+              scrollX += elem.scrollLeft;
+              scrollY += elem.scrollTop;
+            }
             elem = elem.offsetParent;
           }
           return {
             top: y,
-            left: x
+            left: x,
+            scrollX: scrollX,
+            scrollY: scrollY
           };
         },
         // a set of RE's that can match strings and generate color tuples. https://github.com/jquery/jquery-color/
@@ -32494,22 +32506,6 @@ angular.module('colorpicker.module', [])
           H = ((H + 360) % 6) * 60 / 360;
           S = C === 0 ? 0 : C / V;
           return {h: H || 1, s: S, b: V, a: a || 1};
-        },
-
-        HueToRGB: function (p, q, h) {
-          if (h < 0)
-            h += 1;
-          else if (h > 1)
-            h -= 1;
-
-          if ((h * 6) < 1)
-            return p + (q - p) * h * 6;
-          else if ((h * 2) < 1)
-            return q;
-          else if ((h * 3) < 2)
-            return p + (q - p) * ((2 / 3) - h) * 6;
-          else
-            return p;
         },
 
         //parse a string to HSB
@@ -32603,15 +32599,13 @@ angular.module('colorpicker.module', [])
           return Math.max(0, Math.min(slider.maxTop, slider.top + ((event.pageY || pointer.top) - pointer.top)));
         },
         setSlider: function (event, fixedPosition) {
-          var target = Helper.closestSlider(event.target);
+          var
+            target = Helper.closestSlider(event.target),
+            targetOffset = Helper.getOffset(target, fixedPosition);
           slider.knob = target.children[0].style;
-          slider.left = event.pageX - Helper.getOffset(target).left;
-          slider.top = event.pageY - Helper.getOffset(target).top;
+          slider.left = event.pageX - targetOffset.left - window.pageXOffset + targetOffset.scrollX;
+          slider.top = event.pageY - targetOffset.top - window.pageYOffset + targetOffset.scrollY;
 
-          if (fixedPosition) {
-            slider.left -= window.pageXOffset;
-            slider.top -= window.pageYOffset;
-          }
           pointer = {
             left: event.pageX,
             top: event.pageY
@@ -32656,48 +32650,48 @@ angular.module('colorpicker.module', [])
         restrict: 'A',
         link: function ($scope, elem, attrs, ngModel) {
           var
-            thisFormat = attrs.colorpicker ? attrs.colorpicker : 'hex',
-            position = angular.isDefined(attrs.colorpickerPosition) ? attrs.colorpickerPosition : 'bottom',
-            fixedPosition = angular.isDefined(attrs.colorpickerFixedPosition) ? attrs.colorpickerFixedPosition : false,
-            target = angular.isDefined(attrs.colorpickerParent) ? elem.parent() : angular.element(document.body),
-            withInput = angular.isDefined(attrs.colorpickerWithInput) ? attrs.colorpickerWithInput : false,
-            inputTemplate = withInput ? '<input type="text" name="colorpicker-input">' : '',
-            template =
-                '<div class="colorpicker dropdown">' +
-                    '<div class="dropdown-menu">' +
-                    '<colorpicker-saturation><i></i></colorpicker-saturation>' +
-                    '<colorpicker-hue><i></i></colorpicker-hue>' +
-                    '<colorpicker-alpha><i></i></colorpicker-alpha>' +
-                    '<colorpicker-preview></colorpicker-preview>' +
-                    inputTemplate +
-                    '<button class="close close-colorpicker">&times;</button>' +
-                    '</div>' +
-                    '</div>',
-            colorpickerTemplate = angular.element(template),
-            pickerColor = Color,
-            sliderAlpha,
-            sliderHue = colorpickerTemplate.find('colorpicker-hue'),
-            sliderSaturation = colorpickerTemplate.find('colorpicker-saturation'),
-            colorpickerPreview = colorpickerTemplate.find('colorpicker-preview'),
-            pickerColorPointers = colorpickerTemplate.find('i');
+              thisFormat = attrs.colorpicker ? attrs.colorpicker : 'hex',
+              position = angular.isDefined(attrs.colorpickerPosition) ? attrs.colorpickerPosition : 'bottom',
+              fixedPosition = angular.isDefined(attrs.colorpickerFixedPosition) ? attrs.colorpickerFixedPosition : false,
+              target = angular.isDefined(attrs.colorpickerParent) ? elem.parent() : angular.element(document.body),
+              withInput = angular.isDefined(attrs.colorpickerWithInput) ? attrs.colorpickerWithInput : false,
+              inputTemplate = withInput ? '<input type="text" name="colorpicker-input">' : '',
+              template =
+                  '<div class="colorpicker dropdown">' +
+                      '<div class="dropdown-menu">' +
+                      '<colorpicker-saturation><i></i></colorpicker-saturation>' +
+                      '<colorpicker-hue><i></i></colorpicker-hue>' +
+                      '<colorpicker-alpha><i></i></colorpicker-alpha>' +
+                      '<colorpicker-preview></colorpicker-preview>' +
+                      inputTemplate +
+                      '<button class="close close-colorpicker">&times;</button>' +
+                      '</div>' +
+                      '</div>',
+              colorpickerTemplate = angular.element(template),
+              pickerColor = Color,
+              sliderAlpha,
+              sliderHue = colorpickerTemplate.find('colorpicker-hue'),
+              sliderSaturation = colorpickerTemplate.find('colorpicker-saturation'),
+              colorpickerPreview = colorpickerTemplate.find('colorpicker-preview'),
+              pickerColorPointers = colorpickerTemplate.find('i');
 
           $compile(colorpickerTemplate)($scope);
 
           if (withInput) {
             var pickerColorInput = colorpickerTemplate.find('input');
             pickerColorInput
-              .on('mousedown', function() {
-                event.stopPropagation();
-              })
-              .on('keyup', function(event) {
-                var newColor = this.value;
-                elem.val(newColor);
-                if(ngModel) {
-                  $scope.$apply(ngModel.$setViewValue(newColor));
-                }
-                event.stopPropagation();
-                event.preventDefault();
-               });
+                .on('mousedown', function() {
+                  event.stopPropagation();
+                })
+                .on('keyup', function(event) {
+                  var newColor = this.value;
+                  elem.val(newColor);
+                  if(ngModel) {
+                    $scope.$apply(ngModel.$setViewValue(newColor));
+                  }
+                  event.stopPropagation();
+                  event.preventDefault();
+                });
             elem.on('keyup', function() {
               pickerColorInput.val(elem.val());
             });
@@ -32822,6 +32816,11 @@ angular.module('colorpicker.module', [])
                 positionValue,
                 positionOffset = Helper.getOffset(elem[0]);
 
+            if(angular.isDefined(attrs.colorpickerParent)) {
+              positionOffset.left = 0;
+              positionOffset.top = 0;
+            }
+
             if (position === 'top') {
               positionValue =  {
                 'top': positionOffset.top - 147,
@@ -32849,11 +32848,18 @@ angular.module('colorpicker.module', [])
             };
           };
 
+          var documentMousedownHandler = function() {
+            hideColorpickerTemplate();
+          };
+
           elem.on('click', function () {
             update();
             colorpickerTemplate
                 .addClass('colorpicker-visible')
                 .css(getColorpickerTemplatePosition());
+
+            // register global mousedown event to hide the colorpicker
+            $document.on('mousedown', documentMousedownHandler);
           });
 
           colorpickerTemplate.on('mousedown', function (event) {
@@ -32864,14 +32870,13 @@ angular.module('colorpicker.module', [])
           var hideColorpickerTemplate = function() {
             if (colorpickerTemplate.hasClass('colorpicker-visible')) {
               colorpickerTemplate.removeClass('colorpicker-visible');
+
+              // unregister the global mousedown event
+              $document.off('mousedown', documentMousedownHandler);
             }
           };
 
           colorpickerTemplate.find('button').on('click', function () {
-            hideColorpickerTemplate();
-          });
-
-          $document.on('mousedown', function () {
             hideColorpickerTemplate();
           });
         }
@@ -36558,7 +36563,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 ;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.105+sha.1ebed26
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -38561,7 +38566,7 @@ if(window.jasmine || window.mocha) {
    * @param {...(string|Function|Object)} fns any number of modules which are represented as string
    *        aliases or as anonymous module initialization functions. The modules are used to
    *        configure the injector. The 'ng' and 'ngMock' modules are automatically loaded. If an
-   *        object literal is passed they will be register as values in the module, the key being
+   *        object literal is passed they will be registered as values in the module, the key being
    *        the module name and the value being what is returned.
    */
   window.module = angular.mock.module = function() {
@@ -38776,7 +38781,7 @@ if(window.jasmine || window.mocha) {
 ;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.105+sha.1ebed26
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -39388,7 +39393,7 @@ angular.module('ngResource', ['ng']).
 ;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.105+sha.1ebed26
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -40317,7 +40322,7 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 ;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.105+sha.1ebed26
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -45728,6 +45733,11 @@ Rigorix.config([
   }
 ]);
 
+Rigorix.Storage = {
+  users: {},
+  waiters: {}
+};
+
 Rigorix.run(function() {
   if (RigorixEnv.INCOGNITO === true) {
     return $("html").attr("incognito", true);
@@ -45735,7 +45745,7 @@ Rigorix.run(function() {
 });
 ;
 
-var RigorixConfig, RigorixStorage, console;
+var RigorixConfig, console;
 
 RigorixConfig = {
   updateTime: RigorixEnv.UPDATE_USER_TIME * 1000,
@@ -45745,10 +45755,6 @@ RigorixConfig = {
   userPicturePath: "/i/profile_picture/",
   token: $.cookie("auth_token"),
   safeLocations: ["/same-email", "/regolamento", "/riconoscimenti"]
-};
-
-RigorixStorage = {
-  users: {}
 };
 
 if (typeof console === "undefined" || console === null) {
@@ -45860,17 +45866,17 @@ Rigorix.controller("AreaPersonale", [
 Rigorix.controller("AreaPersonale.Utente", [
   '$scope', 'Api', function($scope, Api) {
     $scope.pages = ['palmares'];
-    $scope.loadingBadges = (RigorixStorage.badges == null) || RigorixStorage.badges.length === 0;
+    $scope.loadingBadges = (Rigorix.Storage.badges == null) || Rigorix.Storage.badges.length === 0;
     if ($scope.loadingBadges) {
       Api.call("get", "badges", {
         success: function(json) {
           $scope.loadingBadges = false;
           $scope.rewards = json.data;
-          return RigorixStorage.badges = $scope.rewards;
+          return Rigorix.Storage.badges = $scope.rewards;
         }
       });
     } else {
-      $scope.rewards = RigorixStorage.badges;
+      $scope.rewards = Rigorix.Storage.badges;
     }
     Api.post("users/" + $scope.currentUser.id_utente + "/badges/seen");
     $scope.currentUser.has_new_badges = 0;
@@ -47639,14 +47645,16 @@ Rigorix.directive("loading", function() {
 Rigorix.directive("waitFor", function() {
   return {
     link: function(scope, element, attrs) {
+      Rigorix.Storage.waiters[attrs.waitFor] = {
+        status: false
+      };
       element.addClass("is-waiting");
       element.append($('<div class="loader">Caricamento ...</div>'));
       return scope.$watch(attrs.waitFor, function(newValue) {
-        console.log("Wait for:", attrs.waitFor, newValue);
-        if ((newValue != null) && newValue !== false && newValue.length !== 0) {
-          element.removeClass("is-waiting");
+        if ((newValue != null) && newValue !== false) {
+          element.removeClass("is-waiting").addClass("has-finish-waiting");
           element.find(".loader").remove();
-          return element.addClass("has-finish-waiting");
+          return Rigorix.Storage.waiters[attrs.waitFor].status = true;
         }
       });
     }
@@ -47823,19 +47831,19 @@ RigorixServices.factory("Api", [
       getUserBasic: function(id_utente) {
         var deferred;
         deferred = $q.defer();
-        if (RigorixStorage.users[id_utente] != null) {
-          deferred.resolve(RigorixStorage.users[id_utente]);
+        if (Rigorix.Storage.users[id_utente] != null) {
+          deferred.resolve(Rigorix.Storage.users[id_utente]);
         } else {
           this.call("get", "users/" + id_utente + "/basic", {
             success: function(json) {
-              RigorixStorage.users[id_utente] = json.data;
+              Rigorix.Storage.users[id_utente] = json.data;
               return deferred.resolve(json.data);
             },
             error: function(json) {
-              RigorixStorage.users[id_utente] = {
+              Rigorix.Storage.users[id_utente] = {
                 id_utente: 0
               };
-              return deferred.resolve(RigorixStorage.users[id_utente]);
+              return deferred.resolve(Rigorix.Storage.users[id_utente]);
             }
           });
         }
@@ -47844,19 +47852,19 @@ RigorixServices.factory("Api", [
       getUser: function(id_utente) {
         var deferred;
         deferred = $q.defer();
-        if ((RigorixStorage.users[id_utente] != null) && (RigorixStorage.users[id_utente].badges != null)) {
-          deferred.resolve(RigorixStorage.users[id_utente]);
+        if ((Rigorix.Storage.users[id_utente] != null) && (Rigorix.Storage.users[id_utente].badges != null)) {
+          deferred.resolve(Rigorix.Storage.users[id_utente]);
         } else {
           this.call("get", "users/" + id_utente, {
             success: function(json) {
-              RigorixStorage.users[id_utente] = json.data;
+              Rigorix.Storage.users[id_utente] = json.data;
               return deferred.resolve(json.data);
             },
             error: function(json) {
-              RigorixStorage.users[id_utente] = {
+              Rigorix.Storage.users[id_utente] = {
                 id_utente: 0
               };
-              return deferred.resolve(RigorixStorage.users[id_utente]);
+              return deferred.resolve(Rigorix.Storage.users[id_utente]);
             }
           });
         }
@@ -57557,7 +57565,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/area-personale/messaggi.html',
-    "<div class=\"panel panel-default mtl\" ng-controller=\"Messages\"><!-- Default panel contents --><div class=\"panel-heading\"><span icon=\"envelope\">Inbox <span ng-show=\"currentUser.messages.length > 0\" class=\"label label-info\">{{currentUser.messages.length}}</span></span> <button ng-click=\"writeNewMessage()\" class=\"btn btn-sm btn-info pull-right\" icon=\"plus\">Nuovo</button> <button ng-show=\"stopUpdates == true\" ng-click=\"deleteMessages()\" class=\"btn btn-sm btn-danger pull-right mrm\" icon=\"trash-o\">Cancella</button></div><div class=\"table-responsive\"><table class=\"table table-bordered table-messages mbn\"><thead><tr ng-show=\"messages.length > 0\"><th><input type=\"checkbox\" name=\"toggleAllMessages\" ng-click=\"toggleAllMessages()\"></th><th>Data</th><th>Mittente</th><th>Oggetto</th></tr></thead><tbody><tr ng-show=\"!messages\"><td>Caricamento messaggi ...</td></tr><tr ng-show=\"messages.length == 0\"><td>Non hai nessun messaggio nel tuo archivio</td></tr><tr ng-repeat=\"message in messages\" ng-class=\"{success:message.letto == 0}\"><td width=\"1%\"><input type=\"checkbox\" ng-click=\"checkMessagesActions()\"></td><td width=\"15%\"><beautify-date date=\"{{message.updated_at}}\" inline=\"true\"></beautify-date></td><td width=\"25%\"><username popover-placement=\"top\" id-utente=\"message.id_sender\"></username></td><td><a ng-click=\"openMessage(message)\" class=\"message-subject\">{{message.oggetto}}</a></td></tr></tbody></table></div><div class=\"text-center\" ng-show=\"messagesCount > messagesPerPage\"><pagination class=\"pagination-sm\" direction-links=\"false\" total-items=\"messagesCount\" items-per-page=\"messagesPerPage\" page=\"currentPage\" num-pages=\"smallnumPages\"></pagination></div></div>"
+    "<div class=\"panel panel-default mtl\" ng-controller=\"Messages\"><!-- Default panel contents --><div class=\"panel-heading\"><span icon=\"envelope\">Inbox <span ng-show=\"currentUser.messages.length > 0\" class=\"label label-info\">{{currentUser.messages.length}}</span></span> <button ng-click=\"writeNewMessage()\" class=\"btn btn-sm btn-info pull-right\" icon=\"plus\">Nuovo</button> <button ng-show=\"stopUpdates == true\" ng-click=\"deleteMessages()\" class=\"btn btn-sm btn-danger pull-right mrm\" icon=\"trash-o\">Cancella</button></div><div class=\"table-responsive\"><table class=\"table table-bordered table-messages mbn\"><thead><tr ng-show=\"messages.length > 0\"><th><input type=\"checkbox\" name=\"toggleAllMessages\" ng-click=\"toggleAllMessages()\"></th><th>Data</th><th>Mittente</th><th>Oggetto</th></tr></thead><tbody wait-for=\"messages\"><tr ng-show=\"messages.length == 0\"><td>Non hai nessun messaggio nel tuo archivio</td></tr><tr ng-repeat=\"message in messages\" ng-class=\"{success:message.letto == 0}\"><td width=\"1%\"><input type=\"checkbox\" ng-click=\"checkMessagesActions()\"></td><td width=\"15%\"><beautify-date date=\"{{message.updated_at}}\" inline=\"true\"></beautify-date></td><td width=\"25%\"><username popover-placement=\"top\" id-utente=\"message.id_sender\"></username></td><td><a ng-click=\"openMessage(message)\" class=\"message-subject\">{{message.oggetto}}</a></td></tr></tbody></table></div><div class=\"text-center\" ng-show=\"messagesCount > messagesPerPage\"><pagination class=\"pagination-sm\" direction-links=\"false\" total-items=\"messagesCount\" items-per-page=\"messagesPerPage\" page=\"currentPage\" num-pages=\"smallnumPages\"></pagination></div></div>"
   );
 
 
@@ -57731,7 +57739,7 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/app/templates/partials/user-box.html',
-    "<div class=\"user-panel\" ng-controller=\"UserPanel\"><div ng-show=\"currentUser\"><h3>{{currentUser.username}}</h3><div class=\"summary\"><div class=\"user-picture\"><img src=\"{{currentUser.picture}}\"></div><span class=\"punteggio\">{{currentUser.punteggio_totale}}</span> <a class=\"lancia-sfida\" ng-click=\"doLanciaNewSfida()\" tooltip-html-unsafe=\"Clicca per lanciare una sfida\" tooltip-placement=\"left\"></a></div><div class=\"user-notifications\"><div class=\"notification-item\" ng-show=\"currentUser.messages.length > 0\"><a href=\"#area-personale/messaggi\" title=\"Hai dei messaggi da leggere\" icon=\"envelope\">Hai <strong class=\"count-unread-messages\">{{currentUser.messages.length}}</strong> nuovi messaggi</a></div><div class=\"notification-item\" ng-show=\"currentUser.has_new_badges > 0\"><a href=\"#/area-personale/utente\" icon=\"trophy\">Hai nuovi badges!!</a></div><div class=\"notification-item\" ng-show=\"currentUser.sfide_da_giocare.length > 0\"><a href=\"#/area-personale/sfide/sfide_da_giocare\" class=\"text-success\" icon=\"globe\">Hai <strong>{{currentUser.sfide_da_giocare.length}}</strong> nuove sfide</a></div></div><div class=\"user-actions\"><a href=\"#area-personale\" class=\"btn btn-sm btn-info pull-left\" icon=\"user\">Area personale</a> <a ng-click=\"doUserLogout()\" class=\"btn btn-sm btn-danger pull-right\" icon=\"sign-out\">Esci</a></div></div><div ng-show=\"!currentUser\"><p align=\"center\" class=\"mvm\">Accedi a Rigorix tramite questi social network:</p><div class=\"row-fluid\"><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-facebook\" ng-click=\"doAuth($event, 'facebook')\" icon=\"facebook\">Facebook</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-google\" ng-click=\"doAuth($event, 'google')\" icon=\"google\">Google</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-instagram\" ng-click=\"doAuth($event, 'instagram')\" icon=\"instagram\">Instagram</a></div></div></div></div>"
+    "<div class=\"user-panel\" ng-controller=\"UserPanel\"><div ng-show=\"currentUser\" wait-for=\"currentUser\"><h3>{{currentUser.username}}</h3><div class=\"summary\"><div class=\"user-picture\"><img src=\"{{currentUser.picture}}\"></div><span class=\"punteggio\">{{currentUser.punteggio_totale}}</span> <a class=\"lancia-sfida\" ng-click=\"doLanciaNewSfida()\" tooltip-html-unsafe=\"Clicca per lanciare una sfida\" tooltip-placement=\"left\"></a></div><div class=\"user-notifications\"><div class=\"notification-item\" ng-show=\"currentUser.messages.length > 0\"><a href=\"#area-personale/messaggi\" title=\"Hai dei messaggi da leggere\" icon=\"envelope\">Hai <strong class=\"count-unread-messages\">{{currentUser.messages.length}}</strong> nuovi messaggi</a></div><div class=\"notification-item\" ng-show=\"currentUser.has_new_badges > 0\"><a href=\"#/area-personale/utente\" icon=\"trophy\">Hai nuovi badges!!</a></div><div class=\"notification-item\" ng-show=\"currentUser.sfide_da_giocare.length > 0\"><a href=\"#/area-personale/sfide/sfide_da_giocare\" class=\"text-success\" icon=\"globe\">Hai <strong>{{currentUser.sfide_da_giocare.length}}</strong> nuove sfide</a></div></div><div class=\"user-actions\"><a href=\"#area-personale\" class=\"btn btn-sm btn-info pull-left\" icon=\"user\">Area personale</a> <a ng-click=\"doUserLogout()\" class=\"btn btn-sm btn-danger pull-right\" icon=\"sign-out\">Esci</a></div></div><div ng-show=\"!currentUser\"><p align=\"center\" class=\"mvm\">Accedi a Rigorix tramite questi social network:</p><div class=\"row-fluid\"><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-facebook\" ng-click=\"doAuth($event, 'facebook')\" icon=\"facebook\">Facebook</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-google\" ng-click=\"doAuth($event, 'google')\" icon=\"google\">Google</a></div><div class=\"col-sm-6 text-center\"><a href=\"#\" class=\"mbm btn btn-big btn-instagram\" ng-click=\"doAuth($event, 'instagram')\" icon=\"instagram\">Instagram</a></div></div></div></div>"
   );
 
 
