@@ -65,6 +65,21 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
     return $query->whereRaw("dta_conclusa >= CURDATE()");
   }
 
+  public function scopeNormal($query)
+  {
+    return $query->where("tipo", "=", "normale");
+  }
+
+  public function scopeRealtime($query)
+  {
+    return $query->where("tipo", "=", "realtime");
+  }
+
+  public function scopeDead($query, $deadPeriod)
+  {
+    return $query->whereRaw("stato < 2 and created_at < SUBDATE(NOW(), INTERVAL {$deadPeriod} SECOND)");
+  }
+
   public function scopeDone($query)
   {
     return $query->whereRaw("stato = 2");

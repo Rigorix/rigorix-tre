@@ -12,7 +12,7 @@ Flight::map("checkPeriodicActions", function () {
 });
 
 Flight::map("clearDeadRealtimeSfide", function() {
-  RealtimeSfide::dead(Flight::get("realtime_dead_sfida_time"))->get()->each(function ($deadSfida) {
+  Sfide::dead(Flight::get("realtime_dead_sfida_time"))->get()->each(function ($deadSfida) {
     RealtimeRegistrations::busyWith($deadSfida->getAttribute("id"))->get()->each(function ($user) {
       $user->update(array(
         "busy_with" => 0
@@ -34,7 +34,7 @@ Flight::map("updateRealtimeMembers", function() {
 });
 
 Flight::map("doBotActions", function() {
-  $sfideBot = Sfide::receivedBy(Flight::get("BOT_ID"))->pending()->get();
+  $sfideBot = Sfide::receivedBy(Flight::get("BOT_ID"))->pending()->normal()->get();
   if ($sfideBot->count() > 0) {
     foreach ($sfideBot as $sfidaBot) {
 

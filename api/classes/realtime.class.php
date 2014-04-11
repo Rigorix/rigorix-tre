@@ -42,10 +42,7 @@ class RealtimeSfide extends Illuminate\Database\Eloquent\Model {
     return $query->whereRaw("(id_sfidante = $id1 and id_sfidato = $id2) or (id_sfidante = $id2 and id_sfidato = $id1)");
   }
 
-  public function scopeDead($query, $deadPeriod)
-  {
-    return $query->whereRaw("stato < 2 and created_at < SUBDATE(NOW(), INTERVAL {$deadPeriod} SECOND)");
-  }
+
 
 
 }

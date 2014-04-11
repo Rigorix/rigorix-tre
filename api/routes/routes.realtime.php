@@ -75,14 +75,12 @@ Flight::route('POST /realtime/accept/@id_avversario', function($id_avversario) {
   $loggedUser = RealtimeRegistrations::user(Flight::get("auth_id"))->first();
   if ($loggedUser->has_request_from == $id_avversario) {
 
-    $newSfida = RealtimeSfide::create(array(
+    $newSfida = Sfide::create(array(
+      "tipo"          => "realtime",
       "id_sfidante"   => $id_avversario,
       "id_sfidato"    => Flight::get("auth_id"),
       "stato"         => 0
     ));
-
-    // TODO: non posso usare i tiri e parate delle sfide normali, altrimenti sovrascrivo l'id della sfida e quindi tiri e parate vecchie.
-    // Trovare una soluzione, magari centralizzando tutto sulle sfide inserendo una colonna Tipo per non mischiarle
 
     SfideParate::create(array(
       "id_sfida"  => $newSfida->getAttribute("id"),
@@ -127,7 +125,7 @@ Flight::route('POST /realtime/accept/@id_avversario', function($id_avversario) {
 Flight::route('GET /realtime/sfida/@id_sfida', function($id_sfida) {
   Flight::needsAuth();
 
-  $sfida = RealtimeSfide::find($id_sfida);
+  $sfida = Sfide::find($id_sfida);
   if ($sfida->first())
     echo (string)$sfida->first();
   else
@@ -138,13 +136,13 @@ Flight::route('POST /realtime/sfida/@id_sfida', function($id_sfida) {
   Flight::needsAuth();
   Flight::needsPermissionToSfida($id_sfida);
 
-  RealtimeSfide::find($id_sfida)->update((array)json_decode(Flight::request()->body));
+  Sfide::find($id_sfida)->update((array)json_decode(Flight::request()->body));
 });
 
 Flight::route('GET /realtime/sfida/@id_sfida/tiri', function($id_sfida) {
-//  Flight::needsAuth();
+  Flight::needsAuth();
 
-  $sfida = RealtimeSfide::find($id_sfida);
+  $sfida = Sfide::find($id_sfida);
   if ($sfida->first())
     echo (string)$sfida->first()->user(Flight::get("auth_id"))->tiri;
   else

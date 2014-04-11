@@ -87,7 +87,12 @@ Rigorix.controller "Realtime.Sfida", ['$scope', 'notify', '$routeParams', 'Realt
           type: if $scope.sfida.id_sfidato is $scope.currentUser.id_utente then "tiro" else "parata"
 
         $scope.loading = false
+      else
+        do $scope.denyAccess
   , ->
+    do $scope.denyAccess
+
+  $scope.denyAccess = ->
     $scope.accessDenied = true
 
   $scope.startSfida = ->

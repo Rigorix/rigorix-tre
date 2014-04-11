@@ -59,7 +59,7 @@ Flight::route('GET /sfide/archivio/@id_utente', function($id_utente) {
 
   $start = isset(Flight::request()->query->start) ? Flight::request()->query->start : 0;
   $count = isset(Flight::request()->query->count) ? Flight::request()->query->count : 20;
-  $sfide = Sfide::done()->user($id_utente)->orderBy('dta_conclusa', 'DESC');
+  $sfide = Sfide::done()->user($id_utente)->normal()->orderBy('dta_conclusa', 'DESC');
 
   Flight::json(array(
     "count" => $sfide->get()->count(),
@@ -68,7 +68,7 @@ Flight::route('GET /sfide/archivio/@id_utente', function($id_utente) {
 });
 
 Flight::route('GET /sfide/pending/@id_utente', function($id_utente) {
-  echo (string)Sfide::whereRaw("id_sfidante = $id_utente")->pending()->orderBy('dta_sfida', 'DESC')->get();
+  echo (string)Sfide::whereRaw("id_sfidante = $id_utente")->pending()->normal()->orderBy('dta_sfida', 'DESC')->get();
 });
 
 Flight::route('POST /sfide/set', function() {

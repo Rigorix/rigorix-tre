@@ -127,7 +127,7 @@ Flight::route('GET /users/@id_utente/badges', function($id_utente) {
 
 Flight::route('GET /users/@id_utente/sfide/dagiocare', function($id_utente) {
   Flight::needsAuth();
-  echo Sfide::receivedBy($id_utente)->unplayed()->get();
+  echo Sfide::receivedBy($id_utente)->unplayed()->normal()->get();
 });
 
 Flight::route('GET /users/@id_utente/basic', function($id_utente) {
