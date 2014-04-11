@@ -4,11 +4,8 @@
     <button class="btn btn-info text-center" ng-click="setBadgesSeen()" icon="eye">Vedi risultato sfida</button>
     <carousel>
         <slide ng-repeat="badge in badges">
-            <img ng-src="/i/rewards/{{badge.reward.key_id}}__big.png">
-            <!--<div class="carousel-caption">-->
-                <!--<h4>{{badge.reward.nome}}</h4>-->
-                <!--<p>{{badge.reward.descrizione}}</p>-->
-            <!--</div>-->
+            <div class="icon-{{badge.reward.key_id}}__big"></div>
+            <!--<img ng-src="/i/rewards/{{badge.reward.key_id}}__big.png">-->
         </slide>
     </carousel>
 </div>
@@ -16,7 +13,7 @@
 <div class="results-container" ng-show="badges.length == 0">
     <div class="row">
         <div class="col col-sm-12">
-            <img src="/app/assets/images/result_{{resultLabel}}.jpg" />
+            <div class="result icon-{{resultLabel}}"></div>
         </div>
     </div>
     <div class="row">
@@ -24,7 +21,7 @@
             <username id-utente="sfida.id_sfidante" with-thumb="true"></username>
         </div>
         <div class="col col-sm-2 text-center">
-            <img src="/app/assets/images/icon_vs.png" />
+            <div class="icon-vs"></div>
         </div>
         <div class="col col-sm-4 text-center">
             <username id-utente="sfida.id_sfidato" with-thumb="true"></username>
