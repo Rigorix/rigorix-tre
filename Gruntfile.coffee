@@ -48,6 +48,8 @@ module.exports = (grunt) ->
     coffee:
       compileBare:
         options:
+          sourceMap: true
+          join: true
           bare: true
         files:
           "app/assets/temp/angular.app.config.js": ["app/config.coffee"]

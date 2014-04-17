@@ -90,6 +90,11 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
     return $query->where("stato", "<", "2");
   }
 
+  public function scopePlaying($query)
+  {
+    return $query->where("stato", "=", "1");
+  }
+
   public function scopeReceivedBy($query, $id_utente)
   {
     $this->id_utente = $id_utente;
@@ -108,9 +113,8 @@ class Sfide extends  Illuminate\Database\Eloquent\Model {
 class SfideTiri extends  Illuminate\Database\Eloquent\Model {
   protected $table        = 'tiri';
   protected $primaryKey   = 'id_tiri';
-  protected $fillable     = array("id_sfida", "id_utente", "o1", "o2","o3", "o4","o5");
   protected $guarded      = array("id_tiri");
-  public $timestamps      = false;
+//  protected $touches      = array("sfida");
 
   // Accessors
   public function getIdTiriAttribute ($attr) { return (int)$attr; }
@@ -121,6 +125,11 @@ class SfideTiri extends  Illuminate\Database\Eloquent\Model {
   public function getO3Attribute ($attr) { return (int)$attr; }
   public function getO4Attribute ($attr) { return (int)$attr; }
   public function getO5Attribute ($attr) { return (int)$attr; }
+
+//  public function sfida()
+//  {
+//    return $this->belongsTo("Sfide", "id_sfida", "id_sfida");
+//  }
 
   public function scopeUser ($query, $id_utente)
   {
@@ -141,9 +150,8 @@ class SfideTiri extends  Illuminate\Database\Eloquent\Model {
 class SfideParate extends  Illuminate\Database\Eloquent\Model {
   protected $table        = 'parate';
   protected $primaryKey   = 'id_parate';
-  protected $fillable     = array("id_sfida", "id_utente", "o1", "o2","o3", "o4","o5");
   protected $guarded      = array("id_parate");
-  public $timestamps      = false;
+//  protected $touches      = array("sfida");
 
   // Accessors
   public function getIdParateAttribute ($attr) { return (int)$attr; }
@@ -154,6 +162,11 @@ class SfideParate extends  Illuminate\Database\Eloquent\Model {
   public function getO3Attribute ($attr) { return (int)$attr; }
   public function getO4Attribute ($attr) { return (int)$attr; }
   public function getO5Attribute ($attr) { return (int)$attr; }
+
+//  public function sfida()
+//  {
+//    return $this->belongsTo("Sfide", "id_sfida", "id_sfida");
+//  }
 
   public function scopeUser ($query, $id_utente)
   {

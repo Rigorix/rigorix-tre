@@ -71,6 +71,10 @@ Rigorix.config ['$routeProvider', ($routeProvider)->
     templateUrl: "/app/templates/realtime/sfida.html"
     controller: "Realtime"
 
+  $routeProvider.when "/realtime/sfida/:id_sfida/result",
+    templateUrl: "/app/templates/realtime/result.html"
+    controller: "Realtime.Result"
+
 ]
 
 

@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-ini_set( 'display_errors','0');
+error_reporting(1);
+ini_set( 'display_errors','1');
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
@@ -15,8 +15,10 @@ require_once 'database.php';
 require_once '../classes/fastjson.php';
 require_once '../classes/logger.php';
 
+require_once 'classes/auth.class.php';
 require_once 'classes/Helper.php';
 require_once 'classes/activity.php';
+
 require_once 'classes/user.class.php';
 require_once 'classes/messages.class.php';
 require_once 'classes/rewards.class.php';

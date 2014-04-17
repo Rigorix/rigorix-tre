@@ -38,6 +38,8 @@ module.exports = function(grunt) {
     coffee: {
       compileBare: {
         options: {
+          sourceMap: true,
+          join: true,
           bare: true
         },
         files: {

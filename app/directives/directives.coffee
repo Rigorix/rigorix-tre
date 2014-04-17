@@ -66,6 +66,7 @@ Rigorix.directive "countdown", ()->
   controller: 'Directive.Countdown'
   scope:
     seconds           : "@"
+    loop              : "@"
     on_finish         : "@onFinish"
 
 

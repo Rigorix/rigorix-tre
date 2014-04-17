@@ -114,7 +114,7 @@ Flight::route('POST /sfide/set', function() {
   $sfidaUpdate->save();
 
   if ( $risposta !== false ) {
-    $finalizedSfida = finalizeSfida($sfidaUpdate);
+    $finalizedSfida = Flight::finalizeSfida($sfidaUpdate);
     if ( $finalizedSfida === false )
       Flight::error();
     else
@@ -133,11 +133,4 @@ Flight::route('GET /sfide/@id_sfida', function($id_sfida) {
 
 Flight::route('GET /sfide/@id_sfida/rewards/@id_utente', function($id_sfida, $id_utente) {
   echo (string)RewardsSfide::whereRaw("id_utente = $id_utente and id_sfida = $id_sfida")->get()->load('reward');
-});
-
-Flight::route('GET /sfide/@id_sfida/finalize', function ($id_sfida) {
-  // TEST METHOD TO CALL finalizeSfida
-
-  finalizeSfida($id_sfida);
-//  Flight::halt(200, "vai con dios");
 });

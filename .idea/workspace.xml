@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="refactor to realtime sfide">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/Realtime.coffee" />
+    <list default="true" id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="- update bower &#10;- refactor responsive">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/classes/auth.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/realtime/result.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/Api.coffee" afterPath="$PROJECT_DIR$/app/services/Api.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Directives.coffee" afterPath="$PROJECT_DIR$/app/controllers/Directives.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.coffee" afterPath="$PROJECT_DIR$/Gruntfile.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/Helper.php" afterPath="$PROJECT_DIR$/api/classes/Helper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Main.coffee" afterPath="$PROJECT_DIR$/app/controllers/Main.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Realtime.coffee" afterPath="$PROJECT_DIR$/app/controllers/Realtime.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/Realtime.coffee" afterPath="$PROJECT_DIR$/app/services/Realtime.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/activity.php" afterPath="$PROJECT_DIR$/api/classes/activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/administr/dist/angular.js" afterPath="$PROJECT_DIR$/app/administr/dist/angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.coffee" afterPath="$PROJECT_DIR$/app/app.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/administr/dist/app.js" afterPath="$PROJECT_DIR$/app/administr/dist/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.css" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/dist/app.min.js" afterPath="$PROJECT_DIR$/app/assets/dist/app.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/config.php" afterPath="$PROJECT_DIR$/api/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/directives.coffee" afterPath="$PROJECT_DIR$/app/directives/directives.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/directives.less" afterPath="$PROJECT_DIR$/app/assets/less/directives.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/mixin.less" afterPath="$PROJECT_DIR$/app/assets/less/mixin.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/realtime.class.php" afterPath="$PROJECT_DIR$/api/classes/realtime.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/index.php" afterPath="$PROJECT_DIR$/api/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/rigorix-templates.js" afterPath="$PROJECT_DIR$/app/assets/js/rigorix-templates.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/realtime/room.html" afterPath="$PROJECT_DIR$/app/templates/realtime/room.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/routes/routes.realtime.php" afterPath="$PROJECT_DIR$/api/routes/routes.realtime.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/routes/routes.sfide.php" afterPath="$PROJECT_DIR$/api/routes/routes.sfide.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/realtime/sfida.html" afterPath="$PROJECT_DIR$/app/templates/realtime/sfida.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/sfide.class.php" afterPath="$PROJECT_DIR$/api/classes/sfide.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b22ffa96-ce66-4cc9-8c44-4b66f52233fe" name="ignore" comment="ignore" />
     <list id="6846ad5a-a70b-4884-b25b-56cc4f4958de" name="ignoreme" comment="ignoreme" />
+    <list id="c6378a14-da6f-4707-bc1f-1b1094f441bf" name="fucking hide this!!!" comment="" />
     <ignored path="RigorixTre.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,68 +59,85 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Realtime.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Realtime.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="15" selection-start="3343" selection-end="3343" vertical-scroll-proportion="0.0" vertical-offset="907" max-vertical-offset="1845">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="routes.realtime.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/routes/routes.realtime.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="40" selection-start="2491" selection-end="2491" vertical-scroll-proportion="-4.9583335" vertical-offset="1051" max-vertical-offset="2355">
+            <state line="165" column="28" selection-start="5153" selection-end="5174" vertical-scroll-proportion="-7.9166665" vertical-offset="2285" max-vertical-offset="3855">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/dist/app.js">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45869" column="42" selection-start="1526570" selection-end="1526570" vertical-scroll-proportion="0.22312139" vertical-offset="687842" max-vertical-offset="869070">
+            <state line="17" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="-8.125" vertical-offset="60" max-vertical-offset="870">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sfide.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/classes/sfide.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="168" column="5" selection-start="4811" selection-end="4888" vertical-scroll-proportion="-10.333333" vertical-offset="2272" max-vertical-offset="2775">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/classes/auth.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="109" selection-start="1941" selection-end="1941" vertical-scroll-proportion="-14.791667" vertical-offset="185" max-vertical-offset="660">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.sfide.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/routes/routes.sfide.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="116" column="43" selection-start="5376" selection-end="5389" vertical-scroll-proportion="-3.7" vertical-offset="610" max-vertical-offset="1170">
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1397050273000" expanded="false" signature="1221511:1221522" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1222213:1222233" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1228953:1228964" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1229297:1229308" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1737295:1737311" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1739099:1739113" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1739254:1739268" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1740680:1740694" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1741013:1741027" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1742486:1742512" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1755554:1755568" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1756371:1756383" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1781125:1781139" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1783342:1783349" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1814222:1814236" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1814540:1814554" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1819072:1819084" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1874562:1874620" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1874781:1874842" placeholder="..." />
-                <marker date="1397050273000" expanded="false" signature="1874957:1875013" placeholder="..." />
+                <element signature="e#7#3215#0" expanded="false" />
+                <element signature="e#3218#3727#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realtime.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/classes/realtime.class.php">
+      <file leaf-file-name="activity.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/classes/activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0" vertical-offset="46" max-vertical-offset="840">
+            <state line="91" column="49" selection-start="2611" selection-end="2611" vertical-scroll-proportion="-9.416667" vertical-offset="1139" max-vertical-offset="3000">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/config.php">
+      <file leaf-file-name="Realtime.coffee" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Realtime.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+            <state line="119" column="64" selection-start="4021" selection-end="4021" vertical-scroll-proportion="0.3298969" vertical-offset="1593" max-vertical-offset="2175">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="32" selection-start="2672" selection-end="2672" vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="1365">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/realtime/result.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="48" selection-start="123" selection-end="123" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="195">
               <folding />
             </state>
           </provider>
@@ -123,26 +146,10 @@
       <file leaf-file-name="Realtime.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/Realtime.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="10" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="180">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Api.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sfida.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/realtime/sfida.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="64" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="975">
-              <folding />
+            <state line="8" column="1" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+              <folding>
+                <marker date="1397696490000" expanded="true" signature="66:472" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,10 +162,15 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Paolo Moretti &lt;littlebrown@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="realtime" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -171,27 +183,54 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/templates/realtime/private.html" />
-        <option value="$PROJECT_DIR$/app/controllers/Main.coffee" />
-        <option value="$PROJECT_DIR$/app/app.coffee" />
-        <option value="$PROJECT_DIR$/app/assets/less/mixin.less" />
-        <option value="$PROJECT_DIR$/api/classes/activity.php" />
-        <option value="$PROJECT_DIR$/app/templates/realtime/room.html" />
+        <option value="$PROJECT_DIR$/classes/new.core.php" />
+        <option value="$PROJECT_DIR$/app/directives/waitFor.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/Sidebar.coffee" />
         <option value="$PROJECT_DIR$/app/assets/less/directives.less" />
+        <option value="$PROJECT_DIR$/app/templates/partials/best-users.html" />
+        <option value="$PROJECT_DIR$/app/templates/area-personale/utente.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Messagges.coffee" />
+        <option value="$PROJECT_DIR$/app/templates/area-personale/messaggi.html" />
+        <option value="$PROJECT_DIR$/app/templates/partials/user-box.html" />
+        <option value="$PROJECT_DIR$/app/config.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/AreaPersonale.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/less/areapersonale.less" />
+        <option value="$PROJECT_DIR$/app/assets/less/responsive/sm.less" />
+        <option value="$PROJECT_DIR$/app/assets/less/responsive/xs.less" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/api/classes/realtime.class.php" />
+        <option value="$PROJECT_DIR$/api/routes/routes.users.php" />
+        <option value="$PROJECT_DIR$/app/assets/less/mixin.less" />
+        <option value="$PROJECT_DIR$/app/assets/less/common.less" />
+        <option value="$PROJECT_DIR$/app/assets/less/modals.less" />
+        <option value="$PROJECT_DIR$/app/assets/less/sprites/icons.less" />
+        <option value="$PROJECT_DIR$/app/templates/modals/show-end-match.html" />
+        <option value="$PROJECT_DIR$/app/services/Api.coffee" />
+        <option value="$PROJECT_DIR$/api/classes/sfide.class.php" />
+        <option value="$PROJECT_DIR$/app/controllers/Main.coffee" />
         <option value="$PROJECT_DIR$/app/directives/directives.coffee" />
         <option value="$PROJECT_DIR$/app/controllers/Directives.coffee" />
-        <option value="$PROJECT_DIR$/api/classes/Helper.php" />
-        <option value="$PROJECT_DIR$/api/config.php" />
-        <option value="$PROJECT_DIR$/app/services/Realtime.coffee" />
         <option value="$PROJECT_DIR$/app/templates/realtime/sfida.html" />
-        <option value="$PROJECT_DIR$/app/controllers/Realtime.coffee" />
-        <option value="$PROJECT_DIR$/api/classes/realtime.class.php" />
+        <option value="$PROJECT_DIR$/Gruntfile.coffee" />
+        <option value="$PROJECT_DIR$/api/routes/routes.sfide.php" />
+        <option value="$PROJECT_DIR$/api/classes/Helper.php" />
+        <option value="$PROJECT_DIR$/app/app.coffee" />
+        <option value="$PROJECT_DIR$/app/services/Realtime.coffee" />
+        <option value="$PROJECT_DIR$/api/index.php" />
+        <option value="$PROJECT_DIR$/api/classes/auth.class.php" />
         <option value="$PROJECT_DIR$/api/routes/routes.realtime.php" />
+        <option value="$PROJECT_DIR$/api/classes/activity.php" />
+        <option value="$PROJECT_DIR$/app/templates/realtime/result.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Realtime.coffee" />
       </list>
     </option>
   </component>
   <component name="NamedScopeManager">
     <scope name="Spec helpers.coffee" pattern="file:Gruntfile.coffee" />
+  </component>
+  <component name="PerforceDirect.Settings">
+    <option name="ENABLED" value="false" />
   </component>
   <component name="PhpServers">
     <option name="servers">
@@ -201,8 +240,8 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Unnamed" />
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1920" />
-    <option name="height" value="1121" />
+    <option name="width" value="1440" />
+    <option name="height" value="821" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -294,6 +333,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -301,14 +341,6 @@
               <option name="myItemId" value="RigorixTre" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -317,20 +349,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -387,50 +405,6 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="area-personale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -464,25 +438,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="directives" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RigorixTre" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -538,7 +494,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -577,39 +532,15 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="LayoutCode.rearrangeEntriesLESS" value="false" />
     <property name="options.searchVisible" value="true" />
-  </component>
-  <component name="PublishConfig" serverName="Rigorix tre" serverId="64eb6675-e388-4bfc-99d8-b4db879df236" showDifferentInSync="false" showNewOnSourceInSync="false" showNewOnTargetInSync="false">
-    <servers>
-      <server id="532d5725-2b93-4f29-9a34-651949b24a66">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="64eb6675-e388-4bfc-99d8-b4db879df236">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="ac68b029-8a62-4558-80da-028d67487623">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
+    <property name="SearchEverywhereHistory" value="grunt&#10;SfideTiri&#10;.results-container&#10;navbar-toggle" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/images" />
       <recent name="$PROJECT_DIR$/app/templates/realtime" />
       <recent name="$PROJECT_DIR$/api/classes" />
       <recent name="$PROJECT_DIR$/api/routes" />
       <recent name="$PROJECT_DIR$/app/assets/sprites" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/controllers" />
@@ -622,6 +553,390 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/19/result" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/20/result" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/3333/result" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/32/result" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/32/round/1" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/32/round/0" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/24/round/0" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/24/round/0" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/24/tiri" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/24/tiri" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/24/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://tre.rigorix.dev" />
+          <option name="urlPath" value="/api/realtime/sfida/24" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="auth_token" />
+                <option name="value" value="f58377a7e645c043521fd4cf4472ebf3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="auth_id" />
+                <option name="value" value="24" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://tre.rigorix.dev" />
@@ -3135,1050 +3450,6 @@
           <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/sfide/2e34thre" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/sfide/1" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/sfida/1" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/sfida/1/xml" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/users/top/10" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/users/active" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/messages/1" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="PUT" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/messages/1/read" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/messages/1/read" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/messages/1/read" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/user/top/10" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://tre.rigorix.dev" />
-          <option name="urlPath" value="/api/user/5794/messages" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:0,%22parata_0%22:1,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:2,%22parata_2%22:0,%22tiro_3%22:0,%22parata_3%22:2,%22tiro_4%22:2,%22parata_4%22:0%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="falsesfida_matrix" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida" />
-                <option name="value" value="%7B%22id_sfida%22:%22141%22,%22tipo_sfida%22:%220%22,%22id_sfidante%22:%225795%22,%22id_sfidato%22:%225780%22,%22dta_sfida%22:%222014-01-08+23:40:19%22,%22dta_conclusa%22:false,%22stato%22:%221%22,%22id_vincitore%22:%220%22,%22punti_sfidante%22:%220%22,%22punti_sfidato%22:%220%22,%22risultato%22:%22%22,%22notifica%22:%220%22,%22id_avversario%22:%225795%22,%22id_utente%22:%225780%22%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="sfida_matrix" />
-                <option name="value" value="%7B%22tiro_0%22:2,%22parata_0%22:0,%22tiro_1%22:1,%22parata_1%22:2,%22tiro_2%22:1,%22parata_2%22:2,%22tiro_3%22:1,%22parata_3%22:0,%22tiro_4%22:2,%22parata_4%22:1%7D" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="" />
-                <option name="value" value="" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="isArray" />
-                <option name="value" value="false" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
       </list>
     </option>
   </component>
@@ -4200,10 +3471,6 @@
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
-      <browser start="false" url="" with-js-debugger="false" />
       <method />
     </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="64eb6675-e388-4bfc-99d8-b4db879df236" server_name="Rigorix tre">
@@ -4241,6 +3508,7 @@
       <changelist id="38141491-e061-4b51-8516-1d769028bcef" name="Default" comment="" />
       <changelist id="b22ffa96-ce66-4cc9-8c44-4b66f52233fe" name="ignore" comment="" />
       <changelist id="6846ad5a-a70b-4884-b25b-56cc4f4958de" name="ignoreme" comment="" />
+      <changelist id="c6378a14-da6f-4707-bc1f-1b1094f441bf" name="fucking hide this!!!" comment="" />
       <created>1385687232197</created>
       <updated>1385687232197</updated>
     </task>
@@ -4572,7 +3840,47 @@
       <created>1396834785611</created>
       <updated>1396834785611</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="realtime on going">
+      <created>1397050873140</created>
+      <updated>1397050873140</updated>
+    </task>
+    <task id="LOCAL-00084" summary="master">
+      <created>1397051056651</created>
+      <updated>1397051056651</updated>
+    </task>
+    <task id="LOCAL-00085" summary="removing animation from master, just in specific branch">
+      <created>1397051313873</created>
+      <updated>1397051313873</updated>
+    </task>
+    <task id="LOCAL-00086" summary="MUST NOT BE HERE!!!!">
+      <created>1397054001458</created>
+      <updated>1397054001459</updated>
+    </task>
+    <task id="LOCAL-00087" summary="New loading system">
+      <created>1397054063294</created>
+      <updated>1397054063294</updated>
+    </task>
+    <task id="LOCAL-00088" summary="- update bower &#10;- refactor responsive">
+      <created>1397092187441</created>
+      <updated>1397092187441</updated>
+    </task>
+    <task id="LOCAL-00089" summary="booh">
+      <created>1397092473661</created>
+      <updated>1397092473661</updated>
+    </task>
+    <task id="LOCAL-00090" summary="fix per sprites">
+      <created>1397259933771</created>
+      <updated>1397259933771</updated>
+    </task>
+    <task id="LOCAL-00091" summary="new database structure for sfide">
+      <created>1397259965935</created>
+      <updated>1397259965935</updated>
+    </task>
+    <task id="LOCAL-00092" summary="fix per sprites&#10;(cherry picked from commit 7e6b63e)">
+      <created>1397260038115</created>
+      <updated>1397260038115</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers>
       <GitHub shared="false" url="github.com">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -4590,32 +3898,32 @@
     </servers>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1121" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="821" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27104136" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09490509" sideWeight="0.5021521" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4479452" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13406293" sideWeight="0.5021299" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.80539775" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="769" y="22" width="1235" height="824" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25581396" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16488793" sideWeight="0.86038595" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12379936" sideWeight="0.9050949" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26773226" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14064015" sideWeight="0.4978701" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28388017" sideWeight="0.4978479" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32382312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4225774" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26533523" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28864568" sideWeight="0.5050215" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="685" y="22" width="1235" height="824" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1874106" sideWeight="0.85814184" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32298738" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17009602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25774226" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26973027" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3281027" sideWeight="0.5050215" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -4638,9 +3946,9 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.24919957" sideWeight="0.76958" order="3" side_tool="false" content_ui="tabs" x="769" y="22" width="1235" height="824" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16642755" sideWeight="0.7311522" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -4648,7 +3956,7 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.php" />
   </component>
   <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USERS">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
     </option>
   </component>
@@ -4661,16 +3969,6 @@
       <TodoPanelSettings />
     </option>
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="true" />
-    <MESSAGE value="Cancellazione multipla dei messaggi" />
-    <MESSAGE value="Sistemato autofocus su nuovo messaggio" />
-    <MESSAGE value="- Sistemato autofocuso per nuova sfida&#10;- Sistemato ordinamento su archivio sfide" />
-    <MESSAGE value="Fix tests and bower update" />
-    <MESSAGE value="test new organization" />
-    <MESSAGE value="Fix for templates not been used the templateCache" />
-    <MESSAGE value="Fix per Api - overriding mysql driver problems in rigorix.com&#10;Forcing int values to be int" />
-    <MESSAGE value="Fix specs - jasmine test &#10;Added RigorixEnv to Helpers" />
-    <MESSAGE value="Test to fix Api build" />
-    <MESSAGE value="improvements for specs, introducing karma (must be finished)" />
     <MESSAGE value="Updates to lista sfide" />
     <MESSAGE value="Animations for area personale pages" />
     <MESSAGE value="Sistemazione encoding impostazioni" />
@@ -4686,7 +3984,18 @@
     <MESSAGE value="- first bit for realtime play&#10;- room implemented, automatic updating user list" />
     <MESSAGE value="- realtime, under developement" />
     <MESSAGE value="refactor to realtime sfide" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor to realtime sfide" />
+    <MESSAGE value="realtime on going" />
+    <MESSAGE value="master" />
+    <MESSAGE value="removing animation from master, just in specific branch" />
+    <MESSAGE value="MUST NOT BE HERE!!!!" />
+    <MESSAGE value="New loading system" />
+    <MESSAGE value="- update bower &#10;- refactor responsive" />
+    <MESSAGE value="booh" />
+    <MESSAGE value="fix per sprites" />
+    <MESSAGE value="new database structure for sfide" />
+    <MESSAGE value="fix per sprites&#10;(cherry picked from commit 7e6b63e)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix per sprites&#10;(cherry picked from commit 7e6b63e)" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4697,22 +4006,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/assets/dist/app.js</url>
-          <line>46412</line>
+          <line>46620</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/assets/dist/app.js</url>
-          <line>46427</line>
+          <line>46623</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/directives/directives.coffee</url>
-          <line>63</line>
+          <line>56</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/assets/dist/app.js</url>
-          <line>45828</line>
+          <line>46028</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
@@ -4720,134 +4029,307 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="36" selection-start="1374" selection-end="1374" vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="1095">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="13" selection-start="2365" selection-end="2365" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1260" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="285" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/partials/user-box.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="52" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/new.core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="31" selection-start="437" selection-end="437" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="2610" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="0" selection-start="2449" selection-end="2449" vertical-scroll-proportion="-27.458334" vertical-offset="211" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Sidebar.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/directives.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="19" selection-start="1187" selection-end="1187" vertical-scroll-proportion="-22.375" vertical-offset="693" max-vertical-offset="1515" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/partials/best-users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="46" selection-start="187" selection-end="187" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/utente.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="6" selection-start="824" selection-end="824" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="285" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/area-personale/messaggi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="21" selection-start="1099" selection-end="1099" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/partials/user-box.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="31" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="810" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="316" selection-end="316" vertical-scroll-proportion="0.33795494" vertical-offset="0" max-vertical-offset="577" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AreaPersonale.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="29" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.0" vertical-offset="377" max-vertical-offset="2925" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="883" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3285" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Messagges.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="29" selection-start="2189" selection-end="2189" vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="2940" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/areapersonale.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="2" selection-start="1779" selection-end="1779" vertical-scroll-proportion="-8.375" vertical-offset="1434" max-vertical-offset="4230" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/userbox.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="2" selection-start="2" selection-end="2" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/header.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/responsive/sm.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="1" selection-start="678" selection-end="678" vertical-scroll-proportion="-19.333334" vertical-offset="226" max-vertical-offset="780" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/responsive/xs.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="46" selection-start="2572" selection-end="2572" vertical-scroll-proportion="0.32368898" vertical-offset="1981" max-vertical-offset="3030" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="1" selection-start="63" selection-end="63" vertical-scroll-proportion="0.12647554" vertical-offset="0" max-vertical-offset="593" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/classes/rewards/b_first_game.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="50" selection-start="57" selection-end="57" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/classes/rewards/p_10_matches_sameuser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="492" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/sprite-rewards.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/modals/modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="492" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/sprites/spritesmith.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-7.8461537" vertical-offset="4284" max-vertical-offset="4830" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/bootstrap/mixins.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14235" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/modals/show-end-match.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="14" selection-start="1156" selection-end="1156" vertical-scroll-proportion="0.5114235" vertical-offset="114" max-vertical-offset="855" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/mixin.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="1" selection-start="5196" selection-end="5196" vertical-scroll-proportion="0.90685415" vertical-offset="1824" max-vertical-offset="2445" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/less/common.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="9" selection-start="263" selection-end="263" vertical-scroll-proportion="0.13181019" vertical-offset="45" max-vertical-offset="3045" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Main.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="166" column="34" selection-start="16025" selection-end="16025" vertical-scroll-proportion="0.0" vertical-offset="2082" max-vertical-offset="2670">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/directives/directives.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="35" selection-start="2175" selection-end="2175" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="2325">
+        <state line="68" column="11" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.0" vertical-offset="704" max-vertical-offset="2340">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Directives.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="27" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450" />
+        <state line="7" column="26" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <folding>
+            <marker date="1397606898000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/FirstLogin.coffee">
+    <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305" />
+        <state line="41" column="0" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.50511944" vertical-offset="171" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="20" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.581761" vertical-offset="395" max-vertical-offset="4875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/routes/routes.sfide.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="43" selection-start="5376" selection-end="5389" vertical-scroll-proportion="-3.7" vertical-offset="610" max-vertical-offset="1170">
+          <folding>
+            <element signature="e#7#3215#0" expanded="false" />
+            <element signature="e#3218#3727#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/routes/routes.users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="284" column="22" selection-start="8894" selection-end="8917" vertical-scroll-proportion="0.0" vertical-offset="3815" max-vertical-offset="4530">
+        <state line="228" column="10" selection-start="7207" selection-end="7207" vertical-scroll-proportion="0.3326226" vertical-offset="3264" max-vertical-offset="4530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/routes/routes.messages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="26" selection-start="520" selection-end="520" vertical-scroll-proportion="0.5301915" vertical-offset="0" max-vertical-offset="679">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/classes/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="67" selection-start="63846" selection-end="63846" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1575">
+        <state line="68" column="63" selection-start="2362" selection-end="2362" vertical-scroll-proportion="0.7790869" vertical-offset="491" max-vertical-offset="1170">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/config.php">
+    <entry file="file://$PROJECT_DIR$/api/classes/sfide.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/services.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="23" selection-start="619" selection-end="628" vertical-scroll-proportion="0.46153846" vertical-offset="0" max-vertical-offset="715">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/Api.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+        <state line="168" column="5" selection-start="4811" selection-end="4888" vertical-scroll-proportion="-10.333333" vertical-offset="2272" max-vertical-offset="2775">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/realtime/sfida.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="64" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="975">
+        <state line="27" column="56" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.9375" vertical-offset="0" max-vertical-offset="1260">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/Realtime.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="10" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+        <state line="8" column="1" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding>
+            <marker date="1397696490000" expanded="true" signature="66:472" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="-8.125" vertical-offset="60" max-vertical-offset="870">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Realtime.coffee">
+    <entry file="file://$PROJECT_DIR$/app/app.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="15" selection-start="3343" selection-end="3343" vertical-scroll-proportion="0.0" vertical-offset="907" max-vertical-offset="1845">
+        <state line="75" column="32" selection-start="2672" selection-end="2672" vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/classes/realtime.class.php">
+    <entry file="file://$PROJECT_DIR$/api/classes/auth.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0" vertical-offset="46" max-vertical-offset="840">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="http://tre.rigorix.dev/app/assets/images/ball.png">
-      <provider editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+        <state line="36" column="109" selection-start="1941" selection-end="1941" vertical-scroll-proportion="-14.791667" vertical-offset="185" max-vertical-offset="660">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/routes/routes.realtime.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="40" selection-start="2491" selection-end="2491" vertical-scroll-proportion="-4.9583335" vertical-offset="1051" max-vertical-offset="2355">
+        <state line="165" column="28" selection-start="5153" selection-end="5174" vertical-scroll-proportion="-7.9166665" vertical-offset="2285" max-vertical-offset="3855">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/dist/app.js">
+    <entry file="file://$PROJECT_DIR$/api/classes/activity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45869" column="42" selection-start="1526570" selection-end="1526570" vertical-scroll-proportion="0.22312139" vertical-offset="687842" max-vertical-offset="869070">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1397050273000" expanded="false" signature="1221511:1221522" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1222213:1222233" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1228953:1228964" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1229297:1229308" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1737295:1737311" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1739099:1739113" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1739254:1739268" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1740680:1740694" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1741013:1741027" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1742486:1742512" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1755554:1755568" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1756371:1756383" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1781125:1781139" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1783342:1783349" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1814222:1814236" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1814540:1814554" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1819072:1819084" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1874562:1874620" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1874781:1874842" placeholder="..." />
-            <marker date="1397050273000" expanded="false" signature="1874957:1875013" placeholder="..." />
-          </folding>
+        <state line="91" column="49" selection-start="2611" selection-end="2611" vertical-scroll-proportion="-9.416667" vertical-offset="1139" max-vertical-offset="3000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/realtime/result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="48" selection-start="123" selection-end="123" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Realtime.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="64" selection-start="4021" selection-end="4021" vertical-scroll-proportion="0.3298969" vertical-offset="1593" max-vertical-offset="2175">
+          <folding />
         </state>
       </provider>
     </entry>

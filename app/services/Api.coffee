@@ -16,7 +16,6 @@ RigorixServices.factory "Api", ['$resource', '$http', '$q', 'Helpers', ($resourc
     $http.get(RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error)
 
   poll: (method, url, params)->
-
     url = url.substr 1, url.length-1 if url[0] is "/"
     $http[method](RigorixEnv.API_DOMAIN + url, params).then(params.success, params.error)
 

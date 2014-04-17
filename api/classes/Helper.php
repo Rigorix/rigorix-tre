@@ -24,31 +24,6 @@ Flight::map("userExists", function ($params) {
   return $users->get()->count() > 0;
 });
 
-Flight::map("needsAuth", function () {
-  $auth_token = Flight::request()->cookies['auth_token'] ? Flight::request()->cookies['auth_token'] : Flight::request()->query->auth_token;
-  $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
-
-  if (UserToken::where("id_utente", "=", $auth_id)->where("token", "=", $auth_token)->get()->count() == 0)
-    Flight::halt(403, "Auth token not valid. Needs to authenticate");
-  else {
-    Flight::set("auth_id", $auth_id);
-    Flight::set("auth_token", $auth_token);
-  }
-});
-
-Flight::map("needsPermission", function($id_utente) {
-  $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
-
-  if ($id_utente != $auth_id)
-    Flight::halt(403, "Auth token not valid. Needs to authenticate");
-});
-
-Flight::map("needsPermissionToSfida", function ($id_sfida) {
-  $auth_id = Flight::request()->cookies['auth_id'] ? Flight::request()->cookies['auth_id'] : Flight::request()->query->auth_id;
-  if (Sfide::whereRaw("id = $id_sfida and (id_sfidante = $auth_id or id_sfidato = $auth_id) and stato != 2")->get()->count() == 0)
-    Flight::halt(403, "User doesn't have permissions to change this sfida");
-});
-
 Flight::map("getValidUsername", function($username) {
   if (Flight::userExists(array("username" => $username)) )
     return Flight::getValidUsername ($username . rand(0, 9));
@@ -91,7 +66,7 @@ Flight::map("createUserPicture", function ( $picture, $username, $id ) {
     return $picture;
 });
 
-
+//TODO: refactor, remove this method and use Flight::response()
 function getParams() {
   $postdata = file_get_contents("php://input");
   return json_decode($postdata);

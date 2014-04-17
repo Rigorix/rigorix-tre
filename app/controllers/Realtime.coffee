@@ -69,22 +69,25 @@ Rigorix.controller "Realtime.Room", ['$scope', 'notify', '$location', 'Api', '$r
 #-----------------------------------------------------------------------------------------------------------------------
 
 
-Rigorix.controller "Realtime.Sfida", ['$scope', 'notify', '$routeParams', 'RealtimeService', ($scope, notify, $routeParams, RealtimeService)->
+Rigorix.controller "Realtime.Sfida", ['$scope', 'notify', '$routeParams', 'RealtimeService', 'Api', '$location', ($scope, notify, $routeParams, RealtimeService, Api, $location)->
 
   $scope.loading = true
   $scope.accessDenied = false
   $scope.sfidaStatus = "pending"
   $scope.id_sfida = parseInt $routeParams.id_sfida, 10
+  $scope.results = []
 
-  $scope.sfida = RealtimeService.sfida.get id: $scope.id_sfida, (data)->
-    if data? and data.id?
+  $scope.sfida = RealtimeService.sfida.get id_sfida: $scope.id_sfida, (data)->
+    if data? and data.id_sfida?
       if $scope.sfida.id_sfidato is $scope.currentUser.id_utente or $scope.sfida.id_sfidante is $scope.currentUser.id_utente
-        $scope.tiri = RealtimeService.tiri.get id: $scope.id_sfida
-        $scope.parate = RealtimeService.parate.get id: $scope.id_sfida
+        $scope.tiri = RealtimeService.tiri.get id_sfida: $scope.id_sfida
+        $scope.parate = RealtimeService.parate.get id_sfida: $scope.id_sfida
 
         $scope.round =
+          match: 1
           index: 1
           type: if $scope.sfida.id_sfidato is $scope.currentUser.id_utente then "tiro" else "parata"
+          id_avversario: if $scope.sfida.id_sfidato is $scope.currentUser.id_utente then $scope.sfida.id_sfidante else $scope.sfida.id_sfidato
 
         $scope.loading = false
       else
@@ -99,24 +102,39 @@ Rigorix.controller "Realtime.Sfida", ['$scope', 'notify', '$routeParams', 'Realt
     $scope.sfidaStatus = "start"
 
     $scope.sfida.stato = 1
-    $scope.sfida.$save id: $scope.id_sfida
-
-    $scope.playRound 0
-
-  $scope.playRound = (index)->
-    console.log "ciao"
+    $scope.sfida.$save id_sfida: $scope.id_sfida
 
   $scope.setRoundValue = (value)->
-    resource = if $scope.round.type is "tiro" then $scope.tiri else $scope.parate
+    resource = if $scope.round.type is "tiri" then $scope.tiri else $scope.parate
     resource["o"+$scope.round.index] = value
-    resource.$save id: $scope.id_sfida
+    resource.$save id_sfida: $scope.id_sfida
 
-    $scope.round =
-      index: $scope.round++
-      type: if $scope.round.type is "parate" then "tiri" else "parate"
+  $scope.roundFinished = ->
+    Api.get "realtime/sfida/"+$scope.id_sfida+"/round/"+$scope.round.match,
+      success: (json)->
+        $scope.results.push json.data
 
-    do $scope.$apply
+        if $scope.round.match < 10
+          $scope.round =
+            match         : $scope.round.match+1
+            index         : parseInt($scope.round.match/2, 10)+1
+            type          : if $scope.round.type is "parate" then "tiri" else "parate"
+            id_avversario : $scope.round.id_avversario
 
+        else
+          do $scope.sfidaFinished
+
+  $scope.sfidaFinished = ->
+    $location.path "realtime/sfida/"+$scope.id_sfida+"/result"
 
 ]
 
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+Rigorix.controller "Realtime.Result", ['$scope', 'notify', '$routeParams', 'RealtimeService', ($scope, notify, $routeParams, RealtimeService)->
+
+  $scope.sfida = RealtimeService.result.get id_sfida: parseInt($routeParams.id_sfida, 10)
+
+]

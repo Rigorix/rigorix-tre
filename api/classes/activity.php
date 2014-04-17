@@ -83,21 +83,32 @@ Flight::map("doBotActions", function() {
   }
 });
 
-function finalizeSfida ($sfida)
-{
+Flight::map("finalizeRealtimeSfida", function ($sfida) {
+
+  RealtimeRegistrations::user($sfida->id_sfidato)->update(array(
+    "busy_with" => 0
+  ));
+
+  RealtimeRegistrations::user($sfida->id_sfidante)->update(array(
+    "busy_with" => 0
+  ));
+
+  Flight::finalizeSfida($sfida);
+});
+
+Flight::map("finalizeSfida", function ($sfida) {
   $sfidante = $sfida->sfidante;
   $sfidato = $sfida->sfidato;
 
   $punti_sfidante = 0;
   $punti_sfidato = 0;
 
-  // Aggiorno la data di chiusura
   $sfida->update(array(
-    "dta_conclusa" => new \DateTime,
+    "dta_conclusa"  => new \DateTime,
+    "stato"         => 2
   ));
 
-  // Trovo il risultato
-  $result = getSfidaResult ($sfida);
+  $result = Flight::getSfidaResult ($sfida);
 
   // Trovo il vincitore
   $resultArray = explode(",", $result);
@@ -156,15 +167,14 @@ function finalizeSfida ($sfida)
     "punti_sfidante"  => $punti_sfidante,
     "punti_sfidato"   => $punti_sfidato,
     "dta_conclusa"    => new \DateTime,
-    "risultato"       => getSfidaResult ($sfida),
+    "risultato"       => Flight::getSfidaResult($sfida),
     "id_vincitore"    => $vincitore
   ));
   return $sfida;
 
-}
+});
 
-function getSfidaResult ($sfida)
-{
+Flight::map("getSfidaResult", function ($sfida) {
   $sfidanteTiri   = $sfida->tiri()->where("id_utente", "=", $sfida->getAttribute('id_sfidante'))->first();
   $sfidanteParate = $sfida->parate()->where("id_utente", "=", $sfida->getAttribute('id_sfidante'))->first();
 
@@ -182,4 +192,4 @@ function getSfidaResult ($sfida)
       $risSfidato++;
   }
   return $risSfidante . "," . $risSfidato;
-}
+});

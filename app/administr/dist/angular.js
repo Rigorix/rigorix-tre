@@ -213,3 +213,5 @@ RigorixAdmin.filter("capitalize", function() {
     return input.substring(0, 1).toUpperCase() + input.substring(1);
   };
 });
+
+//# sourceMappingURL=../../../app/administr/dist/angular.js.map

@@ -1,7 +1,9 @@
 Rigorix.factory "RealtimeService", ['$resource', ($resource)->
 
-  sfida:  $resource RigorixEnv.API_DOMAIN + "realtime/sfida/:id", id: "@id"
-  tiri:   $resource RigorixEnv.API_DOMAIN + "realtime/sfida/:id/tiri", id: "@id"
-  parate: $resource RigorixEnv.API_DOMAIN + "realtime/sfida/:id/parate", id: "@id"
+  sfida:  $resource RigorixEnv.API_DOMAIN + "realtime/sfida/:id_sfida",         id_sfida: "@id_sfida"
+  tiri:   $resource RigorixEnv.API_DOMAIN + "realtime/sfida/:id_sfida/tiri",    id_sfida: "@id_sfida"
+  parate: $resource RigorixEnv.API_DOMAIN + "realtime/sfida/:id_sfida/parate",  id_sfida: "@id_sfida"
+
+  result: $resource RigorixEnv.API_DOMAIN + "realtime/sfida/:id_sfida/result",  id_sfida: "@id_sfida"
 
 ]

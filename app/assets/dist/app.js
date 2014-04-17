@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-04-12 *//*!
+/*! Rigorix - v0.5.0 - 2014-04-17 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -45730,9 +45730,13 @@ Rigorix.config([
       templateUrl: "/app/templates/realtime/room.html",
       controller: "Realtime"
     });
-    return $routeProvider.when("/realtime/sfida/:id_sfida", {
+    $routeProvider.when("/realtime/sfida/:id_sfida", {
       templateUrl: "/app/templates/realtime/sfida.html",
       controller: "Realtime"
+    });
+    return $routeProvider.when("/realtime/sfida/:id_sfida/result", {
+      templateUrl: "/app/templates/realtime/result.html",
+      controller: "Realtime.Result"
     });
   }
 ]);
@@ -45742,6 +45746,8 @@ Rigorix.run(function() {
     return $("html").attr("incognito", true);
   }
 });
+
+//# sourceMappingURL=../../../app/assets/temp/angular.app.main.js.map
 ;
 
 var RigorixConfig, RigorixStorage, console;
@@ -45767,7 +45773,11 @@ if (typeof console === "undefined" || console === null) {
     }
   };
 }
+
+//# sourceMappingURL=../../../app/assets/temp/angular.app.config.js.map
 ;
+
+var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
 Rigorix.controller("AccessDenied", [
   '$scope', '$modal', '$rootScope', function($scope, $modal, $rootScope) {
@@ -46039,14 +46049,25 @@ Rigorix.controller("Directive.Countdown", [
         return $scope.$apply();
       }, 1000);
     };
+    $scope.restart = function() {
+      if ($scope.startSeconds != null) {
+        return $scope.seconds = $scope.startSeconds;
+      }
+    };
     return $scope.$watch("seconds", function() {
       if ($scope.seconds != null) {
         $element.empty().append($scope.seconds);
+        if ($scope.startSeconds == null) {
+          $scope.startSeconds = $scope.seconds;
+        }
         if ($scope.seconds > 0) {
           return $scope.countdownFn();
         } else {
           if ($scope.on_finish != null) {
-            return $scope.$parent.$parent[$scope.on_finish]();
+            $scope.$parent.$parent[$scope.on_finish]();
+          }
+          if ($scope.loop !== "false") {
+            return $scope.seconds = $scope.startSeconds;
           }
         }
       }
@@ -46444,8 +46465,6 @@ Rigorix.controller("ListaSfide.Sfida", [
   }
 ]);
 
-var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
 Rigorix.controller("Main", [
   '$scope', '$modal', '$rootScope', 'UserService', '$window', '$location', 'Api', 'notify', '$q', function($scope, $modal, $rootScope, UserService, $window, $location, Api, notify, $q) {
     var _this = this;
@@ -46613,413 +46632,6 @@ Rigorix.controller("Main", [
       $rootScope.$broadcast("user:logout");
       return window.location.href = RigorixEnv.OAUTH_URL + social + "?return_to=" + RigorixEnv.DOMAIN;
     };
-    if ((RigorixEnv.FAKE_LOGIN != null) && RigorixEnv.FAKE_LOGIN !== false && ((typeof User === "undefined" || User === null) || User === false)) {
-      $scope.fakeUser = true;
-      $scope.User = {
-        "db_object": {
-          "id_utente": 5780,
-          "attivo": 1,
-          "social_provider": "google",
-          "social_uid": "115304495556673294617",
-          "social_url": "https:\/\/profiles.google.com\/115304495556673294617",
-          "username": "Paolo_Morettiaa",
-          "picture": "/i/pictures/Foto-paolo-sagri.jpg",
-          "nome": "Paolo",
-          "cognome": "Moretti",
-          "data_nascita": "1980-07-21",
-          "sesso": "M",
-          "email": "littl.ebrown@gmail.com",
-          "email_utente": "littlebrown@gmail.com",
-          "punteggio_settimana": 0,
-          "punteggio_totale": 199,
-          "dta_reg": "2013-03-05 18:30:17",
-          "stato": 0,
-          "colore_maglietta": "#ffffff",
-          "tipo_maglietta": 3,
-          "numero_maglietta": 10,
-          "colore_pantaloncini": "#000000",
-          "colore_calzini": "#ffffff",
-          "dta_activ": "2014-02-06 15:02:39",
-          "hobby": "Ecco il mio hobby!!!",
-          "frase": "Ã¨ sua, non mia",
-          "giocatore": "Pieretto",
-          "squadra": "Juventus ovviamente!",
-          "tipo_alert": 0
-        },
-        "messages": [],
-        "totMessages": 3,
-        "badges": [
-          {
-            "id_reward": "9",
-            "tipo": "badge",
-            "nome": "Chi ben comincia",
-            "descrizione": "Hai fatto la tua prima partita.<br \/>\r\nSperiamo di vederti arrivare in alto",
-            "key_id": "b_first_game",
-            "score": "0",
-            "active": "1",
-            "id_sfida_reward": "176",
-            "id_sfida": "97",
-            "id_utente": "5780",
-            "notifica": "1",
-            "timestamp": "2013-07-29 02:48:16"
-          }
-        ],
-        "sfide_da_giocare": [
-          {
-            "id_sfida": 149,
-            "tipo_sfida": 0,
-            "id_sfidante": 5795,
-            "id_sfidato": 5780,
-            "dta_sfida": "2014-01-12 15:53:39",
-            "dta_conclusa": "2014-02-04 02:21:43",
-            "stato": 1,
-            "id_vincitore": 5780,
-            "punti_sfidante": 3,
-            "punti_sfidato": 8,
-            "risultato": "3,4",
-            "notifica": 0
-          }, {
-            "id_sfida": 175,
-            "tipo_sfida": 0,
-            "id_sfidante": 5780,
-            "id_sfidato": 5780,
-            "dta_sfida": "2014-02-08 15:33:00",
-            "dta_conclusa": "0000-00-00 00:00:00",
-            "stato": 1,
-            "id_vincitore": 0,
-            "punti_sfidante": 0,
-            "punti_sfidato": 0,
-            "risultato": "",
-            "notifica": 0
-          }
-        ],
-        "rewards": {
-          "punti": [
-            {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "7",
-              "tipo": "punto",
-              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-              "key_id": "p_10_matches_sameuser",
-              "score": "-5",
-              "active": "1"
-            }, {
-              "id_reward": "7",
-              "tipo": "punto",
-              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-              "key_id": "p_10_matches_sameuser",
-              "score": "-5",
-              "active": "1"
-            }, {
-              "id_reward": "7",
-              "tipo": "punto",
-              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-              "key_id": "p_10_matches_sameuser",
-              "score": "-5",
-              "active": "1"
-            }, {
-              "id_reward": "7",
-              "tipo": "punto",
-              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-              "key_id": "p_10_matches_sameuser",
-              "score": "-5",
-              "active": "1"
-            }, {
-              "id_reward": "7",
-              "tipo": "punto",
-              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-              "key_id": "p_10_matches_sameuser",
-              "score": "-5",
-              "active": "1"
-            }, {
-              "id_reward": "7",
-              "tipo": "punto",
-              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-              "key_id": "p_10_matches_sameuser",
-              "score": "-5",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "7",
-              "tipo": "punto",
-              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-              "key_id": "p_10_matches_sameuser",
-              "score": "-5",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "7",
-              "tipo": "punto",
-              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-              "key_id": "p_10_matches_sameuser",
-              "score": "-5",
-              "active": "1"
-            }, {
-              "id_reward": "6",
-              "tipo": "punto",
-              "nome": "Stesso anno di nascita",
-              "descrizione": "Hai la stessa et&egrave; del tuo sfidante, ti regaliamo un punto per la lotta pari!",
-              "key_id": "p_same_age",
-              "score": "1",
-              "active": "1"
-            }, {
-              "id_reward": "7",
-              "tipo": "punto",
-              "nome": "<strong>Noioso!<\/strong> 10 sfide allo stesso utente oggi",
-              "descrizione": "Vederti giocare 10 o pi&ugrave; partite con lo stesso utente ci annoia :( Ti togliamo 5 punti!",
-              "key_id": "p_10_matches_sameuser",
-              "score": "-5",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }, {
-              "id_reward": "3",
-              "tipo": "punto",
-              "nome": "Prima partita del giorno",
-              "descrizione": "Ben svegliato! La prima partita del giorno conta, per questo ti regaliamo 5 punti.",
-              "key_id": "p_first_day_match",
-              "score": "5",
-              "active": "1"
-            }
-          ],
-          "badges": [
-            {
-              "id_reward": "9",
-              "tipo": "badge",
-              "nome": "Chi ben comincia",
-              "descrizione": "Hai fatto la tua prima partita.<br \/>\r\nSperiamo di vederti arrivare in alto",
-              "key_id": "b_first_game",
-              "score": "0",
-              "active": "1"
-            }
-          ]
-        },
-        "picture": "Foto-paolo-sagri.jpg",
-        "id_utente": 5780,
-        "attivo": 1,
-        "social_provider": "google",
-        "social_uid": "115304495556673294617",
-        "social_url": "https:\/\/profiles.google.com\/115304495556673294617",
-        "username": "Paolo_Morettiaa",
-        "nome": "Paolo",
-        "cognome": "Moretti",
-        "data_nascita": "1980-07-21",
-        "sesso": "M",
-        "email": "littl.ebrown@gmail.com",
-        "email_utente": "littlebrown@gmail.com",
-        "punteggio_settimana": 0,
-        "punteggio_totale": 199,
-        "dta_reg": "2013-03-05 18:30:17",
-        "stato": 0,
-        "colore_maglietta": "#ffffff",
-        "tipo_maglietta": 3,
-        "numero_maglietta": 10,
-        "colore_pantaloncini": "#000000",
-        "colore_calzini": "#ffffff",
-        "dta_activ": "2014-02-06 15:02:39",
-        "hobby": "Ecco il mio hobby!!!",
-        "frase": "Ã¨ sua, non mia",
-        "giocatore": "Pieretto",
-        "squadra": "Juventus ovviamente!",
-        "tipo_alert": 0
-      };
-      $rootScope.$broadcast("hide:loading");
-    }
     if ($scope.User !== false) {
       if ($scope.User.attivo === "0" || $scope.User.attivo === 0) {
         return $location.path("first-login");
@@ -47495,25 +47107,28 @@ Rigorix.controller("Realtime.Room", [
 ]);
 
 Rigorix.controller("Realtime.Sfida", [
-  '$scope', 'notify', '$routeParams', 'RealtimeService', function($scope, notify, $routeParams, RealtimeService) {
+  '$scope', 'notify', '$routeParams', 'RealtimeService', 'Api', '$location', function($scope, notify, $routeParams, RealtimeService, Api, $location) {
     $scope.loading = true;
     $scope.accessDenied = false;
     $scope.sfidaStatus = "pending";
     $scope.id_sfida = parseInt($routeParams.id_sfida, 10);
+    $scope.results = [];
     $scope.sfida = RealtimeService.sfida.get({
-      id: $scope.id_sfida
+      id_sfida: $scope.id_sfida
     }, function(data) {
-      if ((data != null) && (data.id != null)) {
+      if ((data != null) && (data.id_sfida != null)) {
         if ($scope.sfida.id_sfidato === $scope.currentUser.id_utente || $scope.sfida.id_sfidante === $scope.currentUser.id_utente) {
           $scope.tiri = RealtimeService.tiri.get({
-            id: $scope.id_sfida
+            id_sfida: $scope.id_sfida
           });
           $scope.parate = RealtimeService.parate.get({
-            id: $scope.id_sfida
+            id_sfida: $scope.id_sfida
           });
           $scope.round = {
+            match: 1,
             index: 1,
-            type: $scope.sfida.id_sfidato === $scope.currentUser.id_utente ? "tiro" : "parata"
+            type: $scope.sfida.id_sfidato === $scope.currentUser.id_utente ? "tiro" : "parata",
+            id_avversario: $scope.sfida.id_sfidato === $scope.currentUser.id_utente ? $scope.sfida.id_sfidante : $scope.sfida.id_sfidato
           };
           return $scope.loading = false;
         } else {
@@ -47529,27 +47144,46 @@ Rigorix.controller("Realtime.Sfida", [
     $scope.startSfida = function() {
       $scope.sfidaStatus = "start";
       $scope.sfida.stato = 1;
-      $scope.sfida.$save({
-        id: $scope.id_sfida
+      return $scope.sfida.$save({
+        id_sfida: $scope.id_sfida
       });
-      return $scope.playRound(0);
     };
-    $scope.playRound = function(index) {
-      return console.log("ciao");
-    };
-    return $scope.setRoundValue = function(value) {
+    $scope.setRoundValue = function(value) {
       var resource;
-      resource = $scope.round.type === "tiro" ? $scope.tiri : $scope.parate;
+      resource = $scope.round.type === "tiri" ? $scope.tiri : $scope.parate;
       resource["o" + $scope.round.index] = value;
-      resource.$save({
-        id: $scope.id_sfida
+      return resource.$save({
+        id_sfida: $scope.id_sfida
       });
-      $scope.round = {
-        index: $scope.round++,
-        type: $scope.round.type === "parate" ? "tiri" : "parate"
-      };
-      return $scope.$apply();
     };
+    $scope.roundFinished = function() {
+      return Api.get("realtime/sfida/" + $scope.id_sfida + "/round/" + $scope.round.match, {
+        success: function(json) {
+          $scope.results.push(json.data);
+          if ($scope.round.match < 10) {
+            return $scope.round = {
+              match: $scope.round.match + 1,
+              index: parseInt($scope.round.match / 2, 10) + 1,
+              type: $scope.round.type === "parate" ? "tiri" : "parate",
+              id_avversario: $scope.round.id_avversario
+            };
+          } else {
+            return $scope.sfidaFinished();
+          }
+        }
+      });
+    };
+    return $scope.sfidaFinished = function() {
+      return $location.path("realtime/sfida/" + $scope.id_sfida + "/result");
+    };
+  }
+]);
+
+Rigorix.controller("Realtime.Result", [
+  '$scope', 'notify', '$routeParams', 'RealtimeService', function($scope, notify, $routeParams, RealtimeService) {
+    return $scope.sfida = RealtimeService.result.get({
+      id_sfida: parseInt($routeParams.id_sfida, 10)
+    });
   }
 ]);
 
@@ -47751,6 +47385,7 @@ Rigorix.directive("countdown", function() {
     controller: 'Directive.Countdown',
     scope: {
       seconds: "@",
+      loop: "@",
       on_finish: "@onFinish"
     }
   };
@@ -48028,14 +47663,17 @@ RigorixServices.factory("Api", [
 Rigorix.factory("RealtimeService", [
   '$resource', function($resource) {
     return {
-      sfida: $resource(RigorixEnv.API_DOMAIN + "realtime/sfida/:id", {
-        id: "@id"
+      sfida: $resource(RigorixEnv.API_DOMAIN + "realtime/sfida/:id_sfida", {
+        id_sfida: "@id_sfida"
       }),
-      tiri: $resource(RigorixEnv.API_DOMAIN + "realtime/sfida/:id/tiri", {
-        id: "@id"
+      tiri: $resource(RigorixEnv.API_DOMAIN + "realtime/sfida/:id_sfida/tiri", {
+        id_sfida: "@id_sfida"
       }),
-      parate: $resource(RigorixEnv.API_DOMAIN + "realtime/sfida/:id/parate", {
-        id: "@id"
+      parate: $resource(RigorixEnv.API_DOMAIN + "realtime/sfida/:id_sfida/parate", {
+        id_sfida: "@id_sfida"
+      }),
+      result: $resource(RigorixEnv.API_DOMAIN + "realtime/sfida/:id_sfida/result", {
+        id_sfida: "@id_sfida"
       })
     };
   }
@@ -48172,6 +47810,8 @@ Rigorix.factory("Helpers", function() {
     }
   };
 });
+
+//# sourceMappingURL=../../../app/assets/temp/angular.app.js.map
 ;
 
 angular.module("ngLocale", [], ["$provide", function($provide) {
@@ -57925,13 +57565,18 @@ angular.module('Rigorix').run(['$templateCache', function($templateCache) {
   );
 
 
+  $templateCache.put('/app/templates/realtime/result.html',
+    "<div><h4>Risultato sfida</h4><div>{{sfida}}</div><a href=\"#/realtime/room\">Torna nella stanza</a></div>"
+  );
+
+
   $templateCache.put('/app/templates/realtime/room.html',
     "<div><h1>Realtime play!</h1><div ng-show=\"loading == false\"><div ng-controller=\"Realtime.Room\" ng-show=\"member\"><h5>Lista utenti nella stanza:</h5><p ng-show=\"members.length == 0\">Nessun utente</p><div class=\"list-group\"><div class=\"list-group-item clearfix\" ng-repeat=\"user in members\"><username class=\"pull-left\" id_utente=\"user.id_utente\" with-picture=\"true\"></username><div ng-switch=\"\" on=\"userAction(user)\"><button ng-switch-when=\"sfidaPossible\" ng-click=\"doSendSfida($event, user.id_utente)\" class=\"btn btn-xs btn-warning\" icon=\"rocket\">Sfida</button> <button ng-switch-when=\"sfidaRequestReceived\" ng-click=\"doAcceptSfida(user.id_utente)\" class=\"btn btn-xs btn-info\" icon=\"rocket\">Accetta la sfida</button> <button ng-switch-when=\"sfidaRequestSent\" class=\"btn btn-xs disabled\" icon=\"rocket\">In attesa ...</button></div></div></div></div><div ng-show=\"!member\"><p>La tua sessione e' scaduta.<br>Per accedere clicca qui:</p><div class=\"text-center\"><button ng-click=\"registerUser()\" class=\"btn btn-primary btn-lg\" icon=\"group\">ENTRA NELLA STANZA!</button></div></div></div><div ng-show=\"loading == true\"><p>Caricamento stanza in corso ...</p></div></div>"
   );
 
 
   $templateCache.put('/app/templates/realtime/sfida.html',
-    "<div><h1>Realtime play!</h1><div ng-controller=\"Realtime.Sfida\"><div ng-show=\"!accessDenied\"><div class=\"panel panel-primary\"><div class=\"panel-heading\"><h5 class=\"panel-title\">Partita in corso</h5></div><div class=\"panel-body\" ng-switch=\"\" on=\"loading\"><div ng-switch-default=\"\"><p>Caricamento sfida in corso ...</p></div><div ng-switch-when=\"false\">Sfida tra<username id_utente=\"sfida.id_sfidante\"></username>e<username id_utente=\"sfida.id_sfidato\"></username><div ng-show=\"sfidaStatus == 'pending'\"><h3>Attenzione</h3><p>La sfida iniziera' tra<countdown seconds=\"5\" on-finish=\"startSfida\"></countdown>secondi</p></div><div ng-show=\"sfidaStatus == 'start'\"><h3>Sfida partitaaaaaaa</h3><hr><div ng-model=\"round\"><h4>Imposta {{round.type}}</h4><p>Hai ancora<countdown seconds=\"15\" on-finish=\"roundFinished\"></countdown>secondi</p><button class=\"btn btn-warning\" ng-click=\"setRoundValue(0)\">sinistra</button> <button class=\"btn btn-warning\" ng-click=\"setRoundValue(1)\">centro</button> <button class=\"btn btn-warning\" ng-click=\"setRoundValue(2)\">destra</button></div></div><!--<div ng-show=\"avversario.busy_with != 0 && avversario.busy_with != currentUser.id_utente\">--><!--L'avversario e' impegnato in un'altra partita, non puoi sfidarlo--><!--</div>--><!--<div ng-show=\"avversario.busy_with == 0 && avversario.has_request_from == currentUser.id_utente && accepted != false\">--><!--&lt;!&ndash;<button ng-click=\"sendRequest()\" class=\"btn btn-primary\" icon=\"rocket\">Chiedi di giocare</button>&ndash;&gt;--><!--<button ng-click=\"discardRequest()\" class=\"btn btn-primary\" icon=\"rocket\">Annulla</button>--><!--<p>In attesa della risposta ...</p>--><!--</div>--><!--<div ng-show=\"accepted == false\">--><!--<p>L'avversario non ha accettato la tua richiesta!</p>--><!--<a href=\"#/realtime/room\" class=\"btn btn-info\">Torna indietro</a>--><!--</div>--></div></div></div></div><div ng-show=\"accessDenied\"><p>Questa sfida non esiste o non e' stata accettata.</p><a href=\"#/realtime/room\" class=\"btn btn-primary\" icon=\"group\">Torna alla stanza</a></div></div></div>"
+    "<div><h1>Realtime play!</h1><div ng-controller=\"Realtime.Sfida\"><div ng-show=\"!accessDenied\"><div class=\"panel panel-primary\"><div class=\"panel-heading\"><h5 class=\"panel-title\">Partita in corso</h5></div><div class=\"panel-body\" ng-switch=\"\" on=\"loading\"><div ng-switch-default=\"\"><p>Caricamento sfida in corso ...</p></div><div ng-switch-when=\"false\">Sfida tra<username id_utente=\"sfida.id_sfidante\"></username>e<username id_utente=\"sfida.id_sfidato\"></username><div ng-show=\"sfidaStatus == 'pending'\"><h3>Attenzione</h3><p>La sfida iniziera' tra<countdown seconds=\"5\" on-finish=\"startSfida\" loop=\"false\"></countdown>secondi</p></div><div ng-show=\"sfidaStatus == 'start'\"><h3>Sfida partitaaaaaaa</h3><hr><div ng-model=\"round\" class=\"play-panel\"><h4>Imposta {{round.type}} {{round.index}}</h4><p>Hai ancora<countdown seconds=\"10\" on-finish=\"roundFinished\"></countdown>secondi</p><button class=\"btn btn-warning\" ng-click=\"setRoundValue(0)\">sinistra</button> <button class=\"btn btn-warning\" ng-click=\"setRoundValue(1)\">centro</button> <button class=\"btn btn-warning\" ng-click=\"setRoundValue(2)\">destra</button></div><div><h3>Risultato:</h3><div ng-repeat=\"result in results\" style=\"border: 2px solid #999\"><strong>Round: {{result.round}}</strong><div>User:<username id_utente=\"currentUser.id_utente\"></username><br>{{result[currentUser.id_utente].type}}: {{result[currentUser.id_utente].value}}</div><div>Avversario:<username id_utente=\"round.id_avversario\"></username>({{round.id_avversario}})<br>{{result[round.id_avversario].type}}: {{result[round.id_avversario].value}}</div></div></div><hr>{{result}}</div><!--<div ng-show=\"avversario.busy_with != 0 && avversario.busy_with != currentUser.id_utente\">--><!--L'avversario e' impegnato in un'altra partita, non puoi sfidarlo--><!--</div>--><!--<div ng-show=\"avversario.busy_with == 0 && avversario.has_request_from == currentUser.id_utente && accepted != false\">--><!--&lt;!&ndash;<button ng-click=\"sendRequest()\" class=\"btn btn-primary\" icon=\"rocket\">Chiedi di giocare</button>&ndash;&gt;--><!--<button ng-click=\"discardRequest()\" class=\"btn btn-primary\" icon=\"rocket\">Annulla</button>--><!--<p>In attesa della risposta ...</p>--><!--</div>--><!--<div ng-show=\"accepted == false\">--><!--<p>L'avversario non ha accettato la tua richiesta!</p>--><!--<a href=\"#/realtime/room\" class=\"btn btn-info\">Torna indietro</a>--><!--</div>--></div></div></div></div><div ng-show=\"accessDenied\"><p>Questa sfida non esiste o non e' stata accettata.</p><a href=\"#/realtime/room\" class=\"btn btn-primary\" icon=\"group\">Torna alla stanza</a></div></div></div>"
   );
 
 }]);

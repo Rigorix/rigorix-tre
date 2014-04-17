@@ -13,13 +13,19 @@ Rigorix.controller "Directive.Countdown", ['$scope', '$element', ($scope, $eleme
       $scope.$apply()
     , 1000
 
+  $scope.restart = ->
+    $scope.seconds = $scope.startSeconds if $scope.startSeconds?
+
   $scope.$watch "seconds", ->
     if $scope.seconds?
       $element.empty().append $scope.seconds
+
+      $scope.startSeconds = $scope.seconds if !$scope.startSeconds?
 
       if $scope.seconds > 0
         do $scope.countdownFn
       else
         do $scope.$parent.$parent[$scope.on_finish] if $scope.on_finish?
+        $scope.seconds = $scope.startSeconds if $scope.loop isnt "false"
 
 ]
