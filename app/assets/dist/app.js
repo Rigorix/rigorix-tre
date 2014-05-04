@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-04-17 *//*!
+/*! Rigorix - v0.5.0 - 2014-05-04 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *
@@ -30766,7 +30766,7 @@ var styleDirective = valueFn({
 !angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>');;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.156+sha.3d0b49c
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -31622,6 +31622,7 @@ angular.module('ngAnimate', ['ng'])
         }
 
         if(skipAnimation) {
+          fireDOMOperation();
           fireBeforeCallbackAsync();
           fireAfterCallbackAsync();
           fireDoneCallbackAsync();
@@ -31984,7 +31985,7 @@ angular.module('ngAnimate', ['ng'])
           parentElement.data(NG_ANIMATE_PARENT_KEY, ++parentCounter);
           parentID = parentCounter;
         }
-        return parentID + '-' + extractElementNode(element).className;
+        return parentID + '-' + extractElementNode(element).getAttribute('class');
       }
 
       function animateSetup(animationEvent, element, className, calculationDecorator) {
@@ -32089,7 +32090,7 @@ angular.module('ngAnimate', ['ng'])
       function animateRun(animationEvent, element, className, activeAnimationComplete) {
         var node = extractElementNode(element);
         var elementData = element.data(NG_ANIMATE_CSS_DATA_KEY);
-        if(node.className.indexOf(className) == -1 || !elementData) {
+        if(node.getAttribute('class').indexOf(className) == -1 || !elementData) {
           activeAnimationComplete();
           return;
         }
@@ -32395,18 +32396,29 @@ angular.module('colorpicker.module', [])
           }
           return elem;
         },
-        getOffset: function (elem) {
+        getOffset: function (elem, fixedPosition) {
           var
               x = 0,
-              y = 0;
+              y = 0,
+              scrollX = 0,
+              scrollY = 0;
           while (elem && !isNaN(elem.offsetLeft) && !isNaN(elem.offsetTop)) {
             x += elem.offsetLeft;
             y += elem.offsetTop;
+            if (!fixedPosition && elem.tagName === 'BODY') {
+              scrollX += document.documentElement.scrollLeft || elem.scrollLeft;
+              scrollY += document.documentElement.scrollTop || elem.scrollTop;
+            } else {
+              scrollX += elem.scrollLeft;
+              scrollY += elem.scrollTop;
+            }
             elem = elem.offsetParent;
           }
           return {
             top: y,
-            left: x
+            left: x,
+            scrollX: scrollX,
+            scrollY: scrollY
           };
         },
         // a set of RE's that can match strings and generate color tuples. https://github.com/jquery/jquery-color/
@@ -32494,22 +32506,6 @@ angular.module('colorpicker.module', [])
           H = ((H + 360) % 6) * 60 / 360;
           S = C === 0 ? 0 : C / V;
           return {h: H || 1, s: S, b: V, a: a || 1};
-        },
-
-        HueToRGB: function (p, q, h) {
-          if (h < 0)
-            h += 1;
-          else if (h > 1)
-            h -= 1;
-
-          if ((h * 6) < 1)
-            return p + (q - p) * h * 6;
-          else if ((h * 2) < 1)
-            return q;
-          else if ((h * 3) < 2)
-            return p + (q - p) * ((2 / 3) - h) * 6;
-          else
-            return p;
         },
 
         //parse a string to HSB
@@ -32603,15 +32599,13 @@ angular.module('colorpicker.module', [])
           return Math.max(0, Math.min(slider.maxTop, slider.top + ((event.pageY || pointer.top) - pointer.top)));
         },
         setSlider: function (event, fixedPosition) {
-          var target = Helper.closestSlider(event.target);
+          var
+            target = Helper.closestSlider(event.target),
+            targetOffset = Helper.getOffset(target, fixedPosition);
           slider.knob = target.children[0].style;
-          slider.left = event.pageX - Helper.getOffset(target).left;
-          slider.top = event.pageY - Helper.getOffset(target).top;
+          slider.left = event.pageX - targetOffset.left - window.pageXOffset + targetOffset.scrollX;
+          slider.top = event.pageY - targetOffset.top - window.pageYOffset + targetOffset.scrollY;
 
-          if (fixedPosition) {
-            slider.left -= window.pageXOffset;
-            slider.top -= window.pageYOffset;
-          }
           pointer = {
             left: event.pageX,
             top: event.pageY
@@ -32656,48 +32650,48 @@ angular.module('colorpicker.module', [])
         restrict: 'A',
         link: function ($scope, elem, attrs, ngModel) {
           var
-            thisFormat = attrs.colorpicker ? attrs.colorpicker : 'hex',
-            position = angular.isDefined(attrs.colorpickerPosition) ? attrs.colorpickerPosition : 'bottom',
-            fixedPosition = angular.isDefined(attrs.colorpickerFixedPosition) ? attrs.colorpickerFixedPosition : false,
-            target = angular.isDefined(attrs.colorpickerParent) ? elem.parent() : angular.element(document.body),
-            withInput = angular.isDefined(attrs.colorpickerWithInput) ? attrs.colorpickerWithInput : false,
-            inputTemplate = withInput ? '<input type="text" name="colorpicker-input">' : '',
-            template =
-                '<div class="colorpicker dropdown">' +
-                    '<div class="dropdown-menu">' +
-                    '<colorpicker-saturation><i></i></colorpicker-saturation>' +
-                    '<colorpicker-hue><i></i></colorpicker-hue>' +
-                    '<colorpicker-alpha><i></i></colorpicker-alpha>' +
-                    '<colorpicker-preview></colorpicker-preview>' +
-                    inputTemplate +
-                    '<button class="close close-colorpicker">&times;</button>' +
-                    '</div>' +
-                    '</div>',
-            colorpickerTemplate = angular.element(template),
-            pickerColor = Color,
-            sliderAlpha,
-            sliderHue = colorpickerTemplate.find('colorpicker-hue'),
-            sliderSaturation = colorpickerTemplate.find('colorpicker-saturation'),
-            colorpickerPreview = colorpickerTemplate.find('colorpicker-preview'),
-            pickerColorPointers = colorpickerTemplate.find('i');
+              thisFormat = attrs.colorpicker ? attrs.colorpicker : 'hex',
+              position = angular.isDefined(attrs.colorpickerPosition) ? attrs.colorpickerPosition : 'bottom',
+              fixedPosition = angular.isDefined(attrs.colorpickerFixedPosition) ? attrs.colorpickerFixedPosition : false,
+              target = angular.isDefined(attrs.colorpickerParent) ? elem.parent() : angular.element(document.body),
+              withInput = angular.isDefined(attrs.colorpickerWithInput) ? attrs.colorpickerWithInput : false,
+              inputTemplate = withInput ? '<input type="text" name="colorpicker-input">' : '',
+              template =
+                  '<div class="colorpicker dropdown">' +
+                      '<div class="dropdown-menu">' +
+                      '<colorpicker-saturation><i></i></colorpicker-saturation>' +
+                      '<colorpicker-hue><i></i></colorpicker-hue>' +
+                      '<colorpicker-alpha><i></i></colorpicker-alpha>' +
+                      '<colorpicker-preview></colorpicker-preview>' +
+                      inputTemplate +
+                      '<button class="close close-colorpicker">&times;</button>' +
+                      '</div>' +
+                      '</div>',
+              colorpickerTemplate = angular.element(template),
+              pickerColor = Color,
+              sliderAlpha,
+              sliderHue = colorpickerTemplate.find('colorpicker-hue'),
+              sliderSaturation = colorpickerTemplate.find('colorpicker-saturation'),
+              colorpickerPreview = colorpickerTemplate.find('colorpicker-preview'),
+              pickerColorPointers = colorpickerTemplate.find('i');
 
           $compile(colorpickerTemplate)($scope);
 
           if (withInput) {
             var pickerColorInput = colorpickerTemplate.find('input');
             pickerColorInput
-              .on('mousedown', function() {
-                event.stopPropagation();
-              })
-              .on('keyup', function(event) {
-                var newColor = this.value;
-                elem.val(newColor);
-                if(ngModel) {
-                  $scope.$apply(ngModel.$setViewValue(newColor));
-                }
-                event.stopPropagation();
-                event.preventDefault();
-               });
+                .on('mousedown', function() {
+                  event.stopPropagation();
+                })
+                .on('keyup', function(event) {
+                  var newColor = this.value;
+                  elem.val(newColor);
+                  if(ngModel) {
+                    $scope.$apply(ngModel.$setViewValue(newColor));
+                  }
+                  event.stopPropagation();
+                  event.preventDefault();
+                });
             elem.on('keyup', function() {
               pickerColorInput.val(elem.val());
             });
@@ -32822,6 +32816,11 @@ angular.module('colorpicker.module', [])
                 positionValue,
                 positionOffset = Helper.getOffset(elem[0]);
 
+            if(angular.isDefined(attrs.colorpickerParent)) {
+              positionOffset.left = 0;
+              positionOffset.top = 0;
+            }
+
             if (position === 'top') {
               positionValue =  {
                 'top': positionOffset.top - 147,
@@ -32849,11 +32848,18 @@ angular.module('colorpicker.module', [])
             };
           };
 
+          var documentMousedownHandler = function() {
+            hideColorpickerTemplate();
+          };
+
           elem.on('click', function () {
             update();
             colorpickerTemplate
                 .addClass('colorpicker-visible')
                 .css(getColorpickerTemplatePosition());
+
+            // register global mousedown event to hide the colorpicker
+            $document.on('mousedown', documentMousedownHandler);
           });
 
           colorpickerTemplate.on('mousedown', function (event) {
@@ -32864,14 +32870,13 @@ angular.module('colorpicker.module', [])
           var hideColorpickerTemplate = function() {
             if (colorpickerTemplate.hasClass('colorpicker-visible')) {
               colorpickerTemplate.removeClass('colorpicker-visible');
+
+              // unregister the global mousedown event
+              $document.off('mousedown', documentMousedownHandler);
             }
           };
 
           colorpickerTemplate.find('button').on('click', function () {
-            hideColorpickerTemplate();
-          });
-
-          $document.on('mousedown', function () {
             hideColorpickerTemplate();
           });
         }
@@ -36558,7 +36563,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 ;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.156+sha.3d0b49c
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -37459,7 +37464,7 @@ angular.mock.dump = function(object) {
  * When an Angular application needs some data from a server, it calls the $http service, which
  * sends the request to a real server using $httpBackend service. With dependency injection, it is
  * easy to inject $httpBackend mock (which has the same API as $httpBackend) and use it to verify
- * the requests and respond with some testing data without sending a request to real server.
+ * the requests and respond with some testing data without sending a request to a real server.
  *
  * There are two ways to specify what test data should be returned as http responses by the mock
  * backend when the code under test makes http requests:
@@ -38359,7 +38364,9 @@ angular.module('ngMockE2E', ['ng']).config(['$provide', function($provide) {
  *
  *     // adds a new phone to the phones array
  *     $httpBackend.whenPOST('/phones').respond(function(method, url, data) {
- *       phones.push(angular.fromJson(data));
+ *       var phone = angular.fromJson(data);
+ *       phones.push(phone);
+ *       return [200, phone, {}];
  *     });
  *     $httpBackend.whenGET(/^\/templates\//).passThrough();
  *     //...
@@ -38561,7 +38568,7 @@ if(window.jasmine || window.mocha) {
    * @param {...(string|Function|Object)} fns any number of modules which are represented as string
    *        aliases or as anonymous module initialization functions. The modules are used to
    *        configure the injector. The 'ng' and 'ngMock' modules are automatically loaded. If an
-   *        object literal is passed they will be register as values in the module, the key being
+   *        object literal is passed they will be registered as values in the module, the key being
    *        the module name and the value being what is returned.
    */
   window.module = angular.mock.module = function() {
@@ -38776,7 +38783,7 @@ if(window.jasmine || window.mocha) {
 ;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.156+sha.3d0b49c
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -39388,7 +39395,7 @@ angular.module('ngResource', ['ng']).
 ;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.156+sha.3d0b49c
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -40317,7 +40324,7 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 ;
 
 /**
- * @license AngularJS v1.2.16-build.70+sha.6e420ff
+ * @license AngularJS v1.2.17-build.156+sha.3d0b49c
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -40484,6 +40491,7 @@ var START_TAG_REGEXP =
   COMMENT_REGEXP = /<!--(.*?)-->/g,
   DOCTYPE_REGEXP = /<!DOCTYPE([^>]*?)>/i,
   CDATA_REGEXP = /<!\[CDATA\[(.*?)]]>/g,
+  SURROGATE_PAIR_REGEXP = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
   // Match everything outside of normal chars and " (quote character)
   NON_ALPHANUMERIC_REGEXP = /([^\#-~| |!])/g;
 
@@ -40722,6 +40730,11 @@ function decodeEntities(value) {
 function encodeEntities(value) {
   return value.
     replace(/&/g, '&amp;').
+    replace(SURROGATE_PAIR_REGEXP, function (value) {
+      var hi = value.charCodeAt(0);
+      var low = value.charCodeAt(1);
+      return '&#' + (((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000) + ';';
+    }).
     replace(NON_ALPHANUMERIC_REGEXP, function(value){
       return '&#' + value.charCodeAt(0) + ';';
     }).
@@ -42936,7 +42949,7 @@ $(function() {
 ;
 
 /*!
- * jQuery Cookie Plugin v1.4.0
+ * jQuery Cookie Plugin v1.4.1
  * https://github.com/carhartl/jquery-cookie
  *
  * Copyright 2013 Klaus Hartl
@@ -42944,10 +42957,13 @@ $(function() {
  */
 (function (factory) {
 	if (typeof define === 'function' && define.amd) {
-		// AMD. Register as anonymous module.
+		// AMD
 		define(['jquery'], factory);
+	} else if (typeof exports === 'object') {
+		// CommonJS
+		factory(require('jquery'));
 	} else {
-		// Browser globals.
+		// Browser globals
 		factory(jQuery);
 	}
 }(function ($) {
@@ -42975,13 +42991,8 @@ $(function() {
 		try {
 			// Replace server-side written pluses with spaces.
 			// If we can't decode the cookie, ignore it, it's unusable.
-			s = decodeURIComponent(s.replace(pluses, ' '));
-		} catch(e) {
-			return;
-		}
-
-		try {
 			// If we can't parse the cookie, ignore it, it's unusable.
+			s = decodeURIComponent(s.replace(pluses, ' '));
 			return config.json ? JSON.parse(s) : s;
 		} catch(e) {}
 	}
@@ -42994,12 +43005,13 @@ $(function() {
 	var config = $.cookie = function (key, value, options) {
 
 		// Write
+
 		if (value !== undefined && !$.isFunction(value)) {
 			options = $.extend({}, config.defaults, options);
 
 			if (typeof options.expires === 'number') {
 				var days = options.expires, t = options.expires = new Date();
-				t.setDate(t.getDate() + days);
+				t.setTime(+t + days * 864e+5);
 			}
 
 			return (document.cookie = [
@@ -43043,12 +43055,13 @@ $(function() {
 	config.defaults = {};
 
 	$.removeCookie = function (key, options) {
-		if ($.cookie(key) !== undefined) {
-			// Must not alter options, thus extending a fresh object...
-			$.cookie(key, '', $.extend({}, options, { expires: -1 }));
-			return true;
+		if ($.cookie(key) === undefined) {
+			return false;
 		}
-		return false;
+
+		// Must not alter options, thus extending a fresh object...
+		$.cookie(key, '', $.extend({}, options, { expires: -1 }));
+		return !$.cookie(key);
 	};
 
 }));
