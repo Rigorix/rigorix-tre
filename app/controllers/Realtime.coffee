@@ -105,14 +105,21 @@ Rigorix.controller "Realtime.Sfida", ['$scope', 'notify', '$routeParams', 'Realt
     $scope.sfida.$save id_sfida: $scope.id_sfida
 
   $scope.setRoundValue = (value)->
-    resource = if $scope.round.type is "tiri" then $scope.tiri else $scope.parate
+    console.log "$scope.round", $scope.round
+
+    resource = if $scope.round.type is "tiro" then $scope.tiri else $scope.parate
     resource["o"+$scope.round.index] = value
     resource.$save id_sfida: $scope.id_sfida
 
   $scope.roundFinished = ->
+    console.log "Round finished, call api to get result of it"
     Api.get "realtime/sfida/"+$scope.id_sfida+"/round/"+$scope.round.match,
       success: (json)->
         $scope.results.push json.data
+
+        console.log "result: ", json
+
+        console.log "--- round finished, let's change to: "
 
         if $scope.round.match < 10
           $scope.round =
@@ -120,6 +127,8 @@ Rigorix.controller "Realtime.Sfida", ['$scope', 'notify', '$routeParams', 'Realt
             index         : parseInt($scope.round.match/2, 10)+1
             type          : if $scope.round.type is "parate" then "tiri" else "parate"
             id_avversario : $scope.round.id_avversario
+
+          console.log "$scope.round", $scope.round
 
         else
           do $scope.sfidaFinished

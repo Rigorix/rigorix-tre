@@ -48,8 +48,8 @@ module.exports = (grunt) ->
     coffee:
       compileBare:
         options:
-          sourceMap: true
-          join: true
+#          sourceMap: true
+#          join: true
           bare: true
         files:
           "app/assets/temp/angular.app.config.js": ["app/config.coffee"]
@@ -315,6 +315,6 @@ module.exports = (grunt) ->
   # STAGING / PRODUCTION tasks -----------------------------------------------------------------------------------------
 
 
-  grunt.registerTask "deploy:staging", ["specs", "dev:update", "ftp_upload"]
+  grunt.registerTask "deploy:staging", ["dev:update", "ftp_upload"]
 
 #  grunt.registerTask('deploy:production', ['dev:update', 'ftp_upload']);

@@ -1,4 +1,4 @@
-Rigorix.controller "AccessDenied", ['$scope', '$modal', '$rootScope', ($scope, $modal, $rootScope)->
+Rigorix.controller "AccessDenied", ['$scope', '$modal', '$rootScope', ($scope, $modal)->
 
   $scope.doConfirmUnsubscription = ->
     $modal.open
@@ -20,6 +20,7 @@ Rigorix.controller "AccessDenied", ['$scope', '$modal', '$rootScope', ($scope, $
           ]
 
   $scope.doDiscardUnsubscription = ->
+    false
 ]
 
 

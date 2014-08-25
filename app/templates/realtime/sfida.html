@@ -25,7 +25,7 @@
                             <hr/>
                             <div ng-model="round" class="play-panel">
                                 <h4>Imposta {{round.type}} {{round.index}}</h4>
-                                <p>Hai ancora <countdown seconds="10" on-finish="roundFinished"></countdown> secondi</p>
+                                <p>Hai ancora <countdown seconds="25" on-finish="roundFinished"></countdown> secondi</p>
                                 <button class="btn btn-warning" ng-click="setRoundValue(0)">sinistra</button>
                                 <button class="btn btn-warning" ng-click="setRoundValue(1)">centro</button>
                                 <button class="btn btn-warning" ng-click="setRoundValue(2)">destra</button>
@@ -36,18 +36,13 @@
                                 <div ng-repeat="result in results" style="border: 2px solid #999">
                                     <strong>Round: {{result.round}}</strong>
                                     <div>
-                                        User: <username id_utente="currentUser.id_utente"></username>
-                                        <br/>
-                                        {{result[currentUser.id_utente].type}}: {{result[currentUser.id_utente].value}}
+                                        User: <username id_utente="currentUser.id_utente"></username>: {{result[currentUser.id_utente].type}}: {{result[currentUser.id_utente].value}}
                                     </div>
                                     <div>
-                                        Avversario: <username id_utente="round.id_avversario"></username> ({{round.id_avversario}})
-                                        <br/>
-                                        {{result[round.id_avversario].type}}: {{result[round.id_avversario].value}}
+                                        Avversario: <username id_utente="round.id_avversario"></username> ({{round.id_avversario}}): {{result[round.id_avversario].type}}: {{result[round.id_avversario].value}}
                                     </div>
                                 </div>
                             </div>
-                            <hr/>
                             {{result}}
                         </div>
 

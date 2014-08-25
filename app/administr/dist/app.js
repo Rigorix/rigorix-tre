@@ -30,5 +30,3 @@ RigorixAdmin.config([
 RigorixAdmin.schemas = {};
 
 RigorixAdmin.tables = {};
-
-//# sourceMappingURL=../../../app/administr/dist/app.js.map

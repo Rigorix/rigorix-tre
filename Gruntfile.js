@@ -38,8 +38,6 @@ module.exports = function(grunt) {
     coffee: {
       compileBare: {
         options: {
-          sourceMap: true,
-          join: true,
           bare: true
         },
         files: {
@@ -211,5 +209,5 @@ module.exports = function(grunt) {
   grunt.registerTask("dev:update", ["clean:dependencies", "bowerInstall", "bower", "ngtemplates", "dev:script", "sprite:all", "sprite:rewards", "dev:less"]);
   grunt.registerTask("specs", ["coffee:compileJasmine", "jasmine:pivotal", "phpunit"]);
   grunt.registerTask("karmarun", ["karma:unit"]);
-  return grunt.registerTask("deploy:staging", ["specs", "dev:update", "ftp_upload"]);
+  return grunt.registerTask("deploy:staging", ["dev:update", "ftp_upload"]);
 };
