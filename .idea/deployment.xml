@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="tre.rigorix.dev" />
+  <component name="PublishConfigData" serverName="tre.rigorix.dev" uploadOnCheckin="687c491f-6475-4ddf-be99-9d342f8b82c9">
+    <option name="myUploadOnCheckinName" value="Rigorix New VPS" />
+  </component>
 </project>
 
