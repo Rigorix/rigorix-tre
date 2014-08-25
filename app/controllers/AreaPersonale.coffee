@@ -22,9 +22,11 @@ Rigorix.controller "AreaPersonale", ['$scope', '$routeParams', '$location', 'not
 
   $scope.$on "$routeChangeSuccess", ->
     $scope.loading = false
-    $timeout ->
-      notify.animate ".area-personale-page-container", "fadeInDown"
-    , 0
+#    $timeout ->
+
+
+#      notify.animate ".area-personale-page-container", "fadeInDown"
+#    , 0
 
   if !$scope.section?
     $location.path "/area-personale/utente"
