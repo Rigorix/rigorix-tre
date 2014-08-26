@@ -2,5 +2,9 @@
   "tre_prod": {
     "username": "rigorix",
     "password": "L85pxggfsKu5"
+  },
+  "tre_vps": {
+    "username": "www-data",
+    "password": "www-data"
   }
 }

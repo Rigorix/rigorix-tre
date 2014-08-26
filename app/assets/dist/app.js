@@ -1,4 +1,4 @@
-/*! Rigorix - v0.5.0 - 2014-08-25 *//*!
+/*! Rigorix - v0.5.0 - 2014-08-26 *//*!
  * jQuery JavaScript Library v1.9.1
  * http://jquery.com/
  *

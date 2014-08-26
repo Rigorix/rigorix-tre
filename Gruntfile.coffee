@@ -68,6 +68,7 @@ module.exports = (grunt) ->
         options:
           bare: true
         files:
+          "specs/app/helpers.js": ["specs/app/helpers.coffee"]
           "specs/app/specs.js": ["specs/app/**/*.coffee"]
 
     uglify:
@@ -237,7 +238,7 @@ module.exports = (grunt) ->
           specs: 'specs/app/specs.js'
           host: "http://tre.rigorix.dev/"
           summary: true
-          helpers: '/specs/app/helpers.js'
+          helpers: ["/app/assets/dist/dependencies/jquery.js", '/specs/app/helpers.js', "/specs/app/prolific.min.js"]
 
     phpunit:
       classes:
@@ -265,7 +266,6 @@ module.exports = (grunt) ->
   grunt.renameTask   "bower", "bowerInstall"
   grunt.loadNpmTasks "grunt-bower"
 
-  grunt.loadNpmTasks "grunt-karma"
   grunt.loadNpmTasks "grunt-contrib-jasmine";
   grunt.loadNpmTasks "grunt-phpunit";
 
@@ -306,13 +306,10 @@ module.exports = (grunt) ->
     "jasmine:pivotal"
     "phpunit"
   ]
-  grunt.registerTask "karmarun", [
-    "karma:unit"
-  ]
 
   # STAGING / PRODUCTION tasks -----------------------------------------------------------------------------------------
 
 
-  grunt.registerTask "deploy:staging", ["specs", "dev:update", "ftp_upload"]
+  grunt.registerTask "deploy:staging", ["dev:update", "ftp_upload"]
 
 #  grunt.registerTask('deploy:production', ['dev:update', 'ftp_upload']);

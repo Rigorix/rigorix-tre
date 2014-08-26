@@ -53,6 +53,7 @@ module.exports = function(grunt) {
           bare: true
         },
         files: {
+          "specs/app/helpers.js": ["specs/app/helpers.coffee"],
           "specs/app/specs.js": ["specs/app/**/*.coffee"]
         }
       }
@@ -170,7 +171,7 @@ module.exports = function(grunt) {
           specs: 'specs/app/specs.js',
           host: "http://tre.rigorix.dev/",
           summary: true,
-          helpers: '/specs/app/helpers.js'
+          helpers: ["/app/assets/dist/dependencies/jquery.js", '/specs/app/helpers.js', "/specs/app/prolific.min.js"]
         }
       }
     },
@@ -199,7 +200,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-bower-task");
   grunt.renameTask("bower", "bowerInstall");
   grunt.loadNpmTasks("grunt-bower");
-  grunt.loadNpmTasks("grunt-karma");
   grunt.loadNpmTasks("grunt-contrib-jasmine");
   grunt.loadNpmTasks("grunt-phpunit");
   grunt.registerTask("dev", ["concurrent:dev"]);
@@ -208,6 +208,5 @@ module.exports = function(grunt) {
   grunt.registerTask("dev:bower", ["bowerInstall", "bower"]);
   grunt.registerTask("dev:update", ["clean:dependencies", "bowerInstall", "bower", "ngtemplates", "dev:script", "sprite:all", "sprite:rewards", "dev:less"]);
   grunt.registerTask("specs", ["coffee:compileJasmine", "jasmine:pivotal", "phpunit"]);
-  grunt.registerTask("karmarun", ["karma:unit"]);
-  return grunt.registerTask("deploy:staging", ["specs", "dev:update", "ftp_upload"]);
+  return grunt.registerTask("deploy:staging", ["dev:update", "ftp_upload"]);
 };

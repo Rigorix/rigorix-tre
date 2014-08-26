@@ -17,14 +17,3 @@ RigorixEnv = {
   SHOW_LOGS: false,
   LOG_DIR: "/log/"
 };
-
-
-
-describe("Rigorix Module", function() {
-  it("module should be defined", function() {
-    return assume("var Rigorix isnt undefined");
-  });
-  return it("should have env parameters", function() {
-    return assume("var RigorixEnv isnt undefined");
-  });
-});
